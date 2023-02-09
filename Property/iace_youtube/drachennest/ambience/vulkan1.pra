@@ -1,0 +1,9 @@
+YPRT
+3589206482
+ambiencesoundvector		"sound/ambience/vulkano1.mp3"
+maxvolumeareapercentage		"5.000000"
+playinterval		"0.000000"
+playintervalvariation		"0.000000"
+playtype		"LOOP"
+propertyname		"vulkan1"
+propertytype		"Ambience"

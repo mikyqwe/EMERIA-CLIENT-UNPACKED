@@ -1,0 +1,26 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/zdung.tga]
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]Covo Baronessa Ragno
+
+Puoi accedere individualmente nel Covo Baronessa Ragno dal livello 75.
+All'ingresso vi verra' chiesto Chiave degli Aracnidi, ottenibile da Regina Ragno nell'ultima stanza di Covo
+
+Bonus utili:
+- Forte contro Animali: ottenibile su Arma,Elmo, Scudo, Bracciale, Orecchini
+- Talismano Terra: Ottenibile da Boss Scimmia.
+- Medi: Almeno 40, ottenibile su Arma a partire da livello 30
+- Antistun: Ottenibile su Scudo
+- +HP: Ottenibili su Scarpe, Collane, Bracciali, Armatura
+- Danni assorbiti da Hp: Ottenibili su Armatura, Bracciale
+- Possibilita' di avvelenamento: Ottenibile su Arma, Elmo
+- Skill del personaggio a P, buff Shamano preferibilmente a P
+
+Entrati nel dungeon, vi troverete a combattere Barone Ragno che vi droppera' Flauto degli Aracnidi, con la quale potrete
+evocare la Baronessa Ragno.
+
+Cliccando col tasto destro sul Flauto, apparira' la Baronessa Ragno circondata da ragni generici e Uova di Ragno;
+le uova, se distrutte, abbassano la resistenza del Boss ma ne aumentano il danno, sta a voi testare e scegliere quale
+strategia si adatta al vostro equipaggiamento.
+
+
+

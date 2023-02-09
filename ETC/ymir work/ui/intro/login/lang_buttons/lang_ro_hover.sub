@@ -1,0 +1,7 @@
+title subImage
+version 2.0
+image "public_lang_buttons.dds"
+left 60
+top 240
+right 120
+bottom 300

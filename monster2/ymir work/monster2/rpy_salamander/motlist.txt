@@ -1,0 +1,4 @@
+GENERAL WAIT wait.msa 70
+GENERAL RUN run.msa 100
+GENERAL NORMAL_ATTACK attack.msa 60
+GENERAL DEAD dead.msa 100

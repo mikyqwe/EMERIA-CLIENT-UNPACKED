@@ -1,0 +1,143 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/thestart.tga]
+[CENTER_ALIGN]Salve novizio. 
+[CENTER_ALIGN]In questa guida troverai informazioni relative al tuo nuovo inizio nel mondo di Zayos 
+[CENTER_ALIGN]e di come diventare piu forte giorno per giorno. L'avventura ha inizio.
+
+[COLOR=0xffd700;FONT_SIZE=15]Contenuti:
+*1. Caratteristiche base di Zayos.
+*2. Skill, Biologo, Taglie & Dungeons
+*3. Item da tenere e item da comprare.
+*4. Fasi di livello importanti.
+*5. Come aumentare i danni.
+*6. Il tuo primo dungeon.
+
+[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=160; CENTER_ALIGN]
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]1. Caratteristiche base di Zayos
+
+Se sei un novizio del mondo di Zayos, dovresti prenderti del tempo per ambientarti e scoprire cosa c'e' di nuovo.
+Su Zayos, "rushare" per la top e' la cosa peggiore che tu possa fare, non e' una gara!
+Per imporre la tua superiorita' dovrai essere molto minuzioso nelle tue scelte, o sarai uno dei tanti.
+I migliori giocatori verranno fuori sul lungo periodo e saranno riconosciuti in differenti modi, grazie
+al nostro sistema di classifiche, sia in ambito PvM che in ambito PvP.
+Come regalo di benvenuto, lo staff ti ha fornito un costume, pet e mount oltre a uno starter-pack
+per rendere la tua avventura il piu' confortevole possibile.
+
+
+[COLOR=ef4f00;FONT_SIZE=15]1.1. Inventario Speciale, Offline Shop & Switchbot
+
+Aprendo il tuo Inventario (I), scoprirai di avere 4 categorie che ti permetteranno di dividere piu' comodamente
+il tuo equipaggiamento e utilita'. Noterai anche sotto lo slot della collana un pulsante, cliccandolo aprirai
+il magazzino, o il tuo inventario speciale (puoi anche aprirlo premendo il tasto U).
+Per creare un negozio, noterai in basso a destra vicino al bottone per aprire la schermata personaggio, un icona
+di un fagotto, questo aprira' la tua HUB per creare un negozio o aprire il cerca item, ricordati che puoi utilizzare
+questo menu' solo dalla capitale. Per aprire lo switchbot invece ti basta semplicemente premere il tasto F6.
+
+[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=420; CENTER_ALIGN]
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]2. Skill, Biologo, Taglie & Dungeons
+
+Al livello 5, riceverai automaticamente una finestra che ti chiedera' di selezionare la tua classe.
+Inoltre, penso tu abbia notato sotto la minimappa alcuni nuovi pulsanti, andiamo ad analizzarli.
+
+[COLOR=ef4f00;FONT_SIZE=15]2.1 Biologo
+
+Il biologo di Zayos e' completamente automatico e non prevede nessuna fastidiosa quest, potrai consegnare
+tutti gli item direttamente dalla hub biologo, inoltre tutti gli item saranno droppabili da qualsiasi livello.
+Le pietre spirituali invece andranno acquistate dal npc Biologo in Capitale, in cambio degli stessi item missione.
+
+[COLOR=ef4f00;FONT_SIZE=15]2.2 Sistema delle Taglie
+
+Un altro sistema interessante introdotto da Zayos e' il sistema delle Taglie. Avanzando di livello
+potrai scegliere missioni sempre piu' difficili e con premi molto allettanti, le taglie non sono necessarie per
+progredire su Zayos, ma ti invitiamo caldamente a non ignorarle, perche' ti potrebbero aiutare ad avanzare molto
+piu' velocemente nel gioco, offrendoti yang, esperienza e item. Una volta arrivati a livelli alti le taglie
+diventeranno sempre piu' difficili da completare ma al tempo stesso forniranno ricompense molto profique.
+
+[COLOR=ef4f00;FONT_SIZE=15]2.3 Sistema dei Dungeons
+
+Come potrai vedere, c'e' anche un comodo pulsante per i dungeon, andiamo ad esaminarlo:
+Questo sistema ti permette di guardare nei dettagli quali sono i dungeon disponibili, livello necessario etc...
+Inoltre sara' possibile visualizzare in tempo reale i migliori giocatori per le seguenti categorie:
+numero di dungeon completati, miglior tempo per conclusione dungeon e maggior numero di danni inflitti.
+
+
+[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=1025; CENTER_ALIGN]
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]3. Item che dovresti iniziare a collezionare o comprare e piccoli STEP
+
+[COLOR=ef4f00;FONT_SIZE=15]3.1 Cor Draconis & Pezzi di Pietre Preziose
+I Pezzi di pietre preziose servono all'inizio per craftare biglietti per accedere al dungeon del Lord Scimmia, fondamentale
+per craftare le corazze reali e uppare le armi epiche del 30, si consiglia di metterle da parte almeno in un primo momento.
+Su Zayos non c'e' un limite di Cor Draconis droppabile in un giorno, oltre ai 10 della missione, potrai ottenere
+Cor Draconis da quasi tutti i boss, e aumentare subito la tua alchimia o rivenderli a giocatori di livello piu' alto.
+
+
+[COLOR=ef4f00;FONT_SIZE=15]3.2 Scalare
+Puo' sembrare noioso e ripetitivo, ma scalare puo' permetterti di progredire molto velocemente,
+dalla spirito della morte droppi la Velenosa, che poi potrai uppare in Velenosa Epica, arma fondamentale
+per sconfiggere il Beran-Setaou.
+
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF] Pochi e Semplici consigli per le prime fasi!
+
+[COLOR=ef4f00;FONT_SIZE=15]3.3 Item Fondamentali
+
+
+[COLOR=0xffd700;FONT_SIZE=15]Su Zayos ci sono diversi item fondamentali che e' consigliabile iniziare
+ a collezionare gia' dai primi livelli, quali:
+
+[]*Pezzo di Pietra Preziosa, ostriche, scaglie di energia: utili come item up e per il craft
+[]*Pietre spirituali: possono essere vendute a buon prezzo dai vari npc per guadagnare yang sin da subito
+[]*Incanta oggetto: servono a girar bonus sul tuo equipaggiamento
+[]*Cassa floreale: utile per craftare le rugiade dal commerciante
+[]*Bauli abilita': all'interno troverai i libri delle varie razza con l'intento di migliorare le tue skills
+[]*Lettura concentrata: utile per avere una maggiore probabilita' di successo nella lettura dei libri
+[]*Bottino del selvaggio:  utile per craftare la hwang
+[]*Corde robuste: utilizzate per craftare le cinture
+[]*Cor Draconis: ti permettono di migliorare la tua Alchimia
+[]*Stoffa sottile e Cassa dei coloranti, droppabili da alcuni boss gia' dai primi livelli, ti permettono di craftare la tua stola
+
+
+[COLOR=0xffd700;FONT_SIZE=15]Adesso vi suggeriamo le varie mappe dove farmare item ed expare, i vari equip da utilizzare,
+[COLOR=0xffd700;FONT_SIZE=15]i drop piu' importanti  e le varie strategie da utilizzare per ogni fascia di livello:
+
+[COLOR=ef4f00;FONT_SIZE=15]Da livello 1 al livello 30
+[]*Mappa: Capitale
+[]*Equip: indifferente
+[]*Bonus utili: indifferente
+[]*Boss: Comandante Brutale
+[]*Dungeon: nessuno
+[]*Drop: Pezzo di Pietra Preziosa, Bauli Abilita', Pietra delle Anime, Stoffa sottile, Bottino del Selvaggio,
+[]*Cassa dei coloranti, Cor draconis
+[]*Strategia: Expare fino al livello 30 dai vari metin presenti in mappa, (facoltativo) eseguire le missioni di caccia
+
+[COLOR=ef4f00;FONT_SIZE=15]Da livello 30 al livello 40
+[]*Mappa: Valle di Seungryong
+[]*Equip: Arma lv 30, Armatura hwang, orecchini ebano, scudo lv 21, elmo lv 21
+[]*Bonus utili: Forte vs Orchi, Forte vs Animali, discreti HP, discreti danni assorbiri da HP, 
+[]*discreti danni medi, difesa contro svenimento, possibilita' di svenimento.
+[]*Boss: Capo Orco, Spirito Tigre Gialla
+[]*Dungeon: Grotta del Lord Scimmia
+[]*Drop: Pezzo di Pietra Preziosa, Bauli Abilita', Pietra delle Anime, Stoffa sottile, Bottino del Selvaggio,
+[]*Corde robuste, Certificato Tigre, Sangue di Scimmia, Ostriche, Cassa dei coloranti, Scatola cuccioli, Cor draconis
+
+[]*Strategia: Bloccate l'exp intorno al lv 40, distruggete tanti metin/boss presenti in mappa per farmare
+oggetti utili e potenziare le skill primarie, completate doungeon scimmia per poter epicizzare la vostra arma del 30,
+(facoltativo) completare missioni biologo e caccia
+
+[COLOR=ef4f00;FONT_SIZE=15]Da livello 40 a livello 75
+[]*Mappa: Monte Sohan, Covo dei Ragni, Terra del fuoco, Bosco Fantasma
+[]*Equip: Arma lv 30 epica, Armatura hwang, set gioielli lacrime di cielo, scudo lv 21/61, elmo lv 50, scarpe della fenice
+[]*Bonus utili: Forte vs Animali, discreti HP, discreti danni assorbiri da HP, discreti danni medi, difesa contro svenimento,
+[]*possibilita' di svenimento, possibilita' di avvelenamento.
+[]*Boss: Nove Code, Re Fiamma, Regina Ragno
+[]*Dungeons: Grotta del Lord Scimmia, Torre dei Demoni
+[]*Drop: Pezzo di Pietra Preziosa, Bauli Abilita', Pietra delle Anime, Stoffa sottile, Maschera di Legno Oscura,
+[]*Diario Leggendario, Sangue di Scimmia, Ostriche, Cassa dei coloranti, Cor draconis
+
+[]*Strategia: Bloccare l'exp intorno al lv 55/61, distruggere tanti metin/boss presenti in mappa
+per farmare oggetti utili e potenziare le skill primarie, scalare la torre dei demoni
+per cercare la vostra arma del lv 75, completare missioni biologo e caccia relative al vostro livello
+

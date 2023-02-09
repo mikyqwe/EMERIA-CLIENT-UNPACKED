@@ -1,0 +1,114 @@
+TextureSet
+
+TextureCount 11
+
+Start Texture001
+    "d:\ymir work\terrainmaps\wom\wom_cracked_surface.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture001
+Start Texture002
+    "d:\ymir work\terrainmaps\wom\t1_grass.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture002
+Start Texture003
+    "d:\ymir work\terrainmaps\wom\wom_sand_grassy.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture003
+Start Texture004
+    "d:\ymir work\terrainmaps\wom\b_grass_01.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture004
+Start Texture005
+    "d:\ymir work\terrainmaps\wom\b_grass_02.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture005
+Start Texture006
+    "d:\ymir work\terrainmaps\wom\t1_field.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture006
+Start Texture007
+    "d:\ymir work\terrainmaps\wom\b_field_01.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture007
+Start Texture008
+    "d:\ymir work\terrainmaps\wom\wom_cliff02.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture008
+Start Texture009
+    "d:\ymir work\terrainmaps\wom\b_field_01_01.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture009
+Start Texture010
+    "d:\ymir work\terrainmaps\wom\wom_sand_deadgrass.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture010
+Start Texture011
+    "d:\ymir work\terrainmaps\wom\a_stone_01.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture011

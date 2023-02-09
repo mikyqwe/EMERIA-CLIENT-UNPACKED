@@ -1,0 +1,79 @@
+ScriptType         EnvironmentData
+ScriptVersion      1.0000
+
+Group DirectionalLight
+{
+    Direction     0.500000 0.500000 -0.500000
+
+    Group Background
+    {
+        Enable        1
+        Diffuse       1.000000 1.000000 1.000000 1.000000
+        Ambient       0.247059 0.266667 0.317647 1.000000
+    }
+    
+    Group Character
+    {
+        Enable        1
+        Diffuse       1.000000 1.000000 1.000000 1.000000
+        Ambient       0.397059 0.416667 0.467647 1.000000
+    }
+}
+Group Material
+{
+    Diffuse       1.000000 1.000000 1.000000 1.000000
+    Ambient       0.576471 0.384314 0.607843 1.000000
+    Emissive      0.090196 0.176471 0.270588 1.000000
+}
+
+Group Fog
+{
+    Enable        1
+    NearDistance  14000.000000
+    FarDistance   20000.000000
+    Color         0.309804 0.568627 0.713726 1.000000
+}
+
+Group Filter
+{
+    Enable        0
+    Color         0.298039 0.098039 0.098039 0.000000
+    AlphaSrc      2
+    AlphaDest     2
+}
+
+Group SkyBox
+{
+    bTextureRenderMode    1
+    Scale                 3500.000000 3500.000000 3500.000000
+    GradientLevelUpper    0
+    GradientLevelLower    0
+    FrontFaceFileName	   "D:\ymir work\environment\daimao_skybox\da_day06\f.dds"
+    BackFaceFileName	   "D:\ymir work\environment\daimao_skybox\da_day06\b.dds"
+    LeftFaceFileName	   "D:\ymir work\environment\daimao_skybox\da_day06\l.dds"
+    RightFaceFileName	   "D:\ymir work\environment\daimao_skybox\da_day06\r.dds"
+    TopFaceFileName	   "D:\ymir work\environment\daimao_skybox\da_day06\t.dds"
+    BottomFaceFileName	   "D:\ymir work\environment\daimao_skybox\da_day06\d.dds"
+    
+    CloudScale            200000.000000 200000.000000
+    CloudHeight           30000.000000
+    CloudTextureScale     4.000000 4.000000
+    CloudSpeed            0.001000 0.001000
+    CloudTextureFileName  ""
+    List CloudColor
+    {
+        0.000000 0.000000 0.000000 0.000000
+        0.000000 0.000000 0.000000 0.000000
+    }
+}
+
+Group LensFlare
+{
+    Enable                     0
+    BrightnessColor            1.000000 1.000000 1.000000 1.000000
+    MaxBrightness              1.000000
+    MainFlareEnable            0
+    MainFlareTextureFileName   ""
+    MainFlareSize              0.200000
+}
+

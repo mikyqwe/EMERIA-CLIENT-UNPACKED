@@ -1,0 +1,27 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/zdung.tga]
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]Dungeon del Lord Scimmia
+
+Puoi accedere, individualmente, alla Grotta del Lord Scimmia a partire dal livello 30 e non oltre 
+il livello 60.
+All'ingresso, vi verra' chiesto il Biglietto Covo Scimmie, ottenibile dal commerciante in Villo al prezzo
+di 5 Pezzo Pietra Preziosa (Droppabili da rocce Metin, Boss) e 250.000 Yang
+
+Bonus Consigliati:
+- Forte contro Animali: ottenibile su Arma,Elmo, Scudo, Bracciale, Orecchini
+- Medi: Almeno 40, ottenibile su Arma a partire da livello 30
+- Antistun: Ottenibile su Scudo
+- +HP: Ottenibili su Scarpe, Collane, Bracciali, Armatura
+- Danni assorbiti da Hp: Ottenibili su Armatura, Bracciale
+- Possibilita' di Svenimento: Ottenibile su Scarpe, Arma, Collana
+- Valore Attacco: Ottenibile su Armatura
+- Talismano Terra: Ottenibile dal boss stesso.
+
+Skill minimo a G e, se possibile, buff da Shamani con Benedizione e Aiuto anche a M, preferibilmente a G.
+
+Il boss lo si puo' trovare in cima alla scalinata e il combattimento ha 3 fasi: la prima fase con Scimmia di Roccia,
+ la seconda con Scimmia Camminatrice e la fase finale con Lord Scimmia.
+
+
+
+

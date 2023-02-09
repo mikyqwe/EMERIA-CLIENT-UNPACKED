@@ -1,0 +1,3 @@
+GENERAL WAIT czekac.msa 35
+GENERAL WAIT1 czekac_1.msa 35
+GENERAL WAIT1 czekac_2.msa 65

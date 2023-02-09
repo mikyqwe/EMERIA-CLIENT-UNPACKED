@@ -1,0 +1,1095 @@
+BoundingSphereRadius   70.000000
+BoundingSpherePosition -30.000000 0.000000 30.000000
+
+Group Mesh
+{
+    StartTime           0.000000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_DIRECT" -35.000000 0.000000 27.108999
+    }
+    
+    MeshFileName               	"elemental_mark.mde"
+    MeshAnimationLoopEnable    	1
+    MeshAnimationLoopCount     	0
+    MeshAnimationFrameDelay    	0.050000
+    
+    MeshElementCount           	3
+    Group MeshElement00
+    {
+        BillboardType              	0
+        BlendingEnable             	1
+        BlendingSrcType            	2
+        BlendingDestType           	6
+        
+        TextureAnimationLoopEnable 	1
+        TextureAnimationFrameDelay 	0.020000
+        TextureAnimationStartFrame 	0
+        
+        ColorOperationType         	4
+        ColorFactor                	0.784314 0.784314 0.784314 1.000000
+        List TimeEventAlpha
+        {
+            0.000000 1.000000
+        }
+    }
+    Group MeshElement01
+    {
+        BillboardType              	0
+        BlendingEnable             	1
+        BlendingSrcType            	2
+        BlendingDestType           	5
+        
+        TextureAnimationLoopEnable 	1
+        TextureAnimationFrameDelay 	0.020000
+        TextureAnimationStartFrame 	0
+        
+        ColorOperationType         	4
+        ColorFactor                	0.274510 0.274510 0.274510 1.000000
+        List TimeEventAlpha
+        {
+            0.000000 1.000000
+        }
+    }
+    Group MeshElement02
+    {
+        BillboardType              	0
+        BlendingEnable             	1
+        BlendingSrcType            	2
+        BlendingDestType           	6
+        
+        TextureAnimationLoopEnable 	1
+        TextureAnimationFrameDelay 	0.020000
+        TextureAnimationStartFrame 	0
+        
+        ColorOperationType         	4
+        ColorFactor                	1.000000 1.000000 1.000000 1.000000
+        List TimeEventAlpha
+        {
+        }
+    }
+}
+Group Particle
+{
+    StartTime           0.000000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 1.000000
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 0.250980
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 0.000000
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           0.320000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 1.000000
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 0.913725
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 0.231373
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           0.560000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 0.450980
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 1.000000
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 0.231373
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           0.700000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 0.517647
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 0.862745
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 1.000000
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           0.880000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 0.517647
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 1.000000
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 0.592157
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           0.990000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 0.415686
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 0.443137
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 1.000000
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           1.200000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 0.921569
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 0.239216
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 1.000000
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           1.450000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_BEZIER_CURVE" -29.650999 5.000000 66.449997 0.000000 41.030197 -25.849842
+        0.960000 "MOVING_TYPE_BEZIER_CURVE" -33.180000 16.797001 3.300000 5.602112 -43.849731 -13.095097
+        1.464000 "MOVING_TYPE_BEZIER_CURVE" -26.128000 -31.907000 22.347000 -10.859642 12.566931 34.603188
+        1.888000 "MOVING_TYPE_BEZIER_CURVE" -31.844999 -5.147000 66.000000 0.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        3
+    
+        CycleLength             1.800000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.011429 20.618557
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 0.180412
+        }
+        List TimeEventSizeX
+        {
+            0.000000 20.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 20.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 3
+        DestBlendType                6
+        ColorOperationType           6
+        BillboardType                1
+        RotationType                 0
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    360
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   0
+        TexAniDelay                  0.030000
+        TexAniRandomStartFrameEnable 0
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.000000 0.371134
+            1.000000 0.567010
+        }
+        List TimeEventScaleY
+        {
+            0.000000 0.412371
+            1.000000 0.587629
+        }
+        List TimeEventColorRed
+        {
+            0.000000 0.517647
+        }
+        List TimeEventColorGreen
+        {
+            0.000000 0.862745
+        }
+        List TimeEventColorBlue
+        {
+            0.000000 1.000000
+        }
+        List TimeEventAlpha
+        {
+            0.817143 0.659794
+            0.907692 1.000000
+            0.977143 0.628866
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "d:\ymir work\mob_universal_elements\castle_protector\protectorsmoke.dds"
+        }
+    }
+}

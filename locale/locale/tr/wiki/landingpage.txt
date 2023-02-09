@@ -1,0 +1,37 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/basicguide.tga]
+[CENTER_ALIGN;FONT_SIZE=30]Comandi base di Zayos
+[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=30; CENTER_ALIGN]
+
+[CENTER_ALIGN]Qui puoi trovare i comandi rapidi piu' importanti!
+
+
+[X_PADDING=135;FONT_SIZE=15]* Apri l'inventario speciale
+
+[X_PADDING=135;FONT_SIZE=15]* Apri l'alchimia della Pietra del Drago
+
+[X_PADDING=135;FONT_SIZE=15]* Apri pagina bonus rapida
+
+[X_PADDING=135;FONT_SIZE=15]* Apri Biologo
+
+[X_PADDING=135;FONT_SIZE=15]* Apri Switcher Automatico
+
+[X_PADDING=135;FONT_SIZE=15]* Apri Mappa Portatile
+
+[X_PADDING=135;FONT_SIZE=15]* Apri Menu' Pickup
+
+[X_PADDING=135;FONT_SIZE=15]* Per salire sulla tua cavalcatura
+
+[X_PADDING=135;FONT_SIZE=15]* Per mandare via la tua cavalcatura
+
+[IMG=d:/ymir work/ui/wiki/emoji/u.tga; Y=70; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/o.tga; Y=97; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/f7.tga; Y=127; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/f10.tga; Y=155; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/f6.tga; Y=182; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/k.tga; Y=209; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/f8.tga; Y=236; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/ctrl.tga; Y=263; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/g.tga; Y=263; X=60]
+[IMG=d:/ymir work/ui/wiki/emoji/ctrl.tga; Y=290; X=10]
+[IMG=d:/ymir work/ui/wiki/emoji/b.tga; Y=290; X=60]

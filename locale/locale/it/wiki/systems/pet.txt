@@ -1,0 +1,56 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/pet.png]
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]STRUTTURA DEL SISTEMA
+
+[X_PADDING=12]*Completando alcuni fasi del gioco (dungeons, missioni, drop)
+[X_PADDING=12]avrete la possibilità di reperire un fedele compagno tra:
+[COLOR=0xffd700;X_PADDING=20]- Uovo di Scimmia
+[COLOR=0xffd700;X_PADDING=20]- Uovo di Ragno
+[COLOR=0xffd700;X_PADDING=20]- Uovo di Razador
+[COLOR=0xffd700;X_PADDING=20]- Uovo di Nemere
+[COLOR=0xffd700;X_PADDING=20]- Uovo di Drago Blu
+[COLOR=0xffd700;X_PADDING=20]- Uovo di Dragonite
+
+
+[X_PADDING=12]Cliccando con il tasto destro sul vostro uovo vi chiederà di scegliere il nome prima di schiudere il pet
+[X_PADDING=12]dall'uovo (usando la Pergamena del Nome è possibile cambiare in futuro il nome del proprio pet).
+[X_PADDING=12]Quando il pet sarà uscito dall'uovo avrà 2 giorni di vita è sarà livello 1.
+
+[X_PADDING=12]Per aumentare la vita del pet c'è bisogno del Boccone Proteico, reperibile da vari mob.
+
+[X_PADDING=12]Quando il pet uscirà dall'uovo avra 3 bonus (questi bonus usciranno con percentuali casuali):
+[X_PADDING=20]- HP
+[X_PADDING=20]- DEX
+[X_PADDING=20]- SP
+
+[COLOR=0xffd700;X_PADDING=12]*Ogni tipologia di Uovo ha un bonus base diverso, specificato una volta schiuso.
+
+[X_PADDING=12]*Il Pet ha 3 processi evolutivi:
+[X_PADDING=20]1. Da Cucciolo a Selvatico
+[X_PADDING=20]2. Da Selvatico a Coraggioso
+[X_PADDING=20]3. Da Coraggioso a Eroico
+
+[COLOR=0xffd700;X_PADDING=12]*Gli sviluppi del pet si suddividono in questo modo:
+
+[COLOR=0x63FFB2;X_PADDING=20]CUCCIOLO --> SELVATICO:
+[X_PADDING=28]*Livello 40 a 60
+[X_PADDING=28]*Certificato Selvatico
+
+[COLOR=0x63FFB2;X_PADDING=20]SELVATICO --> CORAGGIOSO:
+[X_PADDING=28]*Livello 60 a 81
+[X_PADDING=28]*Certificato Coraggioso x2
+
+[COLOR=0x63FFB2;X_PADDING=20]CORAGGIOSO --> EROICO:
+[X_PADDING=28]*Livello 81+
+[X_PADDING=28]*Certificato Eroico x3
+
+[X_PADDING=12]Grado Selvatico si sblocca la prima slot abilità.
+[X_PADDING=12]Grado Coraggioso si sblocca la seconda slot abilità.
+[X_PADDING=12]Grado Eroico si sblocca la terza slot abilità.
+
+[X_PADDING=12]*Attenzione non è garantito che tutti i tre slot si sblocchino, se si è sfortunati, si può rimediare usando "Incanta Pet"
+[X_PADDING=12]che ne modifica le statistiche casualmente e sblocca gli eventuali slot bloccati.
+
+
+[X_PADDING=12]E' possibile far dimenticare un'abilità a scelta del pet usando l'Incanta Pet (cambierà anche le sue statistiche).
+[X_PADDING=12]Per apprendere una skill è necessario che il pet abbia tutti e 3 gli slot sbloccati.

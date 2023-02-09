@@ -1,0 +1,6 @@
+GENERAL WAIT bekle1.msa 90
+GENERAL WAIT1 bekle2.msa 9
+GENERAL WAIT2 bekle3.msa 1
+GENERAL WALK yavasgit.msa 100
+GENERAL RUN basgaza.msa 100
+

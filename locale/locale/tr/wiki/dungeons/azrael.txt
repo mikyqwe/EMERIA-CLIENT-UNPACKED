@@ -1,0 +1,29 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/zdung.tga]
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]Catacombe del Diavolo
+
+Per accedere alle Catacombe del Diavolo, invidualmente o in gruppo, dovrete essere tutti di livello 75.
+Come Item vi servira' Testa Ristretta, ottenibile uccidendo Morte Personificata in Torre dei Demoni
+oppure dal commerciante in cambio di 100 scaglie energia
+
+Bonus utili:
+- Talismano oscuro
+- Forte contro Zombie: Ottenibile su Elmo, Scudo, Bracciale, Orecchini, Arma
+- +HP: Ottenibili su Scarpe, Collane, Bracciali, Armatura
+- Danni assorbiti da Hp: Ottenibili su Armatura, Bracciale
+- Skill a P, Buff shamano preferibilmente a P
+
+Dopo esser entrati nel Dungeon, vi troverete in una mappa dove saranno presenti mob ostili e una ''Statua di Kud''; 
+Uccidete i mob finche' non droppate ''Chiave Cristallo delle Anime'' per poi trascinarlo dall'inventario verso i piedi di Kud 
+la statua si trova a inizio mappa)cosi' da poter passare al secondo piano.
+
+2 Piano: Dovrete trovare una delle strade giuste per arrivare alla Roccia della Tartaruga e trascinargli Testa Ristretta.
+Sul nostro Discord potrete trovare una delle soluzioni, sezione FAQ-Labirinti
+
+3 Piano: Dovrete trovare e distruggere la Roccia Metin giusta per proseguire al piano successivo
+
+4 Piano: Dovrete uccidere il Tartaros che droppa l'orecchio da consegnare al monumento presente al piano
+
+5 Piano: Dovrete uccidere tutti i mob presenti al piano e Charon.
+
+6 Piano: Dovrete uccidere Azrael.

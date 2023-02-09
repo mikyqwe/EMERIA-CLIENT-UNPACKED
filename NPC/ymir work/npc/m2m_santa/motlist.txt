@@ -1,0 +1,5 @@
+GENERAL WAIT wait.msa 20
+GENERAL WAIT1 wait_1.msa 20
+GENERAL WAIT2 wait_3.msa 20
+GENERAL WAIT3 wait_4.msa 20
+GENERAL WAIT4 wait_5.msa 20

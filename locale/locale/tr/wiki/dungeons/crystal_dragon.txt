@@ -1,0 +1,5 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/workp.tga]
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]Pagina in costruzione - Il Team sta lavorando per voi!
+

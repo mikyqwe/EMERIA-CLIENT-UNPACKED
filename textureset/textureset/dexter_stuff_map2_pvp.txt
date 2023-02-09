@@ -1,0 +1,74 @@
+TextureSet
+
+TextureCount 7
+
+Start Texture001
+    "d:\ymir work\terrainmaps\dexter_stuff\pvp_2\01.dds"
+    5.000000
+    5.000000
+    0.000000
+    0.000000
+    0
+    0
+    0
+End Texture001
+Start Texture002
+    "d:\ymir work\terrainmaps\dexter_stuff\pvp_2\02.dds"
+    6.000000
+    6.000000
+    0.000000
+    0.000000
+    0
+    0
+    0
+End Texture002
+Start Texture003
+    "d:\ymir work\terrainmaps\dexter_stuff\pvp_2\03.dds"
+    9.000000
+    9.000000
+    0.000000
+    0.000000
+    0
+    0
+    0
+End Texture003
+Start Texture004
+    "d:\ymir work\terrainmaps\dexter_stuff\pvp_2\04.dds"
+    8.000000
+    8.000000
+    0.000000
+    0.000000
+    0
+    0
+    0
+End Texture004
+Start Texture005
+    "d:\ymir work\terrainmaps\dexter_stuff\pvp_2\05.dds"
+    5.000000
+    5.000000
+    0.000000
+    0.000000
+    0
+    0
+    0
+End Texture005
+Start Texture006
+    "d:\ymir work\terrainmaps\dexter_stuff\pvp_2\06.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    0
+    0
+    0
+End Texture006
+Start Texture007
+    "d:\ymir work\terrainmaps\dexter_stuff\pvp_2\07.dds"
+    1.000000
+    1.000000
+    0.000000
+    0.000000
+    0
+    0
+    0
+End Texture007

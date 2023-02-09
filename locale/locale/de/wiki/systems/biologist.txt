@@ -1,0 +1,98 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/biologist.png]
+
+[COLOR=0xffd700;FONT_SIZE=15;Y_PADDING=-10] Lista Contenuti:
+[Y_PADDING=2;COLOR=0x63FFB2;FONT_SIZE=14] *1. Generale
+[COLOR=0x63FFB2;FONT_SIZE=14] *2. Ricompense
+
+
+[COLOR=0xffd700; Y_PADDING=15; CENTER_ALIGN; FONT_SIZE=14]1. Generale
+[Y_PADDING=10;X_PADDING = 55;FONT_SIZE=13]*Puoi consegnare gli item tramite il bottone nella minimappa o dal tasto F7.
+[Y_PADDING=2;X_PADDING = 55;FONT_SIZE=13]*Non c'e limite di attesa tra una consegna e l'altra.
+[Y_PADDING=2;X_PADDING = 55;FONT_SIZE=13]*Ricorda che non devi droppare la Pietra Spirituale, la si scambia dal Biologo.
+
+[COLOR=ef4f00;FONT_SIZE=15;Y_PADDING=5;X_PADDING=10]1.1 Item Speciali
+[Y_PADDING=10;X_PADDING = 75;FONT_SIZE=13]*Puoi utilizzare l'Elisir del Ricercatore per aumentare la % di successo.
+
+
+[COLOR=ef4f00;FONT_SIZE=15;Y_PADDING=5;X_PADDING=10]1.2 Missioni
+[Y_PADDING=10;X_PADDING = 75;FONT_SIZE=13]*Le missioni iniziano dal livello 30 e finisco al livello 120.
+[Y_PADDING=2;X_PADDING = 75;FONT_SIZE=13]Continuerai a droppare gli item di cui ai bisogno a tutti i livelli,
+[Y_PADDING=2;X_PADDING = 75;FONT_SIZE=13]anche una volta completate tutte le missioni, saranno utili a craftare pozioni e simili.
+
+
+[IMG=d:/ymir work/ui/game/wiki/divider_long.tga; Y=330; CENTER_ALIGN]
+[COLOR=0xffd700; Y_PADDING=15; CENTER_ALIGN; FONT_SIZE=15]2. Ricompense
+[COLOR=0xe65454;Y_PADDING=10;CENTER_ALIGN]*Le missioni si sbloccano automaticamente appena ne completi una.
+
+[COLOR=ef4f00;FONT_SIZE=15;Y_PADDING=5;X_PADDING=10]Missione Lv. 30
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: 10x Dente di Orco
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Difesa +50
+[ITEM=300000; IS_LINK=1; Y=402; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 40
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x15 Libro delle Maledizioni
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: 3000 HP
+[ITEM=300001; IS_LINK=1; Y=470; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 50
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x20 Ricordo del Demone
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Possibilita nei colpi critici: +7%
+[ITEM=300002; IS_LINK=1; Y=535; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 60
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x20 Palla di Magma
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Possibilita su colpi che trafiggono: +7%
+[ITEM=300003; IS_LINK=1; Y=601; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 70
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x25 Ramo di Zelkova
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Valore d'attacco: +120
+[ITEM=300004; IS_LINK=1; Y=673; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 80
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x25 Tavola di Tugyi
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa:	NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Forte contro boss: +5%
+[ITEM=300005; IS_LINK=1; Y=733; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 85
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x35 Ramo Albero Fanta. Rosso
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Forte contro mostri: +10%
+[ITEM=300006; IS_LINK=1; Y=801; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 90
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x100 Notizie dei Capi
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Resistenza contro i danni abilita: +5%
+[ITEM=300007; IS_LINK=1; Y=862; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 94
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x50 Ossa di Dita
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Danni abilita: +5%
+[ITEM=300008; IS_LINK=1; Y=933; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 100
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x50 Sabbia di Quarzo
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Danni medi: +5%
+[ITEM=300009; IS_LINK=1; Y=998; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 110
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x35 Cenere del Demone
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Resistenza ai danni media: +5%
+[ITEM=300010; IS_LINK=1; Y=1060; X=10]
+
+[COLOR=ef4f00;FONT_SIZE=15;;X_PADDING=10]Missione Lv. 120
+[Y_PADDING=8;X_PADDING = 55;FONT_SIZE=13]*Item: x5 Ricordo Eterno
+[Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Tempo di attesa: NO
+[COLOR=0x83E889;Y_PADDING=1;X_PADDING = 55;FONT_SIZE=13]*Ricompensa: Forte contro i Mezziuomini: +10%
+[ITEM=300011; IS_LINK=1; Y=1127; X=10]
