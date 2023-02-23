@@ -1973,3 +1973,6 @@
 9288	plechi_gold_guard
 9289	plechi_gold_chest
 9027	plechi_lady_npc10
+888000	easter_2022_seahorse
+90002	defence
+900002	defence

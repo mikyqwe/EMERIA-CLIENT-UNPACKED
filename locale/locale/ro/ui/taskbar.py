@@ -341,7 +341,7 @@ window = {
 			"name" : "ExpandMoneyButton",
 			"type" : "button",
 			
-			"x" : SCREEN_WIDTH - 238,
+			"x" : SCREEN_WIDTH - 208,
 			"y" : 7 + Y_ADD_POSITION,
 			"tooltip_text" : uiScriptLocale.TASKBAR_MONEY_EXPAND,
 
@@ -367,7 +367,7 @@ window = {
 			"name" : "RemoteShop",
 			"type" : "button",
 
-			"x" : SCREEN_WIDTH - 265,
+			"x" : SCREEN_WIDTH - 235,
 			"y" : 7.3 + Y_ADD_POSITION,
 
 			"tooltip_text" : uiScriptLocale.REMOTE_SHOP_TITLE,
@@ -375,20 +375,6 @@ window = {
 			"default_image" : ROOT + "TaskBar/RemoteShop_Button_01.tga",
 			"over_image" : ROOT + "TaskBar/RemoteShop_Button_02.tga",
 			"down_image" : ROOT + "TaskBar/RemoteShop_Button_03.tga",
-		},
-		## Dragon Soul Button
-		{
-			"name" : "DSSButton",
-			"type" : "button",
-
-			"x" : SCREEN_WIDTH - 215,
-			"y" : 2.5 + Y_ADD_POSITION,
-
-			"tooltip_text" : uiScriptLocale.TASKBAR_DRAGON_SOUL,
-
-			"default_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_01.tga",
-			"over_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_02.tga",
-			"down_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_03.tga",
 		},
 		{
 			"name" : "CharacterButton",

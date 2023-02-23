@@ -1,6 +1,6 @@
-Bottegaia
-Armature
-Armi
-Matrimonio
-Biologo
-Zayos Shop (In Arrivo)
+General
+Armuri
+Arme
+Casatorie
+Biolog
+Emeria Shop (In Arrivo)

@@ -1388,10 +1388,10 @@ class ItemToolTip(ToolTip):
 					else:
 						self.AppendTextLine(affectString, affectColor)
 
-			if app.ENABLE_6_7_BONUS_NEW_SYSTEM:
-				if self.__GetCheck67Bonus():
-					if self.__GetAttributeText67Bonus(attrSlot) == 5:
-						self.AppendTextLine(localeInfo.ATTR_6TH_7TH_POSSIBILITY,self.ATTR_6TH_7TH_COLOR)
+			#if app.ENABLE_6_7_BONUS_NEW_SYSTEM:
+			#	if self.__GetCheck67Bonus():
+					#if self.__GetAttributeText67Bonus(attrSlot) == 5:
+					#	self.AppendTextLine(localeInfo.ATTR_6TH_7TH_POSSIBILITY,self.ATTR_6TH_7TH_COLOR)
 
 	if app.ENABLE_6_7_BONUS_NEW_SYSTEM:
 		def __GetCheck67Bonus(self):
@@ -2266,7 +2266,7 @@ class ItemToolTip(ToolTip):
 						self.AppendTextLine("(%s)" % (localeInfo.TOOLTIP_AUTO_POTION_USING), self.SPECIAL_POSITIVE_COLOR)
 						self.AppendSpace(5)
 
-					self.AppendTextLine(localeInfo.TOOLTIP_AUTO_POTION_REST % (100.0 - ((usedAmount / totalAmount) * 100.0)), self.POSITIVE_COLOR)
+					self.AppendTextLine(localeInfo.TOOLTIP_AUTO_POTION_REST, self.POSITIVE_COLOR)
 
 			## ±ÍÈ¯ ±â¾ïºÎ
 			elif itemVnum in WARP_SCROLLS:
@@ -2466,7 +2466,26 @@ class ItemToolTip(ToolTip):
 			elif item.LIMIT_TIMER_BASED_ON_WEAR == limitType:
 				self.AppendTimerBasedOnWearLastTime(metinSlot)
 				#dbg.TraceError("1) REAL_TIME flag On ")
-				
+
+			itemPrice = item.GetISellItemPrice()
+			itemCount = player.GetItemCount(window_type, slotIndex)
+			itemPriceCount = itemPrice * itemCount
+
+		if app.ENABLE_SELL_ITEM:
+			if self.IsSellItems(itemVnum, itemPrice):
+				if item.GetItemType() == item.ITEM_TYPE_WEAPON or item.GetItemType() == item.ITEM_TYPE_ARMOR:
+				# Skip showing the item price information for weapons and armor
+					pass
+				else:
+					self.AppendSpace(5)
+					self.AppendTextLine("|Ekey_shift|e"+" + |Ekey_x|e"+" + "+"|Ekey_srclick|e - Vendita Rapida",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					if itemCount > 1:
+						self.AppendTextLine(localeInfo.SELL_PRICE_INFO_PCS % localeInfo.NumberToMoneyString(itemPrice), self.SPECIAL_TITLE_COLOR)
+						self.AppendTextLine(localeInfo.SELL_PRICE_INFO_ALL % localeInfo.NumberToMoneyString(itemPriceCount), self.SPECIAL_TITLE_COLOR)
+					else:
+						self.AppendTextLine(localeInfo.NumberToMoneyString(itemPrice), self.SPECIAL_TITLE_COLOR)
+
+
 		if itemVnum == 58500: #qui cambi colori scritta Frozen
 			self.AppendSpace(5)
 			self.AppendTextLine("Slot Congenlamento: %d" % (int(metinSlot[0])+1), self.FROZEN_COLOR)
@@ -2591,6 +2610,19 @@ class ItemToolTip(ToolTip):
 							self.AppendTextLine(affectString, affectColor)
 			self.AppendWearableInformation()
 			self.ShowToolTip()
+
+	if app.ENABLE_SELL_ITEM:
+		def IsSellItems(self, itemVnum, itemPrice):
+			item.SelectItem(itemVnum)
+			
+			# if item.GetItemType() == item.ITEM_TYPE_WEAPON or item.GetItemType() == item.ITEM_TYPE_ARMOR:
+				# return True
+				
+			if itemPrice > 1:
+				return True
+				
+			return False
+
 
 	def __DragonSoulInfoString (self, dwVnum):
 		step = (dwVnum / 100) % 10

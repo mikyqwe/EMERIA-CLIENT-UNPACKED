@@ -349,7 +349,7 @@ class TaskBar(ui.ScriptWindow):
 		BUTTON_EXPAND_MONEY = 5	
 	BUTTON_VECTORS = 6		
 	BUTTON_OFFLINESHOP = 7
-	BUTTON_DSS = 8
+	#BUTTON_DSS = 8
 	if app.BL_REMOTE_SHOP:
 		BUTTON_REMOTE_SHOP = 9
 	if app.ENABLE_ANTI_MULTIPLE_FARM:
@@ -598,7 +598,7 @@ class TaskBar(ui.ScriptWindow):
 		if app.BL_REMOTE_SHOP:
 			toggleButtonDict[TaskBar.BUTTON_REMOTE_SHOP]=self.GetChild("RemoteShop")
 		toggleButtonDict[TaskBar.BUTTON_OFFLINESHOP]=self.GetChild("OfflineShopButton")
-		toggleButtonDict[TaskBar.BUTTON_DSS]=self.GetChild("DSSButton")
+		#toggleButtonDict[TaskBar.BUTTON_DSS]=self.GetChild("DSSButton")
 	
 		if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 			toggleButtonDict[TaskBar.BUTTON_EXPAND_MONEY]=self.GetChild("ExpandMoneyButton")	

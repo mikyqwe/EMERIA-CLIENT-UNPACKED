@@ -1,10 +1,10 @@
-1	Uccidi il boss	Uccisioni Rimaste: %s	Mostro: |cffff9d9d|H|h%s|h|r	Uccidi la |cffff9d9d|H|h%s|h|r per	completare la missione e guadagnare	le ricompense per il tuo personaggio.
-5	Usa l'oggetto	Oggetto da usare: %s	Oggetto: |cffff9d9d|H|h%s|h|r	Usa |cffff9d9d|H|h%s|h|r per completare	la missione e guadagnare le ricompense	per il tuo personaggio.
-6	Vendi l'oggetto	Oggetto da vendere: %s	Oggetto: |cffff9d9d|H|h%s|h|r	Vendi |cffff9d9d|H|h%s|h|r per completare	la missione e guadagnare le ricompense	per il tuo personaggio.
-8	Migliora l'oggetto	Oggetto da migliorare: %s	Oggetto: |cffff9d9d|H|h%s|h|r	Migliora |cffff9d9d|H|h%s|h|r per completare	la missione e guadagnare le ricompense	per il tuo personaggio.
-9	Distruggi il tuo oggetto	Oggetto da distruggere: %s	Oggetto: |cffff9d9d|H|h%s|h|r	Distruggi |cffff9d9d|H|h%s|h|r per completare	la missione e guadagnare le ricompense	per il tuo personaggio.
-10	Colleziona	Oggetto da collezionare: %s	Oggetto: |cffff9d9d|H|h%s|h|r	Colleziona |cffff9d9d|H|h%s|h|r per completare	la missione e guadagnare le ricompense	per il tuo personaggio.
-11	Friggi il pesce	Pesci da Friggere: %s	Friggi: Tutti	Friggi qualsiasi pesce per	completare la missione e guadagnare	ricompense per il tuo personaggio.
-12	Cattura i Pesci	Pesci da pescare: %s	Pescare: Tutti	Pesca qualsiasi pesce per completare	la missione e guadagnare le ricompense	per il tuo personaggio.
-14	Farma yang	Yang da Farmare: %s	Farma da: Tutti	Farma yang per completare la	missione e guadagnare ricompense	per il tuo personaggio.
-15	Completa Dungeon	Dungeon da completare: %s	Dungeon: Tutti	Completa 70 dungeon per completare	la missione e ricevere ricompense	per il tuo personaggio.
+1	Ucide ºeful	Ucideri rãmase: %s	Monstru: |cffff9d9d|H|h%s|h|r	Ucide |cffff9d9d|H|h%s|h|r pentru	finalizeazã misiunea ºi castigã	recompensele pentru caracterul tãu.
+5	Utilizaþi obiectul	Item de folosit: %s	Item: |cffff9d9d|H|h%s|h|r	Foloseºte |cffff9d9d|H|h%s|h|r pentru finalizarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu
+6	Vindeþi itemul	Item de vânzare: %s	Item: |cffff9d9d|H|h%s|h|r	Vinde |cffff9d9d|H|h%s|h|r pentru completarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu.
+8	Upgradaþi itemul	Item pentru upgrade: %s	Item: |cffff9d9d|H|h%s|h|r	Imbunãtãþiri |cffff9d9d|H|h%s|h|r pentru completarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu.
+9	Distrugeþi itemul	Item de distrus: %s	Item: |cffff9d9d|H|h%s|h|r	Distruge |cffff9d9d|H|h%s|h|r pentru completarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu.
+10	Colectare	Item de colectat: %s	Item: |cffff9d9d|H|h%s|h|r	Colecteazã |cffff9d9d|H|h%s|h|r pentru completarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu.
+11	Prãjiþi peºtele	Peºte de prãjit: %s	Prãjiþi: Toþi	Prãjiþi orice peºte pentru	misiunii ºi câºtigã recompensele	pentru caracterul tãu.
+12	Prinde peºtele	Peºte de pescuit: %s	Pescar: Toþi	Prinde orice peºte pentru completarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu.
+14	Farmeazã yang	Yang de farmat: %s	Farmeazã: Toþi	Farmeazã yang pentru completarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu.
+15	Completeazã Dungeon	Dungeon-uri de completat: %s	Dungeon: Toþi	Completeazã 70 de dungeon-uri pentru completarea	misiunii ºi câºtigã recompensele	pentru caracterul tãu.

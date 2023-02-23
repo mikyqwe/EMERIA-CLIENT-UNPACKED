@@ -62,20 +62,14 @@ class TaskBarS(ui.ScriptWindow):
 		self.interface.wndFastEquip.Show()
 
 	def __MenuFunction3(self):
-		self.interface.game.OpenMarbleShop()
+		self.interface.daily_reward.Show()
 			
 	def BindInterface(self, interface):
 		from _weakref import proxy
 		self.interface = proxy(interface)
 
 	def __MenuFunction4(self):
-		if constInfo.TELEPORT_SYSTEM_GUI == 0:
-			self.teleportsystem.Show()
-			self.teleportsystem.SetTop()
-			constInfo.TELEPORT_SYSTEM_GUI = 1
-		else:
-			self.teleportsystem.Close()
-			constInfo.TELEPORT_SYSTEM_GUI = 0
+		self.interface.OpenEventCalendar()
 
 	def __MenuFunction5(self):
 		constInfo.need_open_pickup_filter=1

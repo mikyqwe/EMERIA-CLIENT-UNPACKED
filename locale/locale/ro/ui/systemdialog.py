@@ -95,11 +95,11 @@ window = {
 					"height" : 62,	
 					"children" :
 					(
-						{ "name":"SmartText0", "type":"text", "x":0, "y":3, "text" : "L'utilizzo di software illegali su Emeria viene", "horizontal_align":"center", "text_horizontal_align":"center" },
-						{ "name":"RewardText", "type":"text", "x":0, "y":14, "text" : "sanzionato con un ban hardware definitivo.", "horizontal_align":"center", "text_horizontal_align":"center" },
-						{ "name":"RewardText", "type":"text", "x":0, "y":14+11, "text" : "Per favore, cerca di utilizzare sempre un linguaggio rispettoso.", "horizontal_align":"center", "text_horizontal_align":"center" },
-						{ "name":"RewardText", "type":"text", "x":0, "y":14+11+11, "text" : "Se hai bisogno di aiuto, unisciti al nostro server Discord!", "horizontal_align":"center", "text_horizontal_align":"center" },
-						{ "name":"RewardText", "type":"text", "x":0, "y":14+11+11+11, "text" : "E' consigliato giocare a una risoluzione superiore a 800x600.", "horizontal_align":"center", "text_horizontal_align":"center" },
+						{ "name":"SmartText0", "type":"text", "x":0, "y":3, "text" : "Utilizarea oricãrui hack pe Emeria este sanctionatã cu ban.", "horizontal_align":"center", "text_horizontal_align":"center" },
+						{ "name":"RewardText", "type":"text", "x":0, "y":14, "text" : "Pentru a fi la curent cu toate noutãþile, vã aºteptãm pe Discord.", "horizontal_align":"center", "text_horizontal_align":"center" },
+						{ "name":"RewardText", "type":"text", "x":0, "y":14+11, "text" : "https://discord.gg/Emeria", "horizontal_align":"center", "text_horizontal_align":"center" },
+						{ "name":"RewardText", "type":"text", "x":0, "y":14+11+11, "text" : "Pentru o experienta buna in timpul jocului, va recomandam", "horizontal_align":"center", "text_horizontal_align":"center" },
+						{ "name":"RewardText", "type":"text", "x":0, "y":14+11+11+11, "text" : "sa jucati la o rezolutie mai mare de 800x600.", "horizontal_align":"center", "text_horizontal_align":"center" },
 					)
 				},				
                 {

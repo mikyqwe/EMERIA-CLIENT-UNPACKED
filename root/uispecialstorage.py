@@ -577,6 +577,11 @@ class SpecialStorageWindow(ui.ScriptWindow):
 		selectedItemVNum = player.GetItemIndex(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex)
 		itemCount = player.GetItemCount(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex)
 
+		if app.ENABLE_SELL_ITEM:		
+			if app.IsPressed(app.DIK_LSHIFT) and app.IsPressed(app.DIK_X) and self.IsSellItems(itemSlotIndex):
+				self.__SendSellItemPacket(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex)
+				return
+
 		if mouseModule.mouseController.isAttached():
 			attachedSlotType = mouseModule.mouseController.GetAttachedType()
 			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
@@ -750,3 +755,24 @@ class SpecialStorageWindow(ui.ScriptWindow):
 			return
 
 		m2netm2g.SendItemMovePacket(srcSlotWindow, srcSlotPos, dstSlotWindow, dstSlotPos, srcItemCount)
+
+	if app.ENABLE_SELL_ITEM:
+		def IsSellItems(self, slotIndex):
+			itemVnum = player.GetItemIndex(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], slotIndex)
+			item.SelectItem(itemVnum)
+			itemPrice = item.GetISellItemPrice()
+			
+			# if item.GetItemType() == item.ITEM_TYPE_WEAPON or item.GetItemType() == item.ITEM_TYPE_ARMOR:
+				# return True
+				
+			if itemPrice > 1:
+				return True
+				
+			return False
+			
+		def __SendSellItemPacket(self, itemInvenType, itemVNum):
+			if uiPrivateShopBuilder.IsBuildingPrivateShop():
+				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.USE_ITEM_FAILURE_PRIVATE_SHOP)
+				return
+				
+			m2netm2g.SendItemSellPacket(itemInvenType, itemVNum)

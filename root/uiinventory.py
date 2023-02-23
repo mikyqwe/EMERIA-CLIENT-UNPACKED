@@ -2911,6 +2911,10 @@ class InventoryWindow(ui.ScriptWindow):
 	def __UseItem(self, slotIndex):
 		ItemVNum = player.GetItemIndex(slotIndex)
 		item.SelectItem(ItemVNum)
+		if app.ENABLE_SELL_ITEM:		
+			if app.IsPressed(app.DIK_LSHIFT) and app.IsPressed(app.DIK_X) and self.IsSellItems(slotIndex):
+				self.__SendSellItemPacket(slotIndex)
+				return
 		if constInfo.ENABLE_SHOW_CHEST_DROP:
 			if app.IsPressed(app.DIK_LALT):
 				itemVnum = player.GetItemIndex(slotIndex)
@@ -3025,6 +3029,27 @@ class InventoryWindow(ui.ScriptWindow):
 				return
 		else:
 			net.SendItemMovePacket(srcSlotPos, dstSlotPos, srcItemCount)
+
+	if app.ENABLE_SELL_ITEM:
+		def IsSellItems(self, slotIndex):
+			itemVnum = player.GetItemIndex(slotIndex)
+			item.SelectItem(itemVnum)
+			itemPrice = item.GetISellItemPrice()
+			
+			# if item.GetItemType() == item.ITEM_TYPE_WEAPON or item.GetItemType() == item.ITEM_TYPE_ARMOR:
+				# return True
+				
+			if itemPrice > 1:
+				return True
+				
+			return False
+			
+		def __SendSellItemPacket(self, itemVNum):
+			if uiPrivateShopBuilder.IsBuildingPrivateShop():
+				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.USE_ITEM_FAILURE_PRIVATE_SHOP)
+				return
+				
+			net.SendItemSellPacket(itemVNum)
 
 	def SetDragonSoulRefineWindow(self, wndDragonSoulRefine):
 		if app.ENABLE_DRAGON_SOUL_SYSTEM:

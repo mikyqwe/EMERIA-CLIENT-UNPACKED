@@ -1658,6 +1658,9 @@ class EditLine(TextLine):
 		return True
 
 	def OnKeyDown(self, key):
+		if app.DIK_V == key:
+			if app.IsPressed(app.DIK_LCONTROL):
+				ime.PasteTextFromClipBoard()
 		if app.DIK_F1 == key:
 			return False
 		if app.DIK_F2 == key:
@@ -1672,9 +1675,6 @@ class EditLine(TextLine):
 			return False
 		if app.DIK_LCONTROL == key:
 			return False
-		if app.DIK_V == key:
-			if app.IsPressed(app.DIK_LCONTROL):
-				ime.PasteTextFromClipBoard()
 
 		return True
 

@@ -230,16 +230,16 @@ class GameWindow(ui.ScriptWindow):
 	def Open(self):
 		app.SetFrameSkip(1)
 		self.SetSize(wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight())
-		self.daily_reward = ui.Button()
-		self.daily_reward.SetParent(self)
-		self.daily_reward.SetPosition(wndMgr.GetScreenWidth()-188,80)
-		self.daily_reward.SetUpVisual("icon/giftsystem/prize1.png")
-		self.daily_reward.SetOverVisual("icon/giftsystem/prize2.png")
-		self.daily_reward.SetDownVisual("icon/giftsystem/prize3.png")
-		self.daily_reward.SetToolTipText("Ricompensa")
-		self.daily_reward.SetEvent(lambda : self.ManagerGiftSystem("Show|"))
-		self.daily_reward.FlashEx()
-		self.daily_reward.Show()
+		#self.daily_reward = ui.Button()
+		#self.daily_reward.SetParent(self)
+		#self.daily_reward.SetPosition(wndMgr.GetScreenWidth()-188,80)
+		#self.daily_reward.SetUpVisual("icon/giftsystem/prize1.png")
+		#self.daily_reward.SetOverVisual("icon/giftsystem/prize2.png")
+		#self.daily_reward.SetDownVisual("icon/giftsystem/prize3.png")
+		#self.daily_reward.SetToolTipText("Ricompensa")
+		#self.daily_reward.SetEvent(lambda : self.ManagerGiftSystem("Show|"))
+		#self.daily_reward.FlashEx()
+		#self.daily_reward.Show()
 
 		self._timeLine_hide = False
 		

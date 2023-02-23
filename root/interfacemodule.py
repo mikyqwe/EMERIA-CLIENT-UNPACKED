@@ -283,7 +283,7 @@ class Interface(object):
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_MESSENGER, ui.__mem_func__(self.ToggleMessenger))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_SYSTEM, ui.__mem_func__(self.ToggleSystemDialog))	
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_OFFLINESHOP, ui.__mem_func__(self.ToggleOfflineShopDialog))
-		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_DSS, ui.__mem_func__(self.ToggleDragonSoulWindow))
+		#self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_DSS, ui.__mem_func__(self.ToggleDragonSoulWindow))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_ANTI_MULTIPLE_FARM, ui.__mem_func__(self.ToggleAntiMultipleFarmWindow))
 		#self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_ANTI_MULTIPLE_FARM_OLD, ui.__mem_func__(self.ToggleAntiMultipleFarmWindow))
 		#self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_BATTLEPASS, ui.__mem_func__(self.ToggleBattlePassExtended))
@@ -356,13 +356,13 @@ class Interface(object):
 		wndSafebox = uiSafebox.SafeboxWindow()
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			wndSafebox.BindInterface(self)		
-		self.wndCalendarButton = ui.Button()
-		self.wndCalendarButton.SetEvent(ui.__mem_func__(self.OpenEventCalendar))
-		self.wndCalendarButton.SetToolTipText("Events")
-		self.wndCalendarButton.SetPosition(wndMgr.GetScreenWidth() - 80 - 136, 17)
-		self.wndCalendarButton.SetUpVisual("butoane/calendar1.tga")
-		self.wndCalendarButton.SetOverVisual("butoane/calendar2.tga")
-		self.wndCalendarButton.SetDownVisual("butoane/calendar1.tga")
+		#self.wndCalendarButton = ui.Button()
+		#self.wndCalendarButton.SetEvent(ui.__mem_func__(self.OpenEventCalendar))
+		#self.wndCalendarButton.SetToolTipText("Events")
+		#self.wndCalendarButton.SetPosition(wndMgr.GetScreenWidth() - 80 - 136, 17)
+		#self.wndCalendarButton.SetUpVisual("butoane/calendar1.tga")
+		#self.wndCalendarButton.SetOverVisual("butoane/calendar2.tga")
+		#self.wndCalendarButton.SetDownVisual("butoane/calendar1.tga")
 
 		# ITEM_MALL
 		wndMall = uiSafebox.MallWindow()
@@ -1637,7 +1637,7 @@ class Interface(object):
 		self.wndTaskBar.Show()
 		self.wndMiniMap.Show()
 		self.wndMiniMap.ShowMiniMap()
-		self.wndCalendarButton.Show()
+		#self.wndCalendarButton.Show()
 		if self.wndEnergyBar:
 			self.wndEnergyBar.Show()
 
