@@ -322,7 +322,7 @@ class MiniMap(ui.ScriptWindow):
 		self.tooltipAtlasOpen.Show()
 		if app.ENABLE_DUNGEON_INFO_SYSTEM:
 			self.tooltipDungeonInfoOpen = MapTextToolTip()
-			self.tooltipDungeonInfoOpen.SetText("|cffF4B418Informazioni Dungeon")
+			self.tooltipDungeonInfoOpen.SetText("|cffF4B418Informaþii Dungeon")
 			self.tooltipDungeonInfoOpen.Show()
 		self.tooltipInfo = MapTextToolTip()
 		self.tooltipInfo.Show()
@@ -610,14 +610,14 @@ class MiniMap(ui.ScriptWindow):
 
 	def change_ch(self, arg):
 		if self.protect_maps():
-			chat.AppendChat(1, "Non puoi cambiare CH in questa mappa.")
+			chat.AppendChat(1, "Nu puteþi schimba canalul pe aceastã hartã.")
 			return	
 		elif time.clock() >= constInfo.change_time:
-			net.SetServerInfo("Emeria - Channel %d" % int(arg+1))
+			net.SetServerInfo("Emeria - Canalul %d" % int(arg+1))
 			net.SendChatPacket("/ch %d" % int(arg+1))
 			constInfo.change_time = time.clock() + 3
 		else:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Devi aspettare un attimo per cambiare channel.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Trebuie sã asteptaþi un moment pentru a schimba canalul.")
 
 	def OnUpdate(self):
 		(x, y, z) = player.GetMainCharacterPosition()
@@ -808,7 +808,7 @@ class MiniMap(ui.ScriptWindow):
 	if app.SITEYE_GIT_BUTON:
 		def discord(self):
 			import os
-			o="https://discord.com/invite/smKRtQdUem"
+			o="https://discord.gg/Emeria"
 			os.startfile(o)
 
 		def wiki(self):

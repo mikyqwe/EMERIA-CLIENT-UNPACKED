@@ -428,7 +428,7 @@
 30319	Cap Mumificat	Acest Cap Mumificat de demon deschide sigiliul de la poarta etajului 3 din Catacomba Diavolului. Acest obiect se poate vinde.
 30320	Cap Mumificat	Acest Cap Mumificat de demon deschide sigiliul etajului al 3-lea din Catacomba Diavolului.
 30321	Dovleac de Halloween	Dovleacul umple PV si PM. Daca il atingi cu Bagheta Magica se va transforma intr-un Cufar de Halloween.
-30322	Bagheta Magica	O Bagheta Magica sculptata artistic din arin cu o stea in varf lucrata din foc magic. Poate fi folosita pentru a transforma fiecare Dovleac de Halloween intr-un Cufar de Halloween.
+30322	Piciorul Baronesei	Aceast obiect este obtinut de la Dungeon-ul Baronesei. 	Upgrade
 30323	Tichet Jack O`Lantern	Tichetul cu Masca Jack O'Lantern poate fi schimbat la Dovleacul Jack cu o Masca Jack O'Lantern. Masca va inlocui frizura existenta.
 30324	Cheia Arahnidelor	Deschide portile catre Ascunzatoarea Reginei unde isi depune ouale. Foarte fragila, se dezintegreaza dupa 24 de ore. Poate fi folosita doar de catre liderul de grup.
 30325	Cheia Arahnidelor	Deschide portile catre Ascunzatoarea Reginei unde isi depune ouale. Foarte fragila, se dezintegreaza dupa 24 de ore. Poate fi folosita doar de catre liderul de grup.
@@ -463,8 +463,8 @@
 30521	Bucata de Inel	Fabricata din aur pur, ornata cu o piatra pretioasa, poate fi transformata intr-o bijuterie valoroasa.
 30522	Colier din Zale	Fabricat din aur pur, ornat cu o piatra pretioasa, poate fi transformat intr-o bijuterie valoroasa.
 30523	Accesoriu de Bijuterie	Fabricata din aur pur, ornata cu o piatra pretioasa, poate fi transformata intr-o bijuterie valoroasa.
-30524	Piatra Fierbinte	
-30525	Piatra Gheata Fierbinte	
+30524	Piatra Fierbinte	Aceast obiect este obtinut de la Dungeon-ul Razador. 	Upgrade
+30525	Piatra Gheata Fierbinte	Aceast obiect este obtinut de la Dungeon-ul Nemere. 	Upgrade
 30526		
 30527		
 30528		
@@ -543,7 +543,7 @@
 31015	Scrisoarea Cpt. Carlig	Un mesaj de la Capitanul Carlig pentru Banshee.
 31016	Scrisoare Lee Chung	Mesaj important de la Comandantul Lee Chung trimis catre Amiralul Angmur
 31017	Scrisoare Sigilata	Scrisoarea se afla in posesia Slujitorului Templului.
-31018	Manuscris Carapax	Aceasta carapace de testoasa cu linii gravate foloseste drept cod.
+31018	Manuscris Carapax	Cu ajutorul acestui obiect va puteti procura tichete pentru temnitele pentru incepatori.
 31019	Praf Carapax	Pudra fabricata din coaja de la carapacea unei broaste testoase.
 31020	Bulb Floare de Stanca	Radacina de Floare de Stanca neutralizeaza otrava din corp.
 31021		
@@ -569,6 +569,7 @@
 31041	Fosila	Un amestec de pamant cu praf de oase
 31042	Sulita Triton	Sulita Triton este un obiect traditional folosit de locuitorii unei insule pentru a fortifica apararea constructiilor.
 31043	Piatra Elementelor	Obiect folosit pentru a imbunatati talismanele, indiferent de element.	Upgrade
+30176	Fragment Finisaj	Obiect folosit pentru a procura finisaje.
 31044		
 31045		
 31046		
@@ -623,7 +624,7 @@
 31095		
 31096		
 31097		
-31098		
+31098	Pergament abilitate	Cu ajutorul acestui obiect va puteti achizitiona obiectele necesare pentru imbunatatirea abilitatilor dvs.
 31099		
 31100		
 31101		
@@ -1418,11 +1419,11 @@
 50119		
 50120	Caseta de fier	Recipientul stabil este din Grota Exilului.
 50121	Cutie cu flori	Recipientul contine flori cu ajutorul carora puteti sa va achizitionati roua permanenta sau ape.
-30171	Floare galbena	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Galbena.
-400171	Floare rosie	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Rosie.
-400172	Floare Albastra	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Albastra.
-400173	Floare Roz	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Roz.
-400174	Floare Verde	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Verde.
+30171	Floare galbena	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Galbena.	Producþie Rouã
+400171	Floare rosie	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Rosie.	Producþie Rouã
+400172	Floare Albastra	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Albastra.	Producþie Rouã
+400173	Floare Roz	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Roz.	Producþie Rouã
+400174	Floare Verde	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Verde.	Producþie Rouã
 50122	Lada de fier	Recipientul stabil este din Grota Exilului.
 50123	Inghetata	Impuls de energie! Aceasta inghetata va mareste viteza de miscare cu 60 timp de 30 minute. Atentie: Reactivarea acestui suport in timp ce este deja activ, se va adauga timpului ramas.
 50124	Casetã putredã din lemn	Din interiorul ei se aud sunete de animal.
@@ -1476,9 +1477,9 @@
 50187	Cufar Dragon Aur	Cufarul obtinut din Dungeon-ul Dragonului de Aur.
 50188	Cufar Demon	Cufarul obtinut din Dungeon-ul Turnul Demonilor.
 50189	Cufar Ucenic III	Acest cufar se va deschide doar cand ai atins nivelul 20.
-50190	Cufar Expert I	Acest cufar se va deschide doar cand ai atins nivelul 30.
-50191	Cufar Expert II	Acest cufar se va deschide doar cand ai atins nivelul 40.
-50192	Cufar Expert III	Acest cufar se va deschide doar cand ai atins nivelul 50.
+50190	Cufarul Diavolului	Cufarul obtinut din Dungeon-ul Azrael.
+50191	Cufar Baroneasa	Cufarul obtinut din Dungeon-ul Turnul Demonilor.
+50192	Cufar Razador	Cufarul obtinut din Dungeon-ul Razador.
 50193	Cufar Master I	Acest cufar se va deschide doar cand ai atins nivelul 60.
 50194	Cufar Master II	Acest cufar se va deschide doar cand ai atins nivelul 70.
 50195	Cufar Master III	Acest cufar se va deschide doar cand ai atins nivelul 80.
@@ -1499,7 +1500,7 @@
 50256	Cor Draconis (Taiat)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
 50257	Cor Draconis (Rar)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
 50258	Cor Draconis (Antic)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
-50259	Cor Draconis (Legendar)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
+50259	Cor Draconis (Legendar)	Cu ajutorul acestui obiect va puteti imbunatati alchimia. Acest obiect contine pietre dragon Legendare.
 50260	Cor Draconis (Brut)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
 50263	Pergament Personalizat	Aceasta actiune leaga un obiect la alegere de caracterul tau. Obiectele personalizate nu pot fi vandute, aruncate sau fermecate.
 50264	Pergam. Depersonalizat	Inlatura un obiect personalizat.
@@ -3096,7 +3097,7 @@
 50284	Carta mostro (commerc.)	Quando usi questo oggetto, viene aggiunto alla tua collezione.
 50296	Cutie Manusa Talhar	Recipientul contine Manusa Talharului.
 50297	Forziere di contrattacco	Contiene 250 incanta.
-50090	Forziere di contrattacco	Contiene 250 scaglie.
+50090	Forziere di contrattacco	Acest cufar contine o perla alba, albastra sau visinie.
 50115	Cutie Inel Exp.	Recipientul contine Inelul Experientei.
 50298	Cassetto di contrattacco	Questo cassetto contiene 5 Contrattacchi Baule libri.
 50299	Cassetto del boost	Questo cassetto contiene 5 Boost Baule libri.
@@ -3148,9 +3149,9 @@
 53544	Pacco Teddy Valentinia	Qui sonnecchia il tuo teddy Valentinia. Insieme all'Amuleto del Cioccolato ottieni un Bonus del Set supplementare del 20% per i tuoi EXP.
 53545	Baule Lant. lun. (blu)	In questo baule, Lanterna lunare (blu) attende ansiosa di entrare in azione.
 53546	Baule Lant. lun. (oran.)	In questo baule, Lanterna lunare (arancione) attende ansiosa di entrare in azione.
-55004	Libro del pet selvatico	Usando i seguenti oggetti potrai far salire di livello il tuo pet (pet coraggioso): 10 Libri del pet selvatico, 2 Perle rosse, 10 Creme per il viso, 10 Pellicce di Yeti+, 10 Ornamenti, 10 Matasse, 5 Libri delle maledizioni+.
-55005	Libro del pet coraggioso	Usando i seguenti oggetti potrai far salire di livello il tuo pet (addestramento eroico): 10 Libri del pet coraggioso, 10 Medicine sconosciute+, 2 Perle bianche, 2 Perle blu, 10 Ricordi di Demon+, 10 Denti di Orco+, 5 Cinghie blu.
-55006		
+55004	Libro del pet selvatico	Folosita pentru a-ti evolua insotitorul cand acesta ajunge la nivelul 60.
+55005	Libro del pet coraggioso	Folosita pentru a-ti evolua insotitorul cand acesta ajunge la nivelul 80.
+55006	Carte Insoptitor Avansat	Folosita pentru a-ti evolua insotitorul cand acesta ajunge la nivelul 80.
 55007		
 55008	Pergamena del nome	Apri la pergamena accanto al tuo pet per modificare il suo nome.
 55009	Cassa con Libri del pet	Contiene un Libro dell'abilitÃ  del pet scelto dalla sorte.

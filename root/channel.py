@@ -30,7 +30,7 @@ class Titan2_Channel_Changer(ui.BoardWithTitleBar):
 		
 		self.AddFlag("movable")
 		self.AddFlag("float")
-		self.SetTitleName("Cambia Canale") # Title name
+		self.SetTitleName("Schimbã canalul") # Title name
 		self.SetCloseEvent(self.Close)
 		
 		x = 0
@@ -48,7 +48,7 @@ class Titan2_Channel_Changer(ui.BoardWithTitleBar):
 			channel_button.SetDownVisual("d:/ymir work/ui/game/myshop_deco/public_store_003.dds")
 			channel_button.SetEvent(ui.__mem_func__(self.change_channel), ch) # Apply function + ch , function ch1 / ch2 etc.
 			
-			channel_button.SetText("Channel " + str(ch+1))
+			channel_button.SetText("Canalul " + str(ch+1))
 			channel_button.Show()
 			
 			self.channel_list.append(channel_button)
@@ -80,16 +80,16 @@ class Titan2_Channel_Changer(ui.BoardWithTitleBar):
 		
 	def change_channel(self, ch):
 		if self.protect_maps():  #Block change in some maps who are in <protect_list>.
-			chat.AppendChat(1, "Non puoi cambiare channel in questa mappa.")
+			chat.AppendChat(1, "Nu puteþi schimba canalele pe aceastã hartã.")
 			return	
 		elif time.clock() >= constInfo.change_time:			
 			self.Close()
-			net.SetServerInfo("Emeria - Channel %d" % int(ch+1)) # Set ch name under the minimap and you're on.
+			net.SetServerInfo("Emeria - Canalul %d" % int(ch+1)) # Set ch name under the minimap and you're on.
 			#chat.AppendChat(chat.CHAT_TYPE_INFO, "[Change Channel] You have successfully changed the channel!")
 			net.SendChatPacket("/ch %d" % int(ch+1)) # Application change control ch + 1 which are added in <xrange(4)>.
 			constInfo.change_time = time.clock() + 4 # After pressing the button, the system adds 10 seconds to hold.
 		else:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Devi aspettare un attimo per cambiare channel.")		
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Trebuie sã asteptaþi puþin pentru a schimba canalul.")		
 		
 	def	Close(self):
 		self.Hide()

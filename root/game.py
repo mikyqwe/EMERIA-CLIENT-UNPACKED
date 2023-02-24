@@ -984,9 +984,9 @@ class GameWindow(ui.ScriptWindow):
 			serverName = "|cffFDBA31Emeria"
 			text =localeInfo.TEXT_CHANNEL % serverName
 			if channel == 99:
-				text+= "Dungeons"
+				text+= "Dungeon"
 			elif channel == 98:
-				text+= "Globale"
+				text+= " general"
 			else:
 				text+= ""+str(channel)
 			net.SetServerInfo(text)
