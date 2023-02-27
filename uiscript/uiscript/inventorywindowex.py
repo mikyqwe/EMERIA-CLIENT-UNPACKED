@@ -1152,8 +1152,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_1,
 
 					"children" :
@@ -1180,8 +1180,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_2,
 
 					"children" :
@@ -1208,8 +1208,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 					
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_3,
 
@@ -1237,8 +1237,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_4,
 					"children" :
 					(
