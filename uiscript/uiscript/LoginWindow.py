@@ -186,7 +186,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize":"SLARGE",
 
-											"text" : "Channel 1",
+											"text" : "Canalul 1",
 										},
 										{
 											"name" : "select_btn_ch1",
@@ -225,7 +225,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize":"SLARGE",
 
-											"text" : "Channel 2",
+											"text" : "Canalul 2",
 										},
 										{
 											"name" : "select_btn_ch2",
@@ -264,7 +264,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize":"SLARGE",
 
-											"text" : "Channel 3",
+											"text" : "Canalul 3",
 										},
 										{
 											"name" : "select_btn_ch3",
@@ -303,7 +303,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize":"SLARGE",
 
-											"text" : "Channel 4",
+											"text" : "Canalul 4",
 										},
 										{
 											"name" : "select_btn_ch4",
@@ -366,7 +366,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize": "SLARGE",
 
-											"text" : "Free Slot",
+											"text" : "Liber",
 										},
 									),
 								},
@@ -419,7 +419,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize": "SLARGE",
 
-											"text" : "Free Slot",
+											"text" : "Liber",
 										},
 									),
 								},
@@ -472,7 +472,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize": "SLARGE",
 
-											"text" : "Free Slot",
+											"text" : "Liber",
 										},
 									),
 								},
@@ -525,7 +525,7 @@ window = {
 											"color" : 0xff727272,
 											"fontsize": "SLARGE",
 
-											"text" : "Free Slot",
+											"text" : "Liber",
 										},
 									),
 								},
@@ -640,7 +640,7 @@ window = {
 					"default_image" : "d:/ymir work/ui/intro_elendos/button/button_dark_normal.sub",
 					"over_image" :  "d:/ymir work/ui/intro_elendos/button/button_dark_hover.sub",
 					"down_image" : "d:/ymir work/ui/intro_elendos/button/button_dark_down.sub",
-					"text" : "Show Animation", "text_color" : 0xffffffff, "text_outline" : 1,
+					"text" : "Arata animatie", "text_color" : 0xffffffff, "text_outline" : 1,
 				},
 			),
 		},

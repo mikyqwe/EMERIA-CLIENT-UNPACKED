@@ -597,7 +597,7 @@ window = {
 									"x" : 5,
 									"y" : 2,
 
-									"text" : "Skill",
+									"text" : "Vraja",
 									"text_color" : 0xFFFFE3AD,
 
 									"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -612,7 +612,7 @@ window = {
 									"x" : 50,
 									"y" : 2,
 
-									"text" : "Cavallo",
+									"text" : "Cal",
 									"text_color" : 0xFFFFE3AD,
 
 									"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -627,7 +627,7 @@ window = {
 									"x" : 50+45,
 									"y" : 2,
 
-									"text" : "Perks",
+									"text" : "Talente",
 									"text_color" : 0xFFFFE3AD,
 
 									"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -641,7 +641,7 @@ window = {
 
 									"x" : 7,
 									"y" : 1,
-									"text" : "Active",
+									"text" : "Activ",
 
 									"vertical_align" : "center",
 									"text_vertical_align" : "center",
@@ -1076,7 +1076,7 @@ window = {
 							"x" : 45+50+5,
 							"y" : 12,
 
-							"text" : "Skill",
+							"text" : "Vraja",
 							"text_color" : 0xFFFFE3AD,
 
 							"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -1091,7 +1091,7 @@ window = {
 							"x" : 45+50+50,
 							"y" : 12,
 
-							"text" : "Cavallo",
+							"text" : "Cal",
 							"text_color" : 0xFFFFE3AD,
 
 							"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -1106,7 +1106,7 @@ window = {
 							"x" : 45+50+50+45,
 							"y" : 12,
 
-							"text" : "Perks",
+							"text" : "Talente",
 							"text_color" : 0xFFFFE3AD,
 
 							"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",

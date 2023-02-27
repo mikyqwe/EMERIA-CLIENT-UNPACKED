@@ -21,11 +21,11 @@ window = {
 			"name":"Guild_Info_Title_Bar", "type":"horizontalbar", "x":5, "y":10, "width":167,
 			"children" :
 			(
-				{ "name":"Guild_Info_Point_Value", "type":"text", "x":8, "y":3, "text":"Danni Effettuati/Ricevuti", },
+				{ "name":"Guild_Info_Point_Value", "type":"text", "x":8, "y":3, "text":"Daune date/primite", },
 
 				## DamageDone
 				{
-					"name" : "GuildDamageDone", "type" : "text", "x" : 3, "y" : 31, "text" : "Danno Effettuato",
+					"name" : "GuildDamageDone", "type" : "text", "x" : 3, "y" : 31, "text" : "Daune date",
 					"children" :
 					(
 						{
@@ -44,7 +44,7 @@ window = {
 
 				## DamageReceived
 				{
-					"name" : "GuildDamageReceived", "type" : "text", "x" : 3, "y" : 57, "text" : "Danno Ricevuto",
+					"name" : "GuildDamageReceived", "type" : "text", "x" : 3, "y" : 57, "text" : "Daune primite",
 					"children" :
 					(
 						{
@@ -63,7 +63,7 @@ window = {
 
 				## Kills/Deaths
 				{
-					"name" : "GuildKillsDeaths", "type" : "text", "x" : 3, "y" : 93, "text" : "Ratio",
+					"name" : "GuildKillsDeaths", "type" : "text", "x" : 3, "y" : 93, "text" : "Raport",
 					"children" :
 					(
 						{
@@ -83,7 +83,7 @@ window = {
 
 				## Wins
 				{
-					"name" : "GuildWins", "type" : "text", "x" : 3, "y" : 119, "text" : "Wins",
+					"name" : "GuildWins", "type" : "text", "x" : 3, "y" : 119, "text" : "Castiguri",
 					"children" :
 					(
 						{
@@ -102,7 +102,7 @@ window = {
 
 				## Loses
 				{
-					"name" : "GuildLoses", "type" : "text", "x" : 3, "y" : 145, "text" : "Loses",
+					"name" : "GuildLoses", "type" : "text", "x" : 3, "y" : 145, "text" : "Pierderi",
 					"children" :
 					(
 						{
@@ -186,10 +186,10 @@ window = {
 			"children" :
 			(
 
-				{ "name":"Guild_Ranking_Title", "type":"text", "x":8, "y":3, "text":"Posizione e trofei", },	
+				{ "name":"Guild_Ranking_Title", "type":"text", "x":8, "y":3, "text":"Pozitie si trofee", },	
 				
 				{
-					"name" : "GuildPosition", "type" : "text", "x" : 3, "y" : 31, "text" : "Posizione",
+					"name" : "GuildPosition", "type" : "text", "x" : 3, "y" : 31, "text" : "Pozitie",
 					"children" :
 					(
 						{
@@ -207,7 +207,7 @@ window = {
 				},			
 
 				{
-					"name" : "Trophies", "type" : "text", "x" : 3, "y" : 57, "text" : "Trofei",
+					"name" : "Trophies", "type" : "text", "x" : 3, "y" : 57, "text" : "Trofee",
 					"children" :
 					(
 						{

@@ -58,7 +58,7 @@ window = {
 						{
 							"name" : "TitleName",
 							"type" : "text",
-							"text" : "Gestione del denaro",
+							"text" : "Gestionarea banilor",
 							"horizontal_align" : "center",
 							"text_horizontal_align" : "center",
 							"x" : 0,
@@ -69,7 +69,7 @@ window = {
 				{
 					"name" : "BetragLabel",
 					"type" : "text",
-					"text" : "Importo",
+					"text" : "Cantitate",
 					"horizontal_align" : "Center",
 					"x" : 15,
 					"y" : 40,

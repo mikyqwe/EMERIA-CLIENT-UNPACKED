@@ -62,7 +62,7 @@ window = {
 			"width" : 41,
 			"height" : 21,
 
-			"text" : "Aggiorna",
+			"text" : "Actualizati",
 
 			"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/small_button_02.sub",

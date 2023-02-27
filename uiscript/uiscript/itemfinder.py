@@ -97,7 +97,7 @@ window = {
 					"name" : "ScrollBar","type" : "scrollbar","x" : 220,"y" : 90,"size" : 268,
 				},
 				{ 
-					"name" : "TextPreviewTtiel", "type" : "text", "x" : 325, "y" : 99, "text" : "Preview", 
+					"name" : "TextPreviewTtiel", "type" : "text", "x" : 325, "y" : 99, "text" : "Previzualizare", 
 				},
 				{
 					"name" : "ItemNameImg",
@@ -107,7 +107,7 @@ window = {
 					"image" : LOCALE_PATH+"private_leftNameImg.sub",
 					"children" :
 					(
-						{ "name" : "ItemNameText", "type" : "text", "text_horizontal_align":"center", "x" : 60, "y" : 5, "text" : "Item Name:", #"color":0xFFFEE3AE 
+						{ "name" : "ItemNameText", "type" : "text", "text_horizontal_align":"center", "x" : 60, "y" : 5, "text" : "Nume item:", #"color":0xFFFEE3AE 
 						},
 					),
 				},

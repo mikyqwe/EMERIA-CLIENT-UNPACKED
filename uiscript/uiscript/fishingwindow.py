@@ -82,7 +82,7 @@ window = {
 							"x" : 10,
 							"y" : 10,
 
-							"text" : "물고기 이름",
+							"text" : "Pescuit",
 						},
 
 						{
@@ -215,7 +215,7 @@ window = {
 					"x" : 0,
 					"y" : 30,
 
-					"text" : "낚시",
+					"text" : "Pescuit",
 					"horizontal_align" : "center",
 					"vertical_align" : "bottom",
 

@@ -88,7 +88,7 @@ window = {
 					"x" : 16,
 					"y" : 235,
 					
-					"text" : "Cambia",
+					"text" : "Schimbare",
 					
 					"default_image" : "d:/ymir work/ui/public/Large_Button_01.sub",
 					"over_image" : "d:/ymir work/ui/public/Large_Button_02.sub",
@@ -102,7 +102,7 @@ window = {
 					"x" : 109,
 					"y" : 235,
 					
-					"text" : "Reset",
+					"text" : "Resetati",
 					
 					"default_image" : "d:/ymir work/ui/public/Large_Button_01.sub",
 					"over_image" : "d:/ymir work/ui/public/Large_Button_02.sub",

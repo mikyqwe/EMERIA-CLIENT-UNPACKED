@@ -229,7 +229,7 @@ window = {
 				{ 
 					"name" : "GS_AdministrationButton", 
 					"type" : "button",
-					"text" : "Amministrazione",
+					"text" : "Administrare",
 					"x" : 10,
 					"y" : 292,
 					"default_image" : "d:/ymir work/ui/public/Large_Button_01.sub",
@@ -240,7 +240,7 @@ window = {
 				{ 
 					"name" : "GS_LogsButton", 
 					"type" : "button",
-					"text" : "Registro",
+					"text" : "Inregistrare",
 					"x" : 110,
 					"y" : 292,
 					"default_image" : "d:/ymir work/ui/public/Small_Button_01.sub",

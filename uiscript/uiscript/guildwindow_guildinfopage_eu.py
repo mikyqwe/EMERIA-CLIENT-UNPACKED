@@ -44,7 +44,7 @@ window = {
 
 				## GuildMaster
 				{
-					"name" : "GuildMaster", "type" : "text", "x" : 3, "y" : 57, "text" : "Capo",
+					"name" : "GuildMaster", "type" : "text", "x" : 3, "y" : 57, "text" : "Seful",
 					"children" :
 					(
 						{
@@ -55,7 +55,7 @@ window = {
 							"image" : LARGE_VALUE_FILE,
 							"children" :
 							(
-								{"name" : "GuildMasterNameValue", "type":"text", "text":"Capo", "x":0, "y":0, "all_align":"center"},
+								{"name" : "GuildMasterNameValue", "type":"text", "text":"Seful", "x":0, "y":0, "all_align":"center"},
 							),
 						},
 					),

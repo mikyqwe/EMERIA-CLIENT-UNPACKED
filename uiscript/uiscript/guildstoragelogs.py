@@ -43,7 +43,7 @@ window = {
 						{
 							"name" : "TitleName",
 							"type" : "text",
-							"text" : "Magazzino della gilda - Cronologia delle transazioni",
+							"text" : "Magazie de breasla - Istoricul tranzactiilor",
 							"horizontal_align" : "center",
 							"text_horizontal_align" : "center",
 							"x" : 0,
@@ -90,7 +90,7 @@ window = {
 						{
 							"name" : "LM_Delete", 
 							"type" : "button",
-							"text" : "Elimina cronologia",
+							"text" : "Stergeti istoricul",
 							"x" : 10,
 							"y" : 195,
 							"default_image" : "d:/ymir work/ui/public/Large_Button_01.sub",
@@ -120,7 +120,7 @@ window = {
 							"x" : 0,
 							"y" : 0,
 							
-							"text" : "Ricerca per nome:",
+							"text" : "Cauta dupa nume:",
 						},
 						{
 							"name" : "LS_SearchInputLineBG",
@@ -152,7 +152,7 @@ window = {
 						{
 							"name" : "LS_Search", 
 							"type" : "button",
-							"text" : "Ricerca",
+							"text" : "Cercetare",
 							"x" : 110,
 							"y" : 20,
 							"default_image" : "d:/ymir work/ui/public/Middle_Button_01.sub",

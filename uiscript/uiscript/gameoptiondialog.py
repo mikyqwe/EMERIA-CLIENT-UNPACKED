@@ -465,7 +465,7 @@ window = {
 					"x" : LINE_LABEL_X,
 					"y" : 290+2+25,
 
-					"text" : "Nascondi",
+					"text" : "Ascunde",
 				},				
 				{
 					"name" : "ShowMadaraPetButton",
@@ -474,7 +474,7 @@ window = {
 					"x" : LINE_DATA_X,
 					"y" : 290+25,
 
-					"text" : "Pet",
+					"text" : "Pet-uri",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
@@ -487,7 +487,7 @@ window = {
 					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
 					"y" : 290+25,
 
-					"text" : "Mounts",
+					"text" : "Mount-uri",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
@@ -500,7 +500,7 @@ window = {
 					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH+MIDDLE_BUTTON_WIDTH,
 					"y" : 290+25,
 
-					"text" : "Negozi",
+					"text" : "Negot",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
@@ -522,7 +522,7 @@ window = {
 					"x" : LINE_DATA_X+10,
 					"y" : 320+2+25+23+2,
 
-					"text" : "Cambia",
+					"text" : "Schimba",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
@@ -568,7 +568,7 @@ if app.__BL_HIDE_EFFECT__:
 				"x" : LINE_LABEL_X,
 				"y" : 315+2+25,
 
-				"text" : "Effetti",
+				"text" : "Efecte",
 				},
 				{
 					"name" : "BL_EFFECT_BuffEffect",
@@ -590,7 +590,7 @@ if app.__BL_HIDE_EFFECT__:
 					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
 					"y" : 315+2+25,
 
-					"text" : "Skill",
+					"text" : "Vraji",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",

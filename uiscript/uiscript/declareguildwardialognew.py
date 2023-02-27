@@ -68,7 +68,7 @@ window = {
 					
 					"children" :
 					(
-						{"name" : "GameTypeLabel", "type" : "text", "x" : 0, "y" : 3, "text" : "Modalita'",},
+						{"name" : "GameTypeLabel", "type" : "text", "x" : 0, "y" : 3, "text" : "Mod'",},
 						{
 							"name" : "GuardianButton",
 							"type" : "radio_button",
@@ -76,7 +76,7 @@ window = {
 							"x" : 65,
 							"y" : 0,
 
-							"text" : "Guardiano",
+							"text" : "Gardian",
 
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -103,7 +103,7 @@ window = {
 					
 					"children" :
 					(
-						{"name" : "GameTypeLabel2", "type" : "text", "x" : 0, "y" : 3, "text" : "Tipo",},
+						{"name" : "GameTypeLabel2", "type" : "text", "x" : 0, "y" : 3, "text" : "Tip",},
 						{
 							"name" : "FriendlyButton",
 							"type" : "radio_button",
@@ -111,7 +111,7 @@ window = {
 							"x" : 65,
 							"y" : 0,
 
-							"text" : "Amichevole",
+							"text" : "Prietenos",
 
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -124,7 +124,7 @@ window = {
 							"x" : 65+65*1,
 							"y" : 0,
 
-							"text" : "Classificata",
+							"text" : "Clasificat",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -138,7 +138,7 @@ window = {
 					
 					"children" :
 					(
-						{"name" : "GameTypeLabel3", "type" : "text", "x" : 0, "y" : 10, "text" : "Mappa",},
+						{"name" : "GameTypeLabel3", "type" : "text", "x" : 0, "y" : 10, "text" : "Harta",},
 						{
 							"name" : "DeathlandButton",
 							"type" : "radio_button",
@@ -159,7 +159,7 @@ window = {
 							"x" : 65+65*1,
 							"y" : 0,
 
-							"text" : "Massacro",
+							"text" : "Masacru",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -172,7 +172,7 @@ window = {
 							"x" : 65,
 							"y" : 25,
 
-							"text" : "Sangue",
+							"text" : "Sange",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -185,7 +185,7 @@ window = {
 							"x" : 65+65*1,
 							"y" : 25,
 
-							"text" : "Estinzione",
+							"text" : "Extinctie",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -199,7 +199,7 @@ window = {
 					
 					"children" :
 					(
-						{"name" : "GameTypeLabel4", "type" : "text", "x" : 0, "y" : 3, "text" : "Players",},
+						{"name" : "GameTypeLabel4", "type" : "text", "x" : 0, "y" : 3, "text" : "Jucatori",},
 						{
 							"name" : "threeButton",
 							"type" : "radio_button",

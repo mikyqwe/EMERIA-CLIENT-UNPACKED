@@ -69,7 +69,7 @@ window = {
                     "x" : 15,
                     "y" : 100,
  
-                    "text" : "Max. Punti",
+                    "text" : "Puncte Max.",
                 },
                 {
                     "name" : "InputSlotScore",
@@ -105,7 +105,7 @@ window = {
                     "x" : 15,
                     "y" : 130,
  
-                    "text" : "Max. Giocatori",
+                    "text" : "Jucatori Max.",
                 },
                 {
                     "name" : "InputSlotUser",

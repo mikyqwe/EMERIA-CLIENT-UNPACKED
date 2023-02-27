@@ -1,4 +1,4 @@
-[DELAY value;10]
+[DELAY value;0]
 Sura sunt luptãtori[ENTER]
 înzestraþi cu puteri magice[ENTER]
 de când au lãsat sãmânþa[ENTER]
@@ -14,7 +14,6 @@ la distanþã, prin utilizarea[ENTER]
 magiei. Prin specializare,[ENTER]
 sura îºi pot îmbunãtãþi[ENTER]
 vrãjile de atac[ENTER]
-[ENTER]
 sau îºi pot însuºi noi vrãji[ENTER]
 [WAIT]
 de întãrire.

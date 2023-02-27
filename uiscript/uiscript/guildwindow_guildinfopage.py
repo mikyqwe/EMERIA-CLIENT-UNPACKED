@@ -44,7 +44,7 @@ window = {
 
 				## GuildMaster
 				{
-					"name" : "GuildMaster", "type" : "text", "x" : 3, "y" : 57, "text" : "Capo",
+					"name" : "GuildMaster", "type" : "text", "x" : 3, "y" : 57, "text" : "Seful",
 					"children" :
 					(
 						{
