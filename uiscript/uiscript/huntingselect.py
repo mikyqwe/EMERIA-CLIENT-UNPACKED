@@ -44,7 +44,7 @@ window = {
 								},
 								{ 
 									"name" : "mobname_text_slot_0", "type" : "image", "x" : 85, "y" : 27 + 22*0,  "image" : IMG_PATH + "slot_text.sub", 
-									"children" : ( { "name" : "mobname_text_0", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Seful Ork", }, ),
+									"children" : ( { "name" : "mobname_text_0", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "ªeful Ork", }, ),
 								},
 								# AMOUNT
 								{ 
@@ -62,7 +62,7 @@ window = {
 								},
 								{ 
 									"name" : "dest_text_slot_0", "type" : "image", "x" : 85, "y" : 27 + 22*2,  "image" : IMG_PATH + "slot_text.sub", 
-									"children" : ( { "name" : "dest_text_0", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Valea Seungyong", }, ),
+									"children" : ( { "name" : "dest_text_0", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Valea Seungryong", }, ),
 								},
 								# YANG
 								{ 
@@ -139,7 +139,7 @@ window = {
 								},
 								{ 
 									"name" : "mobname_text_slot_1", "type" : "image", "x" : 85, "y" : 27 + 22*0,  "image" : IMG_PATH + "slot_text.sub", 
-									"children" : ( { "name" : "mobname_text_1", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Ober-Ork", }, ),
+									"children" : ( { "name" : "mobname_text_1", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "ªef-Ork", }, ),
 								},
 								# AMOUNT
 								{ 
@@ -157,7 +157,7 @@ window = {
 								},
 								{ 
 									"name" : "dest_text_slot_1", "type" : "image", "x" : 85, "y" : 27 + 22*2,  "image" : IMG_PATH + "slot_text.sub", 
-									"children" : ( { "name" : "dest_text_1", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Valea Seungyong", }, ),
+									"children" : ( { "name" : "dest_text_1", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Valea Seungryong", }, ),
 								},
 								# YANG
 								{ 

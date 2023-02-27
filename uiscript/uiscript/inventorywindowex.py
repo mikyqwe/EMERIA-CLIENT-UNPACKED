@@ -91,7 +91,7 @@ window = {
 							"x" : 0,
 							"y" : 0,
 							"all_align" : "center",
-							"text" : "Difensivi",
+							"text" : "Defensiv",
 						},
 					),
 				},
@@ -101,7 +101,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 55,
-					"text" : " Spada:"
+					"text" : " Sabie:"
 				},
 				{
 					"name" : "Schwert_info",
@@ -131,7 +131,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75,
-					"text" : " Spadone:"
+					"text" : " Douã maini:"
 				},
 				{
 					"name" : "2Hand_info",
@@ -161,7 +161,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20,
-					"text" : " Pugnale:"
+					"text" : " Pumnal:"
 				},
 				{
 					"name" : "Dolch_info",
@@ -191,7 +191,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20,
-					"text" : " Res. Freccia:"
+					"text" : " Rez. Sãgeti:"
 				},
 				{
 					"name" : "Pfeilwiderstand_info",
@@ -222,7 +222,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20,
-					"text" : " Campana:"
+					"text" : " Clopot:"
 				},
 				{
 					"name" : "Glocke_info",
@@ -252,7 +252,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20,
-					"text" : " Ventaglio:"
+					"text" : " Evantai:"
 				},
 				{
 					"name" : "Faecher_info",
@@ -282,7 +282,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Res. Magia:"
+					"text" : " Rez. Magie:"
 				},
 				{
 					"name" : "Magiewiederstand_info",
@@ -312,7 +312,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Res. Veleno:"
+					"text" : " Rez. Otravã:"
 				},
 				{
 					"name" : "Giftwiederstand_info",
@@ -342,7 +342,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Guerriero"
+					"text" : " Rãzboinic"
 				},
 				{
 					"name" : "Krieger_info",
@@ -432,7 +432,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Shamano:"
+					"text" : " ªaman:"
 				},
 				{
 					"name" : "Schamane_info",
@@ -484,7 +484,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Critici:"
+					"text" : " Lov. criticã:"
 				},
 				{
 					"name" : "Krit_info",
@@ -604,7 +604,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Mezziuomini:"
+					"text" : " Semi-om:"
 				},
 				{
 					"name" : "Halbmenschen_info",
@@ -634,7 +634,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Zombie:"
+					"text" : " Vampiri:"
 				},
 				{
 					"name" : "Untote_info",
@@ -664,7 +664,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Diavolo:"
+					"text" : " Diavol:"
 				},
 				{
 					"name" : "Teufel_info",
@@ -694,7 +694,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Guerriero"
+					"text" : " Rãzboinic"
 				},
 				{
 					"name" : "KriegerO_info",
@@ -784,7 +784,7 @@ window = {
 					"type" : "text",
 					"x" : 176 - 5,
 					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Shamano:"
+					"text" : " ªaman:"
 				},
 				{
 					"name" : "SchamaneO_info",

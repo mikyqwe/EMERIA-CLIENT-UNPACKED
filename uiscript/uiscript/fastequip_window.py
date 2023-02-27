@@ -102,7 +102,7 @@ window = {
 					"x" : 109,
 					"y" : 235,
 					
-					"text" : "Resetati",
+					"text" : "Resetaþi",
 					
 					"default_image" : "d:/ymir work/ui/public/Large_Button_01.sub",
 					"over_image" : "d:/ymir work/ui/public/Large_Button_02.sub",

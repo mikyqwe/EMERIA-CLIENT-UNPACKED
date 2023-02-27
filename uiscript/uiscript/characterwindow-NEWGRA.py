@@ -549,7 +549,7 @@ window = {
 									"x" : 5,
 									"y" : 2,
 
-									"text" : "Group1",
+									"text" : "Grupa1",
 									"text_color" : 0xFFFFE3AD,
 
 									"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -564,7 +564,7 @@ window = {
 									"x" : 50,
 									"y" : 2,
 
-									"text" : "Group2",
+									"text" : "Grupa2",
 									"text_color" : 0xFFFFE3AD,
 
 									"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -578,7 +578,7 @@ window = {
 
 									"x" : 7,
 									"y" : 1,
-									"text" : "Active",
+									"text" : "Activ",
 
 									"vertical_align" : "center",
 									"text_vertical_align" : "center",

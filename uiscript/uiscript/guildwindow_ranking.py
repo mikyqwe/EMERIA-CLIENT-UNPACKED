@@ -39,7 +39,7 @@ window = {
 			"x" : 440,
 			"y" : 5,
 
-			"text" : "Jucatori",
+			"text" : "Jucãtori",
 
 			"default_image" : ROOT_PATH + "Middle_Button_01.sub",
 			"over_image" : ROOT_PATH + "Middle_Button_02.sub",
@@ -76,7 +76,7 @@ window = {
 			"x" : 190,
 			"y" : 5,
 
-			"text" : "Actualizati",
+			"text" : "Actualizaþi",
 
 
 			"default_image" : ROOT_PATH + "Middle_Button_01.sub",
@@ -165,7 +165,7 @@ window = {
 				{ "name" : "ResultNameText2", "type" : "text", "x" : 107, "y" : 4, "text" : "", },
 				{ "name" : "ResultNameText3", "type" : "text", "x" : 203, "y" : 4, "text" : "W  -  L", },
 				{ "name" : "ResultNameText4", "type" : "text", "x" : 282, "y" : 4, "text" : "Trofee", },
-				{ "name" : "ResultNameText5", "type" : "text", "x" : 395, "y" : 4, "text" : "Jucator de top", },
+				{ "name" : "ResultNameText5", "type" : "text", "x" : 395, "y" : 4, "text" : "Jucãtor de top", },
 				{ "name" : "ResultNameText6", "type" : "text", "x" : 441, "y" : 4, "text" : "Breasla", },
 			),
 		},

@@ -52,7 +52,7 @@ window = {
 							"x":142,
 							"y":3,
 							
-							"text": "Negozio Sfere Trasformazione",
+							"text": "Magazin Globuri Transformãri",
 							
 							"text_horizontal_align":"center"
 						},
@@ -77,7 +77,7 @@ window = {
 							"type" : "text",
 							"x" : 23,
 							"y" : 0,
-							"text" : "Seleziona Sfera",
+							"text" : "Selectaþi globul",
 						},
 
 					),
@@ -140,7 +140,7 @@ window = {
 							"type" : "text",
 							"x" : 45,
 							"y" : 0,
-							"text" : "Impostazioni",
+							"text" : "Setãri",
 						},
 
 					),
@@ -164,7 +164,7 @@ window = {
 						{
 							"name" : "CountText",
 							"type":"text",
-							"text":"Quantita'",
+							"text":"Cantitatea'",
 							"x":38,
 							"y":8,
 							"r":1.0,
@@ -244,7 +244,7 @@ window = {
 							"type" : "text",
 							"x" : 40,
 							"y" : 0,
-							"text" : "Selezionato",
+							"text" : "Selectat",
 						},
 
 					),
@@ -279,7 +279,7 @@ window = {
 								{
 									"name" : "ResumeMarbleName",
 									"type":"text",
-									"text":"Stray Dog",
+									"text":"Câine sãlbatic",
 									"x":4,
 									"y":2,
 									"r":1.0,
@@ -291,7 +291,7 @@ window = {
 								{
 									"name" : "ResumeMarbleCount",
 									"type":"text",
-									"text":"1 szt.",
+									"text":"1 buc.",
 									"x":58,
 									"y":0,
 									"r":1.0,
@@ -341,7 +341,7 @@ window = {
 					"x" : 171,
 					"y" : GLOBAL_HEIGHT - 28,
 					
-					"text" : "Compra",
+					"text" : "Cumparã",
 					
 					"default_image" : "d:/ymir work/ui/public/large_button_01.sub",
 					"over_image" : "d:/ymir work/ui/public/large_button_02.sub",

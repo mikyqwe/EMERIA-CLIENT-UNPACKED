@@ -306,7 +306,7 @@ window = {
 			"x" : SCREEN_WIDTH * (55) / 800,
 			"y" : SCREEN_HEIGHT * (50) / 600,
 
-			"text" : "1 Page",
+			"text" : "Pagina 1",
 
 			"default_image" : "d:/ymir work/ui/public/xlarge_thin_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/xlarge_thin_button_02.sub",
@@ -319,7 +319,7 @@ window = {
 			"x" : SCREEN_WIDTH * (55) / 800,
 			"y" : SCREEN_HEIGHT * (35 + 50) / 600,
 
-			"text" : "2 Page",
+			"text" : "Pagina 2",
 
 			"default_image" : "d:/ymir work/ui/public/xlarge_thin_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/xlarge_thin_button_02.sub",

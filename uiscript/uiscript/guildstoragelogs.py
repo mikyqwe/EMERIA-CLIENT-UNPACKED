@@ -90,7 +90,7 @@ window = {
 						{
 							"name" : "LM_Delete", 
 							"type" : "button",
-							"text" : "Stergeti istoricul",
+							"text" : "Stergeţi istoricul",
 							"x" : 10,
 							"y" : 195,
 							"default_image" : "d:/ymir work/ui/public/Large_Button_01.sub",
@@ -120,7 +120,7 @@ window = {
 							"x" : 0,
 							"y" : 0,
 							
-							"text" : "Cauta dupa nume:",
+							"text" : "Caută după nume:",
 						},
 						{
 							"name" : "LS_SearchInputLineBG",

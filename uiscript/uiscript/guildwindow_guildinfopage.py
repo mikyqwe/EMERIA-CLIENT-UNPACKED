@@ -44,7 +44,7 @@ window = {
 
 				## GuildMaster
 				{
-					"name" : "GuildMaster", "type" : "text", "x" : 3, "y" : 57, "text" : "Seful",
+					"name" : "GuildMaster", "type" : "text", "x" : 3, "y" : 57, "text" : "ªeful",
 					"children" :
 					(
 						{
@@ -55,7 +55,7 @@ window = {
 							"image" : LARGE_VALUE_FILE,
 							"children" :
 							(
-								{"name" : "GuildMasterNameValue", "type":"text", "text":"Capo", "x":0, "y":0, "all_align":"center"},
+								{"name" : "GuildMasterNameValue", "type":"text", "text":"ªeful", "x":0, "y":0, "all_align":"center"},
 							),
 						},
 					),
@@ -372,7 +372,7 @@ window = {
 			"type" : "button",
 			"x" : 250 + 15,
 			"y" : 264,
-			"text": "|cffF4B418Dichiara Guerra",
+			"text": "|cffF4B418Declarã Rãzboi",
 			"default_image" : "d:/ymir work/ui/public/large_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/large_button_02.sub",
 			"down_image" : "d:/ymir work/ui/public/large_button_03.sub",

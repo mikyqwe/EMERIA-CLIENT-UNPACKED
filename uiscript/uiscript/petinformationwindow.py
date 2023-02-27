@@ -98,7 +98,7 @@ window = {
 					"name" : "EvolNameWindow", "type" : "window", "x" : 65, "y" : 50, "width" : LONG_LABEL_WIDTH, "height" : LONG_LABEL_HEIGHT, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"EvolName", "type":"text", "x":0, "y":0, "text": "Lv. 3 (Special Evolution)", "r":1.0, "g":0.0, "b":0.0, "a":1.0, "all_align" : "center"},
+						{"name":"EvolName", "type":"text", "x":0, "y":0, "text": "Lv. 3 (Evoluþie Specialã)", "r":1.0, "g":0.0, "b":0.0, "a":1.0, "all_align" : "center"},
 					),	
 				},
 				

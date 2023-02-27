@@ -43,7 +43,7 @@ window = {
 								},
 								{ 
 									"name" : "mobname_text_slot", "type" : "image", "x" : 85, "y" : 27 + 22*0,  "image" : IMG_PATH + "slot_text.sub", 
-									"children" : ( { "name" : "mobname_text", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Sef Ork", }, ),
+									"children" : ( { "name" : "mobname_text", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "ªef Ork", }, ),
 								},
 								# AMOUNT
 								{ 
@@ -61,7 +61,7 @@ window = {
 								},
 								{ 
 									"name" : "dest_text_slot", "type" : "image", "x" : 85, "y" : 27 + 22*2,  "image" : IMG_PATH + "slot_text.sub", 
-									"children" : ( { "name" : "dest_text", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Valea Seungyong", }, ),
+									"children" : ( { "name" : "dest_text", "type" : "text", "x" : 0, "y" : 2, "color" : GOLD_COLOR, "horizontal_align" : "center", "text_horizontal_align" : "center", "text" : "Valea Seungryong", }, ),
 								},
 								# YANG
 								{ 
@@ -125,15 +125,15 @@ window = {
 					),
 				},
 				{
-					"name" : "mini_ui_button", "type" : "button", "x" : 15, "y" : 15 + 20, "vertical_align" : "bottom", "text" : "Activati Tracker", "text_outline" : 1, "text_y" : -1,
+					"name" : "mini_ui_button", "type" : "button", "x" : 15, "y" : 15 + 20, "vertical_align" : "bottom", "text" : "Activaþi Tracker", "text_outline" : 1, "text_y" : -1,
 					"default_image" : IMG_PATH + "button_small_normal.sub", "over_image" : IMG_PATH + "button_small_hover.sub", "down_image" : IMG_PATH + "button_small_down.sub", "disable_image" : IMG_PATH + "button_small_down.sub",
 				},
 				{
-					"name" : "close_button", "type" : "button", "x" : 0, "y" : 15 + 20, "horizontal_align" : "center", "vertical_align" : "bottom", "text" : "Inchide", "text_outline" : 1, "text_y" : -1,
+					"name" : "close_button", "type" : "button", "x" : 0, "y" : 15 + 20, "horizontal_align" : "center", "vertical_align" : "bottom", "text" : "Închide", "text_outline" : 1, "text_y" : -1,
 					"default_image" : IMG_PATH + "button_small_normal.sub", "over_image" : IMG_PATH + "button_small_hover.sub", "down_image" : IMG_PATH + "button_small_down.sub", "disable_image" : IMG_PATH + "button_small_down.sub",
 				},
 				{
-					"name" : "reward_button", "type" : "button", "x" : 15 + 120, "y" : 15 + 20, "vertical_align" : "bottom", "horizontal_align" : "right", "text" : "Colecteaza recompensa", "text_outline" : 1, "text_y" : -1,
+					"name" : "reward_button", "type" : "button", "x" : 15 + 120, "y" : 15 + 20, "vertical_align" : "bottom", "horizontal_align" : "right", "text" : "Colecteazã recompensa", "text_outline" : 1, "text_y" : -1,
 					"default_image" : IMG_PATH + "button_small_normal.sub", "over_image" : IMG_PATH + "button_small_hover.sub", "down_image" : IMG_PATH + "button_small_down.sub", "disable_image" : IMG_PATH + "button_small_down.sub",
 				},
 			),

@@ -69,7 +69,7 @@ window = {
 							"type" : "text",
 							"x" : 40,
 							"y" : 5,
-							"text" : "Bankanda Bulunanlar :",
+							"text" : "Ce este in bancã :",
 						#	"text_horizontal_align":"center"
 						},
 						#Slot & Item Icon
@@ -356,7 +356,7 @@ window = {
 							"x" : 9,
 							"y" : 7,
 							
-							"text" : "Çek",
+							"text" : "Verificã",
 							
 							"default_image" : "d:/ymir work/efsun_gui2/offical_button.tga",
 							"over_image" : "d:/ymir work/efsun_gui2/offical_button_bastim.tga",
@@ -369,7 +369,7 @@ window = {
 							"x" : 90,
 							"y" : 7,
 							
-							"text" : "Yenile",
+							"text" : "Refresh",
 							
 							"default_image" : "d:/ymir work/efsun_gui2/offical_button.tga",
 							"over_image" : "d:/ymir work/efsun_gui2/offical_button_bastim.tga",

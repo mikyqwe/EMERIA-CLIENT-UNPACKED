@@ -579,7 +579,7 @@ if app.ENABLE_SPECIAL_STATS_SYSTEM:
 										"x" : 5,
 										"y" : 2,
 
-										"text" : "Group1",
+										"text" : "Grupa1",
 										"text_color" : 0xFFFFE3AD,
 
 										"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -594,7 +594,7 @@ if app.ENABLE_SPECIAL_STATS_SYSTEM:
 										"x" : 50,
 										"y" : 2,
 
-										"text" : "Group2",
+										"text" : "Grupa2",
 										"text_color" : 0xFFFFE3AD,
 
 										"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -608,7 +608,7 @@ if app.ENABLE_SPECIAL_STATS_SYSTEM:
 
 										"x" : 7,
 										"y" : 1,
-										"text" : "Active",
+										"text" : "Activ",
 
 										"vertical_align" : "center",
 										"text_vertical_align" : "center",
@@ -769,7 +769,7 @@ if app.ENABLE_SPECIAL_STATS_SYSTEM:
 							},
 
 							{ "name":"Special_Action_Bar", "type":"horizontalbar", "x":12, "y":8+190, "width":223, },
-							{ "name":"Special_Action_Bar_Text", "type":"text", "x":15, "y":10+190, "text":"Special Dances" },
+							{ "name":"Special_Action_Bar_Text", "type":"text", "x":15, "y":10+190, "text":"Dansuri Speciale" },
 
 							## Special_Action_Slot
 							{				
@@ -970,7 +970,7 @@ if app.ENABLE_SPECIAL_STATS_SYSTEM:
 
 							## »óÈ£ ¾×¼Ç Á¦¸ñ
 							{ "name":"TalentiDesc_Bar", "type":"horizontalbar", "x":12, "y":8+150-42, "width":223, },
-							{ "name":"TalentiDesc_Bar_Text", "type":"text", "x":15, "y":10+150-42, "text":"Descrizione Perks" },
+							{ "name":"TalentiDesc_Bar_Text", "type":"text", "x":15, "y":10+150-42, "text":"Descriere Perks" },
 
 							
 							{
@@ -993,7 +993,7 @@ if app.ENABLE_SPECIAL_STATS_SYSTEM:
 								"type":"text",
 								"x":15,
 								"y":180-42,
-								"text":"Fortuna",
+								"text":"Avere",
 								#"color" : "red"
 							},
 							{
@@ -1558,7 +1558,7 @@ else:
 										"x" : 5,
 										"y" : 2,
 
-										"text" : "Group1",
+										"text" : "Grupa1",
 										"text_color" : 0xFFFFE3AD,
 
 										"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -1573,7 +1573,7 @@ else:
 										"x" : 50,
 										"y" : 2,
 
-										"text" : "Group2",
+										"text" : "Grupa2",
 										"text_color" : 0xFFFFE3AD,
 
 										"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
@@ -1587,7 +1587,7 @@ else:
 
 										"x" : 7,
 										"y" : 1,
-										"text" : "Active",
+										"text" : "Activ",
 
 										"vertical_align" : "center",
 										"text_vertical_align" : "center",
@@ -1748,7 +1748,7 @@ else:
 							},
 
 							{ "name":"Special_Action_Bar", "type":"horizontalbar", "x":12, "y":8+190, "width":223, },
-							{ "name":"Special_Action_Bar_Text", "type":"text", "x":15, "y":10+190, "text":"Special Dances" },
+							{ "name":"Special_Action_Bar_Text", "type":"text", "x":15, "y":10+190, "text":"Dansuri Speciale" },
 
 							## Special_Action_Slot
 							{				

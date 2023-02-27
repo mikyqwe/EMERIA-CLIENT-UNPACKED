@@ -38,7 +38,7 @@ window = {
 
 					"children" :
 					(
-						{ "name":"TitleName", "type":"text", "x":0, "y":3, "text":'Magazzino della Gilda',"horizontal_align" : "center", "text_horizontal_align":"center",},
+						{ "name":"TitleName", "type":"text", "x":0, "y":3, "text":'Depozitul breslei',"horizontal_align" : "center", "text_horizontal_align":"center",},
 					),
 				},
 				

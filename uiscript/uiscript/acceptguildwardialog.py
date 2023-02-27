@@ -69,7 +69,7 @@ window = {
                     "x" : 15,
                     "y" : 100,
  
-                    "text" : "Max. Punti",
+                    "text" : "Max. Puncte",
                 },
                 {
                     "name" : "InputSlotScore",
@@ -105,7 +105,7 @@ window = {
                     "x" : 15,
                     "y" : 130,
  
-                    "text" : "Max. Giocatori",
+                    "text" : "Max. Jucãtori",
                 },
                 {
                     "name" : "InputSlotUser",
@@ -183,7 +183,7 @@ window = {
 							"x" : 65,
 							"y" : 0,
 
-							"text" : uiScriptLocale.GUILD_WAR_NORMAL,							
+							"text" : uiScriptLocale.GUILD_WAR_NORMAL,
 
 							"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/small_button_02.sub",

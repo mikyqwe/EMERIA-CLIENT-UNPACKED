@@ -105,7 +105,7 @@ window = {
                     "x" : 15,
                     "y" : 130,
  
-                    "text" : "Jucatori Max.",
+                    "text" : "Jucători Max.",
                 },
                 {
                     "name" : "InputSlotUser",

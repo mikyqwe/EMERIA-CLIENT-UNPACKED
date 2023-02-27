@@ -97,7 +97,7 @@ window = {
 							"x" : 8,
 							"y" : 4 + 28 + 28,
 
-							"text" : "Carti",
+							"text" : "Cãrþi",
 
 							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
 							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",

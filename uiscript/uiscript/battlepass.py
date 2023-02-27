@@ -46,7 +46,7 @@ window = {
 					"name" : "Text2Info","type" : "text","x" : 320+3,"y" : 54+20,"text" : "- Status: ",
 				},
 				{
-					"name" : "Text3Info","type" : "text","x" : 320+3,"y" : 74+20,"text" : "- Progress: ",
+					"name" : "Text3Info","type" : "text","x" : 320+3,"y" : 74+20,"text" : "- Progres: ",
 				},
 				{
 					"name" : "Text4Info","type" : "text","x" : 378,"y" : 94+20,"text" : "|cffffff00Descriere",

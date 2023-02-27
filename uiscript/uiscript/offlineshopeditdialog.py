@@ -55,7 +55,7 @@ window = {
 					"type": "text",
 					"x": (280 / 2) - 90,
 					"y": 328 - 15,
-					"text": "Time Left: 0 Seconds",
+					"text": "Timp rãmas: 0 Secunde",
 				},
 				{
 					"name": "LocationText",

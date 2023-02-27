@@ -42,7 +42,7 @@ window = {
 
 					"children" :
 					(
-						{ "name":"TitleName", "type":"text", "x": 250, "y":3, "text": "Anteprima Forziere", "text_horizontal_align":"center" },
+						{ "name":"TitleName", "type":"text", "x": 250, "y":3, "text": "Previzualizare Cufăr", "text_horizontal_align":"center" },
 					),
 				},
 				

@@ -83,7 +83,7 @@ window = {
 
 				## Wins
 				{
-					"name" : "GuildWins", "type" : "text", "x" : 3, "y" : 119, "text" : "Castiguri",
+					"name" : "GuildWins", "type" : "text", "x" : 3, "y" : 119, "text" : "Câºtiguri",
 					"children" :
 					(
 						{

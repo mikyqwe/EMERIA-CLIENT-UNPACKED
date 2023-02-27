@@ -68,7 +68,7 @@ window = {
 					
 					"children" :
 					(
-						{"name" : "GameTypeLabel", "type" : "text", "x" : 0, "y" : 3, "text" : "Mod'",},
+						{"name" : "GameTypeLabel", "type" : "text", "x" : 0, "y" : 3, "text" : "Mod",},
 						{
 							"name" : "GuardianButton",
 							"type" : "radio_button",
@@ -172,7 +172,7 @@ window = {
 							"x" : 65,
 							"y" : 25,
 
-							"text" : "Sange",
+							"text" : "Sânge",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -185,7 +185,7 @@ window = {
 							"x" : 65+65*1,
 							"y" : 25,
 
-							"text" : "Extinctie",
+							"text" : "Extincţie",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -199,7 +199,7 @@ window = {
 					
 					"children" :
 					(
-						{"name" : "GameTypeLabel4", "type" : "text", "x" : 0, "y" : 3, "text" : "Jucatori",},
+						{"name" : "GameTypeLabel4", "type" : "text", "x" : 0, "y" : 3, "text" : "Jucători",},
 						{
 							"name" : "threeButton",
 							"type" : "radio_button",

@@ -802,7 +802,7 @@ window = {
 						},
 
 						{ "name":"Special_Action_Bar", "type":"horizontalbar", "x":12, "y":8+190, "width":223, },
-						{ "name":"Special_Action_Bar_Text", "type":"text", "x":15, "y":10+190, "text":"Danze Speciali" },
+						{ "name":"Special_Action_Bar_Text", "type":"text", "x":15, "y":10+190, "text":"Dansuri Speciale" },
 
 						## Special_Action_Slot
 						{				
@@ -1010,7 +1010,7 @@ window = {
 
 						## »óÈ£ ¾×¼Ç Á¦¸ñ
 						{ "name":"TalentiDesc_Bar", "type":"horizontalbar", "x":12, "y":8+150-42, "width":223, },
-						{ "name":"TalentiDesc_Bar_Text", "type":"text", "x":15, "y":10+150-42, "text":"Descrizione Perks" },
+						{ "name":"TalentiDesc_Bar_Text", "type":"text", "x":15, "y":10+150-42, "text":"Descriere Perks" },
 
 						
 						{
@@ -1033,7 +1033,7 @@ window = {
 							"type":"text",
 							"x":15,
 							"y":180-42,
-							"text":"Fortuna",
+							"text":"Avere",
 							#"color" : "red"
 						},
 						{

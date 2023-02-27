@@ -640,7 +640,7 @@ window = {
 					"default_image" : "d:/ymir work/ui/intro_elendos/button/button_dark_normal.sub",
 					"over_image" :  "d:/ymir work/ui/intro_elendos/button/button_dark_hover.sub",
 					"down_image" : "d:/ymir work/ui/intro_elendos/button/button_dark_down.sub",
-					"text" : "Arata animatie", "text_color" : 0xffffffff, "text_outline" : 1,
+					"text" : "Arată animaţie", "text_color" : 0xffffffff, "text_outline" : 1,
 				},
 			),
 		},

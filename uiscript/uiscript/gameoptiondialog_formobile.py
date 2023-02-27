@@ -479,7 +479,7 @@ window = {
 					"x" : LINE_LABEL_X,
 					"y" : 290+2,
 
-					"text" : "Traducator",
+					"text" : "Traduc?tor",
 				},
 				{
 					"name" : "trans_lang_box",
