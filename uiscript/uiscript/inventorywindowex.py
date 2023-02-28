@@ -56,20 +56,19 @@ window = {
 					),
 				},			
 				###############################################################################################
-				# RANDOMMINIMIEREN
 				##Minimieren Button	
-				{
-					"name" : "MinimierenButton",
-					"type" : "button",
+				# {
+					# "name" : "MinimierenButton",
+					# "type" : "button",
 
-					"x" : 161 + SPACE_BONUS_INVENTORY - 30,
-					"y" : 10,
+					# "x" : 161 + SPACE_BONUS_INVENTORY - 30,
+					# "y" : 10,
 
-					"default_image" : "d:/ymir work/ui/public/minimize_button_01.sub",
-					"over_image" : "d:/ymir work/ui/public/minimize_button_02.sub",
-					"down_image" : "d:/ymir work/ui/public/minimize_button_03.sub",
-					"tooltip_text" : "Riduci",
-				},
+					# "default_image" : "d:/ymir work/ui/public/minimize_button_01.sub",
+					# "over_image" : "d:/ymir work/ui/public/minimize_button_02.sub",
+					# "down_image" : "d:/ymir work/ui/public/minimize_button_03.sub",
+					# "tooltip_text" : "Riduci",
+				# },
 				###################################################
 				###################################################
 				###################################################
