@@ -9,6 +9,7 @@ import systemSetting
 import localeInfo
 import chr
 
+import constInfo
 import ui
 import uiScriptLocale
 import networkModule
@@ -16,7 +17,7 @@ import musicInfo
 import playerSettingModule
 
 ####################################
-# 빠른 실행을 위한 모듈 로딩 분담
+# ???? ?????? ???? ??? ?ε? ?д?
 ####################################
 import uiCommon                    
 import uiMapNameShower             
@@ -26,145 +27,186 @@ import uiCharacter
 import uiTarget                    
 import consoleModule               
 
-# interface module이 문제야...
+# interface module?? ??????...
 import interfaceModule
 import uiTaskBar                   
 import uiInventory
-import dbg
-import uitooltip
-import constInfo
-import event
-import background
-import player
+
 ###################################
 
-LEAVE_BUTTON_FOR_POTAL = False
-NOT_NEED_DELETE_CODE = False
-ENABLE_ENGNUM_DELETE_CODE = False
+LEAVE_BUTTON_FOR_POTAL = FALSE
+NOT_NEED_DELETE_CODE = FALSE
+ENABLE_ENGNUM_DELETE_CODE = FALSE
 
 if localeInfo.IsJAPAN():
-	NOT_NEED_DELETE_CODE = True
+	NOT_NEED_DELETE_CODE = TRUE
 elif localeInfo.IsHONGKONG():
-	ENABLE_ENGNUM_DELETE_CODE = True
+	ENABLE_ENGNUM_DELETE_CODE = TRUE
 elif localeInfo.IsNEWCIBN() or localeInfo.IsCIBN10():
-	ENABLE_ENGNUM_DELETE_CODE = True
+	ENABLE_ENGNUM_DELETE_CODE = TRUE
 elif localeInfo.IsEUROPE():
-	ENABLE_ENGNUM_DELETE_CODE = True
+	ENABLE_ENGNUM_DELETE_CODE = TRUE
 
 ###################################
 
+ROTATE_SPEED = 2.5
+MAX_STATUS_POINTS = 90
+
+COMMON_PATH = "d:/ymir work/ui/intro_elendos/common/"
+CHAR_ICON_DICT = {
+	0 : COMMON_PATH + "character_icon_warrior.sub", 
+	1 : COMMON_PATH + "character_icon_assassin.sub", 
+	2 : COMMON_PATH + "character_icon_sura.sub", 
+	3 : COMMON_PATH + "character_icon_shaman.sub", 
+	4 : COMMON_PATH + "character_icon_warrior.sub", 
+	5 : COMMON_PATH + "character_icon_assassin.sub", 
+	6 : COMMON_PATH + "character_icon_sura.sub", 
+	7 : COMMON_PATH + "character_icon_shaman.sub", 
+}
+
+MAP_NAME_DICT = {
+	0 : "",
+	1 : "Shinsoo - Yongan (Map1)",
+	3 : "Shinsoo - Yayang (Map2)",
+	4 : "Shinsoo - Jungrang (Guildzone)",
+	6 : "Shinsoo - Miryang (Guildzone 2)",
+	21 : "Chunjo - Joan (Map1)",
+	23 : "Chunjo - Bokjung (Map2)",
+	24 : "Chunjo - Waryong (Guildzone)",
+	116 : "Chunjo - Songpa (Guildzone 2)",
+	41 : "Jinno - Pyungmoo (Map1)",
+	43 : "Jinno - Bakra (Map2)",
+	44 : "Jinno - Imha (Guildzone)",
+	46 : "Jinno - Daeyami (Guildzone 2)",
+	5 : "Hasun Dong - (Monkey Dungeon Beginner)",
+	25 : "Hasun Dong - (Monkey Dungeon Beginner)",
+	45 : "Hasun Dong - (Monkey Dungeon Beginner)",
+	107 : "Hasun Dong - (Monkey Dungeon Beginner)",
+	108 : "Jungsun Dong - (Monkey Dungeon Normally)",
+	109 : "Sangsun Dong - (Monkey Dungeon Expert)",
+	61 : "Mount Sohan (Iceland)",
+	62 : "Doyyumhwaji (Fireland)",
+	63 : "Yongbi Desert",
+	64 : "Valley of Seungryong - (Orctal)",
+	65 : "Hwang Temple",
+	67 : "Lungsam - (Ghost forest)",
+	68 : "Lungsam - (Red forest)",
+	69 : "Snakefiield",
+	70 : "Valley of Giants",
+	81 : "Wedding Place",
+	103 : "Guild War",
+	105 : "Guild War",
+	110 : "Guild War",
+	111 : "Guild War",
+	112 : "PvP-Area",
+	113 : "OX Map - (Event)",
+	120 : "Empire War - (Event)",
+	121 : "Empire War - (Event)",
+	122 : "Empire War - (Event)",
+	123 : "Empire War - (Event)",
+	124 : "Empire War - (Event)",
+	125 : "Empire War - (Event)",
+	126 : "Empire War - (Event)",
+	127 : "Empire War - (Event)",
+	128 : "Empire War - (Event)",
+	351 : "Red Dragon Fortress - (Dungeon)",
+	216 : "Devils Catacomb - (Dungeon)",
+	352 : "Nemeres Warte - (Dungeon)",
+	319 : "Hydra Ship defence - (Dungeon)",
+	320 : "Hydra Entrance - (Entrance)",
+	356 : "Land of Giants - (Normal Map)",
+	400 : "Spider Baroness - (Dungeon)",
+	401 : "Cape of the Dragon - (Normal Map)",
+	402 : "Thunder Mountains - (Normal Map)",
+	403 : "Gautama Cliff - (Normal Map)",
+	404 : "Nephrite Bay - (Normal Map)",
+	405 : "Enchanted Forest - (Normal Map)",
+	66 : "Demon Tower - (Dungeon)",
+	71 : "Spider Dungeon - (01)",
+	104 : "Spider Dungeon - (02)",
+	217 : "Spider Dungeon - (03)",
+	72 : "Grotto of Exile - (1)",
+	73 : "Grotto of Exile - (2)",
+	409 : "Grotto of Exile - (Dragon Room)",
+	242 : "Event Map - (Event)",
+	223 : "Halloween Dungeon - (Event Map)",
+	358 : "Demon Tower - (2)",
+	37 : "Halloween Dungeon - (Dungeon)",
+	212 : "Meleys Hoard - (Guild Dungeon)",
+	77 : "Chamber of Wisdom - (Dungeon)",
+	76 : "Deep underwater Shark Cave - (Dungeon)",
+	334 : "Trade Mile - (Trading Map)",
+	243 : "Spider Dungeon - (04)",
+	350 : "Spider Dungeon - (05)",
+	50 : "Sommer Map - (Event)",
+	57 : "Sands of Suffering - (Level / Farmmap)",
+	240 : "Demon Dungeon - (Dungeon)",
+	245 : "Nephrite Cave - (Dungeon)",
+	318 : "Orcmaze - (Dungeon)",
+	325 : "Worldboss - (Dragon)",
+	241 : "Mushroom Garden - (Dungeon)",
+	54 : "Magic Trolls Cave - (Dungeon)",
+	58 : "World Boss - (Diamond Dragon)",
+	368 : "World Boss - (Snake)",
+	152 : "Gamemaster - (Island)",
+	270 : "Green Island - (Level / Farmmap)",
+	271 : "White Dragon Cave - (Level / Farmmap)",
+	272 : "White Dragon Cave - (Boss Room)",
+	273 : "Heaven Island - (Level / Farmmap)",
+	274 : "VIP Map - (01)",
+	275 : "VIP Map - (02)",
+	75 : "Ancient Pyramid - (Dungeon)",
+	144 : "Shadow Tower - (Dungeon)",
+	145 : "Shadow Tower - (Entrance)",
+	150 : "Scorpion Ruins - (Dungeon)",
+	147 : "Ancient Jungle - (Dungeon)",
+	153 : "Lava Fields - (Level / Farmmap)",
+	154 : "Valley of the Water - (Level / Farmmap)",
+	134 : "Crafting and Dungeon Area - (Neutral Area)",
+	27 : "Slime Cave - (Dungeon)",
+	263 : "Elendosfiles PvP Map - (Global PvP)",
+	156 : "Andun Catacombs (Level /Farmmap)",
+	157 : "Seelen Dungeon - (Dungeon)",
+}
+
+
 class SelectCharacterWindow(ui.Window):
+
 	SLOT_COUNT = 4
 	CHARACTER_TYPE_COUNT = 4
-	
-	EMPIRE_NAME = {
-		net.EMPIRE_A : localeInfo.EMPIRE_A,
-		net.EMPIRE_B : localeInfo.EMPIRE_B,
-		net.EMPIRE_C : localeInfo.EMPIRE_C
-	}
-	
-	RACE_NAME = {
-					playerSettingModule.RACE_WARRIOR_M : localeInfo.JOB_WARRIOR,
-					playerSettingModule.RACE_WARRIOR_W : localeInfo.JOB_WARRIOR,
-					playerSettingModule.RACE_ASSASSIN_M : localeInfo.JOB_ASSASSIN,
-					playerSettingModule.RACE_ASSASSIN_W	: localeInfo.JOB_ASSASSIN,
-					playerSettingModule.RACE_SURA_M : localeInfo.JOB_SURA,
-					playerSettingModule.RACE_SURA_W : localeInfo.JOB_SURA,
-					playerSettingModule.RACE_SHAMAN_M : localeInfo.JOB_SHAMAN,
-					playerSettingModule.RACE_SHAMAN_W : localeInfo.JOB_SHAMAN,
-	}
-	
-	DESCRIPTION_FILE_NAME =	{
-								playerSettingModule.RACE_WARRIOR_M : uiScriptLocale.JOBDESC_WARRIOR_PATH,
-								playerSettingModule.RACE_WARRIOR_W : uiScriptLocale.JOBDESC_WARRIOR_PATH,
-								playerSettingModule.RACE_ASSASSIN_M : uiScriptLocale.JOBDESC_ASSASSIN_PATH,
-								playerSettingModule.RACE_ASSASSIN_W	: uiScriptLocale.JOBDESC_ASSASSIN_PATH,
-								playerSettingModule.RACE_SURA_M : uiScriptLocale.JOBDESC_SURA_PATH,
-								playerSettingModule.RACE_SURA_W : uiScriptLocale.JOBDESC_SURA_PATH,
-								playerSettingModule.RACE_SHAMAN_M : uiScriptLocale.JOBDESC_SHAMAN_PATH,
-								playerSettingModule.RACE_SHAMAN_W : uiScriptLocale.JOBDESC_SHAMAN_PATH,
-	}
-	
-	DESCRIPTION_FILE_NAME_LIMIT =	{
-								playerSettingModule.RACE_WARRIOR_M : 1,
-								playerSettingModule.RACE_WARRIOR_W : 1,
-								playerSettingModule.RACE_ASSASSIN_M : 1,
-								playerSettingModule.RACE_ASSASSIN_W	: 1,
-								playerSettingModule.RACE_SURA_M : 1,
-								playerSettingModule.RACE_SURA_W : 1,
-								playerSettingModule.RACE_SHAMAN_M : 0,
-								playerSettingModule.RACE_SHAMAN_W : 0,
-	}
-	
-	FACE_IMAGE_DICT_1 = {
-							playerSettingModule.RACE_WARRIOR_M : "d:/ymir work/ui/intro/public_intro/face/face_warrior_m_01.sub",
-							playerSettingModule.RACE_WARRIOR_W : "d:/ymir work/ui/intro/public_intro/face/face_warrior_w_01.sub",
-							playerSettingModule.RACE_ASSASSIN_M : "d:/ymir work/ui/intro/public_intro/face/face_assassin_m_01.sub",
-							playerSettingModule.RACE_ASSASSIN_W	: "d:/ymir work/ui/intro/public_intro/face/face_assassin_w_01.sub",
-							playerSettingModule.RACE_SURA_M : "d:/ymir work/ui/intro/public_intro/face/face_sura_m_01.sub",
-							playerSettingModule.RACE_SURA_W : "d:/ymir work/ui/intro/public_intro/face/face_sura_w_01.sub",
-							playerSettingModule.RACE_SHAMAN_M : "d:/ymir work/ui/intro/public_intro/face/face_shaman_m_01.sub",
-							playerSettingModule.RACE_SHAMAN_W : "d:/ymir work/ui/intro/public_intro/face/face_shaman_w_01.sub",
-						}
-	
-	FACE_IMAGE_DICT_2 = {
-							playerSettingModule.RACE_WARRIOR_M : "d:/ymir work/ui/intro/public_intro/face/face_warrior_m_02.sub",
-							playerSettingModule.RACE_WARRIOR_W : "d:/ymir work/ui/intro/public_intro/face/face_warrior_w_02.sub",
-							playerSettingModule.RACE_ASSASSIN_M : "d:/ymir work/ui/intro/public_intro/face/face_assassin_m_02.sub",
-							playerSettingModule.RACE_ASSASSIN_W	: "d:/ymir work/ui/intro/public_intro/face/face_assassin_w_02.sub",
-							playerSettingModule.RACE_SURA_M : "d:/ymir work/ui/intro/public_intro/face/face_sura_m_02.sub",
-							playerSettingModule.RACE_SURA_W : "d:/ymir work/ui/intro/public_intro/face/face_sura_w_02.sub",
-							playerSettingModule.RACE_SHAMAN_M : "d:/ymir work/ui/intro/public_intro/face/face_shaman_m_02.sub",
-							playerSettingModule.RACE_SHAMAN_W : "d:/ymir work/ui/intro/public_intro/face/face_shaman_w_02.sub",
-						}
-	
-	FACE_IMAGE_DICT_3 = {
-						playerSettingModule.RACE_WARRIOR_M : "icon/face/warrior_m.tga",
-						playerSettingModule.RACE_WARRIOR_W : "icon/face/warrior_w.tga",
-						playerSettingModule.RACE_ASSASSIN_M : "icon/face/assassin_m.tga",
-						playerSettingModule.RACE_ASSASSIN_W	: "icon/face/assassin_w.tga",
-						playerSettingModule.RACE_SURA_M : "icon/face/sura_m.tga",
-						playerSettingModule.RACE_SURA_W : "icon/face/sura_w.tga",
-						playerSettingModule.RACE_SHAMAN_M : "icon/face/shaman_m.tga",
-						playerSettingModule.RACE_SHAMAN_W : "icon/face/shaman_w.tga",
-					}
 
-	class DescriptionBox(ui.Window):
-		def __init__(self):
-			ui.Window.__init__(self)
-			self.descIndex = 0
-		def __del__(self):
-			ui.Window.__del__(self)
-		def SetIndex(self, index):
-			self.descIndex = index
-		def OnRender(self):
-			event.RenderEventSet(self.descIndex)
+
+	EMPIRE_NAME = { 
+		net.EMPIRE_A : localeInfo.EMPIRE_A, 
+		net.EMPIRE_B : localeInfo.EMPIRE_B, 
+		net.EMPIRE_C : localeInfo.EMPIRE_C 
+	}
 	
 	class CharacterRenderer(ui.Window):
 		def OnRender(self):
-			self.Refresh()
 			grp.ClearDepthBuffer()
 
 			grp.SetGameRenderState()
 			grp.PushState()
 			grp.SetOmniLight()
+			
+			screenWidth = float(wndMgr.GetScreenWidth() / 2)
+			screenHeight = float(wndMgr.GetScreenHeight())
 
-			screenWidth = wndMgr.GetScreenWidth()
-			screenHeight = wndMgr.GetScreenHeight()
-			newScreenWidth = float(screenWidth - 270)
-			newScreenHeight = float(screenHeight)
-
-			grp.SetViewport(270.0/screenWidth, 0.0, newScreenWidth/screenWidth, newScreenHeight/screenHeight)
+			grp.SetViewport(0.25, 0.0, 0.5, 1.0) 
 
 			app.SetCenterPosition(0.0, 0.0, 0.0)
 			app.SetCamera(1550.0, 15.0, 180.0, 95.0)
-			grp.SetPerspective(10.0, newScreenWidth/newScreenHeight, 1000.0, 3000.0)
+			grp.SetPerspective(15.0, screenWidth/screenHeight, 1000.0, 3000.0)
 
 			(x, y) = app.GetCursorPosition()
 			grp.SetCursorPosition(x, y)
 
 			chr.Deform()
 			chr.Render()
+			for i in xrange(5):#slotcount = 5
+				chr.SelectInstance(i)
+				chr.RenderAllAttachingEffect()
 
 			grp.RestoreViewport()
 			grp.PopState()
@@ -176,12 +218,18 @@ class SelectCharacterWindow(ui.Window):
 
 		self.stream=stream
 		self.slot = self.stream.GetCharacterSlot()
-
-		self.openLoadingFlag = False
+		self.rotation = 0.0
+		
+		self.openLoadingFlag = FALSE
 		self.startIndex = -1
 		self.startReservingTime = 0
 
+		self.characterInfoDict = {}
+		self.characterSlotsDict = {}
 		self.flagDict = {}
+		self.curRotation = []
+		self.destRotation = []
+
 		self.curNameAlpha = []
 		self.destNameAlpha = []
 		for i in xrange(self.CHARACTER_TYPE_COUNT):
@@ -192,55 +240,56 @@ class SelectCharacterWindow(ui.Window):
 		self.destGauge = [0.0, 0.0, 0.0, 0.0]
 
 		self.dlgBoard = 0
-		self.changeNameFlag = False
+		self.changeNameFlag = FALSE
 		self.nameInputBoard = None
-		self.sendedChangeNamePacket = False
+		self.sendedChangeNamePacket = FALSE
 
 		self.startIndex = -1
 		self.isLoad = 0
-		self.isCameraMoving = False
-		self.cameraMovementProgress = 0.0
 
 	def __del__(self):
 		ui.Window.__del__(self)
 		net.SetPhaseWindow(net.PHASE_WINDOW_SELECT, 0)
 
 	def Open(self):
-		if not self.__LoadBoardDialog(uiScriptLocale.LOCALE_UISCRIPT_PATH + "selectcharacterwindow.py"):
+		if not self.__LoadBoardDialog("uiscript/intro_charselect.py"):
+			import dbg
 			dbg.TraceError("SelectCharacterWindow.Open - __LoadScript Error")
 			return
-		
+
 		if not self.__LoadQuestionDialog("uiscript/questiondialog.py"):
 			return
-		
-		#playerSettingModule.LoadGameData("INIT")
+
+		# playerSettingModule.LoadGameData("INIT")
+
+		self.SetFocus()
 		self.InitCharacterBoard()
-		self.btnStart.Enable()
-		self.btnCreate.Enable()
-		self.btnDelete.Enable()
-		self.btnExit.Enable()
+
 		self.dlgBoard.Show()
 		self.SetWindowName("SelectCharacterWindow")
 		self.Show()
-		
-		if self.slot >= 0:
+
+		if self.slot>=0:
 			self.SelectSlot(self.slot)
-		
+
 		if musicInfo.selectMusic != "":
 			snd.SetMusicVolume(systemSetting.GetMusicVolume())
 			snd.FadeInMusic("BGM/"+musicInfo.selectMusic)
 
-		app.SetDefaultCamera()
-		app.SetCamera(1600.0, 15.0, 190.0, 110.0)
-		
+		app.SetCenterPosition(0.0, 0.0, 0.0)
+		app.SetCamera(1550.0, 15.0, 180.0, 95.0)
+
 		self.isLoad=1
 		self.Refresh()
+
 		if self.stream.isAutoSelect:
 			chrSlot=self.stream.GetCharacterSlot()
 			self.SelectSlot(chrSlot)
 			self.StartGame()
-		
-		self.SetEmpire(net.GetEmpireID())
+
+		self.HideAllFlag()
+        
+        
 		app.ShowCursor()
 
 	def Close(self):
@@ -251,17 +300,6 @@ class SelectCharacterWindow(ui.Window):
 
 		if self.dlgBoard:
 			self.dlgBoard.ClearDictionary()
-
-		self.empireName = None
-		self.flagDict = {}
-		self.dlgBoard = None
-		self.btnStart = None
-		self.btnCreate = None
-		self.btnDelete = None
-		self.btnExit = None
-		self.btnLeft = None
-		self.btnRight = None
-		self.backGround = None
 
 		self.dlgQuestion.ClearDictionary()
 		self.dlgQuestion = None
@@ -278,84 +316,70 @@ class SelectCharacterWindow(ui.Window):
 
 		self.Hide()
 		self.KillFocus()
-		self.descriptionBox.Hide()
-	
-		app.HideCursor()
-		event.Destroy()
 
-	def SetEmpire(self, id):
-		self.empireName.SetText(self.EMPIRE_NAME.get(id, ""))
-		if self.flagDict.has_key(id):
-			self.flagDict[id].Show()
+		app.HideCursor()
 		
 	def HideAllFlag(self):
 		for flag in self.flagDict.values():
 			flag.Hide()
 
 	def Refresh(self):
-		if (not self.isLoad) or self.dlgBoard == None:
+		if not self.isLoad:
 			return
-		self.SelectSlot(0)
-		self.CharacterSlot_0.Hide()
-		self.CharacterFace_0.Hide()
-		self.CharacterSlot_0_Lv.Hide()
-		self.CharacterSlot_0_Name.Hide()
-		self.CharacterSlot_1.Hide()
-		self.CharacterFace_1.Hide()
-		self.CharacterSlot_1_Lv.Hide()
-		self.CharacterSlot_1_Name.Hide()
-		self.CharacterSlot_2.Hide()
-		self.CharacterFace_2.Hide()
-		self.CharacterSlot_2_Lv.Hide()
-		self.CharacterSlot_2_Name.Hide()
-		self.CharacterSlot_3.Hide()
-		self.CharacterFace_3.Hide()
-		self.CharacterSlot_3_Lv.Hide()
-		self.CharacterSlot_3_Name.Hide()
-		for i in xrange(self.SLOT_COUNT):
-			id = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_ID)
-			race = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_RACE)
-			name = net.GetAccountCharacterSlotDataString(i, net.ACCOUNT_CHARACTER_SLOT_NAME)
-			level = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_LEVEL)
-			if id != 0:
-				if i == 0:
-					self.CharacterFace_0.LoadImage(self.FACE_IMAGE_DICT_2[race])
-					self.CharacterFace_0.Show()
-					self.CharacterSlot_0.Show()
-					self.CharacterSlot_0_Name.SetText(name)
-					self.CharacterSlot_0_Name.Show()
-					self.CharacterSlot_0_Lv.SetText(localeInfo.INTRO_SELECT_LEVEL % (level))
-					self.CharacterSlot_0_Lv.SetFontColor(30, 72, 168)
-					self.CharacterSlot_0_Lv.Show()
-				elif i == 1:
-					self.CharacterFace_1.LoadImage(self.FACE_IMAGE_DICT_2[race])
-					self.CharacterFace_1.Show()
-					self.CharacterSlot_1.Show()
-					self.CharacterSlot_1_Name.SetText(name)
-					self.CharacterSlot_1_Name.Show()
-					self.CharacterSlot_1_Lv.SetText(localeInfo.INTRO_SELECT_LEVEL % (level))
-					self.CharacterSlot_1_Lv.SetFontColor(30, 72, 168)
-					self.CharacterSlot_1_Lv.Show()
-				elif i == 2:
-					self.CharacterFace_2.LoadImage(self.FACE_IMAGE_DICT_2[race])
-					self.CharacterFace_2.Show()
-					self.CharacterSlot_2.Show()
-					self.CharacterSlot_2_Name.SetText(name)
-					self.CharacterSlot_2_Name.Show()
-					self.CharacterSlot_2_Lv.SetText(localeInfo.INTRO_SELECT_LEVEL % (level))
-					self.CharacterSlot_2_Lv.SetFontColor(30, 72, 168)
-					self.CharacterSlot_2_Lv.Show()
-				elif i == 3:
-					self.CharacterFace_3.LoadImage(self.FACE_IMAGE_DICT_2[race])
-					self.CharacterFace_3.Show()
-					self.CharacterSlot_3.Show()
-					self.CharacterSlot_3_Name.SetText(name)
-					self.CharacterSlot_3_Name.Show()
-					self.CharacterSlot_3_Lv.SetText(localeInfo.INTRO_SELECT_LEVEL % (level))
-					self.CharacterSlot_3_Lv.SetFontColor(30, 72, 168)
-					self.CharacterSlot_3_Lv.Show()
-		self.SelectSlot(0)
 
+		# SLOT4
+		indexArray = (3, 2, 1, 0)
+		for index in indexArray:
+			playTime=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_PLAYTIME)
+			id=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ID)
+			race=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_RACE)
+			form=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_FORM)
+			name=net.GetAccountCharacterSlotDataString(index, net.ACCOUNT_CHARACTER_SLOT_NAME)
+			level=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_LEVEL)
+			hair=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_HAIR)
+			acce=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ACCE)
+			guildName=net.GetAccountCharacterSlotDataString(self.slot, net.ACCOUNT_CHARACTER_SLOT_GUILD_NAME)
+			#weapon=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_WEAPON)
+			#mapindex=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_MAPINDEX)
+			
+			if id:
+				self.characterInfoDict[index] = {"empty" : False, "race" : race, "name" : str(name), "level" : level}
+				self.MakeCharacter(index, id, name, race, form, hair, acce)
+				self.SelectSlot(index)
+			else:
+				self.characterInfoDict[index] = {"empty" : True, "name" : "", "level" : 0}
+				
+		self.CreateCharacterSlots()
+		self.SelectSlot(self.slot)
+
+	def CreateCharacterSlots(self):
+		indexArray = (0, 1, 2, 3)
+		self.active_characters = 0
+		self.characterSlotsDict = {}
+		arrange_y = 68
+		self.dlgBoard.GetChild("CharacterSlotEmpty").Hide()
+		for index in indexArray:
+			if self.characterInfoDict[index]["empty"] == False:
+				self.dlgBoard.GetChild("CharacterSlot%d" % index).Show()
+				self.dlgBoard.GetChild("CharacterSlot%d" % index).SetPosition(0, arrange_y)
+				self.dlgBoard.GetChild("CharacterSlot%d_Icon" % index).LoadImage(CHAR_ICON_DICT[self.characterInfoDict[index]["race"]])
+				self.dlgBoard.GetChild("CharacterSlot%d_Text1" % index).SetText("Lv.%d - %s" % (self.characterInfoDict[index]["level"], self.characterInfoDict[index]["name"]))
+				#if MAP_NAME_DICT.has_key(self.characterInfoDict[index]["mapindex"]):
+					#self.dlgBoard.GetChild("CharacterSlot%d_Text2" % index).SetText(MAP_NAME_DICT[self.characterInfoDict[index]["mapindex"]])
+				#else:
+				self.dlgBoard.GetChild("CharacterSlot%d_Text2" % index).SetText("")
+				self.characterSlotsDict[index] = self.dlgBoard.GetChild("CharacterSlot%d" % index)
+				self.dlgBoard.GetChild("CharacterSlot%d" % index).SetEvent(ui.__mem_func__(self.SelectSlot), index)
+				self.active_characters += 1
+				arrange_y += 75
+			else:
+				self.dlgBoard.GetChild("CharacterSlot%d" % index).Hide()
+				
+		if self.active_characters < 4:
+			self.dlgBoard.GetChild("CharacterSlotEmpty").SetPosition(0, arrange_y)
+			self.dlgBoard.GetChild("CharacterSlotEmpty").Show()
+
+	
 	def GetCharacterSlotID(self, slotIndex):
 		return net.GetAccountCharacterSlotDataInteger(slotIndex, net.ACCOUNT_CHARACTER_SLOT_ID)
 
@@ -385,291 +409,128 @@ class SelectCharacterWindow(ui.Window):
 
 	def __LoadBoardDialog(self, fileName):
 		self.dlgBoard = ui.ScriptWindow()
+
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
 			pyScrLoader.LoadScriptFile(self.dlgBoard, fileName)
 		except:
 			import exception
 			exception.Abort("SelectCharacterWindow.LoadBoardDialog.LoadScript")
-		
+
 		try:
 			GetObject=self.dlgBoard.GetChild
-			self.backGroundImg1 = GetObject("BackGround")
-			self.backGroundImg2 = GetObject("BackGround2")
-			self.backGroundImg2.Hide()
-			self.backGroundImg3 = GetObject("BackGround3")
-			self.backGroundImg3.Hide()
+
+			self.btn_start		= GetObject("PlayButton")
+			# self.btn_create		= GetObject("btn_create")
+			self.btn_delete		= GetObject("DeleteButton")
+			self.btn_close		= GetObject("ExitButton")
 			
-			self.btnStart = GetObject("start_button")
-			self.btnCreate = GetObject("create_button")
-			self.btnDelete = GetObject("delete_button")
-			self.btnExit = GetObject("exit_button")
-			self.CharacterSlot_0 = GetObject("CharacterSlot_0")
-			self.CharacterFace_0 = GetObject("CharacterFace_0")
-			self.CharacterSlot_0_Lv = ui.TextLine()
-			self.CharacterSlot_0_Lv.SetParent(self.CharacterSlot_0)
-			self.CharacterSlot_0_Lv.SetPosition(108, 19)
-			self.CharacterSlot_0_Lv.SetHorizontalAlignLeft()
-			self.CharacterSlot_0_Lv.SetText("")
-			self.CharacterSlot_0_Name = ui.TextLine()
-			self.CharacterSlot_0_Name.SetParent(self.CharacterSlot_0)
-			self.CharacterSlot_0_Name.SetPosition(140, 3)
-			self.CharacterSlot_0_Name.SetHorizontalAlignRight()
-			self.CharacterSlot_0_Name.SetText("")
-			self.CharacterSlot_1 = GetObject("CharacterSlot_1")
-			self.CharacterFace_1 = GetObject("CharacterFace_1")
-			self.CharacterSlot_1_Lv = ui.TextLine()
-			self.CharacterSlot_1_Lv.SetParent(self.CharacterSlot_1)
-			self.CharacterSlot_1_Lv.SetPosition(108, 19)
-			self.CharacterSlot_1_Lv.SetHorizontalAlignLeft()
-			self.CharacterSlot_1_Lv.SetText("")
-			self.CharacterSlot_1_Name = ui.TextLine()
-			self.CharacterSlot_1_Name.SetParent(self.CharacterSlot_1)
-			self.CharacterSlot_1_Name.SetPosition(140, 3)
-			self.CharacterSlot_1_Name.SetHorizontalAlignRight()
-			self.CharacterSlot_1_Name.SetText("")
-			self.CharacterSlot_2 = GetObject("CharacterSlot_2")
-			self.CharacterFace_2 = GetObject("CharacterFace_2")
-			self.CharacterSlot_2_Lv = ui.TextLine()
-			self.CharacterSlot_2_Lv.SetParent(self.CharacterSlot_2)
-			self.CharacterSlot_2_Lv.SetPosition(108, 19)
-			self.CharacterSlot_2_Lv.SetHorizontalAlignLeft()
-			self.CharacterSlot_2_Lv.SetText("")
-			self.CharacterSlot_2_Name = ui.TextLine()
-			self.CharacterSlot_2_Name.SetParent(self.CharacterSlot_2)
-			self.CharacterSlot_2_Name.SetPosition(140, 3)
-			self.CharacterSlot_2_Name.SetHorizontalAlignRight()
-			self.CharacterSlot_2_Name.SetText("")
-			self.CharacterSlot_3 = GetObject("CharacterSlot_3")
-			self.CharacterFace_3 = GetObject("CharacterFace_3")
-			self.CharacterSlot_3_Lv = ui.TextLine()
-			self.CharacterSlot_3_Lv.SetParent(self.CharacterSlot_3)
-			self.CharacterSlot_3_Lv.SetPosition(108, 19)
-			self.CharacterSlot_3_Lv.SetHorizontalAlignLeft()
-			self.CharacterSlot_3_Lv.SetText("")
-			self.CharacterSlot_3_Name = ui.TextLine()
-			self.CharacterSlot_3_Name.SetParent(self.CharacterSlot_3)
-			self.CharacterSlot_3_Name.SetPosition(140, 3)
-			self.CharacterSlot_3_Name.SetHorizontalAlignRight()
-			self.CharacterSlot_3_Name.SetText("")
-			#self.CharacterSlot_4 = GetObject("CharacterSlot_4")
-			#self.CharacterFace_4 = GetObject("CharacterFace_4")
-			#self.CharacterSlot_4_Lv = ui.TextLine()
-			#self.CharacterSlot_4_Lv.SetParent(self.CharacterSlot_4)
-			#self.CharacterSlot_4_Lv.SetPosition(108, 19)
-			#self.CharacterSlot_4_Lv.SetHorizontalAlignLeft()
-			#self.CharacterSlot_4_Lv.SetText("")
-			#self.CharacterSlot_4_Name = ui.TextLine()
-			#self.CharacterSlot_4_Name.SetParent(self.CharacterSlot_4)
-			#self.CharacterSlot_4_Name.SetPosition(140, 3)
-			#self.CharacterSlot_4_Name.SetHorizontalAlignRight()
-			#self.CharacterSlot_4_Name.SetText("")
-			self.DiscFace = GetObject("DiscFace")
-			self.raceName = GetObject("raceName_Text")
+
+			self.text_name			= GetObject("CharacterDetailsInputNameText")
+			self.text_level			= GetObject("CharacterDetailsInputLevelText")
+			self.text_guild			= GetObject("CharacterDetailsInputGuildText")
+			self.text_playtime		= GetObject("CharacterDetailsInputPlaytimeText")
 			
-			self.my_id = GetObject("my_id")
-			self.textBoard = GetObject("text_board")
-			self.textBoardPrev = GetObject("prev_button")
-			self.textBoardNext = GetObject("next_button")
-			
-			self.CharacterHTH = GetObject("hth_value")
-			self.CharacterINT = GetObject("int_value")
-			self.CharacterSTR = GetObject("str_value")
-			self.CharacterDEX = GetObject("dex_value")
-			
-			self.NameList = []
-			self.NameList.append(GetObject("name_warrior"))
-			self.NameList.append(GetObject("name_assassin"))
-			self.NameList.append(GetObject("name_sura"))
-			self.NameList.append(GetObject("name_shaman"))
-			
-			self.GaugeList = []
-			self.GaugeList.append(GetObject("hth_gauge"))
-			self.GaugeList.append(GetObject("int_gauge"))
-			self.GaugeList.append(GetObject("str_gauge"))
-			self.GaugeList.append(GetObject("dex_gauge"))
-			
-			self.empireName = GetObject("EmpireName")
-			self.EmpireFlagA = GetObject("EmpireFlag_A")
-			self.EmpireFlagB = GetObject("EmpireFlag_B")
-			self.EmpireFlagC = GetObject("EmpireFlag_C")
+			self.text_hp			= GetObject("CharacterDetailsInputHPText")
+			self.text_int			= GetObject("CharacterDetailsInputINTText")
+			self.text_str			= GetObject("CharacterDetailsInputSTRText")
+			self.text_dex			= GetObject("CharacterDetailsInputDEXText")
+			self.gauge_hp			= GetObject("HPGauge")
+			self.gauge_int			= GetObject("INTGauge")
+			self.gauge_str			= GetObject("STRGauge")
+			self.gauge_dex			= GetObject("DEXGauge")
+
+			# self.btn_left = GetObject("btn_left")
+			# self.btn_right = GetObject("btn_right")
+
+			self.left_window = GetObject("left_window")
+			self.middle_window = GetObject("middle_window")
+			self.right_window = GetObject("right_window")
+
 		except:
 			import exception
 			exception.Abort("SelectCharacterWindow.LoadBoardDialog.BindObject")
-		
-		self.toolTip = uitooltip.ToolTip()
-		self.toolTip.ClearToolTip()
-		
-		self.descIndex = 0
-		self.descriptionBox = self.DescriptionBox()
-		self.descriptionBox.Show()
-		self.my_id.SetText(constInfo.ACCOUNT_NAME)
-		self.textBoardPrev.SetEvent(ui.__mem_func__(self.PrevDescriptionPage))
-		self.textBoardNext.SetEvent(ui.__mem_func__(self.NextDescriptionPage))
-		GetObject("start_button").ShowToolTip = lambda arg=1: self.OverInButton(arg)
-		GetObject("start_button").HideToolTip = lambda arg=1: self.OverOutButton()
-		GetObject("exit_button").ShowToolTip = lambda arg=2: self.OverInButton(arg)
-		GetObject("exit_button").HideToolTip = lambda arg=2: self.OverOutButton()
-		GetObject("delete_button").ShowToolTip = lambda arg=3: self.OverInButton(arg)
-		GetObject("delete_button").HideToolTip = lambda arg=3: self.OverOutButton()
-		GetObject("create_button").ShowToolTip = lambda arg=4: self.OverInButton(arg)
-		GetObject("create_button").HideToolTip = lambda arg=4: self.OverOutButton()
-		GetObject("CharacterSlot_0").ShowToolTip = lambda arg=5: self.OverInButton(arg)
-		GetObject("CharacterSlot_0").HideToolTip = lambda arg=5: self.OverOutButton()
-		GetObject("CharacterSlot_1").ShowToolTip = lambda arg=6: self.OverInButton(arg)
-		GetObject("CharacterSlot_1").HideToolTip = lambda arg=6: self.OverOutButton()
-		GetObject("CharacterSlot_2").ShowToolTip = lambda arg=7: self.OverInButton(arg)
-		GetObject("CharacterSlot_2").HideToolTip = lambda arg=7: self.OverOutButton()
-		GetObject("CharacterSlot_3").ShowToolTip = lambda arg=8: self.OverInButton(arg)
-		GetObject("CharacterSlot_3").HideToolTip = lambda arg=8: self.OverOutButton()
-		#GetObject("CharacterSlot_4").ShowToolTip = lambda arg=9: self.OverInButton(arg)
-		#GetObject("CharacterSlot_4").HideToolTip = lambda arg=9: self.OverOutButton()
-		GetObject("prev_button").ShowToolTip = lambda arg=9: self.OverInButton(arg)
-		GetObject("prev_button").HideToolTip = lambda arg=9: self.OverOutButton()
-		GetObject("next_button").ShowToolTip = lambda arg=10: self.OverInButton(arg)
-		GetObject("next_button").HideToolTip = lambda arg=10: self.OverOutButton()
-		
-		for name in self.NameList:
-			name.SetAlpha(0.0)
-		
-		self.btnStart.SetEvent(ui.__mem_func__(self.StartGame))
-		self.btnCreate.SetEvent(ui.__mem_func__(self.CreateCharacter))
-		self.btnExit.SetEvent(ui.__mem_func__(self.ExitSelect))
-		
-		self.CharacterSlot_0.SAFE_SetEvent(self.SelectSlot, 0)
-		self.CharacterSlot_1.SAFE_SetEvent(self.SelectSlot, 1)
-		self.CharacterSlot_2.SAFE_SetEvent(self.SelectSlot, 2)
-		self.CharacterSlot_3.SAFE_SetEvent(self.SelectSlot, 3)
-		#self.CharacterSlot_4.SAFE_SetEvent(self.SelectSlot, 4)
-		
-		if NOT_NEED_DELETE_CODE:
-			self.btnDelete.SetEvent(ui.__mem_func__(self.PopupDeleteQuestion))
-		else:
-			self.btnDelete.SetEvent(ui.__mem_func__(self.InputPrivateCode))
 
-		self.backGroundImg1.Hide()
+		self.btn_start.SetEvent(ui.__mem_func__(self.StartGame))
+		# self.btn_create.SetEvent(ui.__mem_func__(self.CreateCharacter))
+		self.btn_close.SetEvent(ui.__mem_func__(self.ExitSelect))
+		self.btn_delete.SetEvent(ui.__mem_func__(self.InputPrivateCode))
+
+		self.dlgBoard.GetChild("CharacterSlotEmpty").SetEvent(ui.__mem_func__(self.CreateCharacter))
+			
+		# self.btn_left.SetEvent(ui.__mem_func__(self.changeSlot), -1)
+		# self.btn_right.SetEvent(ui.__mem_func__(self.changeSlot), 1)
+
+		self.chrRenderer = self.CharacterRenderer()
+		self.chrRenderer.SetParent(self.middle_window)
+		self.chrRenderer.Show()
+		
+		if constInfo.ENABLE_INTRO_ANIMATION == 1:
+			self.CreateAnimateBackground()
+			
 		return 1
-
-	def LoadMap(self):
-		id = net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_ID)
-		if 0 == id:
-			if self.dlgBoard:
-				GetObject = self.dlgBoard.GetChild
-				self.backGroundImg1 = GetObject("BackGround")
-				self.backGroundImg1.Show()
-		else:
-			background.Initialize()
-			MAPS_LIST = [
-				{"x": 73000, "y": 60000, "map_name": "metin2_map_c1"},
-				{"x": 40000, "y": 60000, "map_name": "metin2_map_c1"},
-				{"x": 70000, "y": 40000, "map_name": "metin2_map_c1"},
-				{"x": 71000, "y": 63000, "map_name": "metin2_map_c1"},
-			]
-			map_random = MAPS_LIST[app.GetRandom(0,len(MAPS_LIST)-1)]
-			background.LoadMap(map_random["map_name"], map_random["x"], map_random["y"], 0)
-			background.SetShadowLevel(background.SHADOW_ALL)
-			chr.SelectInstance(self.slot)
-			player.SetMainCharacterIndex(self.slot)
-			chr.SetPixelPosition(map_random["x"], map_random["y"])
-			self.backGroundImg1.Hide()
-
-	def OnRender(self):
-		app.RenderGame()
-		grp.PopState()
-		grp.SetInterfaceRenderState()
-
+    
+	def CreateAnimateBackground(self):
+		self.AnimationImage = ui.AniImageBox()
+		self.AnimationImage.SetParent(self.dlgBoard.GetChild("video_layer"))
+		self.AnimationImage.SetDelay(2)
+		for x in xrange(89):
+			self.AnimationImage.AppendImageScale("d:/ymir work/ui/intro/animation/char_und_select/frame_%d.sub" % (x), float(wndMgr.GetScreenWidth()) / 1920.0, float(wndMgr.GetScreenHeight()) / 1080.0)
+			self.AnimationImage.Show()
+			
 	def SameLoginDisconnect(self):
 		self.stream.popupWindow.Close()
 		self.stream.popupWindow.Open(localeInfo.LOGIN_FAILURE_SAMELOGIN, self.ExitSelect, localeInfo.UI_OK)
         #self.stream.popupWindow.Open(localeInfo.LOGIN_FAILURE_ALREAY, app.Exit, localeInfo.UI_OK)
-
-	def PrevDescriptionPage(self):
-		if event.IsWait(self.descIndex) == True:
-			if event.GetVisibleStartLine(self.descIndex)-14 >= 0:
-				event.SetVisibleStartLine(self.descIndex, event.GetVisibleStartLine(self.descIndex)-14)
-				event.Skip(self.descIndex)
-		else:
-			event.Skip(self.descIndex)
-
-	def NextDescriptionPage(self):
-		if event.IsWait(self.descIndex) == True:
-			event.SetVisibleStartLine(self.descIndex, event.GetVisibleStartLine(self.descIndex)+14)
-			event.Skip(self.descIndex)
-		else:
-			event.Skip(self.descIndex)
-
-	def MakeCharacter(self, index, id, name, race, form, hair):
+        
+	def MakeCharacter(self, index, id, name, race, form, hair, acce):
 		if 0 == id:
 			return
-		
+
 		chr.CreateInstance(index)
 		chr.SelectInstance(index)
 		chr.SetVirtualID(index)
-		chr.SetInstanceType(chr.INSTANCE_TYPE_PLAYER)
 		chr.SetNameString(name)
-		
+
 		chr.SetRace(race)
 		chr.SetArmor(form)
 		chr.SetHair(hair)
+		#if weapon != 0:
+			#chr.ChangeWeapon(weapon)
+		if app.ENABLE_ACCE_COSTUME_SYSTEM:
+			chr.SetAcce(acce)
+
 		chr.Refresh()
-		chr.SetMotionMode(chr.MOTION_MODE_GENERAL)
-		chr.SetLoopMotion(chr.MOTION_INTRO_WAIT)
+		#if weapon == 0:
+			#chr.SetMotionMode(chr.MOTION_MODE_GENERAL)
+			#chr.SetLoopMotion(chr.MOTION_INTRO_WAIT)
+
 		chr.SetRotation(0.0)
-		chr.SetPixelPosition(30000, 40000, 30)
-		self.DiscFace.LoadImage(self.FACE_IMAGE_DICT_3[race])
-		self.DiscFace.Show()
-		self.raceName.SetText(self.RACE_NAME[race])
-		self.raceName.Show()
 
 	## Manage Character
 	def StartGame(self):
-		self.toolTip.Hide()
-		
+
 		if self.sendedChangeNamePacket:
 			return
-		
+
 		if self.changeNameFlag:
 			self.OpenChangeNameDialog()
 			return
-		
+
 		if -1 != self.startIndex:
 			return
-		
+
 		if musicInfo.selectMusic != "":
 			snd.FadeLimitOutMusic("BGM/"+musicInfo.selectMusic, systemSetting.GetMusicVolume()*0.05)
-		
-		constInfo.INTROSELECT_LOGIN = True
-		
-		self.btnStart.SetUp()
-		self.btnCreate.SetUp()
-		self.btnDelete.SetUp()
-		self.btnExit.SetUp()
-		
-		self.btnStart.Disable()
-		self.btnCreate.Disable()
-		self.btnDelete.Disable()
-		self.btnExit.Disable()
+
 		self.dlgQuestion.Hide()
-		
-		player.SetSingleDIKKeyState(app.DIK_UP, False)
-		player.SetSingleDIKKeyState(app.DIK_DOWN, False)
-		player.SetSingleDIKKeyState(app.DIK_LEFT, False)
-		player.SetSingleDIKKeyState(app.DIK_RIGHT, False)
-		
+
 		self.stream.SetCharacterSlot(self.slot)
+
 		self.startIndex = self.slot
 		self.startReservingTime = app.GetTime()
-		for i in xrange(self.SLOT_COUNT):
-			if False == chr.HasInstance(i):
-				continue
-			
-			chr.SelectInstance(i)
-			if i == self.slot:
-				self.slot = self.slot
-				chr.PushOnceMotion(chr.MOTION_INTRO_SELECTED, 0.1)
-				continue
-			
-			chr.PushOnceMotion(chr.MOTION_INTRO_NOT_SELECTED, 0.1)
+
+		chr.PushOnceMotion(chr.MOTION_INTRO_SELECTED, 0.1)
 
 	def OpenChangeNameDialog(self):
 		import uiCommon
@@ -686,7 +547,7 @@ class SelectCharacterWindow(ui.Window):
 
 	def OnChangeName(self, id, name):
 		self.SelectSlot(id)
-		self.sendedChangeNamePacket = False
+		self.sendedChangeNamePacket = FALSE
 		self.PopupMessage(localeInfo.SELECT_CHANGED_NAME)
 
 	def AcceptInputName(self):
@@ -694,17 +555,17 @@ class SelectCharacterWindow(ui.Window):
 		if not changeName:
 			return
 
-		self.sendedChangeNamePacket = True
+		self.sendedChangeNamePacket = TRUE
 		net.SendChangeNamePacket(self.nameInputBoard.slot, changeName)
 		return self.CancelInputName()
 
 	def CancelInputName(self):
 		self.nameInputBoard.Close()
 		self.nameInputBoard = None
-		return True
+		return TRUE
 
 	def OnCreateFailure(self, type):
-		self.sendedChangeNamePacket = False
+		self.sendedChangeNamePacket = FALSE
 		if 0 == type:
 			self.PopupMessage(localeInfo.SELECT_CHANGE_FAILURE_STRANGE_NAME)
 		elif 1 == type:
@@ -713,21 +574,20 @@ class SelectCharacterWindow(ui.Window):
 			self.PopupMessage(localeInfo.SELECT_CHANGE_FAILURE_STRANGE_INDEX)
 
 	def CreateCharacter(self):
-		self.toolTip.Hide()
-		for i in xrange(self.SLOT_COUNT):
-			id = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_ID)
-			if id == 0:
-				self.stream.SetCharacterSlot(i)
-				EMPIRE_MODE = 1
-				if EMPIRE_MODE:
-					if self.__AreAllSlotEmpty():
-						self.stream.SetReselectEmpirePhase()
-					else:
-						self.stream.SetCreateCharacterPhase()
+		#id = self.GetCharacterSlotID(self.slot)
+		if 4 > self.active_characters:
+			self.stream.SetCharacterSlot(self.active_characters)
+
+			EMPIRE_MODE = 1
+
+			if EMPIRE_MODE:
+				if self.__AreAllSlotEmpty():
+					self.stream.SetReselectEmpirePhase()
 				else:
 					self.stream.SetCreateCharacterPhase()
-				
-				break
+
+			else:
+				self.stream.SetCreateCharacterPhase()
 
 	def __AreAllSlotEmpty(self):
 		for iSlot in xrange(self.SLOT_COUNT):
@@ -750,6 +610,8 @@ class SelectCharacterWindow(ui.Window):
 		if 0 == id:
 			self.PopupMessage(localeInfo.SELECT_EMPTY_SLOT)
 			return
+
+		net.SendDestroyCharacterPacket(self.slot, "1234567")
 		self.PopupMessage(localeInfo.SELECT_DELEING)
 
 	def InputPrivateCode(self):
@@ -787,23 +649,20 @@ class SelectCharacterWindow(ui.Window):
 		self.PopupMessage(localeInfo.SELECT_DELEING)
 
 		self.CancelInputPrivateCode()
-		return True
+		return TRUE
 
 	def CancelInputPrivateCode(self):
 		self.privateInputBoard = None
-		return True
+		return TRUE
 
 	def OnDeleteSuccess(self, slot):
 		self.PopupMessage(localeInfo.SELECT_DELETED)
-		self.DeleteCharacter(slot)
+		self.slot = slot
+		self.SelectSlot(self.slot)
+		self.Refresh()
 
 	def OnDeleteFailure(self):
 		self.PopupMessage(localeInfo.SELECT_CAN_NOT_DELETE)
-
-	def DeleteCharacter(self, index):
-		chr.DeleteInstance(index)
-		self.SelectSlot(0)
-		self.Refresh()
 
 	def ExitSelect(self):
 		self.dlgQuestion.Hide()
@@ -821,177 +680,96 @@ class SelectCharacterWindow(ui.Window):
 	def GetSlotIndex(self):
 		return self.slot
 
-	def DecreaseSlotIndex(self):
-		slotIndex = (self.GetSlotIndex() - 1 + self.SLOT_COUNT) % self.SLOT_COUNT
-		self.SelectSlot(slotIndex)
-
-	def IncreaseSlotIndex(self):
-		slotIndex = (self.GetSlotIndex() + 1) % self.SLOT_COUNT
-		self.SelectSlot(slotIndex)
+	def changeSlot(self, value):
+		self.slot = (self.slot + value) % 4
+		if self.slot < 0:
+			self.slot = 0
+		self.SelectSlot(self.slot)
 
 	def SelectSlot(self, index):
 		if index < 0:
 			return
-		
 		if index >= self.SLOT_COUNT:
 			return
-		
-		snd.PlaySound("sound/ui/click.wav")
+
 		chr.DeleteInstance(0)
 		chr.DeleteInstance(1)
 		chr.DeleteInstance(2)
 		chr.DeleteInstance(3)
-		#chr.DeleteInstance(4)
-		self.DiscFace.Hide()
-		self.raceName.Hide()
-		id = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ID)
-		race = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_RACE)
-		form = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_FORM)
-		name = net.GetAccountCharacterSlotDataString(index, net.ACCOUNT_CHARACTER_SLOT_NAME)
-		hair = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_HAIR)
-		#acce = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ACCE)
-		#acce_spec = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ACCE_SPEC)
-		if id != 0:
-			#self.MakeCharacter(index, id, name, race, form, hair, acce, acce_spec)
-			self.MakeCharacter(index, id, name, race, form, hair)
-		
-		if index == 0:
-			self.CharacterSlot_0.Down()
-			self.CharacterSlot_0_Name.SetFontColor(1.0, 0.6000, 0.3500)
-			self.CharacterFace_0.LoadImage(self.FACE_IMAGE_DICT_1[race])
-			self.CharacterSlot_1.SetUp()
-			self.CharacterSlot_2.SetUp()
-			self.CharacterSlot_3.SetUp()
-			#self.CharacterSlot_4.SetUp()
-			self.CharacterSlot_1_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_2_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_3_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			#self.CharacterSlot_4_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		elif index == 1:
-			self.CharacterSlot_1.Down()
-			self.CharacterSlot_1_Name.SetFontColor(1.0, 0.6000, 0.3500)
-			self.CharacterFace_1.LoadImage(self.FACE_IMAGE_DICT_1[race])
-			self.CharacterSlot_0.SetUp()
-			self.CharacterSlot_2.SetUp()
-			self.CharacterSlot_3.SetUp()
-			#self.CharacterSlot_4.SetUp()
-			self.CharacterSlot_0_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_2_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_3_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			#self.CharacterSlot_4_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		elif index == 2:
-			self.CharacterSlot_2.Down()
-			self.CharacterSlot_2_Name.SetFontColor(1.0, 0.6000, 0.3500)
-			self.CharacterFace_2.LoadImage(self.FACE_IMAGE_DICT_1[race])
-			self.CharacterSlot_0.SetUp()
-			self.CharacterSlot_1.SetUp()
-			self.CharacterSlot_3.SetUp()
-			#self.CharacterSlot_4.SetUp()
-			self.CharacterSlot_0_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_1_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_3_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			#self.CharacterSlot_4_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		elif index == 3:
-			self.CharacterSlot_3.Down()
-			self.CharacterSlot_3_Name.SetFontColor(1.0, 0.6000, 0.3500)
-			self.CharacterFace_3.LoadImage(self.FACE_IMAGE_DICT_1[race])
-			self.CharacterSlot_0.SetUp()
-			self.CharacterSlot_1.SetUp()
-			self.CharacterSlot_2.SetUp()
-			#self.CharacterSlot_4.SetUp()
-			self.CharacterSlot_0_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_1_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			self.CharacterSlot_2_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-			#self.CharacterSlot_4_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		#elif index == 4:
-		#	self.CharacterSlot_4.Down()
-		#	self.CharacterSlot_4_Name.SetFontColor(1.0, 0.6000, 0.3500)
-		#	self.CharacterFace_4.LoadImage(self.FACE_IMAGE_DICT_1[race])
-		#	self.CharacterSlot_0.SetUp()
-		#	self.CharacterSlot_1.SetUp()
-		#	self.CharacterSlot_2.SetUp()
-		#	self.CharacterSlot_3.SetUp()
-		#	self.CharacterSlot_0_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		#	self.CharacterSlot_1_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		#	self.CharacterSlot_2_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		#	self.CharacterSlot_3_Name.SetFontColor(0.8549, 0.8549, 0.8549)
-		
-		self.slot = index
-		
-		self.LoadMap()
-		self.isCameraMoving = True
-		self.cameraMovementProgress = 0.0
 
-		for i in xrange(self.CHARACTER_TYPE_COUNT):
-			self.destNameAlpha[i] = 0.0
-		
-		self.destGauge = [0.0, 0.0, 0.0, 0.0]
+		self.slot = index
+		self.rotation = 0.0
+				
+		chr.SelectInstance(self.slot)
+
 		id=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_ID)
 		if 0 != id:
-			self.btnStart.Show()
-			self.btnDelete.Show()
-			self.btnCreate.Hide()
-			for i in xrange(self.SLOT_COUNT):
-				id_check = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_ID)
-				if id_check == 0:
-					self.btnCreate.Show()
-			
-			playTime=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_PLAYTIME)
-			level=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_LEVEL)
-			race=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_RACE)
-			valueHTH=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_HTH)
-			valueINT=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_INT)
-			valueSTR=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_STR)
-			valueDEX=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_DEX)
+
+			indexArray = (3, 2, 1, 0)
+			for idx in indexArray:
+				if self.characterSlotsDict.has_key(idx):
+					if idx != self.slot:
+						self.characterSlotsDict[idx].SetUp()
+					else:
+						self.characterSlotsDict[idx].Down()
+				
+			# self.btn_start.Show()
+			# self.btn_delete.Show()
+			# self.btn_create.Hide()
+
+			self.right_window.Show()
+			self.dlgBoard.GetChild("RotateLeftButton").Show()
+			self.dlgBoard.GetChild("RotateRightButton").Show()
+	
 			name=net.GetAccountCharacterSlotDataString(self.slot, net.ACCOUNT_CHARACTER_SLOT_NAME)
-			guildID=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_GUILD_ID)
-			guildName=net.GetAccountCharacterSlotDataString(self.slot, net.ACCOUNT_CHARACTER_SLOT_GUILD_NAME)
-			self.changeNameFlag=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_CHANGE_NAME_FLAG)
+			race=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_RACE)
+			form=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_FORM)
+			hair=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_HAIR)
+			acce=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ACCE)
+			#weapon=net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_WEAPON)
 			
-			job = chr.RaceToJob(race)
-			if job >= 0 and job < self.CHARACTER_TYPE_COUNT:
-				self.destNameAlpha[job] = 1.0
+			playtime=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_PLAYTIME)
+			level=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_LEVEL)
+			guildname=net.GetAccountCharacterSlotDataString(self.slot, net.ACCOUNT_CHARACTER_SLOT_GUILD_NAME)
 			
-			self.CharacterHTH.SetText(str(valueHTH))
-			self.CharacterINT.SetText(str(valueINT))
-			self.CharacterSTR.SetText(str(valueSTR))
-			self.CharacterDEX.SetText(str(valueDEX))
 			
-			statesSummary = float(valueHTH + valueINT + valueSTR + valueDEX)
-			if statesSummary > 0.0:
-				self.destGauge = [
-										((float(valueHTH) * 10) / 90) / 10,
-										((float(valueINT) * 10) / 90) / 10,
-										((float(valueSTR) * 10) / 90) / 10,
-										((float(valueDEX) * 10) / 90) / 10
-									]
+			hp=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_HTH)
+			int=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_INT)
+			st=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_STR)
+			dex=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_DEX)
 			
-			event.ClearEventSet(self.descIndex)
-			self.descIndex = event.RegisterEventSet(self.DESCRIPTION_FILE_NAME[race])
-			if self.DESCRIPTION_FILE_NAME_LIMIT[race] == 1:
-				self.textBoardPrev.Show()
-				self.textBoardNext.Show()
-			else:
-				self.textBoardPrev.Hide()
-				self.textBoardNext.Hide()
+			self.text_name.SetText(name)
+			self.text_level.SetText("Lv. %d" % level)
+			self.text_guild.SetText(guildname)
+			self.text_playtime.SetText(localeInfo.PlayerTimeTextIntroSel(playtime))
+			self.text_hp.SetText(str(hp))
+			self.text_int.SetText(str(int))
+			self.text_str.SetText(str(st))
+			self.text_dex.SetText(str(dex))
+			self.gauge_hp.SetPercentage(hp, MAX_STATUS_POINTS)
+			self.gauge_int.SetPercentage(int, MAX_STATUS_POINTS)
+			self.gauge_str.SetPercentage(st, MAX_STATUS_POINTS)
+			self.gauge_dex.SetPercentage(dex, MAX_STATUS_POINTS)
+			
+		if id:
+			self.MakeCharacter(self.slot, id, name, race, form, hair, acce)
 		else:
-			self.textBoardPrev.Hide()
-			self.textBoardNext.Hide()
 			self.InitCharacterBoard()
 
 	def InitCharacterBoard(self):
-		self.btnStart.Hide()
-		self.btnDelete.Hide()
-		self.btnCreate.Show()
-		
-		self.CharacterHTH.SetText("")
-		self.CharacterINT.SetText("")
-		self.CharacterSTR.SetText("")
-		self.CharacterDEX.SetText("")
-		
+		self.right_window.Hide()
+		self.dlgBoard.GetChild("RotateLeftButton").Hide()
+		self.dlgBoard.GetChild("RotateRightButton").Hide()
+		# self.btn_start.Hide()
+		# self.btn_delete.Hide()
+		# self.btn_create.Show()
+		# self.text_charactername.SetText("")
+		# self.text_guild.SetText("")
+		# self.text_playtime.SetText("")
+
 	## Event
 	def OnKeyDown(self, key):
-
+		
 		if 1 == key:
 			self.ExitSelect()
 		if 2 == key:
@@ -1012,104 +790,68 @@ class SelectCharacterWindow(ui.Window):
 			else:
 				self.StartGame()
 
-		if 203 == key:
-			self.slot = (self.GetSlotIndex() - 1 + self.SLOT_COUNT) % self.SLOT_COUNT
-			self.SelectSlot(self.slot)
-		if 205 == key:
-			self.slot = (self.GetSlotIndex() + 1) % self.SLOT_COUNT
-			self.SelectSlot(self.slot)
+		# if 203 == key:
+			# self.changeSlot(-1)
+		# if 205 == key:
+			# self.changeSlot(1)
 
-		return True
+		if 30 == key:
+			self.RotationProgress(1)
+		
+		if 32 == key:
+			self.RotationProgress(2)
+			
+		return TRUE
 
-	def Lerp(self, a, b, t):
-	    return (1 - t) * a + t * b
+	def RotationProgress(self, key = 0):
+		if self.dlgBoard.GetChild("RotateLeftButton").IsDown():
+			self.rotation -= ROTATE_SPEED
+			chr.SetRotation(self.rotation)
+			
+		if self.dlgBoard.GetChild("RotateRightButton").IsDown():
+			self.rotation += ROTATE_SPEED
+			chr.SetRotation(self.rotation)
+		
+		if key == 1:
+			self.rotation -= 45.0
+			chr.SetRotation(self.rotation)
+		
+		if key == 2:
+			self.rotation += 45.0
+			chr.SetRotation(self.rotation)
+		
 
 	def OnUpdate(self):
-		app.UpdateGame()
-		if self.isCameraMoving == True:
-			self.cameraMovementProgress += 0.01
-			startLoc = [5827.0, 90.0, 350.0]
-			endLoc = [300.0, 10.0, 180.0]
-			dist = self.Lerp(startLoc[0], endLoc[0], self.cameraMovementProgress)
-			put = self.Lerp(startLoc[1], endLoc[1], self.cameraMovementProgress)
-			rot = self.Lerp(startLoc[2], endLoc[2], self.cameraMovementProgress)
-			app.SetCamera(dist, put, rot, 150.0)
-			if self.cameraMovementProgress >= 1:
-				self.isCameraMoving = False
-				self.cameraMovementProgress = 0.0
-		#chr.Update()
-		(xposEventSet, yposEventSet) = self.textBoard.GetGlobalPosition()
-		event.UpdateEventSet(self.descIndex, xposEventSet+7, -(yposEventSet+7))
-		self.descriptionBox.SetIndex(self.descIndex)
-		
-		for i in xrange(4):
-			self.curGauge[i] += (self.destGauge[i] - self.curGauge[i]) / 10.0
-			if abs(self.curGauge[i] - self.destGauge[i]) < 0.005:
-				self.curGauge[i] = self.destGauge[i]
-			
-			self.GaugeList[i].SetPercentage(self.curGauge[i], 1.0)
-		for i in xrange(self.CHARACTER_TYPE_COUNT):
-			self.curNameAlpha[i] += (self.destNameAlpha[i] - self.curNameAlpha[i]) / 10.0
-			self.NameList[i].SetAlpha(self.curNameAlpha[i])
+		chr.Update()
+		self.RotationProgress()
 		for i in xrange(self.SLOT_COUNT):
-			if False == chr.HasInstance(i):
+
+			if FALSE == chr.HasInstance(i):
 				continue
+
+			chr.SelectInstance(i)
+			
+		chr.EffectUpdate()
+
+		#######################################################
 		if -1 != self.startIndex:
-			if app.GetTime() - self.startReservingTime > 0.1:
-				if False == self.openLoadingFlag:
+
+			## Temporary
+			## BackGroundLoading?? ???? ??????? ??÷?..
+			if True:
+				if FALSE == self.openLoadingFlag:
 					chrSlot=self.stream.GetCharacterSlot()
 					net.DirectEnter(chrSlot)
-					self.openLoadingFlag = True
+					self.openLoadingFlag = TRUE
+
+					playTime=net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_PLAYTIME)
+
+					import player
+					player.SetPlayTime(playTime)
 					import chat
-					chat.Clear()
-
-	def OverInButton(self, stat):
-		if stat == 1:
-			self.toolTip.ClearToolTip()
-			self.toolTip.AlignHorizonalCenter()
-			self.toolTip.AutoAppendNewTextLine(uiScriptLocale.SELECT_SELECT, grp.GenerateColor(1.0, 1.0, 0.0, 1.0))
-			self.toolTip.Show()
-		elif stat == 2:
-			self.toolTip.ClearToolTip()
-			self.toolTip.AlignHorizonalCenter()
-			self.toolTip.AutoAppendNewTextLine(uiScriptLocale.SELECT_EXIT, grp.GenerateColor(1.0, 1.0, 0.0, 1.0))
-			#self.toolTip.Show()
-		elif stat == 3:
-			self.toolTip.ClearToolTip()
-			self.toolTip.AlignHorizonalCenter()
-			self.toolTip.AutoAppendNewTextLine(uiScriptLocale.SELECT_DELETE, grp.GenerateColor(1.0, 1.0, 0.0, 1.0))
-			self.toolTip.Show()
-		elif stat == 4:
-			self.toolTip.ClearToolTip()
-			self.toolTip.AlignHorizonalCenter()
-			self.toolTip.AutoAppendNewTextLine(uiScriptLocale.SELECT_CREATE, grp.GenerateColor(1.0, 1.0, 0.0, 1.0))
-			self.toolTip.Show()
-		elif stat >= 5 and stat <= 8:
-			playTime = net.GetAccountCharacterSlotDataInteger(stat-5, net.ACCOUNT_CHARACTER_SLOT_PLAYTIME)
-			guildName = net.GetAccountCharacterSlotDataString(stat-5, net.ACCOUNT_CHARACTER_SLOT_GUILD_NAME)
-			
-			self.toolTip.ClearToolTip()
-			self.toolTip.AlignHorizonalCenter()
-			if guildName:
-				self.toolTip.AutoAppendNewTextLine(uiScriptLocale.SELECT_YES_GUILD % (guildName), grp.GenerateColor(1.0, 1.0, 0.0, 1.0), True)
-			else:
-				self.toolTip.AutoAppendNewTextLine(uiScriptLocale.SELECT_NO_GUILD, grp.GenerateColor(1.0, 1.0, 0.0, 1.0), True)
-
-			self.toolTip.AutoAppendNewTextLine(uiScriptLocale.SELECT_PLAYTIME % (playTime), grp.GenerateColor(1.0, 1.0, 0.0, 1.0))
-			self.toolTip.Show()
-		elif stat == 9:
-			self.toolTip.ClearToolTip()
-			self.toolTip.AlignHorizonalCenter()
-			self.toolTip.AutoAppendNewTextLine(uiScriptLocale.CREATE_PREV, grp.GenerateColor(1.0, 1.0, 0.0, 1.0))
-			#self.toolTip.Show()
-		elif stat == 10:
-			self.toolTip.ClearToolTip()
-			self.toolTip.AlignHorizonalCenter()
-			self.toolTip.AutoAppendNewTextLine(uiScriptLocale.CREATE_NEXT, grp.GenerateColor(1.0, 1.0, 0.0, 1.0))
-			#self.toolTip.Show()
-
-	def OverOutButton(self):
-		self.toolTip.Hide()
+					chat.Clear() ## ????? Chat ?? ????. ??? Pos.
+			## Temporary
+		#######################################################
 
 	def EmptyFunc(self):
 		pass
@@ -1123,8 +865,5 @@ class SelectCharacterWindow(ui.Window):
 
 	def OnPressExitKey(self):
 		self.ExitSelect()
-		return True
+		return TRUE
 
-	def OnPressEscapeKey(self):
-		self.ExitSelect()
-		return True

@@ -575,7 +575,7 @@ class InventoryWindow(ui.ScriptWindow):
 			# BEGIN_OFFLINE_SHOP
 			self.offlineShopButton = self.GetChild2("OfflineShopButton")
 			# END_OF_OFFLINE_SHOP			
-			self.ButonMinimize = self.GetChild2("MinimierenButton")
+			#self.ButonMinimize = self.GetChild2("MinimierenButton")
 
 			self.inventoryTab = []
 			for i in xrange(player.INVENTORY_PAGE_COUNT):
@@ -749,8 +749,8 @@ class InventoryWindow(ui.ScriptWindow):
 		if self.MantelloButton:
 			self.MantelloButton.SetEvent(ui.__mem_func__(self.ClickMantelloButton))
 			
-		if self.ButonMinimize:
-			self.ButonMinimize.SetEvent(ui.__mem_func__(self.MinimiereBonus))
+		#if self.ButonMinimize:
+			#self.ButonMinimize.SetEvent(ui.__mem_func__(self.MinimiereBonus))
 
 		if self.DSSButton:
 			self.DSSButton.SetEvent(ui.__mem_func__(self.ClickDSSButton))
@@ -1005,7 +1005,7 @@ class InventoryWindow(ui.ScriptWindow):
 			self.GetChild("board").SetSize(175, 543)
 			self.GetChild("TitleBar").SetWidth(161)
 			self.GetChild("TitleName").SetPosition(-8, 3)
-			self.GetChild("MinimierenButton").SetPosition(161 - 30, 10)
+			#self.GetChild("MinimierenButton").SetPosition(161 - 30, 10)
 			self.SetSize(175 + 37, 543)
 			#self.SetPosition(wndMgr.GetScreenWidth() - 176, wndMgr.GetScreenHeight() - 37 - 565)
 			self.GetChild("Money_Slot").SetPosition(8, 28)
@@ -1017,7 +1017,7 @@ class InventoryWindow(ui.ScriptWindow):
 			self.GetChild("board").SetSize(176 + self.SPACE_BONUS_INVENTORY, 543)
 			self.GetChild("TitleBar").SetWidth(161 + self.SPACE_BONUS_INVENTORY)
 			self.GetChild("TitleName").SetPosition(-4, 3)
-			self.GetChild("MinimierenButton").SetPosition(161 + self.SPACE_BONUS_INVENTORY - 30, 10)
+			#self.GetChild("MinimierenButton").SetPosition(161 + self.SPACE_BONUS_INVENTORY - 30, 10)
 			self.SetSize(176 + self.SPACE_BONUS_INVENTORY + 37, 543)
 			#self.SetPosition(wndMgr.GetScreenWidth() - 176 - 130, wndMgr.GetScreenHeight() - 37 - 565)
 			self.GetChild("Money_Slot").SetPosition(-55, 28)
@@ -1108,7 +1108,7 @@ class InventoryWindow(ui.ScriptWindow):
 		#	self.EX_INVEN_COVER_IMG_OPEN = None
 
 		self.MantelloButton = None
-		self.ButonMinimize = None
+		#self.ButonMinimize = None
 
 		#if self.wndCostume:
 		#	self.wndCostume.Destroy()

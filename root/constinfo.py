@@ -41,7 +41,7 @@ if app.ENABLE_COSTUME_SWITCHBOT:
 	SK_DMG_WARNING = 15 #se hai trovato bonus danni abi over 15 ti da un avviso
 automatic_check = 1
 Compared = 0
-
+ENABLE_INTRO_ANIMATION = 0
 INTROSELECT_LOGIN = False
 
 BIO_DICT = []
@@ -337,7 +337,7 @@ TWO_HANDED_WEAPON_ATT_SPEED_DECREASE_VALUE = 0
 HAIR_COLOR_ENABLE = 1
 ARMOR_SPECULAR_ENABLE = 1
 WEAPON_SPECULAR_ENABLE = 1
-SEQUENCE_PACKET_ENABLE = 1
+SEQUENCE_PACKET_ENABLE = 0
 KEEP_ACCOUNT_CONNETION_ENABLE = 1
 MINIMAP_POSITIONINFO_ENABLE = 0
 CONVERT_EMPIRE_LANGUAGE_ENABLE = 0
@@ -532,7 +532,9 @@ def IS_N_PET(itemVnum):
 
 # 해당 vnum이 HP 자동물약인가?
 def IS_AUTO_POTION_HP(itemVnum):
-	if 72723 <= itemVnum and 72726 >= itemVnum:
+	if 20201 <= itemVnum and 20214 >= itemVnum:
+		return 1
+	elif 72723 <= itemVnum and 72726 >= itemVnum:
 		return 1
 	elif itemVnum >= 76021 and itemVnum <= 76022:		## 새로 들어간 선물용 화룡의 축복
 		return 1

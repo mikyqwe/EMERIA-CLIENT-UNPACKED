@@ -11674,3 +11674,17 @@
 55062	ETC	icon/item/runa_09.tga
 55063	ETC	icon/item/runa_09.tga
 55064	ETC	icon/item/runa_09.tga
+20201	ETC	icon/item/27105.tga
+20202	ETC	icon/item/27102.tga
+20203	ETC	icon/item/71044.tga	
+20204	ETC	icon/item/71045.tga	
+20205	ETC	icon/item/71027.tga	
+20206	ETC	icon/item/71028.tga	
+20207	ETC	icon/item/71029.tga	
+20208	ETC	icon/item/71030.tga	
+20209	ETC	icon/item/50822.tga	
+20210	ETC	icon/item/50821.tga	
+20211	ETC	icon/item/50825.tga	
+20212	ETC	icon/item/50826.tga	
+20213	ETC	icon/item/50824.tga	
+20214	ETC	icon/item/50823.tga

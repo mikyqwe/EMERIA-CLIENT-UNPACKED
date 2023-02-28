@@ -1,3 +1,4 @@
+TOOLTIP_AFFECT_POTION_7	Pozione none	SNA
 SELL_PRICE_INFO	[Prezzo di Vendita]
 SELL_PRICE_INFO_PCS	A Pezzo: [%s]
 SELL_PRICE_INFO_ALL	Tutti: [%s]

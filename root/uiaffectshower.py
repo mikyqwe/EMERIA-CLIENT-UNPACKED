@@ -552,6 +552,22 @@ class AffectShower(ui.Window):
 		5417 : ("Invincibilta" "d:/ymir work/ui/skill/pet/invincibility.sub"),
 		5418 : ("Guarigione", "d:/ymir work/ui/skill/pet/removal.sub"),
 	}
+	if app.BYKATIL199_ITEM_SLOT_EFFECT:
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_1] = (localeInfo.TOOLTIP_APPLY_CRITICAL_PCT,"icon/item/71044.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_2] = (localeInfo.TOOLTIP_APPLY_PENETRATE_PCT, "icon/item/71045.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_3] = (localeInfo.TOOLTIP_MAX_HP_PCT, "icon/item/71027.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_4] = (localeInfo.TOOLTIP_MALL_ATTBONUS, "d:/ymir work/ui/skill/common/affect/att_bonus.sub")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_5] = (localeInfo.TOOLTIP_MAX_SP_PCT, "icon/item/71029.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_6] = (localeInfo.TOOLTIP_MALL_DEFBONUS, "d:/ymir work/ui/skill/common/affect/def_bonus.sub")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_1] = (localeInfo.TOOLTIP_AFFECT_POTION_7,"icon/item/50822.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_2] = (localeInfo.TOOLTIP_AFFECT_POTION_1, "icon/item/50821.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_3] = (localeInfo.TOOLTIP_AFFECT_POTION_5, "icon/item/50825.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_4] = (localeInfo.TOOLTIP_AFFECT_POTION_6, "icon/item/50826.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_5] = (localeInfo.TOOLTIP_AFFECT_POTION_4, "icon/item/50824.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_6] = (localeInfo.TOOLTIP_AFFECT_POTION_3, "icon/item/50823.tga")
+	
+
+
 	if app.ENABLE_OVER_KILL:
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_OVER_KILL_FURY] = ("Over Kill Fury", "d:/ymir work/ui/common/affect/over_kill_fury.dds")
 

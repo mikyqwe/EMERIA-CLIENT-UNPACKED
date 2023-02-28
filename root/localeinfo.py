@@ -359,6 +359,21 @@ def SecondToHM(time):
 
 	return text
 
+def PlayerTimeTextIntroSel(time):
+	if time == 0:
+		return "0 " + HOUR + " - " + "0 " + MINUTE
+
+	minute = int(time) % 60
+	hour = int(time / 60)
+
+	text = ""
+	
+	text += str(hour) + " " + HOUR
+	text += " - "
+
+	text += str(minute) + " " + MINUTE
+
+	return text
 
 def GetAlignmentTitleName(alignment):
 	if alignment >= 12000:
