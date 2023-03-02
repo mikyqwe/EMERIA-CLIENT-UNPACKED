@@ -299,16 +299,16 @@
 307	WEAPON	icon/item/00300.tga	d:/ymir work/item/weapon/00300.gr2
 308	WEAPON	icon/item/00300.tga	d:/ymir work/item/weapon/00300.gr2
 309	WEAPON	icon/item/00300.tga	d:/ymir work/item/weapon/00300.gr2
-460	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-461	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-462	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-463	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-464	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-465	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-466	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-467	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-468	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
-469	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+460	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+461	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+462	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+463	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+464	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+465	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+466	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+467	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+468	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+469	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
 470	WEAPON	icon/item/00470.tga	d:/ymir work/item/weapon/00470.gr2
 471	WEAPON	icon/item/00470.tga	d:/ymir work/item/weapon/00470.gr2
 472	WEAPON	icon/item/00470.tga	d:/ymir work/item/weapon/00470.gr2
@@ -509,16 +509,16 @@
 1187	WEAPON	icon/item/01180.tga	d:/ymir work/item/weapon/01180.gr2
 1188	WEAPON	icon/item/01180.tga	d:/ymir work/item/weapon/01180.gr2
 1189	WEAPON	icon/item/01180.tga	d:/ymir work/item/weapon/01180.gr2
-1340	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1341	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1342	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1343	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1344	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1345	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1346	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1347	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1348	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
-1349	WEAPON	icon/item/gs_dagger.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_dagger.gr2
+1340	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1341	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1342	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1343	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1344	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1345	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1346	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1347	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1348	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
+1349	WEAPON	icon/item/01340.tga	d:/ymir work/item/weapon/01340.gr2
 2000	WEAPON	icon/item/02000.tga	d:/ymir work/item/weapon/02000.gr2
 2001	WEAPON	icon/item/02000.tga	d:/ymir work/item/weapon/02000.gr2
 2002	WEAPON	icon/item/02000.tga	d:/ymir work/item/weapon/02000.gr2
@@ -719,16 +719,16 @@
 2197	WEAPON	icon/item/02190.tga	d:/ymir work/item/weapon/02190.gr2
 2198	WEAPON	icon/item/02190.tga	d:/ymir work/item/weapon/02190.gr2
 2199	WEAPON	icon/item/02190.tga	d:/ymir work/item/weapon/02190.gr2
-2370	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2371	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2372	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2373	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2374	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2375	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2376	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2377	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2378	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
-2379	WEAPON	icon/item/gs_bow.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bow.gr2
+2370	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2371	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2372	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2373	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2374	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2375	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2376	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2377	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2378	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
+2379	WEAPON	icon/item/02370.tga	d:/ymir work/item/weapon/02370.gr2
 3000	WEAPON	icon/item/03000.tga	d:/ymir work/item/weapon/03000.gr2
 3001	WEAPON	icon/item/03000.tga	d:/ymir work/item/weapon/03000.gr2
 3002	WEAPON	icon/item/03000.tga	d:/ymir work/item/weapon/03000.gr2
@@ -1239,16 +1239,16 @@
 5337	WEAPON	icon/item/05330.tga	d:/ymir work/item/weapon/05330.gr2
 5338	WEAPON	icon/item/05330.tga	d:/ymir work/item/weapon/05330.gr2
 5339	WEAPON	icon/item/05330.tga	d:/ymir work/item/weapon/05330.gr2
-5340	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5341	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5342	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5343	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5344	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5345	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5346	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5347	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5348	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
-5349	WEAPON	icon/item/gs_bell.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_bell.gr2
+5340	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5341	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5342	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5343	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5344	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5345	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5346	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5347	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5348	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
+5349	WEAPON	icon/item/05340.tga	d:/ymir work/item/weapon/05340.gr2
 6000	WEAPON	icon/item/06000.tga	d:/ymir work/item/weapon/06000.gr2
 6001	WEAPON	icon/item/06000.tga	d:/ymir work/item/weapon/06000.gr2
 6002	WEAPON	icon/item/06000.tga	d:/ymir work/item/weapon/06000.gr2
@@ -1639,16 +1639,16 @@
 7207	WEAPON	icon/item/03010.tga	d:/ymir work/item/weapon/07200.gr2
 7208	WEAPON	icon/item/03010.tga	d:/ymir work/item/weapon/07200.gr2
 7209	WEAPON	icon/item/03010.tga	d:/ymir work/item/weapon/07200.gr2
-7370	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7371	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7372	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7373	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7374	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7375	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7376	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7377	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7378	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
-7379	WEAPON	icon/item/gs_fan.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_fan.gr2
+7370	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7371	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7372	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7373	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7374	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7375	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7376	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7377	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7378	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
+7379	WEAPON	icon/item/07370.tga	d:/ymir work/item/weapon/07370.gr2
 7770	WEAPON	icon/item/7770.tga	d:/ymir work/item/weapon/wod_samurai_einhand.gr2
 7771	WEAPON	icon/item/7771.tga	d:/ymir work/item/weapon/wod_samurai_bow.gr2
 7772	WEAPON	icon/item/7772.tga	d:/ymir work/item/weapon/wod_samurai_bogen.gr2
@@ -5335,66 +5335,66 @@
 33227	ARMOR	icon/item/33220.tga
 33228	ARMOR	icon/item/33220.tga
 33229	ARMOR	icon/item/33220.tga
-20000	ARMOR	icon/item/splend.tga
-20001	ARMOR	icon/item/splend.tga
-20002	ARMOR	icon/item/splend.tga
-20003	ARMOR	icon/item/splend.tga
-20004	ARMOR	icon/item/splend.tga
-20005	ARMOR	icon/item/splend.tga
-20006	ARMOR	icon/item/splend.tga
-20007	ARMOR	icon/item/splend.tga
-20008	ARMOR	icon/item/splend.tga
-20009	ARMOR	icon/item/splend.tga
-20250	ARMOR	icon/item/splend.tga
-20251	ARMOR	icon/item/splend.tga
-20252	ARMOR	icon/item/splend.tga
-20253	ARMOR	icon/item/splend.tga
-20254	ARMOR	icon/item/splend.tga
-20255	ARMOR	icon/item/splend.tga
-20256	ARMOR	icon/item/splend.tga
-20257	ARMOR	icon/item/splend.tga
-20258	ARMOR	icon/item/splend.tga
-20259	ARMOR	icon/item/splend.tga
-20500	ARMOR	icon/item/splend.tga
-20500	ARMOR	icon/item/splend.tga
-20501	ARMOR	icon/item/splend.tga
-20501	ARMOR	icon/item/splend.tga
-20502	ARMOR	icon/item/splend.tga
-20502	ARMOR	icon/item/splend.tga
-20503	ARMOR	icon/item/splend.tga
-20503	ARMOR	icon/item/splend.tga
-20504	ARMOR	icon/item/splend.tga
-20504	ARMOR	icon/item/splend.tga
-20505	ARMOR	icon/item/splend.tga
-20505	ARMOR	icon/item/splend.tga
-20506	ARMOR	icon/item/splend.tga
-20506	ARMOR	icon/item/splend.tga
-20507	ARMOR	icon/item/splend.tga
-20507	ARMOR	icon/item/splend.tga
-20508	ARMOR	icon/item/splend.tga
-20508	ARMOR	icon/item/splend.tga
-20509	ARMOR	icon/item/splend.tga
-20509	ARMOR	icon/item/splend.tga
-20750	ARMOR	icon/item/splend.tga
-20750	ARMOR	icon/item/splend.tga
-20751	ARMOR	icon/item/splend.tga
-20751	ARMOR	icon/item/splend.tga
-20752	ARMOR	icon/item/splend.tga
-20752	ARMOR	icon/item/splend.tga
-20753	ARMOR	icon/item/splend.tga
-20753	ARMOR	icon/item/splend.tga
-20754	ARMOR	icon/item/splend.tga
-20754	ARMOR	icon/item/splend.tga
-20755	ARMOR	icon/item/splend.tga
-20755	ARMOR	icon/item/splend.tga
-20756	ARMOR	icon/item/splend.tga
-20756	ARMOR	icon/item/splend.tga
-20757	ARMOR	icon/item/splend.tga
-20757	ARMOR	icon/item/splend.tga
-20758	ARMOR	icon/item/splend.tga
-20758	ARMOR	icon/item/splend.tga
-20759	ARMOR	icon/item/splend.tga
-20759	ARMOR	icon/item/splend.tga
+20000	ARMOR	icon/item/20000.tga
+20001	ARMOR	icon/item/20000.tga
+20002	ARMOR	icon/item/20000.tga
+20003	ARMOR	icon/item/20000.tga
+20004	ARMOR	icon/item/20000.tga
+20005	ARMOR	icon/item/20000.tga
+20006	ARMOR	icon/item/20000.tga
+20007	ARMOR	icon/item/20000.tga
+20008	ARMOR	icon/item/20000.tga
+20009	ARMOR	icon/item/20000.tga
+20250	ARMOR	icon/item/20250.tga
+20251	ARMOR	icon/item/20250.tga
+20252	ARMOR	icon/item/20250.tga
+20253	ARMOR	icon/item/20250.tga
+20254	ARMOR	icon/item/20250.tga
+20255	ARMOR	icon/item/20250.tga
+20256	ARMOR	icon/item/20250.tga
+20257	ARMOR	icon/item/20250.tga
+20258	ARMOR	icon/item/20250.tga
+20259	ARMOR	icon/item/20250.tga
+20500	ARMOR	icon/item/20500.tga
+20500	ARMOR	icon/item/20750.tga
+20501	ARMOR	icon/item/20500.tga
+20501	ARMOR	icon/item/20750.tga
+20502	ARMOR	icon/item/20500.tga
+20502	ARMOR	icon/item/20750.tga
+20503	ARMOR	icon/item/20500.tga
+20503	ARMOR	icon/item/20750.tga
+20504	ARMOR	icon/item/20500.tga
+20504	ARMOR	icon/item/20750.tga
+20505	ARMOR	icon/item/20500.tga
+20505	ARMOR	icon/item/20750.tga
+20506	ARMOR	icon/item/20500.tga
+20506	ARMOR	icon/item/20750.tga
+20507	ARMOR	icon/item/20500.tga
+20507	ARMOR	icon/item/20750.tga
+20508	ARMOR	icon/item/20500.tga
+20508	ARMOR	icon/item/20750.tga
+20509	ARMOR	icon/item/20500.tga
+20509	ARMOR	icon/item/20750.tga
+20750	ARMOR	icon/item/20750.tga
+20750	ARMOR	icon/item/20500.tga
+20751	ARMOR	icon/item/20750.tga
+20751	ARMOR	icon/item/20500.tga
+20752	ARMOR	icon/item/20750.tga
+20752	ARMOR	icon/item/20500.tga
+20753	ARMOR	icon/item/20750.tga
+20753	ARMOR	icon/item/20500.tga
+20754	ARMOR	icon/item/20750.tga
+20754	ARMOR	icon/item/20500.tga
+20755	ARMOR	icon/item/20750.tga
+20755	ARMOR	icon/item/20500.tga
+20756	ARMOR	icon/item/20750.tga
+20756	ARMOR	icon/item/20500.tga
+20757	ARMOR	icon/item/20750.tga
+20757	ARMOR	icon/item/20500.tga
+20758	ARMOR	icon/item/20750.tga
+20758	ARMOR	icon/item/20500.tga
+20759	ARMOR	icon/item/20750.tga
+20759	ARMOR	icon/item/20500.tga
 20760	ARMOR	icon/item/20760.tga	
 20761	ARMOR	icon/item/20760.tga	
 20762	ARMOR	icon/item/20760.tga	

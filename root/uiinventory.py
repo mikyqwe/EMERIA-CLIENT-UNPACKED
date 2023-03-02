@@ -3312,7 +3312,7 @@ class SystemInventoryWindow(ui.ScriptWindow):
 
 	def GetBasePosition(self):
 		x, y = self.wndInventory.GetGlobalPosition()
-		return x -10-20-5-5-3, y+120
+		return x -110-20-5-5-3, y+120
 		
 	def AdjustPositionAndSize(self):
 		bx, by = self.GetBasePosition()
@@ -3322,8 +3322,8 @@ class SystemInventoryWindow(ui.ScriptWindow):
 			self.SetSize(self.ORIGINAL_WIDTH, self.GetHeight())
 			
 		else:
-			self.SetPosition(bx+20+5+5+3, by);
-			self.SetSize(10, self.GetHeight())
+			self.SetPosition(bx+120+5+5+3, by);
+			self.SetSize(110, self.GetHeight())
 
 	def __LoadWindow(self):
 		if self.isLoaded == 1:
