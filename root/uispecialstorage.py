@@ -30,10 +30,10 @@ class SpecialStorageWindow(ui.ScriptWindow):
 	}
 
 	WINDOW_NAMES = {
-		SKILLBOOK_TYPE		:	"Inventario Libri",
-		UPPITEM_TYPE		:	"Inventario Item-Up",
-		GHOSTSTONE_TYPE		:	"Inventario Pietre",
-		GENERAL_TYPE		:	"Inventario Generico",
+		SKILLBOOK_TYPE		:	"Inventarul cărţilor",
+		UPPITEM_TYPE		:	"Inventar de iteme upgrade",
+		GHOSTSTONE_TYPE		:	"Inventar pietre",
+		GENERAL_TYPE		:	"Inventarul general",
 	}
 
 	if 1 == 0:
@@ -509,18 +509,18 @@ class SpecialStorageWindow(ui.ScriptWindow):
 				item.SelectItem(itemVnum)
 				if item.GetItemType() == item.ITEM_TYPE_GIFTBOX:
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Per anteprima contenuto",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Pentru previzualizarea conţinutului",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Apri %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Deschizi %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 				elif constInfo.IsNewChest(itemVnum):
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Apri %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Deschizii %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 				if player.CanMoveItem(itemVnum):
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Muovi a/ inventario.",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Mutare în inventar.",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 	def OnPressEscapeKey(self):
 		self.Close()

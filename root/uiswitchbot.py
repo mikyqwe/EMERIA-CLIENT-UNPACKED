@@ -549,7 +549,7 @@ class SwitchbotWindow(ui.BoardWithTitleBar):
 		self.alternativeTextLine.SetPosition(5, -1)
 		self.alternativeTextLine.SetVerticalAlignCenter()
 		self.alternativeTextLine.SetWindowVerticalAlignCenter()
-		self.alternativeTextLine.SetText("Alternative:")
+		self.alternativeTextLine.SetText("Alternativa:")
 		self.alternativeTextLine.Show()
 		
 		for i in xrange(switchbot.ALTERNATIVE_COUNT):

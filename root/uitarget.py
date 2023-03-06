@@ -842,7 +842,7 @@ class TargetBoard(ui.ThinBoard):
 			button.SetOverVisual("d:/ymir work/ui/public/small_thin_button_02.sub")
 			button.SetDownVisual("d:/ymir work/ui/public/small_thin_button_03.sub")
 		button.SetWindowHorizontalAlignCenter()
-		button.SetText("Manda Via")#set here
+		button.SetText("Trimite departe")#set here
 		button.SetEvent(self.SecondMountButton)
 		button.Show()
 		self.showingButtonList.append(button)

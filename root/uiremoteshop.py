@@ -26,7 +26,7 @@ class RemoteShopDialog(ui.ScriptWindow):
             ShopData = open(REMOTE_FILE_NAME, "r").readlines()
         except IOError:
             import dbg
-            dbg.LogBox("Can not read: ({})".format(REMOTE_FILE_NAME))
+            dbg.LogBox("Nu se poate citi: ({})".format(REMOTE_FILE_NAME))
             app.Abort()
 
         cnt = len(ShopData)
