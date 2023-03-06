@@ -43,7 +43,7 @@ class ShopSearchFilter(ui.ScriptWindow):
 		self.wndFilterTitleBar.SetCloseEvent(ui.__mem_func__(self.CloseFilter))
 		self.wndFilterTitleBar.Show()
 
-		self.wndFilterTitleName = ui.MakeText(self.wndFilterTitleBar, "Filtru preÅ£", 200 / 2 - 30, 6)
+		self.wndFilterTitleName = ui.MakeText(self.wndFilterTitleBar, "Filtru preþ", 200 / 2 - 30, 6)
 	
 		self.wndYangTitle = ui.MakeText(self.wndFilterTitleBar, "Filtru Yang", 200 / 2 - 30, 14+5)
 	
@@ -98,7 +98,7 @@ class ShopSearchFilter(ui.ScriptWindow):
 	
 		self.btnClose = ui.MakeButton(self.wndFilterBoard, 200 / 2 - 30, 63+95+15, False, "d:/ymir work/ui/shop/", "small_btn.dds", "small_btn_over.dds", "small_btn_down.dds")
 		self.btnClose.SetEvent(ui.__mem_func__(self.CloseFilter))
-		self.btnClose.SetText("ÃŽnchide filtru")
+		self.btnClose.SetText("Închide filtru")
 	
 		self.Hide()
 		
@@ -463,7 +463,7 @@ class ShopSearch(ui.ScriptWindow):
 	
 			self.btnBuy[i] = ui.MakeButton(self.bItem[i], 7, 87, False, "d:/ymir work/ui/shop/", "small_btn.dds", "small_btn_over.dds", "small_btn_down.dds")
 			self.btnBuy[i].SetEvent(lambda pVid = Vid, pItem = iPos: self.BuyItem(pVid, pItem))
-			self.btnBuy[i].SetText("CumpÄƒrÄƒ")
+			self.btnBuy[i].SetText("Cumpãrã")
 			self.btnBuy[i].SetWindowHorizontalAlignCenter()
 	
 			self.btnWhisper[i] = ui.MakeButton(self.bItem[i], 20, 5, False, "d:/ymir work/ui/shop/", "message.dds", "message_hover.dds", "message_pressed.dds")
@@ -480,7 +480,7 @@ class ShopSearch(ui.ScriptWindow):
 			self.wndNameItem[i].SetWindowHorizontalAlignCenter()
 			self.wndNameItem[i].SetHorizontalAlignCenter()
 	
-			self.wndSeller[i] = ui.MakeText(self.bItem[i], "VÃ¢nzÄƒtor: " + NameOwner, 7, 35)
+			self.wndSeller[i] = ui.MakeText(self.bItem[i], "Vânzãtor: " + NameOwner, 7, 35)
 			self.wndSeller[i].SetWindowHorizontalAlignCenter()
 			self.wndSeller[i].SetHorizontalAlignCenter()
 
@@ -488,7 +488,7 @@ class ShopSearch(ui.ScriptWindow):
 			self.wndQuantity[i].SetWindowHorizontalAlignCenter()
 			self.wndQuantity[i].SetHorizontalAlignCenter()
 	
-			self.wndPrice[i] = ui.MakeText(self.bItem[i], "|cFFF4A460PreÅ£: " + localeInfo.MoneyFormat(iPrice), 7, 65)
+			self.wndPrice[i] = ui.MakeText(self.bItem[i], "|cFFF4A460Preþ: " + localeInfo.MoneyFormat(iPrice), 7, 65)
 			self.wndPrice[i].SetWindowHorizontalAlignCenter()
 			self.wndPrice[i].SetHorizontalAlignCenter()
 			

@@ -71,7 +71,7 @@ class PasswordDialog(ui.ScriptWindow):
 
 	def OnAccept(self):
 		if constInfo.DROP_GUI_CHECK == 1:
-			chat.AppendChat(1, "ÃŽn primul rÃ¢nd, alegeÅ£i o opÅ£iune despre drop gui.")
+			chat.AppendChat(1, "În primul rând, alegeþi o opþiune despre drop gui.")
 		else:
 			net.SendChatPacket(self.sendMessage + self.passwordValue.GetText())
 			self.CloseDialog()

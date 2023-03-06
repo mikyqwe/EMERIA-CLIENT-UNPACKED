@@ -30,7 +30,7 @@ class SpecialStorageWindow(ui.ScriptWindow):
 	}
 
 	WINDOW_NAMES = {
-		SKILLBOOK_TYPE		:	"Inventarul cÄƒrÅ£ilor",
+		SKILLBOOK_TYPE		:	"Inventarul cãrþilor",
 		UPPITEM_TYPE		:	"Inventar de iteme upgrade",
 		GHOSTSTONE_TYPE		:	"Inventar pietre",
 		GENERAL_TYPE		:	"Inventarul general",
@@ -509,7 +509,7 @@ class SpecialStorageWindow(ui.ScriptWindow):
 				item.SelectItem(itemVnum)
 				if item.GetItemType() == item.ITEM_TYPE_GIFTBOX:
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Pentru previzualizarea conÅ£inutului",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Pentru previzualizarea conþinutului",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 					self.tooltipItem.AppendSpace(5)
 					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Deschizi %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
@@ -520,7 +520,7 @@ class SpecialStorageWindow(ui.ScriptWindow):
 					text.SetHorizontalAlignLeft()
 				if player.CanMoveItem(itemVnum):
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Mutare Ã®n inventar.",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Mutare în inventar.",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 	def OnPressEscapeKey(self):
 		self.Close()
