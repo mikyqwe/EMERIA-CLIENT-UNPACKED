@@ -26,7 +26,7 @@ class PopupMsg(ui.Window):
 		self.Board.Show()
 		self.comp = component.Component()
 		
-		self.text_title = self.comp.LargeTextLine(self.Board, "Un amico e' ONLINE!", 45, 8, SPECIAL_TITLE_COLOR)
+		self.text_title = self.comp.LargeTextLine(self.Board, "Un prieten este ONLINE!", 45, 8, SPECIAL_TITLE_COLOR)
 		self.textline = self.comp.TextLine(self.Board, "Prietenul tau xBooK este acum ONLINE !", 45, 25, self.comp.RGB(255, 255, 255))
 		
 		#self.textline = ui.TextLine()
@@ -54,12 +54,12 @@ class PopupMsg(ui.Window):
 		
 	def SetType(self, type, add = ""):
 		if type == 1:
-			self.text_title.SetText("Un amico e' ONLINE!")
+			self.text_title.SetText("Un prieten este ONLINE!")
 		elif type == 2:
 			self.text_title.SetText("Cercetarea biologilor")
 			self.img = self.comp.ExpandedImage(self.Board, 8, 8, 'icon\\item\\%s.tga'%str(add))
 		elif type == 3:
-			self.text_title.SetText("Un amico e' ONLINE!")
+			self.text_title.SetText("Un prieten este ONLINE!")
 			self.img = self.comp.ExpandedImage(self.Board, 8, 8, 'pet_button.tga')
 		elif type == 4:
 			self.text_title.SetText("Fabricarea articolului")

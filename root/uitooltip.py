@@ -845,7 +845,7 @@ class ItemToolTip(ToolTip):
 					constInfo.automatic_check = 0
 				constInfo.Compared = 1
 				self.CompareTooltip.SetInventoryItem(slotIndex, player.INVENTORY, False)
-				self.CompareTooltip.AutoAppendTextLine("Attualmente Equipaggiato", 0xffADFF2F)
+				self.CompareTooltip.AutoAppendTextLine("Echipat in prezent", 0xffADFF2F)
 				self.CompareTooltip.ResizeToolTip()
 	
 
@@ -1631,7 +1631,7 @@ class ItemToolTip(ToolTip):
 		if self.check_sigillo(itemVnum) or itemVnum == 55002:
 			if attrSlot[0][1] != 0:
 				self.AppendSpace(5)
-				self.AppendTextLine("Livello: "+str(metinSlot[1]), self.NORMAL_COLOR)
+				self.AppendTextLine("Nivel: "+str(metinSlot[1]), self.NORMAL_COLOR)
 				self.AppendTextLine("HP: +"+pointop(str(attrSlot[0][1]))+"%", self.SPECIAL_POSITIVE_COLOR)
 				self.AppendTextLine("DEX: +"+pointop(str(attrSlot[1][1]))+"%", self.SPECIAL_POSITIVE_COLOR)
 				self.AppendTextLine("SP: +"+pointop(str(attrSlot[2][1]))+"%", self.SPECIAL_POSITIVE_COLOR)
@@ -1640,12 +1640,12 @@ class ItemToolTip(ToolTip):
 					days = (int(attrSlot[3][1])/60)/24
 					hours = (int(attrSlot[3][1]) - (days*60*24)) / 60
 					mins = int(attrSlot[3][1]) - (days*60*24) - (hours*60)
-					self.AppendTextLine("Durata: %d Giorni %d Ore %d Minuti" % (days, hours, mins), self.SPECIAL_POSITIVE_COLOR)
+					self.AppendTextLine("Durata: %d Zile %d Ore %d Minute" % (days, hours, mins), self.SPECIAL_POSITIVE_COLOR)
 				else:
 					value_pet_name = str(metinSlot[0])
 					pet_name_type = ["Monkey", "Spider", "Razador", "Nemere", "Dragon", "Meley"]
 					value_pet_evo = str(metinSlot[2])
-					petname_box = ["Cucciolo", "Selvaggio", "Coraggioso", "Eroico"]
+					petname_box = ["Pui", "Sãlbatic", "Curajos", "Eroic"]
 					self.AppendTextLine("Pet : %s, %s" % ((pet_name_type[int(value_pet_name)-1]), (petname_box[int(value_pet_evo)])))
 
 		### Weapon ###	
@@ -2292,11 +2292,11 @@ class ItemToolTip(ToolTip):
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [M]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Benedizione" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 24" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 250 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(80 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [M]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Binecuvântare" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 24" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 250 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(80 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 	
 					
 			if 79001 == itemVnum:
@@ -2304,33 +2304,33 @@ class ItemToolTip(ToolTip):
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [G]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Benedizione" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 29" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 350 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(100 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [G]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Binecuvântare" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 29" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 350 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(100 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 					
 			if 79002 == itemVnum:
 				if 0 != metinSlot:
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [P]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Benedizione" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 35" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 500 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(120 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [P]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Binecuvântare" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 35" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 500 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(120 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 	
 			if 79003 == itemVnum:
 				if 0 != metinSlot:
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [M]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Aiuto del drago" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 24" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 250 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(80 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [M]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Dragon Aid" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 24" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 250 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(80 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 	
 					
 			if 79004 == itemVnum:
@@ -2338,33 +2338,33 @@ class ItemToolTip(ToolTip):
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [G]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Aiuto del drago" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 29" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 350 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(100 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [G]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Dragon Aid" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 29" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 350 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(100 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 					
 			if 79005 == itemVnum:
 				if 0 != metinSlot:
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [P]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Aiuto del drago" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 35" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 500 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(120 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [P]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Dragon Aid" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 35" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 500 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(120 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 
 			if 79006 == itemVnum:
 				if 0 != metinSlot:
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [M]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Riflessione" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 21" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 250 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(80 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [M]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Reflec?ie" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 21" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 250 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(80 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 	
 					
 			if 79007 == itemVnum:
@@ -2372,22 +2372,22 @@ class ItemToolTip(ToolTip):
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [G]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Riflessione" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 31" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 350 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(100 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
+					self.AppendTextLine("Nivel Buff: [G]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Reflec?ie" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 31" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 350 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(100 - useCount), self.ITEM_BUFF_USAGE_COLOR)					
 					
 			if 79008 == itemVnum:
 				if 0 != metinSlot:
 					useCount = int(metinSlot[0])
 
 					self.AppendSpace(5)
-					self.AppendTextLine("Livello Buff: [P]" , self.ITEM_BUFF_LEVEL_COLOR)
-					self.AppendTextLine("Tipo di Buff: Riflessione" , self.ITEM_BUFF_TYPE_COLOR)			
-					self.AppendTextLine("Percentuale: 45" , self.ITEM_BUFF_RATE_COLOR)			
-					self.AppendTextLine("Durata Buff: 500 s" , self.ITEM_BUFF_DURATION_COLOR)	
-					self.AppendTextLine("Buff Rimasti: %s "  %(120 - useCount), self.ITEM_BUFF_USAGE_COLOR)										
+					self.AppendTextLine("Nivel Buff: [P]" , self.ITEM_BUFF_LEVEL_COLOR)
+					self.AppendTextLine("Tip Buff: Reflec?ie" , self.ITEM_BUFF_TYPE_COLOR)			
+					self.AppendTextLine("Procent: 45" , self.ITEM_BUFF_RATE_COLOR)			
+					self.AppendTextLine("Duratã Buff: 500 s" , self.ITEM_BUFF_DURATION_COLOR)	
+					self.AppendTextLine("Buff Rãmas: %s "  %(120 - useCount), self.ITEM_BUFF_USAGE_COLOR)										
 
 			#####
 			if item.USE_SPECIAL == itemSubType:
@@ -2478,7 +2478,7 @@ class ItemToolTip(ToolTip):
 					pass
 				else:
 					self.AppendSpace(5)
-					self.AppendTextLine("|Ekey_shift|e"+" + |Ekey_x|e"+" + "+"|Ekey_srclick|e - Vendita Rapida",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					self.AppendTextLine("|Ekey_shift|e"+" + |Ekey_x|e"+" + "+"|Ekey_srclick|e - Vânzare rapidã",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					if itemCount > 1:
 						self.AppendTextLine(localeInfo.SELL_PRICE_INFO_PCS % localeInfo.NumberToMoneyString(itemPrice), self.SPECIAL_TITLE_COLOR)
 						self.AppendTextLine(localeInfo.SELL_PRICE_INFO_ALL % localeInfo.NumberToMoneyString(itemPriceCount), self.SPECIAL_TITLE_COLOR)
@@ -2488,11 +2488,11 @@ class ItemToolTip(ToolTip):
 
 		if itemVnum == 58500: #qui cambi colori scritta Frozen
 			self.AppendSpace(5)
-			self.AppendTextLine("Slot Congenlamento: %d" % (int(metinSlot[0])+1), self.FROZEN_COLOR)
+			self.AppendTextLine("Îngheþare Slot: %d" % (int(metinSlot[0])+1), self.FROZEN_COLOR)
 			
 		if itemVnum == 58501 or itemVnum == 58502:
 			self.AppendSpace(5)
-			self.AppendTextLine("Slot Scongenlamento: %d" % (int(metinSlot[0])+1), self.FROZEN_COLOR)
+			self.AppendTextLine("Dezghe?are Slot: %d" % (int(metinSlot[0])+1), self.FROZEN_COLOR)
 
 		self.__AppendSealInformation(window_type, slotIndex) ## cyh itemseal 2013 11 11
 
@@ -3241,7 +3241,7 @@ class ItemToolTip(ToolTip):
 	if app.ENABLE_OFFLINE_SHOP_SYSTEM:
 		def AppendItemBuyer(self, itemBuyer):
 			self.AppendSpace(5)
-			self.AppendTextLine('Bought by: %s' % itemBuyer, self.DISABLE_COLOR)
+			self.AppendTextLine('Cumpãrat de: %s' % itemBuyer, self.DISABLE_COLOR)
 
 	def GetPriceColor(self, price):
 		if price>=constInfo.HIGH_PRICE:
@@ -3889,11 +3889,11 @@ if app.ENABLE_SPECIAL_STATS_SYSTEM:
 			
 
 		def AppendSkillLevel(self, skill):
-			self.AutoAppendTextLine("Livello Skill:%d" % self.skillLevel[skill], grp.GenerateColor(1, 0.4705, 0, 1.0))
+			self.AutoAppendTextLine("Nivel Skill:%d" % self.skillLevel[skill], grp.GenerateColor(1, 0.4705, 0, 1.0))
 			
 		def AppendSkillDesc(self, desc, isNextLevel = False):
 			if isNextLevel:
-				self.AutoAppendTextLine("Prossimo Livello", grp.GenerateColor(0, 0.4980, 1, 1.0))
+				self.AutoAppendTextLine("Nivelul urmãtor", grp.GenerateColor(0, 0.4980, 1, 1.0))
 				self.AppendDescription( desc, 26, grp.GenerateColor(0.1333, 0.5450, 0.1333, 1.0))
 			else:
 				self.AppendDescription( desc, 26)

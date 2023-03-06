@@ -194,9 +194,9 @@ class FlagSelectDialog(ui.ScriptWindow):
 			import dbg
 			net.SendChatPacket("/changecountryflag %s" % (selItem.GetText()[0:2]))
 			self.Hide()
-			dbg.LogBox("You need to restart client!")
+			dbg.LogBox("Trebuie să reporniţi clientul!")
 		else:
-			self.__PopupMessage("Can't change Language ")
+			self.__PopupMessage("Nu puteţi schimba limba")
 
 	def __OnCancel(self):
 		self.Hide()

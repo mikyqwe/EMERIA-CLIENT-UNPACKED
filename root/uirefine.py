@@ -304,7 +304,7 @@ class RefineDialogNew(ui.ScriptWindow):
 			self.checkBox.SetEvent(ui.__mem_func__(self.AutoRefine), "ON_CHECK", True)
 			self.checkBox.SetEvent(ui.__mem_func__(self.AutoRefine), "ON_UNCKECK", False)
 			self.checkBox.SetCheckStatus(constInfo.IS_AUTO_REFINE)
-			self.checkBox.SetTextInfo("Non chiudere la finestra di raffinamento.")
+			self.checkBox.SetTextInfo("Nu inchideþi fereastra de rafinare.")
 			self.checkBox.Show()
 		self.isLoaded = True
 

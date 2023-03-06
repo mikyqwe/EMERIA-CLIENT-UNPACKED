@@ -362,23 +362,23 @@ class SystemDialog(ui.ScriptWindow):
 		self.ReportLogin.SetSize(400, 300)
 		self.ReportLogin.SetCenterPosition()
 		self.ReportLogin.AddFlag('float')
-		self.ReportLogin.SetTitleName('Segnalazioni')
+		self.ReportLogin.SetTitleName('Rapoarte')
 		self.ReportLogin.SetCloseEvent(self.__ReportSend_FunctionsEND)
 		self.ReportLogin.Show()
 		self.comp = Component()
 
-		self.send = self.comp.Button(self.ReportLogin, 'Invia', '', 112, 202, self.__ReportSend_Functions, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
-		self.kurallar = self.comp.Button(self.ReportLogin, 'Regolamento', '', 112, 232, self.__Kurallar, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
-		self.kapat = self.comp.Button(self.ReportLogin, 'Chiudi', ' ', 112, 262, self.WindowEND, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.send = self.comp.Button(self.ReportLogin, 'Trimite', '', 112, 202, self.__ReportSend_Functions, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.kurallar = self.comp.Button(self.ReportLogin, 'Regulament', '', 112, 232, self.__Kurallar, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.kapat = self.comp.Button(self.ReportLogin, 'Închide', ' ', 112, 262, self.WindowEND, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
 		self.slotbar_reports, self.report = self.comp.EditLine2(self.ReportLogin, '', 76, 105, 250, 75, 305)
-		self.text = self.comp.TextLine(self.ReportLogin, 'Segnala qui eventuali giocatori o bug di gioco.', 75, 45, self.comp.RGB(255, 255, 255))
-		self.text2 = self.comp.TextLine(self.ReportLogin, 'Un utilizzo scorretto dei ticket potrebbe portare al ban.', 75, 59, self.comp.RGB(255, 255, 255))
-		self.text3 = self.comp.TextLine(self.ReportLogin, 'Scrivi il messaggio che vuoi inviare al Team:', 95, 80, self.comp.RGB(255, 255, 255))
+		self.text = self.comp.TextLine(self.ReportLogin, 'Raportaþi orice eroare de jucãtor sau de joc aici.', 75, 45, self.comp.RGB(255, 255, 255))
+		self.text2 = self.comp.TextLine(self.ReportLogin, 'Utilizarea incorectã a biletelor poate duce la interdicþie.', 75, 59, self.comp.RGB(255, 255, 255))
+		self.text3 = self.comp.TextLine(self.ReportLogin, 'Scrieþi mesajul pe care doriþi sã-l trimiteþi echipei:', 95, 80, self.comp.RGB(255, 255, 255))
 		
 	def __ReportSend_Functions(self):
 		import uiCommon
 		questionDialog = uiCommon.QuestionDialog()
-		questionDialog.SetText("Sei sicuro di voler inviare questa segnalazione?")
+		questionDialog.SetText("Sigur doriþi sã trimiteþi acest raport?")
 		questionDialog.SetAcceptEvent(ui.__mem_func__(self.__GonderButonunuOnayladim))
 		questionDialog.SetCancelEvent(ui.__mem_func__(self.__GonderButonunuOnaylamadim))
 		questionDialog.Open()
@@ -390,12 +390,12 @@ class SystemDialog(ui.ScriptWindow):
 			self.Close()
 			self.questionDialog.Close()
 			import chat
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > Non e' possibile annullare l'invio del messaggio.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > Nu este posibil sã anulaþi trimiterea mesajului.")
 		elif len(report) < 30:
 			self.Close()
 			self.questionDialog.Close()
 			import chat
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > La lunghezza del messaggio deve essere compresa tra 30 e 120 caratteri.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > Lungimea mesajului trebuie sã fie între 30 ºi 120 de caractere.")
 		else:
 			self.Close()
 			self.questionDialog.Close()
@@ -410,7 +410,7 @@ class SystemDialog(ui.ScriptWindow):
 	def __ReportSend_FunctionsEND(self):
 		import uiCommon
 		questionDialog = uiCommon.QuestionDialog()
-		questionDialog.SetText("Vuoi chiudere la finestra di report?")
+		questionDialog.SetText("Doriþi sã închideþi fereastra de raport?")
 		questionDialog.SetAcceptEvent(ui.__mem_func__(self.__PencereyiKapatMesaji))
 		questionDialog.SetCancelEvent(ui.__mem_func__(self.__PencereyiKapatMesajiOnaylamadim))
 		questionDialog.Open()
@@ -429,7 +429,7 @@ class SystemDialog(ui.ScriptWindow):
 	def __Kurallar(self):
 		import uiCommon
 		questionDialog = uiCommon.QuestionDialog()
-		questionDialog.SetText("Sei sicuro di voler aprire il regolamento?")
+		questionDialog.SetText("Sigur vrei sã deschizi regulamentul?")
 		questionDialog.SetAcceptEvent(ui.__mem_func__(self.__KurallarPenceresiniAc))
 		questionDialog.SetCancelEvent(ui.__mem_func__(self.__KurallarPenceresiniKapa))
 		questionDialog.Open()
@@ -440,25 +440,25 @@ class SystemDialog(ui.ScriptWindow):
 		self.KurallarOpen.SetSize(370, 375)
 		self.KurallarOpen.SetCenterPosition()
 		self.KurallarOpen.AddFlag('float')
-		self.KurallarOpen.SetTitleName('Regolamento')
+		self.KurallarOpen.SetTitleName('Regulament')
 		self.KurallarOpen.SetCloseEvent(self.__Kurallar_END)
 		self.KurallarOpen.Show()
 		self.ReportLogin.Hide()
 		self.comp2 = Component()
 		
-		self.send = self.comp2.Button(self.KurallarOpen, 'Indietro', ' ', 98, 310, self.ReportWindowOpens, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
-		self.kapat = self.comp2.Button(self.KurallarOpen, 'Chiudi', ' ', 98, 340, self.WindowEND, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
-		self.text1 = self.comp2.TextLine(self.KurallarOpen, '1-) Il report non deve contenere un linguaggio scurrile.', 17, 45, self.comp.RGB(255, 255, 255))
-		self.text2 = self.comp2.TextLine(self.KurallarOpen, '2-) Inviare Report "inutili" potrebbe essere punibile col ban.', 17, 59, self.comp.RGB(255, 255, 255))
-		self.text3 = self.comp2.TextLine(self.KurallarOpen, '3-) Puoi allegare screenshot al report.', 17, 74, self.comp.RGB(255, 255, 255))
-		self.text4 = self.comp2.TextLine(self.KurallarOpen, '4-) Richieste di Sban non saranno prese in visione.', 17, 89, self.comp.RGB(255, 255, 255))
-		self.text5 = self.comp2.TextLine(self.KurallarOpen, '5-) Il Report deve essere utilizzato solo per segnalare i', 17, 104, self.comp.RGB(255, 255, 255))	
-		self.text6 = self.comp2.TextLine(self.KurallarOpen, 'giocatori (cheating, comportamento scorretto) e bugs di gioco.', 17, 119, self.comp.RGB(255, 255, 255))
-		self.text7 = self.comp2.TextLine(self.KurallarOpen, '6-) Ogni ticket verra visionato entro 24h.', 17, 134, self.comp.RGB(255, 255, 255))
-		self.text8 = self.comp2.TextLine(self.KurallarOpen, '7-) Non utilizzare il report per richiedere informazioni generiche.', 17, 149, self.comp.RGB(255, 255, 255))
+		self.send = self.comp2.Button(self.KurallarOpen, 'Înapoi', ' ', 98, 310, self.ReportWindowOpens, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.kapat = self.comp2.Button(self.KurallarOpen, 'Închide', ' ', 98, 340, self.WindowEND, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.text1 = self.comp2.TextLine(self.KurallarOpen, '1-) Raportul nu trebuie sã con?inã limbaj vulgar.', 17, 45, self.comp.RGB(255, 255, 255))
+		self.text2 = self.comp2.TextLine(self.KurallarOpen, '2-) Trimiterea de rapoarte „inutile” paote fi pedepsitã cu ban.', 17, 59, self.comp.RGB(255, 255, 255))
+		self.text3 = self.comp2.TextLine(self.KurallarOpen, '3-) Puteþi ataºa capturi de ecran la raport.', 17, 74, self.comp.RGB(255, 255, 255))
+		self.text4 = self.comp2.TextLine(self.KurallarOpen, '4-) Solicitãrile de ban nu vor fi revizuite.', 17, 89, self.comp.RGB(255, 255, 255))
+		self.text5 = self.comp2.TextLine(self.KurallarOpen, '5-) Raportul ar trebui utilizat numai pentru a raporta', 17, 104, self.comp.RGB(255, 255, 255))	
+		self.text6 = self.comp2.TextLine(self.KurallarOpen, 'jucãtori (înºelãciune, comportament neadecvat) ºi erori de joc.', 17, 119, self.comp.RGB(255, 255, 255))
+		self.text7 = self.comp2.TextLine(self.KurallarOpen, '6-) Fiecare ticket va fi vizualizat în 24 de ore.', 17, 134, self.comp.RGB(255, 255, 255))
+		self.text8 = self.comp2.TextLine(self.KurallarOpen, '7-) Nu utilizaþi raportul pentru a solicita informaþii generale.', 17, 149, self.comp.RGB(255, 255, 255))
 		self.text14 = self.comp2.TextLine(self.KurallarOpen, '', 17, 239, self.comp.RGB(255, 255, 255))
-		self.text15 = self.comp2.TextLine(self.KurallarOpen, 'Grazie per la visione,', 17, 254, self.comp.RGB(255, 255, 255))
-		self.text16 = self.comp2.TextLine(self.KurallarOpen, 'Emeria Team.', 17, 269, self.comp.RGB(255, 255, 255))
+		self.text15 = self.comp2.TextLine(self.KurallarOpen, 'Multumim pentru vizionare,', 17, 254, self.comp.RGB(255, 255, 255))
+		self.text16 = self.comp2.TextLine(self.KurallarOpen, 'echipa Emeria.', 17, 269, self.comp.RGB(255, 255, 255))
 	
 	def __KurallarPenceresiniKapa(self):
 		self.Close()
@@ -467,7 +467,7 @@ class SystemDialog(ui.ScriptWindow):
 	def __Kurallar_END(self):
 		import uiCommon
 		questionDialog = uiCommon.QuestionDialog()
-		questionDialog.SetText("Vuoi chiudere la finestra di report?")
+		questionDialog.SetText("Doriþi sã închideþi fereastra de raport?")
 		questionDialog.SetAcceptEvent(ui.__mem_func__(self.__PencereyiKapatMesaji))
 		questionDialog.SetCancelEvent(ui.__mem_func__(self.__PencereyiKapatMesajiOnaylamadim))
 		questionDialog.Open()
@@ -486,7 +486,7 @@ class SystemDialog(ui.ScriptWindow):
 	def WindowEND(self):
 		import uiCommon
 		questionDialog = uiCommon.QuestionDialog()
-		questionDialog.SetText("Vuoi chiudere la finestra di report?")
+		questionDialog.SetText("Doriþi sã închideþi fereastra de raport?")
 		questionDialog.SetAcceptEvent(ui.__mem_func__(self.__PencereyiKapatMesaji))
 		questionDialog.SetCancelEvent(ui.__mem_func__(self.__PencereyiKapatMesajiOnaylamadim))
 		questionDialog.Open()
@@ -510,24 +510,24 @@ class SystemDialog(ui.ScriptWindow):
 		self.ReportLogin.SetSize(400, 300)
 		self.ReportLogin.SetCenterPosition()
 		self.ReportLogin.AddFlag('float')
-		self.ReportLogin.SetTitleName('Segnalazioni')
+		self.ReportLogin.SetTitleName('Rapoarte')
 		self.ReportLogin.SetCloseEvent(self.__ReportSend_FunctionsEND)
 		self.ReportLogin.Show()
 		self.KurallarOpen.Hide()
 		self.comp = Component()
 
-		self.send = self.comp.Button(self.ReportLogin, 'Invia', '', 112, 202, self.__ReportSend_Functions, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
-		self.kurallar = self.comp.Button(self.ReportLogin, 'Regolamento', '', 112, 232, self.__Kurallar, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
-		self.kapat = self.comp.Button(self.ReportLogin, 'Chiudi', ' ', 112, 262, self.WindowEND, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.send = self.comp.Button(self.ReportLogin, 'Trimite', '', 112, 202, self.__ReportSend_Functions, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.kurallar = self.comp.Button(self.ReportLogin, 'Regulament', '', 112, 232, self.__Kurallar, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
+		self.kapat = self.comp.Button(self.ReportLogin, 'Închide', ' ', 112, 262, self.WindowEND, 'd:/ymir work/ui/public/XLarge_Button_01.sub', 'd:/ymir work/ui/public/XLarge_Button_02.sub', 'd:/ymir work/ui/public/XLarge_Button_03.sub')
 		self.slotbar_reports, self.report = self.comp.EditLine2(self.ReportLogin, '', 76, 105, 250, 75, 305)
-		self.text = self.comp.TextLine(self.ReportLogin, 'Segnala qui eventuali giocatori o bug di gioco.', 75, 45, self.comp.RGB(255, 255, 255))
-		self.text2 = self.comp.TextLine(self.ReportLogin, 'Un utilizzo scorretto dei ticket potrebbe portare al ban.', 75, 59, self.comp.RGB(255, 255, 255))
-		self.text3 = self.comp.TextLine(self.ReportLogin, 'Scrivi il messaggio che vuoi inviare al Team:', 95, 80, self.comp.RGB(255, 255, 255))
+		self.text = self.comp.TextLine(self.ReportLogin, 'Raportaþi orice eroare de jucãtor sau de joc aici.', 75, 45, self.comp.RGB(255, 255, 255))
+		self.text2 = self.comp.TextLine(self.ReportLogin, 'Utilizarea incorectã a biletelor poate duce la ban.', 75, 59, self.comp.RGB(255, 255, 255))
+		self.text3 = self.comp.TextLine(self.ReportLogin, 'Scrieþi mesajul pe care doriþi sã-l trimite?i echipei:', 95, 80, self.comp.RGB(255, 255, 255))
 
 	def __ReportSend_Functions(self):
 		import uiCommon
 		questionDialog = uiCommon.QuestionDialog()
-		questionDialog.SetText("Sei sicuro di voler inviare questa segnalazione?")
+		questionDialog.SetText("Sigur doriþi sã trimiteþi acest raport?")
 		questionDialog.SetAcceptEvent(ui.__mem_func__(self.__GonderButonunuOnayladim))
 		questionDialog.SetCancelEvent(ui.__mem_func__(self.__GonderButonunuOnaylamadim))
 		questionDialog.Open()
@@ -540,12 +540,12 @@ class SystemDialog(ui.ScriptWindow):
 			self.Close()
 			self.questionDialog.Close()
 			import chat
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > Non e' possibile annullare l'invio del messaggio..")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > Nu este posibil sã anulaþi trimiterea mesajului.")
 		elif len(report) < 30:
 			self.Close()
 			self.questionDialog.Close()
 			import chat
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > La lunghezza del messaggio deve essere compresa tra 30 e 120 caratteri")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "[Emeria] > Lungimea mesajului trebuie sã fie între 30 ºi 120 de caractere")
 		else:
 			self.Close()
 			self.questionDialog.Close()
@@ -560,7 +560,7 @@ class SystemDialog(ui.ScriptWindow):
 	def __ReportSend_FunctionsEND(self):
 		import uiCommon
 		questionDialog = uiCommon.QuestionDialog()
-		questionDialog.SetText("Vuoi chiudere la finestra di report?")
+		questionDialog.SetText("Doriþi sã închideþi fereastra de raport?")
 		questionDialog.SetAcceptEvent(ui.__mem_func__(self.__PencereyiKapatMesaji))
 		questionDialog.SetCancelEvent(ui.__mem_func__(self.__PencereyiKapatMesajiOnaylamadim))
 		questionDialog.Open()

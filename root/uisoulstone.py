@@ -64,7 +64,7 @@ class SoulStoneBoard(ui.ScriptWindow):
 		self.RefreshStoneSlot()
 
 		if self.RefreshSkillSlot() == FALSE:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "You don't have the necessary skill.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Nu ai abilitatea necesara.")
 			return
 		else:
 			self.OnUseSkillSlot(0)
@@ -152,7 +152,7 @@ class SoulStoneBoard(ui.ScriptWindow):
 
 	def RefreshSkill(self):
 		if self.RefreshSkillSlot() == FALSE:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "You don't have the necessary skill.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Nu ai abilitatea necesara.")
 			self.Close()
 
 	def OnDropStoneSlot(self, slotIndex):

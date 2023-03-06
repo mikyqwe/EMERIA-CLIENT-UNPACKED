@@ -100,7 +100,7 @@ if app.ENABLE_CHEQUE_SYSTEM:
 			withdrawMoneyButton.SetUpVisual("d:/ymir work/ui/public/Large_Button_01.sub")
 			withdrawMoneyButton.SetOverVisual("d:/ymir work/ui/public/Large_Button_02.sub")
 			withdrawMoneyButton.SetDownVisual("d:/ymir work/ui/public/Large_Button_03.sub")
-			withdrawMoneyButton.SetText("Ritira Yang")
+			withdrawMoneyButton.SetText("Retrage Yang")
 			withdrawMoneyButton.SetEvent(self.__WithdrawMoneyOrCheque, 0)
 			withdrawMoneyButton.Show()
 			self.Children.append(withdrawMoneyButton)
@@ -127,7 +127,7 @@ if app.ENABLE_CHEQUE_SYSTEM:
 			withdrawChequeButton.SetUpVisual("d:/ymir work/ui/public/Large_Button_01.sub")
 			withdrawChequeButton.SetOverVisual("d:/ymir work/ui/public/Large_Button_02.sub")
 			withdrawChequeButton.SetDownVisual("d:/ymir work/ui/public/Large_Button_03.sub")
-			withdrawChequeButton.SetText("Ritira Won")
+			withdrawChequeButton.SetText("Retrage Won")
 			withdrawChequeButton.SetEvent(self.__WithdrawMoneyOrCheque, 1)
 			withdrawChequeButton.Show()
 			self.Children.append(withdrawChequeButton)
@@ -172,10 +172,10 @@ if app.ENABLE_CHEQUE_SYSTEM:
 
 			if type == 0:
 				currentMoney = player.GetCurrentOfflineShopMoney()
-				withdrawQuestionDialog.SetText2("[Totale: " + localeInfo.NumberToMoneyString(currentMoney) + "]")
+				withdrawQuestionDialog.SetText2("[Total: " + localeInfo.NumberToMoneyString(currentMoney) + "]")
 			else:
 				currentCheque = player.GetCurrentOfflineShopCheque()
-				withdrawQuestionDialog.SetText2("[Totale: " + localeInfo.NumberToChequeString(currentCheque) + "]")
+				withdrawQuestionDialog.SetText2("[Total: " + localeInfo.NumberToChequeString(currentCheque) + "]")
 
 			withdrawQuestionDialog.SetAcceptEvent(lambda arg = True: self.AnswerMyBankQuestion(arg, type))
 			withdrawQuestionDialog.SetCancelEvent(lambda arg = False: self.AnswerMyBankQuestion(arg, type))
@@ -415,7 +415,7 @@ class OfflineShopInputDialog(ui.ScriptWindow):
 			currentMoney = player.GetCurrentOfflineShopMoney()
 			withdrawQuestionDialog = uiCommon.QuestionDialogOfflineShopMoney()
 			withdrawQuestionDialog.SetText(localeInfo.OFFLINE_SHOP_WITHDRAW_MONEY)
-			withdrawQuestionDialog.SetText2("[Totale: " + localeInfo.NumberToMoneyString(currentMoney) + "]")
+			withdrawQuestionDialog.SetText2("[Total: " + localeInfo.NumberToMoneyString(currentMoney) + "]")
 			withdrawQuestionDialog.SetAcceptEvent(lambda arg = True: self.AnswerMyBankQuestion(arg))
 			withdrawQuestionDialog.SetCancelEvent(lambda arg = False: self.AnswerMyBankQuestion(arg))
 			withdrawQuestionDialog.Open()
@@ -887,14 +887,14 @@ class OfflineShopEditMode(ui.ScriptWindow):
 
 	def OnUpdate(self):
 		if self.RemainTime > 0:
-			self.wndTimeRemain.SetText("Time Left: " + localeInfo.SecondToDHM(self.RemainTime))
+			self.wndTimeRemain.SetText("Timp ramas: " + localeInfo.SecondToDHM(self.RemainTime))
 
 	def Open(self, vid, remain, map_index, x, y):
 		self.Refresh()
 		self.CurrentShopVID = vid
 		self.RemainTime = remain
 		self.titleName.SetText(chr.GetNameByVID(vid))
-		self.wndLocation.SetText("Town: " + str(x) + " " + str(y))
+		self.wndLocation.SetText("Oraº: " + str(x) + " " + str(y))
 		
 		shop.Close()
 		net.SendOfflineShopEndPacket()
@@ -976,9 +976,9 @@ class OfflineShopEditMode(ui.ScriptWindow):
 
 		itemBuyQuestionDialog = uiCommon.QuestionDialog()
 		itemBuyQuestionDialog.SetWidth(165)
-		itemBuyQuestionDialog.SetText("Choice a option")
-		itemBuyQuestionDialog.SetAcceptText("Edit Price")
-		itemBuyQuestionDialog.SetCancelText("Remove Item")
+		itemBuyQuestionDialog.SetText("Alegeþi o optiune")
+		itemBuyQuestionDialog.SetAcceptText("Editaþi pret")
+		itemBuyQuestionDialog.SetCancelText("Inlaturã Item")
 
 		itemBuyQuestionDialog.SetAcceptEvent(lambda arg = True: self.AnswerEditItem(arg))
 		itemBuyQuestionDialog.SetCancelEvent(lambda arg = False: self.AnswerEditItem(arg))
@@ -1013,7 +1013,7 @@ class OfflineShopEditMode(ui.ScriptWindow):
 			return
 	
 		PriceQuestionDialog = uiCommon.MoneyInputDialog()
-		PriceQuestionDialog.SetTitle("Choice sum!")
+		PriceQuestionDialog.SetTitle("Alegeþi suma!")
 		#Set money default 
 		itemPrice = shop.GetOfflineShopItemPrice(pos)
 		itemCheque = shop.GetOfflineShopItemCheque(pos)

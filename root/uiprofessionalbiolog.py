@@ -33,10 +33,10 @@ BIOLOG_BINARY_LOADED = {
 
 def pTableTranslate(i): 
 	translate = {
-					1	:	"[i] Are you sure you want to accept this reward?",
-					2	:	"[i] You not select a reward!",
-					3	:	"[i] Biological analysis",
-					4	:	"[i] Time's expired, now you can send another item for analysis!"
+					1	:	"[i] Sigur doriþi sã acceptaþi aceastã recompensã?",
+					2	:	"[i] Nu selectezi o recompensã!",
+					3	:	"[i] Analizã biologicã",
+					4	:	"[i] Timpul a expirat, acum puteþi trimite un alt articol pentru analizã!"
 				}
 	if translate.has_key(i):
 		return translate[i]
