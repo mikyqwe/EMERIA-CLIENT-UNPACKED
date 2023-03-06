@@ -172,7 +172,7 @@ window = {
 							"x" : 65,
 							"y" : 25,
 
-							"text" : "SÃ¢nge",
+							"text" : "Sânge",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -185,7 +185,7 @@ window = {
 							"x" : 65+65*1,
 							"y" : 25,
 
-							"text" : "ExtincÅ£ie",
+							"text" : "Extincþie",
 							
 							"default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
@@ -199,7 +199,7 @@ window = {
 					
 					"children" :
 					(
-						{"name" : "GameTypeLabel4", "type" : "text", "x" : 0, "y" : 3, "text" : "JucÄƒtori",},
+						{"name" : "GameTypeLabel4", "type" : "text", "x" : 0, "y" : 3, "text" : "Jucãtori",},
 						{
 							"name" : "threeButton",
 							"type" : "radio_button",

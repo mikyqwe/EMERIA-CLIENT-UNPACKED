@@ -116,7 +116,7 @@ window = {
 					"name" : "LevelWindow", "type" : "window", "x" : 28, "y" : 124, "width" : SHORT_LABLE_WIDTH, "height" : SHORT_LABLE_HEIGHT, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"LevelTitle", "type":"text", "x":0, "y":0, "text": "Livello", "color":GOLD_COLOR, "all_align" : "center"},
+						{"name":"LevelTitle", "type":"text", "x":0, "y":0, "text": "Nivel", "color":GOLD_COLOR, "all_align" : "center"},
 					),	
 				},
 				## Level Value
@@ -133,7 +133,7 @@ window = {
 					"name" : "ExpWindow", "type" : "window", "x" : 131, "y" : 124, "width" : SHORT_LABLE_WIDTH, "height" : SHORT_LABLE_HEIGHT, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"ExpTitle", "type":"text", "x":0, "y":0, "text": "Esperienza", "color":GOLD_COLOR, "all_align" : "center"},
+						{"name":"ExpTitle", "type":"text", "x":0, "y":0, "text": "Experienþã", "color":GOLD_COLOR, "all_align" : "center"},
 					),	
 				},
 				## EXP Gauge
@@ -203,7 +203,7 @@ window = {
 					"name" : "AgeWindow", "type" : "window", "x" : 232, "y" : 124, "width" : SHORT_LABLE_WIDTH, "height" : SHORT_LABLE_HEIGHT, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"AgeTitle", "type":"text", "x":0, "y":0, "text": "Eta", "color":GOLD_COLOR, "all_align" : "center"},
+						{"name":"AgeTitle", "type":"text", "x":0, "y":0, "text": "Vârstã", "color":GOLD_COLOR, "all_align" : "center"},
 					),	
 				},
 				## AGE Value
@@ -220,7 +220,7 @@ window = {
 					"name" : "LifeWindow", "type" : "window", "x" : 28, "y" : 169, "width" : 168, "height" : SHORT_LABLE_HEIGHT, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"LifeTitle", "type":"text", "x":0, "y":0, "text": "Durata", "color":GOLD_COLOR, "all_align" : "center"},
+						{"name":"LifeTitle", "type":"text", "x":0, "y":0, "text": "Duratã", "color":GOLD_COLOR, "all_align" : "center"},
 					),	
 				},
 				
@@ -274,7 +274,7 @@ window = {
 					"over_image" : PET_UI_ROOT + "feed_button/feed_button_over.sub",
 					"down_image" : PET_UI_ROOT + "feed_button/feed_button_down.sub",
 					
-					"text" : "Nutri",
+					"text" : "Hrãneºte",
 					"text_color" : GOLD_COLOR,
 				},
 				
@@ -289,7 +289,7 @@ window = {
 					"over_image" : PET_UI_ROOT + "feed_button/feed_button_over.sub",
 					"down_image" : PET_UI_ROOT + "feed_button/feed_button_down.sub",
 					
-					"text" : "Evolvi",
+					"text" : "Evolueazã",
 					"text_color" : GOLD_COLOR,
 				},
 				
@@ -323,7 +323,7 @@ window = {
 					"name" : "HpWindow", "type" : "window", "x" : 20, "y" : 282, "width" : MIDDLE_LABLE_WIDTH, "height" : MIDDLE_LABLE_HEIGHT, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"HpTitle", "type":"text", "x":0, "y":0, "text": "Max. HP", "color":GOLD_COLOR, "all_align" : "center"},
+						{"name":"HpTitle", "type":"text", "x":0, "y":0, "text": "Max. PV", "color":GOLD_COLOR, "all_align" : "center"},
 					),	
 				},
 				## HP Value
@@ -340,7 +340,7 @@ window = {
 					"name" : "DefWindow", "type" : "window", "x" : 20, "y" : 304, "width" : MIDDLE_LABLE_WIDTH, "height" : MIDDLE_LABLE_HEIGHT, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"DefTitle", "type":"text", "x":0, "y":0, "text": "Difesa", "color":GOLD_COLOR, "all_align" : "center"},
+						{"name":"DefTitle", "type":"text", "x":0, "y":0, "text": "Apãrare", "color":GOLD_COLOR, "all_align" : "center"},
 					),	
 				},
 				## Defence Value

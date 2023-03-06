@@ -76,7 +76,7 @@ window = {
 						# { "name" : "TitleName", "type" : "text", "x" : 84, "y" : 4, "text" : "Storages", "text_horizontal_align" : "center", "horizontal_align" : "center" },
 
 						# With Sort Inventory Button
-						{ "name" : "TitleName", "type" : "text", "x" : -4, "y" : 4, "text" : "Magazzino", "text_horizontal_align" : "center", "horizontal_align" : "center" },
+						{ "name" : "TitleName", "type" : "text", "x" : -4, "y" : 4, "text" : "Depozit", "text_horizontal_align" : "center", "horizontal_align" : "center" },
 					),
 				},
 

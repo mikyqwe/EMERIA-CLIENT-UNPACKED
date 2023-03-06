@@ -46,7 +46,7 @@ window = {
 			"width" : 41,
 			"height" : 21,
 
-			"text" : "InvitÄƒ",
+			"text" : "Invitã",
 
 			"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/small_button_02.sub",
@@ -62,7 +62,7 @@ window = {
 			"width" : 41,
 			"height" : 21,
 
-			"text" : "ActualizaÅ£i",
+			"text" : "Actualizaþi",
 
 			"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/small_button_02.sub",

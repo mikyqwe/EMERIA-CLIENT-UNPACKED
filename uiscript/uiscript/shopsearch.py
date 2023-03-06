@@ -37,7 +37,7 @@ window = {
 					"children" :
 					(
 						{ 
-							"name":"TitleName", "type":"text", "x" : (WINDOW_WIDTH - 15) / 2, "y":4, "text":"Cerca Oggetti", "text_horizontal_align":"center" 
+							"name":"TitleName", "type":"text", "x" : (WINDOW_WIDTH - 15) / 2, "y":4, "text":"Cautaþi obiecte", "text_horizontal_align":"center" 
 						},
 					),
 				},
@@ -102,7 +102,7 @@ window = {
 					"x" : 55,
 					"y" : 38,
 
-					"text" : "Ricerca Esatta",
+					"text" : "Cãutare exactã",
 					"color" : 0xFFFEE3AE,
 				},
 				{
@@ -148,7 +148,7 @@ window = {
 
 					"x" : 25,
 					"y" : 407,
-					"text" : "Cerca",
+					"text" : "Aproape",
 
 					"default_image" : IMAGE_ROOT + "button_01_brown.png",
 					"over_image" : IMAGE_ROOT + "button_02_brown.png",

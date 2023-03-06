@@ -500,7 +500,7 @@ window = {
 					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH+MIDDLE_BUTTON_WIDTH,
 					"y" : 290+25,
 
-					"text" : "Nego?",
+					"text" : "Negoþ",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
@@ -522,7 +522,7 @@ window = {
 					"x" : LINE_DATA_X+10,
 					"y" : 320+2+25+23+2,
 
-					"text" : "Schimb?",
+					"text" : "Schimbã",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
@@ -590,7 +590,7 @@ if app.__BL_HIDE_EFFECT__:
 					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
 					"y" : 315+2+25,
 
-					"text" : "Vr?ji",
+					"text" : "Vrãji",
 
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",

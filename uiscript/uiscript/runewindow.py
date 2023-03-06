@@ -45,7 +45,7 @@ window = {
 
 					"children" :
 					(
-						{ "name":"TitleName", "type":"text", "x":150, "y":3, "text": "Mosaico Rune", "text_horizontal_align":"center" },
+						{ "name":"TitleName", "type":"text", "x":150, "y":3, "text": "Mozaic de rune", "text_horizontal_align":"center" },
 					),
 				},
 				
