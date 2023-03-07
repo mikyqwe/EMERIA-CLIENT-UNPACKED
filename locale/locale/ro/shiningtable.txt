@@ -456,7 +456,6 @@
 36686	"D:/ymir work/effect/plechito/weapons/halfmoon_set/sura_sword_glow.mse"
 26110	"D:/ymir work/effect/plechito/weapons/halfmoon_set/costume_glow.mse"
 26111	"D:/ymir work/effect/plechito/weapons/stpatrick_set/costume_glow.mse"
-
 36690	"D:/ymir work/effect/plechito/weapons/stpatrick_set/sword_glow.mse"
 36691	"D:/ymir work/effect/plechito/weapons/stpatrick_set/twohand_glow.mse"
 36692	"D:/ymir work/effect/plechito/weapons/stpatrick_set/bow_glow.mse"
@@ -464,3 +463,4 @@
 36694	"D:/ymir work/effect/plechito/weapons/stpatrick_set/bell_glow.mse"
 36695	"D:/ymir work/effect/plechito/weapons/stpatrick_set/fan_glow.mse"
 36696	"D:/ymir work/effect/plechito/weapons/stpatrick_set/sura_sword_glow.mse"
+25210	"D:/ymir work/effect/discord/discordeffect.mse"

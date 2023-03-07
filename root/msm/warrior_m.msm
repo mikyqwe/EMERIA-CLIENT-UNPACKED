@@ -2528,6 +2528,16 @@ Group ShapeData
 
 		SourceSkin			"body_male.dds"
 		TargetSkin			"body_male.dds"
+	}
+	Group ShapeData216
+	{
+		SpecialPath			"d:/ymir work/vandaa/discord/pc/warrior/"
+		
+		ShapeIndex			31008
+		Model				"warrior_discord.gr2"
+
+		SourceSkin			"warrior_discord.dds"
+		TargetSkin			"warrior_discord.dds"
 	}	
 }
 

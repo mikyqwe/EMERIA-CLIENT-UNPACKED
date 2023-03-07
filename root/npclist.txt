@@ -1976,3 +1976,4 @@
 888000	easter_2022_seahorse
 90002	defence
 900002	defence
+20477	lion_black_gold
