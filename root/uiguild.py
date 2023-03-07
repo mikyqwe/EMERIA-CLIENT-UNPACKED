@@ -312,8 +312,8 @@ class AcceptGuildWarDialog(ui.ScriptWindow):
 		self.warFlags = warFlags
 		self.customMapIdx = customMapIdx
 		self.inputValue.SetText(guildName)
-		self.inputValue1.SetText(str(self.maxScore) + " Punteggio")
-		self.inputValue2.SetText(str(self.maxPlayer) + " Giocatori")
+		self.inputValue1.SetText(str(self.maxScore) + " Scor")
+		self.inputValue2.SetText(str(self.maxPlayer) + " Jucãtori")
 		# if self.warFlags & self.OBSERVER_MODE:
 			# self.__OnClickWithObserverButton()
 		# else:
@@ -1872,7 +1872,7 @@ class GuildWindow(ui.ScriptWindow):
 		self.inputDialog = inputDialog
 
 	def __OnEarly(self):
-		self.__PopupMessage("Too early! Emeria League will start soon!")
+		self.__PopupMessage("Prea devreme! Liga Emeria va începe în curând!")
 
 	def __OnSelectMark(self, markFileName):
 		ret = net.UploadMark("upload/"+markFileName)
@@ -2878,7 +2878,7 @@ if __name__ == "__main__":
 
 			if len(tokens) < LIMIT_TOKEN_COUNT:
 				import dbg
-				dbg.TraceError("Strange token count [%d/%d] [%s]" % (len(tokens), LIMIT_TOKEN_COUNT, line))
+				dbg.TraceError("Numãr ciudat de jetoane [%d/%d] [%s]" % (len(tokens), LIMIT_TOKEN_COUNT, line))
 				continue
 
 			ENABLE_FLAG_TYPE_NOT_USE = False
