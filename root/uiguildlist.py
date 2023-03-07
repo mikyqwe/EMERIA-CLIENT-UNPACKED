@@ -27,7 +27,7 @@ class GuildOnlineList(ui.BoardWithTitleBar):
 		self.AddFlag("float")
 		#self.AddFlag("movable")
 
-		self.SetTitleName("Lista gilde Online")
+		self.SetTitleName("Lista breasla online")
 
 		wpEx = ui.ThinBoard()
 		wpEx.SetParent(self)
@@ -57,7 +57,7 @@ class GuildOnlineList(ui.BoardWithTitleBar):
 		editLine.SetParent(editLineSlot)
 		editLine.SetPosition(2,3)
 		editLine.SetSize(editLineSlot.GetWidth(),editLineSlot.GetHeight())
-		editLine.SetOverlayText("Cerca una specifica gilda...")
+		editLine.SetOverlayText("Cãutaþi o anumitã breaslã...")
 		editLine.SetMax(15)
 		editLine.OnIMEUpdate = ui.__mem_func__(self.__OnValueUpdate)
 		editLine.OnPressEscapeKey = ui.__mem_func__(self.Hide)

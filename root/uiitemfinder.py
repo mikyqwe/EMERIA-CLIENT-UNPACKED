@@ -52,9 +52,9 @@ class ItemFinder(ui.ScriptWindow):
 		self.add[index].SetOverEvent(ui.__mem_func__(self.OverIn), index)
 		self.add[index].SetOverOutEvent(ui.__mem_func__(self.OverOut))
 		self.text0[index] = ui.MakeText(self.add[index], str(name_monster), 56, 0)
-		self.text1[index] = ui.MakeText(self.add[index], "- Name: " + str(name_item), 5, 36)
-		self.text2[index] = ui.MakeText(self.add[index], "- Chance Of Drop: " + get_rare_text, 5, 69)
-		self.text3[index] = ui.MakeText(self.add[index], "- Monsters Active: " + str(activi), 5, 100)
+		self.text1[index] = ui.MakeText(self.add[index], "- Nume: " + str(name_item), 5, 36)
+		self.text2[index] = ui.MakeText(self.add[index], "- ªansa de drop: " + get_rare_text, 5, 69)
+		self.text3[index] = ui.MakeText(self.add[index], "- Monºtri activi: " + str(activi), 5, 100)
 		self.grid[index] = ui.MakeGridSlotSearch(self.add[index], 145, 27, vnum, count)
 
 		if index < self.viewItemCount:

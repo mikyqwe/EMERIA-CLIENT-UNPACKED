@@ -485,11 +485,11 @@ class MovableImage(ImageBoxSpecial):
 						self.SetImage(imageFolder)
 					return
 				else:
-					self.timeText.SetText("Fine in %s"%self.FormatTime(leftTime))
+					self.timeText.SetText("Se terminã în %s"%self.FormatTime(leftTime))
 			else:
 				leftTime = timeData[0] - app.GetGlobalTimeStamp()
 				if leftTime <= 0:
 					timeData[2] = 1
 					return
 				else:
-					self.timeText.SetText("Inizia in %s"%self.FormatTime(leftTime))
+					self.timeText.SetText("Începe în %s"%self.FormatTime(leftTime))

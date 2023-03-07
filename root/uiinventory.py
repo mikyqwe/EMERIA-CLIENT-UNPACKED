@@ -1336,7 +1336,7 @@ class InventoryWindow(ui.ScriptWindow):
 		
 	def ClickLagerButton(self):
 		if constInfo.DROP_GUI_CHECK == 1:
-			chat.AppendChat(1, "First of all, choose one option about drop gui.")
+			chat.AppendChat(1, "În primul rând, alegeþi o opþiune despre drop gui.")
 		else:
 			self.interface.ToggleInventoryMenuWindow()
 		# eventt.QuestButtonClick(1)
@@ -2097,7 +2097,7 @@ class InventoryWindow(ui.ScriptWindow):
 			item.SelectItem(player.GetItemIndex(dstItemSlotPos))
 			if item.GetItemType() == item.ITEM_TYPE_COSTUME and item.GetItemSubType() == item.COSTUME_TYPE_AURA:
 				self.questionDialog = uiCommon.QuestionDialog()
-				self.questionDialog.SetText("Vuoi pulire i tuoi bonus?")
+				self.questionDialog.SetText("Doriþi sã vã curãþaþi bonusurile?")
 				self.questionDialog.SetAcceptEvent(ui.__mem_func__(self.ClearAuraBonuses))
 				self.questionDialog.SetCancelEvent(ui.__mem_func__(self.OnCloseQuestionDialog))
 				self.questionDialog.Open()
@@ -2105,11 +2105,11 @@ class InventoryWindow(ui.ScriptWindow):
 				self.questionDialog.dst = dstItemSlotPos
 			else:
 				if srcItemVID != player.GetItemIndex(dstItemSlotPos):
-					chat.AppendChat(1, "< Aura > Puoi usare quest'item solo sull'aura!")
+					chat.AppendChat(1, "< Aura > Puteþi folosi acest articol numai pe aura!")
 
 		if srcItemVID >= 55701 and srcItemVID <= 55710 and player.GetItemIndex(dstItemSlotPos) == 55002:
 			self.questionDialog = uiCommon.QuestionDialog()
-			self.questionDialog.SetText("Vuoi aggiungere il pet al trasportino?")
+			self.questionDialog.SetText("Doriþi sã adãugaþi animalul de companie la transport?")
 			self.questionDialog.SetAcceptEvent(ui.__mem_func__(self.UseTransportBox))
 			self.questionDialog.SetCancelEvent(ui.__mem_func__(self.OnCloseQuestionDialog))
 			self.questionDialog.Open()
@@ -2118,7 +2118,7 @@ class InventoryWindow(ui.ScriptWindow):
 			
 		if srcItemVID == 55001 and player.GetItemIndex(dstItemSlotPos) >= 55701 and player.GetItemIndex(dstItemSlotPos) <= 55710:
 			self.questionDialog = uiCommon.QuestionDialog()
-			self.questionDialog.SetText("Vuoi dare da mangiare al tuo pet?")
+			self.questionDialog.SetText("Vrei sã-þi hrãneºti animalul de companie?")
 			self.questionDialog.SetAcceptEvent(ui.__mem_func__(self.UseProtein))
 			self.questionDialog.SetCancelEvent(ui.__mem_func__(self.OnCloseQuestionDialog))
 			self.questionDialog.Open()
@@ -2825,18 +2825,18 @@ class InventoryWindow(ui.ScriptWindow):
 				item.SelectItem(itemVnum)
 				if item.GetItemType() == item.ITEM_TYPE_GIFTBOX:
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Visualizza contenuto",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Vizualizaþi conþinutul",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Apri %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Deschide %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 				elif constInfo.IsNewChest(itemVnum):
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Apri %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Deschide %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 				if player.CanMoveItem(itemVnum):
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Muovi a inv./ speciale",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Mutare în inv. special",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 
 	def OnTop(self):

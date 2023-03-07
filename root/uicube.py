@@ -507,7 +507,7 @@ class CubeWindow(ui.ScriptWindow):
 
 					import chat
 
-					chat.AppendChat(chat.CHAT_TYPE_INFO, "You can't move this item from this window into this.")
+					chat.AppendChat(chat.CHAT_TYPE_INFO, "Nu puteþi muta acest element din aceastã fereastrã in aceasta.")
 					return
 
 			if player.SLOT_TYPE_INVENTORY != attachedSlotType:

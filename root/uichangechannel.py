@@ -52,7 +52,7 @@ class uiChangeChannel(ui.Window):
 		
 	def __ChangeChannel(self, ch):
 		if str(ch) == str(net.GetServerInfo()[-1:]):
-			self.Popup = _ui().Popup('Non puoi selezionare lo stesso CH.', None, None)
+			self.Popup = _ui().Popup('Nu puteþi selecta acelaºi CH.', None, None)
 			return
 		
 		self.stream.channel = ch
@@ -64,14 +64,14 @@ class uiChangeChannel(ui.Window):
 		slot = self.stream.GetCharacterSlot()
 		
 		if state == serverInfo.STATE_NONE:
-			self.Popup = _ui().Popup('Switch non disponibile ora!', None, None)
+			self.Popup = _ui().Popup('Schimbarea nu este disponibilã acum!', None, None)
 			return
 		elif state == serverInfo.STATE_DICT[3]:
-			self.Popup = _ui().Popup('Channel FULL', None, None)
+			self.Popup = _ui().Popup('Canal plin!', None, None)
 			return
 			
 		if self.IsInSpecialMap():
-			self.Popup = _ui().Popup('No!', None, None)
+			self.Popup = _ui().Popup('Nu!', None, None)
 			return
 
 		self.stream.SetConnectInfo(ip, tcp_port, account_ip, account_port)
