@@ -31,7 +31,7 @@ class MentaLGui(ui.ScriptWindow):
 		self.cielo_mn = self.comp.Button(self.Board, 'Nuvoloso', '', 38, 212, self.cielo_g, 'd:/ymir work/ui/public/large_button_01.sub', 'd:/ymir work/ui/public/large_button_02.sub', 'd:/ymir work/ui/public/large_button_03.sub')
 		self.cielo_op = self.comp.Button(self.Board, 'Sunshine', '', 38, 242, self.cielo_h, 'd:/ymir work/ui/public/large_button_01.sub', 'd:/ymir work/ui/public/large_button_02.sub', 'd:/ymir work/ui/public/large_button_03.sub')
 		self.cielo_qh = self.comp.Button(self.Board, 'Default', '', 38, 272, self.cielo_q, 'd:/ymir work/ui/public/large_button_01.sub', 'd:/ymir work/ui/public/large_button_02.sub', 'd:/ymir work/ui/public/large_button_03.sub')
-		self.testo = self.comp.TextLine(self.Board, 'Seleziona la Skybox:', 38, 35, self.comp.RGB(255, 255, 255))
+		self.testo = self.comp.TextLine(self.Board, 'Selectaþi Skybox:', 38, 35, self.comp.RGB(255, 255, 255))
 	
 	def cielo_a(self):
 		background.RegisterEnvironmentData(0, "d:/ymir work/environment/ridacksky5.msenv")
