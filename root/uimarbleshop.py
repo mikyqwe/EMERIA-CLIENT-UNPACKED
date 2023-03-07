@@ -14,8 +14,8 @@ import uiCommon
 
 class MarbleShopWindow(ui.ScriptWindow):
 	MARBLES_LIST = (
-			("Fante Selvaggio", 501, 250000),
-			("Scagnozzo Selvaggio", 502, 300000),
+			("Lacheul sãlbatic", 501, 250000),
+			("Omul sãlbatic", 502, 300000),
 			("Forte Fante Selv.", 551, 350000),
 			("Forte Scagn. Selv.", 552, 400000),
 			("Forte Gen. Selv.", 554, 450000),
@@ -92,14 +92,14 @@ class MarbleShopWindow(ui.ScriptWindow):
 	def OnPressPlusButton(self):
 		marbleCount = int(self.marbleCount.GetText())
 		if marbleCount == 10:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Puoi acquistarne massimo 10 in una volta.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Puteþi cumpãra pânã la 10 simultan.")
 			return
 		self.marbleCount.SetText(str(marbleCount+1))
 		
 	def OnPressMinusButton(self):
 		marbleCount = int(self.marbleCount.GetText())
 		if marbleCount == 1:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Non puoi comprarne meno 1.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Nu puteþi cumpãra mai pu?in de 1.")
 			return
 		self.marbleCount.SetText(str(marbleCount-1))
 		
@@ -109,7 +109,7 @@ class MarbleShopWindow(ui.ScriptWindow):
 		
 		alertDialog = uiCommon.QuestionDialog()
 		alertDialog.SetWidth(385)
-		alertDialog.SetText("Vuoi acquistare %s %dx per %s?" % (str(marbleIndex), int(itemCount), localeInfo.NumberToMoneyString(self.price)))
+		alertDialog.SetText("Doriþi sã cumpãraþi %s %dx pentru %s?" % (str(marbleIndex), int(itemCount), localeInfo.NumberToMoneyString(self.price)))
 
 		alertDialog.SetAcceptEvent(lambda arg1=str(marbleIndex), arg2=int(itemCount): self.OnBuyMarble(arg1, arg2))
 		alertDialog.SetCancelEvent(ui.__mem_func__(self.OnCloseAlertDialog))
@@ -134,7 +134,7 @@ class MarbleShopWindow(ui.ScriptWindow):
 					net.SendChatPacket("/buy_marble_item %d %d" % (int(itemVnum), itemCount))
 					break
 				else:
-					chat.AppendChat(chat.CHAT_TYPE_INFO, "Devi selezionare la quantita'")
+					chat.AppendChat(chat.CHAT_TYPE_INFO, "Trebuie sã selectaþi cantitatea")
 					break
 
 	def Destroy(self):

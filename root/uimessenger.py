@@ -890,7 +890,7 @@ class MessengerWindow(ui.ScriptWindow):
 				if member.WasShowed() == FALSE:
 					self.pop = uiPopup .PopupMsg()
 					self.pop.SetType(1)
-					self.pop.SetMsg("Il tuo amico %s e' ONLINE!"% name)
+					self.pop.SetMsg("Prietenul tãu %s este ONLINE!"% name)
 					self.pop.Show()
 					member.SetShowed()
 

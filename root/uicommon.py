@@ -501,7 +501,7 @@ class QuestionDialogItemNew(ui.ScriptWindow):
 		self.state=2
 		itemVnum = player.GetItemIndex(self.dropType, self.dropNumber)
 		item.SelectItem(itemVnum)
-		self.Input.SetText("Sei sicuro di voler distruggere %s ?"%(item.GetItemName()))
+		self.Input.SetText("Eºti sigur cã vrei sã distrugi %s ?"%(item.GetItemName()))
 		self.Input.SetAcceptEvent(ui.__mem_func__(self.ConfirmAccept))
 		self.Input.SetCancelEvent(ui.__mem_func__(self.ConfirmCancel))
 		self.Input.SetTop()
@@ -512,7 +512,7 @@ class QuestionDialogItemNew(ui.ScriptWindow):
 
 		itemVnum = player.GetItemIndex(self.dropType, self.dropNumber)
 		item.SelectItem(itemVnum)
-		self.Input.SetText("Sei sicuro di voler vendere %s ? - Prezzo: %s Yang"%(item.GetItemName(), localeInfo.NumberToString(item.GetISellItemPrice()*self.dropCount)))
+		self.Input.SetText("Eºti sigur cã vrei sã vinzi %s ? - Preþ: %s Yang"%(item.GetItemName(), localeInfo.NumberToString(item.GetISellItemPrice()*self.dropCount)))
 		self.Input.SetAcceptEvent(ui.__mem_func__(self.ConfirmAccept))
 		self.Input.SetCancelEvent(ui.__mem_func__(self.ConfirmCancel))
 		self.Input.SetTop()

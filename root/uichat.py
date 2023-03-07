@@ -457,7 +457,7 @@ class ChatLine(ui.EditLine):
 		self.overLay.SetParent(self)
 		self.overLay.SetPosition(5, 0)
 		self.overLay.SetPackedFontColor(WHITE_COLOR)
-		self.overLay.SetText("# Ricorda di mantenere un linguaggio corretto nella chat globale e limitare lo spam.")
+		self.overLay.SetText("# Nu uitaþi sã pãstraþi limbajul adecvat in chatul global ºi sã limitaþi spamul.")
 		self.overLay.Show()
 		self.lastSentenceStack = []
 		self.lastSentencePos = 0

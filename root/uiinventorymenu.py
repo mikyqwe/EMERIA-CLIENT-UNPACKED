@@ -67,7 +67,7 @@ class InventoryMenuWindow(ui.ScriptWindow):
 
 	def __OnClickSafeBoxButton(self):
 		if constInfo.DROP_GUI_CHECK == 1:
-			chat.AppendChat(1, "First of all, choose one option about drop gui.")
+			chat.AppendChat(1, "În primul rãnd, alegeþi o opþiune despre drop gui.")
 		else:
 			self.interface.AskSafeboxPassword()
 			self.Close()

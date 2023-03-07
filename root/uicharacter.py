@@ -1314,7 +1314,7 @@ class CharacterWindow(ui.ScriptWindow):
 
 	def __OverInStatButton(self, stat):	
 		try:
-			self.__ShowStatToolTip("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Aggiungi +10",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+			self.__ShowStatToolTip("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Adaugã +10",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 		except KeyError:
 			pass
 
