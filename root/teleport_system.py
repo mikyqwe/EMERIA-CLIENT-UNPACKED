@@ -84,70 +84,70 @@ class teleportwindow(ui.ScriptWindow):
 			
 	def CapitaleTeleport(self):
 		self.Capitale = uicommon.QuestionDialog()
-		self.Capitale.SetText("Vuoi viaggiare verso la Capitale?")
+		self.Capitale.SetText("Vrei sã cãlãtoreºti în Capitalã?")
 		self.Capitale.SetAcceptEvent(ui.__mem_func__(self.AccettaCapitale))
 		self.Capitale.SetCancelEvent(ui.__mem_func__(self.Capitale.Close))
 		self.Capitale.Open()
 		
 	def ValleTeleport(self):
 		self.Valle = uicommon.QuestionDialog()
-		self.Valle.SetText("Vuoi viaggiare verso la Valle?")
+		self.Valle.SetText("Vrei sã cãlãtoreºti în Vale?")
 		self.Valle.SetAcceptEvent(ui.__mem_func__(self.AccettaValle))
 		self.Valle.SetCancelEvent(ui.__mem_func__(self.Valle.Close))
 		self.Valle.Open()
 		
 	def CovoTeleport(self):
 		self.Covo = uicommon.QuestionDialog()
-		self.Covo.SetText("Vuoi viaggiare verso il Covo dei Ragni?")
+		self.Covo.SetText("Vrei sã cãlãtoreºti în Temniþa Pãianjenilor")
 		self.Covo.SetAcceptEvent(ui.__mem_func__(self.AccettaCovo))
 		self.Covo.SetCancelEvent(ui.__mem_func__(self.Covo.Close))
 		self.Covo.Open()
 
 	def MonteTeleport(self):
 		self.Monte = uicommon.QuestionDialog()
-		self.Monte.SetText("Vuoi viaggiare verso Monte Sohan?")
+		self.Monte.SetText("Vrei sã cãlãtoreºti la Muntele Sohan?")
 		self.Monte.SetAcceptEvent(ui.__mem_func__(self.AccettaMonte))
 		self.Monte.SetCancelEvent(ui.__mem_func__(self.Monte.Close))
 		self.Monte.Open()
 
 	def GrottaTeleport(self):
 		self.Grotta = uicommon.QuestionDialog()
-		self.Grotta.SetText("Vuoi viaggiare verso la Grotta Dell'Esilio?")
+		self.Grotta.SetText("Vrei sã cãlãtoreºti în Grota Exilului?")
 		self.Grotta.SetAcceptEvent(ui.__mem_func__(self.AccettaGrotta))
 		self.Grotta.SetCancelEvent(ui.__mem_func__(self.Grotta.Close))
 		self.Grotta.Open()
 		
 	def DesertoTeleport(self):
 		self.Deserto = uicommon.QuestionDialog()
-		self.Deserto.SetText("Vuoi viaggiare verso il Deserto Yongbi?")
+		self.Deserto.SetText("Vrei sã cãlãtoreºti în deºertul Yongbi?")
 		self.Deserto.SetAcceptEvent(ui.__mem_func__(self.AccettaDeserto))
 		self.Deserto.SetCancelEvent(ui.__mem_func__(self.Deserto.Close))
 		self.Deserto.Open()
 		
 	def CapoTeleport(self):
 		self.Capo = uicommon.QuestionDialog()
-		self.Capo.SetText("Vuoi viaggiare verso il Deserto Arido?")
+		self.Capo.SetText("Vrei sã cãlãtoreºti în Deºertul Arid?")
 		self.Capo.SetAcceptEvent(ui.__mem_func__(self.AccettaCapo))
 		self.Capo.SetCancelEvent(ui.__mem_func__(self.Capo.Close))
 		self.Capo.Open()
 		
 	def BoscoTeleport(self):
 		self.Bosco = uicommon.QuestionDialog()
-		self.Bosco.SetText("Vuoi viaggiare verso il Bosco Rosso?")
+		self.Bosco.SetText("Vrei sã cãlãtoreºti în Pãdurea Roºie?")
 		self.Bosco.SetAcceptEvent(ui.__mem_func__(self.AccettaBosco))
 		self.Bosco.SetCancelEvent(ui.__mem_func__(self.Bosco.Close))
 		self.Bosco.Open()
 		
 	def FantasmaTeleport(self):
 		self.Fantasma = uicommon.QuestionDialog()
-		self.Fantasma.SetText("Vuoi viaggiare verso Lungsam?")
+		self.Fantasma.SetText("Vrei sã cãlãtoreºti în Lungsam?")
 		self.Fantasma.SetAcceptEvent(ui.__mem_func__(self.AccettaFantasma))
 		self.Fantasma.SetCancelEvent(ui.__mem_func__(self.Fantasma.Close))
 		self.Fantasma.Open()
 		
 	def FuocoTeleport(self):
 		self.Fuoco = uicommon.QuestionDialog()
-		self.Fuoco.SetText("Vuoi viaggiare verso la Terra del fuoco?")
+		self.Fuoco.SetText("Vrei sã cãlãtoreºti în Þara de Foc?")
 		self.Fuoco.SetAcceptEvent(ui.__mem_func__(self.AccettaFuoco))
 		self.Fuoco.SetCancelEvent(ui.__mem_func__(self.Fuoco.Close))
 		self.Fuoco.Open()
@@ -161,7 +161,7 @@ class teleportwindow(ui.ScriptWindow):
 		
 	def TorreTeleport(self):
 		self.Torre = uicommon.QuestionDialog()
-		self.Torre.SetText("Vuoi viaggiare verso la Torre dei Demoni?")
+		self.Torre.SetText("Vrei sã cãlãtoreºti în Turnul Demonilor?")
 		self.Torre.SetAcceptEvent(ui.__mem_func__(self.AccettaTorre))
 		self.Torre.SetCancelEvent(ui.__mem_func__(self.Torre.Close))
 		self.Torre.Open()

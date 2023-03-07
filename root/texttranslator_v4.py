@@ -21,14 +21,14 @@ COLOR_INFO = grp.GenerateColor(1.0, 0.7843, 0.0, 1.0)
 COLOR_TEXT = grp.GenerateColor(0.9490, 0.9058, 0.7568, 1.0)
 
 TEXT_BUTTON_INFO = "Info"
-TEXT_BUTTON_TRANSLATE = "Translate"
-TEXT_LEAVE_SHIFT_TO_TRANSLATE = "[Press TAB to Translate]"
-TEXT_BOARD_WHISPER_TITLE_NAME = "Whisper [%s] Translator"
+TEXT_BUTTON_TRANSLATE = "Traduceþi"
+TEXT_LEAVE_SHIFT_TO_TRANSLATE = "[Apãsaþi TAB pentru a traduce]"
+TEXT_BOARD_WHISPER_TITLE_NAME = "ªopteºte [%s] Translator"
 TEXT_BOARD_CHAT_TITLE_NAME = "Chat Translator"
 
 SHOW_INFO_BUTTON_ON_BOARD = True
 TEXT_INFO_TRANSLATOR = "[Translator Info]"
-TEXT_INFO_TRANSLATOR_USAGE = "Move the mouse over a text and hold down [TAB] key to translate it."
+TEXT_INFO_TRANSLATOR_USAGE = "Deplasaþi mouse-ul peste un text ?i þineþi apãsatã tasta [TAB] pentru a-l traduce."
 
 TOOLTIP_INFO_SHOW_TIME = 5.0
 TOOLTIP_MULTI_TEXT_SHOW_TIME = 4.0

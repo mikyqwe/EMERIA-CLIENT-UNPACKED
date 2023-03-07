@@ -84,12 +84,12 @@ class OfflineShopBankDialog(ui.ScriptWindow):
 		
 	def umutkyenile(self):
 		if (app.GetTime() < self.withdrawMoneyTime + 5):
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Banka'dakileri tekrar Yenilemek icin 5 saniye beklemelisiniz.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Trebuie sã aºteptaþi 5 secunde pentru a reîmprospãta articolele Bãncii.")
 			return
 		else:
 			net.SendChatPacket('/umutk_bank_refresh')
 			self.withdrawMoneyTime = app.GetTime()
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "|cffFFC125Banka Yenilendi.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "|cffFFC125Bancã reînnoitã.")
 		
 	def Close(self):
 		self.currentMoneyLine.SetText("")
@@ -107,12 +107,12 @@ class OfflineShopBankDialog(ui.ScriptWindow):
 		self.SetCenterPosition()
 		self.SetTop()
 
-		self.currentMoneyLine.SetText(str(constInfo.weed_stone1) + " Kirmizi Ot")
-		self.currentMoneyLine2.SetText(str(constInfo.gold_bar) + " 400'mlik bar")
-		self.currentMoneyLine3.SetText(str(constInfo.weed_stone2) + " Mavi Ot")
-		self.currentMoneyLine4.SetText(str(constInfo.weed_stone3) + " Yesil Ot")
-		self.currentMoneyLine5.SetText(str(constInfo.weed_stone4) + " Mor Ot")
-		self.currentMoneyLine6.SetText(str(constInfo.soul_stone) + " Ruh Tasi")
+		self.currentMoneyLine.SetText(str(constInfo.weed_stone1) + " Iarbã Roºie")
+		self.currentMoneyLine2.SetText(str(constInfo.gold_bar) + " Lingou")
+		self.currentMoneyLine3.SetText(str(constInfo.weed_stone2) + " Iarbã albastrã")
+		self.currentMoneyLine4.SetText(str(constInfo.weed_stone3) + " Iarbã verde")
+		self.currentMoneyLine5.SetText(str(constInfo.weed_stone4) + " Iarbã violet")
+		self.currentMoneyLine6.SetText(str(constInfo.soul_stone) + " Piatra sufletului")
 		self.currentMoneyLine7.SetText(str(constInfo.gold) + " Yang")
 		self.currentMoneyLine8.SetText(str(constInfo.cheque) + " Won")
 		self.currentMoneyLine9.SetText(str(constInfo.ep) + " EP ")
@@ -124,12 +124,12 @@ class OfflineShopBankDialog(ui.ScriptWindow):
 		
 
 	def OnUpdate(self):
-		self.currentMoneyLine.SetText(str(constInfo.weed_stone1) + " Kirmizi Ot")
-		self.currentMoneyLine2.SetText(str(constInfo.gold_bar) + " 400'mlik bar")
-		self.currentMoneyLine3.SetText(str(constInfo.weed_stone2) + " Mavi Ot")
-		self.currentMoneyLine4.SetText(str(constInfo.weed_stone3) + " Yesil Ot")
-		self.currentMoneyLine5.SetText(str(constInfo.weed_stone4) + " Mor Ot")
-		self.currentMoneyLine6.SetText(str(constInfo.soul_stone) + " Ruh Tasi")
+		self.currentMoneyLine.SetText(str(constInfo.weed_stone1) + " Iarbã Roºie")
+		self.currentMoneyLine2.SetText(str(constInfo.gold_bar) + " Lingou")
+		self.currentMoneyLine3.SetText(str(constInfo.weed_stone2) + " Iarbã albastrã")
+		self.currentMoneyLine4.SetText(str(constInfo.weed_stone3) + " Iarbã verde")
+		self.currentMoneyLine5.SetText(str(constInfo.weed_stone4) + " Iarbã violet")
+		self.currentMoneyLine6.SetText(str(constInfo.soul_stone) + " Piatra sufletului")
 		self.currentMoneyLine7.SetText(str(constInfo.gold) + " Yang")
 		self.currentMoneyLine8.SetText(str(constInfo.cheque) + " Won")
 		self.currentMoneyLine9.SetText(str(constInfo.ep) + " EP")

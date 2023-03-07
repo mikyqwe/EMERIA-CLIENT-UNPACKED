@@ -64,7 +64,7 @@ class AuraUpgrade(ui.ScriptWindow):
 				return
 		else:
 			if exp == 100:
-				chat.AppendChat(chat.CHAT_TYPE_INFO, "Experienza es 100%")
+				chat.AppendChat(chat.CHAT_TYPE_INFO, "Experienþa este 100%")
 				return		
 
 		if not self.IsUpgradeExp:
