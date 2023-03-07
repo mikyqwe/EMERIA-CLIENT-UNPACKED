@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/costume_sash.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/costume_sash.png]
 [IMG=d:/ymir work/ui/wiki/systems/common/theowahdan.png; Y=10; X=446]
 [CENTER_ALIGN]Una Stola e' un pezzo di equipaggiamento visibile, e facilmente reperibile dai giocatori di Zayos.
 [CENTER_ALIGN]Puoi trovare la stola nella III parte dell'inventario.

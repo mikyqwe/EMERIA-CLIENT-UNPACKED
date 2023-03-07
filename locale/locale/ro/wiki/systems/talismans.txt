@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/talismans_system.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/talismans_system.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]STRUTTURA DEL SISTEMA
 
 [IMG=d:/ymir work/ui/wiki/rahmen.tga; Y=30; X=78]

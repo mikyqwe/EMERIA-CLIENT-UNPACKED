@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/battlepass.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/battlepass.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]Il Battle Pass è un sistema che offre una serie di missioni con premi esclusivi.
 
 [IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=26; CENTER_ALIGN]

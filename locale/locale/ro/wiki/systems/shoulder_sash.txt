@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/sash.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/sash.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]STRUTTURA DEL SISTEMA
 [IMG=d:/ymir work/ui/wiki/systems/common/theowahdan.png; Y=10; X=446]
 

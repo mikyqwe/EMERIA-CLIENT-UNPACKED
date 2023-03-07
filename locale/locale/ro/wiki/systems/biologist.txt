@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/biologist.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/biologist.png]
 
 [COLOR=0xffd700;FONT_SIZE=15;Y_PADDING=-10] Lista Contenuti:
 [Y_PADDING=2;COLOR=0x63FFB2;FONT_SIZE=14] *1. Generale

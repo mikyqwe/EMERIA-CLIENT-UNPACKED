@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/pet.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/pet.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]STRUTTURA DEL SISTEMA
 
 [X_PADDING=12]*Completando alcuni fasi del gioco (dungeons, missioni, drop)

@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/dragonstone.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/dragonstone.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]Ottenere Cor Draconis
 
 [X_PADDING=12]1. Su Zayos puoi ottenere infiniti Cor Draconis giornalieri, non e' richiesta nessuna missione.

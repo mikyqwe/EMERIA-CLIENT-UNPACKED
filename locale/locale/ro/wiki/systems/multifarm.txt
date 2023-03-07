@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/farm.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/farm.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]Con questo sistema sarà possibile droppare solo con 2 personaggi.
 
 [IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=26; CENTER_ALIGN]

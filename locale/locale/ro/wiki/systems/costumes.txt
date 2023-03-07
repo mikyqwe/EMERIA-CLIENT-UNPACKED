@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/costumes.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/costumes.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]STRUTTURA DEL SISTEMA
 [IMG=d:/ymir work/ui/wiki/rahmen.tga; Y=31; X=134]
 [IMG=icon/item/70063.tga; Y=51; X=156]

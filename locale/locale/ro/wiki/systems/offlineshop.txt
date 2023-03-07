@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/offlineshop.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/offlineshop.png]
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]STRUTTURA DEL SISTEMA
 
 [X_PADDING=12]1. Puoi aprire il pannello del negozio offline cliccando sull'icona del fagotto situata sulla minimappa oppure premendo
