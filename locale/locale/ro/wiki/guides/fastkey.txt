@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/fastkey.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/fastkey.png]
 [CENTER_ALIGN;FONT_SIZE=24]QUI TROVERAI I PIU' IMPORTANTI TASTI RAPIDI
 [IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=30; CENTER_ALIGN]
 
