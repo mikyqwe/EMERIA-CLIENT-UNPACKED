@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/rules.png]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/ro/rules.png]
 [CENTER_ALIGN;FONT_SIZE=24]REGOLAMENTO DI GIOCO
 [IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=26; CENTER_ALIGN]
 
