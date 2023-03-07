@@ -42,11 +42,11 @@ class RemoteShopDialog(ui.ScriptWindow):
 
         self.AcceptBtn = ui.MakeButton(self.ParentBoard, 13, DlgHeight - 33, "", "d:/ymir work/ui/public/",
                                        "middle_button_01.sub", "middle_button_02.sub", "middle_button_03.sub")
-        self.AcceptBtn.SetText("Apri")
+        self.AcceptBtn.SetText("Deschide")
         self.AcceptBtn.SetEvent(ui.__mem_func__(self.AcceptButton))
         self.CloseBtn = ui.MakeButton(self.ParentBoard, DlgWidht - 73, DlgHeight - 33, "",
                                       "d:/ymir work/ui/public/", "middle_button_01.sub", "middle_button_02.sub", "middle_button_03.sub")
-        self.CloseBtn.SetText("Chiudi")
+        self.CloseBtn.SetText("Inchide")
         self.CloseBtn.SetEvent(ui.__mem_func__(self.Close))
 
         self.ShopList = []
