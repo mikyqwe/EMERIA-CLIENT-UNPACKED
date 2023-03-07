@@ -332,7 +332,7 @@ class CubeRenewalWindows(ui.ScriptWindow):
 
 		self.categoria = [
 			[1,"WEAPON","Armas"],
-			[2,"ETC","Generico"],
+			[2,"ETC","Conducere"],
 			[3,"ACCE","Accesorii PVP"],
 			[4,"BELT","Curele"],
 			[5,"NEW_CATEGORY2","Accesorii PVM"],
