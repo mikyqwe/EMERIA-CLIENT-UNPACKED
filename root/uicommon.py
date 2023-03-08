@@ -357,7 +357,7 @@ class QuestionDialogItem(ui.ScriptWindow):
 		self.textLine = self.GetChild("message")
 		self.acceptButton = self.GetChild("accept")
 		self.destroyButton = self.GetChild("destroy")
-		self.sellButton = self.GetChild("sell")
+		# self.sellButton = self.GetChild("sell")
 		self.cancelButton = self.GetChild("cancel")
 	def Open(self):
 		self.SetCenterPosition()
@@ -379,8 +379,8 @@ class QuestionDialogItem(ui.ScriptWindow):
 		self.acceptButton.SetEvent(event)
 	def SetDestroyEvent(self, event):
 		self.destroyButton.SetEvent(event)
-	def SetSellEvent(self, event):
-		self.sellButton.SetEvent(event)
+	# def SetSellEvent(self, event):
+		# self.sellButton.SetEvent(event)
 	def SetCancelEvent(self, event):
 		self.cancelButton.SetEvent(event)
 	def SetText(self, text):
@@ -455,7 +455,7 @@ class QuestionDialogItemNew(ui.ScriptWindow):
 		self.board = self.GetChild("board")
 		self.dropButton = self.GetChild("drop")
 		self.destroyButton = self.GetChild("destroy")
-		self.sellButton = self.GetChild("sell")
+		# self.sellButton = self.GetChild("sell")
 		self.ItemImage = self.GetChild("Item")
 		#self.ItemImage.SAFE_SetStringEvent("MOUSE_OVER_IN",self.ShowTooltip)
 		#self.ItemImage.SAFE_SetStringEvent("MOUSE_OVER_OUT",self.HideTooltip)
@@ -465,7 +465,7 @@ class QuestionDialogItemNew(ui.ScriptWindow):
 
 		self.dropButton.SAFE_SetEvent(self.DropItem)
 		self.destroyButton.SetEvent(self.DestroyItem)
-		self.sellButton.SetEvent(self.SellItem)
+		# self.sellButton.SetEvent(self.SellItem)
 		self.cancelButton.SetEvent(self.Close)
 
 		self.Input = QuestionDialog()
@@ -507,16 +507,16 @@ class QuestionDialogItemNew(ui.ScriptWindow):
 		self.Input.SetTop()
 		self.Input.Show()
 
-	def SellItem(self):
-		self.state=1
+	# def SellItem(self):
+		# self.state=1
 
-		itemVnum = player.GetItemIndex(self.dropType, self.dropNumber)
-		item.SelectItem(itemVnum)
-		self.Input.SetText("Eºti sigur cã vrei sã vinzi %s ? - Preþ: %s Yang"%(item.GetItemName(), localeInfo.NumberToString(item.GetISellItemPrice()*self.dropCount)))
-		self.Input.SetAcceptEvent(ui.__mem_func__(self.ConfirmAccept))
-		self.Input.SetCancelEvent(ui.__mem_func__(self.ConfirmCancel))
-		self.Input.SetTop()
-		self.Input.Show()
+		# itemVnum = player.GetItemIndex(self.dropType, self.dropNumber)
+		# item.SelectItem(itemVnum)
+		# self.Input.SetText("Eºti sigur cã vrei sã vinzi %s ? - Preþ: %s Yang"%(item.GetItemName(), localeInfo.NumberToString(item.GetISellItemPrice()*self.dropCount)))
+		# self.Input.SetAcceptEvent(ui.__mem_func__(self.ConfirmAccept))
+		# self.Input.SetCancelEvent(ui.__mem_func__(self.ConfirmCancel))
+		# self.Input.SetTop()
+		# self.Input.Show()
 
 	def Open(self):
 		itemVnum = player.GetItemIndex(self.dropType, self.dropNumber)
