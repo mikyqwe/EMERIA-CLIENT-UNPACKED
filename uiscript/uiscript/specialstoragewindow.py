@@ -103,12 +103,12 @@ window = {
 					"name" : "Inventory_Tab_01",
 					"type" : "radio_button",
 
-					"x" : 12,
+					"x" : 16,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 
 					"children" :
 					(
@@ -129,12 +129,12 @@ window = {
 					"name" : "Inventory_Tab_02",
 					"type" : "radio_button",
 
-					"x" : 12 + 40,
+					"x" : 16 + 40,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 
 					"children" :
 					(
@@ -155,12 +155,12 @@ window = {
 					"name" : "Inventory_Tab_03",
 					"type" : "radio_button",
 
-					"x" : 12 + 40 + 40,
+					"x" : 16 + 40 + 40,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 
 					"children" :
 					(
@@ -181,12 +181,12 @@ window = {
 					"name" : "Inventory_Tab_04",
 					"type" : "radio_button",
 
-					"x" : 12 + 40 + 40 + 40,
+					"x" : 16 + 40 + 40 + 40,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
 
 					"children" :
 					(
