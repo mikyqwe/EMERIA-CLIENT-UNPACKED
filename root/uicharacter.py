@@ -371,10 +371,10 @@ class CharacterWindow(ui.ScriptWindow):
 		}
 
 		self.dunno = {
-			"Vitalita"	: self.GetChild("HTH_Slot"),
-			"Intelligenza"	: self.GetChild("INT_Slot"),
-			"Forza"	: self.GetChild("STR_Slot"),
-			"Destrezza"	: self.GetChild("DEX_Slot"),
+			"Vitalitate"	: self.GetChild("HTH_Slot"),
+			"Inteligenþa"	: self.GetChild("INT_Slot"),
+			"Putere"	: self.GetChild("STR_Slot"),
+			"Dexteritate"	: self.GetChild("DEX_Slot"),
 		}
 
 		self.statusMinusButtonDict = {
