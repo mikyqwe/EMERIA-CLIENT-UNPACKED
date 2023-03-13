@@ -1,17 +1,23 @@
-20201	Mavi Sebnem	Consumabile	Aumenta la velocità di movimento di +100.
-20202	Mavi Sebnem	Consumabile	Aumenta la velocità di attacco di +50.
-20203	Mavi Sebnem	Consumabile	Aumenta la possibilità di un colpo critico del 10%.
-20204	Mavi Sebnem	Consumabile	Aumenta la possibilità di un colpo trafiggente del 10%.
-20205	Mavi Sebnem	Consumabile	Aumenta gli HP del 10%.
-20206	Mavi Sebnem	Consumabile	Aumenta l'attacco del 10%.
-20207	Mavi Sebnem	Consumabile	Aumenta l'intelligenza del 10%.
-20208	Mavi Sebnem	Consumabile	Aumenta la difesa del 10%
-20209	Mavi Sebnem	Consumabile	Aumenta la possibilità di un colpo trafiggente del 10%.
-20210	Mavi Sebnem	Consumabile	Aumenta la possibilità di un colpo critico del 10%.
-20211	Mavi Sebnem	Consumabile	Aumenta il valore di attacco di +120.
-20212	Mavi Sebnem	Consumabile	Aumenta la difesa di +100.
-20213	Mavi Sebnem	Consumabile	Büyüye Karsi Dayaniklik %20 Arttirir.	
-20214	Mavi Sebnem	Consumabile	Aumenta la velocità di attacco dell'8%.
+50821	Apa Critica	Poþiune ce îþi mãreste temporar ºansa de loviturã criticã. Valoarea bonusului poate avea douã variaþii, 5% ºi 10%.	[Consumabil]
+50823	Apa Vanatorului	Poþiune ce îþi mãreste temporar puterea împortriva monºtrilor. Valoarea bonusului poate avea douã variaþii, 5% ºi 10%.	[Consumabil]
+50824	Apa Magiei	Poþiune ce îþi mãreste temporar rezistenþa la magie. Valoarea bonusului poate avea douã variaþii, 5% ºi 10%.	[Consumabil]
+50825	Apa Magiei	Poþiune ce îþi mãreste temporar valoarea atacului. Valoarea bonusului poate avea douã variaþii, 50 ºi 100.	[Consumabil]
+50826	Apa Magiei	Poþiune ce îþi mãreste temporar apãrarea. Valoarea bonusului poate avea douã variaþii, 50 ºi 100.	[Consumabil]
+50822	Apa Magiei	Poþiune ce îþi mãreste temporar ºansa de loviturã pãtrunzatoare. Valoarea bonusului poate avea douã variaþii, 5% ºi 10%.	[Consumabil]
+20201	Mavi Sebnem	Consumabil	Viteza de miscare +80.
+20202	Mavi Sebnem	Consumabil	Viteza de atac +50.
+20203	Mavi Sebnem	Consumabil	Lov. Critica 10%.
+20204	Mavi Sebnem	Consumabil	Lov. Patr. 10%.
+20205	Mavi Sebnem	Consumabil	Max. PV +10%.
+20206	Mavi Sebnem	Consumabil	Atac +10%.
+20207	Mavi Sebnem	Consumabil	Tare impotriva monstrilor 10%.
+20208	Mavi Sebnem	Consumabil	Aparare 10%
+20209	Mavi Sebnem	Consumabil	Lov. Patr. 10%.
+20210	Mavi Sebnem	Consumabil	Lov. Crit. 10%.
+20211	Mavi Sebnem	Consumabil	Val. Atac +120.
+20212	Mavi Sebnem	Consumabil	Aparare +100.
+20213	Mavi Sebnem	Consumabil	Rezistenta la magie 10%.	
+20214	Mavi Sebnem	Consumabil	Viteza de atac +8%
 100000	Elixirul Timpului (S)	Umple timpul unei Pietre Dragon.
 100001	Elixirul Timpului (M)	Umple timpul unei Pietre Dragon.
 100002	Elixirul Timpului (L)	Umple timpul unei Pietre Dragon.

@@ -1,5 +1,5 @@
-TOOLTIP_AFFECT_POTION_7	Pozione none	SNA
-SELL_PRICE_INFO	[Prezzo di Vendita]
+TOOLTIP_AFFECT_POTION_7	Rouã Roz	SNA
+SELL_PRICE_INFO	[Preþul de vânzare]
 SELL_PRICE_INFO_PCS	A Pezzo: [%s]
 SELL_PRICE_INFO_ALL	Tutti: [%s]
 TALISMAN_WHHEL	Roata Talismanelor
@@ -326,12 +326,18 @@ ANTI_MULTIPLE_FARM_ADVISE_3	Trebuie sã selectaþi {} caractere obligatorii.
 ANTI_MULTIPLE_FARM_REFRESHED	Controlul multi-farm a suferit o actualizare.
 ANTI_MULTIPLE_FARM_ATTEND_CHANGE_STATUS	Solicitarea de modificare a fost trimisã, vã rugãm sã aºteptaþi.
 ANTI_MULTIPLE_FARM_MESSAGE	Trebuie sã aveþi cel puþin {} caractere online.
-TOOLTIP_AFFECT_POTION_1	Poþiune roºie	SNA
-TOOLTIP_AFFECT_POTION_2	Poþiune portocalie	SNA
-TOOLTIP_AFFECT_POTION_3	Poþiune galbenã	SNA
-TOOLTIP_AFFECT_POTION_4	Poþiune verde	SNA
-TOOLTIP_AFFECT_POTION_5	Poþiune albastrã	SNA
-TOOLTIP_AFFECT_POTION_6	Poþiune albã	SNA
+TOOLTIP_AFFECT_POTION_1	Rouã roºie	SNA
+TOOLTIP_AFFECT_POTION_2	Rouã roz	SNA
+TOOLTIP_AFFECT_POTION_3	Rouã galbenã	SNA
+TOOLTIP_AFFECT_POTION_4	Rouã verde	SNA
+TOOLTIP_AFFECT_POTION_5	Rouã albastrã	SNA
+TOOLTIP_AFFECT_POTION_6	Rouã albã	SNA
+TOOLTIP_AFFECT2_POTION_1	Apã Criticã	SNA
+TOOLTIP_AFFECT2_POTION_2	Apã Pãtrunzãtoare	SNA
+TOOLTIP_AFFECT2_POTION_3	Apã Vânãtorã	SNA
+TOOLTIP_AFFECT2_POTION_4	Apã Magie	SNA
+TOOLTIP_AFFECT2_POTION_5	Apã Atac	SNA
+TOOLTIP_AFFECT2_POTION_6	Apã Apãrare	SNA
 MOVE_ITEM_FAILURE_OFFLINE_SHOP	Nu poþi face asta.
 MAINTENANCE_DESCRIPTION	<TEXT text="Întreþinerea serverului în " font_size="LARGE"><TEXT text="%s" r=255 g=0 b=0 font_size="LARGE"><TEXT text=" Duratã de viaþã estimatã: %s" font_size ="MARE">
 POLYMORPH_AFFECT_TOOLTIP	Sfera de transformare a SNA
