@@ -1548,7 +1548,6 @@
 20225	dinosaur_3
 20226	unicorn
 20227	unicorn1
-20228	christmas_2016_mammoth
 20229	turkey_2
 20230	turkey_3
 20231	leopard_black
@@ -1976,3 +1975,22 @@
 888000	easter_2022_seahorse
 90002	defence
 900002	defence
+0	christmas_2016_mammoth_mavi	christmas_2016_mammoth
+0	christmas_2016_mammoth_zumrut	christmas_2016_mammoth
+0	christmas_2016_mammoth_razador	christmas_2016_mammoth
+0	christmas_2016_mammoth_ochao	christmas_2016_mammoth
+0	christmas_2016_mammoth_kankirmizi	christmas_2016_mammoth
+0	christmas_2016_mammoth_iblis	christmas_2016_mammoth
+0	christmas_2016_mammoth_gumus	christmas_2016_mammoth
+0	christmas_2016_mammoth_gold	christmas_2016_mammoth
+0	christmas_2016_mammoth_altin	christmas_2016_mammoth
+20228	christmas_2016_mammoth_mavi
+20532	christmas_2016_mammoth_zumrut
+20531	christmas_2016_mammoth_razador
+20530	christmas_2016_mammoth_ochao
+20529	christmas_2016_mammoth_kankirmizi
+20528	christmas_2016_mammoth_iblis
+20527	christmas_2016_mammoth_gumus
+20526	christmas_2016_mammoth_gold
+20526	christmas_2016_mammoth_altin
+20477	asenis_niepodleglosc_mount_1

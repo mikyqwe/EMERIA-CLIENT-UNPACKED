@@ -559,12 +559,12 @@ class AffectShower(ui.Window):
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_4] = (localeInfo.TOOLTIP_MALL_ATTBONUS, "d:/ymir work/ui/skill/common/affect/att_bonus.sub")
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_5] = (localeInfo.TOOLTIP_MAX_SP_PCT, "icon/item/71029.tga")
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_6] = (localeInfo.TOOLTIP_MALL_DEFBONUS, "d:/ymir work/ui/skill/common/affect/def_bonus.sub")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_1] = (localeInfo.TOOLTIP_AFFECT_POTION_7,"icon/item/50822.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_2] = (localeInfo.TOOLTIP_AFFECT_POTION_1, "icon/item/50821.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_3] = (localeInfo.TOOLTIP_AFFECT_POTION_5, "icon/item/50825.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_4] = (localeInfo.TOOLTIP_AFFECT_POTION_6, "icon/item/50826.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_5] = (localeInfo.TOOLTIP_AFFECT_POTION_4, "icon/item/50824.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_6] = (localeInfo.TOOLTIP_AFFECT_POTION_3, "icon/item/50823.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_1] = (localeInfo.TOOLTIP_AFFECT_POTION_7,"icon/item/950822.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_2] = (localeInfo.TOOLTIP_AFFECT_POTION_1, "icon/item/950821.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_3] = (localeInfo.TOOLTIP_AFFECT_POTION_5, "icon/item/950825.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_4] = (localeInfo.TOOLTIP_AFFECT_POTION_6, "icon/item/950826.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_5] = (localeInfo.TOOLTIP_AFFECT_POTION_4, "icon/item/950824.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_6] = (localeInfo.TOOLTIP_AFFECT_POTION_3, "icon/item/950823.tga")
 	
 
 

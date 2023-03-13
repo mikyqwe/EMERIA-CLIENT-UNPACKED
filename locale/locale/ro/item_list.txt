@@ -11644,12 +11644,6 @@
 36694	WEAPON	icon/item/stp_bell.tga	d:/ymir work/item/weapon/plechito/stpatrick_set/stp_bell.gr2
 36695	WEAPON	icon/item/stp_fan.tga	d:/ymir work/item/weapon/plechito/stpatrick_set/stp_fan.gr2
 36696	WEAPON	icon/item/stp_sura_sword.tga	d:/ymir work/item/weapon/plechito/stpatrick_set/stp_sword_sura.gr2
-950821	ETC	icon/item/rugiada-rossa.tga
-950822	ETC	icon/item/rugiada-rosa.tga
-950823	ETC	icon/item/rugiada-gialla.tga
-950824	ETC	icon/item/rugiada-verde.tga
-950825	ETC	icon/item/rugiada-blu.tga
-950826	ETC	icon/item/rugiada-bianca.tga
 55041	ETC	icon/item/runa_01.tga
 55042	ETC	icon/item/runa_01.tga
 55043	ETC	icon/item/runa_01.tga
@@ -11682,9 +11676,9 @@
 20206	ETC	icon/item/71028.tga	
 20207	ETC	icon/item/71029.tga	
 20208	ETC	icon/item/71030.tga	
-20209	ETC	icon/item/50822.tga	
-20210	ETC	icon/item/50821.tga	
-20211	ETC	icon/item/50825.tga	
-20212	ETC	icon/item/50826.tga	
-20213	ETC	icon/item/50824.tga	
-20214	ETC	icon/item/50823.tga
+20209	ETC	icon/item/950822.tga	
+20210	ETC	icon/item/950821.tga	
+20211	ETC	icon/item/950825.tga	
+20212	ETC	icon/item/950826.tga	
+20213	ETC	icon/item/950824.tga	
+20214	ETC	icon/item/950823.tga
