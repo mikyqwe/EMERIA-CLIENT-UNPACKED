@@ -945,7 +945,7 @@ class ChatWindow(ui.Window):
 			self.btnClearChat.SetUpVisual("d:/ymir work/ui/game/taskbar/clear1.png")
 			self.btnClearChat.SetOverVisual("d:/ymir work/ui/game/taskbar/clear2.png")
 			self.btnClearChat.SetDownVisual("d:/ymir work/ui/game/taskbar/clear3.png")
-			self.btnClearChat.SetToolTipText("Pulisci Chat")
+			self.btnClearChat.SetToolTipText("Curata Chat")
 			self.btnClearChat.SetEvent(lambda : chat.ClearChat())
 			self.btnClearChat.Hide()
 		self.chatInputSet = chatInputSet

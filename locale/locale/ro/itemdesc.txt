@@ -157,7 +157,7 @@
 22000	Pergamentul oraºului	Pergamentul îþi permite sã te teleportezi înapoi in oraº.
 22010	Pergamentul Orasului	Pergamentul te ajuta sa te intorci in ultima locatie marcata de tine.
 25040	Pergament Binecuvantat	Reduce riscul distrugerii unui obiect daca imbunatatirea esueaza. In cazul esuarii, calitatea obiectului va fi scazuta doar cu 1 punct.
-25041	Piatra Magica	O bucatã din metalul legendar îþi poate creºte ºansele de upgrade ale unui element. Elementul upgradat nu poate apoi fi apoi distrus sau degradat.
+25041	Piatra Magica	O bucatã din metalul legendar îþi poate creºte ºansele de îmbunãtãþire ale unui element. Elementul îmbunãtãþit nu poate apoi fi apoi distrus sau degradat.
 25100	Pergament Piatra Stafie	Pergamentul îþi oferã posibilitatea eliminãrii pietrei stafie dintr-o armã sau armurã. O aºchie va rãmâne.
 27051	Licoare Rosie (S)	Umple pana la 300 puncte de viata. Nu poate fi vandut.
 27052	Licoare Albastra (S)	Umple pana la 100 puncte de mana. Nu poate fi vandut.
@@ -433,7 +433,7 @@
 30252	Bijuterie Înþelepciune	Aceasta aura de diamant este paºnicã ºi nobilã.
 30253	Bijuterie Loialitate	O aurã de spirit de luptator si onestitate înconjoarã acest diamant.
 30254		
-30265	Bucata Echipament	Obiect folosit pentru achizitionarea echipamentului avansat de la negustori.
+30265	Bucata Echipament	Obiect folosit pentru achiziþionarea echipamentului avansat de la negustori.
 30266	Bucata de Medalie (2)	Al doilea fragment al Medaliei Eroilor
 30267	Bucata de Medalie (3)	Al treilea fragment al Medaliei Eroilor
 30268	Bucata de Medalie (4)	Al patrulea fragment al Medaliei Eroilor
@@ -444,13 +444,13 @@
 30315	Paine	Paine folosita in perioada postului.
 30316	Moneda Emeria	Acest obiect este folosita pentru diferite upgrade-uri si pentru achizitionarea unor bunuri din joc.
 30317	Mancare Traditionala	Donatie de alimente pentru perioada postului.
-30318	Tichet Biolog I	Cu ajutorul acestui obiect puteti achizitiona obiectele necesare pentru misiunile biologului.
-30319	Cap Mumificat	Acest Cap Mumificat de demon deschide sigiliul de la poarta etajului 3 din Catacomba Diavolului. Acest obiect se poate vinde.
-30320	Cap Mumificat	Acest Cap Mumificat de demon deschide sigiliul etajului al 3-lea din Catacomba Diavolului.
+30318	Tichet Biolog I	Cu ajutorul acestui obiect puteþi achiziþiona obiectele necesare pentru misiunile biologului.
+30319	Cap Mumificat	Deschide porþile cãtre Catacomba Diavolului.
+30320	Cap Mumificat	Acest obiect este obþinut de la Dungeon-ul Catacomba Diavolului. 	Upgrade
 30321	Dovleac de Halloween	Dovleacul umple PV si PM. Daca il atingi cu Bagheta Magica se va transforma intr-un Cufar de Halloween.
-30322	Piciorul Baronesei	Aceast obiect este obtinut de la Dungeon-ul Baronesei. 	Upgrade
+30322	Venin de Baroneasa	Acest obiect este obþinut de la Dungeon-ul Baronesei. 	Upgrade
 30323	Tichet Jack O`Lantern	Tichetul cu Masca Jack O'Lantern poate fi schimbat la Dovleacul Jack cu o Masca Jack O'Lantern. Masca va inlocui frizura existenta.
-30324	Cheia Arahnidelor	Deschide portile catre Ascunzatoarea Reginei unde isi depune ouale. Foarte fragila, se dezintegreaza dupa 24 de ore. Poate fi folosita doar de catre liderul de grup.
+30324	Cheia Arahnidelor	Deschide porþile cãtre Ascunzatoarea Reginei unde iºi depune ouãle. Foarte fragilã, se dezintegreazã dupa 24 de ore.
 30325	Cheia Arahnidelor	Deschide portile catre Ascunzatoarea Reginei unde isi depune ouale. Foarte fragila, se dezintegreaza dupa 24 de ore. Poate fi folosita doar de catre liderul de grup.
 30326	Otrava Reginei Paianjen	Secretul Reginei Paianjen este necesar fabricarii Cheii Arahnidelor.
 30327	Fluierul Arahnidelor	Cantecul acestui instrument o atrage pe Regina Paianjen.
@@ -483,8 +483,8 @@
 30521	Bucata de Inel	Fabricata din aur pur, ornata cu o piatra pretioasa, poate fi transformata intr-o bijuterie valoroasa.
 30522	Colier din Zale	Fabricat din aur pur, ornat cu o piatra pretioasa, poate fi transformat intr-o bijuterie valoroasa.
 30523	Accesoriu de Bijuterie	Fabricata din aur pur, ornata cu o piatra pretioasa, poate fi transformata intr-o bijuterie valoroasa.
-30524	Piatra Fierbinte	Aceast obiect este obtinut de la Dungeon-ul Razador. 	Upgrade
-30525	Piatra Gheata Fierbinte	Aceast obiect este obtinut de la Dungeon-ul Nemere. 	Upgrade
+30524	Piatra Fierbinte	Acest obiect este obþinut de la Dungeon-ul Razador. 	Upgrade
+30525	Piatra Gheata Fierbinte	Acest obiect este obþinut de la Dungeon-ul Nemere. 	Upgrade
 30526		
 30527		
 30528		
@@ -563,7 +563,7 @@
 31015	Scrisoarea Cpt. Carlig	Un mesaj de la Capitanul Carlig pentru Banshee.
 31016	Scrisoare Lee Chung	Mesaj important de la Comandantul Lee Chung trimis catre Amiralul Angmur
 31017	Scrisoare Sigilata	Scrisoarea se afla in posesia Slujitorului Templului.
-31018	Manuscris Carapax	Cu ajutorul acestui obiect va puteti procura tichete pentru temnitele pentru incepatori.
+31018	Manuscris Carapax	Cu ajutorul acestui obiect vã puteþi procura tichete pentru temniþele pentru incepatori.	Craft
 31019	Praf Carapax	Pudra fabricata din coaja de la carapacea unei broaste testoase.
 31020	Bulb Floare de Stanca	Radacina de Floare de Stanca neutralizeaza otrava din corp.
 31021		
@@ -588,7 +588,7 @@
 31040	Medalie de Aur	Acest obiect este medium?
 31041	Fosila	Un amestec de pamant cu praf de oase
 31042	Sulita Triton	Sulita Triton este un obiect traditional folosit de locuitorii unei insule pentru a fortifica apararea constructiilor.
-31043	Piatra Elementelor	Obiect folosit pentru a imbunatati talismanele, indiferent de element.	Upgrade
+31043	Piatra Elementelor	Obiect folosit pentru a îmbunãtãþi talismanele, indiferent de element.	Upgrade
 30176	Fragment Finisaj	Obiect folosit pentru a procura finisaje.
 31044		
 31045		
@@ -644,7 +644,7 @@
 31095		
 31096		
 31097		
-31098	Pergament abilitate	Cu ajutorul acestui obiect va puteti achizitiona obiectele necesare pentru imbunatatirea abilitatilor dvs.
+31098	Pergament abilitate	Cu ajutorul acestui obiect vã puteþi achiziþiona obiectele necesare pentru îmbunãtãþirea abilitãþilor dvs.
 31099		
 31100		
 31101		
@@ -661,11 +661,11 @@
 38054	Cufar Furtuna de Nisip	Misteriosul cufar contine un obiect aleatoriu.
 38055	Cutie cu Pui	Un animalut dragut se ascunde in aceasta cutie. Deschide-o si vei gasi un obiect aleatoriu.
 38056	Cufar de Sarbatoare	Acest cufar, decorat cu braduti verzi, contine o surpriza de Craciun.
-38057	Cufarul Invatarii	Cufarul contine cutiile abilitatilor.
-31100	Cutie Razboinic	Cufarul contine toate cartile necesare imbunatatirea abilitatilor la rasa Razboinic.
-31101	Cutie Sura	Cufarul contine toate cartile necesare imbunatatirea abilitatilor la rasa Sura.
-31102	Cutie Ninja	Cufarul contine toate cartile necesare imbunatatirea abilitatilor la rasa Ninja.
-31103	Cutie Saman	Cufarul contine toate cartile necesare imbunatatirea abilitatilor la rasa Saman.
+38057	Cufarul Invatarii	Cufãrul conþine manualele raselor.
+31100	Manual Rãzboinic	Acest manual conþine cãrþi pentru abilitãþile rãzboinicului.
+31101	Cutie Sura	Acest manual conþine cãrþi pentru abilitãþile Sura.
+31102	Cutie Ninja	Acest manual conþine cãrþi pentru abilitãþile Ninja.
+31103	Cutie Saman	Acest manual conþine cãrþi pentru abilitãþile ªaman.
 38100	Picatura Puterii (7zile)	Prelungeste durata de viata a Mountului Puternic cu 7 zile.
 38101	Picatura Puterii(15zile)	Prelungeste durata de viata a Mountului Puternic cu 15 zile.
 38102	Picatura Puterii(30zile)	Prelungeste durata de viata a Mountului Puternic cu 30 de zile.
@@ -1383,7 +1383,7 @@
 50020	Plãcintã de fasole	Veche plãcintã care reface toate punctele de viaþã.
 50021	Plãcintã de zahãr	Veche plãcintã care reface toate punctele de mana.
 50022	Plãcintã de fructe	O veche plãcintã care reface întreaga rezistenþã.
-50023	Tolbã de bani	În ea se aflã o primã de Anul-Nou.
+50023	Pergament Camera Comorilor	Deschide porþile cãtre Camera Comorilor.
 50024	Trandafir	Floare romanticã folositã pentru a arãta afecþiunea. Doar caracterele feminine pot sã o foloseascã.
 50025	Ciocolata	Produsã din cacao, lapte, unt ºi zahãr. Ciocolata este dãruitã pentru a arãta afecþiunea. Doar caracterele masculine pot sã o foloseascã.
 50027	Loz de loterie	Din pãcate o farsã. Un obiect fãrã de folos.
@@ -1437,13 +1437,13 @@
 50108	Cerc de artificii	Un cerc format din scânteile artificiilor.
 50118		
 50119		
-50120	Caseta de fier	Recipientul stabil este din Grota Exilului.
-50121	Cutie cu flori	Recipientul contine flori cu ajutorul carora puteti sa va achizitionati roua permanenta sau ape.
-30171	Floare galbena	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Galbena.	Producþie Rouã
-400171	Floare rosie	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Rosie.	Producþie Rouã
-400172	Floare Albastra	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Albastra.	Producþie Rouã
-400173	Floare Roz	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Roz.	Producþie Rouã
-400174	Floare Verde	Floare obtinuta din Cutie cu flori, cu acest tip de floare va puteti achizitiona Roua Verde.	Producþie Rouã
+50120	cufar nemere	Cufãr obþinut din Dungeon-ul Nemere.
+50121	Cutie cu flori	Conþine flori cu ajutorul cãrora puteþi sã vã achiziþionaþi rouã permanentã sau ape.
+30171	Floare Galbena	Floare obþinutã din Cutie cu flori.Cu acest tip de floare vã puteþi achiziþiona Roua Galbenã.	Producþie Rouã
+400171	Floare Rosie	Floare obþinutã din Cutie cu flori.Cu acest tip de floare vã puteþi achiziþiona Roua Roºie.	Producþie Rouã
+400172	Floare Albastra	Floare obþinutã din Cutie cu flori.Cu acest tip de floare vã puteþi achiziþiona Roua Albastrã.	Producþie Rouã
+400173	Floare Roz	Floare obþinutã din Cutie cu flori.Cu acest tip de floare vã puteþi achiziþiona Roua Roz.	Producþie Rouã
+400174	Floare Verde	Floare obþinutã din Cutie cu flori.Cu acest tip de floare vã puteþi achiziþiona Roua Verde.	Producþie Rouã
 50122	Lada de fier	Recipientul stabil este din Grota Exilului.
 50123	Inghetata	Impuls de energie! Aceasta inghetata va mareste viteza de miscare cu 60 timp de 30 minute. Atentie: Reactivarea acestui suport in timp ce este deja activ, se va adauga timpului ramas.
 50124	Casetã putredã din lemn	Din interiorul ei se aud sunete de animal.
@@ -1494,12 +1494,12 @@
 50184		
 50185		
 50186	Cufarul lui Azrael	Acest cufar este tinut incuiat de puterile demonice. Pot fi in el lucruri foarte valoroase.
-50187	Cufar Dragon Aur	Cufarul obtinut din Dungeon-ul Dragonului de Aur.
-50188	Cufar Demon	Cufarul obtinut din Dungeon-ul Turnul Demonilor.
+50187	Cufar Dragon Aur	Cufãr obþinut din Dungeon-ul Dragonului de Aur.
+50188	Cufar Demon	Cufãr obþinut din Dungeon-ul Turnul Demonilor.
 50189	Cufar Ucenic III	Acest cufar se va deschide doar cand ai atins nivelul 20.
-50190	Cufarul Diavolului	Cufarul obtinut din Dungeon-ul Azrael.
-50191	Cufar Baroneasa	Cufarul obtinut din Dungeon-ul Turnul Demonilor.
-50192	Cufar Razador	Cufarul obtinut din Dungeon-ul Razador.
+50190	Cufarul Diavolului	Cufãr obþinut din Dungeon-ul Azrael.
+50191	Cufar Baroneasa	Cufãr obþinut din Dungeon-ul Temniþa Baronesei.
+50192	Cufar Razador	Cufãr obþinut din Dungeon-ul Razador.
 50193	Cufar Master I	Acest cufar se va deschide doar cand ai atins nivelul 60.
 50194	Cufar Master II	Acest cufar se va deschide doar cand ai atins nivelul 70.
 50195	Cufar Master III	Acest cufar se va deschide doar cand ai atins nivelul 80.
@@ -1516,11 +1516,11 @@
 50252	Cor Draconis	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
 50253		
 50254	Cufarul Intunericului	Acest cufar extrem de greu ascunde bogatiile considerate ca apartinand Natiunii Intunecate.
-50255	Cor Draconis (Brut)	Cu ajutorul acestui obiect va puteti imbunatati alchimia. Se poate deschide, dar se poate si negocia la Alchimist.
+50255	Cor Draconis (Brut)	Cu ajutorul acestui obiect vã puteþi imbunãtãþi alchimia. Se poate deschide, dar este posibilã ºi negocierea sa la Alchimist.
 50256	Cor Draconis (Taiat)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
 50257	Cor Draconis (Rar)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
 50258	Cor Draconis (Antic)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
-50259	Cor Draconis (Legendar)	Cu ajutorul acestui obiect va puteti imbunatati alchimia. Acest obiect contine pietre dragon Legendare.
+50259	Cor Draconis (Legendar)	Cu ajutorul acestui obiect vã puteþi îmbunãtãþi alchimia. Acest obiect conþine pietre dragon Legendare.
 50260	Cor Draconis (Brut)	Inima cristalina a dragonului pastreaza in ea sufletul, Piatra Dragonului.
 50263	Pergament Personalizat	Aceasta actiune leaga un obiect la alegere de caracterul tau. Obiectele personalizate nu pot fi vandute, aruncate sau fermecate.
 50264	Pergam. Depersonalizat	Inlatura un obiect personalizat.
@@ -1591,7 +1591,7 @@
 50510	Cartea repeziciunii	Foloseste aceasta carte pentru maestru Repeziciune. Cartea dispare dupa citire.
 50511	Cartea atacului	Foloseste aceasta carte pentru maestru Atac Fortat. Cartea dispare dupa citire.
 50512	Piatra curcubeu	Piatra care deschide ochii spiritului ºi dezveleºte toate competenþele.
-50513	Piatra Spiritului	Piatra legendarã care creºte competenþele de mare maestru. Piatra dispare dupã folosire.
+50513	Piatra Spiritului	Piatrã legendarã care creºte competenþele de mare maestru. Piatra dispare dupã folosire.
 50530	Manual Sfasiere	Foloseste aceasta carte pentru master la abilitatea Sfasiere. Cartea dispare dupa citire.
 50531	Manual Suflul Lupului	Foloseste aceasta carte pentru master la abilitatea Suflul Lupului. Cartea dispare dupa citire.
 50532	Manual Saritura Lupului	Foloseste aceasta carte pentru master la abilitatea Saritura Lupului. Cartea dispare dupa citire.
@@ -1658,7 +1658,7 @@
 50727	Trandafir alpin	Aceastã plantã întãreºte sistemul imunitar. 	Producerea Potiunilor
 50728	Dud	Dudele dau putere ºi prospeþime.	Producerea Potiunilor
 50729	Gura leului	Gura Leului se foloseste in vindecarea bolilor de ochi si a gatului inflamat.	Producerea Potiunilor
-50730	Cap Dragon de Aur	Aceast obiect este obtinut de la Dungeon-ul Dragonului de Aur. 	Upgrade
+50730	Cap Dragon de Aur	Acest obiect este obþinut de la Dungeon-ul Dragonului de Aur. 	Upgrade
 50731	Curmal	Curmalele sunt foarte gustoase ºi trezesc în corp noi spirite ale vieþii.	Producerea Potiunilor
 50732	Planta Sam-Zi	Aceastã planta foarte rara are efect întãritor dacã este preparatã corect. 	Fabricarea licorilor
 50801	Suc de floare de piersic	Sucul de floare de piersic dezvolta abilitatile fizice.
@@ -1691,7 +1691,7 @@
 50908	Reteta pentru apa Young	O apa obtinuta din Suc de radacina de Gango si Ciuperci Tue.
 50909	Reteta pentru apa Zin	Apa obtinuta din Suc de floare de piersic, Liliac si Trandafir Alpin.
 50910	Reteta pentru apa Hwal	Apa obtinuta din Radacina de Gango, Ciuperci Tue si Dude.
-51001	Fragment de Energie	Fragment pentru un Cristal de Energie. 30 de bucati pot fi topite si unite intr-un cristal.
+51001	Fragment de Energie	Fragment pentru un Cristal de Energie. 30 de bucãþi pot fi topite ºi unite într-un cristal.
 51002	Cristal de Energie	Cristalul iti mareste bonusurile pentru doua ore.
 51501	Cor Draconis (Brut)	Cristalul Inima de Dragon contine o Piatra Dragon aleatoare din clasa bruta.
 51502	Cor Draconis (Brut)	Cristalul Inima de Dragon contine o Piatra Dragon aleatoare din clasa bruta.
@@ -2018,8 +2018,8 @@
 53511	Cufar Khan	Tanarul tigru Khan este nerabdator sa iasa din cufar.
 53512	Cufar Porcusor	Tanarul Porcusor este nerabdator sa fie eliberat din cufar.
 53513	Cufar Rufus	Tanarul pui de lup Rufus este nerabdator sa iasa din cufar.
-53514	Cufar Mini Executor	Tanarul Mini Executor este nerabdator sa iasa din cufar si sa-si arate armura sa neagra.
-53515	Cufar Mini Executor(Aur)	Tanarul Mini Executore este nerabdator sa iasa din cufar si sa-si arate armura sa aurie.
+53514	Ramasitele Maimutei.	Deschide porþile cãtre Camera Maimutei.
+53515	Sticluta Intunericului	Deschide porþile cãtre Turnul Demonilor.
 53516	Cufar de Oase	Contine un obiect aleatoriu. Cu putin noroc poti gasi inauntru catelusul skelet, Boney.
 53517	Colivie de Jad	Gratiosul Phoenix de Jad te asteapta in colivia sa pentru a-l elibera.
 53518	Leonidas Alb	Cufarul contine un Sigiliu Leonidas Alb.
@@ -2182,7 +2182,7 @@
 71091	Tinctura negoþului	Poþi alege o nouã culoare pentru reclama magazinului tãu.
 71092	Cartea transformãrii	Dacã studiezi cum trebuie aceastã carte îþi va mari atributele de transformare. Însã vor dispãrea dupã ce ai terminat de citit cartea.
 71093	Globul transformãrii	Cu ajutorul acestui glob te poþi transforma într-un monstru.
-71094	Citit Concentrat	Creste sansa imbunatatirii abilitatilor tale atunci cand citesti urmatoarea carte (sau Piatra Sufletului) de 2.5 ori.
+71094	Citit Concentrat	Creºte ºansa îmbunãtãþirii abilitãþilor tale atunci cand citeºti urmatoarea carte (sau Piatra Sufletului) de 2.5 ori.
 71095	Permis de Trecere	Daca dai acest permis de trecere paznicului, vei putea intra la un nou nivel al Temnitei Paianjenului dar si in Fortareata Dragonului Rosu.
 71096	Tablã de trecere	Cu acest permis, în forma unei medalii, poþi trece printr-o poartã.
 71099	Inelul Urmasului	Permite comandantului unei obºti sã îºi aleagã urmaºul, ºi predã acestuia puterea.
@@ -2223,13 +2223,13 @@
 711214	Sigiliu Leu (albastru)	Cu magia acestui sigiliu se invocã un puternic spirit de animal care te va duce în câteva secunde în locul dorit.
 71121	Sigiliu Leu (albastru)	Cu magia acestui sigiliu se invocã un puternic spirit de animal care te va duce în câteva secunde in locul dorit.
 71122		
-71123	Balanþa Dragonului	Balan'a Dragonului este din cele mai grele materiale cunoscute.
+71123	Balanþa Dragonului	Balanþa Dragonului este din cele mai grele materiale cunoscute.	Upgrade
 71124	Leul Alb	Animalele cu blanã albã sunt rare ºi multi oameni le venereazã crezînd cã au puteri magice.
 71125	Sigiliu Mistret de Lupta	Imblanzirea spiritelor animalelor diabolice oferã o mulþime de abilitãþi magice. Datoritã acestuia, rezultatul va fi impresionant.
 71126	Sigiliu lup de luptã	Imblanzirea spiritelor animalelor diabolice oferã o mulþime de abilitãþi magice. Datoritã acestuia, rezultatul va fi impresionant.
 71127	Sigiliu Tigrul Furtunii	Imblanzirea spiritelor animalelor diabolice oferã o mulþime de abilitãþi magice. Datoritã acestuia, rezultatul va fi impresionant.
 71128	Sigiliul Leului Luptãtor	Imblanzirea spiritelor animalelor diabolice oferã o mulþime de abilitãþi magice. Datoritã acestuia, rezultatul va fi impresionant.
-71129	Ghearele Dragonului	Aspectul acestor gheare terifiante, re-aduc amintiri....
+71129	Ghearele Dragonului	Aspectul acestor gheare terifiante, re-aduc amintiri....	Upgrade
 71130	Permis de Trecere	Daca dai acest permis de trecere paznicului, vei putea intra la un nou nivel al Temnitei Paianjenului dar si in Fortareata Dragonului Rosu. Acest obiect poate fi vandut.
 71131	Sigiliu Cal Negru	Sigiliu pentru un cal negru nobil.
 71132	Sigiliu Cal Negru	Sigiliu pentru un cal negru nobil.
@@ -2267,8 +2267,8 @@
 71171	Sigiliu Unicorn	Acest sigiliu il cheama pe Unicornul tau.
 71172	Vis Urat	Acest sigiliu il trezeste pe Vis Urat.
 71173	Pergament Teleportare	Pergamentul te transporta direct la portile Fortaretei Dragonului Rosu.
-71174	Permis de Trecere	Poti intra in Fortareata Dragonului Rosu daca arati gardianului Permisul de Trecere.
-71175	Permis de Trecere	Poti intra in Fortareata Dragonului Rosu daca arati gardianului Permisul de Trecere.
+71174	Permis de Trecere Razador	Poþi intra în Fortareaþa lui Razador dacã araþi gardianului Permisul de Trecere.
+71175	Permis de Trecere Razador	Poþi intra în Fortareaþa lui Razador dacã araþi gardianului Permisul de Trecere.
 71176	Pantera Neagra	Cu acest sigiliu vei chema Pantera Neagra misterioasa.
 71177	Sigiliu Leopard	Cu acest sigiliu vei chema Leopardul curajos.
 71178	Enciclopedie Lunara (S)	Pachetul contine 10 manuale de invatare a abilitatilor, alese aleatoriu, pentru Lycani.
@@ -2330,7 +2330,7 @@
 72046	ªansa importantã	Mareste sansa unei lovituri patrunzatoare cu 20% pentru 10 minute.
 72047	ªansa importantã	Mareste sansa unei lovituri patrunzatoare cu 20% pentru 10 minute.
 72048	ªansa importantã	Mareste sansa unei lovituri patrunzatoare cu 20% pentru 10 minute.
-72301	Pergament Binecuvantat	Reduce riscul distrugerii unui obiect daca imbunatatirea esueaza. In cazul esuarii, calitatea obiectului va fi scazuta doar cu 1 punct.
+72301	Pergament Binecuvantat	Reduce riscul distrugerii unui obiect dacã îmbunãtãþirea eºueazã. In cazul eºuarii, calitatea obiectului va fi scazut doar cu 1 punct.
 72302		
 72303		
 72304		
@@ -2643,7 +2643,7 @@
 80015	MD Voucher (500)	Voucher in valoare de 500 de Monede Dragon. Obiectul poate fi vandut.
 80016	MD Voucher (1000)	Voucher in valoare de 1000 de Monede Dragon. Obiectul poate fi vandut.
 80017	MD Voucher (50)	Voucher in valoare de 50 de Monede Dragon. Obiectul poate fi vandut.
-80019	Panza Fina	Din acest material este confectionata o Esarfa.
+80019	Panza Fina	Din acest material se confecþioneazã eºarfa.
 90000	Certificat Anulare	Foloseste Certificatul Anularii pentru a inlatura bonusurile de pe o Esarfa.
 90001	Sticla goala de apa	Sticla pentru transportarea apei - deocamdata este goala.
 90002	Sticla de Apa	Sticla in care se poate transporta apa.
@@ -2995,7 +2995,7 @@
 58500	Congela	Questo item permette di congelare un massimo di 2 bonus su un tuo item, clicca su questo oggetto per scegliere lo slot da congelare, ricordati poi di scongelare l'oggetto per riattivare i bonus.
 58501	Scongela	Questo item permette di scongelare un bonus precedentemente congelato.
 39047	B. guerriero corp. (P)	Una sacca con pietre spirituali. Che potrebbe eventualmente contenere pietre da utilizzare per il miglioramento di oggetti.
-39048	B. guerriero corp. (G)	Forziere della Strega di Ghiaccio.
+39048	cufar dragon	Cufãr obþinut din Dungeon-ul Dragonului.
 39049	B. guerriero mentale (P)	Pacchetto contenente oggetti utili ai guerrieri mentali
 39050	B. guerriero mentale (G)	Pacco grande contenente oggetti utili ai guerrieri mentali
 39051	B. ninja (c. a c.) (P)	Pacchetto contenente oggetti utili ai ninja (lotta corpo a corpo)
@@ -3115,10 +3115,10 @@
 50282	Congelatore	Questa Borsa termica spacca! Aprila ed estrai uno degli oggetti tanto ambiti.
 50283	Carta mostro	Quando usi questo oggetto, viene aggiunto alla tua collezione.
 50284	Carta mostro (commerc.)	Quando usi questo oggetto, viene aggiunto alla tua collezione.
-50296	Cutie Manusa Talhar	Recipientul contine Manusa Talharului.
+50296	Cutie Manusa Talhar	Conþine Mãnuºa Tâlharului.
 50297	Forziere di contrattacco	Contiene 250 incanta.
-50090	Forziere di contrattacco	Acest cufar contine o perla alba, albastra sau visinie.
-50115	Cutie Inel Exp.	Recipientul contine Inelul Experientei.
+50090	Cufar Perle	Acest cufãr conþine o perlã albã, albastrã sau viºinie.
+50115	Cutie Inel Exp.	Conþine Inelul Experienþei (1h).
 50298	Cassetto di contrattacco	Questo cassetto contiene 5 Contrattacchi Baule libri.
 50299	Cassetto del boost	Questo cassetto contiene 5 Boost Baule libri.
 50323	Contratt. Baule libri	Questo forziere contiene un libro delle abilitÃ  a caso per apprendere delle abilitÃ  contrattacco.
@@ -3151,7 +3151,7 @@
 53231	Montone blu (sigillo)	Questo Sigillo ti conferisce 2000 HP e 5% vs Mostri.
 53233	Sigillo di Bruce	Con questo sigillo evochi Bruce, il pipistrello giulivo.
 53234	Sigillo di Wayne	Il Drago Wayne Ã¨ una creatura leggendaria, che viva sull'Isola del Terrore. Ti conferisce 3000 HP e 15% vs Mezzuomini.
-53235	Coarne Demon	Aceast obiect este obtinut de la Dungeon-ul Turnul Demonilor. 	Upgrade
+53235	Coarne Demon	Acest obiect este obþinut de la Dungeon-ul Turnul Demonilor. 	Upgrade
 53236	Valentino+	Evoca il tuo teddy Valentino+. Ti conferisce il 15% di forza contro i mostri e aumenta di 1.500 i tuoi HP. Insieme all'Amuleto del Cioccolato ottieni un Bonus del Set supplementare del 50% per i tuoi EXP.
 53237	Valentinia+	Evoca il tuo teddy Valentinia+. Aumenta del 5% la probabilitÃ  di colpo critico e di 1.500 i tuoi HP. Insieme all'Amuleto del Cioccolato ottieni un Bonus del Set supplementare del 50% per i tuoi EXP.
 53238	Valentino	Evoca il tuo teddy Valentino. Insieme all'Amuleto del Cioccolato ottieni un Bonus del Set supplementare del 20% per i tuoi EXP.
@@ -3169,8 +3169,8 @@
 53544	Pacco Teddy Valentinia	Qui sonnecchia il tuo teddy Valentinia. Insieme all'Amuleto del Cioccolato ottieni un Bonus del Set supplementare del 20% per i tuoi EXP.
 53545	Baule Lant. lun. (blu)	In questo baule, Lanterna lunare (blu) attende ansiosa di entrare in azione.
 53546	Baule Lant. lun. (oran.)	In questo baule, Lanterna lunare (arancione) attende ansiosa di entrare in azione.
-55004	Libro del pet selvatico	Folosita pentru a-ti evolua insotitorul cand acesta ajunge la nivelul 60.
-55005	Libro del pet coraggioso	Folosita pentru a-ti evolua insotitorul cand acesta ajunge la nivelul 80.
+55004	carte insotitor salbatic	Folositã pentru a-þi evolua insoþitorul când acesta ajunge la nivelul 60.
+55005	carte insotitor curajos	Folositã pentru a-þi evolua insoþitorul când acesta ajunge la nivelul 80.
 55006	Carte Insoptitor Avansat	Folosita pentru a-ti evolua insotitorul cand acesta ajunge la nivelul 80.
 55007		
 55008	Pergamena del nome	Apri la pergamena accanto al tuo pet per modificare il suo nome.
@@ -3215,8 +3215,8 @@
 70036	Polvere Gialla	Polvere usata per migliorare un arma o un armatura.
 70068	Cassa casuale del filone	Questo  contiene un filone di minerali caso.
 71000	Pergam. tramuta-conosc.	Questo oggetto ti permette ti eliminare completamente le tue abilitÃ  boost e le tue abilitÃ  contrattacco. Con l'aiuto dei manuali (contrattacco e boost) le puoi, eventualmente, apprendere di nuovo.
-11074	Vrajeste Obiectul	Cu ajutorul acestui obiect .
-30200	Biglietto del passaggio	Consegnando questo biglietto al guardiano otterrai il permesso di accedere alla Torre di Nemere.
+11074	Vrajeste Obiectul	Eliminã bonusurile unui obiect ºi adaugã altele noi.
+30200	Permis de trecere Nemere	Poþi intra în Fortareaþa lui Nemere dacã araþi gardianului Permisul de Trecere.
 71165	Sigillo Panda Corazzato	Con questo sigillo evochi il tuo Panda selvatico.
 71189	Incanta oggetto+	Toglie i bonus a uno dei tuoi oggetti e ne aggiunge altri. Visualizzerai un'anteprima dei bonus e potrai scegliere se accettarli o meno.
 71190	Cestino di zucca	Scatola che contiene certificati elementali.
@@ -3258,7 +3258,7 @@
 79506	Set di carte Okey	Usando questo set di carte potrai iniziare un turno di Okey. Dopo l'inizio della partita, il set di carte sarÃ  eliminato automaticamente dall'inventario.
 80021	Ymir CashPack	Only for Ymir (may only be distributed by QA).
 85000	Stoffa sottile	La tua stola sarÃ  fatta di questo materiale.
-85001	Stola Signore semplice	Questa stola assorbe l'1% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
+85001	esarfa	Aceastã eºarfã obþine 1% din bonusurile de pe arme sau armuri folosite la absorbþie.	Rata de absorbiþie: 1% 
 85002	Stola Signore sottile	Questa stola assorbe il 5% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85003	Stola Signore nobile	Questa stola assorbe il 10% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85004	Stola Signore su misura	Questa stola assorbe dall'11 al 25% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
@@ -3277,7 +3277,7 @@
 85018	Stola reale (su misura)	Questa stola assorbe dall'11 al 25% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 55001	Yellow Potion Enchanted	Una prelibatezza per il tuo pet!
 55002	Pink Potion Enchanted	
-55003	Carte Insotitor Tanar	Folosita pentru a-ti evolua insotitorul cand acesta ajunge la nivelul 40.
+55003	Carte Insotitor Tanar	Folositã pentru a-þi evolua insoþitorul când acesta ajunge la nivelul 40.
 9506	Spada+3	
 9507	Pugnale+3	
 9508	Ventaglio+3	
@@ -3335,7 +3335,7 @@
 53253	Progetto Sura	Colorante usato per la realizzazione di stole.
 53254	Progetto Shamano	Colorante usato per la realizzazione di stole.
 53255	Ricordo Eterno	Colorante usato per la realizzazione di stole.
-30799	Pergamena Antica	Pergamena che ti permette di accedere alla Piramide.
+30799	Carte Antica	Deschide porþile cãtre Piramida Anticã.
 36630	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
 36631	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
 36632	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
