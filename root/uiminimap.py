@@ -370,9 +370,9 @@ class MiniMap(ui.ScriptWindow):
 		#if self.interface:
 		#	self.interface.wndBattlePass.Open()
 			
-	def OpenHunt(self):
-		if self.interface:
-			self.interface.ToggleHuntingWindow()
+	# def OpenHunt(self):
+		# if self.interface:
+			# self.interface.ToggleHuntingWindow()
 		
 	def __del__(self):
 		if app.BL_MAILBOX:
@@ -512,8 +512,8 @@ class MiniMap(ui.ScriptWindow):
 					self.MailBoxEffect.SetPosition(mailbox_effect_x+26, mailbox_effect_y)
 			if app.ENABLE_DUNGEON_INFO_SYSTEM:
 				self.DungeonInfoShowButton = self.GetChild("DungeonInfoShowButton")
-			self.huntginfo = self.GetChild("HuntingButton")
-			self.huntginfo.SetEvent(self.OpenHunt)
+			# self.huntginfo = self.GetChild("HuntingButton")
+			# self.huntginfo.SetEvent(self.OpenHunt)
 			self.biologinfo = self.GetChild("BiologButton")
 			self.biologinfo.SetEvent(self.OpenBio)
 			#self.rankingsinfo = self.GetChild("RankingsButton")

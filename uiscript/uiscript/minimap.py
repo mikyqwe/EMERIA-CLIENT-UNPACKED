@@ -54,7 +54,7 @@ window = {
 					"default_image" : "d:/ymir work/ui/minimap/biolog.tga",
 					"over_image" : "d:/ymir work/ui/minimap/biolog_over.tga",
 					"down_image" : "d:/ymir work/ui/minimap/biolog_down.tga",
-					"tooltip_text": "|cffF4B418Biologo",
+					"tooltip_text": "|cffF4B418Biolog",
 				},
 				{
 					"name" : "DungeonInfoShowButton",
@@ -68,16 +68,16 @@ window = {
 					"down_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_down.tga",
 				},
 				## HUNTING_BUTTON
-				{
-					"name" : "HuntingButton",
-					"type" : "button",
-					"x" : 75,
-					"y" : 118,
-					"default_image" : "d:/ymir work/ui/minimap/hunter.tga",
-					"over_image" : "d:/ymir work/ui/minimap/hunter_over.tga",
-					"down_image" : "d:/ymir work/ui/minimap/hunter_down.tga",
-					"tooltip_text" : "|cffF4B418Taglie",
-				},
+				# {
+					# "name" : "HuntingButton",
+					# "type" : "button",
+					# "x" : 75,
+					# "y" : 118,
+					# "default_image" : "d:/ymir work/ui/minimap/hunter.tga",
+					# "over_image" : "d:/ymir work/ui/minimap/hunter_over.tga",
+					# "down_image" : "d:/ymir work/ui/minimap/hunter_down.tga",
+					# "tooltip_text" : "|cffF4B418Taglie",
+				# },
 				# ## RANKING_BUTTON
 				# {
 					# "name" : "RankingsButton",
@@ -206,8 +206,8 @@ window = {
 					"name" : "Discord",
 					"type" : "button",
 
-					"x" : 111,
-					"y" : 75,
+					"x" : 75,
+					"y" : 118,
 
 					"default_image" : "btn/discord/d_open_default.png",
 					"over_image" : "btn/discord/d_open_over.png",
