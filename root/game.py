@@ -1146,6 +1146,9 @@ class GameWindow(ui.ScriptWindow):
 				self.interface.HPPoisonEffectHide()
 				self.interface.PartyPoisonGuageHide()
 
+	if app.ENABLE_AFFECT_FIX:
+		def RefreshAffectWindow(self):
+			self.affectShower.BINARY_NEW_RefreshAffect()
 	# END_OF_UNKNOWN_UPDATE
 
 	def ActivateSkillSlot(self, slotIndex):

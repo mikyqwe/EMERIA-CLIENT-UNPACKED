@@ -274,7 +274,9 @@ class AffectImage(ui.ExpandedImageBox):
 	def __init__(self):
 		ui.ExpandedImageBox.__init__(self)
 
-		self.toolTipText = None
+		self.toolTip = uiToolTip.ToolTip()
+		self.toolTip.HideToolTip()
+
 		self.isSkillAffect = True
 		self.description = None
 		self.endTime = 0
@@ -293,27 +295,44 @@ class AffectImage(ui.ExpandedImageBox):
 	def GetAffect(self):
 		return self.affect
 
+	def FormatTime(self, time):
+		text = ""
+
+		d = time // (24 * 3600)
+		time = time % (24 * 3600)
+		h = time // 3600
+		time %= 3600
+		m = time // 60
+		time %= 60
+		s = time
+
+		if d:
+			text += "%dd " % d
+		if text or h:
+			text += "%dg " % h
+		if text or m:
+			text += "%dm " % m
+		if text or s:
+			text += "%ds " % s
+
+		return text[:-1]
+
 	def SetToolTipText(self, text, x = 0, y = -19):
-
-		if not self.toolTipText:
-			textLine = ui.TextLine()
-			textLine.SetParent(self)
-			textLine.SetSize(0, 0)
-			textLine.SetOutline()
-			textLine.Hide()
-			self.toolTipText = textLine
-
-		self.toolTipText.SetText(text)
-		w, h = self.toolTipText.GetTextSize()
-		self.toolTipText.SetPosition(max(0, x + self.GetWidth()/2 - w/2), y)
+		self.toolTip.ClearToolTip()
+		self.toolTip.AppendSpace(-5)
+		self.toolTip.AppendDescription(text, 26)
 
 	def SetDescription(self, description):
 		self.description = description
+		self.__UpdateDescription2()
 
 	def SetDuration(self, duration):
 		self.endTime = 0
 		if duration > 0:
 			self.endTime = app.GetGlobalTimeStamp() + duration
+			leftTime = self.FormatTime(self.endTime - app.GetGlobalTimeStamp())
+			self.toolTip.AppendTextLine("(%s : %s)" % (localeInfo.LEFT_TIME, leftTime))
+			self.toolTip.ResizeToolTip()
 
 	def UpdateAutoPotionDescription(self):
 
@@ -338,22 +357,20 @@ class AffectImage(ui.ExpandedImageBox):
 
 	def SetClock(self, isClocked):
 		self.isClocked = isClocked
-
+		self.SetDescription(self.description)
+		
 	def UpdateDescription(self):
 		if not self.isClocked:
-			self.__UpdateDescription2()
 			return
-
+	
 		if not self.description:
 			return
-
-		toolTip = self.description
+			
 		if self.endTime > 0:
-			leftTime = localeInfo.SecondToDHM(self.endTime - app.GetGlobalTimeStamp())
-			toolTip += " (%s : %s)" % (localeInfo.LEFT_TIME, leftTime)
-		self.SetToolTipText(toolTip, 0, 40)
+			leftTime = self.FormatTime(self.endTime - app.GetGlobalTimeStamp())
 
-	#독일버전에서 시간을 제거하기 위해서 사용
+			self.toolTip.childrenList[-1].SetText("(%s : %s)" % (localeInfo.LEFT_TIME, leftTime))
+
 	def __UpdateDescription2(self):
 		if not self.description:
 			return
@@ -422,17 +439,10 @@ class AffectImage(ui.ExpandedImageBox):
 			return TRUE
 
 	def OnMouseOverIn(self):
-		if self.toolTipText:
-			self.toolTipText.Show()
-		if (app.ENABLE_AFFECT_POLYMORPH_REMOVE):	
-			if self.affect == chr.NEW_AFFECT_POLYMORPH:
-				self.OnPolymorphQuestionDialog()
-			self.SetScale(0.76, 0.76) #change there the image grown
+		self.toolTip.ShowToolTip()
 
 	def OnMouseOverOut(self):
-		if self.toolTipText:
-			self.toolTipText.Hide()
-			self.SetScale(0.7, 0.7)
+		self.toolTip.HideToolTip()
 
 class AffectShower(ui.Window):
 
@@ -447,8 +457,8 @@ class AffectShower(ui.Window):
 			chr.AFFECT_SLOW : (localeInfo.SKILL_SLOW, "d:/ymir work/ui/skill/common/affect/slow.sub"),
 			chr.AFFECT_STUN : (localeInfo.SKILL_STUN, "d:/ymir work/ui/skill/common/affect/stun.sub"),
 
-			chr.AFFECT_ATT_SPEED_POTION : (localeInfo.SKILL_INC_ATKSPD, "d:/ymir work/ui/skill/common/affect/Increase_Attack_Speed.sub"),
-			chr.AFFECT_MOV_SPEED_POTION : (localeInfo.SKILL_INC_MOVSPD, "d:/ymir work/ui/skill/common/affect/Increase_Move_Speed.sub"),
+			chr.AFFECT_ATT_SPEED_POTION : (localeInfo.SKILL_INC_ATKSPD, "icon/item/27102.tga"),
+			chr.AFFECT_MOV_SPEED_POTION : (localeInfo.SKILL_INC_MOVSPD, "icon/item/27105.tga"),
 			chr.AFFECT_FISH_MIND : (localeInfo.SKILL_FISHMIND, "d:/ymir work/ui/skill/common/affect/fishmind.sub"),
 
 			chr.AFFECT_JEONGWI : (localeInfo.SKILL_JEONGWI, "d:/ymir work/ui/skill/warrior/jeongwi_03.sub",),
@@ -481,8 +491,8 @@ class AffectShower(ui.Window):
 			52 : ("Reflection from item buff", "d:/ymir work/ui/skill/shaman/boho_03.sub",),					
 
 			chr.NEW_AFFECT_ITEM_BONUS : (localeInfo.TOOLTIP_MALL_ITEMBONUS_STATIC, "d:/ymir work/ui/skill/common/affect/item_bonus.sub",),
-			chr.NEW_AFFECT_SAFEBOX : (localeInfo.TOOLTIP_MALL_SAFEBOX, "d:/ymir work/ui/skill/common/affect/safebox.sub",),
-			chr.NEW_AFFECT_AUTOLOOT : (localeInfo.TOOLTIP_MALL_AUTOLOOT, "d:/ymir work/ui/skill/common/affect/autoloot.sub",),
+			# chr.NEW_AFFECT_SAFEBOX : (localeInfo.TOOLTIP_MALL_SAFEBOX, "d:/ymir work/ui/skill/common/affect/safebox.sub",),
+			# chr.NEW_AFFECT_AUTOLOOT : (localeInfo.TOOLTIP_MALL_AUTOLOOT, "d:/ymir work/ui/skill/common/affect/autoloot.sub",),
 			chr.NEW_AFFECT_FISH_MIND : (localeInfo.TOOLTIP_MALL_FISH_MIND, "d:/ymir work/ui/skill/common/affect/fishmind.sub",),
 			chr.NEW_AFFECT_MARRIAGE_FAST : (localeInfo.TOOLTIP_MALL_MARRIAGE_FAST, "d:/ymir work/ui/skill/common/affect/marriage_fast.sub",),
 			chr.NEW_AFFECT_GOLD_BONUS : (localeInfo.TOOLTIP_MALL_GOLDBONUS_STATIC, "d:/ymir work/ui/skill/common/affect/gold_bonus.sub",),
@@ -505,7 +515,7 @@ class AffectShower(ui.Window):
 			MALL_DESC_IDX_START+player.POINT_CRITICAL_PCT : (localeInfo.TOOLTIP_APPLY_CRITICAL_PCT,"d:/ymir work/ui/skill/common/affect/critical.sub"),
 			MALL_DESC_IDX_START+player.POINT_PENETRATE_PCT : (localeInfo.TOOLTIP_APPLY_PENETRATE_PCT, "d:/ymir work/ui/skill/common/affect/gold_premium.sub"),
 			MALL_DESC_IDX_START+player.POINT_MAX_HP_PCT : (localeInfo.TOOLTIP_MAX_HP_PCT, "d:/ymir work/ui/skill/common/affect/gold_premium.sub"),
-			MALL_DESC_IDX_START+player.POINT_MAX_SP_PCT : (localeInfo.TOOLTIP_MAX_SP_PCT, "d:/ymir work/ui/skill/common/affect/gold_premium.sub"),
+			MALL_DESC_IDX_START+player.POINT_MAX_SP_PCT : (localeInfo.TOOLTIP_MOB_PCT, "d:/ymir work/ui/skill/common/affect/gold_premium.sub"),
 
 			MALL_DESC_IDX_START+player.POINT_PC_BANG_EXP_BONUS : (localeInfo.TOOLTIP_MALL_EXPBONUS_P_STATIC, "d:/ymir work/ui/skill/common/affect/EXP_Bonus_p_on.sub",),
 			MALL_DESC_IDX_START+player.POINT_PC_BANG_DROP_BONUS: (localeInfo.TOOLTIP_MALL_ITEMBONUS_P_STATIC, "d:/ymir work/ui/skill/common/affect/Item_Bonus_p_on.sub",),
@@ -556,9 +566,9 @@ class AffectShower(ui.Window):
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_1] = (localeInfo.TOOLTIP_APPLY_CRITICAL_PCT,"icon/item/71044.tga")
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_2] = (localeInfo.TOOLTIP_APPLY_PENETRATE_PCT, "icon/item/71045.tga")
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_3] = (localeInfo.TOOLTIP_MAX_HP_PCT, "icon/item/71027.tga")
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_4] = (localeInfo.TOOLTIP_MALL_ATTBONUS, "d:/ymir work/ui/skill/common/affect/att_bonus.sub")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_4] = (localeInfo.TOOLTIP_MALL_ATTBONUS, "icon/item/71028.tga")
 		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_5] = (localeInfo.TOOLTIP_MAX_SP_PCT, "icon/item/71029.tga")
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_6] = (localeInfo.TOOLTIP_MALL_DEFBONUS, "d:/ymir work/ui/skill/common/affect/def_bonus.sub")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_6] = (localeInfo.TOOLTIP_MALL_DEFBONUS, "icon/item/71030.tga")
 		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_1] = (localeInfo.TOOLTIP_AFFECT_POTION_7,"icon/item/950822.tga")
 		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_2] = (localeInfo.TOOLTIP_AFFECT_POTION_1, "icon/item/950821.tga")
 		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_3] = (localeInfo.TOOLTIP_AFFECT_POTION_5, "icon/item/950825.tga")
@@ -697,7 +707,8 @@ class AffectShower(ui.Window):
 				image.SetSkillAffectFlag(False)
 				image.Show()
 				self.affectImageDict[affect] = image
-				self.__ArrangeImageList()
+				if not app.ENABLE_AFFECT_FIX:
+					self.__ArrangeImageList()
 			except Exception, e:
 				print "except Aff affect ", e
 				pass
@@ -710,7 +721,13 @@ class AffectShower(ui.Window):
 			affect = type
 		print "Remove Affect %s %s" % ( type , pointIdx )
 		self.__RemoveAffect(affect)
-		self.__ArrangeImageList()
+		if not app.ENABLE_AFFECT_FIX:
+			self.__ArrangeImageList()
+            
+	if app.ENABLE_AFFECT_FIX:
+		def BINARY_NEW_RefreshAffect(self):
+			self.__ArrangeImageList()
+
 
 	def SetAffect(self, affect):
 		self.__AppendAffect(affect)
@@ -824,29 +841,38 @@ class AffectShower(ui.Window):
 		self.__ArrangeImageList()
 
 	def __ArrangeImageList(self):
-
-		width = len(self.affectImageDict) * self.IMAGE_STEP
-		if self.lovePointImage:
-			width+=self.IMAGE_STEP
-		if self.horseImage:
-			width+=self.IMAGE_STEP
-
-		self.SetSize(width, 26)
-
 		xPos = 0
+		yPos = 0
+
+		xMax = 0
+
+		countRow = 0
 
 		if self.lovePointImage:
 			if self.lovePointImage.IsShow():
-				self.lovePointImage.SetPosition(xPos, 0)
+				self.lovePointImage.SetPosition(xPos, yPos)
 				xPos += self.IMAGE_STEP
+				countRow += 1
 
 		if self.horseImage:
-			self.horseImage.SetPosition(xPos, 0)
+			self.horseImage.SetPosition(xPos, yPos)
 			xPos += self.IMAGE_STEP
+			countRow += 1
 
 		for image in self.affectImageDict.values():
-			image.SetPosition(xPos, 0)
+			image.SetPosition(xPos, yPos)
 			xPos += self.IMAGE_STEP
+			countRow += 1
+
+			if xMax < xPos:
+				xMax = xPos
+
+			if countRow == 10:
+				xPos = 0
+				yPos += self.IMAGE_STEP
+				countRow = 0
+
+		self.SetSize(xMax, yPos + 26)
 
 	def OnUpdate(self):
 		try:
