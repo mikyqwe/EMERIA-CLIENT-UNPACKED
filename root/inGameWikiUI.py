@@ -3847,8 +3847,6 @@ def BuildBaseMain(self):
 	InitCostumePageWindow(self)
 	funclist = [
 		ui.__mem_func__(self.mainWeaponWindow.Show),
-		ui.__mem_func__(self.costumePageWindow.Show),
-		ui.__mem_func__(self.costumePageWindow.Show),
 		ui.__mem_func__(self.mainChestWindow.Show),
 		ui.__mem_func__(self.mainBossWindow.Show),
 		ui.__mem_func__(self.mainBossWindow.Show),

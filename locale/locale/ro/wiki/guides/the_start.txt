@@ -1,5 +1,5 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/thestart.tga]
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/thestart1.tga]
 [CENTER_ALIGN]Salve novizio. 
 [CENTER_ALIGN]In questa guida troverai informazioni relative al tuo nuovo inizio nel mondo di Zayos 
 [CENTER_ALIGN]e di come diventare piu forte giorno per giorno. L'avventura ha inizio.

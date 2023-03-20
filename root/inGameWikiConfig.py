@@ -328,23 +328,23 @@ WIKI_CATEGORIES = [
 			[localeinfo.WIKI_SUBCATEGORY_TALISMANS, (10,), "d:/ymir work/ui/wiki/banners/%s/talismans.png" % BANNERS_PATH],
 		]
 	],
-	[
-		localeinfo.WIKI_CATEGORY_COSTUMES,
-		[
-			[localeinfo.WIKI_SUBCATEGORY_WEAPONS, (COSTUME_WEAPON_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/costume_weapon.png" % BANNERS_PATH],
-			[localeinfo.WIKI_SUBCATEGORY_ARMOR, (COSTUME_ARMOR_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/costume_armor.png" % BANNERS_PATH],
-			[localeinfo.WIKI_SUBCATEGORY_HAIRSTYLES, (COSTUME_HAIR_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/costume_hairstyle.png" % BANNERS_PATH],
-			[localeinfo.WIKI_SUBCATEGORY_STOLE, (STOLE_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/item_stole.png" % BANNERS_PATH]
-		]
-	],
-	[
-		localeinfo.WIKI_CATEGORY_COMPANY,
-		[
-			#[localeinfo.WIKI_SUBCATEGORY_SUPPORT, (SUPPORT_PET_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/support.png" % BANNERS_PATH],
-			[localeinfo.WIKI_SUBCATEGORY_PET, (COSTUME_PET_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/pet_item.png" % BANNERS_PATH],
-			[localeinfo.WIKI_SUBCATEGORY_MOUNT, (COSTUME_MOUNT_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/mount_item.png" % BANNERS_PATH]
-		]
-	],
+	# [
+		# localeinfo.WIKI_CATEGORY_COSTUMES,
+		# [
+			# [localeinfo.WIKI_SUBCATEGORY_WEAPONS, (COSTUME_WEAPON_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/costume_weapon.png" % BANNERS_PATH],
+			# [localeinfo.WIKI_SUBCATEGORY_ARMOR, (COSTUME_ARMOR_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/costume_armor.png" % BANNERS_PATH],
+			# [localeinfo.WIKI_SUBCATEGORY_HAIRSTYLES, (COSTUME_HAIR_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/costume_hairstyle.png" % BANNERS_PATH],
+			# [localeinfo.WIKI_SUBCATEGORY_STOLE, (STOLE_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/item_stole.png" % BANNERS_PATH]
+		# ]
+	# ],
+	# [
+		# localeinfo.WIKI_CATEGORY_COMPANY,
+		# [
+			# #[localeinfo.WIKI_SUBCATEGORY_SUPPORT, (SUPPORT_PET_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/support.png" % BANNERS_PATH],
+			# [localeinfo.WIKI_SUBCATEGORY_PET, (COSTUME_PET_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/pet_item.png" % BANNERS_PATH],
+			# [localeinfo.WIKI_SUBCATEGORY_MOUNT, (COSTUME_MOUNT_VNUMS,), "d:/ymir work/ui/wiki/banners/%s/mount_item.png" % BANNERS_PATH]
+		# ]
+	# ],
 	[
 		localeinfo.WIKI_CATEGORY_CHESTS,
 		[
@@ -384,11 +384,11 @@ WIKI_CATEGORIES = [
 			[localeinfo.WIKI_SUBCATEGORY_BATTLEPASS, ("systems/battlepass.txt",)],
 			[localeinfo.WIKI_SUBCATEGORY_BIOLOGIST, ("systems/biologist.txt",)],
 			[localeinfo.WIKI_SUBCATEGORY_ANTIFARM, ("systems/multifarm.txt",)],
-			[localeinfo.WIKI_SUBCATEGORY_FREEZE, ("systems/freeze.txt",)],
+			# [localeinfo.WIKI_SUBCATEGORY_FREEZE, ("systems/freeze.txt",)],
 			[localeinfo.WIKI_SUBCATEGORY_COSTUME_SASH, ("systems/costume_sash.txt",)],
 			[localeinfo.WIKI_SUBCATEGORY_PET, ("systems/pet.txt",)],
-			[localeinfo.WIKI_SUBCATEGORY_COSTUMES, ("systems/costumes.txt",)],
-			[localeinfo.WIKI_SUBCATEGORY_RNSS, ("systems/runes.txt",)],
+			# [localeinfo.WIKI_SUBCATEGORY_COSTUMES, ("systems/costumes.txt",)],
+			# [localeinfo.WIKI_SUBCATEGORY_RNSS, ("systems/runes.txt",)],
 			[localeinfo.WIKI_SUBCATEGORY_TALISMANS, ("systems/talismans.txt",)]
 		]
 	],
@@ -1592,6 +1592,79 @@ ITEM_BLACKLIST = [
 ]
 
 MOB_BLACKLIST = [
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					# ,
+					34600,
+					11506,
+					11505,
+					6116,
+					4326,
+					4137,
+					4136,
+					3495,
+					3494,
+					3493,
+					3492,
+					289,
+					7124,
+					2291,
+					1403,
+					8617,
+					8616,
+					8615,
+					8614,
+					8613,
+					8612,
+					8611,
+					8610,
+					8609,
+					8608,
+					8605,
+					8604,
+					8603,
+					8602,
+					8601,
+					8600,
+					8607,
+					8606,
+					8612,
+					1094,
+					1095,
+					2094,
+					2093,
+					2192,
+					1334,
+					693,
+					5002,
+					4070,
+					4069,
+					2207,
+					2095,
+					1906,
+					1905,
+					1904,
+					1903,
+					1902,
+					1334,
+					1310,
+					1309,
+					1308,
+					1307,
+					1305,
+					1306,
+					993,
+					692,
+# Ce e deasupra e adaugat in plus
 					8003,
 					8452,
 					8453,
