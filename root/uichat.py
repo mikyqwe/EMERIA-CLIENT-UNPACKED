@@ -52,10 +52,10 @@ if app.ENABLE_CHATTING_WINDOW_RENEWAL:
 	OPTION_CHECKBOX_SHOUT = 4
 	OPTION_CHECKBOX_INFO = 5
 	OPTION_CHECKBOX_NOTICE = 6
-	OPTION_CHECKBOX_DICE = 7
-	OPTION_CHECKBOX_EXP_INFO = 8
-	OPTION_CHECKBOX_ITEM_INFO = 9
-	OPTION_CHECKBOX_MONEY_INFO = 10
+	# OPTION_CHECKBOX_DICE = 7
+	# OPTION_CHECKBOX_EXP_INFO = 8
+	# OPTION_CHECKBOX_ITEM_INFO = 9
+	OPTION_CHECKBOX_MONEY_INFO = 7
 
 	OPTION_CHECKBOX_MODE = {
 		chat.CHAT_TYPE_TALKING : OPTION_CHECKBOX_TALKING,
@@ -64,9 +64,9 @@ if app.ENABLE_CHATTING_WINDOW_RENEWAL:
 		chat.CHAT_TYPE_PARTY : OPTION_CHECKBOX_PARTY,
 		chat.CHAT_TYPE_GUILD : OPTION_CHECKBOX_GUILD,
 		chat.CHAT_TYPE_SHOUT : OPTION_CHECKBOX_SHOUT,
-		chat.CHAT_TYPE_DICE_INFO : OPTION_CHECKBOX_DICE,
-		chat.CHAT_TYPE_EXP_INFO : OPTION_CHECKBOX_EXP_INFO,
-		chat.CHAT_TYPE_ITEM_INFO : OPTION_CHECKBOX_ITEM_INFO,
+		# chat.CHAT_TYPE_DICE_INFO : OPTION_CHECKBOX_DICE,
+		# chat.CHAT_TYPE_EXP_INFO : OPTION_CHECKBOX_EXP_INFO,
+		# chat.CHAT_TYPE_ITEM_INFO : OPTION_CHECKBOX_ITEM_INFO,
 		chat.CHAT_TYPE_MONEY_INFO : OPTION_CHECKBOX_MONEY_INFO,
 	}
 
@@ -230,10 +230,10 @@ if app.ENABLE_CHATTING_WINDOW_RENEWAL:
 
 				# chatting_setting_talking_bg.y + (31 * y)
 				yPos = 64 + (31 * 0)
-				if key >= OPTION_CHECKBOX_DICE:
-					yPos = 64 + (31 * 1)
-				if key >= OPTION_CHECKBOX_EXP_INFO:
-					yPos = 64 + (31 * 2)
+				if key > OPTION_CHECKBOX_NOTICE:
+					yPos = 64 + 30
+				# if key >= OPTION_CHECKBOX_EXP_INFO:
+					# yPos = 64 + (31 * 2)
 
 				self.checkBoxSlotDict[key] = self.CheckBox(self, CHECK_BOX_X_POS, yPos + (18 * (key - 1)), event)
 
@@ -1183,13 +1183,13 @@ class ChatWindow(ui.Window):
 			chat.CHAT_TYPE_SHOUT : colorInfo.CHAT_RGB_SHOUT,
 			chat.CHAT_TYPE_WHISPER : colorInfo.CHAT_RGB_WHISPER,
 		}
-		if app.ENABLE_DICE_SYSTEM:
-			CHAT_COLOR_DICT.update({chat.CHAT_TYPE_DICE_INFO : colorInfo.CHAT_RGB_DICE_INFO,})
+		# if app.ENABLE_DICE_SYSTEM:
+			# CHAT_COLOR_DICT.update({chat.CHAT_TYPE_DICE_INFO : colorInfo.CHAT_RGB_DICE_INFO,})
 
 		if app.ENABLE_CHATTING_WINDOW_RENEWAL:
 			CHAT_COLOR_DICT.update({
-				chat.CHAT_TYPE_EXP_INFO : colorInfo.CHAT_RGB_INFO,
-				chat.CHAT_TYPE_ITEM_INFO : colorInfo.CHAT_RGB_INFO,
+				# chat.CHAT_TYPE_EXP_INFO : colorInfo.CHAT_RGB_INFO,
+				# chat.CHAT_TYPE_ITEM_INFO : colorInfo.CHAT_RGB_INFO,
 				chat.CHAT_TYPE_MONEY_INFO : colorInfo.CHAT_RGB_INFO,
 			})
 
@@ -1546,9 +1546,9 @@ class ChatLogWindow(ui.Window):
 						chat.CHAT_TYPE_INFO,
 						chat.CHAT_TYPE_NOTICE, ]
 
-	if app.ENABLE_DICE_SYSTEM:
-		CHAT_MODE_NAME.append(localeInfo.CHAT_DICE_INFO)
-		CHAT_MODE_INDEX.append(chat.CHAT_TYPE_DICE_INFO)
+	# if app.ENABLE_DICE_SYSTEM:
+		# CHAT_MODE_NAME.append(localeInfo.CHAT_DICE_INFO)
+		# CHAT_MODE_INDEX.append(chat.CHAT_TYPE_DICE_INFO)
 
 	CHAT_LOG_WINDOW_MINIMUM_WIDTH = 450
 	CHAT_LOG_WINDOW_MINIMUM_HEIGHT = 120
@@ -1586,8 +1586,8 @@ class ChatLogWindow(ui.Window):
 		for i in self.CHAT_MODE_INDEX:
 			chat.EnableChatMode(self.chatID, i)
 		if app.ENABLE_CHATTING_WINDOW_RENEWAL:
-			chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_EXP_INFO)
-			chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_ITEM_INFO)
+			# chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_EXP_INFO)
+			# chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_ITEM_INFO)
 			chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_MONEY_INFO)
 
 		self.SetPosition(20, 20)
@@ -1730,8 +1730,8 @@ class ChatLogWindow(ui.Window):
 
 		self.allChatMode = True
 		if app.ENABLE_CHATTING_WINDOW_RENEWAL:
-			chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_EXP_INFO)
-			chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_ITEM_INFO)
+			# chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_EXP_INFO)
+			# chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_ITEM_INFO)
 			chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_MONEY_INFO)
 		for i in self.CHAT_MODE_INDEX:
 			chat.EnableChatMode(self.chatID, i)
@@ -1746,8 +1746,8 @@ class ChatLogWindow(ui.Window):
 			chat.EnableChatMode(self.chatID, mode)
 			if app.ENABLE_CHATTING_WINDOW_RENEWAL:
 				if mode == chat.CHAT_TYPE_INFO:
-					chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_EXP_INFO)
-					chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_ITEM_INFO)
+					# chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_EXP_INFO)
+					# chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_ITEM_INFO)
 					chat.EnableChatMode(self.chatID, chat.CHAT_TYPE_MONEY_INFO)
 			self.btnAll.SetUp()
 
