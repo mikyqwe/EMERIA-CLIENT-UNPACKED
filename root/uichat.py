@@ -849,7 +849,7 @@ class ChatInputSet(ui.Window):
 		else:
 			self.chatLine.SetSize(self.GetWidth() - 93 - 25, 13)
 
-		self.btnSend.SetPosition(self.GetWidth() - 33, 2)
+		self.btnSend.SetPosition(self.GetWidth() - 50, 2)
 		(x,y) = self.GetGlobalPosition()
 		#self.translatorButton.SetPosition(self.GetWidth() - 50, 2)
 
@@ -873,7 +873,7 @@ class ChatWindow(ui.Window):
 	EDIT_LINE_HEIGHT = 25
 	if app.ENABLE_CHATTING_WINDOW_RENEWAL:
 		EDIT_LINE_HIDE_HEIGHT = 20
-	CHAT_WINDOW_WIDTH = 600
+	CHAT_WINDOW_WIDTH = 580
 	if app.ENABLE_CLEAR_CHAT:
 		CHAT_WINDOW_WIDTH += 40
 
@@ -1060,15 +1060,15 @@ class ChatWindow(ui.Window):
 		self.btnSendWhisper = btnSendWhisper
 		
 		# change here later the .sub textures
-		btnGetWorldbossInfo = ui.Button()
-		btnGetWorldbossInfo.SetParent(self)
-		btnGetWorldbossInfo.SetUpVisual("d:/ymir work/ui/game/taskbar/worldboss.tga")
-		btnGetWorldbossInfo.SetOverVisual("d:/ymir work/ui/game/taskbar/worldboss_over.tga")
-		btnGetWorldbossInfo.SetDownVisual("d:/ymir work/ui/game/taskbar/worldboss_down.tga")
-		btnGetWorldbossInfo.SetToolTipText(localeInfo.CHAT_SEND_WBOSS) #
-		btnGetWorldbossInfo.Hide()
-		self.btnGetWorldbossInfo = btnGetWorldbossInfo
-		self.btnGetWorldbossInfo.SetEvent(ui.__mem_func__(self.__GetWorldBossInfo))
+		# btnGetWorldbossInfo = ui.Button()
+		# btnGetWorldbossInfo.SetParent(self)
+		# btnGetWorldbossInfo.SetUpVisual("d:/ymir work/ui/game/taskbar/worldboss.tga")
+		# btnGetWorldbossInfo.SetOverVisual("d:/ymir work/ui/game/taskbar/worldboss_over.tga")
+		# btnGetWorldbossInfo.SetDownVisual("d:/ymir work/ui/game/taskbar/worldboss_down.tga")
+		# btnGetWorldbossInfo.SetToolTipText(localeInfo.CHAT_SEND_WBOSS) #
+		# btnGetWorldbossInfo.Hide()
+		# self.btnGetWorldbossInfo = btnGetWorldbossInfo
+		# self.btnGetWorldbossInfo.SetEvent(ui.__mem_func__(self.__GetWorldBossInfo))
 
 		btnChatLog = ui.Button()
 		btnChatLog.SetParent(self)
@@ -1202,7 +1202,7 @@ class ChatWindow(ui.Window):
 		self.chatInputSet.Destroy()
 		self.chatInputSet = None
 
-		self.btnGetWorldbossInfo = 0
+		# self.btnGetWorldbossInfo = 0
 		self.btnSendWhisper = 0
 		if app.ENABLE_CLEAR_CHAT:
 			self.btnClearChat = 0
@@ -1299,14 +1299,14 @@ class ChatWindow(ui.Window):
 
 		self.Refresh()
 		
-		self.btnGetWorldbossInfo.SetPosition(self.GetWidth() - 98, 2)
-		self.btnGetWorldbossInfo.Show()
+		# self.btnGetWorldbossInfo.SetPosition(self.GetWidth() - 98, 2)
+		# self.btnGetWorldbossInfo.Show()
 
 		self.btnSendWhisper.SetPosition(self.GetWidth() - 50, 2)
 		self.btnSendWhisper.Show()
 		
 		if app.ENABLE_CLEAR_CHAT:
-			self.btnClearChat.SetPosition(self.GetWidth() - 78, -5)
+			self.btnClearChat.SetPosition(self.GetWidth() - 80, -5)
 			self.btnClearChat.Show()
 
 		self.btnChatLog.SetPosition(self.GetWidth() - 25, 2)
@@ -1314,7 +1314,7 @@ class ChatWindow(ui.Window):
 
 		## colors
 		if app.ENABLE_CHAT_COLOR_SYSTEM:
-			self.btnSendColors.SetPosition(self.GetWidth() - 145, 1)
+			self.btnSendColors.SetPosition(self.GetWidth() - 95, 1)
 			self.btnSendColors.Show()
 
 		self.chatInputSet.Open()
@@ -1336,7 +1336,7 @@ class ChatWindow(ui.Window):
 
 		self.chatInputSet.Close()
 		self.btnSendWhisper.Hide()
-		self.btnGetWorldbossInfo.Hide()
+		# self.btnGetWorldbossInfo.Hide()
 		if app.ENABLE_CLEAR_CHAT:
 			self.btnClearChat.Hide()
 		self.btnChatLog.Hide()
@@ -1531,8 +1531,8 @@ class ChatWindow(ui.Window):
 				else:
 					chat.DisableChatMode(self.chatID, mode)
 					
-	def __GetWorldBossInfo(self):
-		net.SendChatPacket("/worldboss")
+	# def __GetWorldBossInfo(self):
+		# net.SendChatPacket("/worldboss")
 
 ## ChatLogWindow
 class ChatLogWindow(ui.Window):
