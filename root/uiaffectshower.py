@@ -17,7 +17,7 @@ if app.ENABLE_NEW_AFFECT_POTION:
 		],
 
 		"image" : [
-			("icon/item/5082%d.tga" % (i + 1)) for i in xrange(len("affect"))
+			("icon/item/5082%dt.tga" % (i + 1)) for i in xrange(len("affect"))
 		],
 
 		"desc" : [
@@ -457,8 +457,8 @@ class AffectShower(ui.Window):
 			chr.AFFECT_SLOW : (localeInfo.SKILL_SLOW, "d:/ymir work/ui/skill/common/affect/slow.sub"),
 			chr.AFFECT_STUN : (localeInfo.SKILL_STUN, "d:/ymir work/ui/skill/common/affect/stun.sub"),
 
-			chr.AFFECT_ATT_SPEED_POTION : (localeInfo.SKILL_INC_ATKSPD, "icon/item/27102.tga"),
-			chr.AFFECT_MOV_SPEED_POTION : (localeInfo.SKILL_INC_MOVSPD, "icon/item/27105.tga"),
+			chr.AFFECT_ATT_SPEED_POTION : (localeInfo.SKILL_INC_ATKSPD, "icon/item/27102t.tga"),
+			chr.AFFECT_MOV_SPEED_POTION : (localeInfo.SKILL_INC_MOVSPD, "icon/item/27105t.tga"),
 			chr.AFFECT_FISH_MIND : (localeInfo.SKILL_FISHMIND, "d:/ymir work/ui/skill/common/affect/fishmind.sub"),
 
 			chr.AFFECT_JEONGWI : (localeInfo.SKILL_JEONGWI, "d:/ymir work/ui/skill/warrior/jeongwi_03.sub",),
@@ -563,18 +563,18 @@ class AffectShower(ui.Window):
 		5418 : ("Guarigione", "d:/ymir work/ui/skill/pet/removal.sub"),
 	}
 	if app.BYKATIL199_ITEM_SLOT_EFFECT:
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_1] = (localeInfo.TOOLTIP_APPLY_CRITICAL_PCT,"icon/item/71044.tga")
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_2] = (localeInfo.TOOLTIP_APPLY_PENETRATE_PCT, "icon/item/71045.tga")
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_3] = (localeInfo.TOOLTIP_MAX_HP_PCT, "icon/item/71027.tga")
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_4] = (localeInfo.TOOLTIP_MALL_ATTBONUS, "icon/item/71028.tga")
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_5] = (localeInfo.TOOLTIP_MAX_SP_PCT, "icon/item/71029.tga")
-		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_6] = (localeInfo.TOOLTIP_MALL_DEFBONUS, "icon/item/71030.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_1] = (localeInfo.TOOLTIP_AFFECT_POTION_7,"icon/item/950822.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_2] = (localeInfo.TOOLTIP_AFFECT_POTION_1, "icon/item/950821.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_3] = (localeInfo.TOOLTIP_AFFECT_POTION_5, "icon/item/950825.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_4] = (localeInfo.TOOLTIP_AFFECT_POTION_6, "icon/item/950826.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_5] = (localeInfo.TOOLTIP_AFFECT_POTION_4, "icon/item/950824.tga")
-		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_6] = (localeInfo.TOOLTIP_AFFECT_POTION_3, "icon/item/950823.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_1] = (localeInfo.TOOLTIP_APPLY_CRITICAL_PCT,"icon/item/71044t.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_2] = (localeInfo.TOOLTIP_APPLY_PENETRATE_PCT, "icon/item/71045t.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_3] = (localeInfo.TOOLTIP_MAX_HP_PCT, "icon/item/71027t.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_4] = (localeInfo.TOOLTIP_MALL_ATTBONUS, "icon/item/71028t.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_5] = (localeInfo.TOOLTIP_MAX_SP_PCT, "icon/item/71029t.tga")
+		AFFECT_DATA_DICT[chr.NEW_AFFECT_POTION_6] = (localeInfo.TOOLTIP_MALL_DEFBONUS, "icon/item/71030t.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_1] = (localeInfo.TOOLTIP_AFFECT_POTION_7,"icon/item/950822t.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_2] = (localeInfo.TOOLTIP_AFFECT_POTION_1, "icon/item/950821t.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_3] = (localeInfo.TOOLTIP_AFFECT_POTION_5, "icon/item/950825t.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_4] = (localeInfo.TOOLTIP_AFFECT_POTION_6, "icon/item/950826t.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_5] = (localeInfo.TOOLTIP_AFFECT_POTION_4, "icon/item/950824t.tga")
+		AFFECT_DATA_DICT[chr.NEW_SEBNEM_POTION_6] = (localeInfo.TOOLTIP_AFFECT_POTION_3, "icon/item/950823t.tga")
 	
 
 
