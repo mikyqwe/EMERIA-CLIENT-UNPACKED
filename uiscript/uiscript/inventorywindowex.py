@@ -13,7 +13,7 @@ window = {
 	"name" : "InventoryWindow",
 
 	## 600 - (width + 오른쪽으로 부터 띄우기 24 px)
-	"x" : SCREEN_WIDTH - 176 - SPACE_BONUS_INVENTORY + 37,
+	"x" : SCREEN_WIDTH - 111 - SPACE_BONUS_INVENTORY + 37,
 	"y" : SCREEN_HEIGHT - 37 - 565,
 
 	"style" : ("movable", "float", "animate",),
