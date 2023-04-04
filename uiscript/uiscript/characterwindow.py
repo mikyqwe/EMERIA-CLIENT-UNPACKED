@@ -101,10 +101,10 @@ window = {
 					"type" : "titlebar",
 					"style" : ("attach",),
 
-					"x" : 8,
-					"y" : 7,
+					"x" : 0,
+					"y" : 0,
 
-					"width" : 238,
+					"width" : 253,
 					"color" : "red",
 
 					"children" :
