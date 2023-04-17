@@ -8,6 +8,10 @@ LOCALE_PATH = uiScriptLocale.LOGIN_PATH
 SERVER_BOARD_HEIGHT = 220 + 180
 SERVER_LIST_HEIGHT = 171 + 180
 SERVER_BOARD_WEIGHT = 375 
+
+ID_LIMIT_COUNT = 19
+PW_LIMIT_COUNT = 16
+
 window = {
 	"name" : "LoginWindow",
 	"sytle" : ("movable",),
@@ -567,7 +571,7 @@ window = {
 					"width" : 120,
 					"height" : 18,
 
-					"input_limit" : 16,
+					"input_limit" : ID_LIMIT_COUNT,
 					"enable_codepage" : 0,
 
 					"r" : 1.0,
@@ -585,7 +589,7 @@ window = {
 					"width" : 120,
 					"height" : 18,
 
-					"input_limit" : 16,
+					"input_limit" : PW_LIMIT_COUNT,
 					"secret_flag" : 1,
 					"enable_codepage" : 0,
 

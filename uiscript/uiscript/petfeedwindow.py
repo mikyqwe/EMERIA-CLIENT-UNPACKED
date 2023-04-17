@@ -82,7 +82,7 @@ window = {
 							"x" : 50,
 							"y" : 110,
 
-							"text" : "Hrãneºte",
+							"text" : "Nutri",
 
 							"default_image" : "d:/ymir work/ui/dragonsoul/m_button01.tga",
 							"over_image" : "d:/ymir work/ui/dragonsoul/m_button02.tga",

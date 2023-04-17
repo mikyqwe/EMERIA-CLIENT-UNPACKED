@@ -21,33 +21,31 @@
 [IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=175; CENTER_ALIGN]
 
 
-[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]BONUS NORMALI CHE POSSONO USCIRE NEI VARI TIPI DI COSTUME
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]BONUS MASSIMI CHE POSSONO USCIRE NEI VARI TIPI DI COSTUME
 
 [COLOR=0xffd700;X_PADDING=12]*Costume Armatura:
-[X_PADDING=20]- Max. HP +2000
-[X_PADDING=20]- Max. MP +800
-[X_PADDING=20]- Danni assorbiti da MP 8%
-[X_PADDING=20]- Danni assorbiti da HP 8%
-[X_PADDING=20]- Valore d'attacco +50
+[X_PADDING=20]- Max. HP +1000
+[X_PADDING=20]- Danni assorbiti da MP 5%
+[X_PADDING=20]- Danni assorbiti da HP 5%
+[X_PADDING=20]- Valore d'attacco +30
 [X_PADDING=20]- Possibilità sul EXP bonus 15%
 [X_PADDING=20]- Prossibilità di far cadere il doppio degli oggetti 15%
 
 [COLOR=0xffd700;X_PADDING=12]*Capigliatura:
 [X_PADDING=20]- Velocità d'attacco: +8%
-[X_PADDING=20]- Possibilità nei colpi critici +8%
-[X_PADDING=20]- Possibilità su colpi che trafiggono +8%
-[X_PADDING=20]- Resistenza ai Mezziuomini 10%
+[X_PADDING=20]- Possibilità nei colpi critici +5%
+[X_PADDING=20]- Possibilità su colpi che trafiggono +5%
 [X_PADDING=20]- Possibilità di lasciar cadere Yang +15%
 [X_PADDING=20]- Rigenerazione HP +15%
 [X_PADDING=20]- Rigenerazione MP +15%
 
 [COLOR=0xffd700;X_PADDING=12]*Costume Arma:
-[X_PADDING=20]- Intelligenza +10
-[X_PADDING=20]- Forza +10
-[X_PADDING=20]- Destrezza +10
-[X_PADDING=20]- Vitalità +10
-[X_PADDING=20]- Forte contro Zombie +15%
-[X_PADDING=20]- Forte contro Diavolo +15%
-[X_PADDING=20]- Forte  contro Orchi +15%
-[X_PADDING=20]- Forte contro Animali +15%
-[X_PADDING=20]- Forte contro Mezziuomini +10%
+[X_PADDING=20]- Intelligenza +6
+[X_PADDING=20]- Forza +6
+[X_PADDING=20]- Destrezza +6
+[X_PADDING=20]- Vitalità +6
+[X_PADDING=20]- Forte contro Zombie +7%
+[X_PADDING=20]- Forte contro Diavolo +7%
+[X_PADDING=20]- Forte  contro Orchi +7%
+[X_PADDING=20]- Forte contro Animali +7%
+[X_PADDING=20]- Forte contro Mezziuomini +5%

@@ -5,7 +5,7 @@ LOCALE_PATH = uiScriptLocale.GUILD_PATH
 
 window = {
 	"name" : "GuildWindow",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : 0,
 	"y" : 0,

@@ -78,7 +78,7 @@ class PetFeedWindow(ui.ScriptWindow):
 			attachedItemCount = mouseModule.mouseController.GetAttachedItemCount()
 			attachedItemIndex = mouseModule.mouseController.GetAttachedItemIndex()
 			if attachedItemCount > 1:
-				chat.AppendChat(chat.CHAT_TYPE_INFO, "Nu este posibil sã inseraþi obiecte suprapuse")
+				chat.AppendChat(chat.CHAT_TYPE_INFO, "Non e' possibile inserire oggetti sovrapposti")
 				return
 			if attachedItemCount == 1:
 				attachedItemCount = 0

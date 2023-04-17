@@ -299,16 +299,16 @@
 307	WEAPON	icon/item/00300.tga	d:/ymir work/item/weapon/00300.gr2
 308	WEAPON	icon/item/00300.tga	d:/ymir work/item/weapon/00300.gr2
 309	WEAPON	icon/item/00300.tga	d:/ymir work/item/weapon/00300.gr2
-460	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-461	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-462	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-463	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-464	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-465	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-466	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-467	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-468	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
-469	WEAPON	icon/item/00460.tga	d:/ymir work/item/weapon/00460.gr2
+460	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+461	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+462	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+463	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+464	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+465	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+466	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+467	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+468	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
+469	WEAPON	icon/item/gs_sword.tga	d:/ymir work/item/weapon/plechito/gold_set/gs_sword.gr2
 470	WEAPON	icon/item/00470.tga	d:/ymir work/item/weapon/00470.gr2
 471	WEAPON	icon/item/00470.tga	d:/ymir work/item/weapon/00470.gr2
 472	WEAPON	icon/item/00470.tga	d:/ymir work/item/weapon/00470.gr2
@@ -11674,3 +11674,19 @@
 55062	ETC	icon/item/runa_09.tga
 55063	ETC	icon/item/runa_09.tga
 55064	ETC	icon/item/runa_09.tga
+20201	ETC	icon/item/27105.tga
+20202	ETC	icon/item/27102.tga
+20203	ETC	icon/item/71044.tga	
+20204	ETC	icon/item/71045.tga	
+20205	ETC	icon/item/71027.tga	
+20206	ETC	icon/item/71028.tga	
+20207	ETC	icon/item/71029.tga	
+20208	ETC	icon/item/71030.tga	
+20209	ETC	icon/item/50822.tga	
+20210	ETC	icon/item/50821.tga	
+20211	ETC	icon/item/50825.tga	
+20212	ETC	icon/item/50826.tga	
+20213	ETC	icon/item/50824.tga	
+20214	ETC	icon/item/50823.tga
+30769	ETC	icon/item/30769.tga
+72756	ETC	icon/item/72756.tga

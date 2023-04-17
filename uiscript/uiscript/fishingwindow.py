@@ -2,7 +2,7 @@ FISHING_PATH = "d:/ymir work/ui/game/fishing/"
 
 window = {
 	"name" : "FishingWindow",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : 100,
 	"y" : 100,
@@ -82,7 +82,7 @@ window = {
 							"x" : 10,
 							"y" : 10,
 
-							"text" : "Pescuit",
+							"text" : "물고기 이름",
 						},
 
 						{
@@ -215,7 +215,7 @@ window = {
 					"x" : 0,
 					"y" : 30,
 
-					"text" : "Pescuit",
+					"text" : "낚시",
 					"horizontal_align" : "center",
 					"vertical_align" : "bottom",
 

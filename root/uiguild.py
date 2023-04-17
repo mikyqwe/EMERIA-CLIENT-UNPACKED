@@ -18,8 +18,6 @@ import constInfo
 import background
 import miniMap
 import chr
-if app.ENABLE_CHEQUE_SYSTEM:
-	import uiPickETC
 import uiScriptLocale
 from _weakref import proxy
 
@@ -55,40 +53,20 @@ def unsigned32(n):
 
 class DeclareGuildWarDialog(ui.ScriptWindow):
 
-	NONE_MODE = 1 << 0
-	OBSERVER_MODE = 1 << 1
-    
 	def __init__(self):
 		ui.ScriptWindow.__init__(self)
 
 		self.type=0
-		self.warFlags=0
-		self.observerFlagButtonList = []
 		self.__CreateDialog()
 
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
 
-	if app.ENABLE_GUILD_ONLINE_LIST:
-		def OnMoveWindow(self, x, y):
-			interface = constInfo.GetInterfaceInstance()
-			if interface != None:
-				onlineList = interface.wndGuildList
-				if onlineList != None:
-					(gx,gy) = self.GetGlobalPosition()
-					onlineList.SetPosition(gx+self.GetWidth(),gy)
-
 	def Open(self):
-		
 		self.inputValue.SetFocus()
 		self.SetCenterPosition()
 		self.SetTop()
 		self.Show()
-		if app.ENABLE_GUILD_ONLINE_LIST:
-			interface = constInfo.GetInterfaceInstance()
-			if interface != None:
-				interface.OpenGuildListWindow()
-				self.OnMoveWindow(0,0)
 
 	def Close(self):
 		self.ClearDictionary()
@@ -96,24 +74,18 @@ class DeclareGuildWarDialog(ui.ScriptWindow):
 		self.acceptButton = None
 		self.cancelButton = None
 		self.inputSlot = None
-		self.inputSlot1 = None
-		self.inputSlot2 = None
 		self.inputValue = None
-		self.inputValue1 = None
-		self.inputValue2 = None
-		if app.ENABLE_GUILD_ONLINE_LIST:
-			interface = constInfo.GetInterfaceInstance()
-			if interface != None:
-				if interface.wndGuildList != None:
-					interface.wndGuildList.Hide()
-
 		self.Hide()
 
 	def __CreateDialog(self):
 
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
-			pyScrLoader.LoadScriptFile(self, "uiscript/declareguildwardialog.py")
+
+			if localeInfo.IsVIETNAM() :
+				pyScrLoader.LoadScriptFile(self, uiScriptLocale.LOCALE_UISCRIPT_PATH + "declareguildwardialog.py")
+			else:
+				pyScrLoader.LoadScriptFile(self, "uiscript/declareguildwardialog.py")
 
 		except:
 			import exception
@@ -131,15 +103,7 @@ class DeclareGuildWarDialog(ui.ScriptWindow):
 			self.acceptButton = getObject("AcceptButton")
 			self.cancelButton = getObject("CancelButton")
 			self.inputSlot = getObject("InputSlot")
-			self.inputSlot1 = getObject("InputSlotScore")
-			self.inputSlot2 = getObject("InputSlotUser")
 			self.inputValue = getObject("InputValue")
-			self.inputValue1 = getObject("InputValueScore")
-			self.inputValue2 = getObject("InputValueUser")
-			self.inputValue1.SetNumberMode()
-			self.inputValue2.SetNumberMode()
-			self.inputValue1.SetText(str(20))
-			self.inputValue2.SetText(str(10))
 
 			gameType=getObject("GameType")
 
@@ -164,26 +128,13 @@ class DeclareGuildWarDialog(ui.ScriptWindow):
 		self.SetCancelEvent(ui.__mem_func__(self.__OnCancel))
 
 	def __OnOK(self):
-		guild_name = str(self.GetText(0))
-		maxskor = int(self.GetText(1))
-		maxplayer = int(self.GetText(2))
+		text = self.GetText()
+		type = self.GetType()
 
-		type = int(self.GetType())
+		if ""==text:
+			return
 
-		if ""==guild_name:
-			return
-		elif not maxskor:
-			return
-		elif not maxplayer:
-			return
-		elif maxskor > 999:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Max 999 Score")
-			return
-		elif maxplayer > 999:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Max 999 Players")
-			return
-			
-		net.SendChatPacket("/war %s %d %d %d %d %d" % (guild_name, type, maxplayer, maxskor, self.warFlags, 0))
+		net.SendChatPacket("/war %s %d" % (text, type))
 		self.Close()
 
 		return 1
@@ -200,14 +151,6 @@ class DeclareGuildWarDialog(ui.ScriptWindow):
 
 	def __OnClickTypeButtonCTF(self):
 		self.__ClickTypeRadioButton(2)
-		
-	# def __OnClickWithObserverButton(self):
-		# self.warFlags |= self.OBSERVER_MODE
-		# self.__ClickRadioButton(self.observerFlagButtonList, 0)
-
-	# def __OnClickWithoutObserverButton(self):
-		# self.warFlags ^= self.OBSERVER_MODE
-		# self.__ClickRadioButton(self.observerFlagButtonList, 1)
 
 	def __ClickTypeRadioButton(self, type):
 		self.__ClickRadioButton(self.typeButtonList, type)
@@ -254,27 +197,17 @@ class DeclareGuildWarDialog(ui.ScriptWindow):
 	def SetAcceptEvent(self, event):
 		self.acceptButton.SetEvent(event)
 		self.inputValue.OnIMEReturn = event
-		self.inputValue1.OnIMEReturn = event
-		self.inputValue2.OnIMEReturn = event
-		
+
 	def SetCancelEvent(self, event):
 		self.board.SetCloseEvent(event)
 		self.cancelButton.SetEvent(event)
 		self.inputValue.OnPressEscapeKey = event
-		self.inputValue1.OnPressEscapeKey = event
-		self.inputValue2.OnPressEscapeKey = event	
-
 
 	def GetType(self):
 		return self.type
 
-	def GetText(self, value):
-		if value == 0:
-			return self.inputValue.GetText()
-		if value == 1:
-			return self.inputValue1.GetText()
-		if value == 2:
-			return self.inputValue2.GetText()
+	def GetText(self):
+		return self.inputValue.GetText()
 
 	def __CreateGameTypeToolTip(self, title, descList):
 		toolTip = uiToolTip.ToolTip()
@@ -290,57 +223,27 @@ class DeclareGuildWarDialog(ui.ScriptWindow):
 
 class AcceptGuildWarDialog(ui.ScriptWindow):
 
-	# NONE_MODE = 1 << 0
-	# OBSERVER_MODE = 1 << 1
-
 	def __init__(self):
 		ui.ScriptWindow.__init__(self)
 
 		self.type=0
-		self.warFlags=0
 		self.__CreateDialog()
 
 	def __del__(self):
 		print "---------------------------------------------------------------------------- DELETE AcceptGuildWarDialog"
 		ui.ScriptWindow.__del__(self)
 
-	def Open(self, guildName, warType, maxPlayer, maxScore, warFlags, customMapIdx):
+	def Open(self, guildName, warType):
 		self.guildName=guildName
 		self.warType=warType
-		self.maxPlayer = maxPlayer
-		self.maxScore = maxScore
-		self.warFlags = warFlags
-		self.customMapIdx = customMapIdx
-		self.inputValue.SetText(guildName)
-		self.inputValue1.SetText(str(self.maxScore) + " Scor")
-		self.inputValue2.SetText(str(self.maxPlayer) + " Jucãtori")
-		# if self.warFlags & self.OBSERVER_MODE:
-			# self.__OnClickWithObserverButton()
-		# else:
-			# self.__OnClickWithoutObserverButton()
 		self.__ClickSelectedTypeRadioButton()
-
+		self.inputValue.SetText(guildName)
 		self.SetCenterPosition()
 		self.SetTop()
 		self.Show()
 
 	def GetGuildName(self):
 		return self.guildName
-		
-	def GetWarType(self):
-		return self.warType
-
-	def GetMaxPlayerCount(self):
-		return self.maxPlayer
-
-	def GetMaxScore(self):
-		return self.maxScore
-
-	def GetWarFlags(self):
-		return self.warFlags
-
-	def GetCustomMapIdx(self):
-		return 0
 
 	def Close(self):
 		self.ClearDictionary()
@@ -348,11 +251,7 @@ class AcceptGuildWarDialog(ui.ScriptWindow):
 		self.acceptButton = None
 		self.cancelButton = None
 		self.inputSlot = None
-		self.inputSlot1 = None
-		self.inputSlot2 = None
 		self.inputValue = None
-		self.inputValue1 = None
-		self.inputValue2 = None
 		self.Hide()
 
 	def __ClickSelectedTypeRadioButton(self):
@@ -379,11 +278,7 @@ class AcceptGuildWarDialog(ui.ScriptWindow):
 			self.acceptButton = getObject("AcceptButton")
 			self.cancelButton = getObject("CancelButton")
 			self.inputSlot = getObject("InputSlot")
-			self.inputSlot1 = getObject("InputSlotScore")
-			self.inputSlot2 = getObject("InputSlotUser")
 			self.inputValue = getObject("InputValue")
-			self.inputValue1 = getObject("InputValueScore")
-			self.inputValue2 = getObject("InputValueUser")
 
 			gameType=getObject("GameType")
 
@@ -464,26 +359,17 @@ class AcceptGuildWarDialog(ui.ScriptWindow):
 	def SetAcceptEvent(self, event):
 		self.acceptButton.SetEvent(event)
 		self.inputValue.OnIMEReturn = event
-		self.inputValue1.OnIMEReturn = event
-		self.inputValue2.OnIMEReturn = event
 
 	def SetCancelEvent(self, event):
 		self.board.SetCloseEvent(event)
 		self.cancelButton.SetEvent(event)
 		self.inputValue.OnPressEscapeKey = event
-		self.inputValue1.OnPressEscapeKey = event
-		self.inputValue2.OnPressEscapeKey = event	
 
 	def GetType(self):
 		return self.type
 
-	def GetText(self, value):
-		if value == 0:
-			return self.inputValue.GetText()
-		if value == 1:
-			return self.inputValue1.GetText()
-		if value == 2:
-			return self.inputValue2.GetText()
+	def GetText(self):
+		return self.inputValue.GetText()
 
 	def __CreateGameTypeToolTip(self, title, descList):
 		toolTip = uiToolTip.ToolTip()
@@ -761,7 +647,6 @@ class CommentSlot(ui.Window):
 
 		self.slotSimpleText = ui.MakeTextLine(self)
 		self.slotSimpleText.SetPosition(2, 0)
-		## 13.12.02 ¾Æ¶ø¼öÁ¤
 		if localeInfo.IsARABIC() :
 			self.slotSimpleText.SetWindowHorizontalAlignCenter()
 			self.slotSimpleText.SetHorizontalAlignCenter()
@@ -956,7 +841,7 @@ class GuildWindow(ui.ScriptWindow):
 					"SKILL"			: self.PageWindow(self, "uiscript/guildwindow_guildskillpage.py"),
 					"GRADE"			: self.PageWindow(self, "uiscript/guildwindow_gradepage.py"),
 				}
-			elif localeInfo.IsVIETNAM() :   # ´ÙÇ¥½Ã
+			elif localeInfo.IsVIETNAM() :
 				self.pageWindow = {
 					"GUILD_INFO"	: self.PageWindow(self, "uiscript/guildwindow_guildinfopage_eu.py"),
 					"BOARD"			: self.PageWindow(self, "uiscript/guildwindow_boardpage.py"),
@@ -1073,10 +958,7 @@ class GuildWindow(ui.ScriptWindow):
 		self.board.SetTitleColor(0xffffffff)
 		self.SelectPage("GUILD_INFO")
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.offerDialog = uiPickETC.PickETCDialog()
-		else:
-			self.offerDialog = uiPickMoney.PickMoneyDialog()
+		self.offerDialog = uiPickMoney.PickMoneyDialog()
 		self.offerDialog.LoadDialog()
 		self.offerDialog.SetMax(9)
 		self.offerDialog.SetTitleName(localeInfo.GUILD_OFFER_EXP)
@@ -1111,9 +993,6 @@ class GuildWindow(ui.ScriptWindow):
 			page.uploadMarkButton.SetEvent(ui.__mem_func__(self.__OnClickSelectGuildMarkButton))
 			page.uploadSymbolButton.SetEvent(ui.__mem_func__(self.__OnClickSelectGuildSymbolButton))
 			page.declareWarButton.SetEvent(ui.__mem_func__(self.__OnClickDeclareWarButton))
-			if app.ENABLE_GUILD_REQUEST:
-				page.GetChild("requestButton").SetEvent(ui.__mem_func__(self.__OnClickRequestButton))			
-			#page.declareWarButton.SetEvent(ui.__mem_func__(self.__OnEarly))
 			page.GetChild("OfferButton").SetEvent(ui.__mem_func__(self.__OnClickOfferButton))
 			page.GetChild("EnemyGuildCancel1").Hide()
 			page.GetChild("EnemyGuildCancel2").Hide()
@@ -1164,7 +1043,6 @@ class GuildWindow(ui.ScriptWindow):
 			page.Children.append(noticeMarkImage)
 
 			## Name
-			## 13.12.02 ¾Æ¶ø¼öÁ¤
 			if localeInfo.IsJAPAN():
 				nameSlotImage = ui.MakeImageBox(page, "d:/ymir work/ui/public/Parameter_Slot_100x18.sub", 9, yPos)
 			elif localeInfo.IsARABIC():
@@ -1184,7 +1062,6 @@ class GuildWindow(ui.ScriptWindow):
 			page.Children.append(deleteButton)
 
 			## Comment
-			## 13.12.02 ¾Æ¶ø¼öÁ¤
 			commentSlot = CommentSlot()
 			commentSlot.SetParent(page)
 			if localeInfo.IsARABIC():
@@ -1201,7 +1078,6 @@ class GuildWindow(ui.ScriptWindow):
 			page.boardDict[i] = boardSlotList
 
 		## PostComment - Have to make this here for that fit tooltip's position.
-		## 13.12.02 ¾Æ¶ø¼öÁ¤
 		if localeInfo.IsARABIC():
 			postCommentButton = ui.MakeButton(page, 3, 273, localeInfo.GUILD_COMMENT, "d:/ymir work/ui/game/taskbar/", "Send_Chat_Button_01.sub", "Send_Chat_Button_02.sub", "Send_Chat_Button_03.sub")
 		else:
@@ -1220,7 +1096,6 @@ class GuildWindow(ui.ScriptWindow):
 
 			inverseLineIndex = self.MEMBER_LINE_COUNT - i - 1
 			yPos = 28 + inverseLineIndex*lineStep
-            ## 13.12.02 ¾Æ¶ø ¼öÁ¤
 			## Name
 			if localeInfo.IsJAPAN():
 				nameSlotImage = ui.MakeImageBox(page, "d:/ymir work/ui/public/Parameter_Slot_100x18.sub", 15, yPos)
@@ -1404,7 +1279,6 @@ class GuildWindow(ui.ScriptWindow):
 
 			yPos = 22 + i*lineStep
 			index = i+1
-			## 13.12.02 ¾Æ¶ø ¼öÁ¤
 			## GradeNumber
 			if localeInfo.IsARABIC():
 				gradeNumberSlotImage = ui.MakeImageBox(page, "d:/ymir work/ui/public/Parameter_Slot_00.sub", 310, yPos)
@@ -1477,7 +1351,6 @@ class GuildWindow(ui.ScriptWindow):
 		guildID = net.GetGuildID()
 		self.largeMarkBox.SetIndex(guildID)
 		self.largeMarkBox.SetScale(3)
-		## 13.12.02 ¾Æ¶ø¼öÁ¤
 		if localeInfo.IsARABIC():
 			self.largeMarkBox.SetPosition(self.largeMarkBox.GetWidth()+32,1)
 
@@ -1596,7 +1469,6 @@ class GuildWindow(ui.ScriptWindow):
 
 		page.levelAverageSlot.SetText(str(guild.GetGuildMemberLevelAverage()))
 
-		## ±æµåÀå¸¸ ±æµå ¸¶Å©¿Í ±æµåÀü ½ÅÃ» ¹öÆ°À» º¼ ¼ö ÀÖÀ½
 		mainCharacterName = player.GetMainCharacterName()
 		masterName = guild.GetGuildMasterName()
 
@@ -1617,16 +1489,6 @@ class GuildWindow(ui.ScriptWindow):
 			page.declareWarButton.Hide()
 			page.uploadSymbolButton.Hide()
 
-			if app.ENABLE_GENERAL_IN_GUILD:
-				isGeneralPlayer = False
-				for j in xrange(guild.GetMemberCount()):
-					(pid, name, grade, race, level, offer, general) = guild.GetMemberData(j)
-					if general and mainCharacterName == name:
-						isGeneralPlayer = True
-				if isGeneralPlayer:
-					page.declareWarButton.Show()
-
-		## Refresh ½Ã¿¡ ±æµåÀü Á¤º¸ ¾÷µ¥ÀÌÆ®
 		for i in xrange(guild.ENEMY_GUILD_SLOT_MAX_COUNT):
 			name = guild.GetEnemyGuildName(i)
 			nameTextLine = self.enemyGuildNameList[i]
@@ -1859,20 +1721,10 @@ class GuildWindow(ui.ScriptWindow):
 		else:
 			self.__PopupMessage(localeInfo.GUILD_NO_NOTICE_PERMISSION)
 
-	if app.ENABLE_GUILD_REQUEST:
-		def __OnClickRequestButton(self):
-			interface = constInfo.GetInterfaceInstance()
-			if interface != None:
-				interface.OpenGuildRequest()
-
-
 	def __OnClickDeclareWarButton(self):
 		inputDialog = DeclareGuildWarDialog()
 		inputDialog.Open()
 		self.inputDialog = inputDialog
-
-	def __OnEarly(self):
-		self.__PopupMessage("Prea devreme! Liga Emeria va începe în curând!")
 
 	def __OnSelectMark(self, markFileName):
 		ret = net.UploadMark("upload/"+markFileName)
@@ -2018,10 +1870,7 @@ class GuildWindow(ui.ScriptWindow):
 			self.__PopupMessage(localeInfo.GUILD_CANNOT_HEAL_GSP_ANYMORE)
 			return
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			pickDialog = uiPickETC.PickETCDialog()
-		else:
-			pickDialog = uiPickMoney.PickMoneyDialog()
+		pickDialog = uiPickMoney.PickMoneyDialog()
 		pickDialog.LoadDialog()
 		pickDialog.SetMax(9)
 		pickDialog.SetTitleName(localeInfo.GUILD_HEAL_GSP)
@@ -2148,9 +1997,9 @@ class BuildGuildBuildingWindow(ui.ScriptWindow):
 
 	if localeInfo.IsJAPAN():
 		GUILD_CATEGORY_LIST = (
-				("HEADQUARTER", "º»°Ç¹°"),
-				("FACILITY", "±â´É°Ç¹°"),
-				("OBJECT", "Á¶°æ¹°"),
+				("HEADQUARTER", "Šî‘bŒš’z•¨"),
+				("FACILITY", "Šg’£Œš’z•¨"),
+				("OBJECT", "‚»‚Ì‘¼"),
 			)
 	elif localeInfo.IsYMIR() or localeInfo.IsWE_KOREA():
 		GUILD_CATEGORY_LIST = (
@@ -2337,7 +2186,7 @@ class BuildGuildBuildingWindow(ui.ScriptWindow):
 		line_width = line_maxX - line_minX
 		line_width_half = line_width / 2
 
-		X_SIZE_STEP = 2 * 2 ## 2ÀÇ ´ÜÀ§·Î¸¸ Áõ°¡ÇØ¾ß ÇÔ
+		X_SIZE_STEP = 2 * 2
 		Y_SIZE_STEP = 8
 		sxPos = door_maxX - corner_minX + (line_width_half*X_SIZE_STEP)
 		exPos = -sxPos
@@ -2513,14 +2362,12 @@ class BuildGuildBuildingWindow(ui.ScriptWindow):
 		self.popup = None
 
 	def __EnablePCBlocker(self):
-		## PC Blocker Ã³¸®¸¦ ÄÒ´Ù. (Åõ¸íÇØÁü)
 		chr.SetInstanceType(chr.INSTANCE_TYPE_BUILDING)
 
 		for idx in self.indexList:
 			chr.SetBlendRenderMode(idx, 1.0)
 
 	def __DisablePCBlocker(self):
-		## PC Blocker Ã³¸®¸¦ ²ö´Ù. (¾ÈÅõ¸íÇØÁü)
 		chr.SetInstanceType(chr.INSTANCE_TYPE_OBJECT)
 
 		for idx in self.indexList:
@@ -2878,7 +2725,7 @@ if __name__ == "__main__":
 
 			if len(tokens) < LIMIT_TOKEN_COUNT:
 				import dbg
-				dbg.TraceError("Numãr ciudat de jetoane [%d/%d] [%s]" % (len(tokens), LIMIT_TOKEN_COUNT, line))
+				dbg.TraceError("Strange token count [%d/%d] [%s]" % (len(tokens), LIMIT_TOKEN_COUNT, line))
 				continue
 
 			ENABLE_FLAG_TYPE_NOT_USE = False

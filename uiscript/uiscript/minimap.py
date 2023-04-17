@@ -1,6 +1,5 @@
-ROOT = "d:/ymir work/ui/minimap/"
-import uiScriptLocale
 import app
+ROOT = "d:/ymir work/ui/minimap/"
 
 window = {
 	"name" : "MiniMap",
@@ -33,8 +32,6 @@ window = {
 					"y" : 0,
 					"image" : ROOT + "minimap.sub",
 				},
-				## DUNGEON_INFO
-				
 				## MiniMapWindow
 				{
 					"name" : "MiniMapWindow",
@@ -46,49 +43,6 @@ window = {
 					"width" : 128,
 					"height" : 128,
 				},
-				{
-					"name" : "BiologButton",
-					"type" : "button",
-					"x" : 50,
-					"y" : 118,
-					"default_image" : "d:/ymir work/ui/minimap/biolog.tga",
-					"over_image" : "d:/ymir work/ui/minimap/biolog_over.tga",
-					"down_image" : "d:/ymir work/ui/minimap/biolog_down.tga",
-					"tooltip_text": "|cffF4B418Biolog",
-				},
-				{
-					"name" : "DungeonInfoShowButton",
-					"type" : "button",
-
-					"x" : 26,
-					"y" : 114,
-
-					"default_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_default.tga",
-					"over_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_over.tga",
-					"down_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_down.tga",
-				},
-				## HUNTING_BUTTON
-				# {
-					# "name" : "HuntingButton",
-					# "type" : "button",
-					# "x" : 75,
-					# "y" : 118,
-					# "default_image" : "d:/ymir work/ui/minimap/hunter.tga",
-					# "over_image" : "d:/ymir work/ui/minimap/hunter_over.tga",
-					# "down_image" : "d:/ymir work/ui/minimap/hunter_down.tga",
-					# "tooltip_text" : "|cffF4B418Taglie",
-				# },
-				# ## RANKING_BUTTON
-				# {
-					# "name" : "RankingsButton",
-					# "type" : "button",
-					# "x" : 112,
-					# "y" : 45,
-					# "default_image" : "d:/ymir work/ui/minimap/rank.tga",
-					# "over_image" : "d:/ymir work/ui/minimap/rank_over.tga",
-					# "down_image" : "d:/ymir work/ui/minimap/rank_down.tga",
-					# "tooltip_text" : "|cffF4B418Rank",
-				# },
 				## ScaleUpButton
 				{
 					"name" : "ScaleUpButton",
@@ -113,19 +67,6 @@ window = {
 					"over_image" : ROOT + "minimap_scaledown_over.sub",
 					"down_image" : ROOT + "minimap_scaledown_down.sub",
 				},
-				# {
-					# "name" : "Evenimente",
-					# "type" : "button",
-
-					# "x" : -45,
-					# "y" : 12,
-
-					# "tooltip_text" : "Calendarul Evenimentelor",
-
-					# "default_image" : "butoane/calendar1.tga",
-					# "over_image" : "butoane/calendar2.tga",
-					# "down_image" : "butoane/calendar1.tga",
-				# },
 				## MiniMapHideButton
 				{
 					"name" : "MiniMapHideButton",
@@ -149,6 +90,20 @@ window = {
 					"default_image" : ROOT + "atlas_open_default.sub",
 					"over_image" : ROOT + "atlas_open_over.sub",
 					"down_image" : ROOT + "atlas_open_down.sub",
+				},
+				## ServerInfo
+				{
+					"name" : "ServerInfo",
+					"type" : "text",
+
+					"text_horizontal_align" : "center",
+
+					"outline" : 1,
+
+					"x" : 70,
+					"y" : 140,
+
+					"text" : "",
 				},
 				## ch buttons
 				{
@@ -200,19 +155,63 @@ window = {
 					"over_image" : "btn/discord/ch4_over.png",
 					"down_image" : "btn/discord/ch4_down.png",
 					"tooltip_text": "|cffF4B418CH 4",
-				 },
+				},
 				## Discord Button
 				{
 					"name" : "Discord",
 					"type" : "button",
 
-					"x" : 75,
-					"y" : 118,
+					"x" : 111,
+					"y" : 75,
 
 					"default_image" : "btn/discord/d_open_default.png",
 					"over_image" : "btn/discord/d_open_over.png",
 					"down_image" : "btn/discord/d_open_down.png",
 					"tooltip_text" : "Discord",
+				},
+				## Dungeon Information
+				{
+					"name" : "DungeonInfoShowButton",
+					"type" : "button",
+
+					"x" : 26,
+					"y" : 114,
+
+					"default_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_default.tga",
+					"over_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_over.tga",
+					"down_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_down.tga",
+				},
+				{
+					"name" : "BiologButton",
+					"type" : "button",
+					"x" : 50,
+					"y" : 118,
+					"default_image" : "d:/ymir work/ui/minimap/biolog.tga",
+					"over_image" : "d:/ymir work/ui/minimap/biolog_over.tga",
+					"down_image" : "d:/ymir work/ui/minimap/biolog_down.tga",
+					"tooltip_text": "|cffF4B418Biologo",
+				},
+				{
+					"name" : "DungeonInfoShowButton",
+					"type" : "button",
+
+					"x" : 26,
+					"y" : 114,
+
+					"default_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_default.tga",
+					"over_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_over.tga",
+					"down_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_down.tga",
+				},
+				## HUNTING_BUTTON
+				{
+					"name" : "HuntingButton",
+					"type" : "button",
+					"x" : 75,
+					"y" : 118,
+					"default_image" : "d:/ymir work/ui/minimap/hunter.tga",
+					"over_image" : "d:/ymir work/ui/minimap/hunter_over.tga",
+					"down_image" : "d:/ymir work/ui/minimap/hunter_down.tga",
+					"tooltip_text" : "|cffF4B418Taglie",
 				},
 				## Wiki
 				{
@@ -220,102 +219,49 @@ window = {
 					"type" : "button",
 
 					"x" : 56,
-					"y" : 1,
+					"y" : -1,
 
 					"default_image" : "d:/ymir work/ui/minimap/wiki.tga",
 					"over_image" : "d:/ymir work/ui/minimap/wiki1.tga",
 					"down_image" : "d:/ymir work/ui/minimap/wiki2.tga",
-				},				
-				## ServerInfo
-				{
-					"name" : "ServerInfo",
-					"type" : "text",
-					
-					"text_horizontal_align" : "center",
+				},	
+		{
+			"name" : "RTTTextLine",
+			"type" : "text",
 
-					"outline" : 1,
+			"x" : 0,
+			"y" : 162,
 
-					"x" : 70,
-					"y" : 140,
+			"horizontal_align" : "center",
+			"text_horizontal_align" : "center",
 
-					"text" : "",
-				},
-				## MailBox
-				{
-					"name" : "MailBoxButton",
-					"type" : "button",
+			"text" : "",
+			"outline" : 1,
+		},
+		{
+			"name" : "PacketLossTextLine",
+			"type" : "text",
 
-					"x" : 110,
-					"y" : 30,
+			"x" : 0,
+			"y" : 162 + 11,
 
-					"default_image" : "d:/ymir work/ui/game/mailbox/post_minimap.sub",
-					"over_image" : "d:/ymir work/ui/game/mailbox/post_minimap.sub",
-					"down_image" : "d:/ymir work/ui/game/mailbox/post_minimap.sub",
-				},
-				{
-					"name" : "MailBoxEffect",
-					"type" : "ani_image",
-						
-					"x" : 110,
-					"y" : 30,
-						
-					"delay" : 6,
+			"horizontal_align" : "center",
+			"text_horizontal_align" : "center",
 
-					"images" :
-					(
-						"d:/ymir work/ui/game/mailbox/minimap_flash/2.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/3.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/4.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/5.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/4.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/3.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/2.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/1.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/1.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/1.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/1.sub",
-						"d:/ymir work/ui/game/mailbox/minimap_flash/1.sub",
-					),
-				},
-				# ## PlayerCount
-				# {
-					# "name" : "PlayerCount",
-					# "type" : "text",
-					
-					# "text_horizontal_align" : "center",
-
-					# "outline" : 1,
-
-					# "x" : 70,
-					# "y" : 173,
-
-					# "text" : "",
-				# },
-				# ## ShopCount
-				# {
-					# "name" : "ShopCount",
-					# "type" : "text",
-					
-					# "text_horizontal_align" : "center",
-
-					# "outline" : 1,
-
-					# "x" : 70,
-					# "y" : 186,
-
-					# "text" : "",
-				# },				
+			"text" : "",
+			"outline" : 1,
+		},				
 				## PositionInfo
 				{
 					"name" : "PositionInfo",
 					"type" : "text",
-					
+
 					"text_horizontal_align" : "center",
 
 					"outline" : 1,
 
 					"x" : 70,
-					"y" : 160,
+					"y" : 151,
 
 					"text" : "",
 				},
@@ -328,8 +274,8 @@ window = {
 
 					"outline" : 1,
 
-					"x" : 95,
-					"y" : 160,
+					"x" : 15,
+					"y" : 0,
 
 					"text" : "",
 				},
@@ -337,7 +283,7 @@ window = {
 				{
 					"name" : "ObserverCount",
 					"type" : "text",
-					
+
 					"text_horizontal_align" : "center",
 
 					"outline" : 1,
@@ -347,7 +293,6 @@ window = {
 
 					"text" : "",
 				},
-				
 			),
 		},
 		{

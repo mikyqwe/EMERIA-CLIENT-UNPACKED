@@ -4,7 +4,7 @@ import app
 
 import player
 EQUIPMENT_START_INDEX = player.EQUIPMENT_SLOT_START
-SPACE_BONUS_INVENTORY = 130 # Da verificare
+SPACE_BONUS_INVENTORY = 0 # Da verificare
 IMAGE_QUARESMA = "d:/ymir work/ui/public/Parameter_Slot_01.sub"
 COSTUME_START_INDEX = item.COSTUME_SLOT_START
 NEW_EQUIPMENT_START_INDEX = item.NEW_EQUIPMENT_SLOT_START
@@ -12,14 +12,14 @@ NEW_EQUIPMENT_START_INDEX = item.NEW_EQUIPMENT_SLOT_START
 window = {
 	"name" : "InventoryWindow",
 
-	## 600 - (width + ø¿∏•¬ ¿∏∑Œ ∫Œ≈Õ ∂ÁøÏ±‚ 24 px)
-	"x" : SCREEN_WIDTH - 111 - SPACE_BONUS_INVENTORY + 37,
+	## 600 - (width + Ïò§Î•∏Ï™ΩÏúºÎ°ú Î∂ÄÌÑ∞ ÎùÑÏö∞Í∏∞ 24 px)
+	"x" : SCREEN_WIDTH - 176,
 	"y" : SCREEN_HEIGHT - 37 - 565,
 
 	"style" : ("movable", "float", "animate",),
 
-	"width" : 176 + SPACE_BONUS_INVENTORY + 37,
-	"height" : 565 + 35,
+	"width" : 176,
+	"height" : 565,
 
 	"children" :
 	(
@@ -29,11 +29,11 @@ window = {
 			"type" : "board",
 			"style" : ("attach",),
 
-			"x" : 30,
+			"x" : 0,
 			"y" : 0,
 
-			"width" : 176 + SPACE_BONUS_INVENTORY,
-			"height" : 543,
+			"width" : 176,
+			"height" : 565,
 
 			"children" :
 			(
@@ -46,768 +46,768 @@ window = {
 					"x" : 8,
 					"y" : 7,
 
-					"width" : 161 + SPACE_BONUS_INVENTORY,
+					"width" : 161,
 					"color" : "yellow",
 
 					"children" :
 					(
-						#{ "name":"TitleName", "type":"text", "x": (77 + SPACE_BONUS_INVENTORY) / 2, "y":3, "text":uiScriptLocale.INVENTORY_TITLE, "text_horizontal_align":"center" },
-						{ "name":"TitleName", "type":"text", "x": -4, "y":3, "text":uiScriptLocale.INVENTORY_TITLE, "text_horizontal_align":"center", "horizontal_align" : "center" },
+						{ "name":"TitleName", "type":"text", "x": (77 + SPACE_BONUS_INVENTORY) / 2, "y":3, "text":uiScriptLocale.INVENTORY_TITLE, "text_horizontal_align":"center" },
+						#{ "name":"TitleName", "type":"text", "x": -4, "y":3, "text":uiScriptLocale.INVENTORY_TITLE, "text_horizontal_align":"center", "horizontal_align" : "center" },
 					),
 				},			
-				###############################################################################################
-				# RANDOMMINIMIEREN
-				##Minimieren Button	
-				{
-					"name" : "MinimierenButton",
-					"type" : "button",
+				# ###############################################################################################
+				# # RANDOMMINIMIEREN
+				# ##Minimieren Button	
+				# {
+					# "name" : "MinimierenButton",
+					# "type" : "button",
 
-					"x" : 161 + SPACE_BONUS_INVENTORY - 30,
-					"y" : 10,
+					# "x" : 161 + SPACE_BONUS_INVENTORY - 30,
+					# "y" : 10,
 
-					"default_image" : "d:/ymir work/ui/public/minimize_button_01.sub",
-					"over_image" : "d:/ymir work/ui/public/minimize_button_02.sub",
-					"down_image" : "d:/ymir work/ui/public/minimize_button_03.sub",
-					"tooltip_text" : "Riduci",
-				},
-				###################################################
-				###################################################
-				###################################################
-				#############Bonustabelle############
-				#Defensive Bonustabelle
-				{
-					"name" : "Defensiv",
-					"type" : "horizontalbar",
+					# "default_image" : "d:/ymir work/ui/public/minimize_button_01.sub",
+					# "over_image" : "d:/ymir work/ui/public/minimize_button_02.sub",
+					# "down_image" : "d:/ymir work/ui/public/minimize_button_03.sub",
+					# "tooltip_text" : "Riduci",
+				# },
+				# ###################################################
+				# ###################################################
+				# ###################################################
+				# #############Bonustabelle############
+				# #Defensive Bonustabelle
+				# {
+					# "name" : "Defensiv",
+					# "type" : "horizontalbar",
 
-					"x" : 176 - 7,
-					"y" : 33,
-					"width" : 125,
+					# "x" : 176 - 7,
+					# "y" : 33,
+					# "width" : 125,
 
-					"children" :
-					(
-						{
-							"name" : "bonus_text_1",
-							"type" : "text",
-							"x" : 0,
-							"y" : 0,
-							"all_align" : "center",
-							"text" : "Defensiv",
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Schwert",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 55,
-					"text" : " Sabie:"
-				},
-				{
-					"name" : "Schwert_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 55 - 2,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_1",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "2Hand",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75,
-					"text" : " Dou„ maini:"
-				},
-				{
-					"name" : "2Hand_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 - 2,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_2",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Dolch",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20,
-					"text" : " Pumnal:"
-				},
-				{
-					"name" : "Dolch_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_3",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Pfeilwiderstand",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20,
-					"text" : " Rez. S„geti:"
-				},
-				{
-					"name" : "Pfeilwiderstand_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_4",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_text_1",
+							# "type" : "text",
+							# "x" : 0,
+							# "y" : 0,
+							# "all_align" : "center",
+							# "text" : "Difensivi",
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Schwert",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 55,
+					# "text" : " Spada:"
+				# },
+				# {
+					# "name" : "Schwert_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 55 - 2,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_1",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "2Hand",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75,
+					# "text" : " Spadone:"
+				# },
+				# {
+					# "name" : "2Hand_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 - 2,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_2",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Dolch",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20,
+					# "text" : " Pugnale:"
+				# },
+				# {
+					# "name" : "Dolch_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_3",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Pfeilwiderstand",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20,
+					# "text" : " Res. Freccia:"
+				# },
+				# {
+					# "name" : "Pfeilwiderstand_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_4",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
 
-				{
-					"name" : "Glocke",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20,
-					"text" : " Clopot:"
-				},
-				{
-					"name" : "Glocke_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_5",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Faecher",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20,
-					"text" : " Evantai:"
-				},
-				{
-					"name" : "Faecher_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_6",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Magiewiederstand",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Rez. Magie:"
-				},
-				{
-					"name" : "Magiewiederstand_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_7",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Giftwiederstand",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Rez. Otrav„:"
-				},
-				{
-					"name" : "Giftwiederstand_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_8",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Krieger",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " R„zboinic"
-				},
-				{
-					"name" : "Krieger_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_9",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Ninja",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Ninja:"
-				},
-				{
-					"name" : "Ninja_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_10",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Sura",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Sura:"
-				},
-				{
-					"name" : "Sura_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_11",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Schamane",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " ™aman:"
-				},
-				{
-					"name" : "Schamane_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_12",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				#Offensive Bonus Tabelle
-				{
-					"name" : "Offensive",
-					"type" : "horizontalbar",
+				# {
+					# "name" : "Glocke",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20,
+					# "text" : " Campana:"
+				# },
+				# {
+					# "name" : "Glocke_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_5",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Faecher",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20,
+					# "text" : " Ventaglio:"
+				# },
+				# {
+					# "name" : "Faecher_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_6",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Magiewiederstand",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Res. Magia:"
+				# },
+				# {
+					# "name" : "Magiewiederstand_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_7",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Giftwiederstand",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Res. Veleno:"
+				# },
+				# {
+					# "name" : "Giftwiederstand_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_8",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Krieger",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Guerriero"
+				# },
+				# {
+					# "name" : "Krieger_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_9",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Ninja",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Ninja:"
+				# },
+				# {
+					# "name" : "Ninja_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_10",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Sura",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Sura:"
+				# },
+				# {
+					# "name" : "Sura_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_11",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Schamane",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Shamano:"
+				# },
+				# {
+					# "name" : "Schamane_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_12",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# #Offensive Bonus Tabelle
+				# {
+					# "name" : "Offensive",
+					# "type" : "horizontalbar",
 
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"width" : 125,
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "width" : 125,
 
-					"children" :
-					(
-						{
-							"name" : "bonus_text_2",
-							"type" : "text",
-							"x" : 0,
-							"y" : 0,
-							"all_align" : "center",
-							"text" : "Offensivo",
-						},
-					),
-				},
-				########################################
-				{
-					"name" : "Krit",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Lov. critic„:"
-				},
-				{
-					"name" : "Krit_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_13",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "DB",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Trafiggenti:"
-				},
-				{
-					"name" : "DB_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_14",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "DSS",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Medi:"
-				},
-				{
-					"name" : "DSS_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_15",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "FKS",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Abilita:"
-				},
-				{
-					"name" : "FKS_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_16",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "Halbmenschen",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Semi-om:"
-				},
-				{
-					"name" : "Halbmenschen_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_17",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "Untote",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Vampiri:"
-				},
-				{
-					"name" : "Untote_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_18",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "Teufel",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Diavol:"
-				},
-				{
-					"name" : "Teufel_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_19",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "KriegerO",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " R„zboinic"
-				},
-				{
-					"name" : "KriegerO_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_20",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "NinjaO",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Ninja:"
-				},
-				{
-					"name" : "NinjaO_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_21",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "SuraO",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " Sura:"
-				},
-				{
-					"name" : "SuraO_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_22",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
-				###################################################
-				{
-					"name" : "SchamaneO",
-					"type" : "text",
-					"x" : 176 - 5,
-					"y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"text" : " ™aman:"
-				},
-				{
-					"name" : "SchamaneO_info",
-					"type" : "image",
-					"x" : 176 + SPACE_BONUS_INVENTORY - 65,
-					"y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
-					"image" : IMAGE_QUARESMA,
-					"children" :
-					(
-						{
-							"name" : "bonus_23",
-							"type" : "text",
-							"x" : 26,
-							"y" : 3,
-							"text" : "999",
-							"r" : 1.0,
-							"g" : 1.0,
-							"b" : 1.0,
-							"a" : 1.0,
-							"text_horizontal_align":"center"
-						},
-					),
-				},
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_text_2",
+							# "type" : "text",
+							# "x" : 0,
+							# "y" : 0,
+							# "all_align" : "center",
+							# "text" : "Offensivo",
+						# },
+					# ),
+				# },
+				# ########################################
+				# {
+					# "name" : "Krit",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Critici:"
+				# },
+				# {
+					# "name" : "Krit_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_13",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "DB",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Trafiggenti:"
+				# },
+				# {
+					# "name" : "DB_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_14",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "DSS",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Medi:"
+				# },
+				# {
+					# "name" : "DSS_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_15",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "FKS",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Abilita:"
+				# },
+				# {
+					# "name" : "FKS_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_16",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "Halbmenschen",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Mezziuomini:"
+				# },
+				# {
+					# "name" : "Halbmenschen_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_17",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "Untote",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Zombie:"
+				# },
+				# {
+					# "name" : "Untote_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_18",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "Teufel",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Diavolo:"
+				# },
+				# {
+					# "name" : "Teufel_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_19",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "KriegerO",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Guerriero"
+				# },
+				# {
+					# "name" : "KriegerO_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_20",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "NinjaO",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Ninja:"
+				# },
+				# {
+					# "name" : "NinjaO_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_21",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "SuraO",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Sura:"
+				# },
+				# {
+					# "name" : "SuraO_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_22",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
+				# ###################################################
+				# {
+					# "name" : "SchamaneO",
+					# "type" : "text",
+					# "x" : 176 - 5,
+					# "y" : 75 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "text" : " Shamano:"
+				# },
+				# {
+					# "name" : "SchamaneO_info",
+					# "type" : "image",
+					# "x" : 176 + SPACE_BONUS_INVENTORY - 65,
+					# "y" : 75 + 20 - 2 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20,
+					# "image" : IMAGE_QUARESMA,
+					# "children" :
+					# (
+						# {
+							# "name" : "bonus_23",
+							# "type" : "text",
+							# "x" : 26,
+							# "y" : 3,
+							# "text" : "999",
+							# "r" : 1.0,
+							# "g" : 1.0,
+							# "b" : 1.0,
+							# "a" : 1.0,
+							# "text_horizontal_align":"center"
+						# },
+					# ),
+				# },
 
 				# RANDOMMINIMIEREN
 				###############################################################################################
@@ -886,18 +886,32 @@ window = {
 							"down_image" :  "d:/ymir work/ui/anti_exp/anti_exp.tga",
 						},
 						
+						## MallButton
 						{
-							"name" : "DSSButton",
+							"name" : "MantelloButton",
 							"type" : "button",
 
-							"x" : 115,
+							"x" : 120,
+							"y" : 151,
+
+							"tooltip_text" : uiScriptLocale.MANTELLO_TITLE,
+
+							"default_image" : "d:/ymir work/ui/game/taskbar/mantello_1.tga",
+							"over_image" : "d:/ymir work/ui/game/taskbar/mantello_2.tga",
+							"down_image" : "d:/ymir work/ui/game/taskbar/mantello_3.tga",
+						},
+						{
+							"name" : "RuneButton",
+							"type" : "button",
+
+							"x" : 77,
 							"y" : 111,
 
-							"tooltip_text" : uiScriptLocale.TASKBAR_DRAGON_SOUL,
+							"tooltip_text" : uiScriptLocale.RUNE_TITLES,
 
-							"default_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_01.tga",
-							"over_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_02.tga",
-							"down_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_03.tga",
+							"default_image" : "d:/ymir work/ui/public/runa_default.tga",
+							"over_image" : "d:/ymir work/ui/public/runa_over.tga",
+							"down_image" : "d:/ymir work/ui/public/runa_down.tga",
 						},
 						## LagerButton
 						{
@@ -905,7 +919,7 @@ window = {
 							"type" : "button",
 
 							"x" : 118,
-							"y" : 148,
+							"y" : 110,
 
 							"tooltip_text" : uiScriptLocale.LAGER_TITLE,
 
@@ -1152,8 +1166,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_1,
 
 					"children" :
@@ -1180,8 +1194,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_2,
 
 					"children" :
@@ -1208,8 +1222,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 					
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_3,
 
@@ -1237,8 +1251,8 @@ window = {
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 					"tooltip_text" : uiScriptLocale.INVENTORY_PAGE_BUTTON_TOOLTIP_4,
 					"children" :
 					(
@@ -1516,16 +1530,16 @@ window = {
 						},	
 					),
 				},				
-				{
-					"name":"Cheque_Icon",
-					"type":"image",
-					"vertical_align":"bottom",
+				# {
+					# "name":"Cheque_Icon",
+					# "type":"image",
+					# "vertical_align":"bottom",
 					
-					"x":10,
-					"y":26,
+					# "x":10,
+					# "y":26,
 
-					"image":"d:/ymir work/ui/game/windows/cheque_icon.sub",
-				},
+					# "image":"d:/ymir work/ui/game/windows/cheque_icon.sub",
+				# },
 				{
 					"name":"Cheque_Slot",
 					"type":"button",
@@ -1536,9 +1550,9 @@ window = {
 					#"horizontal_align":"center",
 					"vertical_align":"bottom",
 
-					"default_image" : "d:/ymir work/ui/public/cheque_slot.sub",
-					"over_image" : "d:/ymir work/ui/public/cheque_slot.sub",
-					"down_image" : "d:/ymir work/ui/public/cheque_slot.sub",
+					#"default_image" : "d:/ymir work/ui/public/cheque_slot.sub",
+					#"over_image" : "d:/ymir work/ui/public/cheque_slot.sub",
+					#"down_image" : "d:/ymir work/ui/public/cheque_slot.sub",
 
 					"children" :
 					(
@@ -1552,7 +1566,7 @@ window = {
 							"horizontal_align" : "right",
 							"text_horizontal_align" : "right",
 
-							"text" : "99",
+							#"text" : "99",
 						},
 					),
 				},
@@ -1564,7 +1578,7 @@ window = {
 			"type" : "window",
 			"style" : ("attach",),
 			
-			"x" : 9,
+			"x" : -16,
 			"y" : -32,
 			
 			#"vertical_align":"center",
@@ -1577,7 +1591,7 @@ window = {
 				{
 					"name" : "PaginationOne",
 					"type" : "radio_button",
-					"x" : 7,
+					"x" : 1,
 					"y" : 66,
 					
 					"default_image" : "invent/button_1_norm.png",
@@ -1587,7 +1601,7 @@ window = {
 				{
 					"name" : "PaginationTwo",
 					"type" : "radio_button",
-					"x" : 7,
+					"x" : 1,
 					"y" : 66+22,
 					
 					"default_image" : "invent/button_2_norm.png",
@@ -1597,7 +1611,7 @@ window = {
 				{
 					"name" : "PaginationThree",
 					"type" : "radio_button",
-					"x" : 7,
+					"x" : 1,
 					"y" : 66+22+22,
 					
 					"default_image" : "invent/button_3_norm.png",
@@ -1607,24 +1621,24 @@ window = {
 				{
 					"name" : "PaginationFourth",
 					"type" : "radio_button",
-					"x" : 7,
+					"x" : 1,
 					"y" : 66+22+22+22,
 					
 					"default_image" : "invent/button_4_norm.png",
 					"over_image" : "invent/button_4_norm.png",
 					"down_image" : "invent/button_4.png",
 				},
-				{
-					"name" : "beltbuttonshit",
-					"type" : "button",
-					"x" : 7,
-					"y" : 65+22+22+22+70,
+				# {
+					# "name" : "beltbuttonshit",
+					# "type" : "button",
+					# "x" : 1,
+					# "y" : 65+22+22+22+70,
 					
-					"default_image" : "invent/button_c_normal.png",
-					"over_image" : "invent/button_c_normal.png",
-					"down_image" : "invent/button_c.png",
-					"text" : "B",
-				},
+					# "default_image" : "invent/button_c_normal.png",
+					# "over_image" : "invent/button_c_normal.png",
+					# "down_image" : "invent/button_c.png",
+					# "text" : "B",
+				# },
 				#{
 				#	"name" : "systembuttonshit",
 				#	"type" : "button",

@@ -10,11 +10,10 @@ import constInfo
 import chrmgr
 import player
 import musicInfo
-import uiCommon
+import grp
 
 import uiSelectMusic
 import background
-from _weakref import proxy
 
 MUSIC_FILENAME_MAX_LEN = 25
 
@@ -26,18 +25,12 @@ class OptionDialog(ui.ScriptWindow):
 		ui.ScriptWindow.__init__(self)
 		self.__Initialize()
 		self.__Load()
+		self.RefreshHideMode()
+		self.RefreshHideMode2()
 
-		if app.ENABLE_ENB_MODE:
-			self.RefreshENBModeStatus()
-
-		if app.ENABLE_ENB_MODE:
-			self.questionDialog = None		
-
-		if app.ENABLE_FOG_FIX:
-			self.RefreshFogMode()
 		if app.ENABLE_DOG_MODE:
 			self.RefreshDogMode()
-
+		
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
 		print " -------------------------------------- DELETE SYSTEM OPTION DIALOG"
@@ -54,25 +47,30 @@ class OptionDialog(ui.ScriptWindow):
 		self.cameraModeButtonList = []
 		self.fogModeButtonList = []
 		self.tilingModeButtonList = []
-		if app.ENABLE_ENB_MODE:
-			self.enbModeStatusButtonList = []
 		self.ctrlShadowQuality = 0
+		self.hideModeButtonList = []
+		self.hideMode2ButtonList = []
+		if app.ENABLE_DOG_MODE:
+			self.dogModeButtonList = []
 		if app.ENABLE_FOV_OPTION:
 			self.fovController = None
 			self.fovResetButton = None
 			self.fovValueText = None
-		if app.ENABLE_DOG_MODE:
-			self.dogModeButtonList = []
+		if app.__BL_GRAPHIC_ON_OFF__:
+			self.effectOnOffButtonList = []
+		#	self.privateshopOnOffButtonList = []
+			self.itemdropOnOffButtonList = []
+			self.petOnOffButtonList = []
+			self.npcnameOnOffButtonList = []
+			self.effectApplyButton = None
+			#self.privateshopApplyButton = None
+			self.itemdropApplyButton = None
+
 	def Destroy(self):
 		self.ClearDictionary()
 
 		self.__Initialize()
 		print " -------------------------------------- DESTROY SYSTEM OPTION DIALOG"
-		
-	# if app.ENABLE_FPS:
-		# self.fps = None
-		# self.fpsInfo = None
-		# self.currentSelectFPS = 0		
 
 	def __Load_LoadScript(self, fileName):
 		try:
@@ -95,20 +93,33 @@ class OptionDialog(ui.ScriptWindow):
 			if app.ENABLE_DOG_MODE:
 				self.dogModeButtonList.append(GetObject("dog_mode_open"))
 				self.dogModeButtonList.append(GetObject("dog_mode_close"))
-			if app.ENABLE_FOG_FIX:
-				self.fogModeButtonList.append(GetObject("fog_on"))
-				self.fogModeButtonList.append(GetObject("fog_off"))
-			else:
-				self.fogModeButtonList.append(GetObject("fog_level0"))
-				self.fogModeButtonList.append(GetObject("fog_level1"))
-				self.fogModeButtonList.append(GetObject("fog_level2"))
+			self.fogModeButtonList.append(GetObject("fog_level0"))
+			self.fogModeButtonList.append(GetObject("fog_level1"))
+			self.fogModeButtonList.append(GetObject("fog_level2"))
 			self.tilingModeButtonList.append(GetObject("tiling_cpu"))
 			self.tilingModeButtonList.append(GetObject("tiling_gpu"))
 			self.tilingApplyButton=GetObject("tiling_apply")
-			if app.ENABLE_ENB_MODE:
-				self.enbModeStatusButtonList.append(GetObject("enbMode_on"))
-				self.enbModeStatusButtonList.append(GetObject("enbMode_off"))
-			self.ctrlShadowQuality = GetObject("shadow_bar")
+			for i in xrange(7):
+				self.hideModeButtonList.append(GetObject("hidemode_%d" % i))
+			for i in xrange(4):
+				self.hideMode2ButtonList.append(GetObject("hide2mode_%d" % i))
+				
+			if app.__BL_GRAPHIC_ON_OFF__:
+				for i in range(5):
+					self.effectOnOffButtonList.append(GetObject("effect_level{}".format(i + 1)))
+					#self.privateshopOnOffButtonList.append(GetObject("privateShop_level{}".format(i + 1)))
+					self.itemdropOnOffButtonList.append(GetObject("dropItem_level{}".format(i + 1)))
+
+				self.petOnOffButtonList.append(GetObject("pet_on"))
+				self.petOnOffButtonList.append(GetObject("pet_off"))
+
+				self.npcnameOnOffButtonList.append(GetObject("npcName_on"))
+				self.npcnameOnOffButtonList.append(GetObject("npcName_off"))
+
+				self.effectApplyButton = GetObject("effect_apply")
+				#self.privateshopApplyButton = GetObject("privateShop_apply")
+				self.itemdropApplyButton = GetObject("dropItem_apply")
+			#self.ctrlShadowQuality = GetObject("shadow_bar")
 			if app.ENABLE_FOV_OPTION:
 				self.fovController = GetObject("fov_controller")
 				self.fovController.SetButtonVisual("d:/ymir work/ui/game/windows/",\
@@ -136,8 +147,8 @@ class OptionDialog(ui.ScriptWindow):
 		self.ctrlSoundVolume.SetSliderPos(float(systemSetting.GetSoundVolume()) / 5.0)
 		self.ctrlSoundVolume.SetEvent(ui.__mem_func__(self.OnChangeSoundVolume))
 
-		self.ctrlShadowQuality.SetSliderPos(float(systemSetting.GetShadowLevel()) / 5.0)
-		self.ctrlShadowQuality.SetEvent(ui.__mem_func__(self.OnChangeShadowQuality))
+#		self.ctrlShadowQuality.SetSliderPos(float(systemSetting.GetShadowLevel()) / 5.0)
+#		self.ctrlShadowQuality.SetEvent(ui.__mem_func__(self.OnChangeShadowQuality))
 
 		if app.ENABLE_FOV_OPTION:
 			if self.fovController:
@@ -160,57 +171,55 @@ class OptionDialog(ui.ScriptWindow):
 			self.dogModeButtonList[0].SAFE_SetEvent(self.__OnClickDogButton)
 			self.dogModeButtonList[1].SAFE_SetEvent(self.__OffClickDogButton)
 
-		if app.ENABLE_FOG_FIX:
-			self.fogModeButtonList[0].SAFE_SetEvent(self.__OnClickFogModeOn)
-			self.fogModeButtonList[1].SAFE_SetEvent(self.__OnClickFogModeOff)
-		else:
-			self.fogModeButtonList[0].SAFE_SetEvent(self.__OnClickFogModeLevel0Button)
-			self.fogModeButtonList[1].SAFE_SetEvent(self.__OnClickFogModeLevel1Button)
-			self.fogModeButtonList[2].SAFE_SetEvent(self.__OnClickFogModeLevel2Button)
+		self.fogModeButtonList[0].SAFE_SetEvent(self.__OnClickFogModeLevel0Button)
+		self.fogModeButtonList[1].SAFE_SetEvent(self.__OnClickFogModeLevel1Button)
+		self.fogModeButtonList[2].SAFE_SetEvent(self.__OnClickFogModeLevel2Button)
 
 		self.tilingModeButtonList[0].SAFE_SetEvent(self.__OnClickTilingModeCPUButton)
 		self.tilingModeButtonList[1].SAFE_SetEvent(self.__OnClickTilingModeGPUButton)
+		
+		for i in xrange(7):
+			self.hideModeButtonList[i].SetToggleUpEvent(self.__OnClickHideOptionUp, i)
+			self.hideModeButtonList[i].SetToggleDownEvent(self.__OnClickHideOptionDown, i)
+		for i in xrange(4):
+			self.hideMode2ButtonList[i].SetToggleUpEvent(self.__OnClickHideOptionUp2, i)
+			self.hideMode2ButtonList[i].SetToggleDownEvent(self.__OnClickHideOptionDown2, i)
+		
+		if app.__BL_GRAPHIC_ON_OFF__:
+			for i, btn in enumerate(self.effectOnOffButtonList):
+				btn.SAFE_SetEvent(self.__OnClickEffectOnOffButton, i)
+			#for i, btn in enumerate(self.privateshopOnOffButtonList):
+				#btn.SAFE_SetEvent(self.__OnClickPrivateShopOnOffButton, i)
+			for i, btn in enumerate(self.itemdropOnOffButtonList):
+				btn.SAFE_SetEvent(self.__OnClickItemDropOnOffButton, i)
 
-		if app.ENABLE_ENB_MODE:
-			self.enbModeStatusButtonList[0].SAFE_SetEvent(self.__OnClickENBModeStatusButton, 1) # on
-			self.enbModeStatusButtonList[1].SAFE_SetEvent(self.__OnClickENBModeStatusButton, 0) # off
+			self.petOnOffButtonList[0].SAFE_SetEvent(self.__OnClickPetOnOffButton, 0)
+			self.petOnOffButtonList[1].SAFE_SetEvent(self.__OnClickPetOnOffButton, 1)
+
+			self.npcnameOnOffButtonList[0].SAFE_SetEvent(self.__OnClickNPCNameOnOffButton, 0)
+			self.npcnameOnOffButtonList[1].SAFE_SetEvent(self.__OnClickNPCNameOnOffButton, 1)
+
+			self.effectApplyButton.SAFE_SetEvent(self.__OnClickApplyEffectOnOffButton)
+			#self.privateshopApplyButton.SAFE_SetEvent(self.__OnClickApplyPrivateShopOnOffButton)
+			self.itemdropApplyButton.SAFE_SetEvent(self.__OnClickApplyItemDropOnOffButton)
+
+			self.__ClickRadioButton(self.effectOnOffButtonList, grp.GetEffectOnOffLevel())
+			#self.__ClickRadioButton(self.privateshopOnOffButtonList, grp.GetPrivateShopOnOffLevel())
+			self.__ClickRadioButton(self.itemdropOnOffButtonList, grp.GetDropItemOnOffLevel())
+			self.__ClickRadioButton(self.petOnOffButtonList, grp.GetPetOnOffStatus())
+			self.__ClickRadioButton(self.npcnameOnOffButtonList, grp.GetNPCNameOnOffStatus())
 
 		self.tilingApplyButton.SAFE_SetEvent(self.__OnClickTilingApplyButton)
 
 		self.__SetCurTilingMode()
 
-		if app.ENABLE_ENB_MODE:
-			self.__ClickRadioButton(self.enbModeStatusButtonList, systemSetting.IsENBModeStatus())
-
-		if not app.ENABLE_FOG_FIX:
-			self.__ClickRadioButton(self.fogModeButtonList, constInfo.GET_FOG_LEVEL_INDEX())
+		self.__ClickRadioButton(self.fogModeButtonList, constInfo.GET_FOG_LEVEL_INDEX())
 		self.__ClickRadioButton(self.cameraModeButtonList, constInfo.GET_CAMERA_MAX_DISTANCE_INDEX())
 
 		if musicInfo.fieldMusic==musicInfo.METIN2THEMA:
 			self.selectMusicFile.SetText(uiSelectMusic.DEFAULT_THEMA)
 		else:
 			self.selectMusicFile.SetText(musicInfo.fieldMusic[:MUSIC_FILENAME_MAX_LEN])
-
-		if app.ENABLE_FPS:
-			self.GetChild("fps_change_btn").SetEvent(ui.__mem_func__(self.ChangeFPS))
-			self.currentSelectFPS = systemSetting.GetFPS()
-			systemSetting.SetFPS(systemSetting.GetFPS())
-			self.fpsInfo = {
-				0: "30 FPS - (PVM++)",
-				1: "60 FPS - (PVM)",
-				2: "90 FPS",
-				3: "120 FPS",
-				4: "144 FPS - (PVP)",
-				5: "180 FPS",
-				6: "220 FPS",
-			}
-			self.fps = ui.ComboBoxImage(self.GetChild("board"),"d:/ymir work/ui/pattern/select_image.tga",30,275)
-			self.fps.SetCurrentItem(self.fpsInfo[self.currentSelectFPS])
-			self.fps.SetParent(self.GetChild("board"))
-			for index, data in self.fpsInfo.iteritems():
-				self.fps.InsertItem(index, data)
-			self.fps.SetEvent(lambda x, point=proxy(self): point.__ClickFPS(x))
-			self.fps.Show()
 
 	def __OnClickTilingModeCPUButton(self):
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_CPU_TILING_1)
@@ -223,10 +232,6 @@ class OptionDialog(ui.ScriptWindow):
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_GPU_TILING_2)
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_GPU_TILING_3)
 		self.__SetTilingMode(1)
-
-		def __OnClickAutoHideModeOffButton(self):
-			self.__ClickRadioButton(self.autoHideModeButtonList, 1)
-			constInfo.AUTO_HIDE_OPTION = False
 
 	def __OnClickTilingApplyButton(self):
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_TILING_EXIT)
@@ -257,14 +262,6 @@ class OptionDialog(ui.ScriptWindow):
 
 		selButton.Down()
 
-	if app.ENABLE_FPS:
-		def __ClickFPS(self,fps):
-			self.currentSelectFPS = fps
-			self.fps.SetCurrentItem(self.fpsInfo[fps])
-			self.fps.CloseListBox()
-		def ChangeFPS(self):
-			systemSetting.SetFPS(self.currentSelectFPS)
-
 
 	def __SetTilingMode(self, index):
 		self.__ClickRadioButton(self.tilingModeButtonList, index)
@@ -293,6 +290,42 @@ class OptionDialog(ui.ScriptWindow):
 	def __OnClickFogModeLevel2Button(self):
 		self.__SetFogLevel(2)
 
+	if app.__BL_GRAPHIC_ON_OFF__:
+		def __OnClickEffectOnOffButton(self, i):
+			self.__ClickRadioButton(self.effectOnOffButtonList, i)
+
+		#def __OnClickPrivateShopOnOffButton(self, i):
+		#	self.__ClickRadioButton(self.privateshopOnOffButtonList, i)
+
+		def __OnClickItemDropOnOffButton(self, i):
+			self.__ClickRadioButton(self.itemdropOnOffButtonList, i)
+
+		def __OnClickPetOnOffButton(self, i):
+			self.__ClickRadioButton(self.petOnOffButtonList, i)
+			grp.SetPetOnOffStatus(i)
+
+		def __OnClickNPCNameOnOffButton(self, i):
+			self.__ClickRadioButton(self.npcnameOnOffButtonList, i)
+			grp.SetNPCNameOnOffStatus(i)
+
+		def __OnClickApplyEffectOnOffButton(self):
+			for i, btn in enumerate(self.effectOnOffButtonList):
+				if btn.IsDown():
+					grp.SetEffectOnOffLevel(i)
+					break
+		
+		#def __OnClickApplyPrivateShopOnOffButton(self):
+			#for i, btn in enumerate(self.privateshopOnOffButtonList):
+			#	if btn.IsDown():
+				#	grp.SetPrivateShopOnOffLevel(i)
+				#	break
+
+		def __OnClickApplyItemDropOnOffButton(self):
+			for i, btn in enumerate(self.itemdropOnOffButtonList):
+				if btn.IsDown():
+					grp.SetDropItemOnOffLevel(i)
+					break
+
 	def __OnChangeMusic(self, fileName):
 		self.selectMusicFile.SetText(fileName[:MUSIC_FILENAME_MAX_LEN])
 
@@ -309,11 +342,6 @@ class OptionDialog(ui.ScriptWindow):
 		if musicInfo.fieldMusic != "":
 			snd.FadeInMusic("BGM/" + musicInfo.fieldMusic)
 
-	def OnChangeMusicVolume(self):
-		pos = self.ctrlMusicVolume.GetSliderPos()
-		snd.SetMusicVolume(pos * net.GetFieldMusicVolume())
-		systemSetting.SetMusicVolume(pos)
-
 	if app.ENABLE_FOV_OPTION:
 		def __OnChangeFOV(self):
 			pos = self.fovController.GetSliderPos()
@@ -329,69 +357,10 @@ class OptionDialog(ui.ScriptWindow):
 			if self.fovValueText:
 				self.fovValueText.SetText(str(int(systemSetting.GetFOV())))
 
-
-	if app.ENABLE_ENB_MODE:
-		def __OnClickENBModeStatusButton(self, flag):
-			self.__ClickRadioButton(self.enbModeStatusButtonList, flag)
-			self.ConfirmENBSelect(flag)
-			self.RefreshENBModeStatus()
-
-		def RefreshENBModeStatus(self):
-			if systemSetting.IsENBModeStatus():
-				self.enbModeStatusButtonList[1].SetUp()
-				self.enbModeStatusButtonList[0].Down()
-			else:
-				self.enbModeStatusButtonList[1].Down()
-				self.enbModeStatusButtonList[0].SetUp()
-
-		def ConfirmENBSelect(self, flag):
-			questionDialog = uiCommon.QuestionDialog2()
-			questionDialog.SetText1(localeInfo.RESTART_CLIENT_DO_YOU_ACCEPT_1)
-			questionDialog.SetText2(localeInfo.RESTART_CLIENT_DO_YOU_ACCEPT_2)
-			questionDialog.SetAcceptEvent(lambda arg = flag: self.OnAcceptENBQuestionDialog(arg))
-			questionDialog.SetCancelEvent(ui.__mem_func__(self.OnCloseQuestionDialog))
-			questionDialog.SetWidth(450)
-			questionDialog.Open()
-			self.questionDialog = questionDialog
-
-		def OnAcceptENBQuestionDialog(self, flag):
-			self.OnCloseQuestionDialog()
-
-			systemSetting.SetENBModeStatusFlag(flag)
-
-			if flag == 1:
-				value = 1
-			else:
-				value = 0
-
-			idxCurMode = "EnableProxyLibrary=%d" % (value)
-			f = []
-			getLine = 2
-
-			import os
-			if os.path.exists("enbconvertor.ini"):
-				idx = open("enbconvertor.ini", "r")
-
-				for it in idx:
-					f.append(it)
-				# idx.close()
-
-				while len(f) < int(getLine):
-					f.append("")
-
-				f[int(getLine)-1] = str(idxCurMode)
-				idx = open("enbconvertor.ini", "w")
-
-				for it in f:
-					idx.write(it)
-					if (len(it) > 0 and it[-1:] != "\n") or len(it) == 0:
-						idx.write("\n")
-
-				# idx.close()
-			else:
-				return
-
-			app.Exit()
+	def OnChangeMusicVolume(self):
+		pos = self.ctrlMusicVolume.GetSliderPos()
+		snd.SetMusicVolume(pos * net.GetFieldMusicVolume())
+		systemSetting.SetMusicVolume(pos)
 
 	def OnChangeSoundVolume(self):
 		pos = self.ctrlSoundVolume.GetSliderPos()
@@ -401,25 +370,6 @@ class OptionDialog(ui.ScriptWindow):
 	def OnChangeShadowQuality(self):
 		pos = self.ctrlShadowQuality.GetSliderPos()
 		systemSetting.SetShadowLevel(int(pos / 0.2))
-
-	if app.ENABLE_FOG_FIX:
-		def __OnClickFogModeOn(self):
-			systemSetting.SetFogMode(True)
-			background.SetEnvironmentFog(True)
-			self.RefreshFogMode()
-			
-		def __OnClickFogModeOff(self):
-			systemSetting.SetFogMode(False)
-			background.SetEnvironmentFog(False)
-			self.RefreshFogMode()
-			
-		def RefreshFogMode(self):
-			if systemSetting.IsFogMode():
-				self.fogModeButtonList[0].Down()
-				self.fogModeButtonList[1].SetUp()
-			else:
-				self.fogModeButtonList[0].SetUp()
-				self.fogModeButtonList[1].Down()
 
 	def OnCloseInputDialog(self):
 		self.inputDialog.Close()
@@ -441,9 +391,6 @@ class OptionDialog(ui.ScriptWindow):
 	def Close(self):
 		self.__SetCurTilingMode()
 		self.Hide()
-		if app.ENABLE_ENB_MODE:
-			if self.questionDialog:
-				self.OnCloseQuestionDialog()
 
 	def __SetCurTilingMode(self):
 		if background.IsSoftwareTiling():
@@ -453,13 +400,81 @@ class OptionDialog(ui.ScriptWindow):
 
 	def __NotifyChatLine(self, text):
 		chat.AppendChat(chat.CHAT_TYPE_INFO, text)
-		
-	def LanguageButton(self):
-		import multi
-		MultiDialog = multi.MultiLanguage()
-		MultiDialog.Show()
-		self.Close()
 
+	def RefreshHideMode(self):
+		(b1, b2, b3, b4, b5, b6, b7) = systemSetting.GetHideModeStatus()
+		if b1:
+			self.hideModeButtonList[0].Down()
+		else:
+			self.hideModeButtonList[0].SetUp()
+		
+		if b2:
+			self.hideModeButtonList[1].Down()
+		else:
+			self.hideModeButtonList[1].SetUp()
+		
+		if b3:
+			self.hideModeButtonList[2].Down()
+		else:
+			self.hideModeButtonList[2].SetUp()
+		
+		if b4:
+			self.hideModeButtonList[3].Down()
+		else:
+			self.hideModeButtonList[3].SetUp()
+		
+		if b5:
+			self.hideModeButtonList[4].Down()
+			uiprivateshopbuilder.UpdateADBoard()
+		else:
+			self.hideModeButtonList[4].SetUp()
+		
+		if b6:
+			self.hideModeButtonList[5].Down()
+		else:
+			self.hideModeButtonList[5].SetUp()
+		
+		if b7:
+			self.hideModeButtonList[6].Down()
+		else:
+			self.hideModeButtonList[6].SetUp()
+
+	def __OnClickHideOptionUp(self, arg):
+		systemSetting.SetHideModeStatus(arg, 0)
+
+	def __OnClickHideOptionDown(self, arg):
+		systemSetting.SetHideModeStatus(arg, 1)
+		if arg == 4:
+			uiprivateshopbuilder.UpdateADBoard()
+
+	def RefreshHideMode2(self):
+		(b1, b2, b3, b4) = systemSetting.GetHideModeStatus2()
+		if b1:
+			self.hideMode2ButtonList[0].Down()
+		else:
+			self.hideMode2ButtonList[0].SetUp()
+		
+		if b2:
+			self.hideMode2ButtonList[1].Down()
+		else:
+			self.hideMode2ButtonList[1].SetUp()
+		
+		if b3:
+			self.hideMode2ButtonList[2].Down()
+		else:
+			self.hideMode2ButtonList[2].SetUp()
+		
+		if b4:
+			self.hideMode2ButtonList[3].Down()
+		else:
+			self.hideMode2ButtonList[3].SetUp()
+
+	def __OnClickHideOptionUp2(self, arg):
+		systemSetting.SetHideModeStatus2(arg, 0)
+
+	def __OnClickHideOptionDown2(self, arg):
+		systemSetting.SetHideModeStatus2(arg, 1)
+		
 	if app.ENABLE_DOG_MODE:
 		def __OnClickDogButton(self):
 			systemSetting.SetDogMode(True)

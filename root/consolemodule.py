@@ -740,7 +740,6 @@ class ConsoleWindow(ui.Window):
 	def CloseWindow(self):
 		self.Hide()
 
-	## NOTE : 이곳에서 Command를 처리합니다 - [levites]
 	def ProcessCommand(self, text):
 
 		if '/' == text[0]:

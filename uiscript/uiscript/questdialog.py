@@ -2,7 +2,7 @@ ROOT = "d:/ymir work/ui/public/"
 
 window = {
 	"name" : "QuestDialog",
-	"style" : ("float",),#"movable", 
+	"style" : ("float",),#"movable",
 
 	"x" : 0,
 	"y" : 0,

@@ -1,9 +1,9 @@
 
 [BANNER_IMG = d:/ymir work/ui/wiki/banners/it/razador.png]
 [X_PADDING=12;COLOR=0xffd700;FONT_SIZE=15]REQUISITI:
-[X_PADDING=12]*Livello minimo: 85.
-[X_PADDING=12]*Livello massimo: 100.
-[X_PADDING=12]*Biglietto: Biglietto di Razador.
+[X_PADDING=12]*Livello minimo: 100.
+[X_PADDING=12]*Livello massimo: 120.
+[X_PADDING=12]*Biglietto: Biglietto del passaggio.
 [X_PADDING=12]*Genere: Solo e Gruppo.
 [IMG=d:/ymir work/ui/wiki/rahmen.tga; Y=5; X=456]
 [IMG=icon/item/71174.tga; Y=15; X=478]
@@ -11,7 +11,7 @@
 
 [X_PADDING=12;COLOR=0xffd700;FONT_SIZE=15]ALTRE INFORMAZIONI:
 [X_PADDING=12]*Il limite di tempo è di 50 minuti.
-[X_PADDING=12]*Il cooldown è di 1 ora.
+[X_PADDING=12]*Il cooldown è di 45 minuti.
 [X_PADDING=12]*Nel caso in cui si entra con il gruppo, ognuno deve avere il biglietto.
 [X_PADDING=12]*Si può accedere tramite la mappa: Lobby Dungeon.
 [X_PADDING=12]*Il bonus che vale sui mostri: Forte vs Fuoco.
@@ -23,16 +23,15 @@
 
 [X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]PRIMO PIANO
 [X_PADDING=20]1. Parla con le Fauci di Am-heh per sbloccare il primo ponte. Al completamento di un ponte torna a parlare con
-[X_PADDING=20]Am-heh e si sbloccherà uno nuovo in modo casuale.
+[X_PADDING=20]Am-heh e si sbloccherà una nuova missione.
 
-[X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]LE POSSIBILI MODALITA' CHE ESCONO IN MODO CASUALE:
+[X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]Am-heh ti assegnerà alcune di queste missioni:
 [X_PADDING=20]1. Trova la Ruota Dorata giusta per distruggere lo Stele di Isfet.
 [X_PADDING=20]2. Uccidi Ignator.
 [X_PADDING=20]3. Uccidi tutti i mostri.
 [X_PADDING=20]4. Trova le Pietra di Maat per distruggere lo Stele di Isfet.
 [X_PADDING=20]5. Distruggi la Metin del Purgatorio.
+[X_PADDING=20]*Completale tutte per accedere nella stanza del Razador.
 
-[X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]SECONDO PIANO
+[X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]SFIDA LA LEGGENDA
 [X_PADDING=20]1. Uccidi Razador.
-
-[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=401; CENTER_ALIGN]

@@ -2,7 +2,7 @@ import uiScriptLocale
 
 window = {
 	"name" : "AttachStoneDialog",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : 0,
 	"y" : 0,

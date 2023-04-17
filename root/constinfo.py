@@ -1,166 +1,6 @@
 import app
-if app.ENABLE_CHAT_COLOR_SYSTEM:
-	chat_color_page_open = 0
-	chat_color = ""
-if app.WORLD_BOSS_YUMA:
-	WORLD_BOSS_TEXT_POSITION = [0, 0, 0 ,0 ,0]
-if app.ENABLE_EVENT_MANAGER:
-	_interface_instance = None
-	def GetInterfaceInstance():
-		global _interface_instance
-		return _interface_instance
-	def SetInterfaceInstance(instance):
-		global _interface_instance
-		if _interface_instance:
-			del _interface_instance
-		_interface_instance = instance
+import localeInfo
 
-if app.ENABLE_GUILD_REQUEST:
-	_interface_instance = None
-	def GetInterfaceInstance():
-		global _interface_instance
-		return _interface_instance
-	def SetInterfaceInstance(instance):
-		global _interface_instance
-		if _interface_instance:
-			del _interface_instance
-		_interface_instance = instance
-
-
-if app.ENABLE_COSTUME_SWITCHBOT:
-	BONUS_SWITCHER = 0
-	
-	def IS_SWITCHER(itemVnum,):
-		if itemVnum == 70063:
-			return 1
-		elif itemVnum == 70064:
-			return 1
-		return 0
-		
-	AVG_DMG_WARNING = 40 #se hai trovato bonus danni medi over 40 ti da un avviso
-	SK_DMG_WARNING = 15 #se hai trovato bonus danni abi over 15 ti da un avviso
-automatic_check = 1
-Compared = 0
-ENABLE_INTRO_ANIMATION = 0
-INTROSELECT_LOGIN = False
-
-BIO_DICT = []
-BIO_CHANGED = 0
-if app.ENABLE_HUNTING_SYSTEM:
-	HUNTING_MAIN_UI_SHOW = 0
-	HUNTING_MINI_UI_SHOW = 0
-	HUNTING_BUTTON_FLASH = 0
-	HUNTING_BUTTON_IS_FLASH = 0
-
-finder_counts = 0
-finder_items = {}
-finder_items_v = {}
-OVER_IN = False
-
-if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
-	IsInventoryOpened = False
-	IsSpecialStorageOpened = False
-
-	SpecialStorageCategory = -1
-
-need_open_pickup_filter = 0
-
-if app.WON_EXCHANGE:
-	WHEEL_TO_SCROLL_MIN = 5
-	WHEEL_TO_SCROLL_MAX = 40
-	WHEEL_TO_SCROLL_DEFAULT = 13
-	WHEEL_VALUE = WHEEL_TO_SCROLL_DEFAULT
-
-	def WHEEL_TO_SCROLL(wheel, custom = None):
-		return -wheel * ((custom if custom else WHEEL_VALUE) / WHEEL_TO_SCROLL_MIN)
-
-	def WHEEL_TO_SCROLL_SLOW(wheel):
-		return -wheel * max(1, WHEEL_VALUE / WHEEL_TO_SCROLL_DEFAULT)
-
-	def WHEEL_TO_SCROLL_PX(wheel):
-		return -wheel * WHEEL_VALUE
-if app.GUILD_WAR_COUNTER:
-	import os
-	def CheckDirectory(directory):
-		try:
-			os.makedirs(directory)
-		except:
-			pass
-	def CheckFile(directory):
-		if os.path.exists(directory):
-			return True
-		return False
-	def RemoveFile(directory):
-		if os.path.exists(directory):
-		  os.remove(directory)
-	def encodeMessage(message, keycode):
-		ciphertext = ""
-		alphabet = "!'^+%&/()=?_/*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789"
-		for letter in message:
-			if letter in alphabet:
-				keyLetter = ((alphabet.index(letter)) + keycode) % len(alphabet)
-				cipherLetter = alphabet[keyLetter]
-				ciphertext = ciphertext + cipherLetter
-			else:
-				cipherLetter = letter
-				ciphertext = ciphertext + cipherLetter
-		return ciphertext
-
-	def decodeMessage(message, keycode):
-		ciphertext = ""
-		alphabet = "!'^+%&/()=?_/*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789"
-		for letter in message:
-			if letter in alphabet:
-				keyLetter = ((alphabet.index(letter)) - keycode) % len(alphabet)
-				cipherLetter = alphabet[keyLetter]
-				ciphertext = ciphertext + cipherLetter
-			else:
-				cipherLetter = letter
-				ciphertext = ciphertext + cipherLetter
-		return ciphertext
-
-PetPosInv = 0
-PetVnum = 0
-PetOfficialVnum = 0
-DROP_GUI_CHECK = 0
-Element_ID = 0
-FEQO = 0
-
-HIDE_SPECIAL_CHAT = 1
-
-ENABLE_BUFF_DISABLE = True
-
-if app.ENABLE_HIDE_COSTUME_SYSTEM:
-	hide_buttons = 1
-
-ENABLE_MULTI_RANKING=0
-py_Flag = {}
-def GetFlag(flagname):
-	global py_Flag
-	return py_Flag.get(flagname, 0)
-def SetFlag(flagname,value):
-	global py_Flag
-	py_Flag[flagname] = value
-ENABLE_SHOW_CHEST_DROP=1
-ULTIMATE_TOOLTIP_MAX_CLICK=25
-def IsNewChest(itemVnum):
-	if 27987 == itemVnum:
-		return True
-	elif 50255 == itemVnum:
-		return True
-	return False
-   
-KILL_STATISTICS_DATA = [0, 0, 0, 0, 0, 0, 0, 0, 0,]
-MAX_DUNGEON = 4 # IMPORTANT
-dungeonInfo = []
-dungeonInfoCooldown = []
-dungeon_qf_index = 0 # for questindex
-DungeonWarp = "" # for cmd
-ENABLE_AURA_SYSTEM=1
-SHOPNAMES_RANGE = 5000						# The range to see the shop name, previous this will be calculated in base of range bar.
-ENABLE_NEW_DROP_ITEM = 1
-# Showing description of item in refine window.
-ENABLE_REFINE_ITEM_DESCRIPTION = 1
 # EXTRA BEGIN
 # loads 5 (B,M,G,P,F) skills .mse
 ENABLE_NEW_LEVELSKILL_SYSTEM = 0
@@ -173,125 +13,165 @@ ENABLE_PASTE_FEATURE = 0
 # display all the bonuses added by a stone instead of the first one
 ENABLE_FULLSTONE_DETAILS = 1
 # enable successfulness % in the refine dialog
-ENABLE_REFINE_PCT = 1
-ENABLE_EXPANDED_MONEY_TASKBAR = 1
+ENABLE_REFINE_PCT = 0
 # extra ui features
 EXTRA_UI_FEATURE = 1
+#
+ENABLE_SHOW_CHEST_DROP=1
+ULTIMATE_TOOLTIP_MAX_CLICK=25
+def IsNewChest(itemVnum):
+	if 27987 == itemVnum:
+		return True
+	elif 50255 == itemVnum:
+		return True
+	return False
 NEW_678TH_SKILL_ENABLE = 1
-Yang = 1
 # EXTRA END
-if app.ENABLE_REFINE_RENEWAL:
-	IS_AUTO_REFINE = False
-	AUTO_REFINE_TYPE = 0
-	AUTO_REFINE_DATA = {
-		"ITEM" : [-1, -1],
-		"NPC" : [0, -1, -1, 0]
-	}
-	
+
 INPUT_IGNORE = 0
 SelectJob = {
 	'QID' : 0,
 	'QCMD' : '',
 }
 
-AVAILABLE_LANGUAGES = {
-	'de': {
-		'name':'german', 
-		'encoding':'cp1252'
-	},
-	'en': {
-		'name':'english', 
-		'encoding':'cp1252'
-	},
-	'es': {
-		'name':'spanish', 
-		'encoding':'cp1252'
-	},
-	'it': {
-		'name':'italian', 
-		'encoding':'cp1252'
-	},
-	'fr': {
-		'name':'french', 
-		'encoding':'cp1252'
-	},
-	# 'pt': {
-	# 	'name':'portuguese', 
-	# 	'encoding':'cp1252'
-	# },
-	# 'tr': {
-	# 	'name':'turkish', 
-	# 	'encoding':'cp1253'
-	# },
-	'pl': {
-		'name':'polish', 
-		'encoding':'cp1250'
-	},
-	'tr': {
-		'name':'turkish', 
-		'encoding':'cp1254'
-	},
-	# 'nl': {
-	# 	'name':'dutch', 
-	# 	'encoding':'cp1252'
-	# },
-	# 'ru': {
-	# 	'name':'russian', 
-	# 	'encoding':'cp1250'
-	# },
-	# 'hu': {
-	# 	'name':'hungarian', 
-	# 	'encoding':'cp1250'
-	# },
-	'ro': {
-		'name':'romanian', 
-		'encoding':'cp1250'
-	},
-	# 'ja': {
-	# 	'name':'japanese',
-	# 	'encoding':'cp932'
-	# },
-}
+ENABLE_EXPANDED_MONEY_TASKBAR = 1
 
-## Battle Pass
-missions_bp = {}
-info_missions_bp = {}
-rewards_bp = {}
-size_battle_pass = 0
-status_battle_pass = 0
-battle_status_pass = 0
-final_rewards = []
-## Battle Pass
-
-cheque = 0
-
-change_time = 0
-# option
-IN_GAME_SHOP_ENABLE = 1
-CONSOLE_ENABLE = 0
-Chitra = ''
-TELEPORT_SYSTEM_GUI = 0
-SKYBOX_GUI = 0
-FAST_PAGE = 1
-FAST_EQUIP = 0
-envanter = 0
-canShowRankingGuild = 0
-ME_KEY = 0
-PVPMODE_ENABLE = 1
+BIO_DICT = []
+BIO_CHANGED = 0
+if app.ENABLE_HUNTING_SYSTEM:
+	HUNTING_MAIN_UI_SHOW = 0
+	HUNTING_MINI_UI_SHOW = 0
+	HUNTING_BUTTON_FLASH = 0
+	HUNTING_BUTTON_IS_FLASH = 0
+	
+DROP_GUI_CHECK = 0
+ENABLE_NEW_DROP_ITEM = 1
+Element_ID = 0
+#Interface Login/Select
 ACCOUNT_NAME = "NoName"
 WOLF_MAN = "DISABLED"
 WOLF_WOMEN = "DISABLED"
+
+if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
+	IsInventoryOpened = False
+	IsSpecialStorageOpened = False
+
+	SpecialStorageCategory = -1
+
+if app.ENABLE_SEND_TARGET_INFO:
+	MONSTER_INFO_DATA = {}
+
+# enable save account
+ENABLE_SAVE_ACCOUNT = True
+if ENABLE_SAVE_ACCOUNT:
+	class SAB:
+		ST_CACHE, ST_FILE, ST_REGISTRY = xrange(3)
+		slotCount = 5
+		storeType = ST_REGISTRY # 0 cache, 1 file, 2 registry
+		btnName = {
+			"Save": "SaveAccountButton_Save_%02d",
+			"Access": "SaveAccountButton_Access_%02d",
+			"Remove": "SaveAccountButton_Remove_%02d",
+		}
+		accData = {}
+		regPath = r"SOFTWARE\Metin2"
+		regName = "slot%02d_%s"
+		regValueId = "id"
+		regValuePwd = "pwd"
+		fileExt = ".do.not.share.it.txt"
+def CreateSABDataFolder(filePath):
+	import os
+	folderPath = os.path.split(filePath)[0]
+	if not os.path.exists(folderPath):
+		os.makedirs(folderPath)
+def IsExistSABDataFile(filePath):
+	import os
+	return os.path.exists(filePath)
+def GetSABDataFile(idx):
+	import os
+	filePath = "%s\\Metin2\\" % os.getenv('appdata')
+	filePath += SAB.regName % (idx, SAB.regValueId)
+	filePath += SAB.fileExt
+	return filePath
+def DelJsonSABData(idx):
+	import os
+	filePath = GetSABDataFile(idx)
+	if IsExistSABDataFile(filePath):
+		os.remove(filePath)
+def GetJsonSABData(idx):
+	(id, pwd) = ("", "")
+	filePath = GetSABDataFile(idx)
+	if not IsExistSABDataFile(filePath):
+		return (id, pwd)
+	with old_open(filePath) as data_file:
+		try:
+			import json
+			(id, pwd) = json.load(data_file)
+			id = str(id) # unicode to ascii
+			pwd = str(pwd) # unicode to ascii
+		except ValueError:
+			pass
+	return (id, pwd)
+def SetJsonSABData(idx, slotData):
+	filePath = GetSABDataFile(idx)
+	CreateSABDataFolder(filePath)
+	with old_open(filePath, "w") as data_file:
+		import json
+		json.dump(slotData, data_file)
+def DelWinRegKeyValue(keyPath, keyName):
+	try:
+		import _winreg
+		_winreg.CreateKey(_winreg.HKEY_CURRENT_USER, keyPath)
+		_tmpKey = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, keyPath, 0, _winreg.KEY_WRITE)
+		_winreg.DeleteValue(_tmpKey, keyName)
+		_winreg.CloseKey(_tmpKey)
+		return True
+	except WindowsError:
+		return False
+def GetWinRegKeyValue(keyPath, keyName):
+	try:
+		import _winreg
+		_tmpKey = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, keyPath, 0, _winreg.KEY_READ)
+		keyValue, keyType = _winreg.QueryValueEx(_tmpKey, keyName)
+		_winreg.CloseKey(_tmpKey)
+		return str(keyValue) # unicode to ascii
+	except WindowsError:
+		return None
+def SetWinRegKeyValue(keyPath, keyName, keyValue):
+	try:
+		import _winreg
+		_winreg.CreateKey(_winreg.HKEY_CURRENT_USER, keyPath)
+		_tmpKey = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, keyPath, 0, _winreg.KEY_WRITE)
+		_winreg.SetValueEx(_tmpKey, keyName, 0, _winreg.REG_SZ, keyValue)
+		_winreg.CloseKey(_tmpKey)
+		return True
+	except WindowsError:
+		return False
+# classic minmax def
+def minmax(tmin, tmid, tmax):
+	if tmid < tmin:
+		return tmin
+	elif tmid > tmax:
+		return tmax
+	return tmid
+# EXTRA END
+
+# option
+IN_GAME_SHOP_ENABLE = 1
+CONSOLE_ENABLE = 0
+
+PVPMODE_ENABLE = 1
 PVPMODE_TEST_ENABLE = 0
 PVPMODE_ACCELKEY_ENABLE = 1
 PVPMODE_ACCELKEY_DELAY = 0.5
 PVPMODE_PROTECTED_LEVEL = 15
-if app.ENABLE_PRIVATESHOP_SEARCH_SYSTEM:
-	MARKED_SHOP_VID	= 0
+
 FOG_LEVEL0 = 4800.0
 FOG_LEVEL1 = 9600.0
 FOG_LEVEL2 = 12800.0
 FOG_LEVEL = FOG_LEVEL0
 FOG_LEVEL_LIST=[FOG_LEVEL0, FOG_LEVEL1, FOG_LEVEL2]
+
 CAMERA_MAX_DISTANCE_SHORT = 2500.0
 CAMERA_MAX_DISTANCE_LONG = 3500.0
 CAMERA_MAX_DISTANCE_LIST=[CAMERA_MAX_DISTANCE_SHORT, CAMERA_MAX_DISTANCE_LONG]
@@ -300,10 +180,6 @@ CAMERA_MAX_DISTANCE = CAMERA_MAX_DISTANCE_SHORT
 CHRNAME_COLOR_INDEX = 0
 
 ENVIRONMENT_NIGHT="d:/ymir work/environment/moonlight04.msenv"
-
-ReportLogin = 0
-ReportEntered = ""
-INPUT = 0
 
 # constant
 HIGH_PRICE = 500000
@@ -318,13 +194,14 @@ LASTAFFECT_POINT = 0
 LASTAFFECT_VALUE = 0
 EVOLUTION = 0
 
+HIGH_PRICE = 500000
 MIDDLE_PRICE = 50000
 ERROR_METIN_STONE = 28960
 SUB2_LOADING_ENABLE = 1
 EXPANDED_COMBO_ENABLE = 1
-CONVERT_EMPIRE_LANGUAGE_ENABLE = 1
+CONVERT_EMPIRE_LANGUAGE_ENABLE = 0
 USE_ITEM_WEAPON_TABLE_ATTACK_BONUS = 0
-ADD_DEF_BONUS_ENABLE = 1
+ADD_DEF_BONUS_ENABLE = 0
 LOGIN_COUNT_LIMIT_ENABLE = 0
 
 USE_SKILL_EFFECT_UPGRADE_ENABLE = 1
@@ -332,31 +209,195 @@ USE_SKILL_EFFECT_UPGRADE_ENABLE = 1
 VIEW_OTHER_EMPIRE_PLAYER_TARGET_BOARD = 1
 GUILD_MONEY_PER_GSP = 100
 GUILD_WAR_TYPE_SELECT_ENABLE = 1
-TWO_HANDED_WEAPON_ATT_SPEED_DECREASE_VALUE = 0
+TWO_HANDED_WEAPON_ATT_SPEED_DECREASE_VALUE = 10
 
 HAIR_COLOR_ENABLE = 1
 ARMOR_SPECULAR_ENABLE = 1
 WEAPON_SPECULAR_ENABLE = 1
-SEQUENCE_PACKET_ENABLE = 0
+SEQUENCE_PACKET_ENABLE = 1
 KEEP_ACCOUNT_CONNETION_ENABLE = 1
-MINIMAP_POSITIONINFO_ENABLE = 0
-CONVERT_EMPIRE_LANGUAGE_ENABLE = 0
-USE_ITEM_WEAPON_TABLE_ATTACK_BONUS = 0
-ADD_DEF_BONUS_ENABLE = 0
-LOGIN_COUNT_LIMIT_ENABLE = 0
-PVPMODE_PROTECTED_LEVEL = 15
-TWO_HANDED_WEAPON_ATT_SPEED_DECREASE_VALUE = 10
+MINIMAP_POSITIONINFO_ENABLE = 1
 
 isItemQuestionDialog = 0
 
-GUILDSTORAGE = {
-	"slots" : {"TAB0" : {},"TAB1" : {},"TAB2" : {}},
-	"tempslots" : {"TAB0" : {},"TAB1" : {},"TAB2" : {}},
-	"qid"	: 0,
-	"questCMD" : "",
-	"members": {},
-	"logs" : {},
-}
+def ConvertMoneyText(text, powers = dict(k = 10**3, m = 10**6, b = 10**9)):
+	match = re.search(r'(\d+)({:s}+)?'.format('+|'.join(powers.keys())), text, re.I)
+	if match:
+		moneyValue, suffixName = match.groups()
+		moneyValue = int(moneyValue)
+		if not suffixName:
+			return moneyValue
+
+		return moneyValue * (powers[suffixName[0]] ** len(suffixName))
+
+	return 0
+
+if app.__CHAT_SETTINGS__:
+	import os
+	def CheckDirectory(directory):
+		try:
+			os.makedirs(directory)
+		except:
+			pass
+	def CheckFile(directory):
+		if os.path.exists(directory):
+			return True
+		return False
+	def RemoveFile(directory):
+		if os.path.exists(directory):
+		  os.remove(directory)
+
+	import chat
+	OPTION_CHECKBOX_TALKING = 1
+	OPTION_CHECKBOX_PARTY = 2
+	OPTION_CHECKBOX_GUILD = 3
+	OPTION_CHECKBOX_SHOUT = 4
+	OPTION_CHECKBOX_INFO = 5
+	OPTION_CHECKBOX_NOTICE = 6
+	OPTION_CHECKBOX_DICE = 7
+	OPTION_CHECKBOX_EXP_INFO = 8
+	OPTION_CHECKBOX_ITEM_INFO = 9
+	OPTION_CHECKBOX_MONEY_INFO = 10
+	OPTION_CHECKBOX_FILTER = 11
+
+	OPTION_CHECKBOX_FLAG_EN = 12
+	OPTION_CHECKBOX_FLAG_DE = 13
+	OPTION_CHECKBOX_FLAG_TR = 14
+	OPTION_CHECKBOX_FLAG_PT = 15
+	OPTION_CHECKBOX_FLAG_ES = 16
+	OPTION_CHECKBOX_FLAG_FR = 17
+	OPTION_CHECKBOX_FLAG_RO = 18
+	OPTION_CHECKBOX_FLAG_PL = 19
+	OPTION_CHECKBOX_FLAG_IT = 20
+	OPTION_CHECKBOX_FLAG_CZ = 21
+	OPTION_CHECKBOX_FLAG_HU = 22
+	OPTION_MAX = 23
+
+	OPTION_CHECKBOX_MODE = {
+		OPTION_CHECKBOX_TALKING : [[chat.CHAT_TYPE_TALKING], "TEST"],
+		OPTION_CHECKBOX_INFO : [[chat.CHAT_TYPE_INFO], "TEST"],
+		OPTION_CHECKBOX_NOTICE : [[chat.CHAT_TYPE_NOTICE,chat.CHAT_TYPE_BIG_NOTICE], "TEST"],
+		OPTION_CHECKBOX_PARTY : [[chat.CHAT_TYPE_PARTY], "TEST"],
+		OPTION_CHECKBOX_GUILD : [[chat.CHAT_TYPE_GUILD], "TEST"],
+		OPTION_CHECKBOX_SHOUT : [[chat.CHAT_TYPE_SHOUT], "TEST"],
+		OPTION_CHECKBOX_DICE : [[chat.CHAT_TYPE_DICE_INFO], "TEST"],
+		OPTION_CHECKBOX_EXP_INFO : [[chat.CHAT_TYPE_EXP_INFO], "TEST"],
+		OPTION_CHECKBOX_ITEM_INFO : [[chat.CHAT_TYPE_ITEM_INFO], "TEST"],
+		OPTION_CHECKBOX_MONEY_INFO : [[chat.CHAT_TYPE_MONEY_INFO], "TEST"],
+	}
+
+	cacheChat = {}
+	def CreateEmptyList(index):
+		list = [1] * OPTION_MAX
+		list[0] = str(index)
+		list[OPTION_CHECKBOX_FILTER] = 0
+		for langIndex in range(OPTION_CHECKBOX_FLAG_EN, OPTION_MAX):
+			list[langIndex] = 0
+		return list
+	
+	def SaveChatData():
+		global cacheChat
+		if len(cacheChat) == 0:
+			return
+		
+		#import dbg
+		#dbg.TraceError("--------------------------------------------")
+		#dbg.TraceError(" ")
+		#dbg.TraceError(str(cacheChat))
+		#dbg.TraceError(" ")
+		#dbg.TraceError("--------------------------------------------")
+		
+		MAIN_FILE = "lib/chatConfig"
+		PLAYER_FILE = MAIN_FILE+"/"+player.GetName()+".chat"
+
+		try:
+			file = open(PLAYER_FILE, "w+")
+			for key, data in cacheChat.items():
+				data = cacheChat[key]
+				text = ""
+				for x in xrange(OPTION_MAX):
+					text+=str(data[x])+"#"
+				file.write(text+"\n")
+			file.close()
+		except:
+			pass
+
+	def LoadChatNewEmpty(index):
+		global cacheChat
+		cacheChat[index] = CreateEmptyList(index)
+		SaveChatData()
+
+	def LoadChatEmpty():
+		global cacheChat
+		cacheChat = {
+			0: ['0', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			1: ['Empire', 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			2: ['Yang', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			3: ['Exp', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			4: ['Server', 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		}
+		#cacheChat[0] = CreateEmptyList(0)
+		SaveChatData()
+
+	def RemoveChat(index):
+		global cacheChat
+		if cacheChat.has_key(index):
+			del cacheChat[index]
+			SaveChatData()
+
+	def LoadChatData():
+		global cacheChat
+		cacheChat = {}
+		MAIN_FILE = "lib/chatConfig"
+		PLAYER_FILE = MAIN_FILE+"/"+player.GetName()+".chat"
+		CheckDirectory(MAIN_FILE)
+		if CheckFile(PLAYER_FILE):
+			lines = open(PLAYER_FILE, "r").readlines()
+			if len(lines) > 0:
+
+				index = 0
+				for line in lines:
+					lineSplit = line.split("#")
+
+					if len(lineSplit)==0 or OPTION_MAX != len(lineSplit)-1:
+						LoadChatEmpty()
+					else:
+						list = [1] * OPTION_MAX
+						for j in xrange(len(lineSplit)-1):
+							if j == 0:
+								list[j] = str(lineSplit[j])
+							else:
+								list[j] = int(lineSplit[j])
+						cacheChat[index] = list
+					index+=1
+			else:
+				LoadChatEmpty()
+		else:
+			LoadChatEmpty()
+
+
+if app.ENABLE_WIKI:
+	_main_wiki_instance = None
+	_listbox_wiki_instance = None
+	def SetMainParent(instance):
+		global _main_wiki_instance
+		if _main_wiki_instance:
+			del _main_wiki_instance
+		_main_wiki_instance = instance
+	def GetMainParent():
+		global _main_wiki_instance
+		return _main_wiki_instance
+	def SetListBox(instance):
+		global _listbox_wiki_instance
+		if _listbox_wiki_instance:
+			del _listbox_wiki_instance
+		_listbox_wiki_instance = instance
+	def GetListBox():
+		global _listbox_wiki_instance
+		return _listbox_wiki_instance
+	def IS_SET(value, flag):
+		return (value & flag) == flag
+
 
 def GET_ITEM_QUESTION_DIALOG_STATUS():
 	global isItemQuestionDialog
@@ -367,9 +408,6 @@ def SET_ITEM_QUESTION_DIALOG_STATUS(flag):
 	isItemQuestionDialog = flag
 
 import app
-if app.ENABLE_SEND_TARGET_INFO:
-	MONSTER_INFO_DATA = {}
-
 import net
 
 ########################
@@ -417,6 +455,7 @@ def GET_CAMERA_MAX_DISTANCE_INDEX():
 
 import chrmgr
 import player
+import app
 
 def SET_DEFAULT_CHRNAME_COLOR():
 	global CHRNAME_COLOR_INDEX
@@ -458,20 +497,15 @@ def SET_TWO_HANDED_WEAPON_ATT_SPEED_DECREASE_VALUE():
 ########################
 import item
 
-ACCESSORY_MATERIAL_LIST = [50623, 50624, 50625, 50626, 50627, 50628, 50629, 50630, 50631, 50632, 50633, 50634, 50635, 50636, 50637, 50638, 50639]#, 50640, 50641, 50642]
+ACCESSORY_MATERIAL_LIST = [50623, 50624, 50625, 50626, 50627, 50628, 50629, 50630, 50631, 50632, 50633, 50634, 50635, 50636, 50637, 50638, 50639]
 JewelAccessoryInfos = [
 		# jewel		wrist	neck	ear
 		[ 50634,	14420,	16220,	17220 ],
 		[ 50635,	14500,	16500,	17500 ],
 		[ 50636,	14520,	16520,	17520 ],
-		[ 50637,	82520,	82530,	82540 ],
-		[ 50638,	14560,	82640,	82630 ],
-		[ 50639,	82610,	82600,	82590 ],
-
-
-		#[ 50640,	82520,	82530,	82540 ],
-		#[ 50641,	14560,	82640,	82630 ],
-		#[ 50642,	82610,	82600,	82590 ],
+		[ 50637,	14540,	16540,	17540 ],
+		[ 50638,	14560,	16560,	17560 ],
+		[ 50639,	14570,	16570,	17570 ],
 	]
 def GET_ACCESSORY_MATERIAL_VNUM(vnum, subType):
 	ret = vnum
@@ -510,44 +544,29 @@ def GET_ACCESSORY_MATERIAL_VNUM(vnum, subType):
 	return ACCESSORY_MATERIAL_LIST[type]
 
 ##################################################################
-## »õ·Î Ãß°¡µÈ 'º§Æ®' ¾ÆÀÌÅÛ Å¸ÀÔ°ú, º§Æ®ÀÇ ¼ÒÄÏ¿¡ ²ÈÀ» ¾ÆÀÌÅÛ °ü·Ã..
-## º§Æ®ÀÇ ¼ÒÄÏ½Ã½ºÅÛÀº ¾Ç¼¼¼­¸®¿Í µ¿ÀÏÇÏ±â ¶§¹®¿¡, À§ ¾Ç¼¼¼­¸® °ü·Ã ÇÏµåÄÚµùÃ³·³ ÀÌ·±½ÄÀ¸·Î ÇÒ ¼ö¹Û¿¡ ¾ø´Ù..
 
 def GET_BELT_MATERIAL_VNUM(vnum, subType = 0):
-	# ÇöÀç´Â ¸ðµç º§Æ®¿¡´Â ÇÏ³ªÀÇ ¾ÆÀÌÅÛ(#18900)¸¸ »ðÀÔ °¡´É
 	return 18900
 
 ##################################################################
-## ÀÚµ¿¹°¾à (HP: #72723 ~ #72726, SP: #72727 ~ #72730)
 
-# ÇØ´ç vnumÀÌ ÀÚµ¿¹°¾àÀÎ°¡?
 def IS_AUTO_POTION(itemVnum):
-	return IS_AUTO_POTION_HP(itemVnum) or IS_AUTO_POTION_SP(itemVnum) or IS_N_PET(itemVnum)
+	return IS_AUTO_POTION_HP(itemVnum) or IS_AUTO_POTION_SP(itemVnum)
 
-def IS_N_PET(itemVnum):
-	pet_vnums = [53234, 53013, 53005, 53011, 53012, 53231, 53218, 53220, 53014]
-	if itemVnum in pet_vnums:
-		return 1
-	return 0
-
-# ÇØ´ç vnumÀÌ HP ÀÚµ¿¹°¾àÀÎ°¡?
 def IS_AUTO_POTION_HP(itemVnum):
-	if 20201 <= itemVnum and 20214 >= itemVnum:
+	if 72723 <= itemVnum and 72726 >= itemVnum:
 		return 1
-	elif 72723 <= itemVnum and 72726 >= itemVnum:
-		return 1
-	elif itemVnum >= 76021 and itemVnum <= 76022:		## »õ·Î µé¾î°£ ¼±¹°¿ë È­·æÀÇ Ãàº¹
+	elif itemVnum >= 76021 and itemVnum <= 76022:
 		return 1
 	elif itemVnum == 79012:
 		return 1
 
 	return 0
 
-# ÇØ´ç vnumÀÌ SP ÀÚµ¿¹°¾àÀÎ°¡?
 def IS_AUTO_POTION_SP(itemVnum):
 	if 72727 <= itemVnum and 72730 >= itemVnum:
 		return 1
-	elif itemVnum >= 76004 and itemVnum <= 76005:		## »õ·Î µé¾î°£ ¼±¹°¿ë ¼ö·æÀÇ Ãàº¹
+	elif itemVnum >= 76004 and itemVnum <= 76005:		## ìƒˆë¡œ ë“¤ì–´ê°„ ì„ ë¬¼ìš© ìˆ˜ë£¡ì˜ ì¶•ë³µ
 		return 1
 	elif itemVnum == 79013:
 		return 1
@@ -555,7 +574,7 @@ def IS_AUTO_POTION_SP(itemVnum):
 		return 1
 				
 	return 0
-	
+
 _interface_instance = None
 def GetInterfaceInstance():
 	global _interface_instance
@@ -575,25 +594,7 @@ def raceToJob(race):
 	elif race == 3 or race == 7:#shaman
 		return 3
 	return 0
-def IS_SET(value, flag):
-	return (value & flag) == flag
-def SET_BIT(value, bit):
-	return value | (bit)
-def REMOVE_BIT(value, bit):
-	return value & ~(bit)
-def getFlagValue(value):
-	return 1 << value
 	
-def COUNT_SPECIFY_ITEM(itemVnum):
-	finalCount = 0
-	
-	for i in xrange(player.INVENTORY_PAGE_SIZE*player.INVENTORY_PAGE_COUNT):
-		if player.GetItemIndex(i) == itemVnum:
-			finalCount = finalCount + player.GetItemCount(i)
-			
-	return finalCount
-
-
 def WriteLineInFile(fname, linenum, s):
 	import os
 	farr = []
@@ -628,5 +629,4 @@ def ReadLineInFile(fname, linenum):
 		else:
 			return ret
 	else:
-		return ""
-
+		return ""	

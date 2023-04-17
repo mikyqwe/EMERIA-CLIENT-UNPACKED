@@ -1,7 +1,7 @@
 YPRT
-1337464008
-propertyname		"Baobab"
+272882173
+propertyname		"grass"
 propertytype		"Tree"
-treefile		"d:/ymir work/tree/plants/grass.spt"
-treesize		"1000.000000"
-treevariance		"0.000000"
+treefile		"d:/ymir work/plants/grass.spt"
+treesize		"929.000000"
+treevariance		"223.000000"

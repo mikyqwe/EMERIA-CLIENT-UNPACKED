@@ -14,13 +14,13 @@ MIDDLE_BUTTON_WIDTH 	= 65
 
 window = {
 	"name" : "GameOptionDialog",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : 0,
 	"y" : 0,
 
 	"width" : 300,
-	"height" : (258+25+25),
+	"height" : (258+25),
 
 	"children" :
 	(
@@ -32,7 +32,7 @@ window = {
 			"y" : 0,
 
 			"width" : 300,
-			"height" : 25*13+8,
+			"height" : 25*12+8,
 
 			"children" :
 			(
@@ -50,13 +50,12 @@ window = {
 
 					"children" :
 					(
-						{ "name":"titlename", "type":"text", "x":0, "y":3, 
-						"text" : uiScriptLocale.GAMEOPTION_TITLE, 
+						{ "name":"titlename", "type":"text", "x":0, "y":3,
+						"text" : uiScriptLocale.GAMEOPTION_TITLE,
 						"horizontal_align":"center", "text_horizontal_align":"center" },
 					),
 				},
 
-				## ÀÌ¸§»ö
 				{
 					"name" : "name_color",
 					"type" : "text",
@@ -93,7 +92,6 @@ window = {
 					"down_image" : ROOT_PATH + "Middle_Button_03.sub",
 				},
 
-				## Å¸°ÙÃ¢
 				{
 					"name" : "target_board",
 					"type" : "text",
@@ -130,7 +128,7 @@ window = {
 					"down_image" : ROOT_PATH + "Middle_Button_03.sub",
 				},
 
-				
+
 				## PvP Mode
 				{
 					"name" : "pvp_mode",
@@ -434,9 +432,8 @@ window = {
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
 					"down_image" : ROOT_PATH + "middle_button_03.sub",
 				},
-				
-			## ÆÇ¸Å¹®±¸
-				
+
+
 				{
 					"name" : "salestext_on_off",
 					"type" : "text",
@@ -471,30 +468,6 @@ window = {
 					"default_image" : ROOT_PATH + "middle_button_01.sub",
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
 					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},				
-				{
-					"name" : "trans_lang_text",
-					"type" : "text",
-
-					"x" : LINE_LABEL_X,
-					"y" : 290+2,
-
-					"text" : "Traducãtor",
-				},
-				{
-					"name" : "trans_lang_box",
-					"type" : "combobox",
-					
-					"x" : LINE_DATA_X,
-					"y" : 290,
-					
-					"width" : 50,
-					"height" : 20,
-					
-					"default_text" : "-",
-					
-					"item" : (
-					),
 				},
 
 			),

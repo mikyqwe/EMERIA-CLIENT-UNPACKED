@@ -76,7 +76,7 @@ window = {
 						# { "name" : "TitleName", "type" : "text", "x" : 84, "y" : 4, "text" : "Storages", "text_horizontal_align" : "center", "horizontal_align" : "center" },
 
 						# With Sort Inventory Button
-						{ "name" : "TitleName", "type" : "text", "x" : -4, "y" : 4, "text" : "Depozit", "text_horizontal_align" : "center", "horizontal_align" : "center" },
+						{ "name" : "TitleName", "type" : "text", "x" : -4, "y" : 4, "text" : "Magazzino", "text_horizontal_align" : "center", "horizontal_align" : "center" },
 					),
 				},
 
@@ -103,12 +103,12 @@ window = {
 					"name" : "Inventory_Tab_01",
 					"type" : "radio_button",
 
-					"x" : 16,
+					"x" : 12,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 
 					"children" :
 					(
@@ -129,12 +129,12 @@ window = {
 					"name" : "Inventory_Tab_02",
 					"type" : "radio_button",
 
-					"x" : 16 + 40,
+					"x" : 12 + 40,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 
 					"children" :
 					(
@@ -155,12 +155,12 @@ window = {
 					"name" : "Inventory_Tab_03",
 					"type" : "radio_button",
 
-					"x" : 16 + 40 + 40,
+					"x" : 12 + 40 + 40,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 
 					"children" :
 					(
@@ -181,12 +181,12 @@ window = {
 					"name" : "Inventory_Tab_04",
 					"type" : "radio_button",
 
-					"x" : 16 + 40 + 40 + 40,
+					"x" : 12 + 40 + 40 + 40,
 					"y" : 295 + 32,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
-					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
-					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"over_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_02.sub",
+					"down_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_03.sub",
 
 					"children" :
 					(

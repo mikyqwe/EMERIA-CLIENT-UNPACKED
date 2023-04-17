@@ -10,20 +10,20 @@ SPECIAL_STAT_4 = 4
 SPECIAL_STAT_5 = 5
 SPECIAL_STAT_6 = 6
 
-SPECIAL_STAT_1_DESC = "Creºte ºansa de succes +%d%%."
-SPECIAL_STAT_2_DESC = "Vitezã de miºcare +%d%%. Vitezã de atac +%d%%."
-SPECIAL_STAT_3_DESC = "Max. PV +%d. Puternic împotriva monºtrilor +%d%%."
-SPECIAL_STAT_4_DESC = "Vitezã de miºcare +%d. ªansa unei lovituri critice +%d%%."
-SPECIAL_STAT_5_DESC = "Mãreºte ºansa de a dropa un item +%d%%. iar YANG a crescut cu +%d%%."
-SPECIAL_STAT_6_DESC = "Tare vs Razboinic +%d%%. Tare vs Ninja +%d%%. Tare vs Sura +%d%%. tare vs Shaman +%d%%."
+SPECIAL_STAT_1_DESC = "Aumenta la probabilita di successo +%d%%."
+SPECIAL_STAT_2_DESC = "Velocita movimento +%d%%. Velocita attacco +%d%%."
+SPECIAL_STAT_3_DESC = "Aumento HP +%d. Forte contro mostri +%d%%."
+SPECIAL_STAT_4_DESC = "Velocita di movimento +%d. Possibilita di colpo critico +%d%%."
+SPECIAL_STAT_5_DESC = "Aumenta probabilita di droppare un oggetto +%d%%. e YANG maggiorato del +%d%%."
+SPECIAL_STAT_6_DESC = "Forte vs Guerrieri +%d%%. Forte vs Ninja +%d%%. Forte vs Sura +%d%%. Forte vs Shamani +%d%%."
 
 
-SPECIAL_STAT_1_LONG_DESC = "Creºte norocul general la upgrade-uri. Una dintre cele mai importante aptitudini."
-SPECIAL_STAT_2_LONG_DESC = "Mãreºte viteza de miscare ºi viteza de atac."
-SPECIAL_STAT_3_LONG_DESC = "Creºte-ti PV ºi capacitatea de a te lupta cu monºtri."
-SPECIAL_STAT_4_LONG_DESC = "Îti mãreºte puterea de atac ºi loviturã criticã."
-SPECIAL_STAT_5_LONG_DESC = "Mãreºte ºansa de a dropa un item ºi de a obtine mai mult yang de la monºtri."
-SPECIAL_STAT_6_LONG_DESC = "Creºte-ti capacitatea de duel împotriva tuturor raselor."
+SPECIAL_STAT_1_LONG_DESC = "Aumenta la fortuna generale, principalmente negli upgrade. Una delle abilita piu importanti."
+SPECIAL_STAT_2_LONG_DESC = "Aumenta la velocita di movimento e di attacco."
+SPECIAL_STAT_3_LONG_DESC = "Aumenta la tua vita e la tua abilita nel fronteggiare mostri."
+SPECIAL_STAT_4_LONG_DESC = "Aumenta il tuo attacco e la capacita di effettuare un colpo critico."
+SPECIAL_STAT_5_LONG_DESC = "Aumenta la possibilita di droppare un oggetto e ricevi piu yang dai mostri."
+SPECIAL_STAT_6_LONG_DESC = "Aumenta la tua capacita in duello contro tutte le razze."
 
 SPECIALSTATS_DICT = {
 	SPECIAL_STAT_1 :		{"name": localeInfo.SPECIAL_STAT_1, "desc": SPECIAL_STAT_1_DESC, "longdesc" : SPECIAL_STAT_1_LONG_DESC},

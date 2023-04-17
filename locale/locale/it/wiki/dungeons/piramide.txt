@@ -1,19 +1,19 @@
 
 [BANNER_IMG = d:/ymir work/ui/wiki/banners/it/piramide.png]
 [X_PADDING=12;COLOR=0xffd700;FONT_SIZE=15]REQUISITI:
-[X_PADDING=12]*Livello minimo: 105.
+[X_PADDING=12]*Livello minimo: 90.
 [X_PADDING=12]*Livello massimo: 120.
-[X_PADDING=12]*Biglietto: Croce di Ankh.
-[X_PADDING=12]*Genere: Gruppo.
+[X_PADDING=12]*Biglietto: Pergamena Antica.
+[X_PADDING=12]*Genere: Solo e Gruppo.
 [IMG=d:/ymir work/ui/wiki/rahmen.tga; Y=5; X=456]
-[IMG=icon/item/30799.tga; Y=15; X=478]
-[X_PADDING=461]Croce di Ankh
+[IMG=icon/item/pyramid_ticket.tga; Y=15; X=478]
+[X_PADDING=461]Pergamena An.
 
 [X_PADDING=12;COLOR=0xffd700;FONT_SIZE=15]ALTRE INFORMAZIONI:
-[X_PADDING=12]*Il limite di tempo è di 30 minuti.
-[X_PADDING=12]*Il cooldown è di 1 ora e 30 minuti.
-[X_PADDING=12]*Si può accedere tramite la mappa: Lobby Dungeon Speciale.
-[X_PADDING=12]*Il bonus che vale sui mostri: Forte vs Terra.
+[X_PADDING=12]*Il limite di tempo è di 1 ora.
+[X_PADDING=12]*Nessun cooldown.
+[X_PADDING=12]*Si può accedere tramite la mappa: Lobby Dungeon.
+[X_PADDING=12]*Il bonus che vale sui mostri: Forte vs Mezziuomini.
 [X_PADDING=12]*L'elemento dei mostri: Terra.
 
 [IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=170; CENTER_ALIGN]
@@ -21,7 +21,7 @@
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]SVOLGIMENTO DEL DUNGEON
 
 [X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]PRIMO PIANO
-[X_PADDING=20]1. Distruggi la Pietra di Wadjet.
+[X_PADDING=20]1. Distruggi il Metin della Piramide.
 
 [X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]SECONDO PIANO
 [X_PADDING=20]1. Uccidi i mostri per trovare i 4 pezzi della pergamena.

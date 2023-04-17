@@ -9,13 +9,11 @@ import constInfo
 import uiToolTip
 import uiGameOption
 
-import uiPopup
 import uiCommon
 from _weakref import proxy
 
 FRIEND = 0
 GUILD = 1
-BLOCK = 2
 
 class MessengerItem(ui.Window):
 
@@ -39,14 +37,8 @@ class MessengerItem(ui.Window):
 		self.lovePointToolTip = None
 
 		self.isSelected = False
-		self.wasShowed = FALSE
 
 		self.getParentEvent = getParentEvent
-	def SetShowed(self):
-		self.wasShowed = TRUE
-		
-	def WasShowed(self):
-		return self.wasShowed
 
 	def SetName(self, name):
 		self.name = name
@@ -149,8 +141,6 @@ class MessengerMemberItem(MessengerItem):
 
 	def SetKey(self, key):
 		self.key = key
-		if app.ENABLE_MESSENGER_BLOCK:
-			constInfo.ME_KEY = key
 
 	def IsSameKey(self, key):
 		return self.key == key
@@ -282,33 +272,7 @@ class MessengerFriendItem(MessengerMemberItem):
 		messenger.RemoveFriend(self.key)
 		net.SendMessengerRemovePacket(self.key, self.name)
 		return True
-		
-if app.ENABLE_MESSENGER_TEAM:
-	class MessengerTeamItem(MessengerMemberItem):
 
-		def __init__(self, getParentEvent):
-			MessengerMemberItem.__init__(self, getParentEvent)
-
-		def CanRemove(self):
-			return FALSE
-		
-		def OnRemove(self):
-			return FASLE		
-		
-if app.ENABLE_MESSENGER_BLOCK:
-	class MessengerBlockItem(MessengerMemberItem):
-
-		def __init__(self, getParentEvent):
-			MessengerMemberItem.__init__(self, getParentEvent)
-
-		def CanRemove(self):
-			return TRUE
-
-		def OnRemove(self):
-			messenger.RemoveBlock(self.key)
-			net.SendMessengerRemoveBlockPacket(self.key, self.name)
-			return TRUE
-            
 class MessengerGuildItem(MessengerMemberItem):
 
 	def __init__(self, getParentEvent):
@@ -346,29 +310,6 @@ class MessengerFriendGroup(MessengerGroupItem):
 	def AppendMember(self, key, name):
 		item = MessengerFriendItem(self.getParentEvent)
 		return MessengerGroupItem.AppendMember(self, item, key, name)
-
-if app.ENABLE_MESSENGER_TEAM:
-	class MessengerTeamGroup(MessengerGroupItem):
-
-		def __init__(self, getParentEvent):
-			MessengerGroupItem.__init__(self, getParentEvent)
-			self.SetName(localeInfo.MESSENGER_TEAM)
-
-		def AppendMember(self, key, name):
-			item = MessengerTeamItem(self.getParentEvent)
-			return MessengerGroupItem.AppendMember(self, item, key, name)
-			
-
-if app.ENABLE_MESSENGER_BLOCK:
-	class MessengerBlockGroup(MessengerGroupItem):
-
-		def __init__(self, getParentEvent):
-			MessengerGroupItem.__init__(self, getParentEvent)
-			self.SetName(localeInfo.MESSENGER_BLOCK)
-
-		def AppendMember(self, key, name):
-			item = MessengerBlockItem(self.getParentEvent)
-			return MessengerGroupItem.AppendMember(self, item, key, name)
 
 class MessengerGuildGroup(MessengerGroupItem):
 
@@ -424,8 +365,6 @@ class MessengerWindow(ui.ScriptWindow):
 		self.selectedItem = None
 		self.whisperButtonEvent = lambda *arg: None
 		self.familyGroup = None
-		self.TimeToShowInfoAboutLogin = app.GetTime()+ 15
-		self.wasLogged = []
 
 		self.guildButtonEvent = None
 
@@ -460,7 +399,6 @@ class MessengerWindow(ui.ScriptWindow):
 			self.mobileButton = self.GetChild("MobileButton")
 			self.removeButton = self.GetChild("RemoveButton")
 			self.addFriendButton = self.GetChild("AddFriendButton")
-			self.addBlockButton = self.GetChild("BlockFriendButton")
 			self.guildButton = self.GetChild("GuildButton")
 		except:
 			import exception
@@ -472,19 +410,16 @@ class MessengerWindow(ui.ScriptWindow):
 		self.mobileButton.SetEvent(ui.__mem_func__(self.OnPressMobileButton))
 		self.removeButton.SetEvent(ui.__mem_func__(self.OnPressRemoveButton))
 		self.addFriendButton.SetEvent(ui.__mem_func__(self.OnPressAddFriendButton))
-		if app.ENABLE_MESSENGER_BLOCK:
-			self.addBlockButton.SetEvent(ui.__mem_func__(self.OnPressAddBlockButton))
 		self.guildButton.SetEvent(ui.__mem_func__(self.OnPressGuildButton))
 
 		if not uiGameOption.MOBILE: #constInfo.SEND_MOBILE_PHONE_MESSAGE_ENABLE:
 			self.mobileButton.Hide()
 			width = self.GetWidth()
 			height = self.GetHeight()
-			if not app.ENABLE_MESSENGER_BLOCK:	
-				self.addFriendButton.SetPosition(-60, 30)
-				self.whisperButton.SetPosition(-20, 30)
-				self.removeButton.SetPosition(20, 30)
-				self.guildButton.SetPosition(60, 30)
+			self.addFriendButton.SetPosition(-60, 30)
+			self.whisperButton.SetPosition(-20, 30)
+			self.removeButton.SetPosition(20, 30)
+			self.guildButton.SetPosition(60, 30)
 
 		self.whisperButton.Disable()
 		self.mobileButton.Disable()
@@ -591,17 +526,6 @@ class MessengerWindow(ui.ScriptWindow):
 		member.Open()
 		member.Show()
 		self.groupList.append(member)
-		if app.ENABLE_MESSENGER_BLOCK:
-			member = MessengerBlockGroup(ui.__mem_func__(self.GetSelf))
-			member.Open()
-			member.Show()
-			self.groupList.append(member)
-			
-		if app.ENABLE_MESSENGER_TEAM:
-			member = MessengerTeamGroup(ui.__mem_func__(self.GetSelf))
-			member.Open()
-			member.Show()
-			self.groupList.append(member)
 
 	def __AddFamilyGroup(self):
 		member = MessengerFamilyGroup(ui.__mem_func__(self.GetSelf))
@@ -720,28 +644,6 @@ class MessengerWindow(ui.ScriptWindow):
 		self.friendNameBoard.Close()
 		self.friendNameBoard = None
 		return True
-
-	if app.ENABLE_MESSENGER_BLOCK:
-		def OnPressAddBlockButton(self):
-			blockNameBoard = uiCommon.InputDialog()
-			blockNameBoard.SetTitle(localeInfo.MESSENGER_ADD_BLOCK_FRIEND)
-			blockNameBoard.SetAcceptEvent(ui.__mem_func__(self.OnAddBlock))
-			blockNameBoard.SetCancelEvent(ui.__mem_func__(self.OnCancelAddBlock))
-			blockNameBoard.Open()
-			self.blockNameBoard = blockNameBoard
-
-		def OnAddBlock(self):
-			text2 = self.blockNameBoard.GetText()
-			if text2:
-				net.SendMessengerAddBlockByNamePacket(text2)
-			self.blockNameBoard.Close()
-			self.blockNameBoard = None
-			return TRUE
-
-		def OnCancelAddBlock(self):
-			self.blockNameBoard.Close()
-			self.blockNameBoard = None
-			return TRUE
 
 	def OnPressWhisperButton(self):
 		if self.selectedItem:
@@ -884,15 +786,6 @@ class MessengerWindow(ui.ScriptWindow):
 		member.SetName(name)
 		member.Online()
 		self.OnRefreshList()
-		
-		if not messenger.IsBlockByName(name):
-			if app.GetTime() > self.TimeToShowInfoAboutLogin:
-				if member.WasShowed() == FALSE:
-					self.pop = uiPopup .PopupMsg()
-					self.pop.SetType(1)
-					self.pop.SetMsg("Prietenul tãu %s este ONLINE!"% name)
-					self.pop.Show()
-					member.SetShowed()
 
 	def OnLogout(self, groupIndex, key, name=None):
 		group = self.groupList[groupIndex]

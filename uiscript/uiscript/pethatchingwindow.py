@@ -41,7 +41,7 @@ window = {
 				
 					"children" :
 					(
-						{ "name":"TitleName", "type":"text", "x":0, "y":0, "text":"Incubator", "all_align":"center" },
+						{ "name":"TitleName", "type":"text", "x":0, "y":0, "text":"Incubatrice", "all_align":"center" },
 					),
 				},
 				
@@ -75,7 +75,7 @@ window = {
 					"name" : "HatchingMoneyWindow", "type" : "window", "x" : 13, "y" : 132, "width" : 150, "height" : 14, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"HatchingMoney", "type":"text", "x":0, "y":0, "text": "Preţ: 100.000 Yang", "r":1.0, "g":1.0, "b":1.0, "a":1.0, "all_align" : "center"},
+						{"name":"HatchingMoney", "type":"text", "x":0, "y":0, "text": "Prezzo: 100.000 Yang", "r":1.0, "g":1.0, "b":1.0, "a":1.0, "all_align" : "center"},
 					),
 				},
 				
@@ -87,7 +87,7 @@ window = {
 					"x" : 39,
 					"y" : 151,
 
-					"text" : "Trapă",
+					"text" : "Schiudi",
 
 					"default_image" : "d:/ymir work/ui/pattern/LargeB_Button_01.tga",
 					"over_image" : "d:/ymir work/ui/pattern/LargeB_Button_02.tga",
@@ -130,7 +130,7 @@ window = {
 					"name" : "PetNamingTitleWindow", "type" : "window", "x" : 22, "y" : 86, "width" : 130, "height" : 14, "style" : ("attach",),
 					"children" :
 					(
-						{"name":"PetNamingTitle", "type":"text", "x":0, "y":0, "text":"Introduceţi Numele Pet-ului", "all_align" : "center"},
+						{"name":"PetNamingTitle", "type":"text", "x":0, "y":0, "text":"Inserisci Nome Pet", "all_align" : "center"},
 					),
 				},
 			),				

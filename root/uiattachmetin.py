@@ -17,7 +17,7 @@ class AttachMetinDialog(ui.ScriptWindow):
 			self.metinItemPos = 0
 			self.targetItemPos = 0
 			self.wndInventory = wndInventory
-			self.lockedItems = {i:(-1,-1) for i in range(2)}
+			#self.lockedItems = {i:(-1,-1) for i in range(2)}
 	else:
 		def __init__(self):
 			ui.ScriptWindow.__init__(self)
@@ -125,6 +125,7 @@ class AttachMetinDialog(ui.ScriptWindow):
 		if app.WJ_ENABLE_TRADABLE_ICON:  
 			self.SetCantMouseEventSlot(0, self.metinItemPos)
 			self.SetCantMouseEventSlot(1, self.targetItemPos)
+
 	def UpdateDialog(self):
 		newWidth = self.newToolTip.GetWidth() + 230 + 15 + 20
 		newHeight = self.newToolTip.GetHeight() + 98
@@ -152,12 +153,12 @@ class AttachMetinDialog(ui.ScriptWindow):
 		if app.WJ_ENABLE_TRADABLE_ICON:  
 			self.SetCanMouseEventSlot(0, self.metinItemPos)
 			self.SetCanMouseEventSlot(1, self.targetItemPos)
-			
+
 	if app.WJ_ENABLE_TRADABLE_ICON:  
 		def SetCanMouseEventSlot(self, what, slotIndex):
 			itemInvenPage = slotIndex / player.INVENTORY_PAGE_SIZE
 			localSlotPos = slotIndex - (itemInvenPage * player.INVENTORY_PAGE_SIZE)
-			self.lockedItems[what] = (-1, -1)
+			#self.lockedItems[what] = (-1, -1)
 
 			if itemInvenPage == self.wndInventory.GetInventoryPageIndex():
 				self.wndInventory.wndItem.SetCanMouseEventSlot(localSlotPos)
@@ -165,15 +166,15 @@ class AttachMetinDialog(ui.ScriptWindow):
 		def SetCantMouseEventSlot(self, what, slotIndex):
 			itemInvenPage = slotIndex / player.INVENTORY_PAGE_SIZE
 			localSlotPos = slotIndex - (itemInvenPage * player.INVENTORY_PAGE_SIZE)
-			self.lockedItems[what] = (itemInvenPage, localSlotPos)
+			#self.lockedItems[what] = (itemInvenPage, localSlotPos)
 
 			if itemInvenPage == self.wndInventory.GetInventoryPageIndex():
 				self.wndInventory.wndItem.SetCantMouseEventSlot(localSlotPos)
 
-		def RefreshLockedSlot(self):
-			if self.wndInventory:
-				for what, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
-					if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
-						self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
+		# def RefreshLockedSlot(self):
+			# if self.wndInventory:
+				# for what, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
+					# if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
+						# self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
 
-				self.wndInventory.wndItem.RefreshSlot()
+				# self.wndInventory.wndItem.RefreshSlot()

@@ -27,7 +27,6 @@ class MapNameShower(ui.ExpandedImageBox):
 							"metin2_map_c1"  : LOCALE_PATH+"c1.tga",
 							"map_c2"         : LOCALE_PATH+"c2.tga",
 							"metin2_map_c3"  : LOCALE_PATH+"c3.tga",
-							"metin2_map_capital"  : LOCALE_PATH+"capital.tga",
 							"metin2_map_deviltower1" : LOCALE_PATH+"devil1_title.tga",
 							"metin2_map_n_desert_01" : LOCALE_PATH+"desert1.tga",
 							"season2/metin2_map_n_desert_02": LOCALE_PATH+"desert2.tga",
@@ -67,7 +66,6 @@ class MapNameShower(ui.ExpandedImageBox):
 							"metin2_map_c1"  : LOCALE_PATH+"c1.tga",
 							"map_c2"         : LOCALE_PATH+"c2.tga",
 							"metin2_map_c3"  : LOCALE_PATH+"c3.tga",
-							"metin2_map_capital"  : LOCALE_PATH+"capital.tga",
 							"map_n_snowm_01" : LOCALE_PATH+"snow1.tga",
 							"metin2_map_deviltower1" : LOCALE_PATH+"devil1_title.tga",
 							"metin2_map_n_flame_01" : LOCALE_PATH+"frame1.tga",
@@ -178,7 +176,6 @@ class MapNameShower(ui.ExpandedImageBox):
 			self.floorImage.SetPosition(100, 80)
 			self.floorImage.SetAlpha(0.0)
 			self.floorImage.Show()
-			# 맵이름 (ex: 아귀동굴) 이미지 로딩 & 표시
 			try:
 				floor = self.__GetDevilTowerFloor(x, y)
 				print x, y, floor
@@ -196,8 +193,6 @@ class MapNameShower(ui.ExpandedImageBox):
 				self.objectiveImage.SetAlpha(0.0)
 				self.objectiveImage.Show()
 
-				# 층별 목표 이미지 로딩 & 표시
-				# 던전은 현재 몇층인지 알아오는 부분 때문에 하드코딩을 피하기가 힘들다...
 				try:
 					floor = self.__GetDevilTowerFloor(x, y)
 					print x, y, floor
@@ -217,7 +212,6 @@ class MapNameShower(ui.ExpandedImageBox):
 			self.floorImage.SetAlpha(0.0)
 			self.floorImage.Show()
 
-			# 맵이름 (ex: 아귀동굴) 이미지 로딩 & 표시
 			try:
 				floor = self.__GetDevilBase(x, y)
 				print x, y, floor
@@ -235,8 +229,6 @@ class MapNameShower(ui.ExpandedImageBox):
 				self.objectiveImage.Show()
 
 
-				# 층별 목표 이미지 로딩 & 표시
-				# 던전은 현재 몇층인지 알아오는 부분 때문에 하드코딩을 피하기가 힘들다...
 				try:
 					floor = self.__GetDevilBase(x, y)
 					print x, y, floor

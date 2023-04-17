@@ -32,21 +32,18 @@
 [CENTER_ALIGN]Sarà possibile dropparli da svariati boss.
 
 
-[COLOR=0xffd700;X_PADDING=12]*Bonus che possono uscire su un talismano:
-[X_PADDING=20]- Interruzione Difesa Spada 5%
-[X_PADDING=20]- Interruzione Difesa Spadone 5%
-[X_PADDING=20]- Interruzione Difesa Pugnale 5%
-[X_PADDING=20]- Interruzione Difesa Freccia 5%
-[X_PADDING=20]- Interruzione Difesa Ventagli 5%
-[X_PADDING=20]- Interruzione Difesa Campana 5%
-[X_PADDING=20]- Resistenza Mezziuomini 10%
-[X_PADDING=20]- Forte contro Mezziuomini 10%
-[X_PADDING=20]- Forte contro Mostri 15%
-[X_PADDING=20]- Forte contro Metin 15%
-[X_PADDING=20]- Forte contro Boss 15%
-[X_PADDING=20]- Resistenza Oscurità 15%
-[X_PADDING=20]- Resistenza Terra 15%
-[X_PADDING=20]- Resistenza Ghiaccio 15%
-[X_PADDING=20]- Resistenza Fuoco 15%
-[X_PADDING=20]- Resistenza Vento 15%
-[X_PADDING=20]- Resistenza Lampo 15%
+[COLOR=0xffd700;X_PADDING=12]*Bonus massimi che possono uscire su un talismano:
+[X_PADDING=20]- Interruzione Difesa Spada 6%
+[X_PADDING=20]- Interruzione Difesa Spadone 6%
+[X_PADDING=20]- Interruzione Difesa Pugnale 6%
+[X_PADDING=20]- Interruzione Difesa Freccia 6%
+[X_PADDING=20]- Interruzione Difesa Ventagli 6%
+[X_PADDING=20]- Interruzione Difesa Campana 6%
+[X_PADDING=20]- Resistenza Mezziuomini 8%
+[X_PADDING=20]- Forte contro Mostri 5%
+[X_PADDING=20]- Resistenza Oscurità 12%
+[X_PADDING=20]- Resistenza Terra 12%
+[X_PADDING=20]- Resistenza Ghiaccio 12%
+[X_PADDING=20]- Resistenza Fuoco 12%
+[X_PADDING=20]- Resistenza Vento 12%
+[X_PADDING=20]- Resistenza Lampo 12%

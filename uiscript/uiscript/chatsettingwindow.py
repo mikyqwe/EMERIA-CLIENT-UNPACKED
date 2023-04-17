@@ -1,4 +1,4 @@
-import uiScriptLocale
+import localeInfo
 import app
 
 PATTERN_PATH = "d:/ymir work/ui/pattern/"
@@ -6,10 +6,10 @@ ROOT_PATH = "d:/ymir work/ui/public/"
 CHATTING_PATH = "d:/ymir work/ui/chat/"
 
 WINDOW_WIDTH = 254
-WINDOW_HEIGHT = 265
+WINDOW_HEIGHT = 525
 
 PATTERN_WINDOW_WIDTH = 232
-PATTERN_WINDOW_HEIGHT = 222
+PATTERN_WINDOW_HEIGHT = WINDOW_HEIGHT-70
 
 PATTERN_X_COUNT = (PATTERN_WINDOW_WIDTH - 32) / 16
 PATTERN_Y_COUNT = (PATTERN_WINDOW_HEIGHT - 32) / 16
@@ -37,7 +37,7 @@ window = {
 			"width" : WINDOW_WIDTH,
 			"height" : WINDOW_HEIGHT,
 
-			"title" : uiScriptLocale.CHATTING_SETTING_TITLE,
+			"title" : localeInfo.CHATTING_SETTING_TITLE,
 
 			"children" :
 			(
@@ -162,123 +162,144 @@ window = {
 					),
 				},
 
-				## 채팅 설정
+# BIG IMAGE STEP - 28
+# SMALL IMAGE STEP - 18
+
 				{
-					"name" : "chatting_setting_menu_bg", "type" : "image", "x" : 15, "y" : 37,
-					"image" : CHATTING_PATH + "chattingoption_menu_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_TITLE, "all_align" : "center" },
-					),
+					"name" : "chatting_setting_menu_bg", "type" : "image", "x" : 15, "y" : 37,"image" : CHATTING_PATH + "chattingoption_menu_bg.sub",
+					"children" :({ "name" : "chatting_setting", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_TITLE, "all_align" : "center" },),
 				},
-				## 일반
+
 				{
-					"name" : "chatting_setting_talking_bg", "type" : "image", "x" : 18, "y" : 65,
-					"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting_talking", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_TALKING, "all_align":"center" },
-					),
+					"name" : "chatting_setting_talking_bg", "type" : "image", "x" : 18, "y" : 65,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_list", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_LIST, "all_align":"center" },),
 				},
-				## 파티
+
 				{
-					"name" : "chatting_setting_party_bg", "type" : "image", "x" : 18, "y" : 83,
-					"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting_party", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_PARTY, "all_align":"center" },
-					),
+					"name" : "chatting_setting_talking_bg", "type" : "image", "x" : 18, "y" : 83,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_talking", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_TALKING, "all_align":"center" },),
 				},
-				## 길드
+
 				{
-					"name" : "chatting_setting_guild_bg", "type" : "image", "x" : 18, "y" : 101,
-					"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting_guild", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_GUILD, "all_align":"center" },
-					),
+					"name" : "chatting_setting_party_bg", "type" : "image", "x" : 18, "y" : 101, "image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_party", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_PARTY, "all_align":"center" },),
 				},
-				## 외침
+
 				{
-					"name" : "chatting_setting_shout_bg", "type" : "image", "x" : 18, "y" : 119,
-					"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting_shout", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_SHOUT, "all_align":"center" },
-					),
+					"name" : "chatting_setting_guild_bg", "type" : "image", "x" : 18, "y" : 119,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_guild", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_GUILD, "all_align":"center" },),
 				},
-				## 시스템
+
 				{
-					"name" : "chatting_setting_info_bg", "type" : "image", "x" : 18, "y" : 137,
-					"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting_info", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_SYSTEM, "all_align":"center" },
-					),
+					"name" : "chatting_setting_shout_bg", "type" : "image", "x" : 18, "y" : 137,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_shout", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_SHOUT, "all_align":"center" },),
 				},
-				## 공지
+
 				{
-					"name" : "chatting_setting_notice_bg", "type" : "image", "x" : 18, "y" : 155,
-					"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting_notice", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_NOTICE, "all_align":"center" },
-					),
+					"name" : "chatting_setting_info_bg", "type" : "image", "x" : 18, "y" : 155,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_info", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_SYSTEM, "all_align":"center" },),
 				},
-				## 주사위 설정
-				# {
-					# "name" : "dice_setting_menu_bg", "type" : "image", "x" : 15, "y" : 176,
-					# "image" : "d:/ymir work/ui/chat/chattingoption_menu_bg.sub",
-					# "children" :
-					# (
-						# { "name" : "dice_setting", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_DICE_SETTING, "all_align":"center" },
-					# ),
-				# },
-				# ## 주사위
-				# {
-					# "name" : "chatting_setting_dice_bg", "type" : "image", "x" : 18, "y" : 204,
-					# "image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					# "children" :
-					# (
-						# { "name" : "chatting_setting_dice", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_DICE, "all_align":"center" },
-					# ),
-				# },
-				## 시스템 세부설정
+
 				{
-					"name" : "system_setting_menu_bg", "type" : "image", "x" : 15, "y" : 176,
-					"image" : "d:/ymir work/ui/chat/chattingoption_menu_bg.sub",
-					"children" :
-					(
-						{ "name" : "system_setting", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_DETAIL, "all_align":"center" },
-					),
+					"name" : "chatting_setting_notice_bg", "type" : "image", "x" : 18, "y" : 173,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_notice", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_NOTICE, "all_align":"center" },),
 				},
-				## 경험치
-				# {
-					# "name" : "chatting_setting_exp_bg", "type" : "image", "x" : 18, "y" : 253,
-					# "image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					# "children" :
-					# (
-						# { "name" : "chatting_setting_exp", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_EXP, "all_align":"center" },
-					# ),
-				# },
-				## 아이템
-				# {
-					# "name" : "chatting_setting_item_bg", "type" : "image", "x" : 18, "y" : 271,
-					# "image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					# "children" :
-					# (
-						# { "name" : "chatting_setting_item", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_ITEM, "all_align":"center" },
-					# ),
-				# },
-				## 재화
+
+# ------- LANGUAGE --------#
+
 				{
-					"name" : "chatting_setting_gold_bg", "type" : "image", "x" : 18, "y" : 204,
-					"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
-					"children" :
-					(
-						{ "name" : "chatting_setting_gold", "type" : "text", "x" : 0, "y" : 0, "text" : uiScriptLocale.CHATTING_SETTING_GOLD, "all_align":"center" },
-					),
+					"name" : "lang_setting_menu_bg", "type" : "image", "x" : 15, "y" : 194,"image" : CHATTING_PATH + "chattingoption_menu_bg.sub",
+					"children" :({ "name" : "lang_setting", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_LANGUAGE_CUR % "none", "all_align" : "center" },),
 				},
+
+				{
+					"name" : "filter_setting_lang_bg", "type" : "image", "x" : 18, "y" : 222,"image" : CHATTING_PATH + "chattingoption_sub_small_1_bg.sub",
+					"children" :({ "name" : "filter_setting_lang", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_LANGUAGE_ONOFF, "all_align":"center" },),
+				},
+
+				## Filter Button
+				{
+					"name" : "filter_button",
+					"type" : "toggle_button",
+					"x" : 18+75+5,
+					"y" : 222,
+					"default_image" : "d:/ymir work/ui/public/xsmall_button_01.sub",
+					"over_image" : "d:/ymir work/ui/public/xsmall_button_02.sub",
+					"down_image" : "d:/ymir work/ui/public/xsmall_button_03.sub",
+					"text":localeInfo.CHATTING_SETTING_LANGUAGE_OFF,
+				},
+
+				{
+					"name" : "lang1_setting_lang_bg", "type" : "image", "x" : 18, "y" : 240,"image" : CHATTING_PATH + "chattingoption_sub_small_1_bg.sub",
+					"children" :({ "name" : "lang1_setting_lang", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_LANGUAGE % 1, "all_align":"center" },),
+				},
+				
+				{
+					"name" : "lang2_setting_lang_bg", "type" : "image", "x" : 18, "y" : 258,"image" : CHATTING_PATH + "chattingoption_sub_small_1_bg.sub",
+					"children" :({ "name" : "lang2_setting_lang", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_LANGUAGE % 2, "all_align":"center" },),
+				},
+				
+				{
+					"name" : "lang3_setting_lang_bg", "type" : "image", "x" : 18, "y" : 276,"image" : CHATTING_PATH + "chattingoption_sub_small_1_bg.sub",
+					"children" :({ "name" : "lang3_setting_lang", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_LANGUAGE % 3, "all_align":"center" },),
+				},
+
+
+# ------- DICE --------#
+				{
+					"name" : "dice_setting_menu_bg", "type" : "image", "x" : 15, "y" : 297,"image" : "d:/ymir work/ui/chat/chattingoption_menu_bg.sub",
+					"children" :({ "name" : "dice_setting", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_DICE_SETTING, "all_align":"center" },),
+				},
+				
+				{
+					"name" : "chatting_setting_dice_bg", "type" : "image", "x" : 18, "y" : 325,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_dice", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_DICE, "all_align":"center" },),
+				},
+
+# ------- ITEM SETTING --------#
+				{
+					"name" : "system_setting_menu_bg", "type" : "image", "x" : 15, "y" : 346,"image" : "d:/ymir work/ui/chat/chattingoption_menu_bg.sub",
+					"children" :({ "name" : "system_setting", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_DETAIL, "all_align":"center" },),
+				},
+				
+				{
+					"name" : "chatting_setting_exp_bg", "type" : "image", "x" : 18, "y" : 374,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_exp", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_EXP, "all_align":"center" },),
+				},
+				
+				{
+					"name" : "chatting_setting_item_bg", "type" : "image", "x" : 18, "y" : 392,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_item", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_ITEM, "all_align":"center" },),
+				},
+				
+				{
+					"name" : "chatting_setting_gold_bg", "type" : "image", "x" : 18, "y" : 410,"image" : CHATTING_PATH + "chattingoption_sub_large_bg.sub",
+					"children" :({ "name" : "chatting_setting_gold", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_GOLD, "all_align":"center" },),
+				},
+
+# ------- CHAT NAME SETTING --------#
+
+				{
+					"name" : "name_setting_menu_bg", "type" : "image", "x" : 15, "y" : 431,"image" : "d:/ymir work/ui/chat/chattingoption_menu_bg.sub",
+					"children" :({ "name" : "system_setting", "type" : "text", "x" : 0, "y" : 0, "text" : localeInfo.CHATTING_SETTING_TABNAME, "all_align":"center" },),
+				},
+
+				{
+					"name" : "name_setting_slotbar", "type" : "slotbar", "x" : 15, "y" : 459,"width":120,"height":17,
+					"children" :({ "name" : "name_editline", "type" : "editline", "x" : 3, "y" : 2, "width":120, "height":17,"input_limit":6, },),
+				},
+
+				## NameButton
+				{
+					"name" : "name_button",
+					"type" : "button",
+					"x" : 15+120+5,
+					"y" : 459,
+					"default_image" : CHATTING_PATH + "chattingoption_enter_btn_01.sub",
+					"over_image" : CHATTING_PATH + "chattingoption_enter_btn_02.sub",
+					"down_image" : CHATTING_PATH + "chattingoption_enter_btn_03.sub",
+				},
+
 
 				## ResetButton
 				{
@@ -292,7 +313,7 @@ window = {
 					"over_image" : CHATTING_PATH + "chattingoption_bottom_button_02.sub",
 					"down_image" : CHATTING_PATH + "chattingoption_bottom_button_03.sub",
 
-					"text" : uiScriptLocale.CHATTING_SETTING_CLEAR,
+					"text" : localeInfo.CHATTING_SETTING_CLEAR,
 				},
 				## SaveButton
 				{
@@ -306,11 +327,11 @@ window = {
 					"over_image" : CHATTING_PATH + "chattingoption_bottom_button_02.sub",
 					"down_image" : CHATTING_PATH + "chattingoption_bottom_button_03.sub",
 
-					"text" : uiScriptLocale.CHATTING_SETTING_SAVE,
+					"text" : localeInfo.CHATTING_SETTING_SAVE,
 				},
 				## CancelButton
 				{
-					"name" : "cancle_button",
+					"name" : "cancel_button",
 					"type" : "button",
 
 					"x" : 166,
@@ -320,7 +341,7 @@ window = {
 					"over_image" : CHATTING_PATH + "chattingoption_bottom_button_02.sub",
 					"down_image" : CHATTING_PATH + "chattingoption_bottom_button_03.sub",
 
-					"text" : uiScriptLocale.CHATTING_SETTING_CANCLE,
+					"text" : localeInfo.CHATTING_SETTING_CANCLE,
 				},
 			),
 		},

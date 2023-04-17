@@ -6,7 +6,7 @@ HeightScale	0.500000
 ViewRadius	128
 
 MapSize	4	4
-BasePosition	665600	435200
+BasePosition	0	0
 TextureSet	textureset\metin2_n_saguidungeon.txt
 Environment	skipia_dungeon.msenv
 

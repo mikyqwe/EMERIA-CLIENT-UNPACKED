@@ -1,10 +1,12 @@
 
 [BANNER_IMG = d:/ymir work/ui/wiki/banners/thestart.tga]
+[CENTER_ALIGN;FONT_SIZE=30]Introduzione al gioco
+
 [CENTER_ALIGN]Salve novizio. 
 [CENTER_ALIGN]In questa guida troverai informazioni relative al tuo nuovo inizio nel mondo di Zayos 
 [CENTER_ALIGN]e di come diventare piu forte giorno per giorno. L'avventura ha inizio.
 
-[COLOR=0xffd700;FONT_SIZE=15]Contenuti:
+[COLOR=0xffd700;FONT_SIZE=15]*Contenuti:
 *1. Caratteristiche base di Zayos.
 *2. Skill, Biologo, Taglie & Dungeons
 *3. Item da tenere e item da comprare.
@@ -12,7 +14,7 @@
 *5. Come aumentare i danni.
 *6. Il tuo primo dungeon.
 
-[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=160; CENTER_ALIGN]
+[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=165; CENTER_ALIGN]
 
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]1. Caratteristiche base di Zayos
 
@@ -33,8 +35,6 @@ il magazzino, o il tuo inventario speciale (puoi anche aprirlo premendo il tasto
 Per creare un negozio, noterai in basso a destra vicino al bottone per aprire la schermata personaggio, un icona
 di un fagotto, questo aprira' la tua HUB per creare un negozio o aprire il cerca item, ricordati che puoi utilizzare
 questo menu' solo dalla capitale. Per aprire lo switchbot invece ti basta semplicemente premere il tasto F6.
-
-[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=420; CENTER_ALIGN]
 
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]2. Skill, Biologo, Taglie & Dungeons
 
@@ -140,4 +140,3 @@ oggetti utili e potenziare le skill primarie, completate doungeon scimmia per po
 []*Strategia: Bloccare l'exp intorno al lv 55/61, distruggere tanti metin/boss presenti in mappa
 per farmare oggetti utili e potenziare le skill primarie, scalare la torre dei demoni
 per cercare la vostra arma del lv 75, completare missioni biologo e caccia relative al vostro livello
-

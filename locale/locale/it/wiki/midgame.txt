@@ -1,0 +1,5 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/midgame.png]
+
+
+[X_PADDING=15;FONT_SIZE=25]                           Redattore a lavoro!

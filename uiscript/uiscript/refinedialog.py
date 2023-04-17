@@ -2,7 +2,7 @@ import uiScriptLocale
 
 window = {
 	"name" : "RefineDialog",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : SCREEN_WIDTH - 400,
 	"y" : 70 * 800 / SCREEN_HEIGHT,

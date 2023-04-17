@@ -9,7 +9,6 @@ import chrmgr
 import player
 import snd
 import chat
-import teleport_system
 import textTail
 import snd
 import net
@@ -17,18 +16,15 @@ import effect
 import wndMgr
 import fly
 import systemSetting
-import uiPopup
-import time
 import quest
 import guild
-import uifastequip
 import skill
 import messenger
 import localeInfo
 import constInfo
 import exchange
 import ime
-import uiScriptLocale
+import marek38
 import ui
 import uiCommon
 import uiPhaseCurtain
@@ -37,9 +33,7 @@ import uiAffectShower
 import uiPlayerGauge
 import uiCharacter
 import uiTarget
-import safebox
-if app.ENABLE_DEFENSAWESHIP:
-	import uiShipMastHP
+import uipetsystem
 # PRIVATE_SHOP_PRICE_LIST
 import uiPrivateShopBuilder
 # END_OF_PRIVATE_SHOP_PRICE_LIST
@@ -47,46 +41,22 @@ import uiPrivateShopBuilder
 import mouseModule
 import consoleModule
 import localeInfo
-
-import playerSettingModule
-import interfaceModule
 if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
 	from uispecialStorage import SpecialStorageWindow
+import playerSettingModule
+import interfaceModule
+
 import musicInfo
 import debugInfo
-import uipetsystem
-import skybox_system
 import stringCommander
-import uimarbleshop
-import binascii
-#Mental Bonus
-import uiBonusPage
-###################
-
+if app.__ENABLE_NEW_OFFLINESHOP__:
+	import uiofflineshop
+	import offlineshop
 from _weakref import proxy
-# BEGIN_OFFLINE_SHOP
-if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-	import uiOfflineShopBuilder
-	import uiOfflineShop
-# END_OF_OFFLINE_SHOP								  
-
-# TEXTTAIL_LIVINGTIME_CONTROL
-#if localeInfo.IsJAPAN():
-#	app.SetTextTailLivingTime(8.0)
-# END_OF_TEXTTAIL_LIVINGTIME_CONTROL
 
 # SCREENSHOT_CWDSAVE
-SCREENSHOT_CWDSAVE = False
+SCREENSHOT_CWDSAVE = True
 SCREENSHOT_DIR = None
-if app.GUILD_WAR_COUNTER:
-	import uiGuildWarData
-	
-if localeInfo.IsEUROPE():
-	SCREENSHOT_CWDSAVE = True
-
-if localeInfo.IsCIBN10():
-	SCREENSHOT_CWDSAVE = False
-	SCREENSHOT_DIR = "YT2W"
 
 cameraDistance = 1550.0
 cameraPitch = 27.0
@@ -94,25 +64,15 @@ cameraRotation = 0.0
 cameraHeight = 100.0
 
 testAlignment = 0
-# PROFESSIONAL_BIOLOG_SYSTEM
-if app.ENABLE_BIOLOG_SYSTEM:
-	import uiprofessionalbiolog
-# END_OF_PROFESSIONAL_BIOLOG_SYSTEM	
+
 class GameWindow(ui.ScriptWindow):
 	def __init__(self, stream):
-		if constInfo.ENABLE_MULTI_RANKING:
-			self.rankingWindow =None
 		ui.ScriptWindow.__init__(self, "GAME")
-		import dailygift
-		self.wnddailygift = dailygift.DailyGift() 
 		self.SetWindowName("game")
 		if constInfo.ENABLE_NEW_DROP_ITEM:
 			self.itemDropQuestionDialog=None
 		net.SetPhaseWindow(net.PHASE_WINDOW_GAME, self)
 		player.SetGameWindow(self)
-		if app.ENABLE_DEFENSAWESHIP:
-			self.wndShipMastHP = uiShipMastHP.ShipMastHP()
-			self.wndShipMastHP.Close()
 
 		self.quickSlotPageIndex = 0
 		self.lastPKModeSendedTime = 0
@@ -121,45 +81,34 @@ class GameWindow(ui.ScriptWindow):
 		self.guildWarQuestionDialog = None
 		self.interface = None
 		self.targetBoard = None
-		if app.ENABLE_SHIP_DEFENSE:
-			self.allyTargetBoard = None
 		self.console = None
 		self.mapNameShower = None
 		self.affectShower = None
 		self.playerGauge = None
+
+		if app.__ENABLE_NEW_OFFLINESHOP__:
+			offlineshop.HideShopNames()
+			# self.Offlineshop = uiofflineshop.NewOfflineShopBoard()
+			# self.Offlineshop.Hide()
+
 		self.stream=stream
 		self.interface = interfaceModule.Interface()
-		if app.ENABLE_GUILD_REQUEST:
-			constInfo.SetInterfaceInstance(self.interface)
-		if app.ENABLE_EVENT_MANAGER:
-			constInfo.SetInterfaceInstance(self.interface)
 		constInfo.SetInterfaceInstance(self.interface)
-		self.interface.SetStream(self.stream)
 		self.interface.MakeInterface()
 		self.interface.ShowDefaultWindows()
-		self.interface.Bind(self)
-		self.stream.isAutoSelect = 0
 
 		self.curtain = uiPhaseCurtain.PhaseCurtain()
 		self.curtain.speed = 0.03
 		self.curtain.Hide()
-		self.teleportsystem = teleport_system.teleportwindow()
-		self.skyboxsystem = skybox_system.MentaLGui()
-		
-		self.interface.wndMiniMap.SAFE_SetHideEvent(self.__HideSpecial)
-		self.interface.wndMiniMap.SAFE_SetShowEvent(self.__ShowSpecial)
-
-		if app.ENABLE_SHIP_DEFENSE:
-			self.allyTargetBoard = uiTarget.AllianceTargetBoard()
-			self.allyTargetBoard.Hide()
-			self.interface.SetAllianceTargetBoard(self.allyTargetBoard)
 
 		self.targetBoard = uiTarget.TargetBoard()
 		self.targetBoard.SetWhisperEvent(ui.__mem_func__(self.interface.OpenWhisperDialog))
 		self.targetBoard.Hide()
+	
 		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
 			self.uispecialStorage = SpecialStorageWindow()
 			self.uispecialStorage.Hide()
+			
 		self.petmain = uipetsystem.PetSystemMain()
 		self.petmini = uipetsystem.PetSystemMini()
 		self.console = consoleModule.ConsoleWindow()
@@ -169,11 +118,10 @@ class GameWindow(ui.ScriptWindow):
 
 		self.mapNameShower = uiMapNameShower.MapNameShower()
 		self.affectShower = uiAffectShower.AffectShower()
-		self.wndMarbleShop = uimarbleshop.MarbleShopWindow()				
-		self.playerGauge = uiPlayerGauge.PlayerGauge(self)
-		self.playerGauge.Hide()      
 
-		#wj 2014.1.2. ESC키를 누를 시 우선적으로 DropQuestionDialog를 끄도록 만들었다. 하지만 처음에 itemDropQuestionDialog가 선언되어 있지 않아 ERROR가 발생하여 init에서 선언과 동시에 초기화 시킴.
+		self.playerGauge = uiPlayerGauge.PlayerGauge(self)
+		self.playerGauge.Hide()
+
 		self.itemDropQuestionDialog = None
 
 		self.__SetQuickSlotMode()
@@ -183,83 +131,22 @@ class GameWindow(ui.ScriptWindow):
 		self.isCameraMoving = False
 		self.cameraMovementProgress = 0.0
 		
-		self.pingLine = None
-		if app.ENABLE_PINGTIME:
-			self.pingLine = ui.TextLine()
-			self.pingLine.SetFontName(localeInfo.UI_DEF_FONT)
-#			self.pingLine.SetFontColor(1.0,1.0,1.0)
-			self.pingLine.SetPosition((wndMgr.GetScreenWidth() - 180) / 2, 160)		
-		
-		self.timeLine = ui.TextLine()
-		self.timeLine.SetFontName(localeInfo.UI_DEF_FONT)
-		self.timeLine.SetPosition((wndMgr.GetScreenWidth() - 83) / 1, 150)
-		
-		import uiPickupFilter
-		self.PickupFilter = uiPickupFilter.PickupFilter()
-		self.PickupFilter.Hide()
-
-	if app.ENABLE_KILL_STATISTICS:
-		def ReceiveKillStatisticsPacket(self, j, sh, ch, t, td, dw, dl, b, st):
-			constInfo.KILL_STATISTICS_DATA = [int(j), int(sh), int(ch), int(t), int(td), int(dw), int(dl), int(b), int(st),]
-
 	def __del__(self):
 		player.SetGameWindow(0)
 		net.ClearPhaseWindow(net.PHASE_WINDOW_GAME, self)
 		ui.ScriptWindow.__del__(self)
-	
-	def	__EnablePickUpItem(self):
-		if self.PickupFilter.IsShow():
-			self.PickupFilter.Hide()
-		else:
-			self.PickupFilter.Show()
-			self.PickupFilter.SetCenterPosition()
-			self.PickupFilter.SetTop()
-			
-	if app.INGAME_WIKI:
-		def ToggleWikiWindow(self):
-			if not self.wndWiki:
-				return
-			
-			if self.wndWiki.IsShow():
-				self.wndWiki.Hide()
-			else:
-				self.wndWiki.Show()
-				self.wndWiki.SetTop()
-
 
 	def Open(self):
 		app.SetFrameSkip(1)
-		self.SetSize(wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight())
-		#self.daily_reward = ui.Button()
-		#self.daily_reward.SetParent(self)
-		#self.daily_reward.SetPosition(wndMgr.GetScreenWidth()-188,80)
-		#self.daily_reward.SetUpVisual("icon/giftsystem/prize1.png")
-		#self.daily_reward.SetOverVisual("icon/giftsystem/prize2.png")
-		#self.daily_reward.SetDownVisual("icon/giftsystem/prize3.png")
-		#self.daily_reward.SetToolTipText("Ricompensa")
-		#self.daily_reward.SetEvent(lambda : self.ManagerGiftSystem("Show|"))
-		#self.daily_reward.FlashEx()
-		#self.daily_reward.Show()
 
-		self._timeLine_hide = False
-		
-		self.__BuildKeyDict()
-		self.__BuildDebugInfo()
-		
+		self.SetSize(wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight())
+
 		self.quickSlotPageIndex = 0
 		self.PickingCharacterIndex = -1
 		self.PickingItemIndex = -1
 		self.consoleEnable = False
 		self.isShowDebugInfo = False
 		self.ShowNameFlag = False
-		## Battlepass
-		self.battlepass_button = ui.Button()
-		self.battlepass_button.SetParent(self)
-		self.battlepass_button.SetPosition(wndMgr.GetScreenWidth()-116,175)
-		self.battlepass_button.SetUpVisual("d:/ymir work/battle_pass/open_battlepass1.tga")
-		self.battlepass_button.SetOverVisual("d:/ymir work/battle_pass/open_battlepass2.tga")
-		self.battlepass_button.SetDownVisual("d:/ymir work/battle_pass/open_battlepass3.tga")
-		self.battlepass_button.SetEvent(lambda : net.SendChatPacket("/open_battlepass"))
 
 		self.enableXMasBoom = False
 		self.startTimeXMasBoom = 0.0
@@ -310,9 +197,7 @@ class GameWindow(ui.ScriptWindow):
 		# PRIVATE_SHOP_PRICE_LIST
 		uiPrivateShopBuilder.Clear()
 		# END_OF_PRIVATE_SHOP_PRICE_LIST
-		if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-			uiOfflineShopBuilder.Clear()
-		# END_OF_PRIVATE_SHOP_PRICE_LIST
+
 		# UNKNOWN_UPDATE
 		exchange.InitTrading()
 		# END_OF_UNKNOWN_UPDATE
@@ -336,18 +221,6 @@ class GameWindow(ui.ScriptWindow):
 		app.ShowCursor()
 
 		net.SendEnterGamePacket()
-		if app.ENABLE_DEFENSAWESHIP:
-			if background.GetCurrentMapName() == "defensawe_hydra":
-				self.__ShipMastHPShow()
-
-		curLang = systemSetting.GetTransLangKey()
-		if curLang not in constInfo.AVAILABLE_LANGUAGES:
-			localeName = app.GetLocaleName()
-			if localeName in constInfo.AVAILABLE_LANGUAGES:
-				systemSetting.SetTransLangKey(localeName)
-			else:
-				langKey = list(constInfo.AVAILABLE_LANGUAGES)[0]
-				systemSetting.SetTransLangKey(langKey)
 
 		# START_GAME_ERROR_EXIT
 		try:
@@ -357,62 +230,14 @@ class GameWindow(ui.ScriptWindow):
 			exception.Abort("GameWindow.Open")
 		# END_OF_START_GAME_ERROR_EXIT
 
-		# NPC가 큐브시스템으로 만들 수 있는 아이템들의 목록을 캐싱
 		# ex) cubeInformation[20383] = [ {"rewordVNUM": 72723, "rewordCount": 1, "materialInfo": "101,1&102,2", "price": 999 }, ... ]
 		self.cubeInformation = {}
 		self.currentCubeNPC = 0
 		self.isCameraMoving = True
 		self.cameraMovementProgress = 0.0
-
-		if app.INGAME_WIKI:
-			import inGameWiki
-			self.wndWiki = inGameWiki.InGameWiki()
-			self.interface.dlgSystem.wikiWnd = proxy(self.wndWiki)
-
-		if app.ENABLE_FOG_FIX:
-			if systemSetting.IsFogMode():
-				background.SetEnvironmentFog(True)
-			else:
-				background.SetEnvironmentFog(False)	
-
-		#Mental Bonus
-		self.BonusPageBoard = None
-		##############
-		
-		if app.ENABLE_CHAT_COLOR_SYSTEM:
-			if systemSetting.GetChatColor():
-				systemSetting.SetChatColor(True)
-				if not self.open_colors:
-					return
-				if constInfo.chat_color_page_open == 0:
-					return False
-				if arg == 1:
-					constInfo.chat_color = "|cFFff1a1a|H|h"
-				if arg == 2:
-					constInfo.chat_color = "|cFF00ffe4|H|h"
-				if arg == 3:
-					constInfo.chat_color = "|cFF33ff33|H|h"
-				if arg == 4:
-					constInfo.chat_color = "|cFFFFF200|H|h"
-				if arg == 5:
-					constInfo.chat_color = "|cFFFF62FF|H|h"
-				if arg == 6:
-					constInfo.chat_color = "|cFFFF7F27|H|h"
-				if arg == 7:
-					constInfo.chat_color = "|cFFff9966|H|h"
-				if arg == 8:
-					constInfo.chat_color = "|cFFbf80ff|H|h"
-			else:
-				if constInfo.chat_color_page_open == 0:
-					return False
 		
 	def Close(self):
 		self.Hide()
-		if app.ENABLE_DEFENSAWESHIP:
-			if self.wndShipMastHP:
-				self.wndShipMastHP.Close()
-				self.wndShipMastHP=0
-		constInfo.py_Flag.clear()
 
 		global cameraDistance, cameraPitch, cameraRotation, cameraHeight
 		(cameraDistance, cameraPitch, cameraRotation, cameraHeight) = app.GetCamera()
@@ -434,12 +259,7 @@ class GameWindow(ui.ScriptWindow):
 		messenger.Destroy()
 		skill.ClearSkillData()
 		wndMgr.Unlock()
-		systemSetting.SaveConfig()
 		mouseModule.mouseController.DeattachObject()
-
-		# if self.rankingWindow:
-			# self.rankingWindow.Hide()
-			# self.rankingWindow = None
 
 		if self.guildWarQuestionDialog:
 			self.guildWarQuestionDialog.Close()
@@ -450,10 +270,7 @@ class GameWindow(ui.ScriptWindow):
 		self.guildInviteQuestionDialog = None
 		self.guildWarQuestionDialog = None
 		self.messengerAddFriendQuestion = None
-		if app.INGAME_WIKI:
-			if self.wndWiki:
-				self.wndWiki.Hide()
-				self.wndWiki = None
+
 		# UNKNOWN_UPDATE
 		self.itemDropQuestionDialog = None
 		# END_OF_UNKNOWN_UPDATE
@@ -461,6 +278,7 @@ class GameWindow(ui.ScriptWindow):
 		# QUEST_CONFIRM
 		self.confirmDialog = None
 		# END_OF_QUEST_CONFIRM
+
 		self.PrintCoord = None
 		self.FrameRate = None
 		self.Pitch = None
@@ -471,79 +289,38 @@ class GameWindow(ui.ScriptWindow):
 		self.PrintMousePos = None
 
 		self.ClearDictionary()
-		self.petmain.Close()
-		self.petmini.Close()
-		self.teleportsystem.Close()
-		self.skyboxsystem.Close()
 
 		self.playerGauge = None
 		self.mapNameShower = None
 		self.affectShower = None
-		
-		self.PickupFilter.Hide()
-		self.PickupFilter=0
 
 		if self.console:
 			self.console.BindGameClass(0)
 			self.console.Close()
 			self.console=None
-            
 
 		if self.targetBoard:
 			self.targetBoard.Destroy()
 			self.targetBoard = None
-
-		if app.ENABLE_SHIP_DEFENSE:
-			if self.allyTargetBoard:
-				self.allyTargetBoard.Destroy()
-				self.allyTargetBoard = None
-			
-		if self.wndMarbleShop:
-			self.wndMarbleShop.Hide()
 
 		if self.interface:
 			self.interface.HideAllWindows()
 			self.interface.Close()
 			self.interface=None
 
-		if app.ENABLE_PINGTIME:
-			self.pingLine = None
-
 		player.ClearSkillDict()
 		player.ResetCameraRotation()
 
 		self.KillFocus()
-		if app.ENABLE_GUILD_REQUEST:
-			constInfo.SetInterfaceInstance(None)
-
-		if app.ENABLE_EVENT_MANAGER:
-			constInfo.SetInterfaceInstance(None)
 		constInfo.SetInterfaceInstance(None)
 		app.HideCursor()
 
-		#Mental Bonus
-		self.BonusPageBoard = None
-		###########
 		print "---------------------------------------------------------------------------- CLOSE GAME WINDOW"
 
-	def __HideSpecial(self):
-		if app.ENABLE_PINGTIME:
-			self.pingLine.Hide()
-		self._timeLine_hide = True
-		self._timeLine_off()
-		
-	def __ShowSpecial(self):
-		if app.ENABLE_PINGTIME:
-			self.pingLine.Show()
-		self._timeLine_hide = False
-		
 	def __BuildKeyDict(self):
 		onPressKeyDict = {}
 
-		##PressKey 는 누르고 있는 동안 계속 적용되는 키이다.
 
-		## 숫자 단축키 퀵슬롯에 이용된다.(이후 숫자들도 퀵 슬롯용 예약)
-		## F12 는 클라 디버그용 키이므로 쓰지 않는 게 좋다.
 		onPressKeyDict[app.DIK_1]	= lambda : self.__PressNumKey(1)
 		onPressKeyDict[app.DIK_2]	= lambda : self.__PressNumKey(2)
 		onPressKeyDict[app.DIK_3]	= lambda : self.__PressNumKey(3)
@@ -557,33 +334,12 @@ class GameWindow(ui.ScriptWindow):
 		onPressKeyDict[app.DIK_F2]	= lambda : self.__PressQuickSlot(5)
 		onPressKeyDict[app.DIK_F3]	= lambda : self.__PressQuickSlot(6)
 		onPressKeyDict[app.DIK_F4]	= lambda : self.__PressQuickSlot(7)
-		onPressKeyDict[app.DIK_F5]	= lambda : net.ToggleWikiWindow()
-		onPressKeyDict[app.DIK_F5]	= lambda : self.interface.ToggleWikiNew()
-		onPressKeyDict[app.DIK_F6]	= lambda : self.interface.ToggleSwitchbotWindow()
-		onPressKeyDict[app.DIK_F7]	= lambda : self.interface.wndBio.OpenWindow()
-		onPressKeyDict[app.DIK_F11]	= lambda : self.interface.wndFastEquip.Show()
-		onPressKeyDict[app.DIK_F12]	= lambda : self.interface.OpenRanking()
-			
-		if app.GUILD_WAR_COUNTER:
-			if background.GetCurrentMapName() == "metin2_map_t3":
-				onPressKeyDict[app.DIK_TAB]	= lambda : self.OpenGuildWarStatics()
-		
-		onPressKeyDict[app.DIK_F8]	= lambda : self.__EnablePickUpItem()
-		
-		if app.ENABLE_DECORUM:
-			onPressKeyDict[app.DIK_F9]	= lambda : self.__PressF9Key()
-		onPressKeyDict[app.DIK_O]	= lambda : self.interface.ToggleDragonSoulWindowWithNoInfo()
-		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
-			onPressKeyDict[app.DIK_U]		= lambda : self.interface.ToggleKeySpecialStorageWindow()
 
 		onPressKeyDict[app.DIK_LALT]		= lambda : self.ShowName()
-		onPressKeyDict[app.DIK_X]		= lambda : self.fuck_buttons()
 		onPressKeyDict[app.DIK_LCONTROL]	= lambda : self.ShowMouseImage()
 		onPressKeyDict[app.DIK_SYSRQ]		= lambda : self.SaveScreen()
 		onPressKeyDict[app.DIK_SPACE]		= lambda : self.StartAttack()
-		#onPressKeyDict[app.DIK_F11]	= lambda : self.OpenMarbleShop()
-		#onPressKeyDict[app.DIK_F12]	= lambda : self.OpenRanking()
-		#캐릭터 이동키
+
 		onPressKeyDict[app.DIK_UP]			= lambda : self.MoveUp()
 		onPressKeyDict[app.DIK_DOWN]		= lambda : self.MoveDown()
 		onPressKeyDict[app.DIK_LEFT]		= lambda : self.MoveLeft()
@@ -615,20 +371,29 @@ class GameWindow(ui.ScriptWindow):
 		onPressKeyDict[app.DIK_N]			= lambda state = "QUEST": self.interface.ToggleCharacterWindow(state)
 		onPressKeyDict[app.DIK_I]			= lambda : self.interface.ToggleInventoryWindow()
 		onPressKeyDict[app.DIK_O]			= lambda : self.interface.ToggleDragonSoulWindowWithNoInfo()
+		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
+			onPressKeyDict[app.DIK_U]		= lambda : self.interface.ToggleKeySpecialStorageWindow()
 		onPressKeyDict[app.DIK_M]			= lambda : self.interface.PressMKey()
 		#onPressKeyDict[app.DIK_H]			= lambda : self.interface.OpenHelpWindow()
 		onPressKeyDict[app.DIK_ADD]			= lambda : self.interface.MiniMapScaleUp()
 		onPressKeyDict[app.DIK_SUBTRACT]	= lambda : self.interface.MiniMapScaleDown()
 		onPressKeyDict[app.DIK_L]			= lambda : self.interface.ToggleChatLogWindow()
-		# onPressKeyDict[app.DIK_COMMA]		= lambda : self.ShowConsole()		# "`" key
+		onPressKeyDict[app.DIK_COMMA]		= lambda : self.ShowConsole()		# "`" key
 		onPressKeyDict[app.DIK_LSHIFT]		= lambda : self.__SetQuickPageMode()
 
 		onPressKeyDict[app.DIK_J]			= lambda : self.__PressJKey()
 		onPressKeyDict[app.DIK_H]			= lambda : self.__PressHKey()
 		onPressKeyDict[app.DIK_B]			= lambda : self.__PressBKey()
 		onPressKeyDict[app.DIK_F]			= lambda : self.__PressFKey()
-		
-		
+		onPressKeyDict[app.DIK_Y]			= lambda : self.OpenSearchShop()
+		onPressKeyDict[app.DIK_F5]			= lambda : self.ShowMeOfflineShop()
+		onPressKeyDict[app.DIK_F6]			= lambda : self.interface.ToggleSwitchbotWindow()
+		onPressKeyDict[app.DIK_F7]			= lambda : self.interface.wndBio.OpenWindow()
+		onPressKeyDict[app.DIK_F11]	= lambda : self.interface.wndFastEquip.Show()
+		# CUBE_TEST
+		#onPressKeyDict[app.DIK_K]			= lambda : self.interface.OpenCubeWindow()
+		# CUBE_TEST_END
+
 		self.onPressKeyDict = onPressKeyDict
 
 		onClickKeyDict = {}
@@ -648,6 +413,7 @@ class GameWindow(ui.ScriptWindow):
 		onClickKeyDict[app.DIK_F] = lambda: app.ZoomCamera(app.CAMERA_STOP)
 		onClickKeyDict[app.DIK_T] = lambda: app.PitchCamera(app.CAMERA_STOP)
 		onClickKeyDict[app.DIK_G] = lambda: self.__ReleaseGKey()
+		onClickKeyDict[app.DIK_P]			= lambda : self.OpenPetMainGui()
 		onClickKeyDict[app.DIK_NUMPAD4] = lambda: app.MovieRotateCamera(app.CAMERA_STOP)
 		onClickKeyDict[app.DIK_NUMPAD6] = lambda: app.MovieRotateCamera(app.CAMERA_STOP)
 		onClickKeyDict[app.DIK_PGUP] = lambda: app.MovieZoomCamera(app.CAMERA_STOP)
@@ -658,85 +424,24 @@ class GameWindow(ui.ScriptWindow):
 		onClickKeyDict[app.DIK_LCONTROL] = lambda: self.HideMouseImage()
 		onClickKeyDict[app.DIK_LSHIFT] = lambda: self.__SetQuickSlotMode()
 		onClickKeyDict[app.DIK_P] = lambda: self.OpenPetMainGui()
-		
-
+	
 		#if constInfo.PVPMODE_ACCELKEY_ENABLE:
 		#	onClickKeyDict[app.DIK_B] = lambda: self.ChangePKMode()
 
 		self.onClickKeyDict=onClickKeyDict
 
-	if constInfo.ENABLE_MULTI_RANKING:
-		def OpenRanking(self):
-			if self.rankingWindow ==None:
-				import uirank
-				self.rankingWindow = uirank.RankingGUI()
-			self.rankingWindow.Open()
-		def RankLevel(self, index, name, empire, value):
-			constInfo.SetFlag("rank_level_name_%d"%index,name)
-			constInfo.SetFlag("rank_level_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_level_value_%d"%index,value)
-		def RankDestroyedStone(self, index, name, empire, value):
-			constInfo.SetFlag("rank_stone_name_%d"%index,name)
-			constInfo.SetFlag("rank_stone_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_stone_value_%d"%index,value)
-		def RankKillMonster(self, index, name, empire, value):
-			constInfo.SetFlag("rank_monster_name_%d"%index,name)
-			constInfo.SetFlag("rank_monster_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_monster_value_%d"%index,value)
-		def RankKillBoss(self, index, name, empire, value):
-			constInfo.SetFlag("rank_boss_name_%d"%index,name)
-			constInfo.SetFlag("rank_boss_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_boss_value_%d"%index,value)
-		def RankCompletedDungeon(self, index, name, empire, value):
-			constInfo.SetFlag("rank_dungeon_name_%d"%index,name)
-			constInfo.SetFlag("rank_dungeon_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_dungeon_value_%d"%index,value)
-		def RankPlaytime(self, index, name, empire, value):
-			constInfo.SetFlag("rank_playtime_name_%d"%index,name)
-			constInfo.SetFlag("rank_playtime_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_playtime_value_%d"%index,value)
-		def RankGold(self, index, name, empire, value):
-			constInfo.SetFlag("rank_gold_name_%d"%index,name)
-			constInfo.SetFlag("rank_gold_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_gold_value_%d"%index,value)
-		def RankGaya(self, index, name, empire, value):
-			constInfo.SetFlag("rank_gaya_name_%d"%index,name)
-			constInfo.SetFlag("rank_gaya_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_gaya_value_%d"%index,value)
-		def RankCaughtFishes(self, index, name, empire, value):
-			constInfo.SetFlag("rank_fish_name_%d"%index,name)
-			constInfo.SetFlag("rank_fish_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_fish_value_%d"%index,value)
-		def RankOpenedChest(self, index, name, empire, value):
-			constInfo.SetFlag("rank_chest_name_%d"%index,name)
-			constInfo.SetFlag("rank_chest_empire_%d"%index,empire)
-			constInfo.SetFlag("rank_chest_value_%d"%index,value)
+	if app.__ENABLE_NEW_OFFLINESHOP__:
+		def ShowMeOfflineShop(self):
+			if self.interface.wndShopOffline:
+				if self.interface.wndShopOffline.IsShow() == False or self.interface.wndShopOffline.wBoard[3].IsShow():
+					self.interface.wndShopOffline.Open()
+				else:
+					self.interface.wndShopOffline.Close()
+					
+		def OpenSearchShop(self):
+			if self.interface.wndShopOffline:
+				self.interface.wndShopOffline.OpenSearch()
 
-
-	if app.ENABLE_EVENT_MANAGER:
-		def AppendEvent(self, dayIndex, eventIndex, startTime, endTime, empireFlag, channelFlag, value0, value1, value2, value3, startRealTime, endRealTime, isAlreadyStart):
-			self.interface.AppendEvent(int(dayIndex), int(eventIndex), str(startTime), str(endTime), int(empireFlag), int(channelFlag), int(value0), int(value1), int(value2), int(value3), int(startRealTime), int(endRealTime), int(isAlreadyStart))
-
-	if app.ENABLE_DECORUM:
-		def __PressF9Key(self):
-			self.interface.ToggleDecorumStat()
-
-	if app.ENABLE_NEW_FISHING_SYSTEM:
-		def OnFishingStart(self, have, need):
-			if self.interface:
-				self.interface.OnFishingStart(have, need)
-
-		def OnFishingStop(self):
-			if self.interface:
-				self.interface.OnFishingStop()
-
-		def OnFishingCatch(self, have):
-			if self.interface:
-				self.interface.OnFishingCatch(have)
-
-		def OnFishingCatchFailed(self):
-			if self.interface:
-				self.interface.OnFishingCatchFailed()
 
 	def __PressNumKey(self,num):
 		if app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL):
@@ -761,11 +466,10 @@ class GameWindow(ui.ScriptWindow):
 		if app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL):
 			if player.IsMountingHorse():
 				net.SendChatPacket("/unmount")
-			# BEGIN_OFFLINE_SHOP
-			elif not uiPrivateShopBuilder.IsBuildingPrivateShop() or not uiOfflineShopBuilder.IsBuildingOfflineShop():
-			# END_OF_OFFLINE_SHOP
+			else:
+				#net.SendChatPacket("/user_horse_ride")
 				if not uiPrivateShopBuilder.IsBuildingPrivateShop():
-					for i in xrange(player.INVENTORY_PAGE_SIZE):
+					for i in xrange(player.INVENTORY_PAGE_SIZE*player.INVENTORY_PAGE_COUNT):
 						if player.GetItemIndex(i) in (71114, 71116, 71118, 71120):
 							net.SendItemUsePacket(i)
 							break
@@ -773,7 +477,8 @@ class GameWindow(ui.ScriptWindow):
 		if app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL):
 			net.SendChatPacket("/user_horse_ride")
 		else:
-			self.interface.OpenHelpWindow()
+			if app.ENABLE_WIKI:
+				self.interface.OpenWikiWindow()
 
 	def	__PressBKey(self):
 		if app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL):
@@ -788,9 +493,6 @@ class GameWindow(ui.ScriptWindow):
 		else:
 			app.ZoomCamera(app.CAMERA_TO_POSITIVE)
 
-	def __PressGKey2(self):
-		net.SendChatPacket("/ride")
-
 	def __PressGKey(self):
 		if app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL):
 			net.SendChatPacket("/ride")
@@ -802,7 +504,6 @@ class GameWindow(ui.ScriptWindow):
 
 	def	__ReleaseGKey(self):
 		app.PitchCamera(app.CAMERA_STOP)
-		
 
 	def __PressQKey(self):
 		if app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL):
@@ -887,23 +588,13 @@ class GameWindow(ui.ScriptWindow):
 		self.TextureNum.SetFontName(localeInfo.UI_DEF_FONT)
 		self.TextureNum.SetPosition(wndMgr.GetScreenWidth() - 270, 100)
 
-		# 오브젝트 그리는 개수
 		self.ObjectNum = ui.TextLine()
 		self.ObjectNum.SetFontName(localeInfo.UI_DEF_FONT)
 		self.ObjectNum.SetPosition(wndMgr.GetScreenWidth() - 270, 120)
 
-		# 시야거리
 		self.ViewDistance = ui.TextLine()
 		self.ViewDistance.SetFontName(localeInfo.UI_DEF_FONT)
 		self.ViewDistance.SetPosition(0, 0)
-
-		if app.ENABLE_PINGTIME:
-			self.pingLine.SetWindowHorizontalAlignCenter()
-			self.pingLine.SetHorizontalAlignCenter()
-			self.pingLine.SetFeather()
-			self.pingLine.SetOutline()
-			self.pingLine.Show()
-
 
 	def __NotifyError(self, msg):
 		chat.AppendChat(chat.CHAT_TYPE_INFO, msg)
@@ -958,12 +649,6 @@ class GameWindow(ui.ScriptWindow):
 	###############################################################################################
 	## Game Callback Functions
 
-	if app.ENABLE_MAP_LOCATION_APP_NAME:
-		def SetApplicationText(self):
-			mapName = background.GetCurrentMapName()
-			if mapName in localeInfo.MINIMAP_ZONE_NAME_DICT:
-				app.SetText(localeInfo.APP_TITLE + " | " + localeInfo.MINIMAP_ZONE_NAME_DICT[mapName])
-
 	# Start
 	def StartGame(self):
 		self.RefreshInventory()
@@ -978,15 +663,15 @@ class GameWindow(ui.ScriptWindow):
 
 	def RefreshAlignment(self):
 		self.interface.RefreshAlignment()
-		
+
 	if app.WJ_SHOW_ALL_CHANNEL:
 		def BINARY_OnChannelPacket(self, channel):
-			serverName = "|cffFDBA31Emeria"
+			serverName = "|cffFDBA31Zayos"
 			text =localeInfo.TEXT_CHANNEL % serverName
-			if channel == 99:
-				text+= "Dungeon"
-			elif channel == 98:
-				text+= " general"
+			if channel == 98:
+				text+= "Dungeons"
+			elif channel == 99:
+				text+= "Global"
 			else:
 				text+= ""+str(channel)
 			net.SetServerInfo(text)
@@ -1050,10 +735,6 @@ class GameWindow(ui.ScriptWindow):
 		else:
 			self.interface.OpenQuestWindow(skin, idx)
 
-		if constInfo.INPUT_IGNORE == 1:
-			return
-
-
 	def AskGuildName(self):
 
 		guildNameBoard = uiCommon.InputDialog()
@@ -1115,40 +796,18 @@ class GameWindow(ui.ScriptWindow):
 
 	# UNKNOWN_UPDATE
 	def BINARY_NEW_AddAffect(self, type, pointIdx, value, duration):
-		#import chat
-		#chat.AppendChat(1, "add type: %d point: %d"%(type, pointIdx))
-		
-		if type == None:
-			return
-		else:
-			self.affectShower.BINARY_NEW_AddAffect(type, pointIdx, value, duration)
-			if chr.NEW_AFFECT_DRAGON_SOUL_DECK1 == type or chr.NEW_AFFECT_DRAGON_SOUL_DECK2 == type:
-				self.interface.DragonSoulActivate(type - chr.NEW_AFFECT_DRAGON_SOUL_DECK1)
-			elif chr.NEW_AFFECT_DRAGON_SOUL_QUALIFIED == type:
-				self.BINARY_DragonSoulGiveQuilification()
-			elif chr.AFFECT_POISON == type or 209 == type:
-				self.playerGauge.RefreshGuageColor("lime")
-				self.interface.HPPoisonEffectShow()
-				self.interface.PartyPoisonGuageShow()
+		self.affectShower.BINARY_NEW_AddAffect(type, pointIdx, value, duration)
+		if chr.NEW_AFFECT_DRAGON_SOUL_DECK1 == type or chr.NEW_AFFECT_DRAGON_SOUL_DECK2 == type:
+			self.interface.DragonSoulActivate(type - chr.NEW_AFFECT_DRAGON_SOUL_DECK1)
+		elif chr.NEW_AFFECT_DRAGON_SOUL_QUALIFIED == type:
+			self.BINARY_DragonSoulGiveQuilification()
+
 
 	def BINARY_NEW_RemoveAffect(self, type, pointIdx):
-		#import chat
-		#chat.AppendChat(1, "remove type: %d point: %d"%(type, pointIdx))
-		
-		if type == None:
-			return
-		else:
-			self.affectShower.BINARY_NEW_RemoveAffect(type, pointIdx)
-			if chr.NEW_AFFECT_DRAGON_SOUL_DECK1 == type or chr.NEW_AFFECT_DRAGON_SOUL_DECK2 == type:
-				self.interface.DragonSoulDeactivate()
-			elif chr.AFFECT_POISON == type or 209 == type:
-				self.playerGauge.RefreshGuageColor("red")
-				self.interface.HPPoisonEffectHide()
-				self.interface.PartyPoisonGuageHide()
+		self.affectShower.BINARY_NEW_RemoveAffect(type, pointIdx)
+		if chr.NEW_AFFECT_DRAGON_SOUL_DECK1 == type or chr.NEW_AFFECT_DRAGON_SOUL_DECK2 == type:
+			self.interface.DragonSoulDeactivate()
 
-	if app.ENABLE_AFFECT_FIX:
-		def RefreshAffectWindow(self):
-			self.affectShower.BINARY_NEW_RefreshAffect()
 	# END_OF_UNKNOWN_UPDATE
 
 	def ActivateSkillSlot(self, slotIndex):
@@ -1171,21 +830,12 @@ class GameWindow(ui.ScriptWindow):
 		if self.interface:
 			self.interface.RefreshCharacter()
 
-	if app.RENEWAL_DEAD_PACKET:
-		def OnGameOver(self, d_time):
-			self.CloseTargetBoard()
-			self.OpenRestartDialog(d_time)
-	else:
-		def OnGameOver(self):
-			self.CloseTargetBoard()
-			self.OpenRestartDialog()
+	def OnGameOver(self):
+		self.CloseTargetBoard()
+		self.OpenRestartDialog()
 
-	if app.RENEWAL_DEAD_PACKET:
-		def OpenRestartDialog(self, d_time):
-			self.interface.OpenRestartDialog(d_time)
-	else:
-		def OpenRestartDialog(self):
-			self.interface.OpenRestartDialog()
+	def OpenRestartDialog(self):
+		self.interface.OpenRestartDialog()
 
 	def ChangeCurrentSkill(self, skillSlotNumber):
 		self.interface.OnChangeCurrentSkill(skillSlotNumber)
@@ -1206,12 +856,12 @@ class GameWindow(ui.ScriptWindow):
 
 			self.interface.OpenWhisperDialog(name)
 
+
 	def RefreshTargetBoardByVID(self, vid):
 		self.targetBoard.RefreshByVID(vid)
 
 	def RefreshTargetBoardByName(self, name):
 		self.targetBoard.RefreshByName(name)
-		self.interface.UpdateWhisperButtons(name)
 
 	def __RefreshTargetBoard(self):
 		self.targetBoard.Refresh()
@@ -1229,22 +879,6 @@ class GameWindow(ui.ScriptWindow):
 	def SetMountTargetBoard(self, vid):
 		if vid != self.targetBoard.GetTargetVID():
 			self.targetBoard.SetMount(vid)
-
-	if app.ENABLE_SHIP_DEFENSE:
-		def SetHPAllianceTargetBoard(self, vid, hp, hpMax):
-			if self.interface.IsHideUiMode == True:
-				return
-
-			if not vid:
-				self.allyTargetBoard.Close()
-				return
-
-			if vid != self.allyTargetBoard.GetTargetVID():
-				self.allyTargetBoard.ResetTargetBoard()
-				self.allyTargetBoard.SetTarget(vid)
-
-			self.allyTargetBoard.SetHP(hp, hpMax)
-			self.allyTargetBoard.Show()
 
 	def CloseTargetBoardIfDifferent(self, vid, hpPercentage):
 		if vid != self.targetBoard.GetTargetVID():
@@ -1267,7 +901,7 @@ class GameWindow(ui.ScriptWindow):
 
 	def SetEquipmentDialogAttr(self, vid, slotIndex, attrIndex, type, value):
 		self.interface.SetEquipmentDialogAttr(vid, slotIndex, attrIndex, type, value)
-		
+
 	if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
 		def BINARY_SET_LANG_AND_EMPIRE_FLAG(self, name, language, empire):
 			self.interface.SetInterfaceFlag(name, language, empire)
@@ -1338,16 +972,14 @@ class GameWindow(ui.ScriptWindow):
 	def RecvWhisper(self, name):
 		self.interface.RecvWhisper(name)
 
-	def OnPickMoney(self, money):
-		if app.ENABLE_CHATTING_WINDOW_RENEWAL:
+	if app.__CHAT_SETTINGS__:
+		def OnPickMoney(self, money):
 			chat.AppendChat(chat.CHAT_TYPE_MONEY_INFO, localeInfo.GAME_PICK_MONEY % (money))
-		else:
+		def OnPickExp(self, value):
+			chat.AppendChat(chat.CHAT_TYPE_EXP_INFO, localeInfo.GAME_PICK_EXP % (value))
+	else:
+		def OnPickMoney(self, money):
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.GAME_PICK_MONEY % (money))
-
-	if app.ENABLE_CHEQUE_SYSTEM:
-		def OnPickCheque(self, cheque):
-			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.CHEQUE_SYSTEM_PICK_WON % (cheque))
-
 
 	def OnShopError(self, type):
 		try:
@@ -1399,11 +1031,6 @@ class GameWindow(ui.ScriptWindow):
 
 	## Shop
 	def StartShop(self, vid):
-		if app.ENABLE_PRIVATESHOP_SEARCH_SYSTEM:
-			if(vid == constInfo.MARKED_SHOP_VID):
-				background.DeletePrivateShopPos()
-				constInfo.MARKED_SHOP_VID = 0
-
 		self.interface.OpenShopDialog(vid)
 
 	def EndShop(self):
@@ -1411,21 +1038,6 @@ class GameWindow(ui.ScriptWindow):
 
 	def RefreshShop(self):
 		self.interface.RefreshShopDialog()
-
-
-	if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-		def StartOfflineShop(self, vid):
-			self.interface.OpenOfflineShopDialog(vid)
-
-		def LoadInfoShopOffline(self, vid, time, map_index, x, y):
-			self.interface.OpenOfflineShopEditMode(vid, time, map_index, x, y)
-
-		def EndOfflineShop(self):
-			self.interface.CloseOfflineShopDialog()
-
-		def RefreshOfflineShop(self):
-			self.interface.RefreshOfflineShopDialog()
-			self.interface.RefreshOfflineShopEditMode()
 
 	def SetShopSellingPrice(self, Price):
 		pass
@@ -1602,11 +1214,7 @@ class GameWindow(ui.ScriptWindow):
 		# END_OF_SCREENSHOT_CWDSAVE
 
 		if succeeded:
-			pass
-			"""
-			chat.AppendChat(chat.CHAT_TYPE_INFO, name + localeInfo.SCREENSHOT_SAVE1)
-			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.SCREENSHOT_SAVE2)
-			"""
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "%s %s %s" % (name, localeInfo.SCREENSHOT_SAVE1, localeInfo.SCREENSHOT_SAVE2))
 		else:
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.SCREENSHOT_SAVE_FAILURE)
 
@@ -1615,26 +1223,34 @@ class GameWindow(ui.ScriptWindow):
 			player.EndKeyWalkingImmediately()
 			self.console.OpenWindow()
 
-	def fuck_buttons(self):
-		self.ShowNameFlag = False
-		self.playerGauge.DisableShowAlways()
-		player.SetQuickPage(self.quickSlotPageIndex)
-
 	def ShowName(self):
 		self.ShowNameFlag = True
+		
+		if app.__ENABLE_NEW_OFFLINESHOP__:
+			offlineshop.ShowShopNames()		
+		
 		self.playerGauge.EnableShowAlways()
 		player.SetQuickPage(self.quickSlotPageIndex+1)
 
 	# ADD_ALWAYS_SHOW_NAME
 	def __IsShowName(self):
-		x = systemSetting.IsAlwaysShowName()
-		return x == 1 or x == 3 or self.ShowNameFlag
+
+		if systemSetting.IsAlwaysShowName():
+			return True
+
+		if self.ShowNameFlag:
+			return True
+
+		return False
 	# END_OF_ADD_ALWAYS_SHOW_NAME
 
 	def HideName(self):
 		self.ShowNameFlag = False
 		self.playerGauge.DisableShowAlways()
 		player.SetQuickPage(self.quickSlotPageIndex)
+
+		if app.__ENABLE_NEW_OFFLINESHOP__:
+			offlineshop.HideShopNames()
 
 	def ShowMouseImage(self):
 		self.interface.ShowMouseImage()
@@ -1673,10 +1289,7 @@ class GameWindow(ui.ScriptWindow):
 		player.SetSingleDIKKeyState(app.DIK_RIGHT, False)
 
 	def PickUpItem(self):
-		if systemSetting.GetPickupMode():
-			player.PickCloseItemVector()
-		else:
-			player.PickCloseItem()
+		player.PickCloseItemVector()		
 
 	###############################################################################################
 	###############################################################################################
@@ -1696,20 +1309,17 @@ class GameWindow(ui.ScriptWindow):
 			pass
 		except:
 			raise
-		
+
 		return True
-		
-		constInfo.SET_ITEM_DROP_QUESTION_DIALOG_STATUS(0)
 
 	def OnKeyUp(self, key):
-		if key == None:
-			return
-		
 		try:
 			self.onClickKeyDict[key]()
-		except:
+		except KeyError:
 			pass
-		
+		except:
+			raise
+
 		return True
 
 	def OnMouseLeftButtonDown(self):
@@ -1740,6 +1350,11 @@ class GameWindow(ui.ScriptWindow):
 			attachedItemSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
 			attachedItemCount = mouseModule.mouseController.GetAttachedItemCount()
 
+			if app.__ENABLE_NEW_OFFLINESHOP__:
+				if uiofflineshop.IsBuildingShop() and uiofflineshop.IsSaleSlot(player.SlotTypeToInvenType(attachedType), attachedItemSlotPos): #toupdate
+					chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.OFFLINESHOP_CANT_SELECT_ITEM_DURING_BUILING)
+					return
+
 			## QuickSlot
 			if player.SLOT_TYPE_QUICK_SLOT == attachedType:
 				player.RequestDeleteGlobalQuickSlot(attachedItemSlotPos)
@@ -1764,6 +1379,7 @@ class GameWindow(ui.ScriptWindow):
 					player.SLOT_TYPE_GENERAL_INVENTORY == attachedType:
 					self.__PutItem(attachedType, attachedItemIndex, attachedItemSlotPos, attachedItemCount, self.PickingCharacterIndex)
 
+
 			mouseModule.mouseController.DeattachObject()
 
 		else:
@@ -1773,7 +1389,6 @@ class GameWindow(ui.ScriptWindow):
 					link = chat.GetLinkFromHyperlink(hyperlink)
 					ime.PasteString(link)
 				else:
-					
 					self.interface.MakeHyperlinkTooltip(hyperlink)
 				return
 			else:
@@ -1842,19 +1457,9 @@ class GameWindow(ui.ScriptWindow):
 			self.__DropMoney(attachedType, attachedMoney)
 
 	def __DropMoney(self, attachedType, attachedMoney):
-		# PRIVATESHOP_DISABLE_ITEM_DROP - 개인상점 열고 있는 동안 아이템 버림 방지
-		if uiPrivateShopBuilder.IsBuildingPrivateShop():												
+		if uiPrivateShopBuilder.IsBuildingPrivateShop():
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
 			return
-		if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-			if (uiOfflineShopBuilder.IsBuildingOfflineShop()):
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-				return
-
-		if (uiOfflineShop.IsEditingOfflineShop()):
-			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-			return
-		# END_OF_OFFLINE_SHOP			
 		# END_OF_PRIVATESHOP_DISABLE_ITEM_DROP
 
 		if attachedMoney>=1000:
@@ -1877,9 +1482,9 @@ class GameWindow(ui.ScriptWindow):
 			if player.SLOT_TYPE_INVENTORY == attachedType and player.IsEquipmentSlot(attachedItemSlotPos):
 				self.stream.popupWindow.Close()
 				self.stream.popupWindow.Open(localeInfo.DROP_ITEM_FAILURE_EQUIP_ITEM, 0, localeInfo.UI_OK)
-			elif safebox.isOpen() and app.ENABLE_CHECK_SAFEBOX_IS_OPEN:
-					self.stream.popupWindow.Close()
-					self.stream.popupWindow.Open(localeInfo.DROP_ITEM_FAILURE_SAFEBOX, 0, localeInfo.UI_OK)
+			#elif safebox.isOpen():
+				#	self.stream.popupWindow.Close()
+				#	self.stream.popupWindow.Open(localeInfo.DROP_ITEM_FAILURE_SAFEBOX, 0, localeInfo.UI_OK)
 			else:
 				constInfo.DROP_GUI_CHECK = 1
 				if self.itemDropQuestionDialog ==None:
@@ -1998,6 +1603,7 @@ class GameWindow(ui.ScriptWindow):
 
 						constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(1)
 
+
 	def RequestDropItem(self, answer):
 		if not self.itemDropQuestionDialog:
 			return
@@ -2027,7 +1633,7 @@ class GameWindow(ui.ScriptWindow):
 					# PRIVATESHOP_DISABLE_ITEM_DROP
 					self.__SendDropItemPacket(dropNumber, dropCount, player.SlotTypeToInvenType(dropType))
 					# END_OF_PRIVATESHOP_DISABLE_ITEM_DROP
-	
+
 		self.itemDropQuestionDialog.Close()
 		self.itemDropQuestionDialog = None
 
@@ -2038,45 +1644,10 @@ class GameWindow(ui.ScriptWindow):
 		if uiPrivateShopBuilder.IsBuildingPrivateShop():
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
 			return
-		# BEGIN_OFFLINE_SHOP
-		if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-			if (uiOfflineShopBuilder.IsBuildingOfflineShop()):
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-				return
 
-			if (uiOfflineShop.IsEditingOfflineShop()):
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-				return
 		net.SendItemDropPacketNew(itemInvenType, itemVNum, itemCount)
 	# END_OF_PRIVATESHOP_DISABLE_ITEM_DROP
-	def __SendDestroyItemPacket(self, itemVNum, itemCount, itemInvenType = player.INVENTORY):
-#	def __SendDestroyItemPacket(self, itemVNum, itemInvenType = player.INVENTORY):
-		if uiPrivateShopBuilder.IsBuildingPrivateShop():
-			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-			return
-		if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-			if (uiOfflineShopBuilder.IsBuildingOfflineShop()):
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-				return
 
-			if (uiOfflineShop.IsEditingOfflineShop()):
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-				return
-		net.SendItemDestroyPacket(itemInvenType, itemVNum, itemCount)
-	def __SendSellItemPacket(self, itemVNum, itemCount, itemInvenType = player.INVENTORY):
-#	def __SendSellItemPacket(self, itemVNum, itemInvenType = player.INVENTORY):
-		if uiPrivateShopBuilder.IsBuildingPrivateShop():
-			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-			return
-		if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-			if (uiOfflineShopBuilder.IsBuildingOfflineShop()):
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-				return
-
-			if (uiOfflineShop.IsEditingOfflineShop()):
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
-				return
-		net.SendItemSellPacket(itemInvenType, itemVNum, itemCount)
 	def OnMouseRightButtonDown(self):
 
 		self.CheckFocus()
@@ -2153,10 +1724,6 @@ class GameWindow(ui.ScriptWindow):
 
 	def OnUpdate(self):
 		app.UpdateGame()
-		
-		self.wnddailygift.OnUpdate()		
-		if self.interface.IsPickUpItem():
-			self.PickUpItem()
 
 		if self.mapNameShower.IsShow():
 			self.mapNameShower.Update()
@@ -2180,45 +1747,15 @@ class GameWindow(ui.ScriptWindow):
 				self.isCameraMoving = False
 				self.cameraMovementProgress = 0.0
 
-		if constInfo.need_open_pickup_filter:
-			constInfo.need_open_pickup_filter=0
-			self.__EnablePickUpItem()
-		if systemSetting.GetPickupAutoMode():
-			self.PickUpItem()
-
-		if constInfo.status_battle_pass == 1:
-			self.battlepass_button.Show()
-		else:
-			self.battlepass_button.Hide()	
-			
-		self.interface.wndBio.OnUpdate()	
 		self.interface.BUILD_OnUpdate()
-		
-		if app.ENABLE_PINGTIME:
-			nPing = app.GetPingTime()
-			self.pingLine.SetText("PING: %s ~" % (nPing))
-##Mental Time
-		localtime2 = localtime = time.strftime("%S")
-		#if localtime == "00":
-		#		self.__DayMode__Auto_Update1()
-		#if localtime == "30":
-		#		self.__DayMode__Auto_Update1()
-		localtime = localtime = time.strftime("|cffC6E2FF%H:%M:%S")
-		
-		if not self._timeLine_hide:
-			self._timeLine_on(localtime)
-	
-	def _timeLine_on(self, localtime):
-		self.timeLine.SetText(localtime)
-		self.timeLine.Show()
-		self.timeLine.SetFontColor(8.0,7.0,7.0)
-	def	_timeLine_off(self):
-		self.timeLine.Hide()
 
+		if app.KASMIR_PAKET_SYSTEM:
+			if marek38.VERI_PAKETI1==1:
+				self.__PrivateShop_Kasmir_Open()
+				marek38.VERI_PAKETI1=0
 
 	def UpdateDebugInfo(self):
 		#
-		# 캐릭터 좌표 및 FPS 출력
 		(x, y, z) = player.GetMainCharacterPosition()
 		nUpdateTime = app.GetUpdateTime()
 		nUpdateFPS = app.GetUpdateFPS()
@@ -2286,11 +1823,6 @@ class GameWindow(ui.ScriptWindow):
 			textTail.ShowAllTextTail()
 			self.PickingItemIndex = textTail.Pick(x, y)
 		# END_OF_ADD_ALWAYS_SHOW_NAME
-		if app.ENABLE_SHOPNAMES_RANGE:
-			if systemSetting.IsShowSalesText():
-				uiPrivateShopBuilder.UpdateADBoard()
-				uiOfflineShopBuilder.UpdateADBoard()
-
 
 		textTail.UpdateShowingTextTail()
 		textTail.ArrangeTextTail()
@@ -2329,13 +1861,6 @@ class GameWindow(ui.ScriptWindow):
 	## BINARY CALLBACK
 	######################################################################################
 
-	# EXCHANGE
-	if app.WJ_ENABLE_TRADABLE_ICON:
-		def BINARY_AddItemToExchange(self, inven_type, inven_pos, display_pos):
-			if inven_type == player.INVENTORY:
-				self.interface.CantTradableItemExchange(display_pos, inven_pos)
-	# END_OF_EXCHANGE
-
 	# WEDDING
 	def BINARY_LoverInfo(self, name, lovePoint):
 		if self.interface.wndMessenger:
@@ -2349,6 +1874,7 @@ class GameWindow(ui.ScriptWindow):
 		if self.affectShower:
 			self.affectShower.OnUpdateLovePoint(lovePoint)
 	# END_OF_WEDDING
+
 	if app.ENABLE_SEND_TARGET_INFO:
 		def BINARY_AddTargetMonsterDropInfo(self, raceNum, itemVnum, itemCount, rarity = 0):
 			if not raceNum in constInfo.MONSTER_INFO_DATA:
@@ -2432,7 +1958,6 @@ class GameWindow(ui.ScriptWindow):
 	def BINARY_Cube_Close(self):
 		self.interface.CloseCubeWindow()
 
-	# 제작에 필요한 골드, 예상되는 완성품의 VNUM과 개수 정보 update
 	def BINARY_Cube_UpdateInfo(self, gold, itemVnum, count):
 		self.interface.UpdateCubeInfo(gold, itemVnum, count)
 
@@ -2447,7 +1972,6 @@ class GameWindow(ui.ScriptWindow):
 		pass
 
 	def BINARY_Cube_ResultList(self, npcVNUM, listText):
-		# ResultList Text Format : 72723,1/72725,1/72730.1/50001,5  이런식으로 "/" 문자로 구분된 리스트를 줌
 		#print listText
 
 		if npcVNUM == 0:
@@ -2548,10 +2072,10 @@ class GameWindow(ui.ScriptWindow):
 
 	# END_OF_CUBE
 
-	# 용혼석
 	def BINARY_Highlight_Item(self, inven_type, inven_pos):
+		# @fixme003 (+if self.interface:)
 		if self.interface:
-			self.interface.Highlight_Item(inven_type, inven_pos)
+			self.interface.Highligt_Item(inven_type, inven_pos)
 
 	def BINARY_DragonSoulGiveQuilification(self):
 		self.interface.DragonSoulGiveQuilification()
@@ -2570,10 +2094,6 @@ class GameWindow(ui.ScriptWindow):
 	def BINARY_SetBigMessage(self, message):
 		self.interface.bigBoard.SetTip(message)
 
-	def BINARY_SetMissionMessage(self, message):
-		self.interface.missionBoard.SetMission(message)
-
-
 	def BINARY_SetTipMessage(self, message):
 		self.interface.tipBoard.SetTip(message)
 
@@ -2590,6 +2110,7 @@ class GameWindow(ui.ScriptWindow):
 			if self.interface:
 				self.interface.DungeonInfoReload(onReset)
 
+
 	def BINARY_AppendNotifyMessage(self, type):
 		if not type in localeInfo.NOTIFY_MESSAGE:
 			return
@@ -2604,28 +2125,17 @@ class GameWindow(ui.ScriptWindow):
 	def BINARY_GuildWar_OnSendDeclare(self, guildID):
 		pass
 
-	def BINARY_GuildWar_OnRecvDeclare(self, guildID, warType, maxPlayer, maxScore, warFlags, customMapIdx):
-		if app.ENABLE_GENERAL_IN_GUILD:
-			self.__GuildWar_OpenAskDialog(guildID, warType, maxPlayer, maxScore, warFlags, customMapIdx)
-		else:
-			mainCharacterName = player.GetMainCharacterName()
-			masterName = guild.GetGuildMasterName()
-			if mainCharacterName == masterName:
-				self.__GuildWar_OpenAskDialog(guildID, warType, maxPlayer, maxScore, warFlags, customMapIdx)
+	def BINARY_GuildWar_OnRecvDeclare(self, guildID, warType):
+		mainCharacterName = player.GetMainCharacterName()
+		masterName = guild.GetGuildMasterName()
+		if mainCharacterName == masterName:
+			self.__GuildWar_OpenAskDialog(guildID, warType)
 
 	def BINARY_GuildWar_OnRecvPoint(self, gainGuildID, opponentGuildID, point):
 		self.interface.OnRecvGuildWarPoint(gainGuildID, opponentGuildID, point)
 
-	if app.__IMPROVED_GUILD_WAR__:
-		def BINARY_GuildWar_OnStart(self, guildSelf, guildOpp, iMaxPlayer, iMaxScore, flags):
-			self.interface.OnStartGuildWar(guildSelf, guildOpp)
-			if app.GUILD_WAR_COUNTER:
-				self.interface.GuildWarStaticSetGuildID(guildSelf, guildOpp,iMaxPlayer, iMaxScore, flags)
-	else:
-		def BINARY_GuildWar_OnStart(self, guildSelf, guildOpp):
-			self.interface.OnStartGuildWar(guildSelf, guildOpp)
-			if app.GUILD_WAR_COUNTER:
-				self.interface.GuildWarStaticSetGuildID(guildSelf, guildOpp)
+	def BINARY_GuildWar_OnStart(self, guildSelf, guildOpp):
+		self.interface.OnStartGuildWar(guildSelf, guildOpp)
 
 	def BINARY_GuildWar_OnEnd(self, guildSelf, guildOpp):
 		self.interface.OnEndGuildWar(guildSelf, guildOpp)
@@ -2645,8 +2155,8 @@ class GameWindow(ui.ScriptWindow):
 
 		self.interface.UpdateMemberCount(guildID1, memberCount1, guildID2, memberCount2)
 		self.interface.wndMiniMap.UpdateObserverCount(observerCount)
-		
-	def __GuildWar_OpenAskDialog(self, guildID, warType, maxPlayer, maxScore, warFlags, customMapIdx):
+
+	def __GuildWar_OpenAskDialog(self, guildID, warType):
 
 		guildName = guild.GetGuildName(guildID)
 
@@ -2659,98 +2169,23 @@ class GameWindow(ui.ScriptWindow):
 		questionDialog = uiGuild.AcceptGuildWarDialog()
 		questionDialog.SAFE_SetAcceptEvent(self.__GuildWar_OnAccept)
 		questionDialog.SAFE_SetCancelEvent(self.__GuildWar_OnDecline)
-		questionDialog.Open(guildName, warType, maxPlayer, maxScore, warFlags, customMapIdx)
+		questionDialog.Open(guildName, warType)
 
 		self.guildWarQuestionDialog = questionDialog
 
-	# PROFESSIONAL_BIOLOG_SYSTEM
-	if app.ENABLE_BIOLOG_SYSTEM:
-		def BINARY_Biolog_Update(self, pLeftTime, pCountActual, pCountNeed, pVnum):
-			uiprofessionalbiolog.BIOLOG_BINARY_LOADED["time"][0] = int(pLeftTime) + app.GetGlobalTimeStamp()
-			uiprofessionalbiolog.BIOLOG_BINARY_LOADED["countActual"][0] = str(pCountActual)	
-			uiprofessionalbiolog.BIOLOG_BINARY_LOADED["countNeed"][0] = str(pCountNeed)
-			uiprofessionalbiolog.BIOLOG_BINARY_LOADED["vnum"][0] = int(pVnum)
-
-		def BINARY_Biolog_SendMessage(self, pMessage):
-			if str(pMessage) != "":
-				self.wndBiologMessage = uiCommon.PopupDialog()
-				self.wndBiologMessage.SetWidth(350)
-				self.wndBiologMessage.SetText((str(pMessage).replace("$"," ")))
-				self.wndBiologMessage.Show()
-			else:
-				chat.AppendChat(chat.CHAT_TYPE_INFO, "Error, i could not initialize message from server!")
-
-		def BINARY_Biolog_PopUp(self, iRewardType, iRewardItem, iBonusName_1, iBonusValue_1, iBonusName_2, iBonusValue_2):
-			self.wndBiologSlider = uiprofessionalbiolog.Biolog_FinishSlider()
-			self.wndBiologSlider.BINARY_BiologPopUp_Load([str(iRewardType), int(iRewardItem), str(iBonusName_1), int(iBonusValue_1), str(iBonusName_2), int(iBonusValue_2)])
-			self.wndBiologSlider.Show()
-
-		def BINARY_Biolog_SelectReward(self, iTypeWindow, iRewardType, iBonusName_1, iBonusValue_1, iBonusName_2, iBonusValue_2, iBonusName_3, iBonusValue_3):
-			self.wndBiologSelectReward = uiprofessionalbiolog.Biolog_SelectReward()
-			self.wndBiologSelectReward.Open_SelectRewardType([int(iTypeWindow), str(iRewardType), str(iBonusName_1), int(iBonusValue_1), str(iBonusName_2), int(iBonusValue_2), str(iBonusName_3), int(iBonusValue_3)])
-			self.wndBiologSelectReward.SetTitle((str(iRewardType).replace("$"," ")))
-			self.wndBiologSelectReward.SetCenterPosition()
-			self.wndBiologSelectReward.SetTop()
-			self.wndBiologSelectReward.Show()
-	# END_OF_PROFESSIONAL_BIOLOG_SYSTEM
-
-	if app.ENABLE_DECORUM:
-		def BINARY_RecvDecorumBase(self, vid, decorum, legue, promotion, demotion, block):
-			self.interface.SetDecorumBase(vid, decorum, legue, promotion, demotion, block)
-				
-		def BINARY_RecvDecorumBattle(self, vid, type, done, won):
-			self.interface.SetDecorumBattle(vid, type, done, won)
-				
-		def BINARY_RecvDecorumKD(self, vid, kill, death):
-			self.interface.SetDecorumKD(vid, kill, death)
-				
-		def __OnArenaConfirm(self, arenaID, arenaType):
-			arenaTypeName = (uiScriptLocale.DECORUM_BLOCK_ARENA1, uiScriptLocale.DECORUM_BLOCK_ARENA2, uiScriptLocale.DECORUM_BLOCK_ARENA3)
-			askString = uiScriptLocale.DECORUM_ACCEPT_ARENA % arenaTypeName[int(arenaType)]
-			answerString = "/decorum_arena_accept %s" % arenaID
-			
-			confirmDialog = uiCommon.QuestionDialogWithTimeLimit()
-			confirmDialog.Open(askString, 15)
-			confirmDialog.SetAcceptEvent(lambda arenaID=arenaID: net.SendChatPacket(answerString) or self.confirmDialog.Hide())
-			confirmDialog.SetCancelEvent(lambda: self.confirmDialog.Hide())
-			self.confirmDialog = confirmDialog
-
-	if app.ENABLE_PRIVATESHOP_SEARCH_SYSTEM:
-		def OpenPrivateShopSearch(self, type):
-			if self.interface:
-				self.interface.OpenPrivateShopSearch(type)
-		
-		def RefreshShopSearch(self):
-			# self.interface.RefreshShopSearch()
-			self.interface.ShopSearchReady()
-			
-		def BuyShopSearch(self):
-			self.interface.ShopSearchBuyDone()
-			self.PopupMessage(localeInfo.PRIVATESHOPSEARCH_BUY_SUCCESS)
-
-
 	def __GuildWar_CloseAskDialog(self):
-		if self.guildWarQuestionDialog:
-			self.guildWarQuestionDialog.Close()
-			self.guildWarQuestionDialog = None
+		self.guildWarQuestionDialog.Close()
+		self.guildWarQuestionDialog = None
 
 	def __GuildWar_OnAccept(self):
-		warType = self.guildWarQuestionDialog.GetWarType()
-		guildName = self.guildWarQuestionDialog.GetGuildName()
-		maxScore = self.guildWarQuestionDialog.GetMaxScore()
-		maxPlayer = self.guildWarQuestionDialog.GetMaxPlayerCount()
-		warFlags = self.guildWarQuestionDialog.GetWarFlags()
-		warCustomMapIdx = self.guildWarQuestionDialog.GetCustomMapIdx()
 
-		net.SendChatPacket("/war %s %s %s %s %s %s" % (str(guildName), str(warType), str(maxPlayer), str(maxScore), str(warFlags), str(warCustomMapIdx)))
+		guildName = self.guildWarQuestionDialog.GetGuildName()
+
+		net.SendChatPacket("/war " + guildName)
 		self.__GuildWar_CloseAskDialog()
 
 		return 1
-        
-	def __SendInvite(self, vid):
-		chat.AppendChat(1, str(vid))
-		net.SendPartyInvitePacket(vid)
-		
+
 	def __GuildWar_OnDecline(self):
 
 		guildName = self.guildWarQuestionDialog.GetGuildName()
@@ -2759,7 +2194,6 @@ class GameWindow(ui.ScriptWindow):
 		self.__GuildWar_CloseAskDialog()
 
 		return 1
-
 	## BINARY CALLBACK
 	######################################################################################
 
@@ -2767,32 +2201,13 @@ class GameWindow(ui.ScriptWindow):
 		serverCommandList={
 			"ConsoleEnable"			: self.__Console_Enable,
 			"DayMode"				: self.__DayMode_Update,
-			"refreshinven"            : self.Update_inventory_ref,
 			"PRESERVE_DayMode"		: self.__PRESERVE_DayMode_Update,
 			"CloseRestartWindow"	: self.__RestartDialog_Close,
 			"OpenPrivateShop"		: self.__PrivateShop_Open,
 			"PartyHealReady"		: self.PartyHealReady,
-			"update_envanter_lazim"   : self.Update_inventory_lazim,
 			"ShowMeSafeboxPassword"	: self.AskSafeboxPassword,
-			"spop"               	: self.__ShowPopup,
 			"CloseSafebox"			: self.CommandCloseSafebox,
-			"GET_INPUT_BEGIN" 	: self.GetInputBegin,
-			"GET_INPUT_END" 	: self.GetInputEnd,
 
-			"ReportLogin"			: self.ReportLogin,
-			"Report"				: self.Report,
-			"getinputbegin"                 : self.__Inputget1, 
-			"getinputend"                   : self.__Inputget2,
-
-			"GUILDSTORAGE"			: self._GuildStorageCMD,
-			"GUILDSTORAGE_ADDITEM"	: self._GuildStorageAddItem,
-			"GUILDSTORAGE_ADDITEMSLOT" : self._GuildStorageAddItemSlot,
-			"GUILDSTORAGE_ADDMEMBER" : self._GuildStorageAddMemberToList,
-			"GUILDSTORAGE_ADDTEMPSLOT" : self._GuildStorageTempSlotsAdd,
-			"GUILDSTORAGE_ADDLOG"		: self._GuildStorageAddLog,
-			"getinputbegin"			: self.__Inputget1,
-			"getinputend"			: self.__Inputget2,
-			
 			# ITEM_MALL
 			"CloseMall"				: self.CommandCloseMall,
 			"ShowMeMallPassword"	: self.AskMallPassword,
@@ -2809,7 +2224,8 @@ class GameWindow(ui.ScriptWindow):
 			"PartyRequest"			: self.__PartyRequestQuestion,
 			"PartyRequestDenied"	: self.__PartyRequestDenied,
 			"horse_state"			: self.__Horse_UpdateState,
-			"hide_horse_state"		: self.__Horse_HideState,   
+			"hide_horse_state"		: self.__Horse_HideState,
+			
 			"PetEvolution"			: self.SetPetEvolution,
 			"PetName"				: self.SetPetName,
 			"PetLevel"				: self.SetPetLevel,
@@ -2821,20 +2237,16 @@ class GameWindow(ui.ScriptWindow):
 			"PetExp"				: self.SetPetExp,
 			"PetUnsummon"			: self.PetUnsummon,
 			#"PetActiveVnum"			: self.PetActive,
-			"OpenPetIncubator"		: self.OpenPetIncubator,
+			"OpenPetIncubator"		: self.OpenPetIncubator,	
+	
+			"WarUC"					: self.__GuildWar_UpdateMemberCount,
 			"test_server"			: self.__EnableTestServerFlag,
-			"mall"					: self.__InGameShop_Show,
-			"welcome"               : self.welcome_quest,
-			# PROFESSIONAL_BIOLOG_SYSTEM
-#			"BINARY_Biolog_Update"	:	self.BINARY_Biolog_Update,
-#			"BINARY_Biolog_SendMessage"	:	self.BINARY_Biolog_SendMessage,	
-#			"BINARY_Biolog_PopUp"	:	self.BINARY_Biolog_PopUp,
-#			"BINARY_Biolog_SelectReward"	:	self.BINARY_Biolog_SelectReward,
-			# END_OF_PROFESSIONAL_BIOLOG_SYSTEM				
+			"mall"			: self.__InGameShop_Show,
+
 			"getinputbegin"			: self.__Input_Get_Vegas_1,
 			"getinputend"			: self.__Input_Get_Vegas_2,
 			"getinput"				: self.__Input_Get_Vegas_3,
-			"SELECT_JOB"			: self.SelectJob,
+			"SELECT_JOB" : self.SelectJob,
 
 			# WEDDING
 			"lover_login"			: self.__LoginLover,
@@ -2844,25 +2256,6 @@ class GameWindow(ui.ScriptWindow):
 			"lover_divorce"			: self.__LoverDivorce,
 			"PlayMusic"				: self.__PlayMusic,
 			# END_OF_WEDDING
-			# "RemoveItemFromList"					: self.interface.ShopSearchRemoveItem,
-
-			"searched_item"				: self.SitemFinder,
-			"searched_item_count"		: self.SitemFinderCounter,
-
-			# PRIVATE_SHOP_PRICE_LIST
-			"MyShopPriceList"		: self.__PrivateShop_PriceList,
-			# END_OF_PRIVATE_SHOP_PRICE_LIST
-			
-			### Battle Pass
-			"missions_bp"	:self.SMissionsBP,
-			"info_missions_bp"	:self.SInfoMissions,
-			"size_missions_bp"	:self.SizeMissions,
-			"rewards_missions_bp"	:self.SRewardsMissions,
-			"final_reward"	:self.SFinalRewards,
-			"show_battlepass"	:self.interface.ShowBoardBpass,
-			"status_battlepass"	:self.SBattlePass,
-			"battlepass_status"	:self.SBattlePass2,
-			### Battle Pass END
 
 			"bioUpdate"	:	self.__bioUpdate,
 			"bioClear"	:	self.__bioClear,
@@ -2870,59 +2263,27 @@ class GameWindow(ui.ScriptWindow):
 			"openBio"	:	self.interface.wndBio.OpenWindow,
 			"OpenHunt"	:	self.interface.ToggleHuntingWindow,
 			
-			"RefreshSStat"		: self.RefreshSpecialStats,
-		
-			"ManagerGiftSystem"		: self.ManagerGiftSystem,
+			# PRIVATE_SHOP_PRICE_LIST
+			"MyShopPriceList"		: self.__PrivateShop_PriceList,
+			# END_OF_PRIVATE_SHOP_PRICE_LIST
 		}
 
-		if app.ENABLE_DECORUM:
-			serverCommandList.update({
-				"DecorumRandomArena"	:self.__OnArenaConfirm,
-			})
-			
-		serverCommandList.update({ "/ride"	:self.__PressGKey2, })
 	
 		if app.ENABLE_HUNTING_SYSTEM:
 			serverCommandList["HuntingButtonFlash"] = self.SetHuntingButtonFlash
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			serverCommandList.update({"MyShopPriceListNew"		: self.__PrivateShop_PriceListNew,})
-
-		if app.ENABLE_OVER_KILL:
-			serverCommandList["SingleKillSound"]    = self.__CommandSingleKillSound
-		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
-			serverCommandList["auto_stack_storage"]	= self.interface.AutoStackStorage
-		if app.ENABLE_HIDE_COSTUME_SYSTEM:
-			serverCommandList["COSTUME_HIDE_CLEAR"] = self.COSTUME_HIDE_CLEAR
-			serverCommandList["COSTUME_HIDE_LIST"] 	= self.COSTUME_HIDE_LIST
-			serverCommandList["COSTUME_HIDE_LOAD"] 	= self.COSTUME_HIDE_LOAD
-		if app.ENABLE_EXPRESSING_EMOTION:	
-			serverCommandList["SERVER_EMOTIONS_CLEAR"] 				= self.SERVER_EMOTIONS_CLEAR
-			serverCommandList["SERVER_EMOTIONS_ADD"] 				= self.SERVER_EMOTIONS_ADD
-			serverCommandList["SERVER_EMOTIONS_LOAD"] 				= self.SERVER_EMOTIONS_LOAD		
-		if constInfo.ENABLE_AURA_SYSTEM:
-			serverCommandList.update({"AuraMessage" : self.GetAuraInfo})      
-		if app.ENABLE_6_7_BONUS_NEW_SYSTEM:
-			serverCommandList["OpenSkillbookCombinationDialog"] = self.OpenSkillbookCombinationDialog
-			serverCommandList["OpenAttr67BonusNew"] 			= self.OpenAttr67BonusNew
-		if app.GUILD_WAR_COUNTER:
-			serverCommandList.update({"OpenGuildStatisticsLog" : self.interface.OpenGuildWarLog})
-		if app.ENABLE_RENEWAL_PVP:
-			serverCommandList.update({"OpenPvPWindow" : self.interface.OpenPvPSecond})
-			
-		if app.WORLD_BOSS_YUMA:
-			serverCommandList["SendWorldbossNotification"] = self.WorldbossNotficiation
-		
 		if app.ENABLE_ANTI_EXP:
 			serverCommandList.update({"SetAntiExp" : self.SetAntiExp})
-		if app.ENABLE_GUILD_REQUEST:
-			serverCommandList.update({"OpenGuildRequest" : self.interface.OpenGuildRequest})
-		serverCommandList.update({"RefreshDungeonFloor" : self.RefreshDungeonFloor })
-		serverCommandList.update({"RefreshDungeonTimer" : self.RefreshDungeonTimer })
 
-		serverCommandList.update({"PetInvSlotOld" : self.PetInvSlotOld})
-		if app.ENABLE_DEFENSAWESHIP:
-			serverCommandList.update({"gethydrahp" : self.__HydraGetHp })
+		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
+			serverCommandList["auto_stack_storage"]	= self.interface.AutoStackStorage
+
+		if app.KASMIR_PAKET_SYSTEM:
+			serverCommandList.update({
+				"OpenPrivateShopKasmir" : self.Kasmir_Paketi_Open,
+				"RefreshOfflineShop" : self.RefreshOfflineShop,
+			})
+
 		self.serverCommander=stringCommander.Analyzer()
 		if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
 			serverCommandList["BINARY_SET_LANG_AND_EMPIRE_FLAG"] = self.BINARY_SET_LANG_AND_EMPIRE_FLAG
@@ -2931,82 +2292,10 @@ class GameWindow(ui.ScriptWindow):
 				serverCommandItem[0], serverCommandItem[1]
 			)
 
-	if app.ENABLE_OVER_KILL:
-		def __CommandSingleKillSound(self):
-			snd.PlaySound("sound/effect/over_kill/single_kill.waw")
-
-	if constInfo.ENABLE_AURA_SYSTEM:
-		def GetAuraInfo(self, arg):
-			v = int(arg)
-			if v == 4:
-				self.interface.auraAbs.Show()
-			elif v == 5:
-				self.interface.auraUpgrade.Show()
-			elif v == 69:
-				self.interface.auraEXP.Show()
-			else:
-				if self.interface.auraAbs.IsShow():
-					self.interface.auraAbs.GetGameInfo(v)
-				elif self.interface.auraUpgrade.IsShow():
-					self.interface.auraUpgrade.GetGameInfo(v)
-				elif self.interface.auraEXP.IsShow():
-					self.interface.auraEXP.GetGameInfo(v)
-
 	if app.ENABLE_CUBE_RENEWAL_WORLDARD:
 		def BINARY_CUBE_RENEWAL_OPEN(self):
 			if self.interface:
 				self.interface.BINARY_CUBE_RENEWAL_OPEN()
-
-	if app.ENABLE_6_7_BONUS_NEW_SYSTEM:
-		def OpenSkillbookCombinationDialog(self):
-			self.interface.OpenSkillbookCombinationDialog()
-
-		def OpenAttr67BonusNew(self):
-			self.interface.OpenAttr67BonusNew()
-
-		def BINARY_BONUS_67_NEW_FRAGMENT_GET(self, vnum):
-			self.interface.AddMaterialSlot(vnum)
-
-	# def ManagerGiftSystem(self, cmd):
-		# cmd = cmd.split("|")
-		# if cmd[0] == "Show":
-			# self.PopupMessage("Le ricompense saranno disponibili a breve!")
-			# #self.wnddailygift.Show()
-		# elif cmd[0] == "DeleteRewards":
-			# self.wnddailygift.DeleteRewards()
-		# elif cmd[0] == "SetDailyReward":
-			# self.wnddailygift.SetDailyReward(cmd[1]) # numero de la recompensa
-		# elif cmd[0] == "SetTime":
-			# self.wnddailygift.SetTime(cmd[1]) # tiempo en numeros grandes
-		# elif cmd[0] == "SetReward":
-			# self.wnddailygift.SetReward(cmd[1], cmd[2]) #hacer un array con los items
-		# elif cmd[0] == "SetRewardDone":
-			# self.wnddailygift.SetRewardDone()
-			
-	def ManagerGiftSystem(self, cmd):
-		cmd = cmd.split("|")
-		if cmd[0] == "Show":
-			self.wnddailygift.Show()
-		elif cmd[0] == "DeleteRewards":
-			self.wnddailygift.DeleteRewards()
-		elif cmd[0] == "SetDailyReward":
-			self.wnddailygift.SetDailyReward(cmd[1]) # numero de la recompensa
-		elif cmd[0] == "SetTime":
-			self.wnddailygift.SetTime(cmd[1]) # tiempo en numeros grandes
-		elif cmd[0] == "SetReward":
-			self.wnddailygift.SetReward(cmd[1], cmd[2]) #hacer un array con los items
-		elif cmd[0] == "SetRewardDone":
-			self.wnddailygift.SetRewardDone()
-
-	if app.ENABLE_GUILD_REQUEST:
-		def GuildRequestLoadName(self, tabIndex):
-			self.interface.GuildRequestLoadName(int(tabIndex))
-		def GuildRequestLoadPage(self, tabIndex, pageIndex, maxPage):
-			self.interface.GuildRequestLoadPage(int(tabIndex), int(pageIndex), int(maxPage))
-		def GuildRequestSetItem(self, index, g_id, name, level, ladder_point, membercount, maxmember, isRequest):
-			self.interface.GuildRequestSetItem(int(index), int(g_id), str(name), int(level), int(ladder_point), int(membercount), int(maxmember), int(isRequest))
-		def GuildRequestSetRequest(self, index, pid, name, level, race, skillIndex):
-			self.interface.GuildRequestSetRequest(int(index), int(pid), str(name), int(level), int(race), int(skillIndex))
 
 	if app.ENABLE_HUNTING_SYSTEM:
 		def SetHuntingButtonFlash(self):
@@ -3014,7 +2303,6 @@ class GameWindow(ui.ScriptWindow):
 				constInfo.HUNTING_BUTTON_FLASH = 1
 
 	def BINARY_ServerCommand_Run(self, line):
-		#dbg.TraceError(line)
 		try:
 			#print " BINARY_ServerCommand_Run", line
 			return self.serverCommander.Run(line)
@@ -3033,68 +2321,11 @@ class GameWindow(ui.ScriptWindow):
 			dbg.TraceError(msg)
 			return 0
 
-	def ReportLogin(self, id):
-		constInfo.ReportLogin = int(id)
-		
-	def Report(self):
-		net.SendQuestInputStringPacket(constInfo.ReportEntered)
-		
-	def __Inputget1(self):
-		constInfo.INPUT = 1 
-
-	def __Inputget2(self):
-		constInfo.INPUT = 0
-
 	def PartyHealReady(self):
 		self.interface.PartyHealReady()
 
-	if app.GUILD_RANK_SYSTEM:
-		def BINARY_GUILD_RANK_OPEN(self):
-			self.interface.OpenGuildRanking()
-
-	if app.__BL_RANKING__:
-		def BINARY_RANK_OPEN(self):
-			self.interface.OpenPlayerRanking()
-
 	def AskSafeboxPassword(self):
 		self.interface.AskSafeboxPassword()
-
-	if app.__BL_SOUL_ROULETTE__:
-		def BINARY_ROULETTE_OPEN(self, price):
-			if self.interface:
-				self.interface.Roulette_Open(price)
-		def BINARY_ROULETTE_CLOSE(self):
-			if self.interface:
-				self.interface.Roulette_Close()
-		def BINARY_ROULETTE_TURN(self, spin, idx):
-			if self.interface:
-				self.interface.Roulette_TurnWheel(spin, idx)
-		def BINARY_ROULETTE_ICON(self, idx, vnum, count):
-			if self.interface:
-				self.interface.Roulette_SetIcons(idx, vnum, count)
-
-	def RefreshDungeonTimer(self, Floor,Time):
-		if self.interface:
-			if self.interface.wndMiniMap:
-				self.interface.wndMiniMap.HideMiniMap()
-				self.interface.wndMiniMap.Hide()
-			self.interface.MakeDungeonTimerWindow()
-			if self.interface.wndDungeonTimer:
-				self.interface.wndDungeonTimer.RefreshDungeonTimer(Time, Floor)
-	def RefreshDungeonFloor(self, Floor2):
-		if self.interface:
-			if self.interface.wndMiniMap:
-				self.interface.wndMiniMap.HideMiniMap()
-				self.interface.wndMiniMap.Hide()
-			self.interface.MakeDungeonTimerWindow()
-			if self.interface.wndDungeonTimer:
-				self.interface.wndDungeonTimer.RefreshDungeonFloor(Floor2)
-
-	def GetSearchedItemData(self, row, seller_name,seller_vid, item_vnum, item_count, item_refine, item_price, item_level,sockets,attrs,item_pos,transmutation):
-		self.PrivateShopSearch.LoadItems(row, seller_name,seller_vid, item_vnum, item_count, item_refine, item_price, item_level,sockets,attrs,item_pos, transmutation)
-
-	def CreateSearchedItemList(self):
-		self.interface.ShopSearchReady()
 
 	# ITEM_MALL
 	def AskMallPassword(self):
@@ -3107,34 +2338,22 @@ class GameWindow(ui.ScriptWindow):
 		self.interface.CommandCloseMall()
 	# END_OF_ITEM_MALL
 
-  	## Worldboss ##
-	if app.WORLD_BOSS_YUMA:				
-		def WorldbossNotficiation(self, szString):
-			if self.interface:
-				szString = szString.replace("_", " ")
-				self.interface.WorldbossNotification(szString)
-
 	def RefineSuceededMessage(self):
-		self.PopupMessage(localeInfo.REFINE_SUCCESS)
 		snd.PlaySound("sound/ui/make_soket.wav")
-		if app.ENABLE_REFINE_RENEWAL:
-			self.interface.CheckRefineDialog(False)
+		self.PopupMessage(localeInfo.REFINE_SUCCESS)
 
 	def RefineFailedMessage(self):
-		self.PopupMessage(localeInfo.REFINE_FAILURE)
 		snd.PlaySound("sound/ui/jaeryun_fail.wav")
-		if app.ENABLE_REFINE_RENEWAL:
-			self.interface.CheckRefineDialog(True)
+		self.PopupMessage(localeInfo.REFINE_FAILURE)
 
 	def CommandCloseSafebox(self):
 		self.interface.CommandCloseSafebox()
 
 	# PRIVATE_SHOP_PRICE_LIST
 	def __PrivateShop_PriceList(self, itemVNum, itemPrice):
-			uiPrivateShopBuilder.SetPrivateShopItemPrice(itemVNum, itemPrice)
+		uiPrivateShopBuilder.SetPrivateShopItemPrice(itemVNum, itemPrice)
 	# END_OF_PRIVATE_SHOP_PRICE_LIST
-			
-	
+
 	def SetPetEvolution(self, evo):
 		petname = ["Cucciolo", "Selvaggio", "Coraggioso", "Eroico"]
 		self.petmain.SetEvolveName(petname[int(evo)])
@@ -3231,17 +2450,6 @@ class GameWindow(ui.ScriptWindow):
 		else:
 			self.petmain.Hide()
 			constInfo.PET_MAIN =0    
- 
-	if app.ENABLE_CHEQUE_SYSTEM:
-		def __PrivateShop_PriceListNew(self, itemVNum, itemPrice, itemCheque):
-			uiPrivateShopBuilder.SetPrivateShopItemPrice(itemVNum, itemPrice)
-			uiPrivateShopBuilder.SetPrivateShopItemCheque(itemVNum, itemCheque)
- 
-	if app.ENABLE_SPECIAL_STATS_SYSTEM:
-		def RefreshSpecialStats(self, s1, s2, s3, s4, s5, s6):
-			statskills = [s1, s2, s3, s4, s5, s6]
-			for x in range(1, len(statskills)+1):
-				self.interface.RefreshSpecialStatsSkill(x, int(statskills[x-1]))
 
 	def __Horse_HideState(self):
 		self.affectShower.SetHorseState(0, 0, 0)
@@ -3253,8 +2461,7 @@ class GameWindow(ui.ScriptWindow):
 		mapDict = ( "metin2_map_n_flame_01",
 					"metin2_map_n_desert_01",
 					"metin2_map_spiderdungeon",
-					"metin2_map_deviltower1",
-					"plechito_pyramide_dungeon",)
+					"metin2_map_deviltower1", )
 
 		if background.GetCurrentMapName() in mapDict:
 			return False
@@ -3332,35 +2539,28 @@ class GameWindow(ui.ScriptWindow):
 	def __PrivateShop_Open(self):
 		self.interface.OpenPrivateShopInputNameDialog()
 
-	def BINARY_PrivateShop_Appear(self, vid, text):
-		self.interface.AppearPrivateShop(vid, text)
+	if app.KASMIR_PAKET_SYSTEM:
+		def RefreshOfflineShop(self):
+			if not app.__ENABLE_NEW_OFFLINESHOP__:
+				return
+			else:
+				if self.Offlineshop:
+					self.Offlineshop.OpeningFailded()
+
+		def __PrivateShop_Kasmir_Open(self):
+			self.interface.OpenPrivateShopKasmirInputNameDialog()
+
+		def Kasmir_Paketi_Open(self):
+			self.interface.OpenKasmirPaketiDialog()
+
+		def BINARY_PrivateShop_Appear(self, vid, text, baslik):
+			self.interface.AppearPrivateShop(vid, text, baslik)
+	else:
+		def BINARY_PrivateShop_Appear(self, vid, text):
+			self.interface.AppearPrivateShop(vid, text)
 
 	def BINARY_PrivateShop_Disappear(self, vid):
 		self.interface.DisappearPrivateShop(vid)
-
-	if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-		def BINARY_OfflineShop_OpenOfflineShop(self):
-			if self.interface:
-				self.interface.OpenOfflineShopInputNameDialog()
-
-		def BINARY_OfflineShop_CloseOfflineShopBuilderWindow(self):
-			self.interface.CloseOfflineShopBuilder()
-
-		def BINARY_OfflineShop_Appear(self, vid, text):
-			if chr.GetInstanceType(vid) == chr.INSTANCE_TYPE_NPC:
-				self.interface.AppearOfflineShop(vid, text)
-
-		def BINARY_OfflineShop_Disappear(self, vid):
-			if chr.GetInstanceType(vid) == chr.INSTANCE_TYPE_NPC:
-				self.interface.DisappearOfflineShop(vid)
-
-		# def BINARY_OfflineShop_UpdateOnlinePlayerCount(self, playerCount):
-			# if self.interface:
-				# self.interface.wndMiniMap.UpdateOnlinePlayerCount(playerCount)
-
-		# def BINARY_OfflineShop_UpdateOnlineShopCount(self, shopCount):
-			# if self.interface:
-				# self.interface.wndMiniMap.UpdateOnlineShopCount(shopCount)
 
 	## DayMode
 	def __PRESERVE_DayMode_Update(self, mode):
@@ -3392,13 +2592,6 @@ class GameWindow(ui.ScriptWindow):
 		background.RegisterEnvironmentData(1, constInfo.ENVIRONMENT_NIGHT)
 		background.SetEnvironmentData(1)
 		self.curtain.FadeIn()
-
-	if app.ENABLE_MAINTENANCE_SYSTEM:
-		def BINARY_ShowMaintenanceSign(self, timeLeft, duration):
-			self.interface.ShowMaintenanceSign(timeLeft, duration)
-
-		def BINARY_HideMaintenanceSign(self):
-			self.interface.HideMaintenanceSign()
 
 	## XMasBoom
 	def __XMasBoom_Update(self):
@@ -3456,11 +2649,6 @@ class GameWindow(ui.ScriptWindow):
 	def __EnableTestServerFlag(self):
 		app.EnableTestServerFlag()
 
-	if app.BL_KILL_BAR:
-		def AddKillInfo(self, killer, victim, killer_race, victim_race, weapon_type):
-			if self.interface:
-				self.interface.AddKillInfo(killer, victim, killer_race, victim_race, weapon_type)
-
 	def __InGameShop_Show(self, url):
 		if constInfo.IN_GAME_SHOP_ENABLE:
 			self.interface.OpenWebWindow(url)
@@ -3490,16 +2678,6 @@ class GameWindow(ui.ScriptWindow):
 		if self.affectShower:
 			self.affectShower.ClearLoverState()
 
-	def SitemFinder(self, i, item, mob, i_vnum, count, prob, actives, mob_vnum):
-		mob = str(mob).replace("_", " ")
-		item = str(item).replace("_", " ")
-		self.interface.AppendInfoFinder(int(i), str(mob), int(prob), int(actives), int(i_vnum), int(count), str(item))
-		constInfo.finder_items[int(i)]={"iMobVnum":mob_vnum}
-		constInfo.finder_items_v[int(i)]={"iItemVnum":i_vnum}
-
-	def SitemFinderCounter(self, count):
-		constInfo.finder_counts = int(count)
-
 	def __PlayMusic(self, flag, filename):
 		flag = int(flag)
 		if flag:
@@ -3512,28 +2690,10 @@ class GameWindow(ui.ScriptWindow):
 			snd.FadeInMusic("BGM/" + musicInfo.fieldMusic)
 	# END_OF_WEDDING
 
-	def	OpenMarbleShop(self):
-		if self.wndMarbleShop.IsShow():
-			self.wndMarbleShop.Hide()
-		else:
-			self.wndMarbleShop.Show()
-
-	if app.ENABLE_CHANGELOOK_SYSTEM:
-		def ActChangeLook(self, iAct):
-			if self.interface:
-				self.interface.ActChangeLook(iAct)
-
-		def AlertChangeLook(self):
-			self.PopupMessage(localeInfo.CHANGE_LOOK_DEL_ITEM)
-
-
-	if app.ENABLE_HIDE_COSTUME_SYSTEM:
-		def COSTUME_HIDE_CLEAR(self):
-			self.interface.costume_hide_clear()
-		def COSTUME_HIDE_LIST(self,slot,index):
-			self.interface.costume_hide_list(slot,index)
-		def COSTUME_HIDE_LOAD(self):
-			self.interface.costume_hide_load()
+	if app.WJ_ENABLE_TRADABLE_ICON:
+		def BINARY_AddItemToExchange(self, inven_type, inven_pos, display_pos):
+			if inven_type == player.INVENTORY:
+				self.interface.CantTradableItemExchange(display_pos, inven_pos)
 
 	if app.ENABLE_ACCE_COSTUME_SYSTEM:
 		def ActAcce(self, iAct, bWindow):
@@ -3546,114 +2706,7 @@ class GameWindow(ui.ScriptWindow):
 				self.PopupMessage(localeInfo.ACCE_DEL_SERVEITEM)
 			else:
 				self.PopupMessage(localeInfo.ACCE_DEL_ABSORDITEM)
-
-	def OpenTeleportSystem(self):
-		if constInfo.TELEPORT_SYSTEM_GUI == 0:
-			self.teleportsystem.Show()
-			self.teleportsystem.SetTop()
-			constInfo.TELEPORT_SYSTEM_GUI = 1
-		else:
-			self.teleportsystem.Close()
-			constInfo.TELEPORT_SYSTEM_GUI = 0
-
-	def OpenMentaLSkyGui(self):
-		if constInfo.SKYBOX_GUI == 0:
-			self.skyboxsystem.OpenWindow()
-			self.skyboxsystem.SetTop()
-			constInfo.SKYBOX_GUI = 1
-		else:
-			self.skyboxsystem.Close()
-			constInfo.SKYBOX_GUI = 0
-	
-	# Mental Bonus
-	def __BonusPage(self):
-		
-		try:
-			if not self.BonusPageBoard:
-				self.BonusPageBoard = uiBonusPage.BonusBoardDialog()
-			else:
-				if self.BonusPageBoard.IsShow():
-					self.BonusPageBoard.Hide()
-					
-				else:
-					self.BonusPageBoard.Show()
-		
-		
-		except ImportError:
-			import dbg,app
-			dbg.Trace('uiBonusPage.py Importing error')
-			app.Abort()
-	# Mental Bonus END
-	if app.SKILL_COOLTIME_UPDATE:
-		def	SkillClearCoolTime(self, slotIndex):
-			self.interface.SkillClearCoolTime(slotIndex)
-	
-	if app.ENABLE_EXTEND_INVEN_SYSTEM:	
-		def Update_inventory_ref(self):
-			if self.interface:
-				self.interface.SetInventoryPageKilit()
 				
-		def Update_inventory_lazim(self, lazim):
-			self.wndPopupDialog = uiCommon.PopupDialog()
-			self.wndPopupDialog.SetText(lazim + " " + localeInfo.ENVANTER_ANAH_LAZIM)
-			self.wndPopupDialog.Open()
-			
-	def __ShowPopup(self, arg):
-		self.pop = uiPopup.PopupMsg()
-		data = arg.split("|")
-		self.pop.SetType(int(data[0]))
-		self.pop.SetMsg(data[1])
-		self.pop.Show()
-		
-	if app.ENABLE_SWITCHBOT:
-		def RefreshSwitchbotWindow(self):
-			self.interface.RefreshSwitchbotWindow()
-			
-		def RefreshSwitchbotItem(self, slot):
-			self.interface.RefreshSwitchbotItem(slot)
-			
-	if app.ENABLE_EXPRESSING_EMOTION:	
-		def SERVER_EMOTIONS_CLEAR(self):
-			self.interface.ClearEmotionsNew()
-
-		def SERVER_EMOTIONS_ADD(self,id_emotion,time_emotion):
-			self.interface.AddEmotionsNew(int(id_emotion),int(time_emotion))
-			
-		def SERVER_EMOTIONS_LOAD(self):
-			self.interface.RefreshEmotionsNew()
-
-	if constInfo.ENABLE_SHOW_CHEST_DROP:
-		def BINARY_AddChestDropInfo(self, chestVnum, pageIndex, slotIndex, itemVnum, itemCount):
-			if self.interface:
-				if self.interface.dlgChestDrop:
-					self.interface.dlgChestDrop.AddChestDropItem(chestVnum, pageIndex, slotIndex, itemVnum, itemCount)
-		def BINARY_RefreshChestDropInfo(self, chestVnum, sub):
-			if self.interface:
-				if self.interface.dlgChestDrop:
-					self.interface.dlgChestDrop.RefreshItems(chestVnum, sub)
-
-	def SMissionsBP(self, i, type, vnum, counts):
-		constInfo.missions_bp[int(i)]={"iType":type, "iVnum":vnum, "iCount":counts}
-	
-	def SInfoMissions(self, i, counts, status, nume, image):
-		nume = str(nume).replace("#", " ")
-		constInfo.info_missions_bp[int(i)]={"iCounts":counts, "iStatus":status, "Name":nume, "Image":image}
-
-	def SRewardsMissions(self, i, vnum1, vnum2, vnum3, count1, count2, count3):
-		constInfo.rewards_bp[int(i)]={"iVnum1":vnum1, "iVnum2":vnum2, "iVnum3":vnum3,"iCount1":count1, "iCount2":count2, "iCount3":count3}
-	
-	def SizeMissions(self, size):
-		constInfo.size_battle_pass = int(size)
-		
-	def SBattlePass(self, status):
-		constInfo.status_battle_pass = int(status)
-		
-	def SBattlePass2(self, status):
-		constInfo.battle_status_pass = int(status)
-
-	def SFinalRewards(self, vnum1, vnum2, vnum3, count1, count2, count3):
-		constInfo.final_rewards = [int(vnum1),int(vnum2),int(vnum3),int(count1),int(count2),int(count3)]
-	
 	def __Input_Get_Vegas_1(self):
 		constInfo.INPUT_IGNORE = 1
 
@@ -3663,7 +2716,7 @@ class GameWindow(ui.ScriptWindow):
 	def __Input_Get_Vegas_3(self):
 		net.SendQuestInputStringPacket("1")
 
-	def SelectJob(self, cmd):
+ 	def SelectJob(self, cmd):
 		import uiselectjob
 		cmd = cmd.split('#')	
 		if cmd[0] == 'QID':
@@ -3684,49 +2737,20 @@ class GameWindow(ui.ScriptWindow):
 		constInfo.INPUT_IGNORE = 1
 
 	def GetInputStop(self):
-		constInfo.INPUT_IGNORE = 0	
-		
-	def GetInputBegin(self):
-		constInfo.INPUT_IGNORE = 1
-		
-	def GetInputEnd(self):
 		constInfo.INPUT_IGNORE = 0
 
-	#welcome_QUEST
-	def welcome_quest(self):
-		snd.PlaySound("sound/ui/welcome.wav")
-	#END_OF welcome_QUEST
-	
-	if app.GUILD_WAR_COUNTER:
-		def OpenGuildWarStatics(self):
-			self.interface.OpenGuildWarStatics()
-		def SetStaticsStatus(self):
-			self.interface.SetStaticsStatus()
-		def GuildWarStaticsUpdate(self):
-			self.interface.GuildWarStaticsUpdate()
-		def GuildWarStaticsClear(self):
-			self.interface.GuildWarStaticsClear()
-		def GuildWarStaticsSpecial(self, pid, sub_index):
-			self.interface.GuildWarStaticsSpecial(pid, sub_index)
-		def GuildWarUpdateUserCount(self, id0, user0, id1, user1, observer):
-			self.interface.UpdateMemberCount(int(id0), int(user0), int(id1), int(user1))
-			self.interface.wndMiniMap.UpdateObserverCount(int(observer))
-			self.interface.GuildWarStaticSetUser(int(id0), int(user0), int(id1), int(user1), int(observer))
-		def UpdateObserverCount(self, observer):
-			self.interface.UpdateObserverCount(observer)
-		#def AddCSMessage(self, killerName, killerRace, victimName, victimRace):
-			#self.interface.AddCSMessage(str(killerName), int(killerRace), str(victimName), int(victimRace))
-		def GuildWarStatisticsSave(self, saveType, warID):
-			uiGuildWarData.Save(saveType, warID)
-		def GuildWarStatisticsEvent(self):
-			self.interface.GuildWarStatisticsEvent()
-
-	if app.ENABLE_GUILD_ONLINE_LIST:
-		def GuildListRemove(self):
-			self.interface.GuildListRemove()
-		def GuildListSetData(self,guildID, guildName, masterOnline):
-			self.interface.GuildListSetData(int(guildID), str(guildName), int(masterOnline))
-
+	if app.__BL_OFFICIAL_LOOT_FILTER__:
+		def LootingSystemProcess(self):
+			if self.interface:
+				self.interface.LootingSystemProcess()
+				
+	if app.ENABLE_SWITCHBOT:
+		def RefreshSwitchbotWindow(self):
+			self.interface.RefreshSwitchbotWindow()
+			
+		def RefreshSwitchbotItem(self, slot):
+			self.interface.RefreshSwitchbotItem(slot)
+			
 	if app.ENABLE_ANTI_EXP:
 		def SetAntiExp(self, flag):
 			flag = int(flag)
@@ -3762,142 +2786,3 @@ class GameWindow(ui.ScriptWindow):
 								for j in range(1,5):
 									if gui.IsChild("EXPGauge_0%d"%j):
 										gui.GetChild("EXPGauge_0%d"%j).SetDiffuseColor(201,160,51,1)
-
-	if app.ENABLE_DEFENSAWESHIP:
-		def __ShipMastHPShow(self):
-			if self.wndShipMastHP:
-				self.wndShipMastHP.Open(10000000, 10000000)
-
-		def __HydraGetHp(self, curPoint):
-			if self.wndShipMastHP:
-				new = int(curPoint)
-				self.wndShipMastHP.SetShipMastHP(new, 10000000)
-				
-	def _GuildStorageCMD(self, command):
-		cmd = command.split("/")
-		
-		if cmd[0] == "OPEN":
-			self.interface.GuildStorageWindow.Open(int(cmd[1]))
-		elif cmd[0] == "REFRESH":
-			self.interface.GuildStorageWindow.RefreshSlots()
-		elif cmd[0] == "REFRESH_MONEY":
-			self.interface.GuildStorageWindow.SetMoney(cmd[1])
-		elif cmd[0] == "REFRESH_MEMBERS":
-			self.interface.GuildStorageWindow.Adminpanel["board"].RefreshMembers()
-		elif cmd[0] == "CLEAR_TEMPSLOTS":
-			constInfo.GUILDSTORAGE["tempslots"] = {"TAB0" : {},"TAB1" : {},"TAB2" : {}}
-		elif cmd[0] == "COMPARE_TEMPSLOTS":
-			for i in range(3):
-				if constInfo.GUILDSTORAGE["tempslots"]["TAB"+str(i)] != constInfo.GUILDSTORAGE["slots"]["TAB"+str(i)]:
-					constInfo.GUILDSTORAGE["slots"]["TAB"+str(i)] = {}
-					constInfo.GUILDSTORAGE["slots"]["TAB"+str(i)] = constInfo.GUILDSTORAGE["tempslots"]["TAB"+str(i)]
-					self.interface.GuildStorageWindow.RefreshSlots()
-		elif cmd[0] == "QID":
-			self.GuildStorageQID(cmd[1])
-		elif cmd[0] == "QUESTCMD":
-			self._GuildStorageQuestCMD()
-		elif cmd[0] == "MEMBER_COMPLETE":
-			constInfo.GUILDSTORAGE["members"] = {}
-			self.interface.GuildStorageWindow.ClearMembers()
-			import event
-			constInfo.GUILDSTORAGE["questCMD"] = "GETMEMBERLIST"
-			event.QuestButtonClick(int(constInfo.GUILDSTORAGE["qid"]))
-				
-	def _GuildStorageAddItemSlot(self, slot, tab ,itemVnum, count, socket0, socket1, socket2, socket3, socket4, socket5, attrtype0,attrvalue0, attrtype1,attrvalue1, attrtype2, attrvalue2, attrtype3, attrvalue3, attrtype4, attrvalue4, attrtype5, attrvalue5, attrtype6, attrvalue6):
-		self.interface.GuildStorageWindow.AddItemSlot(slot, tab ,itemVnum, count, socket0, socket1, socket2, socket3, socket4, socket5, attrtype0,attrvalue0, attrtype1,attrvalue1, attrtype2, attrvalue2, attrtype3, attrvalue3, attrtype4, attrvalue4, attrtype5, attrvalue5, attrtype6, attrvalue6)
-	
-	def _GuildStorageAddItem(self, slot ,itemVnum, count, socket0, socket1, socket2, socket3, socket4, socket5, attrtype0,attrvalue0, attrtype1,attrvalue1, attrtype2, attrvalue2, attrtype3, attrvalue3, attrtype4, attrvalue4, attrtype5, attrvalue5, attrtype6, attrvalue6):
-		slotsWidth = 15
-		slotsHeight = 8
-		slot = int(slot)
-		if slot <= 120:
-			constInfo.GUILDSTORAGE["slots"]["TAB0"][slot] = [int(itemVnum),int(count), int(socket0), int(socket1), int(socket2), int(socket3), int(socket4), int(socket5), int(attrtype0),int(attrvalue0), int(attrtype1),int(attrvalue1), int(attrtype2), int(attrvalue2), int(attrtype3), int(attrvalue3), int(attrtype4), int(attrvalue4), int(attrtype5), int(attrvalue5), int(attrtype6), int(attrvalue6)]
-		elif slot > 120 and slot <= 240:
-			constInfo.GUILDSTORAGE["slots"]["TAB1"][slot-120] = [int(itemVnum),int(count), int(socket0), int(socket1), int(socket2), int(socket3), int(socket4), int(socket5), int(attrtype0),int(attrvalue0), int(attrtype1),int(attrvalue1), int(attrtype2), int(attrvalue2), int(attrtype3), int(attrvalue3), int(attrtype4), int(attrvalue4), int(attrtype5), int(attrvalue5), int(attrtype6), int(attrvalue6)]
-		elif slot > 240 and slot <= 360:
-			constInfo.GUILDSTORAGE["slots"]["TAB2"][slot-240] = [int(itemVnum),int(count), int(socket0), int(socket1), int(socket2), int(socket3), int(socket4), int(socket5), int(attrtype0),int(attrvalue0), int(attrtype1),int(attrvalue1), int(attrtype2), int(attrvalue2), int(attrtype3), int(attrvalue3), int(attrtype4), int(attrvalue4), int(attrtype5), int(attrvalue5), int(attrtype6), int(attrvalue6)]
-	
-	def _GuildStorageTempSlotsAdd(self,slot ,itemVnum, count, socket0, socket1, socket2, socket3, socket4, socket5, attrtype0,attrvalue0, attrtype1,attrvalue1, attrtype2, attrvalue2, attrtype3, attrvalue3, attrtype4, attrvalue4, attrtype5, attrvalue5, attrtype6, attrvalue6):
-		slot = int(slot)
-		if slot <= 120:
-			constInfo.GUILDSTORAGE["tempslots"]["TAB0"][slot] = [int(itemVnum),int(count), int(socket0), int(socket1), int(socket2), int(socket3), int(socket4), int(socket5), int(attrtype0),int(attrvalue0), int(attrtype1),int(attrvalue1), int(attrtype2), int(attrvalue2), int(attrtype3), int(attrvalue3), int(attrtype4), int(attrvalue4), int(attrtype5), int(attrvalue5), int(attrtype6), int(attrvalue6)]
-		elif slot > 120 and slot <= 240:
-			constInfo.GUILDSTORAGE["tempslots"]["TAB1"][slot-120] = [int(itemVnum),int(count), int(socket0), int(socket1), int(socket2), int(socket3), int(socket4), int(socket5), int(attrtype0),int(attrvalue0), int(attrtype1),int(attrvalue1), int(attrtype2), int(attrvalue2), int(attrtype3), int(attrvalue3), int(attrtype4), int(attrvalue4), int(attrtype5), int(attrvalue5), int(attrtype6), int(attrvalue6)]
-		elif slot > 240 and slot <= 360:
-			constInfo.GUILDSTORAGE["tempslots"]["TAB2"][slot-240] = [int(itemVnum),int(count), int(socket0), int(socket1), int(socket2), int(socket3), int(socket4), int(socket5), int(attrtype0),int(attrvalue0), int(attrtype1),int(attrvalue1), int(attrtype2), int(attrvalue2), int(attrtype3), int(attrvalue3), int(attrtype4), int(attrvalue4), int(attrtype5), int(attrvalue5), int(attrtype6), int(attrvalue6)]
-		
-	def _GuildStorageAddLog(self,id,name,date,type,do,desc):
-		self.interface.GuildStorageWindow.LogsInsert(id,name,date,type,do,desc)
-		constInfo.GUILDSTORAGE["logs"][int(id)] = [name,date,type,do,desc]
-		
-	def _GuildStorageQuestCMD(self):
-		net.SendQuestInputStringPacket(str(constInfo.GUILDSTORAGE["questCMD"]))
-		constInfo.GUILDSTORAGE["questCMD"] = "NULL#"
-	
-	def GuildStorageQID(self, qid):
-		constInfo.GUILDSTORAGE["qid"] = int(qid)
-		
-	def _GuildStorageAddMemberToList(self,memberId,member,authority0,authority1,authority2,authority3):
-		constInfo.GUILDSTORAGE["members"]["member"+memberId] = [member,int(authority0),int(authority1),int(authority2),int(authority3)]
-
-	def __Inputget1(self):
-		constInfo.INPUT_IGNORE = 1
-
-	def __Inputget2(self):
-		constInfo.INPUT_IGNORE = 0
-
-	if app.BL_MAILBOX:
-		def MailBoxProcess(self, type, data):
-			if self.interface:
-				self.interface.MailBoxProcess( type, data )
-
-		
-class WaitingDialog(ui.ScriptWindow):
-
-	def __init__(self):
-		ui.ScriptWindow.__init__(self)
-		self.__LoadDialog()
-		self.eventTimeOver = lambda *arg: None
-		self.eventExit = lambda *arg: None
-
-	def __del__(self):
-		ui.ScriptWindow.__del__(self)
-
-	def __LoadDialog(self):
-		try:
-			PythonScriptLoader = ui.PythonScriptLoader()
-			PythonScriptLoader.LoadScriptFile(self, "UIScript/WarteSchleife.py")
-
-		except:
-			import exception
-			exception.Abort("WaitingDialog.LoadDialog.BindObject")
-
-	def Open(self, waitTime):
-		curTime = time.clock()
-		self.endTime = curTime + waitTime
-
-		self.Show()		
-
-	def Close(self):
-		self.Hide()
-
-	def Destroy(self):
-		self.Hide()
-
-	def SAFE_SetTimeOverEvent(self, event):
-		self.eventTimeOver = ui.__mem_func__(event)
-
-	def SAFE_SetExitEvent(self, event):
-		self.eventExit = ui.__mem_func__(event)
-		
-	def OnUpdate(self):
-		lastTime = max(0, self.endTime - time.clock())
-		if 0 == lastTime:
-			self.Close()
-			self.eventTimeOver()
-		else:
-			return
-		
-	def OnPressExitKey(self):
-		self.Close()
-		return TRUE

@@ -1,38 +1,46 @@
 
 [BANNER_IMG = d:/ymir work/ui/wiki/banners/it/melma.png]
 [X_PADDING=12;COLOR=0xffd700;FONT_SIZE=15]REQUISITI:
-[X_PADDING=12]*Livello minimo: 45.
-[X_PADDING=12]*Livello massimo: 65.
-[X_PADDING=12]*Biglietto: Pezzo di Menhir Melma.
+[X_PADDING=12]*Livello minimo: 40.
+[X_PADDING=12]*Livello massimo: 70.
+[X_PADDING=12]*Biglietto: Sacca di denaro.
 [X_PADDING=12]*Genere: Solo e Gruppo.
 [IMG=d:/ymir work/ui/wiki/rahmen.tga; Y=5; X=456]
-[IMG=icon/item/30625.tga; Y=15; X=478]
-[X_PADDING=459]Pezzo M. Melma
+[IMG=icon/item/50023.tga; Y=15; X=478]
+[X_PADDING=459]Sacca di denaro
 
 [X_PADDING=12;COLOR=0xffd700;FONT_SIZE=15]ALTRE INFORMAZIONI:
-[X_PADDING=12]*Il limite di tempo è di 30 minuti.
-[X_PADDING=12]*Il cooldown è di 40 minuti.
-[X_PADDING=12]*Nel caso in cui si entra con il gruppo, ognuno deve avere il biglietto.
+[X_PADDING=12]*Il limite di tempo è di 25 minuti.
+[X_PADDING=12]*Il cooldown è di 5 minuti.
 [X_PADDING=12]*Si può accedere tramite la mappa: Lobby Dungeon.
-[X_PADDING=12]*Il bonus che vale sui mostri: Forte contro Zombie.
-[X_PADDING=12]*L'elemento dei mostri: Terra.
+[X_PADDING=12]*Il bonus che vale sui mostri: Forte contro Esoterici - Boss Finale: Animali
+[X_PADDING=12]*L'elemento dei mostri: Vento.
 
 [IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=184; CENTER_ALIGN]
 
 [CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]SVOLGIMENTO DEL DUNGEON
 
 [X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]PRIMA FASE
-[X_PADDING=20]1. Uccidi la Metin della Melma.
-[X_PADDING=20]2. Uccidi 103 mostri.
-[X_PADDING=20]3. Clicca sulla Metin della Melma.
+[X_PADDING=20]1. Affronta la prima ondata di mostri e uccidili tutti.
 
 [X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]SECONDA FASE
-[X_PADDING=20]1. Distruggi 4 Metin Melma e raccogli la Fiala di Melma Vuota.
-[X_PADDING=20]2. Trascina la Fiala di Melma Vuota sulla Melma per raccoglierne un pò.
-[X_PADDING=20]3. Trascina la Fiala di Melma Piena della Pietra focaia.
+[X_PADDING=20]1. Distruggi tutte le Metin dell'Oro
+[X_PADDING=20]2. Parla con la Guardia del Tesoro.
 
 [X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]TERZA FASE
-[X_PADDING=20]1. Uccidi 103 mostri.
-[X_PADDING=20]2. Uccidi la Regina della Melma.
+[X_PADDING=20]1. Uccidi tutti i mostri.
+[X_PADDING=20]2. Sconfiggi Lolth.
+[X_PADDING=20]3. Trova l'Anfora corretta per riempire la bottiglia.
+[X_PADDING=20]4. Consegna la bottiglia alla Guardia del Tesoro.
 
-[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=403; CENTER_ALIGN]
+[X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]QUARTA FASE
+[X_PADDING=20]1. Parla col Sovrano.
+[X_PADDING=20]2. Sconfiggi l'ondata di mostri.
+[X_PADDING=20]3. Distruggi il Metin Scrigno per ottenere la chiave e apri i forzieri.
+[X_PADDING=20]4. Sconfiggi le Lolth!
+[X_PADDING=20]5. Distruggi le Metin Scrigno e sconfiggi l'ultima ondata.
+
+[X_PADDING=12;COLOR=ef4f00;FONT_SIZE=15]QUINTA FASE
+[X_PADDING=20]1. Parla col Sovrano.
+[X_PADDING=20]2. Distruggi le Rane D'Oro.
+[X_PADDING=20]3. Sconfiggi Dragonite.

@@ -56,11 +56,11 @@ Group Particle
         }
         List TimeEventSizeX
         {
-            0.000000 74.000000
+            0.000000 64.000000
         }
         List TimeEventSizeY
         {
-            0.000000 74.000000
+            0.000000 64.000000
         }
     }
     

@@ -2,7 +2,7 @@ import uiScriptLocale
 
 window = {
 	"name" : "EquipmentDialog",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : 0,
 	"y" : 0,
@@ -63,11 +63,8 @@ window = {
 										{"index":8, "x":75, "y":145, "width":32, "height":32},
 										{"index":9, "x":114, "y":2, "width":32, "height":32},
 										{"index":10, "x":75, "y":35, "width":32, "height":32},
-										## 새 반지1
 										##{"index":21, "x":2, "y":106, "width":32, "height":32},
-										## 새 반지2
 										##{"index":22, "x":75, "y":106, "width":32, "height":32},
-										## 새 벨트
 										{"index":23, "x":39, "y":106, "width":32, "height":32},
 									),
 						},

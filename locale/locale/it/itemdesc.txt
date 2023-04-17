@@ -1,11 +1,4 @@
-16666	Una prelibatezza per il tuo pet!
-16667	Una prelibatezza per il tuo pet molto rara!
-30341	Dragonfire Ring	An aura of intense energy surrounds you. Forged in the flames of a dragon, this ring will destroy the statues in Meley's Lair in an instant.
-30620	Red Dragon Horn	Dragon horns are made of one of the hardest known materials.
-30621	Red Dragon Scale	Dragon scales are among the hardest known materials.
-30622	Armour Design-Helm	This item is required for crafting helmets.
-50270	Queen Meley's Chest	This chest was recovered from the Dragon Queen Meley's lair. It contains a truly magnificent treasure. This item is tradeable.
-50271	Dragon Watcher Chest	This chest was recovered from the Dragon Queen Meley's lair. It contains a truly magnificent treasure. This item is tradeable.
+72756	Pass bottino	Attiva il Filtro Prede.
 100000	Elisir del tempo (P)	Ricarica la durata di una Pietra del Drago.
 100001	Elisir del tempo (M)	Ricarica la durata di una Pietra del Drago.
 100002	Elisir del tempo (G)	Ricarica la durata di una Pietra del Drago.
@@ -18,12 +11,6 @@
 11902	Smoking	Un elegante abito per il giorno del matrimonio.
 11903	Abito da Sposa	Un abito particolare, che una donna porta il giorno del suo matrimonio.
 11904	Abito da Sposa	Un abito particolare, che una donna porta il giorno del suo matrimonio.
-70011	Hai strappato il cuore del malefico dio. Sei una leggenda.
-50041	Auranin Ates Run.	Questo pacco contiene la tua veste aura radiante.
-11971	Un premio per i Beta-Tester di Zayos
-11972	Un premio per i Beta-Tester di Zayos
-11973	Un premio per i Beta-Tester di Zayos
-11974	Un premio per i Beta-Tester di Zayos
 12690	Elmo d'acc. d. drago +0	
 12691	Elmo d'acc. d. drago +1	
 12692	Elmo d'acc. d. drago +2	
@@ -506,8 +493,6 @@
 27989	Bussola dei Metin	La bussola ti indica la direzione e la distanza del Metin più vicino a te. Più sarà luminosa e più sarai vicino. Può essere attivata massimo 6 volte.
 27990	Pezzo di pietra	Grazie alla sua ridotta grandezza, si lascia facilmente trasportare ed è utilizzabile in svariati modi.
 27991	Pietra Acquatica	Una pietra dura e grossolana usata per affilare armi e utensili da cucina.
-55555	Spirito Rosso	Evocando questo spirito otterrai una velocita' strabiliante per alcuni secondi.
-55556	Spirito Blu	Evocando questo spirito i tuoi danni raddoppieranno per alcuni secondi.
 27992	Perla bianca	Una perla bianco neve. | Le donne l'adorano
 27993	Perla blu	Una magnifica perla blu. | Le donne l'adorano
 27994	Perla rossa	Un prezioso tesoro dal colore fulvo proveniente dal cuore di un'ostrica.
@@ -551,15 +536,15 @@
 30007	Amuleto di Orco	Un amuleto che incoraggia gli Orchi.
 30008	Guida Esoterica	Un libro, che introduce i principianti all'arte esoterica.
 30009	Medicina Sconosciuta	Una medicina sconosciuta con ingredienti sconosciuti.
-30010	Edera	Pianta che cresce sull'Eden, simbolo di Dioniso.
-30011	Calantha	Un fiore molto raro che cresce solo sulle Montagne dell'Eden.
-30012	Fungo dell'Eden 	Un fungo che cresce sulle montagne dell'Eden.
+30010	Bile d'Orso	La bile d'orso serve a risvegliare il senso del gusto.
+30011	Matassa	Un gomitolo di fili.
+30012	Bottiglia di Vino	Nella bottiglia c'è del vino molto aromatico.
 30013	Boccale di Alcool	Una brocca che serve per contenere alcool.
 30014	Pelliccia di Yeti	La pelliccia che protegge dal freddo del leggendario yeti.
 30015	Ricordo del Demone	Il ricordo oscuro di un demone.
 30016	P. Preziosa del Demone	Una pietra preziosa conosciuta perché contiene l'anima dei morti.
 30017	Spillone per capelli	Lo spillone per capelli di donna.
-30018	Nastro per Capelli Rosso	Un erba ricercata dall'Eremita.
+30018	Nastro per Capelli Rosso	Un prezioso nastro per legare i capelli delle donne.
 30019	Criniera Fiammante	I fili della criniera fiammeggiante sono usati per creare abbigliamento invernale.
 30020	Nocciolo di Pesca	Vengono da sempre usati per avere una bella pelle.
 30021	Pezzo di P. Preziosa	Pietra preziosa rotta da un materiale molto duro.
@@ -567,24 +552,23 @@
 30023	Pelliccia di Tigre Bian.	La pelliccia di tigre piu ambita dai collezionisti.
 30024	Coda di Cavallo	La coda di un cavallo, è usata per creare oggetti di alta qualità come spazzole, cappelli e corde.
 30025	Sacca Veleno di Ragno	La sacca del veleno di un ragno.
-30026	Intestino di Lupo	Energia assorbita da un talismano.
-30027	Pelliccia di Lupo	Energia assorbita da un talismano.
-30028	Artiglio di Lupo	Energia assorbita da un talismano.
-30029	Fegato di Lupo	Energia assorbita da un talismano.
-30030	Lama Arruginita	Energia assorbita da un talismano.
-30031	Ornamento	Energia assorbita da un talismano.
+30026	Intestino di Lupo	Un ingrediente per salsicce, alimento molto conosciuto nel Regno.
+30027	Pelliccia di Lupo	I peli piu grossi del lupo sono usati per creare spazzole e striglie.
+30028	Artiglio di Lupo	Gli artigli affilati di un lupo sono usati per produrre accessori.
+30029	Fegato di Lupo	Un ingrediente per salsicce, alimento molto conosciuto nel Regno.
+30030	Lama Arruginita	La lama arruginita di un pugnale.
+30031	Ornamento	Un gioiello molto amato dalle ragazze.
 30032	Uniforme nera	Una vecchia e consunta uniforme nera.
 30033	Porcellana Rotta	Un pezzo di porcellana rotta.
 30034	Nastro per Capelli Bian.	Un prezioso nastro per legare i capelli delle donne.
-30035	Crema per il viso	Emette una strana luce.
+30035	Crema per il viso	Le donne la usano per mantenere la pelle giovane.
 30036	Erba Misteriosa	Un erba leggendaria dagli effetti miracolosi.
-30037	Artiglio di Tigre	Un artiglio molto ricercato del Razador.
-30038	Pelliccia di Tigre	Il Cuore strappato del Razador.
+30037	Artiglio di Tigre	Alcuni guerrieri portano una collana di artigli di tigre per dimostrare il loro coraggio.
+30038	Pelliccia di Tigre	Una pelliccia molto ricercata dai collezionisti.
 30039	Pezzo di Pelle	Pelle che viene usata per coprire le ferite.
 30040	Foglia	Una foglia di una pianta sconosciuta.
 30041	Shuriken	Un arma da tiro usata dai ninja.
 30042	Zanna di una Tigre	Un solido e luccicante canino di questo felino.
-50038	Zanna di una Tigre	Tesoro custodito negli inferi.
 30043	Fagiolo	Ingrediente usato in molte cucine.
 30044	Argilla	Argilla usata per la produzione di porcellane.
 30045	Ago di Scorpione	Un ago imbevuto nel veleno di scorpione.
@@ -592,7 +576,7 @@
 30047	Libro delle Maledizioni	Il libro esoterico che viene usato per maledire qualcuno.
 30048	Pezzo di Ghiaccio	Acqua ghiacciata che è eternamente fredda.
 30049	Corno Orca di Ghiaccio	Pregiato materiale per scultori.
-30050	Palla di Ghiaccio	Una palla di magma. Il Biologo le usa per i suoi studi sulla Terra dei fuochi.
+30050	Palla di Ghiaccio	Una palla di ghiaccio. Non si scioglie in acqua bollente.
 30051	Talismano Sconosciuto	Un talismano sconosciuto, solo gli esoterici possono leggerlo.
 30052	Bandiera	Una bandiera, per marcare le truppe dai selvaggi.
 30053	Pelle di Zampa d'Orso	Il cibo che fornisce resistenza piu amato dalla gente.
@@ -602,13 +586,13 @@
 30057	Occhi di Ragno	Gli occhi di ragno sono molto amati dai collezionisti.
 30058	Sacca di uova di ragno	Viene usato dalle donne come rimedio magico per avere figli.
 30059	Zampe di Ragno	Gli shamani usano le zampe pelose per il loro lavoro.
-30060	Lingua di Rana	Lettera A.
-30061	Coscia di Rana	Lettera S.
-30062	Ciotola Medica	Lettera H.
-30063	Medicina	Lettera E.
-30064	Pietra Affilata	Lettera N.
-30065	Campanella	Lettera S(b).
-30066	Pepe Piccante	Consegnando questa sacca al Guardiano della Stanza del Tesoro puoi accedervi.
+30060	Lingua di Rana	Una lingua appicicosa.
+30061	Coscia di Rana	Un ingrediente esotico assomiglia al pollo
+30062	Ciotola Medica	Una chiave usata dai farmacisti.
+30063	Medicina Per la Pelle	Una medicina che cura le malattie della pelle.
+30064	Pietra Affilata	Una pietra per forgiare le punte di freccia.
+30065	Campanella	Una campana che suona.
+30066	Pepe Piccante	Pepe molto piccante.
 30067	Pelle di Serpente	La pelle di un serpente.
 30068	Bistecca di Tofu	Carne vegetale.
 30069	Artiglio di Lupo+	Un artiglio affilato di lupo usato per la creazione di accessori.
@@ -641,7 +625,7 @@
 30096	Sacca della fortuna	Una sacca di seta che contiene cose di valore
 30129	Missione del Cavaliere	Un documento che contiene una missione militare.
 30130	Bottiglia Vuota	Un bottiglia di vetro vuota nella quale è possibile contenere molti liquidi.
-30131	Lettera dal Fabbro	Un trattato reperibile dal Commerciante, che permette l'accesso alla Dimora dei Salici.
+30131	Lettera dal Fabbro	Una lettera del fabbro per il suo amico Deokbae.
 30132	Libro di Uriel	Un libro che Uleduji legge volentieri. Intitolato
 30133	Scarpe Fiorite	Belle scarpe femminili.
 30134	Pacchetto di Uriel	Un pacchetto contenente molti libri.
@@ -650,7 +634,7 @@
 30137	Sangue di Scimmia	Il sangue di una scimmia. Ha un odore disgustoso.
 30138	Sabbia del Deserto	Questa sabbia particolarmente fine è usata per la produzione di Porcellana Seladon.
 30139	Molare	Unggyi
-30140	Filo per Cucire	Con questo progetto puoi creare una skin costume o arma vintage.
+30140	Filo per Cucire	Forte filo per cucire. È usato per riparare abiti e fare collane.
 30141	Accessorio	È usato per abbellire gli abiti oppure può essere portato cose.
 30142	Lettera	Non si riesce a capire cosa ci sia scritto sulla lettera forse devi imparare la lingua.
 30143	Erbe Medicinali	Una raccolta di erbe medicinali secche. Purtroppo sono un po' impolverate.
@@ -668,19 +652,18 @@
 30155	Pendente di Mirine	Un pendaglio per una collana. Sul retro c'è il nome.
 30156	Libro Segreto del Tempio	Questo prezioso volume contiene l'analisi della dottrina e storia del Tempio Oscuro.
 30157	Punta di Freccia	Queste punte di freccia avvelenate saranno un valido aiuto nella difesa del Regno.
-30159	Sabbia dell'isola	La sabbia dell'isola piu' misteriosa di tutti i regni.
 30177	Olio al muschio	L'olio al muschio è utilizzato da un mercante d'armi in una quest. L'item non ha nessun'altra funzione.
-30179	Talismano	Biglietto per affrontare le grandi scimmie.
-30180	Amuleto del Dio Drago	Un lasciapassare che viene consegnato solo a chi ha dimostrato il suo valore.
+30179	Chiave a spirale	Questa chiave magica attiva il portale che conduce al Tempio del Drago.
+30180	Amuleto del Dio Drago	Il gioiello d'oro lucente permette di accorciare il tragitto che porta alla Grotta dell'Esilio
 30181	Pagina di Libro	Le scritte sbiadite sulla pergamena sono difficili da decifrare - la pagina sembra essere molto antica.
 30182	Diario Leggendario	Questa copia di un libro molto più antico sembra essere molto preziosa.
 30183	Maschera di Legno Oscura	Lo sguardo grottesco di questa maschera sembra fissarti direttamente. Si tratta certamente di un oggetto per cerimonie.
 30184	Cenere incantata	La cenere contenuta in questo recipiente decorato con strani segni è avvolta da un soffuso barlume.
 30185	Ghiaccio Nero	Sotto la liscia e brillante superficie sono racchiuse profonde ombre.
 30186	Lacrima Pietrificata	Una Lacrima Pietrificata del dio Baljit-Elvedin, oggi conosciuto come il Dio Drago.
-30187	Goccia di Sangue	Una Goccia di Sangue delle Manticore del Cratere di Enki.
+30187	Goccia di Sangue	Una Goccia di Sangue della creatrice del mondo, la dea Bahar-Taraji, morta assassinata.
 30188	Ossidiana	Pietrisco di Vulcano, un tempo liquido, raffreddatosi improvvisamente
-30189	Pianto di Baljit-Elvedin	Il vaso modellato a regola d'arte contiene le lacrime del dio Enki.
+30189	Pianto di Baljit-Elvedin	Il vaso modellato a regola d'arte contiene le lacrime del dio Baljit-Elvedin.
 30190	Ematite	Questa pietra fatta con il sangue di Bahar-Tarajis garantisce l'ingresso nella Grotta dell'Esilio.
 30191	Ematite	Le Ematiti garantiscono l'ingresso nella Grotta dell'Esilio.
 30192	Lattice	Estratto di pianta pregiato
@@ -689,16 +672,16 @@
 30195	Sabbia di Quarzo	Sembra che questa sabbia venga utilizzata come sangue dalle creature di pietra del deserto.
 30196	Cenere del Demone	Persino le ceneri di un demone racchiudono forze extra-mondane.
 30197	Semi Magici	Questi semi scoppiettano letteralmente di vitalità.
-30198	Cristallo d'Acqua	Un lasciapassare che viene consegnato solo a chi ha dimostrato il suo valore.
+30198	Cristallo d'Acqua	Il cuore di una creatura del ghiaccio oscura.
 30199	Cristallo Blu	Un pezzo di cristallo del Tempio del Drago che aumenta le forze oscure.
-30210	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
-30211	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
-30212	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
-30213	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
-30214	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
-30215	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
-30216	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
-30217	Pezzo di Pietra Preziosa	Consegnando questo stile alla sarta, potrai creare una fantastica skin arma.
+30210	Pezzo di Pietra Preziosa	Una pietra cristallina sulla quale la luce si infrange in minuscole scintille.
+30211	Pezzo di Pietra Preziosa	Una pietra cristallina che scintilla alla luce.
+30212	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
+30213	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
+30214	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
+30215	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
+30216	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
+30217	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
 30218	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
 30219	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
 30220	P. Spirituale Jinunggyi	La leggendaria pietra che contiene l'anima dei nobili Jinung.
@@ -755,8 +738,8 @@
 30507	Fascetta di Bronzo	Elemento per il raffinamento della tua arma
 30508	Decoro Zaffiro	Elemento per il raffinamento della tua arma
 30509	Acciaio del Drago Blu	Il cuoio ricavato dalla pelle di drago è molto leggero e flessibile, ma allo stesso tempo indistruttibile. Subisce una lavorazione simile a quella del metallo e viene impiegato nella creazione di armature.
-30510	Spallina Sontuosa	Elemento per la decorazione di armature.
-30511	Stoffa Rossa	Granato pregiato per la decorazione di armature.
+30510	Spallina Sontuosa	Elemento per la decorazione di armature
+30511	Stoffa Rossa	Stoffa pregiata per la decorazione di armature
 30512	Acciaio del Drago Rosso	Il cuoio ricavato dalla pelle di drago è molto leggero e flessibile, ma allo stesso tempo indistruttibile. Subisce una lavorazione simile a quella del metallo e viene impiegato nella creazione di armature.
 30513	Spallina Aristocratica	Elemento per la decorazione di armature
 30514	Stoffa Viola	Stoffa pregiata per la decorazione di armature
@@ -767,7 +750,7 @@
 30519	Gancio d'Oro	È fatto di oro puro e può essere lavorato insieme a una gemma per creare un gioiello prezioso.
 30520	Fibbia d'Oro	È fatta di oro puro e può essere lavorata insieme a una gemma per creare un gioiello prezioso.
 30521	Elemento ad Anello	È fatto di oro puro e può essere lavorato insieme a una gemma per creare un gioiello prezioso.
-30522	Pezzo di Pietra Preziosa	Una piccola pietra brillante.
+30522	Anellini di Collana	Sono fatti di oro puro e possono essere lavorati insieme a una gemma per creare un gioiello prezioso.
 30523	Elemento di Gioelleria	È fatto di oro puro e può essere lavorato insieme a una gemma per creare un gioiello prezioso.
 30524	Pietra delle fiamme	
 30525	Pietra fiamme ghiaccio	
@@ -833,7 +816,7 @@
 30585		
 30586		
 30600	Cartamodello	
-30601	Progetto Guerriero I progetti per creare la leggendaria Hwang.	
+30601	Design d'armatura	
 30602	Tintura blu	
 30603	Tintura rossa	
 30604	Tintura grigia	
@@ -845,25 +828,25 @@
 30610	Mithril	
 30611	Cinghie resistenti	
 30612	Corde robuste	
-30613	Pietra delle Driadi	In questa misteriosa pietra che riluce di verde è contenuta l'anima di una Driade, uno spirito arboreo. Le Driadi conoscono le parole segrete che permettono l'accesso al 4 piano.
+30613	Pietra delle Driadi	In questa misteriosa pietra che riluce di verde è contenuta l'anima di una Driade, uno spirito arboreo. Le Driadi conoscono le parole segrete che permettono l'accesso a Erebos.
 30614	Tintura nera	
 30615	Tintura bianca	
-30616	Titanio diossido	Oggetto molto richiesto dal Maestro Commerciante.
+30616	Titanio diossido	
 30617	Agata	
 30618	Pietra lunare	
 30619	Tintura oro metallizzata	
 30620	Corno di drago rosso	Le corna dei draghi sono costituite di un tessuto particolare che si distingue per essere uno dei materiali più duri conosciuti.
 30621	Squama di drago rossa	Le squame di drago sono uno dei materiali più robusti che si conoscano.
-30622	Progetto Sura I progetti per creare la leggendaria Hwang.
+30622	Design d'armatura: Elmo	Questo oggetto è necessario per la realizzazione di elmi.
 31001	Copia dell'Epigrafe	Hai confezionato una copia dell'epigrafe della vecchia lapide.
-31002	Progetto Shamano I progetti per creare la leggendaria Hwang.
+31002	Vecchio Documento	Documento risalente al tempo della Nazione Oscura, contenente ulteriori indizi.
 31003	Antidoto	Una medicina salvavita per il soldato avvelenato.
-31004	Resina Benedetta	La resina di un albero benedetto è uno degli elementi necessari per salire al 5 piano della Dimora dei Salici.
+31004	Resina Benedetta	La resina di un albero benedetto è uno degli elementi necessari per la creazione della Lacrima del Cielo.
 31005	Essenza di Cristallo Blu	L'essenza, estratta da delle gemme blu, viene utilizzata per la creazione della Lacrima del Cielo.
-31006	Quarzo Infernale Rosso	Questa pietra custodita sul Monte Eden emana un calore fortissimo.
+31006	Quarzo Infernale Rosso	Questo quarzo sfavillante rosso è composto da Terra Vulcanica, Chioma Fiammante e Pietra Fondamenta.
 31007	Terra Vulcanica	Una sostanza simile alla cenere proveniente dalla Doyyumhwan, utilizzata per la creazione del Quarzo Infernale Rosso.
 31008	Lacrima del Cielo	Una gemma magica di Essenza di Cristallo Blu, Quarzo Infernale Rosso e Resina Benedetta. Tiene lontani gli spiriti malvagi e dura sette giorni.
-31009	Progetto Ninja I progetti per creare la leggendaria Hwang.
+31009	Lettera degli Gnoll	Messaggio segreto dei Servitori dell'Oscurità ai Gnoll
 31010	Lettera Ladro Rosso	Il messaggio dei Servitori dell'Oscurità alla banda dei Ladri Rossi è stato distrutto in mille pezzi.
 31011		
 31012		
@@ -873,12 +856,12 @@
 31016	Lettera di Lee Chung	Messaggio importante da parte del Comandante Lee Chung per l'Ammiraglio Angmur
 31017	Lettera sigillata	Questa lettera apparteneva alla Servitrice del tempio.
 31018	Manoscritto di Carapax	Questo guscio di tartaruga con le sue linee incise serve per decifrare dei codici.
-31019	Polvere di Carapax	Un antica polvere del cratere.
+31019	Polvere di Carapax	Polvere proveniente dal guscio tritato di una tartaruga caretta
 31020	Radice Fiore delle Rocce	Le radici del Fiore delle Rocce neutralizzano veleni che possono trovarsi nel corpo.
 31021		
 31022	Squama di Oin	Solo i quadri tra i Tritoni possono portare queste squame rare.
 31023		
-31024	Pelle di Manticora	Consegna questa pelle al Biologo per ricevere tutti i bonus delle missioni.
+31024	Pelle di Manticora	Cuoio robusto realizzato con la pelle delle ali di Martyaxwar.
 31025		
 31026	Corazza di crosta	Corazza protettiva della tribù dei Crostaciani. Serve come materiale di rafforzamento.
 31027	Sabbia sottile	Questa sabbia particolarmente sottile è perfetta come materiale da costruzione.
@@ -890,9 +873,10 @@
 31033	Mantello del capo	Questo mantello rappresenta per i Ladri Rossi il simbolo dell'invincibilità.
 31034	Totem dei Giganti	Il totem ha la forma di una grossa ambra.
 31035	Pietra nera	Questa pietra misteriosa è stata estratta dai Ciclopi dai Monti Tonanti.
-31036	Oro nero	Una Perla Epica dal valore inestimabile.
+31036	Oro nero	Il minerale nero avente dei poteri magici si trova nei Monti Tonanti.
 31037	Borsa di pelle	Hai preso questa borsa dal Capitano Shrack. È stato più semplice di quanto non ti aspettassi...
 31038	Terra sacra	Questa sacca piena di Terra sacra serve come mezzo per l'evocazione di morti.
+31039	Portamonete	Là dentro potrebbe esserci un mezzo per l'evocazione dei morti.
 31040	Medaglia d'oro	Anche questa Medaglia d'oro può essere un mezzo?
 31041	Terra fossile	Miscuglio di terra e polvere d'ossa
 31042	Lancia di tritone	Le lance dei tritoni vengono utilizzate tradizionalmente dagli abitanti dell'isola per rinforzare i propri campi di difesa.
@@ -962,27 +946,19 @@
 35002	Rosa gialla	Un fiore che viene spesso usato per esprimere il proprio affetto in un'atmosfera romantica. Possono usarlo sia i personaggi maschili che femminili.
 38010	Pacchetto di Yang	Riscatta il tuo pacchetto per riempire di Yang le tue casse di guerra. Non è commerciabile.
 38011	Pacchetto di Yang	Riscatta il tuo pacchetto per riempire di Yang le tue casse di guerra. Non è commerciabile.
-38050	Baule del Potere	Il leggendario baule custodito dal Dio Enki. Chissà cosa contiene..
+38050	Baule del Potere	Il baule è sorprendentemente leggero, come se fosse vuoto...
 38051	Cristallo Tigre Reale	Addomesticare spiriti animali malvagi richiede poteri magici molto considerevoli. Questo cristallo contiene uno dei cinque possibili Sigilli Tigre Reale.
-38052	Baule dei re	Il baule rarissimo custodito dal demone Mortes.
-38053	Forziere Inverno Infinito	Questa cassa contiene dei coloranti per abbellire la tua stola.
-38054	Forz. Tempesta Deserto	Questo forziere con un po' di fortuna puo' contenere delle cavalcature selvatiche.
+38052	Baule dei re	Questo sfarzoso baule nasconde al suo interno un tesoro regale. Questo item è commerciabile.
+38053	Forziere Inverno Infinito	Questo forziere è stato scolpito in un blocco di ghiaccio purissimo. Il coperchio si apre con un leggero stridio e dall'interno fuoriesce un freddo glaciale.
+38054	Forz. Tempesta Deserto	Questo misterioso forziere contiene un oggetto scelto dalla sorte.
 38055	Scatola cuccioli	In questa scatola si può nascondere una tenero cucciolo. Aprila e trova un oggetto scelto dalla sorte.
 38056	Scrigno della festa	Questo scrigno di un festoso verde abete contiene una sorpresa natalizia.
-38057	Scrigno del nord	Lo scrigno emana un bagliore unico. Qualcosa di raro e' al suo interno.
+38057	Scrigno del nord	Lo scrigno emana un glaciale bagliore blu e contiene un item scelto dalla sorte.
 38100	Powersnack (7 gg)	Prolunga la vita della tua cavalcatura potenziata di 7 giorni.
 38101	Powersnack (15 gg)	Prolunga la vita della tua cavalcatura potenziata di 15 giorni.
 38102	Powersnack (30 gg)	Prolunga la vita della tua cavalcatura potenziata di 30 giorni.
-59000	Libro	Questo libro molto raro permettere di affinare il tuo talento innato. La lettura puo' fallire.
-59001	Libro	Questo libro molto raro permettere di affinare il tuo talento innato. La lettura puo' fallire.
-59002	Libro	Questo libro molto raro permettere di affinare il tuo talento innato. La lettura puo' fallire.
-59003	Libro	Questo libro molto raro permettere di affinare il tuo talento innato. La lettura puo' fallire.
-59004	Libro	Questo libro molto raro permettere di affinare il tuo talento innato. La lettura puo' fallire.
-59005	Libro	Questo libro molto raro permettere di affinare il tuo talento innato. La lettura puo' fallire.
-58500	Congela	Questo item permette di congelare un massimo di 2 bonus su un tuo item, clicca su questo oggetto per scegliere lo slot da congelare, ricordati poi di scongelare l'oggetto per riattivare i bonus.
-58501	Scongela	Questo item permette di scongelare un bonus precedentemente congelato.
-38200	Sigillo Rufus	Con questo sigillo puoi richiamare il tuo draghetto Dailong.
-38201	Sigillo Rufus	Con questo sigillo puoi richiamare il tuo draghetto Dailong.
+38200	Sigillo Rufus	Con questo sigillo puoi richiamare il tuo lupacchiotto Rufus.
+38201	Sigillo Rufus	Con questo sigillo puoi richiamare il tuo lupacchiotto Rufus.
 39001	Pietra Magica	Questa Pietra Magica assicura la massima probabilità di successo durante il miglioramento dell'item. Nel caso in cui il miglioramento fallisca, l'oggetto non sarà distrutto e la sua qualità non peggiorerà. Questo item è commerciabile.
 39002	Anello dell'Esperienza	Aumenta i Punti Esperienza raccolti del 50% per 60 minuti. Questo item è commerciabile.
 39003	Vino di Fiori di Pesco	Bevanda che rigenera immediatamente i tuoi HP di 500. Questo item è commerciabile.
@@ -1005,7 +981,7 @@
 39020	Difesa del Dio Drago	Diminuisce i danni che puoi subire durante la lotta del 20% per 30 minuti. Questo item è commerciabile.
 39021	Sostegno Dio Drago	Vitalità, forza, intelligenza e destrezza del personaggio aumentano temporaneamente di 5 volte. Questo item è commerciabile.
 39022	Papiro del Drago	Elimina il rischio che l'oggetto venga distrutto nel caso in cui il miglioramento fallisca. La qualità, però, diminuirà di uno. Aumenta inoltre del 10% la possibilità di successo del miglioramento. Questo item è commerciabile.
-39023	Elisir del Ricercatore	Questo oggetto ti permette di aumentare la probabilità di successo degli item consegnati al Biologo.
+39023	Elisir del Ricercatore	Questo elisir aumenta la qualità degli oggetti per le ricerche e quindi la probabilità che essi vengano accettati. Questo oggetto è commerciabile.
 39024	Lotta Critica	Aumenta la probabilità di sferrare un colpo critico durante la lotta del 20% per 10 minuti. Questo item è commerciabile.
 39025	Lotta Trafiggente	Aumenta la probabilità di sferrare un colpo che trafigge del 20% per 10 minuti. Questo item è commerciabile.
 39026	Pozione della Velocità	Aumenta la velocità di movimento di 60 per 30 minuti. Questo item è commerciabile.
@@ -1017,7 +993,7 @@
 39032	Frutto della Vita	Aumenta i tuoi Punti Karma di 2000 (utilizzabile ogni 8 ore). Questo item è commerciabile.
 39033	Papiro della Correzione	Con questo Papiro è possibile togliere da un oggetto l'ultima Pietra Spirituale aggiunta con successo. Questo item è commerciabile.
 39034	Zucchero per Cavallo	Questo zuccherino ti permette di dare un nome al tuo animale da cavalcare. Allo stesso tempo aumenta il suo valore di difesa di 20. Questo item è commerciabile.
-39035	Lente della Previdenza	Ti permette di mostrare gli oggetti del tuo inventario a un altro giocatore. La lente non si rompe durante l'operazione. Questo item è commerciabile.
+39035	Lente della Previdenza	Ti permette di mostrare gli oggetti del tuo inventario a un altro giocatore. La lente si rompe durante l'operazione. Questo item è commerciabile.
 39036	Scarpe del Vento	Indossando le scarpe, la tua velocità di movimento aumenta di 30 per 30 ore di gioco. Questo item è commerciabile.
 39037	Elisir del Sole (P)	Ripristina automaticamente i tuoi HP. Contiene 1.000.000 HP. Questo item è commerciabile.
 39038	Elisir del Sole (M)	Ripristina automaticamente i tuoi HP. Contiene 3.000.000 HP. Questo item è commerciabile.
@@ -1027,10 +1003,10 @@
 39042	Elisir della Luna (G)	Ripristina automaticamente i tuoi MP. Contiene 700.000 MP. Questo item è commerciabile.
 39043	Papiro del Luogo	Il papiro ti permette di ritornare all'ultimo luogo che hai marcato. Questo item è commerciabile.
 39044	Baule dei lican (P)	Pacchetto contenente oggetti utili ai lican
-39045	Baule dei lican (G)	Sacca che contiene energie elementali.
+39045	Baule dei lican (G)	Pacco grande contenente oggetti utile ai lican
 39046	Certificato inverso+	Utilizza il Certificato inverso per rimuovere i bonus dalla stola.
-39047	B. guerriero corp. (P)	Una sacca con pietre spirituali. Che potrebbe eventualmente contenere pietre da utilizzare per il miglioramento di oggetti.
-39048	B. guerriero corp. (G)	Forziere della Strega di Ghiaccio.
+39047	B. guerriero corp. (P)	Pacchetto contenente oggetti utili ai guerrieri corporali
+39048	B. guerriero corp. (G)	Pacco grande contenente oggetti utili ai guerrieri corporali
 39049	B. guerriero mentale (P)	Pacchetto contenente oggetti utili ai guerrieri mentali
 39050	B. guerriero mentale (G)	Pacco grande contenente oggetti utili ai guerrieri mentali
 39051	B. ninja (c. a c.) (P)	Pacchetto contenente oggetti utili ai ninja (lotta corpo a corpo)
@@ -1045,20 +1021,20 @@
 39060	B. shamano del drago (G)	Pacco grande contenente oggetti utili agli shamani del drago
 39061	B. shamano guarig. (P)	Pacchetto contenente oggetti utili agli shamani della guarigione
 39062	B. shamano guarig. (G)	Pacco grande contenente oggetti utili agli shamani della guarigione
-40101	Lama estirpadenti	Costume rarissimo custodito dal demone Mortes.
+40101	Lama estirpadenti	Una skin per arma che, per Halloween, trasforma la tua spada in motosega.
 40102	Pugnale estirpadenti	Una skin per arma che, per Halloween, trasforma il tuo pugnale in motosega.
 40103	Arco estirpadenti	Una skin per arma che, per Halloween, trasforma il tuo arco in una motosega doppia.
 40104	Falcione estirpadenti	Una skin per arma che, per Halloween, trasforma la tua spada a due mani in motosega-bastone.
 40105	Campana estirpadenti	Una skin per arma che, per Halloween, trasforma la tua campana in motosega-stella-del-mattino.
 40106	Ventaglio estirpadenti	Una skin per arma che, per Halloween, trasforma il tuo ventaglio in motosega-ventaglio.
 40107	Artigli estirpadenti	Una skin per arma che, per Halloween, trasforma i tuoi artigli in due motoseghe maneggevoli.
-40108	Lama estirpadenti +	Armamento rarissimo custodito dal demone Mortes.
-40109	Pugnale estirpadenti +	Armamento rarissimo custodito dal demone Mortes.
-40110	Arco estirpadenti +	Armamento rarissimo custodito dal demone Mortes. Fornisce un bonus casuale.
-40111	Falcione estirpadenti +	Armamento rarissimo custodito dal demone Mortes. Fornisce un bonus casuale.
-40112	Campana estirpadenti +	Armamento rarissimo custodito dal demone Mortes. Fornisce un bonus casuale.
-40113	Ventaglio estirpadenti +	Armamento rarissimo custodito dal demone Mortes. Fornisce un bonus casuale.
-40114	Artigli estirpadenti +	Armamento rarissimo custodito dal demone Mortes. Fornisce un bonus casuale.
+40108	Lama estirpadenti +	Una skin per arma che, per Halloween, trasforma la tua spada in motosega. Conferisce almeno un bonus a caso.
+40109	Pugnale estirpadenti +	Una skin per arma che, per Halloween, trasforma il tuo pugnale in motosega. Conferisce almeno un bonus a caso.
+40110	Arco estirpadenti +	Una skin per arma che, per Halloween, trasforma il tuo arco in una motosega doppia. Conferisce almeno un bonus a caso.
+40111	Falcione estirpadenti +	Una skin per arma che, per Halloween, trasforma la tua spada a due mani in motosega-bastone. Conferisce almeno un bonus a caso.
+40112	Campana estirpadenti +	Una skin per arma che, per Halloween, trasforma la tua campana in motosega-stella-del-mattino. Conferisce almeno un bonus a caso.
+40113	Ventaglio estirpadenti +	Una skin per arma che, per Halloween, trasforma il tuo ventaglio in motosega-ventaglio. Conferisce almeno un bonus a caso.
+40114	Artigli estirpadenti +	Una skin per arma che, per Halloween, trasforma i tuoi artigli in due motoseghe maneggevoli. Conferisce almeno un bonus a caso.
 40115	Lama zuccherino	Una skin per arma che, nel periodo natalizio, trasforma la tua spada in uno zuccherino.
 40116	Pugnale zuccherino	Una skin per arma che, nel periodo natalizio, trasforma il tuo pugnale in uno zuccherino.
 40117	Arco elfico	Una skin per arma che, nel periodo natalizio, trasforma il tuo arco in un arco elfico.
@@ -1066,6 +1042,13 @@
 40119	Campana zuccherino	Una skin per arma che, nel periodo natalizio, trasforma la tua campana in uno zuccherino.
 40120	Ventaglio glassato	Una skin per arma che, nel periodo natalizio, decora il tuo ventaglio con un pupazzo di neve.
 40121	Artigli Rudolf	Una skin per arma che, nel periodo natalizio, decora i tuoi artigli con delle renne.
+40122	Lama zuccherino+	Una skin per arma che, nel periodo natalizio, trasforma la tua spada in uno zuccherino. Ti dona almeno un bonus scelto dalla sorte.
+40123	Pugnale zuccherino+	Una skin per arma che, nel periodo natalizio, trasforma il tuo pugnale in uno zuccherino. Ti dona almeno un bonus scelto dalla sorte.
+40124	Arco elfico+	Una skin per arma che, nel periodo natalizio, trasforma il tuo arco in un arco elfico. Ti dona almeno un bonus scelto dalla sorte.
+40125	Glaive panpepato+	Una skin per arma che, nel periodo natalizio, decora la tua arma a due mani con un dolcetto di panpepato. Ti dona almeno un bonus scelto dalla sorte.
+40126	Campana zuccherino+	Una skin per arma che, nel periodo natalizio, trasforma la tua campana in uno zuccherino. Ti dona almeno un bonus scelto dalla sorte.
+40127	Ventaglio glassato+	Una skin per arma che, nel periodo natalizio, decora il tuo ventaglio con un pupazzo di neve. Ti dona almeno un bonus scelto dalla sorte.
+40128	Artigli Rudolf+	Una skin per arma che, nel periodo natalizio, decora i tuoi artigli con delle renne. Ti dona almeno un bonus scelto dalla sorte.
 41000	Segnaposto skin armi	
 41001	Coniglio (marrone)	Costume da coniglio in peluche marrone per lui
 41002	Coniglietta (marrone)	Costume da coniglio in peluche marrone per lei
@@ -1359,8 +1342,8 @@
 41306	Coniglietta+ (rosa)	Costume da coniglio in peluche rosa per lei. Ti conferisce almeno un bonus a caso.
 41307	Veste cobra (m)	Una veste nero brillante con simboli serpenteschi
 41308	Veste cobra (f)	Una veste nero brillante con simboli serpenteschi
-41309	Veste cobra+ (m)	SsssSSssssS!
-41310	Veste cobra+ (f)	SsssSSssssS!
+41309	Veste cobra+ (m)	Una veste nero brillante con simboli serpenteschi. Dona almeno un bonus scelto dalla sorte.
+41310	Veste cobra+ (f)	Una veste nero brillante con simboli serpenteschi. Dona almeno un bonus scelto dalla sorte.
 41311	Guerriero Deserto (nero)	Una veste nera della battaglia per gli uomini.
 41312	Guerriera Deserto (nera)	Una veste nera della battaglia per le donne.
 41313	Guerr. Deserto + (nero)	Una veste nera della battaglia per gli uomini. Ti dona almeno un bonus scelto dalla sorte. L'item è commerciabile.
@@ -1782,9 +1765,9 @@
 50003	Annullamento Abilità	Permette di annullare le attuali abilità a favore di altre.
 50004	Cerca-Eventi	Questo oggetto ti mostra dove trovare le missioni.
 50005	Buono d'Equitazione(PM)	Puoi scambiare questo buono con una medaglia d'equitazione.
-50006	Forziere Dorato	Questo scrigno puo' contenere estetiche rarissime per armi, corazze e elmi. Puo' essere aperto solo con una Chiave Preziosa.
+50006	Forziere Dorato	Un forziere decorato in oro | Può essere aperto con una chiave d'oro.
 50007	Forziere Argentato	Un forziere decorato in argento. |Può essere aperto con una chiave d'argento.
-50008	Chiave Dorata	Una Chiave Preziosa. | Può aprire uno Scrigno Prezioso.
+50008	Chiave Dorata	Una chiave d'oro. | Può aprire un forziere dorato e un forziere dorato+.
 50009	Chiave Argentata	Una chiave d'argento. | Può aprire un forziere argentato e un forziere argentato+.
 50010	Calza	Qualcuno per Natale mette i doni in questa calza.
 50011	Forziere Luce di Luna	Un oggetto decorativo magnifico e molto seducente. Quando la luce della luna cade su questo forziere succedono cose soprannaturali.
@@ -1800,19 +1783,19 @@
 50023	Sacca di Soldi	Dentro c'è un sussidio d'inizio anno
 50024	Rosa	Un fiore romantico usato per dimostrare affetto. Possono usarli solo i personaggi femminili.
 50025	Cioccolato	Fatta con cacao, latte, burro e zucchero. La cioccolata è data per dimostrare affetto. Possono usarli solo i personaggi maschili.
-50027	Biglietto della Lotteria	Zayos Battlepass! Clicca per attivarmi.
+50027	Biglietto della Lotteria	Purtroppo non hai vinto. | Un oggetto senza valore.
 50031	Rosa	Un fiore spesso usato per dichiarare romanticamente i propri sentimenti. Possono usarlo solo i personaggi maschili.
 50032	Caramella	Un lecca lecca dolce.  Possono usarli solo i personaggi femminili.
-50033	Baule Misterioso	Un forziere molto ricercato, custodito dalla Baronessa Ragno.
+50033	Baule Misterioso	Un baule con incise delle strane lettere. Quando lo si apre salta fuori qualcosa.
 50034	Forziere Enigmatico	Questo forziere contiene un enigma?
 50035	Regalo (giallo)	Un regalo squisitamente incartato.
-50036	Regalo (viola)	Leggendario forziere custodito da Razador.
-50037	Forziere Onyx	Leggendario forziere custodito da Nemere.
+50036	Regalo (viola)	Un regalo squisitamente incartato.
+50037	Forziere Esagonale	È fatto con carta speciale. In esso c'è un regalo scelto accuratamente.
 50050	Medaglia d'Equitazione	Lo stalliere ha bisogno di questa medaglia per scrivervi il risultato dell'esame di qualificazione.
 50051	Licenza per cavalcare	Licenza per cavalcare
 50052	Libro Armi a Cavallo	Non appena avrai superato la prova di qualificazione dei Cavalieri Intermedi presso lo Stalliere, la licenza che otterrai ti permetterà di evocare il cavallo.
 50053	Libro Militare a Cavallo	Licenza per il maestro d'equitazione. | permette di usare le abilità d'equitazione.
-50054	Fieno	Fieno magico custodito dal Lord Scimmia.
+50054	Fieno	Fieno percibare un cavallo principiante.
 50055	Carota	La verdura preferita di un cavallo medio.
 50056	Ginseng Rosso	Ginseng trattato con acqua bollente. Solo i cavalli esperti mangiano Ginseng.
 50057	Erba Scimmie Facili	Un erba leggendaria che permette ai fantini novelli di rianimare il loro cavallo. Per riuscire a prendere quest'erba bisogna oltrepassare le scimmie del sotterraneo.
@@ -1820,18 +1803,18 @@
 50059	Erba Scimmie Difficili	Un'erba leggendaria con la quale i fantini provetti possono rianimare il loro cavallo. Per riuscire a prendere quest'erba bisogna oltrepassare le scimmie nel sotterraneo degli esperti.
 50060	Libro Arte Equitazione	Leggendo con successo questo libro puoi aumentare le abilità del cavallo. Dopo la lettura il libro sparirà.
 50067	Papiro dell'Evoluzione	Un papiro molto antico e potente. Permette di migliorare un animale giovane trasformandolo in una cavalcatura selvatica.
-50068	Papiro della Mutazione	Un talismano antico e potente. Si dice che consegnandolo allo stalliere puo' rendere permanente la tua cavalcatura.
+50068	Papiro della Mutazione	Un papiro molto antico e potente. Permette di migliorare una cavalcatura selvatica in una cavalcatura coraggiosa.
 50070	Forziere del Capo Orco	Il forziere del capo degli Orchi. Questo forziere contiene qualcosa di prezioso.
 50071	Forziere del Capo Oscuro	Il forziere del capo oscuro. Questo forziere contiene qualcosa di prezioso.
 50072	Forziere Capo Spirito	Il forziere del il capo degli spiriti resuscitati. Questo forziere contiene qualcosa di prezioso.
 50073	Forziere Re dei Ragni	Il forziere del re ragno. Questo forziere contiene qualcosa di prezioso.
-50074	Forziere Ragno Gigante	Il forziere del temibile Gargoyle. Questo forziere contiene qualcosa di prezioso.
-50075	Forziere del Contagiato	Il forziere del leggendario Tritone. Questo forziere contiene qualcosa di prezioso.
+50074	Forziere Ragno Gigante	Il forziere del ragno gigante. Questo forziere contiene qualcosa di prezioso.
+50075	Forziere del Contagiato	Il forziere dei portatori di piaghe. Questo forziere contiene qualcosa di prezioso.
 50076	Forz. Tartaruga Deserto	Il forziere della tartaruga gigante del deserto. Questo forziere contiene qualcosa di prezioso.
 50077	Forziere del Nove Code	Il forziere del novecode. Questo forziere contiene qualcosa di prezioso.
 50078	Forziere Tigre Gialla	Il forziere dello spirito giallo della tigre. Questo forziere contiene qualcosa di prezioso.
 50079	Forziere Re delle fiamme	Il forziere del Re delle fiamme. Dal forziere esce una forza magica
-50080	Forziere Drago Rosso	Il forziere del signore del male, Azrael.
+50080	Forziere Drago Rosso	Il forziere del drago rosso. Questo forziere contiene qualcosa di prezioso.
 50081	Forziere del Demone	Il forziere del re dei demoni. Questo forziere contiene qualcosa di prezioso.
 50082	Forziere della Morte	Il forziere della morte. Questo forziere contiene qualcosa di prezioso.
 50083	Buono Equitazione	Puoi cavalcare un cavallo a gratis se consegni il buono allo stalliere.
@@ -1851,17 +1834,17 @@
 50108	Trottola	scintillante Una trottola che fa scintille.
 50118		
 50119		
-50120	Scrigno di ferro	Uno scrigno che contiene item per nutrire il tuo pet
-50121	Scatola di ferro	Questa cassa contiene fiori utili alla creazione di pozioni e rugiade.
+50120	Scrigno di ferro	Lo scrigno di ferro dalla Grotto dell'Esilio
+50121	Scatola di ferro	La scatola di ferro dalla Grotto dell'Esilio
 50122	Cassetta di ferro	La cassetta di ferro dalla Grotto dell'Esilio
 50123	Gelato	Potenziamento! Questo gelato incrementa la tua velocità di movimento di 60 per 30 minuti. Attenzione: se lo si riattiva quando l'effetto è ancora in corso, si sovrascriverà la durata.
-50124	Cassetta di legno marcia	Un baule pieno di saggezza. Contiene libri per Guerriero.
-50125	Baule Misterioso	Un baule pieno di saggezza. Contiene libri per Ninja.
+50124	Cassetta di legno marcia	Dall'interno sembrano provenire i deboli versi di un animale.
+50125	Baule Misterioso	Il baule è leggerissimo... quasi come fosse vuoto...
 50126	Baule Misterioso	Il baule è leggerissimo... quasi come fosse vuoto...
-50127	Mist. Baule smeraldo	Un baule pieno di saggezza. Contiene libri per Sura.
-50128	Misterioso Baule zaffiro	Un baule pieno di saggezza. Contiene libri per Shamano.
+50127	Mist. Baule smeraldo	Baule smeraldo aperto
+50128	Misterioso Baule zaffiro	Un Baule zaffiro senza lucchetto. Può essere aperto direttamente. Il suo interno nasconde un segreto prezioso...
 50129	Mist. Baule ametista	Baule ametista aperto
-50130	Baule dei Costumi	Un raro baule dei costumi. Può essere aperto direttamente.
+50130	Misterioso Baule topazio	Un Baule topazio senza lucchetto. Può essere aperto direttamente. Il suo interno nasconde un segreto prezioso...
 50131	Misterioso Baule citrino	Un Baule citrino senza lucchetto. Può essere aperto direttamente. Il suo interno nasconde un segreto prezioso...
 50132	Misterioso Baule Rubino	Un Baule Rubino chiuso che può essere aperto solo con un particolare tipo di chiave. Si dice che l'interno di questi bauli non somigli affatto allo sfavillante esterno.
 50133	Mist. Baule smeraldo	Un Baule smeraldo chiuso che può essere aperto solo con un particolare tipo di chiave. Si dice che l'interno di questi bauli non somigli affatto allo sfavillante esterno.
@@ -1869,8 +1852,8 @@
 50135	Mist. Baule ametista	Un Baule ametista chiuso che può essere aperto solo con un particolare tipo di chiave. Si dice che l'interno di questi bauli non somigli affatto allo sfavillante esterno.
 50136	Misterioso Baule topazio	Un Baule topazio chiuso che può essere aperto solo con un particolare tipo di chiave. Si dice che l'interno di questi bauli non somigli affatto allo sfavillante esterno.
 50137	Misterioso Baule citrino	Un Baule citrino chiuso che può essere aperto solo con un particolare tipo di chiave. Si dice che l'interno di questi bauli non somigli affatto allo sfavillante esterno.
-50150	Chiave Rubino	Chiave che apre i catenacci incantati della Grotta dei Miraggi.
-50151	Chiave smeraldo	Contiene un quantitativo casuale di yang.
+50150	Chiave Rubino	Con questa preziosissima chiave è possibile aprire un Baule Rubino. Cosa ci sarà dentro?
+50151	Chiave smeraldo	Con questa preziosissima chiave è possibile aprire un Baule smeraldo. Cosa ci sarà dentro?
 50152	Chiave zaffiro	Con questa preziosissima chiave è possibile aprire un Baule zaffiro. Cosa ci sarà dentro?
 50153	Chiave ametista	Con questa preziosissima chiave è possibile aprire un Baule ametista. Cosa ci sarà dentro?
 50154	Chiave topazio	Con questa preziosissima chiave è possibile aprire un Baule topazio. Cosa ci sarà dentro?
@@ -1903,12 +1886,12 @@
 50184		
 50185		
 50186	Forziere di Azrael	Questo forziere è sigillato da delle forze demoniache. Deve contenere dei tesori preziosi...
-50187	Baule Apprendista I	Vieni premiato per la tua fedelta'.
-50188	Baule Apprendista II	Vieni premiato per la tua fedelta'.
-50189	Baule Apprendista III	Vieni premiato per la tua fedelta'.
-50190	Baule Esperto I	Vieni premiato per la tua fedelta'.
-50191	Baule Esperto II	Vieni premiato per la tua fedelta'.
-50192	Baule Esperto III	Vieni premiato per la tua straordinaria fedelta'.
+50187	Baule Apprendista I	Il tuo regalo di benvenuto contiene un equipaggiamento di base che ti consentirà di iniziare al meglio la tua avventura.
+50188	Baule Apprendista II	Potrai aprire questo baule non appena avrai raggiunto il livello 10.
+50189	Baule Apprendista III	Potrai aprire questo baule non appena avrai raggiunto il livello 20.
+50190	Baule Esperto I	Potrai aprire questo baule non appena avrai raggiunto il livello 30.
+50191	Baule Esperto II	Potrai aprire questo baule non appena avrai raggiunto il livello 40.
+50192	Baule Esperto III	Potrai aprire questo baule non appena avrai raggiunto il livello 50.
 50193	Baule Maestro I	Potrai aprire questo baule non appena avrai raggiunto il livello 60.
 50194	Baule Maestro II	Potrai aprire questo baule non appena avrai raggiunto il livello 70.
 50195	Baule Maestro III	Potrai aprire questo baule non appena avrai raggiunto il livello 80.
@@ -1919,9 +1902,9 @@
 50200	Fagotto	Ti permette di aprire un negozio privato.
 50212	Baule Apprendista I	Il tuo regalo di benvenuto contiene un equipaggiamento di base che ti consentirà di iniziare al meglio la tua avventura.
 50213	Baule Apprendista I	Il tuo regalo di benvenuto contiene un equipaggiamento di base che ti consentirà di iniziare al meglio la tua avventura.
-50215	Forziere di Halloween	Contiene oggetti elementali.
+50215	Forziere di Halloween	Un forziere con una zucca ghignante su un lato. Il coperchio si apre con un cigolio che ricorda una risatina, rivelando il suo contenuto.
 50216	Vin Brulé	Una bevanda calda a base di vino e spezie che ti dona il 10% in più di velocità, il 5% in più di danno e il 10% in più di esperienza per una durata di 30 minuti.
-50249	Baule del Trionfo	Questo baule contiene una lettera da collezione che permette di riscattare dei premi.
+50249	Baule del Trionfo	Questo baule contiene un item scelto dalla sorte come ricompensa per tutti gli atleti olimpionici.
 50252	Cor draconis	Il cuore di drago di cristallo racchiude al suo interno l'anima, la Pietra del drago.
 50253		
 50254	Scrigno dell'oscurità	Il pesante Scrigno dell'oscurità nasconde i beni della Nazione Oscura, che si credevano perduti.
@@ -1953,10 +1936,8 @@
 50282	Congelatore	Questa Borsa termica spacca! Aprila ed estrai uno degli oggetti tanto ambiti.
 50283	Carta mostro	Quando usi questo oggetto, viene aggiunto alla tua collezione.
 50284	Carta mostro (commerc.)	Quando usi questo oggetto, viene aggiunto alla tua collezione.
-50296	Forziere di contrattacco	Contiene 250 spore.
-50297	Forziere di contrattacco	Contiene 250 incanta.
-50090	Forziere di contrattacco	Contiene 250 scaglie.
-50115	Forziere di contrattacco	Contiene 250 pietre sconosciute.
+50296	Forziere di contrattacco	Questo forziere contiene 5 Contrattacchi Manuali.
+50297	Forziere del boost	Questo forziere contiene 5 Boost Manuali.
 50298	Cassetto di contrattacco	Questo cassetto contiene 5 Contrattacchi Baule libri.
 50299	Cassetto del boost	Questo cassetto contiene 5 Boost Baule libri.
 50300	Libro delle Abilità	Aumenta il livello delle abilità maestre.
@@ -2042,7 +2023,7 @@
 50522	Contratt. Colpo oscuro	Questo libro ti insegna l'abilità con la quale è possibile ridurre il danno inflitto tramite Colpo oscuro.
 50523	Contratt. Evoc. lampi	Questo libro ti insegna l'abilità con la quale è possibile ridurre il danno inflitto tramite Evocare i lampi
 50524	Contratt. Respiro lupo	Questo libro ti insegna l'abilità con la quale è possibile ridurre il danno inflitto tramite Respiro del lupo.
-50525	Pietra delle anime+	Questa pietra leggendaria permette di incrementare le abilità da G1 a P.
+50525	Pietra delle anime+	Questa pietra leggendaria permette di incrementare le abilità Gran Maestro delle abilità boost e delle abilità contrattacco. La pietra scompare a seguito dell'uso.
 50530	Libro Dilania	La lettura di questo libro consente di apprendere l'abilità Dilania. Il libro sparisce dopo la lettura.
 50531	Libro Respiro del lupo	La lettura di questo libro consente di apprendere l'abilità Respiro del lupo. Il libro sparisce dopo la lettura.
 50532	Libro Salto del lupo	La lettura di questo libro consente di apprendere l'abilità Salto del lupo. Il libro sparisce dopo la lettura.
@@ -2151,7 +2132,7 @@
 50908	Ricetta Acqua Young	Descrive dettagliatamente la creazione dell'acqua composta da Succo di Radice di Gango e Funghi Tue.
 50909	Ricetta Acqua Zin	Descrive dettagliatamente la creazione dell'acqua composta da Succo di Fiori di Pesco, Lillà e Rose Alpine.
 50910	Ricetta Acqua Hwal	Descrive dettagliatamente la creazione dell'acqua composta da Succo di Radici di Gango, Funghi Tue e Alberi di More.
-51001	Scaglia di energia	Scaglia usata per l'upgrade di alcuni oggetti.
+51001	Scaglia di energia	Scaglie di un Cristallo di Energia. Fondendone 30n si ottiene un Cristallo di Energia.
 51002	Cristallo di energia	Questo cristallo aumenta i tuoi bonus per due ore.
 51501	Cor draconis (grezzo)	Il cuore di drago cristallizzato contiene una Pietra del drago, scelta dalla sorte, della classe "grezzo".
 51502	Cor draconis (grezzo)	Il cuore di drago cristallizzato contiene una Pietra del drago, scelta dalla sorte, della classe "grezzo".
@@ -2313,15 +2294,15 @@
 52012	S. Cinghiale Coraggioso	Questo sigillo richiama il tuo Cinghiale Coraggioso. Esso permette a chi lo cavalca di accumulare il 5% di esperienza in più.
 52013	S. Cinghiale Coraggioso	Questo sigillo richiama il tuo Cinghiale Coraggioso. Esso fa aumentare gli HP di chi lo cavalca di 500.
 52014	S. Cinghiale Coraggioso	Questo sigillo richiama il tuo Cinghiale Coraggioso. Esso fa aumentare il valore di difesa di chi lo cavalca di 150.
-52015	S. Cinghiale Coraggioso	Questo sigillo richiama il tuo Cinghiale Coraggioso.
-52016	Sigillo Cucciolo Lupo	Questo sigillo richiama la tua cavalcatura elementale.
-52017	Sigillo Cucciolo Lupo	Questo sigillo richiama la tua cavalcatura elementale.
-52018	Sigillo Cucciolo Lupo	Questo sigillo richiama la tua cavalcatura elementale.
+52015	S. Cinghiale Coraggioso	Questo sigillo richiama il tuo Cinghiale Coraggioso. Esso fa aumentare il valore di attacco di chi lo cavalca di 100.
+52016	Sigillo Cucciolo Lupo	Questo sigillo richiama il tuo Cucciolo di Lupo. Dopo essere stato addestrato alla battaglia, esso dona a colui che lo cavalca fino al 5% in più di forza contro i mostri.
+52017	Sigillo Cucciolo Lupo	Questo sigillo richiama il tuo Cucciolo di Lupo. Dopo essere stato addestrato alla battaglia, esso permette a chi lo cavalca di accumulare fino al 5% di esperienza in più.
+52018	Sigillo Cucciolo Lupo	Questo sigillo richiama il tuo Cucciolo di Lupo. Dopo essere stato addestrato alla battaglia, esso fa aumentare gli HP di chi lo cavalca di un massimo di 500.
 52019	Sigillo Cucciolo Lupo	Questo sigillo richiama il tuo Cucciolo di Lupo. Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di difesa di chi lo cavalca di un massimo di 150.
 52020	Sigillo Cucciolo Lupo	Questo sigillo richiama il tuo Cucciolo di Lupo. Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di attacco di chi lo cavalca di un massimo di 100.
 52021	Sigillo Lupo Selvatico	Questo sigillo richiama il tuo Lupo Selvatico. Esso dona a colui che lo cavalca il 3% in più di forza contro i mostri.
 52022	Sigillo Lupo Selvatico	Questo sigillo richiama il tuo Lupo Selvatico. Esso permette a chi lo cavalca di accumulare il 3% di esperienza in più.
-52023	Sigillo Lupo Selvatico	Questo sigillo richiama il tuo fedele Leone. Ti accompagnera' per tutta la tua avventura.
+52023	Sigillo Lupo Selvatico	Questo sigillo richiama il tuo Lupo Selvatico. Esso fa aumentare gli HP di chi lo cavalca di 250.
 52024	Sigillo Lupo Selvatico	Questo sigillo richiama il tuo Lupo Selvatico. Esso fa aumentare il valore di difesa di chi lo cavalca di 50.
 52025	Sigillo Lupo Selvatico	Questo sigillo richiama il tuo Lupo Selvatico. Esso fa aumentare il valore di attacco di chi lo cavalca di 30.
 52026	Sigillo Lupo Coraggioso	Questo sigillo richiama il tuo Lupo Coraggioso. Esso dona a colui che lo cavalca il 5% in più di forza contro i mostri.
@@ -2339,7 +2320,7 @@
 52038	Sigillo Leone Selvatico	Questo sigillo richiama il tuo Leone Selvatico. Esso fa aumentare gli HP di chi lo cavalca di 250.
 52039	Sigillo Leone Selvatico	Questo sigillo richiama il tuo Leone Selvatico. Esso fa aumentare il valore di difesa di chi lo cavalca di 50.
 52040	Sigillo Leone Selvatico	Questo sigillo richiama il tuo Leone Selvatico. Esso fa aumentare il valore di attacco di chi lo cavalca di 30.
-52041	Sigillo Leone Coraggioso	Questo sigillo richiama il tuo Spyros. Esso dona a colui che lo domi il 5% in più di forza contro i mostri.
+52041	Sigillo Leone Coraggioso	Questo sigillo richiama il tuo Leone Coraggioso. Esso dona a colui che lo cavalca il 5% in più di forza contro i mostri.
 52042	Sigillo Leone Coraggioso	Questo sigillo richiama il tuo Leone Coraggioso. Esso permette a chi lo cavalca di accumulare il 5% di esperienza in più.
 52043	Sigillo Leone Coraggioso	Questo sigillo richiama il tuo Leone Coraggioso. Esso fa aumentare gli HP di chi lo cavalca di 500.
 52044	Sigillo Leone Coraggioso	Questo sigillo richiama il tuo Leone Coraggioso. Esso fa aumentare il valore di difesa di chi lo cavalca di 150.
@@ -2349,22 +2330,22 @@
 52048	Sigillo Cucciolo Tigre	Questo sigillo richiama il tuo Cucciolo di Tigre. Dopo essere stato addestrato alla battaglia, esso fa aumentare gli HP di chi lo cavalca di un massimo di 500.
 52049	Sigillo Cucciolo Tigre	Questo sigillo richiama il tuo Cucciolo di Tigre. Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di difesa di chi lo cavalca di un massimo di 150.
 52050	Sigillo Cucciolo Tigre	Questo sigillo richiama il tuo Cucciolo di Tigre. Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di attacco di chi lo cavalca di un massimo di 100.
-52051	Sigillo Tigre Selvatica	Con questo sigillo evochi la tua Tigre selvatica. 
+52051	Sigillo Tigre Selvatica	Questo sigillo richiama la tua Tigre Selvatica. Essa dona a colui che la cavalca il 3% in più di forza contro i mostri.
 52052	Sigillo Tigre Selvatica	Questo sigillo richiama la tua Tigre Selvatica. Essa permette a chi la cavalca di accumulare il 3% di esperienza in più.
 52053	Sigillo Tigre Selvatica	Questo sigillo richiama la tua Tigre Selvatica. Essa fa aumentare gli HP di chi la cavalca di 250.
 52054	Sigillo Tigre Selvatica	Questo sigillo richiama la tua Tigre Selvatica. Essa fa aumentare il valore di difesa di chi la cavalca di 50.
 52055	Sigillo Tigre Selvatica	Questo sigillo richiama la tua Tigre Selvatica. Essa fa aumentare il valore di attacco di chi la cavalca di 30.
-52056	Sigillo Tigre Coraggiosa	Con questo sigillo evochi la tua Tigre Fedele. Conferisce +200 valore attacco.
+52056	Sigillo Tigre Coraggiosa	Questo sigillo richiama la tua Tigre Coraggiosa. Essa dona a colui che la cavalca il 5% in più di forza contro i mostri.
 52057	Sigillo Tigre Coraggiosa	Questo sigillo richiama la tua Tigre Coraggiosa. Essa permette a chi la cavalca di accumulare il 5% di esperienza in più.
 52058	Sigillo Tigre Coraggiosa	Questo sigillo richiama la tua Tigre Coraggiosa. Essa fa aumentare gli HP di chi la cavalca di 500.
 52059	Sigillo Tigre Coraggiosa	Questo sigillo richiama la tua Tigre Coraggiosa. Essa fa aumentare il valore di difesa di chi la cavalca di 150.
-52060	Sigillo Tigre Coraggiosa	Questo sigillo richiama la tua cavalcatura elementale.
-52061	Sigillo Cucciolo Renna	Questo sigillo richiama la tua Tigre Fiera.
-52062	Sigillo Cucciolo Renna	Un alpaca all'apparenza docile. Creatura Leggendaria.
+52060	Sigillo Tigre Coraggiosa	Questo sigillo richiama la tua Tigre Coraggiosa. Essa fa aumentare il valore di attacco di chi la cavalca di 100.
+52061	Sigillo Cucciolo Renna	Questo sigillo richiama il tuo Cucciolo di Renna (m). Dopo essere stato addestrato alla battaglia, esso dona a colui che lo cavalca fino al 5% in più di forza contro i mostri.
+52062	Sigillo Cucciolo Renna	Questo sigillo richiama il tuo Cucciolo di Renna (m). Dopo essere stato addestrato alla battaglia, esso permette a chi lo cavalca di accumulare fino al 5% di esperienza in più.
 52063	Sigillo Cucciolo Renna	Questo sigillo richiama il tuo Cucciolo di Renna (m). Dopo essere stato addestrato alla battaglia, esso fa aumentare gli HP di chi lo cavalca di un massimo di 500.
 52064	Sigillo Cucciolo Renna	Questo sigillo richiama il tuo Cucciolo di Renna (m). Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di difesa di chi lo cavalca di un massimo di 150.
 52065	Sigillo Cucciolo Renna	Questo sigillo richiama il tuo Cucciolo di Renna (m). Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di attacco di chi lo cavalca di un massimo di 100.
-52066	Sigillo Renna Selvatica	Questo sigillo richiama la tua cavalcatura elementale.
+52066	Sigillo Renna Selvatica	Questo sigillo richiama la tua Renna Selvatica (m). Essa dona a chi la cavalca il 3% in più di forza contro i mostri.
 52067	Sigillo Renna Selvatica	Questo sigillo richiama la tua Renna Selvatica (m). Essa aumenta del 3% l'accumulo di esperienza di chi la cavalca.
 52068	Sigillo Renna Selvatica	Questo sigillo richiama la tua Renna Selvatica (m). Essa fa aumentare gli HP di chi la cavalca di 250.
 52069	Sigillo Renna Selvatica	Questo sigillo richiama la tua Renna Selvatica (m). Essa fa aumentare il valore di difesa di chi la cavalca di 50.
@@ -2390,21 +2371,21 @@
 52089	Sigillo Renna Coraggiosa	Questo sigillo richiama la tua Renna Coraggiosa (f). Essa fa aumentare il valore di difesa di chi la cavalca di 150.
 52090	Sigillo Renna Coraggiosa	Questo sigillo richiama la tua Renna Coraggiosa (f). Essa fa aumentare il valore di attacco di chi la cavalca di 100.
 52091	Sigillo Dragor giovane	Il sigillo evoca il Dragor giovane. Dopo essere stato addestrato alla battaglia, esso dona a colui che lo cavalca fino al 5% in più di forza contro i mostri.
-52092	Sigillo Dragor giovane	Con questo sigillo evochi il tuo Dragor selvatico. Conferisce 20% vs Animali.
+52092	Sigillo Dragor giovane	Il sigillo evoca il Dragor giovane. Dopo essere stato addestrato alla battaglia, esso dona a colui che lo cavalca fino al 5% in più di esperienza contro i mostri.
 52093	Sigillo Dragor giovane	Il sigillo evoca il Dragor giovane. Dopo essere stato addestrato alla battaglia, esso fa aumentare gli HP di chi lo cavalca di un massimo di 500.
 52094	Sigillo Dragor giovane	Il sigillo evoca il Dragor giovane. Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di difesa di chi lo cavalca di un massimo di 150.
 52095	Sigillo Dragor giovane	Il sigillo evoca il Dragor giovane. Dopo essere stato addestrato alla battaglia, esso fa aumentare il valore di attacco di chi lo cavalca di un massimo di 100.
 52096	Sigillo Dragor feroce	Il sigillo evoca il Dragor feroce. Esso dona a colui che lo cavalca fino al +3% in più di forza contro i mostri.
 52097	Sigillo Dragor feroce	Il sigillo evoca il Dragor feroce. Esso permette a chi lo cavalca di accumulare il 3% di esperienza in più.
 52098	Sigillo Dragor feroce	Il sigillo evoca il Dragor feroce. Esso aumenta gli HP di chi lo cavalca di 250.
-52099	Sigillo Dragor feroce	Con questo sigillo evochi il tuo Dragor selvatico. Conferisce 20% vs Animali.
+52099	Sigillo Dragor feroce	Il sigillo evoca il Dragor feroce. Esso aumenta il valore di difesa di chi lo cavalca di un massimo di 50.
 52100	Sigillo Dragor feroce	Il sigillo evoca il Dragor feroce. Esso fa aumentare il valore di attacco di chi lo cavalca di un massimo di 30.
-52101	Sigillo Dragor prode	Con questo sigillo evochi il tuo Dragor Fedele. Conferisce 20% vs Zombie.
+52101	Sigillo Dragor prode	Il sigillo evoca il Dragor prode. Esso dona a colui che lo cavalca fino al 5% in più di forza contro i mostri.
 52102	Sigillo Dragor prode	Il sigillo evoca il Dragor prode. Esso permette a chi lo cavalca di accumulare il 5% di esperienza in più.
 52103	Sigillo Dragor prode	Il sigillo evoca il Dragor prode. Esso fa aumentare gli HP di chi lo cavalca di un massimo di 500.
 52104	Sigillo Dragor prode	Il sigillo evoca il Dragor prode. Esso fa aumentare il valore di difesa di chi lo cavalca di un massimo di 150.
 52105	Sigillo Dragor prode	Il sigillo evoca il Dragor prode. Esso fa aumentare il valore di attacco di chi lo cavalca di un massimo di 100.
-52106	Moa giovane (sigillo)	Un leggendario Mammuth.
+52106	Moa giovane (sigillo)	Il sigillo evoca il tuo Moa giovane. Dopo essere stato addestrato alla battaglia dona a chi lo cavalca fino al 5% di forza contro i mostri.
 52107	Moa giovane (sigillo)	Il sigillo evoca il tuo Moa giovane. Dopo essere stato addestrato alla battaglia aumenta fino al 5% la capacità di raccogliere esperienza.
 52108	Moa giovane (sigillo)	Il sigillo evoca il tuo Moa giovane. Dopo essere stato addestrato alla battaglia aumenta gli HP di chi lo cavalca fino a 500.
 52109	Moa giovane (sigillo)	Il sigillo evoca il tuo Moa giovane. Dopo essere stato addestrato alla battaglia aumenta il valore di difesa di chi lo cavalca fino a 150.
@@ -2419,27 +2400,27 @@
 52118	Moa ardito (sigillo)	Il sigillo evoca il tuo Moa ardito. Aumenta gli HP di chi lo cavalca di 500.
 52119	Moa ardito (sigillo)	Il sigillo evoca il tuo Moa ardito. Aumenta il valore di difesa di chi lo cavalca di 150.
 52120	Moa ardito (sigillo)	Il sigillo evoca il tuo Moa ardito. Aumenta il valore d'attacco di chi lo cavalca di 100.
-52701	Certificato Leone	Questo documento certifica che sei una leggenda vivente.
-52702	Certificato Tigre	Questo documento certifica che sei una leggenda vivente.
+52701	Certificato Leone	Un certificato di proprietà di un Cucciolo di Leone.
+52702	Certificato Tigre	Un certificato di proprietà di un Cucciolo di Tigre.
 52703	Certificato Cinghiale	Un certificato di proprietà di un Cucciolo di Cinghiale.
-52704	Certificato Lupo	Un certificato che ti permette di ottenere una Tigre Fiera.
+52704	Certificato Lupo	Un certificato di proprietà di un Cucciolo di Lupo.
 52705	Certificato Renna (m)	Un certificato di proprietà di un Cucciolo di Renna (m).
 52706	Certificato Renna (f)	Un certificato di proprietà di un Cucciolo di Renna (f).
 52707	Certificato Dragor	Un certificato di proprietà di un Dragor giovane
 52708	Certificato Moa	Questo certificato attesta che sei il possessore di un Moa giovane.
-53001	Sigillo Fenice di fuoco	Questo Sigillo ti conferisce 2000 HP e 5% vs Ninja.
+53001	Sigillo Fenice di fuoco	Grazie a questo sigillo puoi chiamare la tua amica, la Fenice di fuoco.
 53002	Sigillo Cucciolo Renna	Tramite questo sigillo puoi richiamare il tenero Cucciolo di Renna.
-53003	Sigillo Fenice Ghiaccio	Questo sigillo richiama la tua cavalcatura elementale.
-53005	Piccolo Azrael	Questo Sigillo ti conferisce 2000 HP e 10% vs Mostri.
+53003	Sigillo Fenice Ghiaccio	Tramite questo sigillo puoi richiamare la tua amica, la Fenice di ghiaccio.
+53005	Piccolo Azrael	La versione mini del signore dei demoni è molto fedele e ti porterà un bonus di 1500 HP e un 15% di danno, a partire dal 2° livello della Torre dei Demoni e della Catacomba del Diavolo.
 53006	Piccolo Azrael (oro)	Il signore dei demoni in versione mini sarà un tuo fedele aiutante. Grazie a lui, riceverai un bonus di 1500 HP e potrai infliggere un 15% in più di danno a partire dal 2° piano della Torre dei Demoni e della Catacomba del Diavolo.
-53007	Sigillo Bambi	Con questo sigillo puoi richiamare la tua Dryade. Conferisce 10% vs Mezzuomini e 3000 HP.
+53007	Sigillo Bambi	Con questo sigillo puoi richiamare il tuo cucciolo di renna Bambi.
 53008	Sigillo Knuud	Con questo sigillo evochi il tuo tenero orsetto polare.
 53009	Sigillo Bao Bao	Con questo sigillo evochi il tuo cucciolo di panda.
-53010	Sigillo Dragos	Questo sigillo ti conferisce 10% vs Mob e 25% Exp.
-53011	Sigillo Khan	Questo sigillo ti conferisce 1500 HP e 20% vs Orchi.
-53012	Sigillo Porky	Questo sigillo ti conferisce 1500 HP e 20% vs Esoterici.
-53013	Sigillo Rufus	Con questo sigillo puoi richiamare il tuo Bashidoo. Ti conferisce un bonus di 1500 Hp e 5% vs Mostri. Ti accompagnera' per tutta la tua avventura.
-53014	Sigillo Miniboia	Questo sigillo ti conferisce 3000 HP e 10% vs Mostri.
+53010	Sigillo Leonida	Con questo sigillo puoi richiamare il tuo cucciolo di leone Leonida.
+53011	Sigillo Khan	Con questo sigillo puoi richiamare il tuo cucciolo di tigre Khan.
+53012	Sigillo Porky	Con questo sigillo puoi richiamare il tuo cinghialetto Porky.
+53013	Sigillo Rufus	Con questo sigillo puoi richiamare il tuo lupacchiotto Rufus.
+53014	Sigillo Miniboia	Questo sigillo evoca il tuo Miniboia grassoccio in armatura nera.
 53015	Sigillo Miniboia (oro)	Questo sigillo evoca il tuo Miniboia grassoccio in armatura oro.
 53016	Sigillo Boney	Questo sigillo evoca il tuo Pet ossuto.
 53017	Sigillo Fenice di Giada	Questo sigillo richiama la leggiadra Fenice di Giada.
@@ -2451,9 +2432,10 @@
 53023	Sigillo di Cooper	Il sigillo fa saltellare qua e là il tuo pet Cooper.
 53024	Baby pantera (7 giorni)	Questo sigillo evoca la tua Baby pantera nera.
 53025	Baby leopardo (7 giorni)	Questo sigillo evoca il tuo dolce Baby leopardo.
-53218	Baby pantera (30 giorni)	Questo sigillo ti conferisce 2000 HP e 20% vs Zombie.
+53026		
+53218	Baby pantera (30 giorni)	Questo sigillo evoca la tua Baby pantera nera.
 53219	Baby pant. (120 giorni)	Questo sigillo evoca la tua Baby pantera nera.
-53220	Baby leop. (30 giorni)	Questo sigillo ti conferisce 2000 HP e 20% vs Diavolo.
+53220	Baby leop. (30 giorni)	Questo sigillo evoca il tuo dolce Baby leopardo.
 53221	Baby leop. (120 giorni)	Questo sigillo evoca il tuo dolce Baby leopardo.
 53222	Sigillo Testa di zucca	Grazie a questo sigillo puoi chiamare la Testa di zucca.
 53223	Sigillo Scopa volante	Grazie a questo sigillo puoi chiamare la Scopa volante.
@@ -2464,10 +2446,10 @@
 53228	Mezzaluna (sigillo)	Con questo sigillo evochi la Mezzaluna blu.
 53229	Mezzaluna (sigillo)	Con questo sigillo evochi la Mezzaluna rossa.
 53230	Pecorella bianca (sigillo)	Usando questo sigillo puoi chiamare il tuo pet, Pecorella bianca.
-53231	Montone blu (sigillo)	Questo Sigillo ti conferisce 2000 HP e 5% vs Mostri.
+53231	Montone blu (sigillo)	Usando questo sigillo puoi chiamare il tuo pet, Montone blu.
 53232	Piccolo Huashin	La versione mini del Generale Huashin ti dona il 5% in più di possibilità di effettuare colpi trafiggenti e 1.500 HP.
 53233	Sigillo di Bruce	Con questo sigillo evochi Bruce, il pipistrello giulivo.
-53234	Sigillo di Wayne	Il Drago Wayne è una creatura leggendaria, che viva sull'Isola del Terrore. Ti conferisce 3000 HP e 15% vs Mezzuomini.
+53234	Sigillo di Wayne	Con questo sigillo evochi Wayne, il pipistrello svolazzante.
 53235	Sigillo di Robin	Con questo sigillo evochi Robin, il pipistrello formidabile.
 53236	Valentino+	Evoca il tuo teddy Valentino+. Ti conferisce il 15% di forza contro i mostri e aumenta di 1.500 i tuoi HP. Insieme all'Amuleto del Cioccolato ottieni un Bonus del Set supplementare del 50% per i tuoi EXP.
 53237	Valentinia+	Evoca il tuo teddy Valentinia+. Aumenta del 5% la probabilità di colpo critico e di 1.500 i tuoi HP. Insieme all'Amuleto del Cioccolato ottieni un Bonus del Set supplementare del 50% per i tuoi EXP.
@@ -2484,10 +2466,10 @@
 53507	Baule Bambi	Questo baule contiene Bambi, il cucciolo di renna, che attende solo di essere liberato.
 53508	Baule Knuud	Questo baule contiene Knuud, l'orsetto polare, che attende solo di essere liberato.
 53509	Baule Bao Bao	Questo baule contiene Bao Bao, il tenero cucciolo di panda, che attende solo di essere liberato.
-53510	Baule Leonida	Questo baule sembra danneggiato.
-53511	Baule Khan	Un baule del cacciatore molto comune.
-53512	Baule Porky	Un baule del cacciatore molto prezioso.
-53513	Baule Rufus	Un baule del cacciatore davvero introvabile, dal valore inestimabile.
+53510	Baule Leonida	Questo baule contiene Leonida, il cucciolo di leone, che attende solo di essere liberato.
+53511	Baule Khan	Questo baule contiene Khan, il cucciolo di tigre, che attende solo di essere liberato.
+53512	Baule Porky	Questo baule contiene Porky il cinghialetto, che attende solo di essere liberato.
+53513	Baule Rufus	Questo baule contiene Rufus il lupacchiotto, che attende solo di essere liberato.
 53514	Baule Miniboia	Questo baule contiene il Miniboia grassoccio in armatura nera, che attende solo di essere liberato.
 53515	Baule Miniboia (oro)	Questo baule contiene il Miniboia grassoccio in armatura oro, che attende solo di essere liberato.
 53516	Baule delle ossa	Contiene un oggetto scelto dalla sorte. Con un po' di fortuna potresti trovarci il cane scheletro Boney.
@@ -2522,6 +2504,9 @@
 54041		
 54042		
 54043	Baule Apprendista I	Il tuo regalo di benvenuto contiene un equipaggiamento di base che ti consentirà di iniziare al meglio la tua avventura.
+55001	Boccone proteico	Nutri il tuo pet esausto con questo squisito Boccone proteico: si riprenderà completamente! Dando questo nutrimento a un pet morto, invece, questo riguadagnerà il 50% della sua salute.
+55002	Trasportino	Mettendo il tuo pet nel trasportino, lo renderai commerciabile per 30 giorni.
+55003	Libro del pet cucciolo	Usando i seguenti oggetti potrai far salire di livello il tuo pet (pet selvatico): 10 Libri del pet cucciolo, 10 Sacche di uova di ragno, 10 Nastro capelli bianco+, 10 Shuriken, 10 Spilloni per capelli, 5 Uniformi nere+, 5 Pezzi di ghiaccio+.
 55004	Libro del pet selvatico	Usando i seguenti oggetti potrai far salire di livello il tuo pet (pet coraggioso): 10 Libri del pet selvatico, 2 Perle rosse, 10 Creme per il viso, 10 Pellicce di Yeti+, 10 Ornamenti, 10 Matasse, 5 Libri delle maledizioni+.
 55005	Libro del pet coraggioso	Usando i seguenti oggetti potrai far salire di livello il tuo pet (addestramento eroico): 10 Libri del pet coraggioso, 10 Medicine sconosciute+, 2 Perle bianche, 2 Perle blu, 10 Ricordi di Demon+, 10 Denti di Orco+, 5 Cinghie blu.
 55006		
@@ -2546,18 +2531,17 @@
 55025	Libro della portata	Dopo aver imparato questa abilità, il pet fa aumentare la portata del tuo arco.
 55026	Libro dell'invincibilità	Dopo aver imparato questa abilità, il pet ti dona, con una certa probabilità, un'invincibilità provvisoria.
 55027	Libro della guarigione	Se addestrerai il tuo pet affinché impari questa abilità, esso sarà in grado di eliminare gli effetti di avvelenamento, di sanguinamento e di rallentamento.
-55400	Cassa casuale del pet	Questa cassetta contiene un pet molto raro.
+55400	Cassa casuale del pet	Questo forziere contiene un oggetto casuale del sistema dei pet.
 55401	Uovo di scimmia	Clicca col tasto destro del mouse sull'Uovo per far nascere il pet.
 55402	Uovo di ragno	Clicca col tasto destro del mouse sull'Uovo per far nascere il pet.
 55403	Uovo di Razador	Clicca col tasto destro del mouse sull'Uovo per far nascere il pet.
 55404	Uovo di Nemere	Clicca col tasto destro del mouse sull'Uovo per far nascere il pet.
 55405	Uovo di drago blu	Clicca col tasto destro del mouse sull'Uovo per far nascere il pet.
 55406	Uovo di drago rosso	Clicca col tasto destro del mouse sull'Uovo per far nascere il pet.
-55407	Uovo di scimmia	Clicca col tasto destro del mouse sull'Uovo per far nascere il pet.
-55701	Mini scimmia	Conferisce un bonus di base di +500 HP e 5% forte contro mostri.
+55701	Mini scimmia	Usa il tasto destro del mouse per chiamare il tuo pet. Di seguito, premi il tasto "P" per aprire l'interfaccia del pet.
 55702	Mini ragno	Usa il tasto destro del mouse per chiamare il tuo pet. Di seguito, premi il tasto "P" per aprire l'interfaccia del pet.
-55703	Mini Razador	Il Mini Razador è una creatura leggendaria. Ti conferisce +3000 HP e 15% forte contro mostri.
-55704	Mini Nemere	Il Mini Nemere è una creatura leggendaria, addomesticabile solo da pochi eletti. Ti conferisce +3000 HP e conferisce 15% forte contro mezzuomini.
+55703	Mini Razador	Usa il tasto destro del mouse per chiamare il tuo pet. Di seguito, premi il tasto "P" per aprire l'interfaccia del pet.
+55704	Mini Nemere	Usa il tasto destro del mouse per chiamare il tuo pet. Di seguito, premi il tasto "P" per aprire l'interfaccia del pet.
 55705	Mini drago	Usa il tasto destro del mouse per chiamare il tuo pet. Di seguito, premi il tasto "P" per aprire l'interfaccia del pet.
 55706	Cucciolo di Meley	Usa il tasto destro del mouse per chiamare il tuo pet. Di seguito, premi il tasto "P" per aprire l'interfaccia del pet.
 60001	Bile	Un liquido corporale denso, ricavato dal fegato.
@@ -2576,14 +2560,10 @@
 70012	Lacrime di Dea	Si dice che le vecchie shamane hanno consolato le anime degli eroi di Taehwas che hanno combattuto il male.
 70013	Lacrime di Dea Gigante	Le lacrime di una vecchia danzatrice Tae-Hwa consola l'anima di un guerriero.
 70014	Pastiglia di Sangue	Una pastiglia di sangue di cervo. Ha un effetto molto allucinogeno.
-70015	Polvere Onyx	Polvere usata per migliorare un arma o un armatura.
-70022	Polvere Rossa	Polvere usata per migliorare un arma o un armatura.
-70023	Polvere Verde	Polvere usata per migliorare un arma o un armatura.
-70025	Polvere Splendente	Polvere usata per migliorare un arma o un armatura.
-70036	Polvere Gialla	Polvere usata per migliorare un arma o un armatura.
+70015	Spazzola Scadente	Una spazzola comune con un robusto manico in legno.
 70020	Vino di Fiori di Pesco	Bevanda che rigenera immediatamente i tuoi HP di 500
 70024	Sfera benedetta	Leggendaria sfera benedetta. Se un oggetto possiede già quattro attributi, questa consente di aggiungerne un altro.
-70027	Polvere Blu 	Polvere usata per migliorare un arma o un armatura.
+70027	Notizia del Fabbro	Un appunto dell'armaiolo che descrive la procedura necessaria per il miglioramento di un arma.
 70031	Trattato sulla scherma	Questo trattato essenziale racchiude informazioni sull'artigianato delle armi, nonché sulle potenzialità e sui punti deboli dell'anatomia umana.
 70035	Minerale di Rame Magico	Con questo minerale e con un Papiro consacrato il fabbro potrà creare un Papiro della guerra.
 70037	Libro dell'Amnesia	Il leggendario libro che cancella tutti i ricordi di un'abilità imparata. Puoi muovere un punto abilità.
@@ -2601,11 +2581,11 @@
 70054	Karma della Magia 3	Un incantesimo che i buddisti usano come protezione contro la sfortuna.
 70056	Succo di Melagrana+	Bevanda che rigenera immediatamente i tuoi HP di 1000.
 70057	Mantello del Coraggio	Un mantello colorato in grado di attirare tutti i mostri nelle vicinanze, permettendo così ai guerrieri di un tempo di mostrare il loro coraggio. Questo item è commerciabile.
-70058	Anello del Teletrasporto	Questo anello ti teletrasporta da un tuo amico se lui accetta la richiesta.
+70058	Anello del Teletrasporto	Questo anello ti teletrasporta per 50 volte verso un luogo a tua scelta del tuo regno. Non è commerciabile.
 70063	Trasforma costume	Rimuove i bonus da uno dei tuoi costumi e ne applica di nuovi. Con un po' di fortuna, la quantità di bonus potrebbe variare (fino a un massimo di 3).
 70064	Incanta costume	Rimuove i bonus da uno dei tuoi costumi e ne applica di nuovi.
 70065	Transfer bonus costume	Trasferisce i bonus da un costume all'altro. Uno dei due verrà distrutto.
-70068	Cassa casuale del filone	Questo  contiene un filone di minerali caso.
+70068	Cassa casuale del filone	Questo forziere contiene un filone di minerali caso.
 70102	Fagiolo Zen	Abbassa il sentimento cattivo. | Alza il sentimento buono.
 70104	Sfera Trasformazione	Puoi farti trasformare in mostro dalla palla.
 70105	Sfera Trasformazione	Puoi farti trasformare in mostro dalla palla.
@@ -2665,6 +2645,7 @@
 71043	Pap. Chiama Spir.Tigre	Fa apparire uno Spirito della tigre gialla accanto al tuo personaggio. Attenzione, si tratta di un boss!
 71044	Lotta Critica	Aumenta la probabilità di sferrare un colpo critico durante la lotta del 20% per 10 minuti.
 71045	Lotta Trafiggente	Aumenta la probabilità di sferrare un colpo che trafigge del 20% per 10 minuti.
+71047	Tintura Pietra Spirit.	Toglie una pietra spirituale inserita in un tuo oggetto.
 71048	Magia della modifica	Questa magia permette di cambiare il sesso del tuo personaggio.
 71049	Sacca di Seta	Con questa sacca puoi aprire gratuitamente per 10 giorni negozi privati.
 71050	Pozione della Velocità	Aumenta la velocità di movimento di 60 per 30 minuti.
@@ -2700,8 +2681,8 @@
 71081	Roccia Metin (Normale)	Fa comparire Rocce Metin di qualità normale vicino al personaggio.
 71082	Roccia Metin (Difficile)	Fa comparire Rocce Metin di alta qualità vicino al personaggio.
 71083	Libro delle pietre	Toglie tutte le schegge da un oggetto. Avari così un altra possibilità di migliorare la tua arma o armatura.
-11074	Incanta oggetto	Toglie i bonus a uno dei tuoi oggetti e ne aggiunge altri.
-71085	Rinforza Oggetto	Aggiunge direttamente 5 bonus al tuo oggetto.
+71084	Incanta oggetto	Toglie i bonus a uno dei tuoi oggetti e ne aggiunge altri.
+71085	Rinforza Oggetto	Se sarai fortunato, aggiungerà un nuovo bonus a uno dei tuoi oggetti (fino a un massimo di 4 bonus).
 71088	Libro Missioni(Facile)	Un opera rilegata in pelle marrone che contiene una missione che può essere affrontata anche da avventurieri meno esperti.
 71089	Libro Missioni(Normale)	Un opera rilegata in pelle marrone che contiene una missione che può essere affrontata solo dagli avventurieri che possiedono già esperienza nella lotta.
 71090	Libro Missioni(Diff.)	Un opera rilegata in pelle marrone che contiene una missione che può essere affrontata solo da avventurieri esperti.
@@ -2709,12 +2690,12 @@
 71092	Libro Trasformazione	Lo studio di questo libro aumenta la capacità di trasformazione. Il libro sparisce al termine della lettura.
 71093	Sfera Trasformazione	Puoi farti trasformare in mostro dalla palla.
 71094	Lettura Concentrata	Aumenta di 2,5 volte la possibilità di migliorare il tuo talento leggendo il prossimo libro (o Pietra delle anime).
-71095	Biglietto del passaggio	Consegnando questo biglietto al guardiano otterrai il permesso di accedere alla Fortezza del Drago Rosso.
-30200	Biglietto del passaggio	Consegnando questo biglietto al guardiano otterrai il permesso di accedere alla Torre di Nemere.
+71095	Biglietto del passaggio	Consegnando questo biglietto al guardiano otterrai il permesso di accedere al piano successivo del Sotterraneo dei Ragni e alla Fortezza del Drago Rosso.
 71096	Tavola del Passaggio	Questa medaglia ti permette di passare un portone.
 71099	Anello del successore	Permette al Capo Gilda di scegliere un successore
 71100	Papiro Cambia Dottrina	Puoi dimenticare la tua dottrina ed imparane un'altra. Per poterlo fare devi aver raggiunto almeno il livello 31.
 71101	Pozione della Fretta	Questa pozione diminuisce per 30 minuti il tempo di ricarica del 20%.
+71102		
 71103	Redistribuzione (VIT)	Riporta la tua vitalità a 1 e ti permette di redistribuire i tuoi punti.
 71104	Redistribuzione (INT)	Riporta la tua intelligenza a 1 e ti permette di redistribuire i tuoi punti.
 71105	Redistribuzione (STR)	Riporta la tua forza a 1 e ti permette di redistribuire i tuoi punti.
@@ -2729,8 +2710,8 @@
 711152	Sigillo Cinghiale Blu	La magia del sigillo invoca il potente spirito di un animale, che ti porterà velocemente in un luogo a tua scelta.
 711153	Sigillo Cinghiale Blu	La magia del sigillo invoca il potente spirito di un animale, che ti porterà velocemente in un luogo a tua scelta.
 711154	Sigillo Cinghiale Blu	La magia del sigillo invoca il potente spirito di un animale, che ti porterà velocemente in un luogo a tua scelta.
-71115	Sigillo Cinghiale Blu	La magia del sigillo invoca il potente spirito di Dragonite.
-71116	Sigillo Lupo Giallo	La magia del sigillo invoca il potente spirito della creatura arborea.
+71115	Sigillo Cinghiale Blu	La magia del sigillo invoca il potente spirito di un animale, che ti porterà velocemente in un luogo a tua scelta.
+71116	Sigillo Lupo Giallo	La magia del sigillo invoca il potente spirito di un animale, che ti porterà velocemente in un luogo a tua scelta.
 711171	Sigillo Lupo Blu	La magia del sigillo invoca il potente spirito di un animale che ti porterà velocemente in un luogo a tua scelta.
 711172	Sigillo Lupo Blu	La magia del sigillo invoca il potente spirito di un animale che ti porterà velocemente in un luogo a tua scelta.
 711173	Sigillo Lupo Blu	La magia del sigillo invoca il potente spirito di un animale che ti porterà velocemente in un luogo a tua scelta.
@@ -2753,50 +2734,50 @@
 71124	Leone bianco	Gli animali dal pelo bianco sono piuttosto rari e in molte culture essi sono ritenuti portatori di forze straordinarie.
 71125	Sigillo Cinghiale Comb.	Domare delle anime ribelli richiede numerose abilità. Tuttavia, il risultato è davvero strepitoso.
 71126	Sigillo Lupo Comb.	Domare delle anime ribelli richiede numerose abilità. Tuttavia, il risultato è davvero strepitoso.
-71127	Sigillo Tigre	Questa creatura ti conferisce +25% vs mostri.
-71128	Sigillo Leone	Questa creatura ti conferisce +250 valore di attacco e +7% vs boss.
+71127	Sigillo Tigre d'assalto	Domare delle anime ribelli richiede numerose abilità magiche. Tuttavia, il risultato è davvero strepitoso.
+71128	Sigillo Leone battaglia	Domare delle anime ribelli richiede numerose abilità magiche. Tuttavia, il risultato è davvero strepitoso.
 71129	Artigli di Drago	La vista di questi terribili artigli rievoca strani ricordi...
 71130	Biglietto del passaggio	Consegnando questo biglietto al guardiano otterrai il permesso di accedere al piano successivo del Sotterraneo dei Ragni e alla Fortezza del Drago Rosso. Questo item è commerciabile.
 71131	Sigillo del cavallo nero	Sigillo equino per un cavallo nero nobile.
 71132	Sigillo del cavallo nero	Sigillo equino per un cavallo nero nobile.
 71133	Sigillo del cavallo nero	Sigillo equino per un cavallo nero nobile.
 71134	Sigillo del cavallo nero	Sigillo equino per un cavallo nero nobile.
+71135	Anello mezzaluna	Un anello con un'incisione lavorata ad arte a forma di mezzaluna.
 71136	Leccalecca della forza	Un leccalecca fatto con ingredienti segreti che dona esperienza e forza in battaglia.
-71137	Sig. Tigre Reale (blu)	La magia del sigillo richiama la tua cavalcatura, il leggendario Tigris. Conferisce +10% vs Mostri.
+71137	Sig. Tigre Reale (blu)	La magia del sigillo richiama la tua cavalcatura, la maestosa Tigre Reale (blu).
 71138	Sig. Tigre Reale (rosso)	La magia del sigillo richiama la tua cavalcatura, la maestosa Tigre Reale (rossa).
 71139	Sig. Tigre Reale (oro)	La magia del sigillo richiama la tua cavalcatura, la maestosa Tigre Reale (oro).
 71140	Sig. Tigre Reale (verde)	La magia del sigillo richiama la tua cavalcatura, la maestosa Tigre Reale (verde).
 71141	Sig.Tigre Reale (grigio)	La magia del sigillo richiama la tua cavalcatura, la maestosa Tigre Reale (grigia).
-71142	Sig. Tigre Reale (bian.)	Il mitologico cavallo discendente dal dio drago.
+71142	Sig. Tigre Reale (bian.)	La magia del sigillo richiama la tua cavalcatura, la maestosa Tigre Reale (bianca).
 71143	Anello della Felicità	L'anello con una preziosa decorazione di giada e turchese possiede i seguenti bonus: +50% di punti esperienza +20% di Velocità attacco +20% di Velocità magia  +30% di Forte contro mostri  +10% di HP massimi +10% di MP massimi
 71144	Forziere di Natale	Il regalo di Natale incartato con cura contiene più di una sorpresa per la festa.
 71145	Amuleto dell'eterno amor	Un ciondolo d'argento a forma di cuore, decorato con gemme magiche.
 71146	Baule di Cupido (rosa)	Baule a forma di cuore contenente 5 sorprese. Può essere aperto ogni 30 minuti.
 71147	Baule di Cupido (blu)	Baule a forma di cuore contenente 5 sorprese. Può essere aperto ogni 30 minuti.
-71148	Anello Forza di Volontà	Conferisce 5% Critici e 10% forte contro mostri. Il talismano si deteriora velocemente solo quando indossato.
-71149	Anello Potenza Letale	Conferisce 5% Mezzi e 10% trafiggenti. Il talismano si deteriora velocemente solo quando indossato.
+71148	Anello Forza di Volontà	Ti conferisce per 7 giorni il 30% in più di EXP, il 20% in più di difesa dai guerrieri, il 20% in più di difesa dai ninja, il 20% in più di difesa dai lican, il 30% in più di forza contro i mostri, il 10% in più di HP massimi e il 10% in più di MP massimi.
+71149	Anello Potenza Letale	Ti conferisce per 7 giorni il 30% in più di EXP, il 20% in più di difesa dai sura, il 20% in più di difesa dagli shamani, il 20% in più di difesa dai lican, il 30% in più di forza contro i mostri, il 10% in più di HP massimi e il 10% in più di MP massimi.
 71150	Uovo magico	Questo pregiatissimo baule ovale finemente decorato contiene più di una sorpresa di Pasqua, ma svela i suoi tesori solo pian piano.
-71151	Incantesimo Verde	Rimuove i bonus da uno dei tuoi oggetti e te ne aggiunge di nuovi. Può essere utilizzato solo fino al livello 50.
+71151	Incantesimo Verde	Rimuove i bonus da uno dei tuoi oggetti e te ne aggiunge di nuovi. Può essere utilizzato solo fino al livello 40 per armi e armature. Non è commerciabile.
 71152	Forza Verde	Con un po' di fortuna aggiunge un nuovo bonus a uno dei tuoi oggetti (fino a un massimo di 4 bonus). Può essere utilizzato solo fino al livello 40 per armi e armature. Non è commerciabile.
 71153	Pozione della saggezza	Questa pozione ti da la possibilità di accumulare durante un'ora di gioco il 100% di esperienza in più. Non è commerciabile.
-71154	Pozione ascesa (3h)	Grazie a questa pozione potrai accumulare l'80% in più di esperienza in tre ore di gioco. Non è commerciabile. Non removibile.
+71154	Pozione ascesa (3h)	Grazie a questa pozione potrai accumulare l'80% in più di esperienza in tre ore di gioco. Non è commerciabile.
 71155	Pozione saggezza (3 h)	Grazie a questa pozione potrai accumulare il 100% in più di esperienza in tre ore di gioco. Non è commerciabile.
 71156	Pozione spirito (3h)	Grazie a questa pozione potrai accumulare il 150% in più di esperienza in tre ore di gioco. Non è commerciabile.
 71157		
 71158	Medaglia dell'eroe	Dona +50% Punti Esperienza, +30% Danno, +20% di Velocità Attacco, +20% Velocità Magia +10% HP e +10% MP.
-71159	Scrigno di Milon	Uno scrigno per veri eroi. Custodito strettamente dal Lord Scimmia.
+71159	Scrigno di Milon	Uno scrigno per veri eroi. Contiene un item scelto dalla sorte come ricompensa per il tuo trionfo.
 71160	Scrigno di Atena	Uno scrigno per vere eroine. Contiene un item scelto dalla sorte come ricompensa per il tuo trionfo.
-71161	Equus Porpora	Sigillo che evoca una delle leggendarie fenici.
+71161	Equus Porpora	Sigillo per uno dei bellissimi ed estremamente rari Cavalli Porpora.
 71164	Sigillo Cometa	Con questo sigillo puoi richiamare il tuo cucciolo di renna Cometa.
-71166	Sigillo Panda Corazzato	Con questo sigillo evochi il tuo Panda. Conferisce 20% vs Diavolo.
-71165	Sigillo Panda Corazzato	Con questo sigillo evochi il tuo Panda selvatico.
-71171	Sigillo Unicorno	Con questo sigillo richiami il tuo Sogno.
+71166	Sigillo Panda Corazzato	Con questo sigillo evochi il tuo Panda corazzato.
+71171	Sigillo Unicorno	Con questo sigillo richiami il tuo Unicorno.
 71172	Sigillo Incubo	Con questo sigillo convochi il tuo Incubo.
 71173	Pergamena del teletrasporto	La pergamena ti conduce direttamente alle porte della Fortezza del Drago Rosso.
 71174	Biglietto del passaggio	Consegnando il Biglietto del passaggio al guardiano otterrai il permesso di accedere alla Fortezza del Drago Rosso.
 71175	Biglietto del passaggio	Consegnando il Biglietto del passaggio al guardiano otterrai il permesso di accedere alla Fortezza del Drago Rosso.
-71176	Pantera nera	Questo sigillo evoca la tua misteriosa Pantera Fedele. Conferisce 12% vs Mostri.
-71177	Sigillo leopardo	Questo sigillo evoca il tuo Leopardo. Conferisce 12% vs Mostri.
+71176	Pantera nera	Questo sigillo evoca la tua misteriosa Pantera nera.
+71177	Sigillo leopardo	Questo sigillo evoca il tuo coraggioso leopardo.
 71178	Enciclopedia d. Luna (P)	Pacchetto per lican contenente 10 Libri delle abilità scelti dalla sorte
 71179	Enciclopedia d. Luna (G)	Pacchetto per lican contenente 25 Libri delle abilità scelti dalla sorte
 71180	Pozione ascesa (3h)	Grazie a questa pozione potrai accumulare l'80% in più di esperienza in tre ore di gioco. Non è commerciabile.
@@ -2809,8 +2790,8 @@
 71187	Sigillo Nugget (verde)	Con questo sigillo puoi evocare Nugget, il terribile pollo guerriero.
 71188	Leccalecca della magia	Un leccalecca fatto con ingredienti segreti che dona energia magica ed esperienza in battaglia.
 71189	Incanta oggetto+	Toglie i bonus a uno dei tuoi oggetti e ne aggiunge altri. Visualizzerai un'anteprima dei bonus e potrai scegliere se accettarli o meno.
-71190	Cestino di zucca	Scatola che contiene certificati elementali.
-71191	Busta di dolci	Tesoro custodito dal Drago Rosso.
+71190	Cestino di zucca	Puoi acquisire questo Cestino di zucca solo per delle prestazioni specifiche.
+71191	Busta di dolci	Con il contenuto di questa busta addolcisci la notte di Sam Pumpkin. Aprila e lasciati stupire!
 71192	Sigillo Tuono	Con questo sigillo evochi la tua renna Tuono.
 71193	Sigillo Lampo	Con questo sigillo evochi la tua renna Lampo.
 71194	Scatola Okey oro	Ricevi una quantità di Carte da collezione Okey scelta dalla sorte. Quando l'evento si concluderà, non potrai più ricevere nuove carte.
@@ -2902,25 +2883,24 @@
 72319	Ampliamento inventario	Utilizza questo oggetto per ampliare il tuo inventario.
 72320	Ampliamento inventario	Utilizza questo oggetto per ampliare il tuo inventario.
 72321	Anello dei segreti	Impedisce l'accumulo di punti esperienza durante la caccia ai mostri
-72322	Carta del nuovo inizio	Questo certificato e' consegnato solo agli Eroi che hanno sconfitto un mostro leggendario.
+72322	Carta del nuovo inizio	Questa carta ti consente di ripristinare il livello della missione.
 72323	Carta del nuovo ordine	Questa carta ti consente di lanciare di nuovo i dadi per la missione.
 72325	Annullamento proiezione	Rende possibile l'annullamento della proiezione sugli oggetti.
 72501	Anello Esperienza(iCafe)	Aumenta la raccolta di esperienza del 20 % per i membri del iCafe.
 72502	Guanti del Ladro(iCafe)	La quantità di oggetti razziati aumenta di 1,5 volte per i membri del iCafe.
 72701	Scarpe del Vento	Quando le indossi la tua velocità di movimento aumenta di 30.
-72703	Adamantio	L'Adamantio è una delle leghe più dure al mondo, ed è usato per migliorare armature e armi leggendarie.
-72704	Mithril	Il Mithril è una delle leghe più dure al mondo, ed è usato per migliorare armature e armi leggendarie.
-72705	Arcanite	L'Arcanite è una delle leghe più dure al mondo, ed è usato per migliorare armature e armi leggendarie.
+72703	Orecchini Osso di Tigre	Il tuo valore d'attacco aumenta di 200 punti per 2 ore (il tempo decorre a partire dal momento in cui indossi l'item). L'item non è commerciabile.
+72704	Orecchini Osso di Drago	Il tuo valore di difesa aumenta di 200 punti per 2 ore (il tempo decorre a partire dal momento in cui indossi l'item). L'item non è commerciabile.
+72705	Bracciale Osso di Tigre	I danni causati dalle tue abilità aumentano del 15% per 2 ore (il tempo decorre a partire dal momento in cui indossi l'item). L'item non è commerciabile.
 72706	Bracciale Osso di Drago	La tua difesa contro le abilità aumenta del 15% per 2 ore (il tempo decorre a partire dal momento in cui indossi l'item). L'item non è commerciabile.
 72723	Elisir del Sole (P)	Ripristina automaticamente i tuoi HP. Contiene 1.000.000 HP.
 72724	Elisir del Sole (M)	Ripristina automaticamente i tuoi HP. Contiene 3.000.000 HP.
-72725	Elisir del Sole (G)	Ripristina automaticamente i tuoi HP. Contiene Infiniti HP.
+72725	Elisir del Sole (G)	Ripristina automaticamente i tuoi HP. Contiene 7.000.000 HP.
 72726	Elisir del Sole (S)	Ripristina automaticamente i tuoi HP. Contiene 10.000.000 HP. Questo item è commerciabile.
 72727	Elisir della Luna (P)	Ripristina automaticamente i tuoi MP. Contiene 100.000 MP.
 72728	Elisir della Luna (M)	Ripristina automaticamente i tuoi MP. Contiene 300.000 MP.
-72729	Elisir della Luna (G)	Ripristina automaticamente i tuoi MP. Contiene Infiniti MP.
+72729	Elisir della Luna (G)	Ripristina automaticamente i tuoi MP. Contiene 700.000 MP.
 72730	Elisir della Luna (S)	Ripristina automaticamente i tuoi MP. Contiene 1.000.000 MP. Questo item è commerciabile.
-58999	Questa pozione ti permette di annullare il tempo di attesa per leggere un talento.
 73001	Pett. moderna (rossa)	Una pettinatura che ti dona un aspetto deciso (per personaggi da livello15)
 73002	Pett. moderna (chiara)	Una pettinatura che ti dona un aspetto deciso (per personaggi da livello15)
 73003	Pett. moderna (blu)	Una pettinatura che ti dona un aspetto deciso (per personaggi da livello15)
@@ -3194,13 +3174,13 @@
 76023	Incantesimo Verde	Rimuove i bonus da uno dei tuoi oggetti e te ne aggiunge di nuovi. Può essere utilizzato solo fino al livello 40 per armi e armature. L'item proviene dal Baule di Livello e non è commerciabile.
 76024	Forza Verde	Con un po' di fortuna aggiunge un nuovo bonus a uno dei tuoi oggetti (fino a un massimo di 4 bonus). Può essere utilizzato solo fino al livello 40 per armi e armature. L'item proviene dal Baule di Livello e non è commerciabile.
 76025	Scarpe del vento	Quando le indossi la tua velocità di movimento aumenta di 30.
-79501	Faretra per frecce	Questa faretra ti fornisce un numero illimitato di frecce per 24 ore.
+79501	Faretra per frecce	Questa faretra ti fornisce un numero illimitato di frecce per 24 ore. Con i tiri a distanza il danno non si riduce.
 79502	Faretra per frecce	Questa faretra ti fornisce un numero illimitato di frecce per 7 giorni. Con i tiri a distanza il danno non si riduce.
 79503	Faretra per frecce	Questa faretra ti fornisce un numero illimitato di frecce. Con i tiri a distanza il danno non si riduce.
 79504	Faretra per frecce	Questa faretra ti fornisce un numero illimitato di frecce. Con i tiri a distanza il danno non si riduce.
 79505	Carta da collezione Okey	Raccogliendo 24 Carte da collezione Okey, riceverai automaticamente un Set di carte Okey.
 79506	Set di carte Okey	Usando questo set di carte potrai iniziare un turno di Okey. Dopo l'inizio della partita, il set di carte sarà eliminato automaticamente dall'inventario.
-80001	Sacca dei Soldi	Da questa sacca, in base alla tua fortuna puoi trovare questa quantita' di Monete di Edeni: 2-5-10-15-20-25-50.
+80001	Sacca dei Soldi	Un borsello scuro di pelle, leggermente consumato.
 80002	Foglio vuoto	Una pergamena di buona qualità ancora inutilizzata.
 80008	Pezzo d'Oro	Un pezzo d'oro allo stato grezzo. È venduto ad un alto prezzo in un negozio.
 80014	Buono DR (100)	Un buono del valore di 100 Monete del Drago. L'item è commerciabile.
@@ -3209,7 +3189,6 @@
 80017	Buono DR (50)	Un buono del valore di 50 Monete del Drago. L'item è commerciabile.
 80019	Stoffa sottile	La tua stola sarà fatta di questo materiale.
 80021	Ymir CashPack	Only for Ymir (may only be distributed by QA).
-85000	Stoffa sottile	La tua stola sarà fatta di questo materiale.
 85001	Stola Signore semplice	Questa stola assorbe l'1% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85002	Stola Signore sottile	Questa stola assorbe il 5% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85003	Stola Signore nobile	Questa stola assorbe il 10% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
@@ -3218,7 +3197,6 @@
 85006	Stola Maestro sottile	Questa stola assorbe il 5% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85007	Stola Maestro nobile	Questa stola assorbe il 10% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85008	Stola Maestro su misura	Questa stola assorbe dall'11 al 25% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
-85009	Certificato inverso	Utilizza il Certificato del ritorno per rimuovere i bonus dalla stola.
 85011	Stola Principe (sempl.)	Questa stola assorbe l'1% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85012	Stola Principe (fine)	Questa stola assorbe il 5% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
 85013	Stola Principe (preg.)	Questa stola assorbe il 10% dei bonus dell'arma o dell'armatura che usi per l'assorbimento.
@@ -3238,83 +3216,8 @@
 90010	Pietra Fondamenta	Materiale da costruzione per gli edifici della gilda
 90011	Tronco	Materiale da costruzione per gli edifici della gilda
 90012	Compensato	Materiale da costruzione per gli edifici della gilda
-55001	Yellow Potion Enchanted	Una prelibatezza per il tuo pet!
-55002	Pink Potion Enchanted	
-55003	White Potion Enchanted	
+90013		
 9506	Spada+3	
 9507	Pugnale+3	
 9508	Ventaglio+3	
-79000	Blessing	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79001	Blessing	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79002	Blessing	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79003	Dragon's Strength	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79004	Dragon's Strength	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79005	Dragon's Strength	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79006	Reflection	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79007	Reflection	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
-79008	Reflection	Rubato dallo scontro contro il Dio Drago, questo oggetto ha il potere di benedire come uno shamano.
 9509	Fiaccola d'acciaio+3	
-71047	Edeni	Valuta ufficiale del regno.	1=1kkk
-31039	Monete 	Clicca per riscattare.	1=1kk
-71135	AnelloAntiExp	Clicca per spostarti rapidamente tra le varie mappe.
-30601   Progetto  Progetto di un armatura all'avanguardia.
-30114   Essenza  Questa cosa non promette niente di buono..
-30100   Tessuti  Dei tessuti molto resistenti impiegati per la costruzione di armature.
-49990	Aura Ice Rune	Materiale, e' necessario per migliorare la tua veste aurea, vai da Theowahdan per migliorarla.
-49991	Aura Fire Rune (10)	Materiale, e' necessario per migliorare la tua veste aurea, vai da Theowahdan per migliorarla.
-49992	Aura Fire Rune (50)	Materiale, e' necessario per migliorare la tua veste aurea, vai da Theowahdan per migliorarla.
-49993	Aura Fire Rune (100)	Materiale, e' necessario per migliorare la tua veste aurea, vai da Theowahdan per migliorarla.
-49994	Aura Fire Rune (250)	Materiale, e' necessario per migliorare la tua veste aurea, vai da Theowahdan per migliorarla.
-49995	Aura Fire Rune (500)	Materiale, e' necessario per migliorare la tua veste aurea, vai da Theowahdan per migliorarla.
-39067	Powershard Chest	With a bit of luck this chest may contain a Powershard of a random colour.
-39070	Grey Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 0-29
-39071	White Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 31-39
-39072	Green Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 40-49
-39073	Yellow Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 50-59
-39074	Blue Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 60-74
-39075	Purple Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 76-89
-39076	Red Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 90-104
-39077	Rainbow Powershard	Una materia prima che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 106-120
-39078	Lucent Grey Powershard	Una materia rara che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 30
-39079	Lucent Green Powershard	Una materia rara che offre una certa possibilità di aggiungere un 6 o 7 bonus. Livello Item: 75
-39080	Lucent Yellow Powershard	Una materia rara che offre una certa possibilità di aggiungere un 6 o 7 bonus.  Livello Item: 105
-72064	Small Additive	Increases the chance of adding a bonus by up to 5%. Required for maximum increase: | 5x Small Additive | 10x Powershard
-72065	Medium Additive	Increases the chance of adding a bonus by up to 10%. Required for maximum increase: | 5x Medium Additive | 10x Powershard
-72066	Large Additive	Increases the chance of adding a bonus by up to 20%. Required for maximum increase: | 5x Large Additive | 10x Powershard
-72067	Power Additive	Increases the chance of adding a bonus by up to 50%. Required for maximum increase: | 5x Power Additive | 10x Powershard
-72346	Orison	Rimuove i bonus dai tuoi item e ne aggiungi degli altri. Funziona solo con 6-7 Bonus.
-38002	Questo biglietto ti permette di girare la ruota del destino.
-99000	Pet Switcher	Con questo oggetto puoi girare i bonus e gli slot skill del tuo pet.
-58502	Unfrost Sash	Con questo oggetto puoi scongelare bonus dalla stola.
-49007	Clear Aura	Con questo item puoi pulire i bonus dalla tua veste aurea.
-100784	Bene. del Drago Decorato	Una benedizione del Dio Drago protettore dei combattenti. Permette di ridurre la perdita di Decori. Va utilizzato prima di un'arena o un duello decorato e l'effetto viene rimosso alla fine, a prescindere del risultato.
-100785	Aiuto del Drago Decorato	Un aiuto del Dio Drago protettore dei combattenti. Permette di aumentare la vincita di Decori. Va utilizzato prima di un'arena o un duello decorato e l'effetto viene rimosso alla fine, a prescindere del risultato.
-28524	Certificato	Questo item ti permette di evolvere il tuo pet da Cucciolo a Selvatico.
-28525	Certificato	Questo item ti permette di evolvere il tuo pet da Selvatico a Coraggioso.
-28526	Certificato	Questo item ti permette di evolvere il tuo pet da Coraggioso a Eroico.
-28527	Progetto Guerriero	Questo progetto serve a ideare una Corazza Reale per Guerriero.
-31009	Progetto Ninja	Questo progetto serve a ideare una Corazza Reale per Ninja.
-30622	Progetto Sura	Questo progetto serve a ideare una Corazza Reale per Sura.
-31002	Progetto Shamano	Questo progetto serve a ideare una Corazza Reale per Shamano.
-53251	Ricordo Eterno	Un ricordo di un dio del male. Solo i predestinati possono destreggiarlo.
-53252	Sapienza Divina	Una pergamena sottratta ad un dio.
-28528	Progetto Guerriero	Colorante usato per la realizzazione di stole.
-28529	Progetto Ninja	Colorante usato per la realizzazione di stole.
-53253	Progetto Sura	Colorante usato per la realizzazione di stole.
-53254	Progetto Shamano	Colorante usato per la realizzazione di stole.
-53255	Ricordo Eterno	Colorante usato per la realizzazione di stole.
-30799	Pergamena Antica	Pergamena che ti permette di accedere alla Piramide.
-36630	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
-36631	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
-36632	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
-36633	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
-36634	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
-36635	Sigillo	Oggetto utilizzato per creare cavalcature elementali.
-36660	Contenitore	Contiene 250 pezzi dell'oggetto scambiato.
-36661	Contenitore	Contiene 250 pezzi dell'oggetto scambiato.
-36662	Contenitore	Contiene 250 pezzi dell'oggetto scambiato.
-36663	Contenitore	Contiene 250 pezzi dell'oggetto scambiato.
-36664	Contenitore	Contiene 250 pezzi dell'oggetto scambiato.
-36665	Contenitore	Contiene 250 pezzi dell'oggetto scambiato.
-36666	Contenitore	Contiene 250 pezzi dell'oggetto scambiato.
-55716	Mini Razador	Dragonite è una creatura mistica. Ti conferisce +1500 HP e +5% forte contro tutte le razze.

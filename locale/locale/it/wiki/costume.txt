@@ -1,0 +1,60 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/costume_sash.png]
+[IMG=d:/ymir work/ui/wiki/systems/common/theowahdan.png; Y=10; X=446]
+[CENTER_ALIGN]Una Stola e' un pezzo di equipaggiamento visibile, e facilmente reperibile dai giocatori di Zayos.
+[CENTER_ALIGN]Puoi trovare la stola nella III parte dell'inventario.
+[CENTER_ALIGN]Una stola e' permanente e puo' essere equipaggiata sin dal lv.1
+[CENTER_ALIGN]Consultiamo adesso altri dettagli:
+
+[COLOR=0xffd700;FONT_SIZE=15]Contenuti:
+*1. Differenti stole e come ottenerle.
+*2. Come migliorare una stola.
+*3. Come assorbire un arma/armatura nella Stola.
+*4. Come rimuovere i bonus da una Stola.
+
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]1. I diversi tipi di Stola e come ottenerne una.
+
+
+[COLOR=ef4f00;FONT_SIZE=15]1.1 Come ottenere una stola
+[X_PADDING=20]Puoi ottenere una Stola consegnando al NPC presente in Capitale "Commerciante" i seguenti item:
+[X_PADDING=20]25 Stoffe Sottili, 20 Ostriche e un colorante per scegliere l'estetica che piu' preferisci.
+[X_PADDING=20]Puoi ottenere i coloranti sempre dal "Commerciante" consegnandoli 5 Pezzi di Pietra Preziosa.
+
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]2. Come migliorare una Stola.
+
+Una Stola ha 4 diversi gradi di qualita': base, sottile, nobile e maestro.
+Le stole dello stesso grado di qualita' possono essere combinate per creare una stola di qualita'
+superiore, sebbene questo processo possa fallire. Quando lo fa, la seconda stola nella finestra
+di combinazione viene distrutta. La finestra di combinazione e' raggiungibile tramite l'opzione "Combinazione"
+da Theowahdan. In caso di successo, aumentera' il tasso di assorbimento dall'1 al 5% e cosi' via.
+
+
+[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=390; CENTER_ALIGN]
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]3. Come assorbire un Arma/Armatura nella tua Stola.
+
+Puoi usare una Stola per assorbire il bonus da qualsiasi arma o armatura.
+L'armatura o l'arma utilizzata per essere assorbita VERRA' DISTRUTTA.
+
+*Le Stole Base assorbono l'1% del bonus da un'armatura o da un'arma.
+*Le Stole Sottili assorbono il 5% del bonus da un'armatura o da un'arma.
+*Le Stole Nobili assorbono il 10% del bonus da un'armatura o da un'arma.
+*Le Stole Maestro assorbono l'11% - 25% del bonus da un'armatura o da un'arma.
+
+La finestra di assorbimento bonus e' raggiungibile tramite l'opzione "Assorbimento bonus" da Theowahdan.
+Posiziona la Stola nello slot di sinistra, l'arma o l'armatura nello slot di destra e puoi vedere il risultato finale in basso.
+Il processo trasferira' la % di entrambi i bonus e le statistiche dell'Arma/Armatura alla Stola
+(Tutte le cifre decimali vengono arrotondate decrescendo.)
+
+
+[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=593; CENTER_ALIGN]
+
+[CENTER_ALIGN;FONT_SIZE=18;COLOR=58ADFF]4. Come pulire i bonus di una Stola.
+
+Supponi di aver commesso un errore e di aver assorbito l'Armatura/Armatura sbagliata nella tua Fascia.
+Succede a tutti... o no.
+Bene, in tal caso, non puoi recuperare la tua armatura/arma ma puoi cancellare i bonus
+dalla tua Stola usando un certificato di annullamento.
+

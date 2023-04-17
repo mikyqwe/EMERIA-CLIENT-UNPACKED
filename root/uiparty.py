@@ -7,10 +7,6 @@ import localeInfo
 import uiScriptLocale
 import constInfo
 import mouseModule
-import app
-if app.ENABLE_POISON_GAUGE_EFFECT:
-	import chr
-	import chrmgr
 
 class PartyMemberInfoBoard(ui.ScriptWindow):
 	if localeInfo.IsJAPAN():
@@ -74,7 +70,6 @@ class PartyMemberInfoBoard(ui.ScriptWindow):
 
 		self.pid = None
 		self.vid = None
-		self.poison = 0
 		self.partyAffectImageList = []
 		self.stateButtonDict = {}
 		self.affectValueDict = {}
@@ -105,8 +100,6 @@ class PartyMemberInfoBoard(ui.ScriptWindow):
 		try:
 			self.nameTextLine = self.GetChild("NamePrint")
 			self.gauge = self.GetChild("Gauge")
-			self.poisonGauge = self.GetChild("PoisonGauge")
-			self.gaugeSP = self.GetChild("GaugeSP")			
 			self.stateButton = self.GetChild("StateButton")
 			self.partyAffectImageList.append(self.GetChild("ExperienceImage"))
 			self.partyAffectImageList.append(self.GetChild("AttackerImage"))
@@ -124,14 +117,11 @@ class PartyMemberInfoBoard(ui.ScriptWindow):
 
 		self.__SetAffectsMouseEvent()
 		self.__HideAllAffects()
-		self.poisonGauge.Hide()
-		
+
 	def Destroy(self):
 		self.ClearDictionary()
 		self.nameTextLine = None
 		self.gauge = None
-		self.poisonGauge = None
-		self.gaugeSP = None
 		self.stateButton = None
 		self.partyAffectImageList = []
 		self.stateButtonDict = {}
@@ -278,31 +268,9 @@ class PartyMemberInfoBoard(ui.ScriptWindow):
 	def GetCharacterVID(self):
 		return self.vid
 
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			if chrmgr.HasAffectByVID(self.GetCharacterVID(), chr.AFFECT_POISON):
-				self.gauge.SetGaugeColor("lime")
-			else:
-				self.gauge.SetGaugeColor("red")
-
 	def SetCharacterHP(self, hpPercentage):
 		hpPercentage = max(0, hpPercentage)
 		self.gauge.SetPercentage(hpPercentage, 100)
-		self.poisonGauge.SetPercentage(hpPercentage, 100)
-	
-	def UpdatePoisonGauge(self, arg):
-		self.poison = arg
-		if self.poison == 1:
-			if self.gauge.IsShow():
-				self.gauge.Hide()
-			self.poisonGauge.Show()
-		else:
-			if self.poisonGauge.IsShow():
-				self.poisonGauge.Hide()
-			self.gauge.Show()
-			
-	def SetCharacterSP(self, spPercentage):
-		spPercentage = max(0, spPercentage)
-		self.gaugeSP.SetPercentage(spPercentage, 100)		
 
 	def SetCharacterState(self, state):
 
@@ -335,15 +303,12 @@ class PartyMemberInfoBoard(ui.ScriptWindow):
 	def Link(self):
 		self.nameTextLine.SetPackedFontColor(self.LINK_COLOR)
 		self.gauge.Show()
-		self.gaugeSP.Show()
 
 	def Unlink(self):
 		self.vid = None
 		self.nameTextLine.SetPackedFontColor(self.UNLINK_COLOR)
 		self.gauge.Hide()
-		self.gaugeSP.Hide()		
 		self.__HideAllAffects()
-		self.poisonGauge.Hide()
 
 	def OnSelectState(self, state):
 
@@ -687,12 +652,10 @@ class PartyWindow(ui.Window):
 
 		state = player.GetPartyMemberState(pid)
 		hpPercentage = player.GetPartyMemberHPPercentage(pid)
-		spPercentage = player.GetPartyMemberSPPercentage(pid)		
 		affectsList = player.GetPartyMemberAffects(pid)
 
 		board.SetCharacterState(state)
 		board.SetCharacterHP(hpPercentage)
-		board.SetCharacterSP(spPercentage)		
 		for i in xrange(len(affectsList)):
 			board.SetAffect(i, affectsList[i])
 
@@ -761,30 +724,11 @@ class PartyWindow(ui.Window):
 
 		return None
 
-	def __FindPartyMemberInfoBoardByName(self, name):
-		for board in self.partyMemberInfoBoardList:
-			if name == board.GetCharacterName():
-				return board
-		
-		return None
-
 	def PartyHealReady(self):
 		self.partyMenu.PartyHealReady()
 
 	def ChangePartyParameter(self, distributionMode):
 		self.partyMenu.ChangePartyParameter(distributionMode)
-
-	def PartyPoisonGuageShow(self):
-		board = self.__FindPartyMemberInfoBoardByName(player.GetName())
-		if None == board:
-			return
-		board.UpdatePoisonGauge(1)
-	
-	def PartyPoisonGuageHide(self):
-		board = self.__FindPartyMemberInfoBoardByName(player.GetName())
-		if None == board:
-			return		
-		board.UpdatePoisonGauge(0)
 
 	def OnTogglePartyMenu(self):
 		if self.partyMenu.IsShow():

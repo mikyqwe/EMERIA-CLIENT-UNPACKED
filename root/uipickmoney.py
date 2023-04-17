@@ -2,7 +2,6 @@ import wndMgr
 import ui
 import ime
 import localeInfo
-import app
 
 class PickMoneyDialog(ui.ScriptWindow):
 	def __init__(self):
@@ -11,9 +10,6 @@ class PickMoneyDialog(ui.ScriptWindow):
 		self.unitValue = 1
 		self.maxValue = 0
 		self.eventAccept = 0
-
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.chequeMaxValue = 0
 
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
@@ -30,9 +26,6 @@ class PickMoneyDialog(ui.ScriptWindow):
 			self.board = self.GetChild("board")
 			self.maxValueTextLine = self.GetChild("max_value")
 			self.pickValueEditLine = self.GetChild("money_value")
-			if app.ENABLE_CHEQUE_SYSTEM:
-				self.chequeMaxValueTextLine = self.GetChild("cheque_max_value")
-				self.pickChequeValueEditLine = self.GetChild("cheque_value")
 			self.acceptButton = self.GetChild("accept_button")
 			self.cancelButton = self.GetChild("cancel_button")
 		except:
@@ -41,9 +34,6 @@ class PickMoneyDialog(ui.ScriptWindow):
 
 		self.pickValueEditLine.SetReturnEvent(ui.__mem_func__(self.OnAccept))
 		self.pickValueEditLine.SetEscapeEvent(ui.__mem_func__(self.Close))
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.pickChequeValueEditLine.SetReturnEvent(ui.__mem_func__(self.OnAccept))
-			self.pickChequeValueEditLine.SetEscapeEvent(ui.__mem_func__(self.Close))
 		self.acceptButton.SetEvent(ui.__mem_func__(self.OnAccept))
 		self.cancelButton.SetEvent(ui.__mem_func__(self.Close))
 		self.board.SetCloseEvent(ui.__mem_func__(self.Close))
@@ -53,9 +43,6 @@ class PickMoneyDialog(ui.ScriptWindow):
 		self.eventAccept = 0
 		self.maxValue = 0
 		self.pickValueEditLine = 0
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.chequeMaxValue = 0
-			self.pickChequeValueEditLine = 0
 		self.acceptButton = 0
 		self.cancelButton = 0
 		self.board = None
@@ -69,7 +56,7 @@ class PickMoneyDialog(ui.ScriptWindow):
 	def SetMax(self, max):
 		self.pickValueEditLine.SetMax(max)
 
-	def Open(self, maxValue, chequeMaxValue = None, unitValue=1):
+	def Open(self, maxValue, unitValue=1):
 
 		if localeInfo.IsYMIR() or localeInfo.IsCHEONMA() or localeInfo.IsHONGKONG():
 			unitValue = ""
@@ -86,20 +73,11 @@ class PickMoneyDialog(ui.ScriptWindow):
 
 		self.SetPosition(xPos, mouseY - self.GetHeight() - 20)
 
-		if chequeMaxValue is None:
-			self.chequeMaxValueTextLine.Hide()
-			self.pickChequeValueEditLine.Hide()
 		if localeInfo.IsARABIC():
 			self.maxValueTextLine.SetText("/" + str(maxValue))
-			if app.ENABLE_CHEQUE_SYSTEM and chequeMaxValue is not None:
-				self.chequeMaxValueTextLine.SetText("/" + str(chequeMaxValue))
 		else:
 			self.maxValueTextLine.SetText(" / " + str(maxValue))
-			if app.ENABLE_CHEQUE_SYSTEM and chequeMaxValue is not None:
-				self.chequeMaxValueTextLine.SetText(" / " + str(chequeMaxValue))
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.pickChequeValueEditLine.SetText("0")
 		self.pickValueEditLine.SetText(str(unitValue))
 		self.pickValueEditLine.SetFocus()
 
@@ -107,36 +85,24 @@ class PickMoneyDialog(ui.ScriptWindow):
 
 		self.unitValue = unitValue
 		self.maxValue = maxValue
-		if app.ENABLE_CHEQUE_SYSTEM and chequeMaxValue is not None:
-			self.chequeMaxValue = chequeMaxValue
 		self.Show()
 		self.SetTop()
 
 	def Close(self):
 		self.pickValueEditLine.KillFocus()
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.pickChequeValueEditLine.KillFocus()
 		self.Hide()
 
 	def OnAccept(self):
+
 		text = self.pickValueEditLine.GetText()
-		if app.ENABLE_CHEQUE_SYSTEM:
-			text2 = self.pickChequeValueEditLine.GetText()
-			if (len(text) > 0 and text.isdigit()) or (len(text2) > 0 and text2.isdigit()):
-				money = int(text)
-				money = min(money, self.maxValue)
-				cheque = int(text2)
-				cheque = min(cheque, self.chequeMaxValue)
-				if self.eventAccept and (money > 0 or cheque > 0):
-					self.eventAccept(money, cheque)
-		else:
-			if len(text) > 0 and text.isdigit():
 
-				money = int(text)
-				money = min(money, self.maxValue)
+		if len(text) > 0 and text.isdigit():
 
-				if money > 0:
-					if self.eventAccept:
-						self.eventAccept(money)
+			money = int(text)
+			money = min(money, self.maxValue)
+
+			if money > 0:
+				if self.eventAccept:
+					self.eventAccept(money)
 
 		self.Close()

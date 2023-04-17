@@ -12,138 +12,117 @@ window = {
 
 	"children" :
 	(
-		{ 
-			"name":"HelpButton", 
-			"type":"button", 
-			"x" : 80,
-			"y" : SCREEN_HEIGHT-170,
-			"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
-			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
-			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
+		{
+			"name":"HelpButton",
+			"type":"button",
+			"x" : 0,
+			"y" : 0,
+			#"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
+			#"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
+			#"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
 
-			"children" : 
+			"children" :
 			(
-				{ 
-					"name":"HelpButtonLabel", 
-					"type":"text", 
-					"x": 16, 
-					"y": 40, 
-					"text":uiScriptLocale.GAME_HELP, 
-					"r":1.0, "g":1.0, "b":1.0, "a":1.0, 
-					"text_horizontal_align":"center" 
+				{
+					"name":"HelpButtonLabel",
+					"type":"text",
+					"x": 0,
+					"y": 0,
+					#"text":uiScriptLocale.GAME_HELP,
+					#"r":1.0, "g":1.0, "b":1.0, "a":1.0,
+					#"text_horizontal_align":"center"
 				},
 			),
 		},
-		{ 
-			"name":"QuestButton", 
-			"type":"button", 
+		{
+			"name":"QuestButton",
+			"type":"button",
 			"x" : SCREEN_WIDTH-50-32,
 			"y" : SCREEN_HEIGHT-170,
-			"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
-			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
-			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
-
-			"children" : 
-			(
-				{ 
-					"name":"QuestButtonLabel", 
-					"type":"text", 
-					"x": 16, 
-					"y": 40, 
-					"text":uiScriptLocale.GAME_QUEST, 
-					"r":1.0, "g":1.0, "b":1.0, "a":1.0, 
-					"text_horizontal_align":"center" 
-				},
-			),
-		},
-		{ 
-			"name":"StatusPlusButton", 
-			"type" : "button", 
-			"x" : 80+40+7.5, 
-			"y" : SCREEN_HEIGHT-100, 
 			"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
 			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
 			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
 
 			"children" :
 			(
-				{ 
-					"name":"StatusPlusLabel", 
-					"type":"text", 
-					"x": 16, 
-					"y": 40, 
-					"text":uiScriptLocale.GAME_STAT_UP, 
-					"r":1.0, "g":1.0, "b":1.0, "a":1.0, 
-					"text_horizontal_align":"center" 
-				},		
+				{
+					"name":"QuestButtonLabel",
+					"type":"text",
+					"x": 16,
+					"y": 40,
+					"text":uiScriptLocale.GAME_QUEST,
+					"r":1.0, "g":1.0, "b":1.0, "a":1.0,
+					"text_horizontal_align":"center"
+				},
 			),
-		},			
-		{ 
-			"name":"SkillPlusButton", 
-			"type" : "button", 
+		},
+		{
+			"name":"StatusPlusButton",
+			"type" : "button",
+			"x" : 80+40+7.5, 
+			"y" : SCREEN_HEIGHT-100,
+			"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
+			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
+			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
+
+			"children" :
+			(
+				{
+					"name":"StatusPlusLabel",
+					"type":"text",
+					"x": 16,
+					"y": 40,
+					"text":uiScriptLocale.GAME_STAT_UP,
+					"r":1.0, "g":1.0, "b":1.0, "a":1.0,
+					"text_horizontal_align":"center"
+				},
+			),
+		},
+		{
+			"name":"SkillPlusButton",
+			"type" : "button",
 			"x" : SCREEN_WIDTH-50-32,
 			"y" : SCREEN_HEIGHT-100,
 			"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
 			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
 			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
 
-			"children" : 
+			"children" :
 			(
-				{ 
-					"name":"SkillPlusLabel", 
-					"type":"text", 
-					"x": 16, 
-					"y": 40, 
-					"text":uiScriptLocale.GAME_SKILL_UP, 
-					"r":1.0, "g":1.0, "b":1.0, "a":1.0, 
-					"text_horizontal_align":"center" 
-				},	
+				{
+					"name":"SkillPlusLabel",
+					"type":"text",
+					"x": 16,
+					"y": 40,
+					"text":uiScriptLocale.GAME_SKILL_UP,
+					"r":1.0, "g":1.0, "b":1.0, "a":1.0,
+					"text_horizontal_align":"center"
+				},
 			),
-		},			
-		{ 
-			"name":"ExitObserver", 
-			"type" : "button", 
+		},
+		{
+			"name":"ExitObserver",
+			"type" : "button",
 			"x" : SCREEN_WIDTH-50-32,
 			"y" : SCREEN_HEIGHT-170,
 			"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
 			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
 			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
 
-			"children" : 
+			"children" :
 			(
-				{ 
-					"name":"ExitObserverButtonName", 
-					"type":"text", 
-					"x": 16, 
-					"y": 40, 
-					"text": uiScriptLocale.GAME_EXIT_OBSERVER, 
-					"r":1.0, "g":1.0, "b":1.0, "a":1.0, 
-					"text_horizontal_align":"center" 
-				},	
+				{
+					"name":"ExitObserverButtonName",
+					"type":"text",
+					"x": 16,
+					"y": 40,
+					"text": uiScriptLocale.GAME_EXIT_OBSERVER,
+					"r":1.0, "g":1.0, "b":1.0, "a":1.0,
+					"text_horizontal_align":"center"
+				},
 			),
 		},
-		{ 
-			"name":"ExitCameraMode", 
-			"type" : "button", 
-			"x" : SCREEN_WIDTH-50-32,
-			"y" : SCREEN_HEIGHT-170-90,
-			"default_image" : "d:/ymir work/ui/game/windows/btn_bigplus_up.sub",
-			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
-			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
-			"children" : 
-			(
-				{ 
-					"name":"ExitObserverButtonName", 
-					"type":"text", 
-					"x": 16, 
-					"y": 40, 
-					"text": uiScriptLocale.GAME_EXIT_OBSERVER+"(C)", 
-					"r":1.0, "g":1.0, "b":1.0, "a":1.0, 
-					"text_horizontal_align":"center" 
-				},	
-			),
-		},
-		{ 
+		{
 			"name":"BuildGuildBuilding",
 			"type" : "button",
 			"x" : SCREEN_WIDTH-50-32,
@@ -152,9 +131,9 @@ window = {
 			"over_image" : "d:/ymir work/ui/game/windows/btn_bigplus_over.sub",
 			"down_image" : "d:/ymir work/ui/game/windows/btn_bigplus_down.sub",
 
-			"children" : 
+			"children" :
 			(
-				{ 
+				{
 					"name":"BuildGuildBuildingButtonName",
 					"type":"text",
 					"x": 16,
@@ -162,7 +141,7 @@ window = {
 					"text": uiScriptLocale.GUILD_BUILDING_TITLE,
 					"r":1.0, "g":1.0, "b":1.0, "a":1.0,
 					"text_horizontal_align":"center"
-				},	
+				},
 			),
 		},
 	),

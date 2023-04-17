@@ -9,7 +9,6 @@ import time
 import wndMgr
 import net
 import sys
-import texttranslator_v4
 
 QUEST_BOARD_IMAGE_DIR = 'd:/ymir work/ui/game/questboard/'
 
@@ -196,9 +195,9 @@ class EventCurtain(ui.Bar):
 		self.SetAlpha(self.curAlpha)
 
 class BarButton(ui.Button):
-	ColorUp = 0x99FFB200
-	ColorDown = 0x99FF7F00
-	ColorOver = 0x99FFCC00
+	ColorUp = 0x40999999
+	ColorDown = 0x40aaaacc
+	ColorOver = 0x40ddddff
 
 	UP=0
 	DOWN=1
@@ -459,7 +458,7 @@ class QuestDialog(ui.ScriptWindow):
 
 	# END_OF_QUEST_CANCEL
 
-	def MakeQuestion(self, n):  # n은 모든 퀘스트 대화창의 마지막 버튼인 "닫기"를 포함한 전체 퀘스트 버튼 개수. by 김준호
+	def MakeQuestion(self, n):
 		global entire_questbutton_number
 		global entire_questpage_number
 		global cur_questpage_number
@@ -550,7 +549,7 @@ class QuestDialog(ui.ScriptWindow):
 		self.prevbutton = None
 		self.CloseSelf()
 
-	def AppendQuestion(self, name, idx):  # idx는 0부터 시작함. PythonEventManager.cpp line 881 참고. by 김준호
+	def AppendQuestion(self, name, idx):
 		if not self.btnAnswer:
 			return
 
@@ -596,10 +595,7 @@ class QuestDialog(ui.ScriptWindow):
 
 	# QUEST_INPUT
 	def OnKeyDown(self, key):
-		if texttranslator_v4.wnd.OnKeyDownEvent(key):
-			return TRUE
 		if self.btnAnswer == None:
-			## 선택문이 없고 '다음', '확인' 등의 일방 버튼만 있는 경우에 대한 처리
 			if None != self.btnNext:
 				if app.DIK_RETURN == key:
 					self.OnPressEscapeKey()
@@ -641,23 +637,20 @@ class QuestDialog(ui.ScriptWindow):
 			focusBtn.CallEvent()
 
 		return True
-		
-	def OnKeyUp(self, key):
-		if texttranslator_v4.wnd.OnKeyUpEvent(key):
-			return TRUE
 
 	def OnPressEscapeKey(self):
+
 		if None != self.btnNext:
 			if event.BUTTON_TYPE_CANCEL == self.nextButtonType:
 				event.SelectAnswer(self.descIndex, 254)
-				self.CloseSelf()
+				self.OnCancel()
 			elif event.BUTTON_TYPE_DONE == self.nextButtonType:
 				self.CloseSelf()
 			elif event.BUTTON_TYPE_NEXT == self.nextButtonType:
 				event.SelectAnswer(self.descIndex, 254)
 				self.CloseSelf()
 		else:
-			event.SelectAnswer(self.descIndex, entire_questbutton_number -1 )		
+			event.SelectAnswer(self.descIndex, entire_questbutton_number - 1)
 			self.nextbutton = None
 			self.prevbutton = None
 			self.CloseSelf()

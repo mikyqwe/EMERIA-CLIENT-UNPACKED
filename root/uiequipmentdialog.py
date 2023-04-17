@@ -112,10 +112,7 @@ class EquipmentDialog(ui.ScriptWindow):
 		self.tooltipItem.ClearToolTip()
 		metinSlot = self.itemDataDict[slotIndex][2]
 		attrSlot = self.itemDataDict[slotIndex][3]
-		if app.RENDER_TARGET:
-			self.tooltipItem.AddItemData(itemVnum, metinSlot, attrSlot, 1,0)
-		else:
-			self.tooltipItem.AddItemData(itemVnum, metinSlot, attrSlot)
+		self.tooltipItem.AddItemData(itemVnum, metinSlot, attrSlot)
 		self.tooltipItem.ShowToolTip()
 
 	def OverOutItem(self):

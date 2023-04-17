@@ -1,36 +1,70 @@
 
-[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/rules.png]
-[CENTER_ALIGN;FONT_SIZE=24]REGOLAMENTO DI GIOCO
-[IMG=d:/ymir work/ui/wiki/divider_long.tga; Y=26; CENTER_ALIGN]
+[BANNER_IMG = d:/ymir work/ui/game/wiki/guide_wall.tga]
+[CENTER_ALIGN;FONT_SIZE=30]The basic Guide
+[CENTER_ALIGN]Here you can find the most important hotkeys!
 
-[COLOR=0xffd700;FONT_SIZE=15] 1. VENDITA DI ACCOUNT E ITEM
-[X_PADDING=20]Non è consentito la vendita di accounts e item in beni reali (paysafecard, paypal, crypto, sofort ecc.) è
-[X_PADDING=20]severamente vietato, inoltre non è consentito scambi di accounts e del suo contenuto con altri server.
+[X_PADDING=135;FONT_SIZE=15]* Open the Uppitem storage
 
-[COLOR=0xffd700;FONT_SIZE=15] 2. COMPORTAMENTO SCORRETTO
-[X_PADDING=20]E' vietato insultare tramite messaggi o altri strumenti del gioco, gli altri giocatori. E' altresì vietato l'uso
-[X_PADDING=20]di un linguaggio non consono al tema del gioco, quale ad esempio turpiloquio, bestemmie, minacce al di fuori del
-[X_PADDING=20]gioco. Gli insulti diretti allo staff portano al permban immediato dell'account. I provvedimenti vengono valutati
-[X_PADDING=20]in base della cosa.
+[X_PADDING=135;FONT_SIZE=15]* Open the Dragon Stone Alchemy
 
-[COLOR=0xffd700;FONT_SIZE=15] 3. BUG USING
-[X_PADDING=20]Invitiamo a tutti gli utenti di segnalare immediatamente un bug riscontrato ad un membro dello staff.
-[X_PADDING=20]Qualsiasi tipo di utilizzo o abuso di bug che va a danneggiare il normale svolgimento del gioco è punito.
+[X_PADDING=135;FONT_SIZE=15]* Clears the itemname field in the Shopsearch
 
-[COLOR=0xffd700;FONT_SIZE=15] 4. CHEATING
-[X_PADDING=20]Non è consentito l'uso di hack/bot o qualsiasi altro software illegale.
-[X_PADDING=20]Ogni tentativo verrà punito con il blocco permanente.
+[X_PADDING=135;FONT_SIZE=15]* Completes the itemname in the Shopsearch
 
-[COLOR=0xffd700;FONT_SIZE=15] 5. SICUREZZA ACCOUNT E INFORMAZIONI PRIVATE
-[X_PADDING=20]Lo staff di Zayos non si assume nessuna responsabilità nel caso in cui per via d'uso di terzi parti si perdono
-[X_PADDING=20]account o item. Ti consigliamo di non condividere con nessuno i tuoi dati. Inoltre ti consigliamo di non
-[X_PADDING=20]fornire le tue informazioni private a nessuno. Nel caso che qualcuno divulga informazioni private di
-[X_PADDING=20]altra persona lo staff provvederà a punirlo.
+[X_PADDING=135;FONT_SIZE=15]* Open the Quest Timer
 
-[COLOR=0xffd700;FONT_SIZE=15] 6. PUBBLICITA'
-[X_PADDING=20]Non è consentito pubblicizzare altri server sul nostro server Discord o in gioco, tale regola se infranta si
-[X_PADDING=20]rischia una sanzione.
+[X_PADDING=135;FONT_SIZE=15]* Opens the Switchbot
 
-[COLOR=0xffd700;FONT_SIZE=15] 7. MEMBRI DELLO STAFF
-[X_PADDING=20]Invitiamo a tutti gli utenti di seguire e rispettare le scelte e istruzioni dello staff.
-[X_PADDING=20]Se tale regola viene infranta si rischia una sanzione.
+[X_PADDING=135;FONT_SIZE=15]* Open the Camera Tool
+
+[X_PADDING=135;FONT_SIZE=15]* To mount and unmount your mount
+
+[X_PADDING=135;FONT_SIZE=15]* To mount and unmount your mount
+
+[X_PADDING=135;FONT_SIZE=15]* Activate and deactivates the first Dragon Stone Alchemy page
+
+[X_PADDING=135;FONT_SIZE=15]* Activate and deactivates the second Dragon Stone Alchemy page
+
+[X_PADDING=135;FONT_SIZE=15]* Reloads the environment
+
+[X_PADDING=135;FONT_SIZE=15]* Open X pieces of the selected Chest
+
+[X_PADDING=135;FONT_SIZE=15]* Sets 10 Statuspoints at once
+
+[X_PADDING=135;FONT_SIZE=15]* Moves the Item faster into Storage, Tradewindow and Shop
+
+[X_PADDING=135;FONT_SIZE=15]* Sells all marked Items to a Shop
+
+[X_PADDING=135;FONT_SIZE=15]* Searchs immediately for the selected item
+
+
+[IMG=d:/ymir work/ui/game/wiki/emoji/u.tga; Y=70; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/o.tga; Y=97; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/esc.tga; Y=125; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/tab.tga; Y=150; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/f6.tga; Y=178; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/f7.tga; Y=205; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/f10.tga; Y=232; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=259; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/g.tga; Y=259; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=287; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/h.tga; Y=287; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=313; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/o.tga; Y=313; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=341; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/p.tga; Y=341; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=368; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/f5.tga; Y=368; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=368; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/f5.tga; Y=368; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=395; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/mouse_right.tga; Y=392; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=420; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/mouse_left.tga; Y=420; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=449; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/mouse_left.tga; Y=448; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=476; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/mouse_left.tga; Y=476; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/ctrl.tga; Y=504; X=10]
+[IMG=d:/ymir work/ui/game/wiki/emoji/shift.tga; Y=504; X=60]
+[IMG=d:/ymir work/ui/game/wiki/emoji/mouse_right.tga; Y=503; X=110]

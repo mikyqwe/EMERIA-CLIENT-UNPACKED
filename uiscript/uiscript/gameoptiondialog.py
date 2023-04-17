@@ -1,4 +1,5 @@
 import uiScriptLocale
+import app
 
 ROOT_PATH = "d:/ymir work/ui/public/"
 
@@ -8,22 +9,23 @@ PVP_X = -10
 
 LINE_LABEL_X 	= 30
 LINE_DATA_X 	= 90
-LINE_STEP	= 0
+LINE_BEGIN	= 40
+LINE_STEP	= 25
 SMALL_BUTTON_WIDTH 	= 45
 MIDDLE_BUTTON_WIDTH 	= 65
 
 window = {
 	"name" : "GameOptionDialog",
-	"style" : ("movable", "float", "animate",),
+	"style" : ["movable", "float",],
 
 	"x" : 0,
 	"y" : 0,
 
 	"width" : 300,
-	"height" : 29*13+8,
+	"height" : 24*11+8,
 
 	"children" :
-	(
+	[
 		{
 			"name" : "board",
 			"type" : "board",
@@ -32,31 +34,30 @@ window = {
 			"y" : 0,
 
 			"width" : 300,
-			"height" : 29*13+8,
+			"height" : 24*11+8,
 
 			"children" :
-			(
+			[
 				## Title
 				{
 					"name" : "titlebar",
 					"type" : "titlebar",
-					"style" : ("attach",),
+					"style" : ["attach",],
 
 					"x" : 8,
 					"y" : 8,
 
-					"width" : 289,
+					"width" : 284,
 					"color" : "gray",
 
 					"children" :
-					(
-						{ "name":"titlename", "type":"text", "x":0, "y":3, 
-						"text" : uiScriptLocale.GAMEOPTION_TITLE, 
+					[
+						{ "name":"titlename", "type":"text", "x":0, "y":3,
+						"text" : uiScriptLocale.GAMEOPTION_TITLE,
 						"horizontal_align":"center", "text_horizontal_align":"center" },
-					),
+					],
 				},
 
-				## ÀÌ¸§»ö
 				{
 					"name" : "name_color",
 					"type" : "text",
@@ -92,7 +93,7 @@ window = {
 					"over_image" : ROOT_PATH + "Middle_Button_02.sub",
 					"down_image" : ROOT_PATH + "Middle_Button_03.sub",
 				},
-				## Å¸°ÙÃ¢
+
 				{
 					"name" : "target_board",
 					"type" : "text",
@@ -129,7 +130,7 @@ window = {
 					"down_image" : ROOT_PATH + "Middle_Button_03.sub",
 				},
 
-				
+
 				## PvP Mode
 				{
 					"name" : "pvp_mode",
@@ -359,16 +360,31 @@ window = {
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
 					"down_image" : ROOT_PATH + "middle_button_03.sub",
 				},
-                {
-                    "name" : "always_show_name_partial_button",
-                    "type" : "radio_button",
-                    "x" : LINE_DATA_X+(MIDDLE_BUTTON_WIDTH+MIDDLE_BUTTON_WIDTH),
-                    "y" : 190,
-                    "text" : uiScriptLocale.OPTION_ALWAYS_SHOW_NAME_PARTIAL,
-                    "default_image" : ROOT_PATH + "middle_button_01.sub",
-                    "over_image" : ROOT_PATH + "middle_button_02.sub",
-                    "down_image" : ROOT_PATH + "middle_button_03.sub",
-                },
+				
+				{
+					"name" : "looting_system_text",
+					"type" : "text",
+	
+
+					"x" : LINE_LABEL_X,
+					"y" : 240 + 25,
+
+					"text" : uiScriptLocale.OPTION_LOOTING_SETTING,
+				},
+				{
+					"name" : "looting_system_button",
+					"type" : "button",
+
+					"x" : LINE_DATA_X,
+					"y" : 240 + 25,
+
+					"text" : uiScriptLocale.OPTION_SETTING,
+
+					"default_image" : ROOT_PATH + "middle_button_01.sub",
+					"over_image" : ROOT_PATH + "middle_button_02.sub",
+					"down_image" : ROOT_PATH + "middle_button_03.sub",
+				},				
+
 				## Effect On/Off
 				{
 					"name" : "effect_on_off",
@@ -405,194 +421,54 @@ window = {
 					"over_image" : ROOT_PATH + "middle_button_02.sub",
 					"down_image" : ROOT_PATH + "middle_button_03.sub",
 				},
-
-				## ÆÇ¸Å¹®±¸
-				{
-					"name" : "salestext_on_off",
-					"type" : "text",
-
-					"x" : LINE_LABEL_X,
-					"y" : 240+2,
-
-					"text" : uiScriptLocale.OPTION_SALESTEXT,
-				},
-				{
-					"name" : "salestext_on_button",
-					"type" : "radio_button",
-
-					"x" : LINE_DATA_X,
-					"y" : 240,
-
-					"text" : uiScriptLocale.OPTION_SALESTEXT_VIEW_ON,
-
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},
-				{
-					"name" : "salestext_off_button",
-					"type" : "radio_button",
-
-					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
-					"y" : 240,
-
-					"text" : uiScriptLocale.OPTION_SALESTEXT_VIEW_OFF,
-
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},	
-
-				## Range
-				
-				{
-					"name" : "salestext_range",
-					"type" : "text",
-					"x" : LINE_LABEL_X,
-					"y" : 269,
-					"text" : uiScriptLocale.OPTION_SALESTEXT_RANGE,
-				},
-				{
-					"name" : "salestext_range_controller",
-					"type" : "sliderbar",
-					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH - 37,
-					"y" : 271,
-				},
-				{
-					"name" : "hide_text",
-					"type" : "text",
-
-					"x" : LINE_LABEL_X,
-					"y" : 290+2+25,
-
-					"text" : "Ascunde",
-				},				
-				{
-					"name" : "ShowMadaraPetButton",
-					"type" : "toggle_button",
-
-					"x" : LINE_DATA_X,
-					"y" : 290+25,
-
-					"text" : "Pet-uri",
-
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},
-				{
-					"name" : "ShowMadaraMountButton",
-					"type" : "toggle_button",
-	
-					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
-					"y" : 290+25,
-
-					"text" : "Mount-uri",
-
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},
-				{
-					"name" : "ShowMadaraShopButton",
-					"type" : "toggle_button",
-
-					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH+MIDDLE_BUTTON_WIDTH,
-					"y" : 290+25,
-
-					"text" : "Negoþ",
-
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},	
-				{
-					"name" : "skybox_change_text",
-					"type" : "text",
-
-					"x" : LINE_LABEL_X,
-					"y" : 320+2+25+25+2,
-
-					"text" : "Tipul cerului",
-				},
-				{
-					"name" : "sky_change_button",
-					"type" : "button",
-
-					"x" : LINE_DATA_X+10,
-					"y" : 320+2+25+23+2,
-
-					"text" : "Schimbã",
-
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},
-				# {
-					# "name" : "trans_lang_text",
-					# "type" : "text",
-
-					# "x" : LINE_LABEL_X,
-					# "y" : 345+2+25,
-
-					# "text" : "Translator",
-				# },
-				# {
-					# "name" : "trans_lang_box",
-					# "type" : "combobox",
-					
-					# "x" : LINE_DATA_X,
-					# "y" : 345+25,
-					
-					# "width" : 50,
-					# "height" : 20,
-					
-					# "default_text" : "-",
-					
-					# "item" : (
-					# ),
-				# },
-			),
+			],
 		},
-	),
+	],
 }
-import app
-if app.__BL_HIDE_EFFECT__:
-	window["height"] += 25
-	window["children"][0]["height"] += 25
-	window["children"][0]["children"] += (
-				{
-				"name" : "BL_EFFECT_on_off",
-				"type" : "text",
 
-				"x" : LINE_LABEL_X,
-				"y" : 315+2+25,
+CUR_LINE_Y = LINE_BEGIN + LINE_STEP * 7
 
-				"text" : "Efecte",
-				},
-				{
-					"name" : "BL_EFFECT_BuffEffect",
-					"type" : "toggle_button",
+if app.WJ_SHOW_MOB_INFO:
+	CUR_LINE_Y += LINE_STEP
+	window["height"] = window["height"] + 25
+	window["children"][0]["height"] = window["children"][0]["height"] + 25
+	window["children"][0]["children"] = window["children"][0]["children"] + [
 
-					"x" : LINE_DATA_X,
-					"y" : 315+2+25,
+					## Show Mob Info List
+					{
+						"name" : "show_mob_info",
+						"type" : "text",
 
-					"text" : "Buff",
+						"multi_line" : 1,
 
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},
-				{
-					"name" : "BL_EFFECT_SkillEffect",
-					"type" : "toggle_button",
+						"x" : LINE_LABEL_X,
+						"y" : CUR_LINE_Y+2,
 
-					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
-					"y" : 315+2+25,
+						"text" : uiScriptLocale.OPTION_MOB_INFO,
+					},
+					{
+						"name" : "show_mob_level_button",
+						"type" : "toggle_button",
 
-					"text" : "Vrãji",
+						"x" : LINE_DATA_X,
+						"y" : CUR_LINE_Y,
 
-					"default_image" : ROOT_PATH + "middle_button_01.sub",
-					"over_image" : ROOT_PATH + "middle_button_02.sub",
-					"down_image" : ROOT_PATH + "middle_button_03.sub",
-				},)
+						"text" : uiScriptLocale.OPTION_MOB_INFO_LEVEL,
+
+						"default_image" : ROOT_PATH + "middle_button_01.sub",
+						"over_image" : ROOT_PATH + "middle_button_02.sub",
+						"down_image" : ROOT_PATH + "middle_button_03.sub",
+					},
+					{
+						"name" : "show_mob_AI_flag_button",
+						"type" : "toggle_button",
+
+						"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
+						"y" : CUR_LINE_Y,
+
+						"text" : uiScriptLocale.OPTION_MOB_INFO_AGGR,
+
+						"default_image" : ROOT_PATH + "middle_button_01.sub",
+						"over_image" : ROOT_PATH + "middle_button_02.sub",
+						"down_image" : ROOT_PATH + "middle_button_03.sub",
+					},]

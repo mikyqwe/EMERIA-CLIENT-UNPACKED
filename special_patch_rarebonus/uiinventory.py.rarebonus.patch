@@ -1,0 +1,32 @@
+diff --git a/uiinventory1.py b/uiinventory2.py
+index ef8298c..8bcad1e 100644
+--- a/uiinventory1.py
++++ b/uiinventory2.py
+@@ -787,6 +787,9 @@ class InventoryWindow(ui.ScriptWindow):
+ 		elif item.GetUseType(srcItemVID) in self.USE_TYPE_TUPLE:
+ 			self.__SendUseItemToItemPacket(srcItemSlotPos, dstItemSlotPos)
+ 
++		elif srcItemVID in (71052,71051):
++			self.__SendUseItemToItemPacket(srcItemSlotPos, dstItemSlotPos)
++
+ 		else:
+ 			#snd.PlaySound("sound/ui/drop.wav")
+ 
+@@ -972,6 +975,8 @@ class InventoryWindow(ui.ScriptWindow):
+ 			return True
+ 		elif (player.GetItemFlags(srcSlotPos) & ITEM_FLAG_APPLICABLE) == ITEM_FLAG_APPLICABLE:
+ 			return True
++		elif srcItemVNum in (71052,71051):
++			return True
+ 		else:
+ 			if item.GetUseType(srcItemVNum) in self.USE_TYPE_TUPLE:
+ 				return True
+@@ -1000,6 +1005,8 @@ class InventoryWindow(ui.ScriptWindow):
+ 		elif (player.GetItemFlags(srcSlotPos) & ITEM_FLAG_APPLICABLE) == ITEM_FLAG_APPLICABLE:
+ 			return True
+ 
++		elif srcItemVNum in (71052,71051):
++			return True
+ 		else:
+ 			useType=item.GetUseType(srcItemVNum)
+ 

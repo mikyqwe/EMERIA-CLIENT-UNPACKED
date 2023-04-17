@@ -15,20 +15,18 @@ import player
 import net
 import app
 import chat
-import dailygift
-import uifastequip
-import uiBonusPage
-import teleport_system
+import uiGameOptionNew
+import uilootingsystem
 
 class TaskBarS(ui.ScriptWindow):
 	def __init__(self):
 		ui.ScriptWindow.__init__(self)
 		self.LoadWindow()
-		self.wnddailygift = dailygift.DailyGift() 
 		self.ToggleSwitchbotWindow = None
 		self.fastequipdlg = None
 		self.BonusPageBoard = None
 		self.teleportsystem = None
+		self.gameOptionDlg = None
 		self.interface = None
 
 	def __del__(self):
@@ -53,22 +51,7 @@ class TaskBarS(ui.ScriptWindow):
 
 		#self.fastequipdlg = uifastequip.changeequip()
 		#self.BonusPageBoard = uiBonusPage.BonusBoardDialog()
-		self.teleportsystem = teleport_system.teleportwindow()
-
-	def ManagerGiftSystem(self, cmd):
-		cmd = cmd.split("|")
-		if cmd[0] == "Show":
-			self.wnddailygift.Show()
-		elif cmd[0] == "DeleteRewards":
-			self.wnddailygift.DeleteRewards()
-		elif cmd[0] == "SetDailyReward":
-			self.wnddailygift.SetDailyReward(cmd[1]) # numero de la recompensa
-		elif cmd[0] == "SetTime":
-			self.wnddailygift.SetTime(cmd[1]) # tiempo en numeros grandes
-		elif cmd[0] == "SetReward":
-			self.wnddailygift.SetReward(cmd[1], cmd[2]) #hacer un array con los items
-		elif cmd[0] == "SetRewardDone":
-			self.wnddailygift.SetRewardDone()
+		#self.teleportsystem = teleport_system.teleportwindow()
 
 	def __MenuFunction1(self):
 		if self.interface:
@@ -78,18 +61,24 @@ class TaskBarS(ui.ScriptWindow):
 		self.interface.wndFastEquip.Show()
 
 	def __MenuFunction3(self):
-		if self.wnddailygift:
-			self.wnddailygift.Show()
-		
+		self.interface.game.OpenMarbleShop()
+			
 	def BindInterface(self, interface):
 		from _weakref import proxy
 		self.interface = proxy(interface)
 
 	def __MenuFunction4(self):
-		self.interface.OpenEventCalendar()
+		if constInfo.TELEPORT_SYSTEM_GUI == 0:
+			self.teleportsystem.Show()
+			self.teleportsystem.SetTop()
+			constInfo.TELEPORT_SYSTEM_GUI = 1
+		else:
+			self.teleportsystem.Close()
+			constInfo.TELEPORT_SYSTEM_GUI = 0
 
 	def __MenuFunction5(self):
-		constInfo.need_open_pickup_filter=1
+		if self.interface:
+			self.interface.OpenLootingSystemWindow()
 
 	def Destroy(self):
 		self.Close()

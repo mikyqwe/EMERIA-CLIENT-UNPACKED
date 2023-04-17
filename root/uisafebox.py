@@ -8,8 +8,9 @@ import chat
 import app
 import localeInfo
 import uiScriptLocale
-import constInfo
-
+if app.__ENABLE_NEW_OFFLINESHOP__:
+	import uiofflineshop
+	
 class PasswordDialog(ui.ScriptWindow):
 	def __init__(self):
 		ui.ScriptWindow.__init__(self)
@@ -70,12 +71,9 @@ class PasswordDialog(ui.ScriptWindow):
 		self.Hide()
 
 	def OnAccept(self):
-		if constInfo.DROP_GUI_CHECK == 1:
-			chat.AppendChat(1, "În primul rând, alegeþi o opþiune despre drop gui.")
-		else:
-			net.SendChatPacket(self.sendMessage + self.passwordValue.GetText())
-			self.CloseDialog()
-			return True
+		net.SendChatPacket(self.sendMessage + self.passwordValue.GetText())
+		self.CloseDialog()
+		return True
 
 	def OnCancel(self):
 		self.CloseDialog()
@@ -201,7 +199,8 @@ class SafeboxWindow(ui.ScriptWindow):
 		ui.ScriptWindow.__init__(self)
 		self.tooltipItem = None
 		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.interface = None
+			self.interface = None		
+		
 		self.sellingSlotNumber = -1
 		self.pageButtonList = []
 		self.curPageIndex = 0
@@ -234,6 +233,7 @@ class SafeboxWindow(ui.ScriptWindow):
 		self.wndItem = None
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface = None
+
 		self.pageButtonList = []
 
 	def __LoadWindow(self):
@@ -313,6 +313,7 @@ class SafeboxWindow(ui.ScriptWindow):
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface.SetOnTopWindow(player.ON_TOP_WND_SAFEBOX)
 			self.interface.RefreshMarkInventoryBag()
+		
 		(self.xSafeBoxStart, self.ySafeBoxStart, z) = player.GetMainCharacterPosition()
 
 		self.SetTableSize(size)
@@ -385,12 +386,7 @@ class SafeboxWindow(ui.ScriptWindow):
 			if itemCount <= 1:
 				itemCount = 0
 			setItemID(i, getItemID(slotIndex), itemCount)
-			if app.ENABLE_CHANGELOOK_SYSTEM:
-				itemTransmutedVnum = safebox.GetItemTransmutation(slotIndex)
-				if itemTransmutedVnum:
-					self.wndItem.DisableCoverButton(i)
-				else:
-					self.wndItem.EnableCoverButton(i)
+
 		self.wndItem.RefreshSlot()
 
 	def RefreshSafeboxMoney(self):
@@ -403,27 +399,20 @@ class SafeboxWindow(ui.ScriptWindow):
 	def Close(self):
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface.SetOnTopWindow(player.ON_TOP_WND_NONE)
+		
 		net.SendChatPacket("/safebox_close")
 		self.Hide() # @fixme009
 
-	if app.ENABLE_CHECK_SAFEBOX_IS_OPEN:
-		def CommandCloseSafebox(self):
-			pList = [self.dlgPickMoney, self.dlgChangePassword, self]
-			if self.tooltipItem:
-				self.tooltipItem.HideToolTip()
-			for a in pList:
-				a.Hide()
-			safebox.Close()
-	else:
-		def CommandCloseSafebox(self):
-			if self.tooltipItem:
-				self.tooltipItem.HideToolTip()
+	def CommandCloseSafebox(self):
+		if self.tooltipItem:
+			self.tooltipItem.HideToolTip()
 
-			self.dlgPickMoney.Close()
-			self.dlgChangePassword.Close()
-			self.Hide()
+		self.dlgPickMoney.Close()
+		self.dlgChangePassword.Close()
+		self.Hide()
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface.RefreshMarkInventoryBag()
+
 	## Slot Event
 	def SelectEmptySlot(self, selectedSlotPos):
 
@@ -442,6 +431,11 @@ class SafeboxWindow(ui.ScriptWindow):
 				attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
 				if player.RESERVED_WINDOW == attachedInvenType:
 					return
+
+				if app.__ENABLE_NEW_OFFLINESHOP__:
+					if uiofflineshop.IsBuildingShop() and uiofflineshop.IsSaleSlot(attachedInvenType, attachedSlotPos):
+						chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.OFFLINESHOP_CANT_SELECT_ITEM_DURING_BUILING)
+						return
 
 				if player.ITEM_MONEY == mouseModule.mouseController.GetAttachedItemIndex():
 					net.SendSafeboxSaveMoneyPacket(mouseModule.mouseController.GetAttachedItemCount())
@@ -629,12 +623,7 @@ class MallWindow(ui.ScriptWindow):
 			if itemCount <= 1:
 				itemCount = 0
 			setItemID(i, itemID, itemCount)
-			if app.ENABLE_CHANGELOOK_SYSTEM:
-				itemTransmutedVnum = safebox.GetMallItemTransmutation(i)
-				if itemTransmutedVnum:
-					self.wndItem.DisableCoverButton(i)
-				else:
-					self.wndItem.EnableCoverButton(i)
+
 		self.wndItem.RefreshSlot()
 
 	def SetItemToolTip(self, tooltip):

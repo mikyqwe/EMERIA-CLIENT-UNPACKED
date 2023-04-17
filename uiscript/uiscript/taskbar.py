@@ -104,7 +104,6 @@ window = {
 					)
 				},
 				{
-					## 툴팁을 띄우기 위한 윈도우
 					"name" : "HPGauge_Board",
 					"type" : "window",
 
@@ -146,40 +145,9 @@ window = {
 								"D:/Ymir Work/UI/Pattern/HPGauge/07.tga",
 							),
 						},
-						{
-							"name" : "HPPoisonRecoveryGaugeBar",
-							"type" : "bar",
-
-							"x" : 0,
-							"y" : 0,
-							"width" : 95,
-							"height" : 13,
-							"color" : 0x55008000,
-						},
-						{
-							"name" : "HPPoisonGauge",
-							"type" : "ani_image",
-
-							"x" : 0,
-							"y" : 0,
-
-							"delay" : 6,
-
-							"images" :
-							(
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/01.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/02.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/03.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/04.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/05.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/06.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/07.tga",
-							),
-						},
 					),
 				},
 				{
-					## 툴팁을 띄우기 위한 윈도우
 					"name" : "SPGauge_Board",
 					"type" : "window",
 
@@ -224,7 +192,6 @@ window = {
 					),
 				},
 				{
-					## 툴팁을 띄우기 위한 윈도우
 					"name" : "STGauge_Board",
 					"type" : "window",
 
@@ -363,19 +330,6 @@ window = {
 			"down_image" : ROOT + "TaskBar/Ex_gemshop_button_03.tga",
 		},
 		{
-			"name" : "BattlePassButton",
-			"type" : "button",
-
-			"x" : SCREEN_WIDTH - 138+8,
-			"y" : 3 + Y_ADD_POSITION,
-			"tooltip_text" : uiScriptLocale.TASKBAR_MONEY_EXPAND,
-
-			"default_image" : ROOT + "TaskBar/Ex_gemshop_button_01.tga",
-			"over_image" : ROOT + "TaskBar/Ex_gemshop_button_02.tga",
-			"down_image" : ROOT + "TaskBar/Ex_gemshop_button_03.tga",
-		},
-		## ENABLE_EXPANDED_MONEY_TASKBAR		
-		{
 			"name" : "InventoryButton",
 			"type" : "button",
 
@@ -414,17 +368,7 @@ window = {
 			"over_image" : ROOT + "TaskBar/System_Button_02.sub",
 			"down_image" : ROOT + "TaskBar/System_Button_03.sub",
 		},
-		## HUNTING_BUTTON
-		{
-			"name" : "HuntingButton", "type" : "button",
 
-			"x" : SCREEN_WIDTH - 178, "y" : 3 + Y_ADD_POSITION,
-			"tooltip_text" : "Jagd-Missionen",
-
-			"default_image" : "d:/ymir work/"+constInfo.GetUI()+"/public/huntsystem/taskbar_button_normal.sub", 
-			"over_image" : "d:/ymir work/"+constInfo.GetUI()+"/public/huntsystem/taskbar_button_hover.sub", 
-			"down_image" : "d:/ymir work/"+constInfo.GetUI()+"/public/huntsystem/taskbar_button_down.sub",
-		},
 		## QuickBar
 		{
 			"name" : "quickslot_board",
@@ -439,16 +383,14 @@ window = {
 			"children" :
 			(
 				{
-					# ExpandButton은 기존에 ChatButton이었으나, ChatButton의 효용성이 적다 판단하여
-					# ExpandButton으로 바뀐 것이다.
 					"name" : "ExpandButton",
 					"type" : "button",
 
 					"x" : 128,
 					"y" : 1,
 					"tooltip_text" : uiScriptLocale.TASKBAR_EXPAND,
-					
-					
+
+
 					"default_image" : ROOT + "TaskBar/Chat_Button_01.sub",
 					"over_image" : ROOT + "TaskBar/Chat_Button_02.sub",
 					"down_image" : ROOT + "TaskBar/Chat_Button_03.sub",
@@ -521,7 +463,7 @@ window = {
 					(
 						{
 							"name" : "QuickSlotNumberBox",
-							"type" : "image",							
+							"type" : "image",
 							"x" : 1,
 							"y" : 15,
 							"image" : ROOT + "taskbar/QuickSlot_Button_Board.sub",
@@ -537,10 +479,10 @@ window = {
 							"down_image" : ROOT + "TaskBar/QuickSlot_UpButton_03.sub",
 						},
 
-						{ 
-							"name" : "QuickPageNumber", 
-							"type" : "image", 							
-							"x" : 3, "y" : 15, "image" : "d:/ymir work/ui/game/taskbar/1.sub", 
+						{
+							"name" : "QuickPageNumber",
+							"type" : "image",
+							"x" : 3, "y" : 15, "image" : "d:/ymir work/ui/game/taskbar/1.sub",
 						},
 						{
 							"name" : "QuickPageDownButton",
@@ -554,7 +496,7 @@ window = {
 							"over_image" : ROOT + "TaskBar/QuickSlot_DownButton_02.sub",
 							"down_image" : ROOT + "TaskBar/QuickSlot_DownButton_03.sub",
 						},
-	
+
 					),
 				},
 			),

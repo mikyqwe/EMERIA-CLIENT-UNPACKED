@@ -2,10 +2,6 @@ import app
 import ui
 import player
 import net
-import constInfo
-
-if app.GUILD_WAR_COUNTER:
-	import constInfo
 
 class GameButtonWindow(ui.ScriptWindow):
 	def __init__(self):
@@ -34,10 +30,6 @@ class GameButtonWindow(ui.ScriptWindow):
 				"BUILD" : self.GetChild("BuildGuildBuilding"),
 				"EXIT_OBSERVER" : self.GetChild("ExitObserver"),
 			}
-			
-			if app.GUILD_WAR_COUNTER:
-				self.gameButtonDict["EXIT_CAMERA_MODE"] = self.GetChild("ExitCameraMode")
-				self.gameButtonDict["EXIT_CAMERA_MODE"].SetEvent(ui.__mem_func__(self.__OnClickExitCameraMode))
 
 			self.gameButtonDict["EXIT_OBSERVER"].SetEvent(ui.__mem_func__(self.__OnClickExitObserver))
 
@@ -108,29 +100,8 @@ class GameButtonWindow(ui.ScriptWindow):
 		for btn in self.gameButtonDict.values():
 			btn.Hide()
 
-	if app.GUILD_WAR_COUNTER:
-		def __OnClickExitCameraMode(self):
-			interface = constInfo.GetInterfaceInstance()
-			if interface != None:
-				if interface.wndGuildWar:
-					interface.wndGuildWar.ExitCameraMode()
-
-		def UpdateCameraMode(self):
-			isEnable = player.GetCameraMode()
-			if isEnable:
-				self.gameButtonDict["EXIT_CAMERA_MODE"].Show()
-			else:
-				self.gameButtonDict["EXIT_CAMERA_MODE"].Hide()
-
 	def SetObserverMode(self, isEnable):
 		if isEnable:
 			self.gameButtonDict["EXIT_OBSERVER"].Show()
 		else:
 			self.gameButtonDict["EXIT_OBSERVER"].Hide()
-
-		def UpdateCameraMode(self):
-			isEnable = player.GetCameraMode()
-			if isEnable:
-				self.gameButtonDict["EXIT_CAMERA_MODE"].Show()
-			else:
-				self.gameButtonDict["EXIT_CAMERA_MODE"].Hide()

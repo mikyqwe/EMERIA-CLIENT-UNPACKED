@@ -1,0 +1,71 @@
+
+[BANNER_IMG = d:/ymir work/ui/wiki/banners/it/rules.png]
+[CENTER_ALIGN;FONT_SIZE=30]Regolamento di gioco
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]1. Vendita/acquisto/prova
+
+[FONT_SIZE=14]1. Non è consentito vendere o acquistare e/o scambiare beni virtuali per denaro reale
+[FONT_SIZE=14] ($, £, €, Paysafe, PayPal, Bitcoins ecc.), oggetti su altri server/giochi.
+[FONT_SIZE=14]2. Non è neanche consentito vendere un account per yang.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]2. Linguaggio offensivo e comportamenti tossici
+
+[FONT_SIZE=14]1. Il linguaggio offensivo, la diffusione di odio, rivolte e razzismo o abuso verbale sono vietati
+[FONT_SIZE=14] e saranno puniti - a seconda del caso.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]3. Informazioni private/reali
+
+[FONT_SIZE=14]1. La diffamazione o la divulgazione di informazioni private/reali dei membri del team o
+[FONT_SIZE=14] dei giocatori è severamente vietata.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]4. Bug e aggiramenti di sistema
+
+[FONT_SIZE=14]1. Un bug riscontrato deve essere segnalato immediatamente a uno staffer.
+[FONT_SIZE=14] Qualsiasi tipo di utilizzo/abuso di bug che influisce sul flusso del gioco sarà punito
+[FONT_SIZE=14] Qualsiasi tipo di aggiramento di un sistema per ottenere un vantaggio sarà punito.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]5. Applicazioni di terze parti
+
+[FONT_SIZE=14]1. Le applicazioni di terze parti (hacks, bot, software illegali) sono programmi o
+[FONT_SIZE=14] file che non fanno parte del nostro server.
+[FONT_SIZE=14] Sfruttare o utilizzare tali cose sarà punito. Tutti i giocatori dovrebbero giocare correttamente.
+[FONT_SIZE=14]2. Le macro possono essere utilizzate fintanto che non si ottiene un vantaggio sui giocatori che
+[FONT_SIZE=14] sono attivamente seduti davanti al computer.
+[FONT_SIZE=14] (Ci riserviamo il diritto di punire le persone che utilizzano le macro in un modo non tollerante.)
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]6. Pubblicità di terze parti
+
+[FONT_SIZE=14]1. La pubblicità di altri server non è consentita in alcun modo e sarà punita.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]7. Sicurezza dell'Account
+
+[FONT_SIZE=14]1. Ognuno è responsabile del proprio account e degli oggetti in-game.
+[FONT_SIZE=14] Per questo motivo, i membri del team non possono garantire alcun aiuto se un utente perde
+[FONT_SIZE=14] qualcosa perché ha confidato nel suo partner/amico.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]8. Segnalazione Utente
+
+[FONT_SIZE=14]1. Se vuoi segnalare un Utente con l'aiuto di una schermata o un video, il nome del Server +
+[FONT_SIZE=14] l'ora del Server deve essere visibile in modo continuo.
+[FONT_SIZE=14] In caso contrario non saremo in grado di utilizzarlo come prova.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]9. Richiami dai Membri dello Staff
+
+[FONT_SIZE=14]1. I richiami costruttivi dai Membri dello Staff devono essere seguiti.
+[FONT_SIZE=14] Inoltre, ogni Membro dello Staff e ogni giocatore devono essere trattati con rispetto.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]10. Nomi Utente Inappropriati
+
+[FONT_SIZE=14]1. E' severiamente vietato utilizzare nickname o nomi mercatino inappropriati!
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]11. Uso di Vpn/Proxy
+
+[FONT_SIZE=14]1. L'uso di vpn/proxy per ottenere un vantaggio sugli altri giocatori non è consentito!
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]12. Modifiche al Regolamento
+
+[FONT_SIZE=14]1. Il team si riserva il diritto di modificare o espandere le regole senza annunciarlo pubblicamente.
+
+[CENTER_ALIGN;FONT_SIZE=16;COLOR=58ADFF]13. Blocco di Multi-Farm
+
+[FONT_SIZE=14]1. L'uso di macchine virtuali o di un secondo PC per aggirare il blocco di multi-farm non è vietato.

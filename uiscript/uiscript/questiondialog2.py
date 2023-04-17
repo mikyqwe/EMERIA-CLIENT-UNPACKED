@@ -2,7 +2,7 @@ import uiScriptLocale
 
 window = {
 	"name" : "QuestionDialog",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : SCREEN_WIDTH/2 - 125,
 	"y" : SCREEN_HEIGHT/2 - 52,
@@ -39,19 +39,6 @@ window = {
 				},
 				{
 					"name" : "message2",
-					"type" : "text",
-
-					"x" : 0,
-					"y" : 50,
-
-					"text" : uiScriptLocale.MESSAGE,
-
-					"horizontal_align" : "center",
-					"text_horizontal_align" : "center",
-					"text_vertical_align" : "center",
-				},
-				{
-					"name" : "message3",
 					"type" : "text",
 
 					"x" : 0,

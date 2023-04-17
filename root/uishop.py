@@ -28,12 +28,13 @@ class ShopDialog(ui.ScriptWindow):
 		self.itemBuyQuestionDialog = None
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface = None
+
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
-	
+
 	def __GetRealIndex(self, i):
 		return self.tabIdx * shop.SHOP_SLOT_COUNT + i
-	
+
 	def Refresh(self):
 		getItemID=shop.GetItemID
 		getItemCount=shop.GetItemCount
@@ -44,12 +45,7 @@ class ShopDialog(ui.ScriptWindow):
 			if itemCount <= 1:
 				itemCount = 0
 			setItemID(i, getItemID(idx), itemCount)
-			if app.ENABLE_CHANGELOOK_SYSTEM:
-				itemTransmutedVnum = shop.GetItemTransmutation(idx)
-				if itemTransmutedVnum:
-					self.itemSlotWindow.DisableCoverButton(i)
-				else:
-					self.itemSlotWindow.EnableCoverButton(i)
+
 		wndMgr.RefreshSlot(self.itemSlotWindow.GetWindowHandle())
 
 	def SetItemData(self, pos, itemID, itemCount, itemPrice):
@@ -68,7 +64,7 @@ class ShopDialog(ui.ScriptWindow):
 		smallTab3 = None
 		middleTab1 = None
 		middleTab2 = None
-		
+
 		try:
 			GetObject = self.GetChild
 			self.itemSlotWindow = GetObject("ItemSlot")
@@ -108,32 +104,32 @@ class ShopDialog(ui.ScriptWindow):
 
 		self.__HideMiddleTabs()
 		self.__HideSmallTabs()
-		
+
 		self.tabIdx = 0
 		self.coinType = shop.SHOP_COIN_TYPE_GOLD
-		
+
 		self.Refresh()
-	
+
 	def __ShowBuySellButton(self):
 		self.btnBuy.Show()
 		self.btnSell.Show()
-		
+
 	def __ShowMiddleTabs(self):
 		self.middleRadioButtonGroup.Show()
-	
+
 	def __ShowSmallTabs(self):
 		self.smallRadioButtonGroup.Show()
-	
+
 	def __HideBuySellButton(self):
 		self.btnBuy.Hide()
 		self.btnSell.Hide()
-	
+
 	def __HideMiddleTabs(self):
 		self.middleRadioButtonGroup.Hide()
-	
+
 	def __HideSmallTabs(self):
 		self.smallRadioButtonGroup.Hide()
-		
+
 	def __SetTabNames(self):
 		if shop.GetTabCount() == 2:
 			self.middleRadioButtonGroup.SetText(0, shop.GetTabName(0))
@@ -142,14 +138,15 @@ class ShopDialog(ui.ScriptWindow):
 			self.smallRadioButtonGroup.SetText(0, shop.GetTabName(0))
 			self.smallRadioButtonGroup.SetText(1, shop.GetTabName(1))
 			self.smallRadioButtonGroup.SetText(2, shop.GetTabName(2))
-	 
- 
+
 	def Destroy(self):
 		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.Close(True)
+			self.Close()
 			self.interface = None
 		else:
 			self.Close()
+			
+			
 		self.ClearDictionary()
 
 		self.tooltipItem = 0
@@ -171,9 +168,6 @@ class ShopDialog(ui.ScriptWindow):
 			isPrivateShop = False
 		else:
 			isPrivateShop = True
-			
-		if vid == 0:
-			isPrivateShop = False
 
 		if player.IsMainCharacterIndex(vid):
 
@@ -186,7 +180,6 @@ class ShopDialog(ui.ScriptWindow):
 		else:
 
 			isMainPlayerPrivateShop = False
-
 			self.btnBuy.Show()
 			self.btnSell.Show()
 			self.btnClose.Hide()
@@ -214,11 +207,11 @@ class ShopDialog(ui.ScriptWindow):
 				self.__HideMiddleTabs()
 				self.__ShowSmallTabs()
 				self.__SetTabNames()
-				self.middleRadioButtonGroup.OnClick(1)
+				self.smallRadioButtonGroup.OnClick(0) # @fixme002 (middleRadioButtonGroup(1) -> smallRadioButtonGroup(0))
 
 		self.Refresh()
 		self.SetTop()
-		
+
 		self.Show()
 
 		(self.xShopStart, self.yShopStart, z) = player.GetMainCharacterPosition()
@@ -227,55 +220,32 @@ class ShopDialog(ui.ScriptWindow):
 				self.interface.SetOnTopWindow(player.ON_TOP_WND_SHOP)
 				self.interface.RefreshMarkInventoryBag()
 
-	if app.WJ_ENABLE_TRADABLE_ICON:
-		def Close(self, isDestroy=False):
-			self.interface.SetOnTopWindow(player.ON_TOP_WND_NONE)
-			if not isDestroy:
+	def Close(self):
+		if app.WJ_ENABLE_TRADABLE_ICON:
+			if self.interface:
+				self.interface.SetOnTopWindow(player.ON_TOP_WND_NONE)
+				#if not isDestroy:
 				self.interface.RefreshMarkInventoryBag()
-
-			if self.itemBuyQuestionDialog:
-				self.itemBuyQuestionDialog.Close()
-				self.itemBuyQuestionDialog = None
-				constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(0)
-
+	
+		if self.itemBuyQuestionDialog:
+			self.itemBuyQuestionDialog.Close()
+			self.itemBuyQuestionDialog = None
+			constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(0)
+		if self.questionDialog:
 			self.OnCloseQuestionDialog()
-			shop.Close()
-			net.SendShopEndPacket()
-			self.CancelShopping()
-			self.tooltipItem.HideToolTip()
-			self.Hide()
-	else:
-		def Close(self):
-			if self.itemBuyQuestionDialog:
-				self.itemBuyQuestionDialog.Close()
-				self.itemBuyQuestionDialog = None
-				constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(0)
-
-			self.OnCloseQuestionDialog()
-			shop.Close()
-			net.SendShopEndPacket()
-			self.CancelShopping()
-			self.tooltipItem.HideToolTip()
-			self.Hide()
-
-	if app.WON_EXCHANGE:
-		def IsDlgQuestionShow(self):
-			if self.questionDialog and self.questionDialog.IsShow():
-				return True
-
-			return False
-
-		def ExternQuestionDialog_Close(self):
-			self.OnCloseQuestionDialog()
-
+		shop.Close()
+		net.SendShopEndPacket()
+		self.CancelShopping()
+		self.tooltipItem.HideToolTip()
+		self.Hide()
 
 	def GetIndexFromSlotPos(self, slotPos):
 		return self.tabIdx * shop.SHOP_SLOT_COUNT + slotPos
-		
+
 	def OnClickTabButton(self, idx):
 		self.tabIdx = idx
 		self.Refresh()
-		
+
 	def AskClosePrivateShop(self):
 		questionDialog = uiCommon.QuestionDialog()
 		questionDialog.SetText(localeInfo.PRIVATE_SHOP_CLOSE_QUESTION)
@@ -320,7 +290,6 @@ class ShopDialog(ui.ScriptWindow):
 		self.pop = None
 		constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(0)
 
-	## ¿ëÈ¥¼® ÆÈ¸®´Â ±â´É Ãß°¡.
 	def SellAttachedItem(self):
 
 		if shop.IsPrivateShop():
@@ -332,13 +301,10 @@ class ShopDialog(ui.ScriptWindow):
 		attachedCount = mouseModule.mouseController.GetAttachedItemCount()
 		attachedItemIndex = mouseModule.mouseController.GetAttachedItemIndex()
 
-		newSlots = [player.SLOT_TYPE_INVENTORY, player.SLOT_TYPE_SKILLBOOK_INVENTORY, player.SLOT_TYPE_UPPITEM_INVENTORY, player.SLOT_TYPE_GHOSTSTONE_INVENTORY, player.SLOT_TYPE_GENERAL_INVENTORY]
+		if player.SLOT_TYPE_INVENTORY == attachedSlotType or player.SLOT_TYPE_DRAGON_SOUL_INVENTORY == attachedSlotType:
 
-		if attachedSlotType in newSlots:
-			itemIndex = player.GetItemIndex(attachedSlotType, attachedSlotPos)
+			item.SelectItem(attachedItemIndex)
 
-			item.SelectItem(itemIndex)
-			
 			if item.IsAntiFlag(item.ANTIFLAG_SELL):
 				popup = uiCommon.PopupDialog()
 				popup.SetText(localeInfo.SHOP_CANNOT_SELL_ITEM)
@@ -347,7 +313,12 @@ class ShopDialog(ui.ScriptWindow):
 				self.popup = popup
 				return
 
-			if player.IsValuableItem(attachedSlotType, attachedSlotPos):
+			itemtype = player.INVENTORY
+
+			if player.SLOT_TYPE_DRAGON_SOUL_INVENTORY == attachedSlotType:
+				itemtype = player.DRAGON_SOUL_INVENTORY
+
+			if player.IsValuableItem(itemtype, attachedSlotPos):
 
 				itemPrice = item.GetISellItemPrice()
 
@@ -359,10 +330,9 @@ class ShopDialog(ui.ScriptWindow):
 				itemName = item.GetItemName()
 
 				questionDialog = uiCommon.QuestionDialog()
-				
 				questionDialog.SetText(localeInfo.DO_YOU_SELL_ITEM(itemName, attachedCount, itemPrice))
 
-				questionDialog.SetAcceptEvent(lambda arg1=attachedSlotPos, arg2=attachedCount, arg3 = attachedSlotType: self.OnSellItem(arg1, arg2, arg3))
+				questionDialog.SetAcceptEvent(lambda arg1=attachedSlotPos, arg2=attachedCount, arg3 = itemtype: self.OnSellItem(arg1, arg2, arg3))
 				questionDialog.SetCancelEvent(ui.__mem_func__(self.OnCloseQuestionDialog))
 				questionDialog.Open()
 				self.questionDialog = questionDialog
@@ -370,73 +340,12 @@ class ShopDialog(ui.ScriptWindow):
 				constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(1)
 
 			else:
-				self.OnSellItem(attachedSlotPos, attachedCount, attachedSlotType)
+				self.OnSellItem(attachedSlotPos, attachedCount, itemtype)
 
 		else:
 			snd.PlaySound("sound/ui/loginfail.wav")
 
 		mouseModule.mouseController.DeattachObject()
-
-
-	# ¿ëÈ¥¼® ÆÈ¸®´Â ±â´É Ãß°¡.
-	# def SellAttachedItem(self):
-
-		# if shop.IsPrivateShop():
-			# mouseModule.mouseController.DeattachObject()
-			# return
-
-		# attachedSlotType = mouseModule.mouseController.GetAttachedType()
-		# attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
-		# attachedCount = mouseModule.mouseController.GetAttachedItemCount()
-		# attachedItemIndex = mouseModule.mouseController.GetAttachedItemIndex()
-
-
-		# if player.SLOT_TYPE_INVENTORY == attachedSlotType or player.SLOT_TYPE_DRAGON_SOUL_INVENTORY == attachedSlotType:
-
-			# item.SelectItem(attachedItemIndex)
-
-			# if item.IsAntiFlag(item.ANTIFLAG_SELL):
-				# popup = uiCommon.PopupDialog()
-				# popup.SetText(localeInfo.SHOP_CANNOT_SELL_ITEM)
-				# popup.SetAcceptEvent(self.__OnClosePopupDialog)
-				# popup.Open()
-				# self.popup = popup
-				# return
-
-			# itemtype = player.INVENTORY
-
-			# if player.SLOT_TYPE_DRAGON_SOUL_INVENTORY == attachedSlotType:
-				# itemtype = player.DRAGON_SOUL_INVENTORY
-
-			# if player.IsValuableItem(itemtype, attachedSlotPos):
-
-				# itemPrice = item.GetISellItemPrice()
-
-				# if item.Is1GoldItem():
-					# itemPrice = attachedCount / itemPrice / 5
-				# else:
-					# itemPrice = itemPrice * max(1, attachedCount) / 5
-
-				# itemName = item.GetItemName()
-
-				# questionDialog = uiCommon.QuestionDialog()
-				
-				# questionDialog.SetText(localeInfo.DO_YOU_SELL_ITEM(itemName, attachedCount, itemPrice))
-
-				# questionDialog.SetAcceptEvent(lambda arg1=attachedSlotPos, arg2=attachedCount, arg3 = itemtype: self.OnSellItem(arg1, arg2, arg3))
-				# questionDialog.SetCancelEvent(ui.__mem_func__(self.OnCloseQuestionDialog))
-				# questionDialog.Open()
-				# self.questionDialog = questionDialog
-
-				# constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(1)
-
-			# else:
-				# self.OnSellItem(attachedSlotPos, attachedCount, itemtype)
-
-		# else:
-			# snd.PlaySound("sound/ui/loginfail.wav")
-
-		# mouseModule.mouseController.DeattachObject()
 
 	if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
 		def OnSellItem(self, slotPos, count, type):
@@ -457,7 +366,7 @@ class ShopDialog(ui.ScriptWindow):
 	def OnCloseQuestionDialog(self):
 		if not self.questionDialog:
 			return
-			
+
 		self.questionDialog.Close()
 		self.questionDialog = None
 		constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(0)
@@ -493,7 +402,11 @@ class ShopDialog(ui.ScriptWindow):
 			curCursorNum = app.GetCursor()
 			if app.BUY == curCursorNum:
 				self.AskBuyItem(selectedSlotPos)
-
+			elif app.IsCanOpenRender() and app.ENABLE_RENDER_TARGET:
+				interface = constInfo.GetInterfaceInstance()
+				if interface:
+					interface.OpenRenderTargetWindow(0, shop.GetItemID(selectedSlotPos))
+				return
 			elif app.SELL == curCursorNum:
 				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.SHOP_SELL_INFO)
 
@@ -515,32 +428,22 @@ class ShopDialog(ui.ScriptWindow):
 
 	def AskBuyItem(self, slotPos):
 		slotPos = self.__GetRealIndex(slotPos)
-		
+
 		itemIndex = shop.GetItemID(slotPos)
 		itemPrice = shop.GetItemPrice(slotPos)
-		if app.ENABLE_CHEQUE_SYSTEM:
-			itemCheque = shop.GetItemCheque(slotPos)
 		itemCount = shop.GetItemCount(slotPos)
 
 		item.SelectItem(itemIndex)
 		itemName = item.GetItemName()
 
 		itemBuyQuestionDialog = uiCommon.QuestionDialog()
-		if app.ENABLE_MULTISHOP:
-			if shop.GetBuyWithItem(slotPos) != 0:
-				itemBuyQuestionDialog.SetText(localeInfo.DO_YOU_BUY_ITEM(itemName, itemCount, localeInfo.NumberToWithItemString(shop.GetBuyWithItemCount(slotPos), item.GetItemName())))
-			else:
-				itemBuyQuestionDialog.SetText(localeInfo.DO_YOU_BUY_ITEM(itemName, itemCount, localeInfo.NumberToMoneyString(itemPrice)))
-		if app.ENABLE_CHEQUE_SYSTEM:
-			itemBuyQuestionDialog.SetText(localeInfo.DO_YOU_BUY_ITEM_NEW(itemName, itemCount, localeInfo.NumberToMoney(itemPrice), localeInfo.NumberToChequeString(itemCheque)))
-		else:
-			itemBuyQuestionDialog.SetText(localeInfo.DO_YOU_BUY_ITEM(itemName, itemCount, localeInfo.NumberToMoneyString(itemPrice)))
+		itemBuyQuestionDialog.SetText(localeInfo.DO_YOU_BUY_ITEM(itemName, itemCount, localeInfo.NumberToMoneyString(itemPrice)))
 		itemBuyQuestionDialog.SetAcceptEvent(lambda arg=True: self.AnswerBuyItem(arg))
 		itemBuyQuestionDialog.SetCancelEvent(lambda arg=False: self.AnswerBuyItem(arg))
 		itemBuyQuestionDialog.Open()
 		itemBuyQuestionDialog.pos = slotPos
 		self.itemBuyQuestionDialog = itemBuyQuestionDialog
-		
+
 		constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(1)
 
 	def AnswerBuyItem(self, flag):
@@ -551,7 +454,7 @@ class ShopDialog(ui.ScriptWindow):
 
 		self.itemBuyQuestionDialog.Close()
 		self.itemBuyQuestionDialog = None
-		
+
 		constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(0)
 
 	def SetItemToolTip(self, tooltipItem):
@@ -565,7 +468,7 @@ class ShopDialog(ui.ScriptWindow):
 		if 0 != self.tooltipItem:
 			if shop.SHOP_COIN_TYPE_GOLD == shop.GetTabCoinType(self.tabIdx):
 				self.tooltipItem.SetShopItem(slotIndex)
-			else: 
+			else:
 				self.tooltipItem.SetShopItemBySecondaryCoin(slotIndex)
 	def OverOutItem(self):
 		if 0 != self.tooltipItem:
@@ -603,26 +506,26 @@ class MallPageDialog(ui.ScriptWindow):
 		scriptLoader.LoadScriptFile(self, "uiscript/mallpagedialog.py")
 
 		self.GetChild("titlebar").SetCloseEvent(ui.__mem_func__(self.Close))
-		
+
 		(x, y)=self.GetGlobalPosition()
 		x+=10
 		y+=30
-		
+
 		MALL_PAGE_WIDTH = 600
 		MALL_PAGE_HEIGHT = 480
-		
+
 		app.ShowWebPage(
-			"http://metin2.co.kr/08_mall/game_mall/login_fail.htm", 
+			"http://metin2.co.kr/08_mall/game_mall/login_fail.htm",
 			(x, y, x+MALL_PAGE_WIDTH, y+MALL_PAGE_HEIGHT))
 
 		self.Lock()
 		self.Show()
-		
-	def Close(self):			
+
+	def Close(self):
 		app.HideWebPage()
 		self.Unlock()
 		self.Hide()
-		
+
 	def OnPressEscapeKey(self):
 		self.Close()
 		return True

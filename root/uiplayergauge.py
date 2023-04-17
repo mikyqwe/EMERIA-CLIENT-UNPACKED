@@ -2,9 +2,7 @@ import ui
 import player
 import chr
 import textTail
-import app
-if app.ENABLE_POISON_GAUGE_EFFECT:
-	import chrmgr
+
 class PlayerGauge(ui.Gauge):
 
 	def __init__(self, parent):
@@ -37,12 +35,6 @@ class PlayerGauge(ui.Gauge):
 
 		self.curHP = player.GetStatus(player.HP)
 		self.maxHP = player.GetStatus(player.MAX_HP)
-
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			if chrmgr.HasAffectByVID(player.GetMainCharacterIndex(), chr.AFFECT_POISON):
-				self.SetGaugeColor("lime")
-			else:
-				self.SetGaugeColor("red")
 		self.SetPercentage(self.curHP, self.maxHP)
 
 		if self.showAlways:
@@ -66,6 +58,3 @@ class PlayerGauge(ui.Gauge):
 	def DisableShowAlways(self):
 		self.showAlways = False
 		self.RefreshGauge()
-		
-	def RefreshGuageColor(self, color):
-		self.MakeGauge(100, color)

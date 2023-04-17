@@ -4,7 +4,7 @@ ROOT = "d:/ymir work/ui/minimap/"
 
 window = {
 	"name" : "AtlasWindow",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : SCREEN_WIDTH - 136 - 256 - 10,
 	"y" : 0,

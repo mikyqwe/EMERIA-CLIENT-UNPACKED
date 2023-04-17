@@ -6,7 +6,7 @@ window = {
 	"x" : 100,
 	"y" : 20,
 
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"width" : 176,
 	"height" : 327,

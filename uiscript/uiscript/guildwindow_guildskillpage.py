@@ -35,12 +35,12 @@ window = {
 					"text_vertical_align" : "center",
 					"text" : uiScriptLocale.GUILD_SKILL_PASSIVE,
 				},
-				{ 
+				{
 					"name":"Passive_Skill_Plus_Label",
 					"type":"image",
 					"x":240,
 					"y":2,
-					"image":LOCALE_PATH+"label_uppt.sub", 
+					"image":LOCALE_PATH+"label_uppt.sub",
 					"children" :
 					(
 						{

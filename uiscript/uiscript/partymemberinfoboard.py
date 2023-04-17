@@ -61,29 +61,6 @@ window = {
 			"width" : 84,
 			"color" : "red",
 		},
-		
-		{
-			"name" : "PoisonGauge",
-			"type" : "gauge",
-			"style" : ("not_pick",),
-
-			"x" : 22,
-			"y" : 17,
-			"width" : 84,
-			"color" : "lime",
-		},
-
-		{
-			"name" : "GaugeSP",
-			"type" : "gauge",
-			"style" : ("not_pick",),
-
-			"x" : 22,
-			"y" : 24,
-			"width" : 84,
-			"color" : "blue",
-		},
-
 
 		{
 			"name" : "ExperienceImage",

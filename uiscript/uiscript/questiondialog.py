@@ -2,7 +2,7 @@ import uiScriptLocale
 
 window = {
 	"name" : "QuestionDialog",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : SCREEN_WIDTH/2 - 125,
 	"y" : SCREEN_HEIGHT/2 - 52,

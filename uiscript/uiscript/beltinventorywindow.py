@@ -6,7 +6,6 @@ EQUIPMENT_START_INDEX = 90
 window = {
 	"name" : "BeltInventoryWindow",
 
-	## 600 - (width + 오른쪽으로 부터 띄우기 24 px)
 	"x" : SCREEN_WIDTH - 176 - 148,
 	"y" : SCREEN_HEIGHT - 37 - 565 + 209 + 32,
 #	"x" : -148,
@@ -16,7 +15,7 @@ window = {
 
 	"type" : "image",
 	"image" : "d:/ymir work/ui/game/belt_inventory/bg.tga",
-	
+
 
 	"children" :
 	(
@@ -34,7 +33,7 @@ window = {
 			"disable_image" : "d:/ymir work/ui/game/belt_inventory/btn_expand_disabled.tga",
 		},
 
-		
+
 		## Belt Inventory Layer (include minimize button)
 		{
 			"name" : "BeltInventoryLayer",

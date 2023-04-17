@@ -1,6 +1,6 @@
-import sys
 def GetExceptionString(excTitle):
 
+	import sys
 	(excType, excMsg, excTraceBack)=sys.exc_info()
 
 	excText=""
@@ -32,6 +32,7 @@ def Abort(excTitle):
 	import app
 	app.Abort()
 
+	import sys
 	sys.exit()
 
 	return 0

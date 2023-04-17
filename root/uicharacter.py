@@ -371,10 +371,10 @@ class CharacterWindow(ui.ScriptWindow):
 		}
 
 		self.dunno = {
-			"Vitalitate"	: self.GetChild("HTH_Slot"),
-			"Inteligenþa"	: self.GetChild("INT_Slot"),
-			"Putere"	: self.GetChild("STR_Slot"),
-			"Dexteritate"	: self.GetChild("DEX_Slot"),
+			"Vitalita"	: self.GetChild("HTH_Slot"),
+			"Intelligenza"	: self.GetChild("INT_Slot"),
+			"Forza"	: self.GetChild("STR_Slot"),
+			"Destrezza"	: self.GetChild("DEX_Slot"),
 		}
 
 		self.statusMinusButtonDict = {
@@ -1314,7 +1314,7 @@ class CharacterWindow(ui.ScriptWindow):
 
 	def __OverInStatButton(self, stat):	
 		try:
-			self.__ShowStatToolTip("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Adaugã +10",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+			self.__ShowStatToolTip("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Aggiungi +10",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 		except KeyError:
 			pass
 

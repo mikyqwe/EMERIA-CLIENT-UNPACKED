@@ -1,652 +1,1412 @@
-# Development By Grimm @ 2020
+import player
+import app
+import net
+import chr
 import ui
 import item
-import net
 import constInfo
 import localeInfo
 import uiCommon
 import wndMgr
-import app
 import grp
 import chat
-import player
 import skill
 import shop
+import math
+from _weakref import proxy
+from operator import truediv
 
-CATEGORY_SHOP_PATH = "d:/ymir work/ui/shop/category_icons/"
+import offlineshop
+import uiToolTip
+import ime
+import dbg
 
-class ShopSearchFilter(ui.ScriptWindow):
+PATH = "cream/"
+PATH_ROOT = "cream/searchshop/"
+TIME_WAIT = 0 # Seconds
+MAX_ITEMS_APPEND = 25
+SELECTED_ITEMS_BUY = {}
+
+# Config Categories
+def SetCategories(wnd):
+	wnd.AppendItem("Equipment", "2.dds", 89, -1, -1, False, True)
+	wnd.AppendSubCategory("Weapon", 89, item.ITEM_TYPE_WEAPON)
+	wnd.AppendSubCategory("Body", 89, item.ITEM_TYPE_ARMOR, item.ARMOR_BODY)
+	wnd.AppendSubCategory("Head", 89, item.ITEM_TYPE_ARMOR, item.ARMOR_HEAD)
+	wnd.AppendSubCategory("Shield", 89, item.ITEM_TYPE_ARMOR, item.ARMOR_SHIELD)
+	wnd.AppendSubCategory("Ear", 89, item.ITEM_TYPE_ARMOR, item.ARMOR_EAR)
+	wnd.AppendSubCategory("Neck", 89, item.ITEM_TYPE_ARMOR, item.ARMOR_NECK)
+	wnd.AppendSubCategory("Wrist", 89, item.ITEM_TYPE_ARMOR, item.ARMOR_WRIST)
+	wnd.AppendSubCategory("Foots", 89, item.ITEM_TYPE_ARMOR, item.ARMOR_FOOTS)
+
+	wnd.AppendItem("Costume", "4.dds", 88, -1, -1, False, True)
+	wnd.AppendSubCategory("Hair", 88, item.ITEM_TYPE_COSTUME, item.COSTUME_TYPE_HAIR)
+	wnd.AppendSubCategory("Body", 88, item.ITEM_TYPE_COSTUME, item.COSTUME_TYPE_BODY)
+	# wnd.AppendSubCategory("Sash", 88, item.ITEM_TYPE_COSTUME, item.COSTUME_TYPE_SASH)
+	# wnd.AppendSubCategory("Weapon", 88, item.ITEM_TYPE_COSTUME, item.COSTUME_TYPE_WEAPON)
+
+	# wnd.AppendItem("Chest", "8.dds", item.ITEM_TYPE_GIFTBOX)
+	wnd.AppendItem("Book", "6.dds", item.ITEM_TYPE_SKILLBOOK)
+	wnd.AppendItem("Stone", "3.dds", item.ITEM_TYPE_METIN)
+	wnd.AppendItem("Upgrade", "9.dds", item.ITEM_TYPE_MATERIAL)
+	# wnd.AppendItem("Blend", "6.dds", item.ITEM_TYPE_BLEND)
+
+class ListBoxCategory(ui.Window):
+	class NewItem(ui.Window):
+		def __init__(self, parent, icon, name, type, ForType, Subtype, IsSubCategory, ArrowShow):
+			ui.Window.__init__(self)
+
+			self.ImageSubCat = None
+			self.background = None
+			self.Arrow = None
+			self.IconCategory = None			
+			self.OnInit()
+
+			self.Type = type
+			self.ForType = ForType
+			self.Subtype = Subtype
+			self.IsSubCategory = IsSubCategory
+			self.IsExpanded = False
+			self.IsVisible = False
+
+			if IsSubCategory == False:
+				self.AppendCategory(parent.hWnd, icon, name, type, ArrowShow)
+			else:
+				self.AppendSubCategory(parent.hWnd, name, ForType)
+				
+
+		def OnRender(self):
+			xList, yList = self.parent.GetGlobalPosition()
+			widthList, heightList = self.parent.GetWidth(), self.parent.GetHeight()	
+		
+			images = [self.background, self.IconCategory, self.Arrow]
+			for img in images:
+				if img:
+					img.SetClipRect(xList, yList, xList + widthList, yList + heightList)
+		
+			textList = [self.NameCategory]
+			for text in textList:
+				if text:
+					xText, yText = text.GetGlobalPosition()
+		
+					if yText < yList or yText + text.GetTextSize()[1] > yList + heightList:
+						text.Hide()
+					else:
+						text.Show()
+		
+		def AppendCategory(self, parent, icon, name, type, ArrowShow):
+			self.background = ui.ExpandedImageBox()
+			self.background.SetParent(self)
+			self.background.LoadImage(PATH_ROOT + "category_norm.dds")
+			self.background.OnMouseOverIn = ui.__mem_func__(self.OnMouseOverIn2)
+			self.background.OnMouseOverOut = ui.__mem_func__(self.OnMouseOverOut2)
+			self.background.OnMouseLeftButtonDown = ui.__mem_func__(self.OnSelectImageBox)
+			self.background.Show()
+			
+			self.SetSize(self.background.GetWidth(), self.background.GetHeight())
+
+			self.IconCategory = ui.ExpandedImageBox()
+			self.IconCategory.SetParent(self)
+			self.IconCategory.LoadImage(PATH_ROOT + icon)
+			self.IconCategory.SetPosition(4, 3)
+			self.IconCategory.Show()
+		
+			if ArrowShow:
+				self.Arrow = ui.ExpandedImageBox()
+				self.Arrow.SetParent(self.background)
+				self.Arrow.LoadImage(PATH_ROOT + "arrow_down.dds")
+				self.Arrow.SetPosition(144, 10)
+				self.Arrow.Show()
+
+			self.NameCategory = ui.TextLine()
+			self.NameCategory.SetParent(self.background)
+			self.NameCategory.SetVerticalAlignCenter()	
+			self.NameCategory.SetWindowVerticalAlignCenter()
+			self.NameCategory.SetText(name)
+			self.NameCategory.SetPosition(40, -1)
+			self.NameCategory.Show()
+			
+			self.SubTypes = {}
+
+		def AppendSubCategory(self, parent, name, ForType):
+			self.background = ui.ExpandedImageBox()
+			self.background.SetParent(self)
+			self.background.LoadImage(PATH_ROOT + "sub_category_norm.dds")
+			self.background.OnMouseOverIn = ui.__mem_func__(self.OnMouseOverIn2)
+			self.background.OnMouseOverOut = ui.__mem_func__(self.OnMouseOverOut2)
+			self.background.OnMouseLeftButtonDown = ui.__mem_func__(self.OnMouseLeftButtonDown)
+			self.background.SetPosition(0, 0)
+			self.background.Show()
+			
+			self.SetSize(self.background.GetWidth() + 2, self.background.GetHeight())
+		
+			self.NameCategory = ui.TextLine()
+			self.NameCategory.SetParent(self)
+			self.NameCategory.SetText(name)
+			self.NameCategory.SetPosition(0, 3)
+			self.NameCategory.SetHorizontalAlignCenter()	
+			self.NameCategory.SetWindowHorizontalAlignCenter()
+			self.NameCategory.Show()
+
+		def SetVisible(self, flag):
+			self.IsVisible = flag
+
+		def GetItemType(self):
+			return self.ForType
+		
+		def CanRender(self):
+			if self.NameCategory.IsShow():
+				return True
+				
+			return False
+		
+		def IsHide(self):
+			return self.IsVisible
+
+		def IsExpanded(self):
+			return self.IsExpanded
+		
+		def SetSelectReset(self):
+			self.selected = False
+		
+			if self.IsSubCategory:
+				self.background.LoadImage(PATH_ROOT + "sub_category_norm.dds")
+			else:
+				self.background.LoadImage(PATH_ROOT + "category_norm.dds")
+		
+		def OnMouseOverIn2(self):
+			if self.selected:
+				return
+		
+			if self.IsSubCategory == False:
+				if self.Arrow == None:
+					self.background.LoadImage(PATH_ROOT + "category_hover.dds")
+				return
+				
+			self.background.LoadImage(PATH_ROOT + "sub_category_hover.dds")
+			
+		def OnMouseOverOut2(self):
+			if self.IsSubCategory == False:
+				if self.Arrow == None:
+					if self.selected:
+						self.background.LoadImage(PATH_ROOT + "category_down.dds")
+						return
+				
+					self.background.LoadImage(PATH_ROOT + "category_norm.dds")
+				return
+				
+			if self.selected:
+				self.background.LoadImage(PATH_ROOT + "sub_category_down.dds")
+			else:
+				self.background.LoadImage(PATH_ROOT + "sub_category_norm.dds")
+		
+		def OnMouseLeftButtonDown(self):
+			if self.IsSubCategory == False:
+				return
+			
+			if self.clickEvent:
+				self.clickEvent(self.ForType, self.Type, self.Subtype, False)
 	
+			self.selected = True
+			self.background.LoadImage(PATH_ROOT + "sub_category_down.dds")
+
+		def OnSelectImageBox(self):
+			if self.IsSubCategory:
+				return
+
+			if self.IsExpanded:
+				self.IsExpanded = False
+				if self.Arrow:
+					self.Arrow.LoadImage(PATH_ROOT + "arrow_down.dds")
+			else:
+				self.IsExpanded = True
+				if self.Arrow:
+					self.Arrow.LoadImage(PATH_ROOT + "arrow_up.dds")
+
+			if self.clickEvent:
+				self.clickEvent(99, self.Type, 0, self.IsExpanded)
+				
+				if self.Arrow == None:
+					self.selected = True
+					self.background.LoadImage(PATH_ROOT + "category_down.dds")
+
+		def __del__(self):
+			ui.Window.__del__(self)
+			self.OnInit()
+
+		def OnInit(self):
+			self.selected = False
+			self.vnum = 0
+			self.xBase = 0
+			self.yBase = 0
+
+			self.overInEvent = None
+			self.overOutEvent = None
+			self.clickEvent = None
+			self.NameCategory = None
+			if self.background != None:
+				self.background.Hide()
+			self.background = None
+			self.Arrow = None
+			self.ImageSubCat = None
+			self.IconCategory = None
+
+		def SetParent(self, parent):
+			ui.Window.SetParent(self, parent)
+			self.parent = proxy(parent)
+
+		def SetBasePosition(self, x, y):
+			self.xBase = x
+			self.yBase = y
+			
+		def GetBasePosition(self):
+			return (self.xBase, self.yBase)
+			
+		def SetOverInEvent(self, event):
+			self.overInEvent = event
+			
+		def SetOverOutEvent(self, event):
+			self.overOutEvent = event
+			
+		def SetClickEvent(self, event):
+			self.clickEvent = event
+			
+		def OnMouseOverIn(self):
+			self.RefreshSelectState(True)
+				
+			if self.overInEvent:
+				self.overInEvent(self.ItemVnum)
+			
+		def OnMouseOverOut(self):
+			self.RefreshSelectState(False)
+			
+			if self.overOutEvent:
+				self.overOutEvent()
+				
+		def IsSelected(self):
+			return self.selected
+				
+		def RefreshSelectState(self, isIn):
+			if not self.background:
+				return
+		
+		def SetAnimWidth(self, width):
+			self.widthAnim = width
+
 	def __init__(self):
-		ui.ScriptWindow.__init__(self)
-		self.bAlready = False
-		self.MakeFilterWindow()
-	
-	def MakeFilterWindow(self):
-		if self.bAlready == True:
-			return
-	
-		self.SetSize(200, 230)
-		self.AddFlag("movable")
-		self.AddFlag("float")
-	
-		self.wndFilterBoard = ui.Board_Brown()
-		self.wndFilterBoard.SetParent(self)
-		self.wndFilterBoard.AddFlag("attach")
-		self.wndFilterBoard.SetSize(200, 230)
-		self.wndFilterBoard.Hide()
-		
-		self.wndFilterTitleBar = ui.TitleBar()
-		self.wndFilterTitleBar.SetParent(self.wndFilterBoard)
-		self.wndFilterTitleBar.MakeTitleBar(200 - 15, 0)
-		self.wndFilterTitleBar.SetPosition(7, 8)
-		self.wndFilterTitleBar.SetCloseEvent(ui.__mem_func__(self.CloseFilter))
-		self.wndFilterTitleBar.Show()
+		ui.Window.__init__(self)
+		self.OnInit()
 
-		self.wndFilterTitleName = ui.MakeText(self.wndFilterTitleBar, "Filtru preþ", 200 / 2 - 30, 6)
-	
-		self.wndYangTitle = ui.MakeText(self.wndFilterTitleBar, "Filtru Yang", 200 / 2 - 30, 14+5)
-	
-		self.wndFilterDesign1 = ui.MakeImageBox(self.wndFilterBoard, "d:/ymir work/ui/shop/insert.png", 30, 33+14+5)
-		self.wndFilterDesign2 = ui.MakeImageBox(self.wndFilterBoard, "d:/ymir work/ui/shop/insert.png", 30, 63+14+5)
+	def __del__(self):
+		ui.Window.__del__(self)
+		self.OnInit()
+		
+	def Destroy(self):
+		self.OnInit()
 
-		self.img_icon_gold = ui.MakeImageBox(self.wndFilterBoard, "d:/ymir work/ui/game/windows/money_icon.sub", 13, 49+14+5)
+	def OnInit(self):
+		self.SetFuncDown = None
+		self.itemList = []
+		self.scrollBar = None
 
-		self.wndMinPrice = ui.EditLine()
-		self.wndMinPrice.SetParent(self.wndFilterDesign1)
-		self.wndMinPrice.SetPosition(3, 3)
-		self.wndMinPrice.SetSize(136, 15+5)
-		self.wndMinPrice.SetMax(10)
-		self.wndMinPrice.SetNumberMode()
-		self.wndMinPrice.SetText("0")
-		self.wndMinPrice.Show()
-		
-		self.wndMaxPrice = ui.EditLine()
-		self.wndMaxPrice.SetParent(self.wndFilterDesign2)
-		self.wndMaxPrice.SetPosition(3, 3)
-		self.wndMaxPrice.SetSize(136, 15+5)
-		self.wndMaxPrice.SetMax(10)
-		self.wndMaxPrice.SetNumberMode()
-		self.wndMaxPrice.SetText("1999999999")
-		self.wndMaxPrice.Show()
+		self.selectEvent = None
+		self.selectedItemVnum = 0
 
-	
-		self.wndChequeTitle = ui.MakeText(self.wndFilterTitleBar, "Filtru Won", 200 / 2 - 30, 2+95)
-	
-		self.wndFilterDesignC1 = ui.MakeImageBox(self.wndFilterBoard, "d:/ymir work/ui/shop/insert.png", 30, 33+95)
-		self.wndFilterDesignC2 = ui.MakeImageBox(self.wndFilterBoard, "d:/ymir work/ui/shop/insert.png", 30, 63+95)
+	def SetEventDown(self, event):
+		self.SetFuncDown = event
 
-		self.img_icon_cheque = ui.MakeImageBox(self.wndFilterBoard, "d:/ymir work/ui/game/windows/cheque_icon.sub", 13, 49+95)
+	def SetParent(self, parent):
+		ui.Window.SetParent(self, parent)
+		
+	def SetScrollBar(self, scrollBar):
+		scrollBar.SetScrollEvent(ui.__mem_func__(self.__OnScroll))
+		scrollBar.SetScrollStep(0.2)
+		self.scrollBar=scrollBar
 
-		self.wndMinCheque = ui.EditLine()
-		self.wndMinCheque.SetParent(self.wndFilterDesignC1)
-		self.wndMinCheque.SetPosition(3, 3)
-		self.wndMinCheque.SetSize(136, 15+95)
-		self.wndMinCheque.SetMax(2)
-		self.wndMinCheque.SetNumberMode()
-		self.wndMinCheque.SetText("0")
-		self.wndMinCheque.Show()
+	def SetSelectEvent(self, event):
+		self.selectEvent = event
 		
-		self.wndMaxCheque = ui.EditLine()
-		self.wndMaxCheque.SetParent(self.wndFilterDesignC2)
-		self.wndMaxCheque.SetPosition(3, 3)
-		self.wndMaxCheque.SetSize(136, 15+95)
-		self.wndMaxCheque.SetMax(2)
-		self.wndMaxCheque.SetNumberMode()
-		self.wndMaxCheque.SetText("99")
-		self.wndMaxCheque.Show()
-	
-		self.btnClose = ui.MakeButton(self.wndFilterBoard, 200 / 2 - 30, 63+95+15, False, "d:/ymir work/ui/shop/", "small_btn.dds", "small_btn_over.dds", "small_btn_down.dds")
-		self.btnClose.SetEvent(ui.__mem_func__(self.CloseFilter))
-		self.btnClose.SetText("Închide filtru")
-	
-		self.Hide()
+	def __OnScroll(self):
+		self.AdjustItemPositions(True)
+			
+	def GetTotalItemHeight(self):
+		totalHeight = 0
 		
-		self.bAlready = True
-		
-	def GetMinCheque(self):
-		return int(self.wndMinCheque.GetText())
-	
-	def GetMaxCheque(self):
-		return int(self.wndMaxCheque.GetText())
-		
-	def GetMinPrice(self):
-		return int(self.wndMinPrice.GetText())
-		
-	def GetMaxPrice(self):
-		return int(self.wndMaxPrice.GetText())
-	
-	def ShowFilter(self):
-		if not self.wndFilterBoard.IsShow():
-			self.SetTop()
-			self.SetCenterPosition()
-			self.Show()
-			self.wndFilterBoard.Show()
+		if self.itemList:
+			for itemH in self.itemList:
+				totalHeight += itemH.GetHeight() + 6
+			
+		return totalHeight + 2
+
+	def GetItemCount(self):
+		return len(self.itemList)
+			
+	def AppendItem(self, Name, IconImage, Type, ForType = -1, Subtype = -1, IsSubCategory = False, ShowArrow = False):
+		item = self.NewItem(self, IconImage, Name, Type, ForType, Subtype, IsSubCategory, ShowArrow)
+		item.SetParent(self)
+
+		if len(self.itemList) == 0:
+			item.SetBasePosition(0, 0)
 		else:
-			self.CloseFilter()
+			x, y = self.itemList[-1].GetLocalPosition()
+			y += 2
+			item.SetBasePosition(0, y + self.itemList[-1].GetHeight())
 
-	def CloseFilter(self):
-		self.Hide()
-		self.wndFilterBoard.Hide()
+		item.SetClickEvent(ui.__mem_func__(self.SelectItem))
+			
+		item.Show()
+		self.itemList.append(item)
+
+		self.AdjustScrollBar()
+		self.AdjustItemPositions()
+
+	def SelectItem(self, ForType, Type, SubType, flag):
+		for itemH in self.itemList:
+			if ForType == 99:
+				if itemH.GetItemType() == Type:
+					itemH.SetVisible(flag)
+
+			itemH.SetSelectReset()
+
+		self.AdjustItemPositions(True)
+
+		if Type == 0:
+			self.SetFuncDown(-1, -1)
+			return
+		
+		PassTypes = {item.ITEM_TYPE_GIFTBOX, item.ITEM_TYPE_SKILLBOOK, item.ITEM_TYPE_METIN, item.ITEM_TYPE_MATERIAL, item.ITEM_TYPE_BLEND}
+		if ForType == 99 and (Type in PassTypes): 
+			self.SetFuncDown(Type, -1)
+			return
+
+		if ForType != 99:
+			self.SetFuncDown(Type, SubType)
+		elif ForType == 99 and Type == -1:
+			self.SetFuncDown(-1, -1)
+
+	def AppendSubCategory(self, name, ForType, Type, Subtype = -1):
+		self.AppendItem(name, None, Type, ForType, Subtype, 1)
+	
+	def AdjustScrollBar(self):
+		totalHeight = float(self.GetTotalItemHeight())
+		if totalHeight:
+			scrollBarHeight = min(float(self.GetHeight() - 10) / totalHeight, 1.0)
+		else:
+			scrollBarHeight = 1.0
+			
+		self.scrollBar.SetMiddleBarSize(scrollBarHeight)
+		
+	def ResetScrollbar(self):
+		self.scrollBar.SetPos(0)
+				
+	def AdjustItemPositions(self, scrolling = False, startIndex = -1):		
+		scrollPos = self.scrollBar.GetPos()
+		totalHeight = self.GetTotalItemHeight() - self.GetHeight()
+
+		idx = 0
+		if startIndex >= 0:
+			idx = startIndex
+		
+		CurIdx, yAccumulate, FirstTab = 0, 0, False
+		for item in self.itemList[idx:]:
+			if startIndex >= 0:
+				yAccumulate -= 20 + 2
+
+			if item.IsHide():
+				item.Hide()
+				continue
+			else:
+				item.Show()
+				
+			if item.IsSubCategory == False and CurIdx > 0:
+				yAccumulate += 7
+				FirstTab = True
+			else:
+				yAccumulate += 1
+				
+				if FirstTab:
+					yAccumulate += 5
+					FirstTab = False
+	
+			if scrolling:
+				setPos = yAccumulate - int(scrollPos * totalHeight)
+				item.SetPosition(0, setPos)
+			else:
+				item.SetPosition(0, yAccumulate)
+				
+			item.SetBasePosition(0, yAccumulate)
+			
+			CurIdx += 1
+			yAccumulate += 20
+
+	def Clear(self):
+		range = len(self.itemList)
+		if range:
+			for item in self.itemList:
+				item.OnInit()
+				item.Hide()
+				del item
+		
+		self.itemList = []
+		
+	def GetList(self):
+		return self.itemList
+
+
+class ListBoxItem(ui.Window):
+	class NewItem(ui.Window):
+		def __init__(self, parent, index, data):
+			ui.Window.__init__(self)
+			self.background = None
+			self.OnClear()
+			self.Index = index
+			self.InfoData = data
+
+			Vnum = data["vnum"]
+			count = data["count"]
+		
+			item.SelectItem(Vnum)
+			_, self.itemSize = item.GetItemSize()
+	
+			price = data["price"]
+			textYang = str(localeInfo.NumberToMoneyString(price))
+			
+			pid = 0
+
+			name 	= data["owner_name"]
+			seller = name
+			# seller	= name[:name.find('@')] if '@' in name else "NONAME"		
+			# name	= name[name.find('@')+1:] if '@' in name else name
+
+			self.background = ui.ExpandedImageBox()
+			self.background.SetParent(self)
+			self.OnMouseOverOut2()
+			
+			self.background.OnMouseOverIn = ui.__mem_func__(self.OnMouseOverIn2)
+			self.background.OnMouseOverOut = ui.__mem_func__(self.OnMouseOverOut2)
+			self.background.OnMouseLeftButtonDown = ui.__mem_func__(self.OnMouseLeftButtonDown)
+			self.background.Show()
+			
+			self.SetSize(self.background.GetWidth(), self.background.GetHeight())
+
+			if count > 1:
+				countText = str(count) + "x "
+			else:
+				countText = ""
+				
+			ItemName = item.GetItemName()
+			
+			if len(ItemName) >= 25:
+				ItemName = ItemName[:25] + ".."
+
+			self.ItemSlotBase = ui.ExpandedImageBox()
+			self.ItemSlotBase.SetParent(self)
+			self.ItemSlotBase.SetPosition(26, 0)
+			self.ItemSlotBase.LoadImage(PATH + "slot_32x%d.tga" % (self.itemSize * 32))
+			self.ItemSlotBase.SetWindowVerticalAlignCenter()
+			# self.ItemSlotBase.SAFE_SetStringEvent("MOUSE_OVER_IN", self.IconOnMouseOverIn)
+			# self.ItemSlotBase.SAFE_SetStringEvent("MOUSE_OVER_OUT", self.IconOnMouseOverOut)
+			self.ItemSlotBase.SetStringEvent("MOUSE_OVER_IN", ui.__mem_func__(self.IconOnMouseOverIn))
+			self.ItemSlotBase.SetStringEvent("MOUSE_OVER_OUT", ui.__mem_func__(self.IconOnMouseOverOut))
+			self.ItemSlotBase.Show()
+
+			self.ItemIcon = ui.ExpandedImageBox()
+			self.ItemIcon.SetParent(self.ItemSlotBase)
+			self.ItemIcon.AddFlag("not_pick")
+			self.ItemIcon.LoadImage(item.GetIconImageFileName())
+			self.ItemIcon.SetWindowVerticalAlignCenter()
+			self.ItemIcon.SetWindowHorizontalAlignCenter()
+			self.ItemIcon.Show()
+
+			self.wndItemName = ui.TextLine()
+			self.wndItemName.SetParent(self)
+			self.wndItemName.AddFlag("not_pick")
+			self.wndItemName.SetPosition(60, 0)
+			self.wndItemName.SetText(str(countText) + ItemName)
+			self.wndItemName.SetWindowVerticalAlignCenter()
+			self.wndItemName.SetVerticalAlignCenter()
+			self.wndItemName.Show()
+
+			self.wndItemPrice = ui.TextLine()
+			self.wndItemPrice.SetParent(self)
+			self.wndItemPrice.AddFlag("not_pick")
+			self.wndItemPrice.SetPosition(30, 0)
+			self.wndItemPrice.SetText("|Eemoji/yang|e " + textYang)
+			self.wndItemPrice.SetWindowHorizontalAlignCenter()
+			self.wndItemPrice.SetHorizontalAlignCenter()
+			self.wndItemPrice.SetWindowVerticalAlignCenter()
+			self.wndItemPrice.SetVerticalAlignCenter()
+			self.wndItemPrice.Show()
+
+			self.CheckBox = ui.ExpandedImageBox()
+			self.CheckBox.SetParent(self)
+			self.CheckBox.SetPosition(6, 0)
+			self.CheckBox.LoadImage(PATH_ROOT + "box_uncheck.dds")
+			self.CheckBox.SetWindowVerticalAlignCenter()
+			self.CheckBox.OnMouseLeftButtonDown = ui.__mem_func__(self.OnCheckBox)
+			self.CheckBox.Show()
+	
+			self.wndSellerName = ui.TextLine()
+			self.wndSellerName.SetParent(self)
+			self.wndSellerName.AddFlag("not_pick")
+			self.wndSellerName.SetPosition(13, 0)
+			self.wndSellerName.SetText(str(seller))
+			self.wndSellerName.SetWindowHorizontalAlignRight()
+			self.wndSellerName.SetHorizontalAlignRight()
+			self.wndSellerName.SetWindowVerticalAlignCenter()
+			self.wndSellerName.SetVerticalAlignCenter()
+			self.wndSellerName.Show()
+
+			self.IconWhisperSeller = ui.ExpandedImageBox()
+			self.IconWhisperSeller.SetParent(self)
+			self.IconWhisperSeller.SetPosition(self.wndSellerName.GetTextSize()[0] + 30, 2)
+			self.IconWhisperSeller.LoadImage(PATH_ROOT + "messenger.dds")
+			self.IconWhisperSeller.OnMouseLeftButtonDown = ui.__mem_func__(self.OnMouseLeftWhisperSeller)
+			self.IconWhisperSeller.SetWindowHorizontalAlignRight()
+			self.IconWhisperSeller.SetWindowVerticalAlignCenter()
+			self.IconWhisperSeller.Show()
+			
+			if self.InfoData["id"] in SELECTED_ITEMS_BUY:
+				self.IsSelected = True
+				self.CheckBox.LoadImage(PATH_ROOT + "box_checked.dds")
+				
+			self.OnMouseOverOut2()
+
+		def OnRender(self):
+			xList, yList = self.parent.GetGlobalPosition()
+			widthList, heightList = self.parent.GetWidth(), self.parent.GetHeight()	
+		
+			images = [self.background, self.CheckBox, self.ItemSlotBase, self.ItemIcon, self.IconWhisperSeller]
+			for img in images:
+				if img:
+					img.SetClipRect(xList, yList, xList + widthList, yList + heightList)
+		
+			textList = [self.wndItemName, self.wndItemPrice, self.wndSellerName]
+			for text in textList:
+				if text:
+					xText, yText = text.GetGlobalPosition()
+		
+					if yText < yList or yText + text.GetTextSize()[1] > yList + heightList:
+						text.Hide()
+					else:
+						text.Show()
+
+		def OnMouseOverIn2(self):
+			self.background.LoadImage(PATH_ROOT + "field_%d_selected.dds" % (self.itemSize))
+
+		def OnMouseOverOut2(self):
+			if self.IsSelected:
+				self.background.LoadImage(PATH_ROOT + "field_%d_selected.dds" % (self.itemSize))
+				return
+		
+			colorField = "black"
+			if self.Index % 2 == 0:
+				colorField = "white"
+		
+			self.background.LoadImage(PATH_ROOT + "field_%d_%s.dds" % (self.itemSize, colorField))
+
+		def SetBlock(self):
+			self.bIsBlocked = True
+		
+		def OnCheckBox(self):
+			if self.IsSelected:
+				self.IsSelected = False
+				self.CheckBox.LoadImage(PATH_ROOT + "box_uncheck.dds")
+				
+				if self.InfoData["id"] in SELECTED_ITEMS_BUY:
+					del SELECTED_ITEMS_BUY[self.InfoData["id"]]
+			else:
+				self.IsSelected = True
+				self.CheckBox.LoadImage(PATH_ROOT + "box_checked.dds")
+
+				SELECTED_ITEMS_BUY[self.InfoData["id"]] = self.InfoData["owner"]
+				
+			self.OnMouseOverOut2()
+		
+		def OnMouseLeftWhisperSeller(self):
+			if self.WhisperEvent:
+				self.WhisperEvent(self.wndSellerName.GetText())
+
+		def OnMouseLeftButtonDown(self):
+			if self.clickEvent:
+				self.clickEvent(self.InfoData["owner"], self.InfoData["id"], self.wndItemName.GetText())
+
+		def __del__(self):
+			ui.Window.__del__(self)
+			self.OnClear()
+
+		def OnClear(self):
+			self.IsSelected = False
+			self.bIsBlocked = False
+			self.vnum = 0
+			self.xBase = 0
+			self.yBase = 0
+
+			self.overInEventIconImage = None
+			self.overOutEventIconImage = None
+			self.clickEvent = None
+			self.WhisperEvent = None
+			if self.background != None:
+				self.background.Hide()
+			self.background = None
+			self.CheckBox = None
+			self.ItemSlotBase = None
+
+		def SetParent(self, parent):
+			ui.Window.SetParent(self, parent)
+			self.parent = proxy(parent)
+
+		def SetBasePosition(self, x, y):
+			self.xBase = x
+			self.yBase = y
+			
+		def GetBasePosition(self):
+			return (self.xBase, self.yBase)
+			
+		def SetOverInEvent(self, event):
+			self.overInEventIconImage = event
+			
+		def SetOverOutEvent(self, event):
+			self.overOutEventIconImage = event
+			
+		def SetClickEvent(self, event):
+			self.clickEvent = event
+
+		def SetWhisperEvent(self, event):
+			self.WhisperEvent = event
+			
+		def IconOnMouseOverIn(self):
+			if self.overInEventIconImage:
+				self.overInEventIconImage(self.InfoData)
+			
+		def IconOnMouseOverOut(self):
+			if self.overOutEventIconImage:
+				self.overOutEventIconImage()
+
+	def __init__(self):
+		ui.Window.__init__(self)
+		self.OnClear()
+		
+		self.tooltipItem = uiToolTip.ItemToolTip()
+		self.tooltipItem.Hide()
+
+	def __del__(self):
+		ui.Window.__del__(self)
+		self.OnClear()
+		
+		self.tooltipItem = None
+		
+	def Destroy(self):
+		self.tooltipItem = None
+		self.OnClear()
+		
+	def OnClear(self):
+		self.SetFuncDown = None
+		self.BuyAskEvent = None
+		self.WhishperEventFunc = None
+		self.itemList = []
+		self.scrollBar = None
+
+		self.selectEvent = None
+		self.selectedItemVnum = 0
+
+	def SetEventBuy(self, event):
+		self.BuyAskEvent = event
+
+	def SetEventWhisper(self, event):
+		self.WhishperEventFunc = event
+
+	def SetParent(self, parent):
+		ui.Window.SetParent(self, parent)
+		
+		self.SetPosition(5, 5)
+		self.SetSize(parent.GetWidth() - 10, parent.GetHeight() - 10)
+		
+	def SetScrollBar(self, scrollBar):
+		scrollBar.SetScrollEvent(ui.__mem_func__(self.__OnScroll))
+		scrollBar.SetScrollStep(0.2)
+		self.scrollBar=scrollBar
+
+	def SetSelectEvent(self, event):
+		self.selectEvent = event
+		
+	def __OnScroll(self):
+		self.AdjustItemPositions(True)
+			
+	def GetTotalItemHeight(self):
+		totalHeight = 0
+		
+		if self.itemList:
+			for itemH in self.itemList:
+				if itemH.bIsBlocked:
+					continue
+				totalHeight += itemH.GetHeight() + 2
+			
+		return totalHeight
+
+	def GetItemCount(self):
+		return len(self.itemList)
+
+	def AppendItem(self, index, infoData):
+		item = self.NewItem(self, index, infoData)
+		item.SetParent(self)
+
+		if len(self.itemList) == 0:
+			item.SetBasePosition(0, 0)
+		else:
+			x, y = self.itemList[-1].GetLocalPosition()
+			y += 2
+			item.SetBasePosition(0, y + self.itemList[-1].GetHeight())
+
+		item.SetWhisperEvent(ui.__mem_func__(self.OnWhisperName))
+		item.SetClickEvent(ui.__mem_func__(self.SelectItem))
+		item.SetOverInEvent(ui.__mem_func__(self.OverInItem))
+		item.SetOverOutEvent(ui.__mem_func__(self.OverOutItem))		
+	
+		item.Show()
+		self.itemList.append(item)
+
+		self.ResetScrollbar()
+		self.AdjustScrollBar()	
+		self.AdjustItemPositions()
+	
+	def OnWhisperName(self, name):
+		if self.WhishperEventFunc:
+			self.WhishperEventFunc(name)
+	
+	def OverInItem(self, data):
+		if self.tooltipItem and data:
+			self.tooltipItem.ClearToolTip()
+			
+			metinSlot = []
+			for i in xrange(player.METIN_SOCKET_MAX_NUM):
+				metinSlot.append(0)
+
+			attrSlot = []
+			for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM):
+				attrSlot.append((0, 0))
+			
+			self.tooltipItem.AddItemData(data["vnum"], metinSlot, attrSlot)
+
+	def OverOutItem(self):
+		if self.tooltipItem:
+			self.tooltipItem.HideToolTip()
+
+	def SelectItem(self, pID, ItemPos, ItemName):
+		if self.BuyAskEvent:
+			self.BuyAskEvent(pID, ItemPos, ItemName)
+
+	def AdjustScrollBar(self):
+		totalHeight = float(self.GetTotalItemHeight())
+		if totalHeight:
+			scrollBarHeight = min(float(self.GetHeight() - 10) / totalHeight, 1.0)
+		else:
+			scrollBarHeight = 1.0
+			
+		self.scrollBar.SetMiddleBarSize(scrollBarHeight)
+	
+	def ResetScrollbar(self):
+		self.scrollBar.SetPos(0)
+				
+	def AdjustItemPositions(self, scrolling = False):		
+		scrollPos = self.scrollBar.GetPos()
+		totalHeight = self.GetTotalItemHeight() - self.GetHeight()
+
+		idx = 0
+
+		CurIdx, yAccumulate = 0, 0
+		for item in self.itemList[idx:]:
+			if item.bIsBlocked:
+				continue
+			
+			if scrolling:
+				setPos = yAccumulate - int(scrollPos * totalHeight)
+				item.SetPosition(0, setPos)
+			else:
+				item.SetPosition(0, yAccumulate)
+				
+			item.SetBasePosition(0, yAccumulate)
+
+			CurIdx += 1
+			yAccumulate += item.GetHeight() + 2
+
+	def Clear(self):
+		range = len(self.itemList)
+		
+		if range > 0:
+			for item in self.itemList:
+				item.OnClear()
+				item.Hide()
+				del item
+		
+		self.itemList = []
+		
+	def RemoveItemBought(self, bOwner, bId):
+		range = len(self.itemList)
+		
+		if range > 0:
+			for i in xrange(range):
+				owner = self.itemList[i].InfoData["owner"]
+				id = self.itemList[i].InfoData["id"]
+				if owner == bOwner and id == bId:
+					self.itemList[i].IsSelected = False
+					self.itemList[i].Hide()
+					self.itemList[i].SetBlock()
+					break
+				
+			self.ReloadSymmetryBackground()
+			self.ResetScrollbar()
+			self.AdjustScrollBar()
+			self.AdjustItemPositions(True)
+	
+	def ReloadSymmetryBackground(self):
+		range = len(self.itemList)
+		
+		if range > 0:
+			CntIndex = 0
+			for i in xrange(range):
+				if self.itemList[i].bIsBlocked:
+					continue
+
+				colorField = "black"
+				if CntIndex % 2 == 0:
+					colorField = "white"
+				
+				self.itemList[i].background.LoadImage(PATH_ROOT + "field_%d_%s.dds" % (self.itemList[i].itemSize, colorField))
+				
+				self.itemList[i].OnMouseOverOut2()
+				
+				CntIndex += 1
+
+	def BuySelectedItems(self):
+		global SELECTED_ITEMS_BUY
+		range = len(SELECTED_ITEMS_BUY)
+		
+		if range > 0:
+			for id_key in SELECTED_ITEMS_BUY:
+				owner = SELECTED_ITEMS_BUY[id_key]
+				offlineshop.SendBuyItemFromSearch(owner, id_key)
 
 class ShopSearch(ui.ScriptWindow):
-
-	# Config Shop Search 
-	
-	MAX_ITEMS_PAGE = 9
-	pos_x = [10, 160+40, 310+80]
-	pos_y = [10, 10, 10, 130, 130, 130, 250, 250, 250]
-
-	Categories=[
-		{"name": "Tutti", "icon": "dragonsoul.dds", "type": 99},
-		{"name": "Armi", "icon": "weapons.dds", "type": item.ITEM_TYPE_WEAPON},
-		{"name": "Equipaggiamenti", "icon":"equipment.dds", "type": item.ITEM_TYPE_ARMOR},
-		{"name": "Costumi - Mounts", "icon":"skins.dds", "type": 28},
-		{"name": "Consumabili", "icon": "consumable.dds", "type": 3},
-		{"name": "Materiali", "icon":"items.dds", "type": 4},
-		{"name": "Buffs", "icon":"aid.dds", "type": 33},
-		{"name": "Miglioramento", "icon":"shop.dds", "type": 5},
-		{"name": "Libri", "icon": "books.dds", "type": 17},
-		{"name": "Forzieri", "icon": "shop.dds", "type": 23},
-		{"name": "Pietre", "icon": "mining.dds", "type": 10},
-	]
-	
-	SubCategoriesEquipments = [
-		{"name": "Archi", "icon":"equipment.dds", "type": item.WEAPON_BOW, "ExpandForType" : 1},
-		{"name": "Campane", "icon":"equipment.dds", "type": item.WEAPON_BELL, "ExpandForType" : 1},
-		{"name": "Ventagli", "icon":"equipment.dds", "type": item.WEAPON_FAN, "ExpandForType" : 1},
-		{"name": "Frecce", "icon":"equipment.dds", "type": item.WEAPON_ARROW, "ExpandForType" : 1},
-		{"name": "Pugnali", "icon":"equipment.dds", "type": item.WEAPON_DAGGER, "ExpandForType" : 1},
-		{"name": "Spade", "icon":"equipment.dds", "type": item.WEAPON_SWORD, "ExpandForType" : 1},
-		{"name": "Spadoni", "icon":"equipment.dds", "type": item.WEAPON_TWO_HANDED, "ExpandForType" : 1},	
-		{"name": "Armature", "icon": "weapons.dds", "type": item.ARMOR_BODY, "ExpandForType" : 2},
-		{"name": "Elmi", "icon":"equipment.dds", "type": item.ARMOR_HEAD, "ExpandForType" : 2},
-		{"name": "Scudi", "icon":"equipment.dds", "type": item.ARMOR_SHIELD, "ExpandForType" : 2},
-		{"name": "Bracciali", "icon":"equipment.dds", "type": item.ARMOR_WRIST, "ExpandForType" : 2},
-		{"name": "Scarpe", "icon":"equipment.dds", "type": item.ARMOR_FOOTS, "ExpandForType" : 2},
-		{"name": "Collane", "icon":"equipment.dds", "type": item.ARMOR_NECK, "ExpandForType" : 2},
-		{"name": "Orecchini", "icon":"equipment.dds", "type": item.ARMOR_EAR, "ExpandForType" : 2},
-		
-	]
-	# You understand how to config here types-subtypes?
-	
-	# Config Shop Search
 	def __init__(self):
 		ui.ScriptWindow.__init__(self)
 		self.loaded = 0
-		self.tooltip = None
+		self.iCountEnd = 0
+		self.currentPage = 1
 		self.interface = None
-		self.bItem = {}
-		self.bGrid = {}
-		self.wndNameItem = {}
-		self.wndSeller = {}
-		self.wndPrice = {}
-		self.wndPriceCheque = {}
-		self.wndQuantity = {}
-		self.btnBuy = {}
-		self.btnWhisper = {}
+		self.dlgBuyQuestion = None
+		self.ListBox = None
+		self.CategoryList = None
+		self.waitTime = 0
+		self.SearchFilterShopItemResult = []
+		
 		self.LoadWindow()
 
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
-		
+
+	def Destroy(self):
+		self.ClearDictionary()
+		if self.ListBox:
+			self.ListBox.Destroy()
+			self.ListBox.Clear()
+			del self.ListBox
+			
+		if self.CategoryList:
+			self.CategoryList.Clear()
+			del self.CategoryList
+	
 	def Show(self):
-		self.OverOutItem()
 		self.LoadWindow()
 		self.SetCenterPosition()
+		self.Clear()
 		ui.ScriptWindow.Show(self)
-		self.test_y = 0
-		self.test_x = 0
-		self.cPage = 1
-		self.cLastPage = 1
-		self.bDone = False
-		self.dlgQuestion = None
-		self.ListExpanded = {}
-		self.SelectCategory(0, 99) # Select default category.
-		self.OnSearchItem()
+		
+		self.OnSearch()
+
+	def Clear(self):
+		self.sLastItemName = None
+		self.sCategory = -1
+		self.sSubCategory = -1
+		self.iPage = 1
+		self.iCountEnd = 0
+		self.ItemList.Clear()
+		self.bCantChangePage = False
+		self.FloodPage = 0
 
 	def LoadWindow(self):
 		if self.loaded == 1:
 			return
-		self.loaded == 1
-		try:
-			PythonScriptLoader = ui.PythonScriptLoader()
-			PythonScriptLoader.LoadScriptFile(self, "UIScript/shopsearch.py")
-		except:
-			import exception
-			exception.Abort("shopsearch.LoadWindow.LoadObject")
-		try:
-			self.titleBar = self.GetChild("TitleBar")
-			self.board = self.GetChild("board")
-			self.bSearch = self.GetChild("ThiniSearch")
-			self.AnimBoard = self.GetChild("Animation_Board")
-			self.SearchButton = self.GetChild("search_button")
-			self.sItemName = self.GetChild("ItemNameValue")
-			self.wndAnim = self.GetChild("SearchAnim")
-			self.btnFilter = self.GetChild("FilterButton")
-			self.ScrollBar = self.GetChild("Scrollbar")
-		except:
-			import exception
-			exception.Abort("shopsearch.__LoadWindow.BindObject")
+
+		self.loaded = 1		
+		self.AddFlag("movable")
 		
-		self.AppendCategories()
-		self.titleBar.SetCloseEvent(ui.__mem_func__(self.Close))
-		self.SearchButton.SetEvent(ui.__mem_func__(self.OnSearchItem))
-		self.ScrollBar.Hide()
+		self.Board = ui.MakeBoardWithTitleBar(self, "not_pick", "Shop Search", ui.__mem_func__(self.CloseGame), 730, 537)
 
-		self.wndAnim.SetEndFrameEvent(ui.__mem_func__(self.OnSearchItemReady))
-		self.AnimBoard.Hide()
-		self.wndAnim.Hide()
-		for i in xrange(30):
-			self.wndAnim.AppendImage("d:/ymir work/ui/shop/searching/shoploader_%d.dds" % int(i))	
+		self.BoardListBox = ui.MakeImageBox(self.Board, "cream/shopeditor/category_board.dds", 17, 35)
+		self.BoardItemList = ui.MakeImageBox(self.Board, "cream/shopeditor/item_board.dds", 210, 35)
+
+		self.SetSize(self.Board.GetWidth(), self.Board.GetHeight())
 		
-		self.btnPrev = ui.MakeButton(self.board, 520, 410, False, "d:/ymir work/ui/privatesearch/", "private_prev_btn_01.sub", "private_prev_btn_02.sub", "private_prev_btn_01.sub")
-		self.btnPrev.SetEvent(ui.__mem_func__(self.Prev))
+		self.btnBuySelectedItems = ui.MakeButton(self, 226, 503, False, PATH_ROOT, "btn_filter_norm.dds", "btn_filter_hover.dds", "btn_filter_down.dds")
+		self.btnBuySelectedItems.SetText("Buy selected items")
 
-		self.btnNext = ui.MakeButton(self.board, 670, 410, False, "d:/ymir work/ui/privatesearch/", "private_next_btn_01.sub", "private_next_btn_02.sub", "private_next_btn_01.sub")
-		self.btnNext.SetEvent(ui.__mem_func__(self.Next))
-		self.btnFilter.SetEvent(ui.__mem_func__(self.OnFilter))
+		self.LineSearch = ui.MakeImageBox(self.Board, "cream/shopeditor/field_time.dds", 27, 45)
 
-	def OnFilter(self):
-		if self.interface:
-			self.interface.ManageFilterShopSearch()
+		self.sItemName = ui.EditLine()
+		self.sItemName.SetParent(self.LineSearch)
+		self.sItemName.SetMax(45)
+		self.sItemName.SetSize(111 - self.LineSearch.GetWidth() - 2, 15)
+		self.sItemName.SetPosition(2, 4)
+		self.sItemName.SetOverlayText("Search name...")
+		self.sItemName.SetLimitWidth(self.LineSearch.GetWidth())
+		self.sItemName.SetEscapeEvent(ui.__mem_func__(self.OnPressNameEscapeKey))
+		self.sItemName.SetUpdateEvent(ui.__mem_func__(self.Search_RefreshTextHint))
+		self.sItemName.SetTabEvent(ui.__mem_func__(self.Search_CompleteTextSearch))
+		self.sItemName.SetReturnEvent(ui.__mem_func__(self.OnSearch))
+		self.sItemName.SetOutline()
+		self.sItemName.Show()
 
-	def AppendCategories(self):
-		i = 0
-		self.bCategory =  {}
-		self.bIcon =  {}
+		self.searchEditHint = ui.TextLine()
+		self.searchEditHint.SetParent(self.sItemName)
+		self.searchEditHint.SetPackedFontColor(grp.GenerateColor(1.0, 1.0, 1.0, 0.5))
+		self.searchEditHint.Show()
 
-		self.ListBox = ui.ListBoxEx()
-		self.ListBox.SetParent(self.board)
-		self.ListBox.SetParinte(self.board)
-		self.ListBox.SetViewItemCount(14)
-		self.ListBox.SetItemStep(20)
-		self.ListBox.SetItemSize(100, 20)
-		self.ListBox.SetPositionExtra(12, 120)
-		self.ListBox.SetScrollBar(self.ScrollBar)
+		self.btnSearch = ui.MakeButton(self.Board, 135, 45, False, PATH_ROOT, "btn_search_norm.dds", "btn_search_hover.dds", "btn_search_down.dds")
+		self.btnSearch.SetEvent(ui.__mem_func__(self.OnSearch))
 
-		for category in self.Categories:
-			self.bCategory[i] = ui.MakeButton(self.board, 12, 20*i+120, False, "d:/ymir work/ui/shop/", "tab_01.png", "tab_02.png", "tab_03.png")
-			self.bCategory[i].SetText(category["name"])
-			self.bCategory[i].SetEvent(lambda index = i, categorie = category["type"]: self.SelectCategory(index, categorie))
-			
-			self.bIcon[i] = ui.MakeImageBox(self.bCategory[i], CATEGORY_SHOP_PATH + category["icon"], 5, 0)
-			
-			self.ListBox.AppendItem(self.bCategory[i], 1)
-			i += 1
+		self.btnEmptySearch = ui.MakeButton(self.Board, 165, 45, False, PATH_ROOT, "btn_reset_search_norm.dds", "btn_reset_search_hover.dds", "btn_reset_search_down.dds")
+		self.btnBuySelectedItems.SetEvent(ui.__mem_func__(self.AskBuySelectedItems))
+
+		self.ItemList = ListBoxItem()
+		self.ItemList.SetParent(self.BoardItemList)
+		self.ItemList.SetSize(502, 460)
+		self.ItemList.SetPosition(2, 2)
+		self.ItemList.SetEventBuy(ui.__mem_func__(self.AskBuySelectedItem))
+		self.ItemList.SetEventWhisper(ui.__mem_func__(self.OnWhisper))
+		self.ItemList.Show()
+	
+		self.ScrollBar = ui.ScrollBarNew()
+		self.ScrollBar.SetParent(self)
+		self.ScrollBar.SetScrollBarSize(464)
+		self.ScrollBar.SetPosition(708, 35)
+		self.ItemList.SetScrollBar(self.ScrollBar)
+		self.ScrollBar.Show()
 		
-	def SelectCategory(self, index, category):
-		for i in xrange(len(self.bCategory)):
-			try:
-				self.bCategory[i].SetUpVisual("d:/ymir work/ui/shop/tab_01.png")
-				self.bCategory[i].SetOverVisual("d:/ymir work/ui/shop/tab_02.png")
-				self.bCategory[i].SetUp()
-			except KeyError:
-				continue
-			
-		#Expand Sub-Category
-		self.ListBox.RemoveAllItems()
-		self.DeleteCategories()
-		self.MakeAgain(index, False)
-		self.SubCategory = 99
-		
-		self.bSubCategory =  {}
-		self.bIconSubCategory =  {}
+		self.MakeCategory()
 
-		i = 0
-		if not self.IsExpanded(category):
-			for subcat in self.SubCategoriesEquipments:
-				if subcat["ExpandForType"] == category:
-					self.ListExpanded[category] = True
-					self.bSubCategory[i] = ui.MakeButton(self.board, 35, 20*i+30, False, "d:/ymir work/ui/shop/", "tab_01.png", "tab_02.png", "tab_03.png")
-					self.bSubCategory[i].SetText(subcat["name"])
-					self.bSubCategory[i].SetEvent(lambda index = i, categorie = subcat["type"]: self.SelectSubCategory(index, categorie))
-					
-					self.bIconSubCategory[i] = ui.MakeImageBox(self.bSubCategory[i], CATEGORY_SHOP_PATH + subcat["icon"], 5, 0)
-				
-					self.ListBox.AppendItem(self.bSubCategory[i], 1)
-					i += 1
+		self.nextButton = ui.MakeButton(self, 50 + 453 + 130, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds")
+		self.nextButton.SetText(">")
+		
+		self.lastButton = ui.MakeButton(self, 50 + 483 + 130, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds")
+		self.lastButton.SetText(">>")
+		
+		self.prevButton = ui.MakeButton(self, 50 + 260-20 + 130, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds")
+		self.prevButton.SetText("<")
+		
+		self.firstButton = ui.MakeButton(self, 50 + 230-20 + 130, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds")
+		self.firstButton.SetText("<<")
+
+		self.pageButtons = []
+		self.pageButtons.append(ui.MakeButton(self, 50 + 275-10 + 130 + 5, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds"))
+		self.pageButtons.append(ui.MakeButton(self, 50 + 310-10 + 130 + 5, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds"))
+		self.pageButtons.append(ui.MakeButton(self, 50 + 345-10 + 130 + 5, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds"))
+		self.pageButtons.append(ui.MakeButton(self, 50 + 380-10 + 130 + 5, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds"))
+		self.pageButtons.append(ui.MakeButton(self, 50 + 415-10 + 130 + 5, 293 + 210, False, PATH_ROOT, "btn_page_norm.dds", "btn_page_hover.dds", "btn_page_down.dds"))
+
+		for index, item in enumerate(self.pageButtons):
+			item.SetText(str(index + 1))
+
+		self.pageButtons[0].Show()
+		self.pageButtons[1].Hide()
+		self.pageButtons[2].Hide()
+		self.pageButtons[3].Hide()
+		self.pageButtons[4].Hide()
+		self.pageButtons[0].Down()
+		self.pageButtons[0].Disable()
+
+		self.nextButton.SetEvent(ui.__mem_func__(self.NextPage))
+		self.prevButton.SetEvent(ui.__mem_func__(self.PrevPage))
+		self.firstButton.SetEvent(ui.__mem_func__(self.FirstPage))
+		self.lastButton.SetEvent(ui.__mem_func__(self.LastPage))
+
+		self.textInfoCheckBox = ui.TextLine()
+		self.textInfoCheckBox.SetParent(self)
+		self.textInfoCheckBox.SetPosition(38 + 21, 77 + 1)
+		self.textInfoCheckBox.SetText("Search by Player-Name")
+		self.textInfoCheckBox.Show()
+
+		self.CheckBox = ui.ExpandedImageBox()
+		self.CheckBox.SetParent(self)
+		self.CheckBox.SetPosition(38, 77)
+		self.CheckBox.LoadImage(PATH_ROOT + "box_uncheck.dds")
+		self.CheckBox.IsChecked = False
+		self.CheckBox.OnMouseLeftButtonDown = ui.__mem_func__(self.OnCheckBox)
+		self.CheckBox.Show()
+
+		self.wndFilterWarrior = self.CreateFilterRadioButton("", 22 + 33 - 16, 94 + 5, "warrior_no_select.dds", "warrior_select.dds", "warrior_select.dds")
+		self.wndFilterAssassin = self.CreateFilterRadioButton("", 22 + 68 - 16, 94 + 5, "assassin_no_select.dds", "assassin_select.dds", "assassin_select.dds")
+		self.wndFilterSura = self.CreateFilterRadioButton("", 22 + 68 + 35 - 16, 94 + 5, "sura_no_select.dds", "sura_select.dds", "sura_select.dds")
+		self.wndFilterShaman = self.CreateFilterRadioButton("", 22 + 68 + 35 + 35 - 16, 94 + 5, "shaman_no_select.dds", "shaman_select.dds", "shaman_select.dds")
+	
+	def OnCheckBox(self):
+		if self.CheckBox.IsChecked:
+			self.CheckBox.IsChecked = False
+			self.CheckBox.LoadImage(PATH_ROOT + "box_uncheck.dds")
 		else:
-			try:
-				del self.ListExpanded[category]
-			except KeyError:
-				pass
-				
-		self.MakeAgain(index, True)
+			self.CheckBox.IsChecked = True
+			self.CheckBox.LoadImage(PATH_ROOT + "box_checked.dds")
 			
-		self.bCategory[index].SetUpVisual("d:/ymir work/ui/shop/tab_03.png")
-		self.bCategory[index].SetOverVisual("d:/ymir work/ui/shop/tab_03.png")
-		self.category = category
+		self.Search_RefreshTextHint()
+	
+	def CreateFilterRadioButton(self, text, x, y, up, over, down):
+		button = ui.ToggleButton()
+		button.SetParent(self)
+		button.SetPosition(x, y)
+		button.SetUpVisual(PATH + "filter/" + up)
+		button.SetOverVisual(PATH + "filter/" + over)
+		button.SetDownVisual(PATH + "filter/" + down)
+		button.SetToolTipText(text)
+		button.SetToggleUpEvent(ui.__mem_func__(self.OnFilterButtonDown), button)
+		button.SetToggleDownEvent(ui.__mem_func__(self.OnFilterButtonSetUp), button)
+		button.Show()
 		
-		# scroll-bar hide - show (manage)
-		if self.ListBox.GetCount() <= 14:
-			self.ScrollBar.Hide()
-		else:
-			self.ScrollBar.Show()
+		button.Down()
 		
-	def IsExpanded(self, category):
-		try:
-			if self.ListExpanded[category]:
-				return True
-		except KeyError:
-			return False
-		
-		return False
+		return button
 
-	def SelectSubCategory(self, index, type):
-		for i in xrange(len(self.bSubCategory)):
-			try:
-				self.bSubCategory[i].SetUpVisual("d:/ymir work/ui/shop/tab_01.png")
-				self.bSubCategory[i].SetOverVisual("d:/ymir work/ui/shop/tab_02.png")
-				self.bSubCategory[i].SetUp()
-			except KeyError:
-				continue
-			
-		self.SubCategory = type
-		
-	def DeleteCategories(self):
-		for i in xrange(len(self.bCategory)):
-			try:
-				self.bCategory[i].Hide
-				del self.bCategory[i]
-			except KeyError:
-				continue
-		
-	def MakeAgain(self, index, bCanDo):
-		ip = 0
-		for category in self.Categories:
-			if ip > index and bCanDo == False:
-				# ip += 1
-				break
-				
-			if ip <= index and bCanDo == True:
-				ip += 1
-				continue
+	def SetItemToolTip(self, tooltip):
+		self.tooltipItem = tooltip
 
-			self.bCategory[ip] = ui.MakeButton(self.board, 12, 20*ip+120, False, "d:/ymir work/ui/shop/", "tab_01.png", "tab_02.png", "tab_03.png")
-			self.bCategory[ip].SetText(category["name"])
-			self.bCategory[ip].SetEvent(lambda index = ip, categorie = category["type"]: self.SelectCategory(index, categorie))
-			
-			self.bIcon[ip] = ui.MakeImageBox(self.bCategory[ip], CATEGORY_SHOP_PATH + category["icon"], 5, 0)
-			
-			self.ListBox.AppendItem(self.bCategory[ip], 1)
-			ip += 1
-		
 	def BindInterface(self, interface):
 		self.interface = interface
 
-	def DeleteLastPage(self):
-		self.test_y = 0
-		self.test_x = 0
+	def OnFilterButtonDown(self, wnd):
+		wnd.SetUp()
+		
+	def OnFilterButtonSetUp(self, wnd):
+		wnd.Down()
 
-		for i in xrange(self.MAX_ITEMS_PAGE):
-			try:
-				self.bItem[i].Hide()
-			except KeyError:
-				continue
-
-	def SearchDone(self):
-		if self.bDone == True:
+	def OnPressNameEscapeKey(self):
+		if not self.sItemName:
 			return
-
-		self.Page(1)
-
-	def Prev(self):
-		if self.cPage == 1 or self.wndAnim.IsShow():
-			return
-
-		self.Page(self.cPage - 1)
 		
-		self.cLastPage = self.cPage
-
-	def Next(self):
-		Size = shop.GetSearchItemResultCount() - 1
-		
-		if self.cPage > Size / self.MAX_ITEMS_PAGE or self.wndAnim.IsShow():
-			return
-
-		# check if you can pass to next page; (If next page is empty, then stop at current page.)
-		if Size < self.MAX_ITEMS_PAGE * self.cPage+1 - self.MAX_ITEMS_PAGE+1:
-			return
-			
-		self.Page(self.cPage + 1)
-		
-		self.cLastPage = self.cPage
-
-	def Page(self, page):
-		Size = shop.GetSearchItemResultCount()
-		
-		if Size < 0:
-			self.cPage = 1
-			return
-
-		# check if you can pass to next page; (If next page is empty, then stop at current page.)
-		if Size < self.MAX_ITEMS_PAGE * page - self.MAX_ITEMS_PAGE+1:
-			return
-
-		self.DeleteLastPage()
-		self.cPage = page
-	
-		for i in xrange(self.MAX_ITEMS_PAGE):
-			iPoss = self.MAX_ITEMS_PAGE * page - self.MAX_ITEMS_PAGE + i
-			
-			if shop.GetSearchItemVnum(iPoss) < 1 or iPoss > Size-1:
-				continue
-
-			Vid = shop.GetSearchItemShopVID(iPoss)
-			iPos = shop.GetSearchItemPos(iPoss)
-			NameOwner = shop.GetSearchItemOwnerName(iPoss)
-			iPrice = shop.GetSearchItemGold(iPoss)
-			iVnum = shop.GetSearchItemVnum(iPoss)
-			iCount = shop.GetSearchItemCount(iPoss)
-			iPriceCheque = shop.GetSearchItemCheque(iPoss)
-			Trans = shop.GetSearchItemTransmutation(iPoss)
-			
-			self.bItem[i] = ui.ImageBox()
-			self.bItem[i].SetParent(self.bSearch)
-			self.bItem[i].LoadImage("d:/ymir work/ui/shop/search_bg.png")
-			self.bItem[i].SetPosition(self.pos_x[self.test_x], self.pos_y[self.test_y])
-			self.bItem[i].Show()
-
-			item.SelectItem(iVnum)
-			d, size = item.GetItemSize()
-
-			self.bGrid[i] = ui.MakeGridSlot(self.bItem[i], 7, 0, iVnum, iCount, size, True)
-			self.bGrid[i].SetOverInItemEvent(lambda slotindex = 0, position = iPoss: self.OverInItem(slotindex, position))
-			self.bGrid[i].SetOverOutItemEvent(ui.__mem_func__(self.OverOutItem))
-			self.bGrid[i].SetSlotBaseImage("d:/ymir work/ui/public/Slot_Base.sub", 1.0, 1.0, 1.0, 1.0)
-
-			if Trans:
-				self.bGrid[i].DisableCoverButton(0)
-			else:
-				self.bGrid[i].EnableCoverButton(0)
-	
-			self.btnBuy[i] = ui.MakeButton(self.bItem[i], 7, 87, False, "d:/ymir work/ui/shop/", "small_btn.dds", "small_btn_over.dds", "small_btn_down.dds")
-			self.btnBuy[i].SetEvent(lambda pVid = Vid, pItem = iPos: self.BuyItem(pVid, pItem))
-			self.btnBuy[i].SetText("Cumpãrã")
-			self.btnBuy[i].SetWindowHorizontalAlignCenter()
-	
-			self.btnWhisper[i] = ui.MakeButton(self.bItem[i], 20, 5, False, "d:/ymir work/ui/shop/", "message.dds", "message_hover.dds", "message_pressed.dds")
-			self.btnWhisper[i].SetWindowHorizontalAlignRight()
-			self.btnWhisper[i].SetWindowVerticalAlignTop()
-			self.btnWhisper[i].SetEvent(lambda szName = NameOwner: self.WhisperFunc(szName))
-
-			if iVnum == 50300 or iVnum == 70037:
-				name = self.__GetSkillBookName(iPoss, iVnum)
-			else:
-				name = item.GetItemName()
-
-			self.wndNameItem[i] = ui.MakeText(self.bItem[i], "|cFFF4A460" + name, 7, 15)
-			self.wndNameItem[i].SetWindowHorizontalAlignCenter()
-			self.wndNameItem[i].SetHorizontalAlignCenter()
-	
-			self.wndSeller[i] = ui.MakeText(self.bItem[i], "Vânzãtor: " + NameOwner, 7, 35)
-			self.wndSeller[i].SetWindowHorizontalAlignCenter()
-			self.wndSeller[i].SetHorizontalAlignCenter()
-
-			self.wndQuantity[i] = ui.MakeText(self.bItem[i], "Cantitate: x" + str(iCount), 7, 50)
-			self.wndQuantity[i].SetWindowHorizontalAlignCenter()
-			self.wndQuantity[i].SetHorizontalAlignCenter()
-	
-			self.wndPrice[i] = ui.MakeText(self.bItem[i], "|cFFF4A460Preþ: " + localeInfo.MoneyFormat(iPrice), 7, 65)
-			self.wndPrice[i].SetWindowHorizontalAlignCenter()
-			self.wndPrice[i].SetHorizontalAlignCenter()
-			
-			self.wndPriceCheque[i] = ui.MakeText(self.bItem[i], "|cFFF4A460Won: " + str(iPriceCheque), 7, 75)
-			self.wndPriceCheque[i].SetWindowHorizontalAlignCenter()
-			self.wndPriceCheque[i].SetHorizontalAlignCenter()
-			
-			# REPOSITION
-			self.test_y += 1
-			self.test_x += 1
-			
-			if self.test_x >= len(self.pos_x):
-				self.test_x = 0
-			
-			if self.test_y >= len(self.pos_y):
-				self.test_y = 0
-			# REPOSITION
-			
-		self.bDone = True
-
-	def BuyItem(self, iVid, iPos):
-		dlgQuestion = uiCommon.QuestionDialog()
-		dlgQuestion.SetText(localeInfo.CHECKSEARCH)
-		dlgQuestion.SetAcceptEvent(lambda vid = iVid, pos = iPos: self.AcceptPurchase(iVid, iPos))
-		dlgQuestion.SetCancelEvent(ui.__mem_func__(dlgQuestion.Close))
-		dlgQuestion.Open()
-		self.dlgQuestion = dlgQuestion
-
-	def AcceptPurchase(self, vid, pos):
-		net.SendShopSerchBuyItem(vid, pos)
-		self.dlgQuestion.Close()
-
-	def BuyItemDone(self):
-		self.OnSearchItem()
-
-	def __GetSkillBookName(self, pos, iVnum):
-		metinSlot = []
-		for i in xrange(player.METIN_SOCKET_MAX_NUM):
-			metinSlot.append(shop.GetSearchItemMetinSocket(pos, i))
-
-		skillName = skill.GetSkillName(metinSlot[0])
-
-		if not skillName:
-			return "NO_NAME_BOOK"
-		
-		itemName = "NO_NAME_BOOK"
-		
-		if 50300 == iVnum:
-			itemName = skillName + " " + localeInfo.TOOLTIP_SKILLBOOK_NAME
-		elif 70037 == iVnum:
-			itemName = skillName + " " + localeInfo.TOOLTIP_SKILL_FORGET_BOOK_NAME
-		
-		return itemName
-
-	def OnSearchItem(self, bExecept = False):
-		if self.wndAnim.IsShow():
-			return
-			
-		self.bDone = False
-			
-		if bExecept == False:
-			self.cPage = 1
-			self.cLastPage = 1
-
-		self.DeleteLastPage()
-		shop.SearchItemDataClear()
-
-		name = self.sItemName.GetText()
-		isNameOnly = (len(name) != 0)
-		net.SendShopSearchInfo(self.category, self.SubCategory, self.interface.GetMinPriceShopSearch(), self.interface.GetMaxPriceShopSearch(), self.interface.GetMinChequeShopSearch(), self.interface.GetMaxChequeShopSearch(), name, isNameOnly)
-
-		self.AnimBoard.Show()
-		self.wndAnim.SetPosition(240, 170)
-		self.wndAnim.ResetFrame()
-		self.wndAnim.Show()
-		
-	def OnSearchItemReady(self):
-		self.cPage = self.cLastPage
-		if self.cPage != 1:
-			# Check Size Shop
-			Size = shop.GetSearchItemResultCount() - 1
-			if Size < self.MAX_ITEMS_PAGE * self.cPage - self.MAX_ITEMS_PAGE+1:
-				if self.cPage > 1:
-					self.cPage -= 1
-				else:
-					self.cPage = 1
-			# Check Size Shop
-			self.Page(self.cPage)
+		if not self.sItemName.IsShowCursor() or self.sItemName.GetText() == "":
+			self.OnPressEscapeKey()
 		else:
-			self.Page(1)
+			self.sItemName.SetText("")
+			self.searchEditHint.SetText("")	
 
-		self.AnimBoard.Hide()
-		self.wndAnim.Hide()
+	def Search_CompleteTextSearch(self):
+		if self.searchEditHint.GetText():
+			oldText = self.sItemName.GetText()
+			self.sItemName.SetText(oldText + self.searchEditHint.GetText()[len(oldText)+1:])
+			self.sItemName.SetEndPosition()
+			self.Search_RefreshTextHint()
 
-	def WhisperFunc(self, name):
+	def Search_RefreshTextHint(self):
+		EDIT_TEXT_BASE_COLOR = grp.GenerateColor(0.8549, 0.8549, 0.8549, 1.0)
+		EDIT_TEXT_NOT_FOUND_COLOR = grp.GenerateColor(1.0, 0.2, 0.2, 1.0)
+		
+		self.searchEditHint.SetText("")
+		self.sItemName.SetPackedFontColor(EDIT_TEXT_BASE_COLOR)
+		
+		search_text = self.sItemName.GetText()
+		
+		if len(search_text) and self.CheckBox.IsChecked == False:
+			(hintName, vnum) = item.GetItemDataByNamePart(search_text)
+			
+			if vnum == -1:
+				self.searchEditHint.SetText("")
+				self.sItemName.SetPackedFontColor(EDIT_TEXT_NOT_FOUND_COLOR)
+			else:
+				self.searchEditHint.SetText(search_text + " " + hintName[len(search_text):])
+
+	def OnRunMouseWheel(self, nLen):
+		scroll = self.ScrollBar
+		if self.BoardListBox.IsInPosition():
+			scroll = self.ScrollBarCategory
+		
+		if nLen > 0:
+			scroll.OnUp()
+		else:
+			scroll.OnDown()
+			
+		return True
+
+	def MakeCategory(self):
+		self.ScrollBarCategory = ui.ScrollBarNew()
+		self.ScrollBarCategory.SetParent(self)
+		self.ScrollBarCategory.SetScrollBarSize(380)
+		self.ScrollBarCategory.SetPosition(193, 136)
+		self.ScrollBarCategory.Show()
+
+		self.CategoryList = ListBoxCategory()
+		self.CategoryList.SetParent(self.BoardListBox)
+		self.CategoryList.SetSize(self.BoardListBox.GetWidth(), self.BoardListBox.GetHeight() - 110)
+		self.CategoryList.SetPosition(6, 100)
+		self.CategoryList.SetScrollBar(self.ScrollBarCategory)
+		self.CategoryList.SetEventDown(ui.__mem_func__(self.OnSearchByValue))
+		self.CategoryList.Show()
+		
+		self.CategoryList.AppendItem("All", "0.dds", 0)
+		
+		SetCategories(self.CategoryList)
+
+	def OnWhisper(self, name):
 		if self.interface:
 			self.interface.OpenWhisperDialog(name)
 
-	def OverInItem(self, none, pos):
-		iPos = shop.GetSearchItemPos(pos)
-		NameOwner = shop.GetSearchItemOwnerName(pos)
-		iPrice = shop.GetSearchItemGold(pos)
-		iVnum = shop.GetSearchItemVnum(pos)
-		iCount = shop.GetSearchItemCount(pos)
-		iPriceCheque = shop.GetSearchItemCheque(pos)
-		Trans = shop.GetSearchItemTransmutation(pos)
+	def SetInterface(self, interface):
+		self.interface = interface
 
-		item.SelectItem(iVnum)
-
-		metinSlot = []
-		for i in xrange(player.METIN_SOCKET_MAX_NUM):
-			metinSlot.append(shop.GetSearchItemMetinSocket(pos, i))
-
-		attrSlot = []
-		for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM):
-			attrSlot.append(shop.GetSearchItemAttribute(pos, i))
-
-		if self.tooltip:
-			self.tooltip.ClearToolTip()
-			self.tooltip.AddItemData(iVnum, metinSlot, attrSlot, 0, 0, player.INVENTORY, -1, Trans)
-			self.tooltip.AppendSellingPrice(iPrice)
-			self.tooltip.AppendSellingChequePrice(iPriceCheque)
-			self.tooltip.AppendSpace(5)
-			self.tooltip.AppendTextLine("Category: %s" % (self.GetCategoryByType(item.GetItemType())))
+	def SearchFilter_BuyFromSearch(self, ownerid, itemid):
+		self.ItemList.RemoveItemBought(ownerid, itemid)
 	
-	def GetCategoryByType(self, type):
-		self.ItemsTypes = [
-			{"Type": item.ITEM_TYPE_WEAPON, "Category": "Weapons"},
-			{"Type": item.ITEM_TYPE_ARMOR, "Category": "Equipments"},
-		]
+		for item in self.SearchFilterShopItemResult:
+			if item['id'] == itemid and item['owner'] == ownerid:
+				self.SearchFilterShopItemResult.remove(item)
+				break
+				
+		global SELECTED_ITEMS_BUY
+		SELECTED_ITEMS_BUY = {}
 
-		for search in self.ItemsTypes:
-			if search["Type"] == type:
-				return search["Category"]
-			
-		return "All"
+	def AskBuySelectedItems(self):
+		global SELECTED_ITEMS_BUY
+		count = len(SELECTED_ITEMS_BUY)
 	
-	def OverOutItem(self):
-		if self.tooltip:
-			self.tooltip.HideToolTip()
+		self.BuyQuestionCancel()
 
-	def SetItemToolTip(self, tooltip):
-		self.tooltip = tooltip
+		dlgBuyQuestion = uiCommon.QuestionDialog()
+		dlgBuyQuestion.SetText("Do you want to buy x%d select items?" % (count))
+		dlgBuyQuestion.SetAcceptEvent(ui.__mem_func__(self.BuySelectedItems))
+		dlgBuyQuestion.SetCancelEvent(ui.__mem_func__(self.BuyQuestionCancel))
+		dlgBuyQuestion.Open()
+		self.dlgBuyQuestion = dlgBuyQuestion
 
-	def Close(self):
-		if self.dlgQuestion:
-			self.dlgQuestion.Close()
-			
-		if self.interface:
-			self.interface.FilterShopSearchHide()
-	
-		self.OverOutItem()
-		self.Hide()
+	def BuySelectedItems(self):
+		self.ItemList.BuySelectedItems()
 
-	def Destroy(self):
-		self.ClearDictionary()
+		if self.dlgBuyQuestion:
+			self.dlgBuyQuestion.Close()
+			self.dlgBuyQuestion = None
 
-	def OnPressEscapeKey(self):
-		self.Close()
-		return True	
+	def AskBuySelectedItem(self, Pid, SlotPos, ItemName):
+		self.BuyQuestionCancel()
+
+		self.sellOwner = Pid
+		self.sellitemID = SlotPos
 		
+		dlgBuyQuestion = uiCommon.QuestionDialog()
+		dlgBuyQuestion.SetText("Do you want to buy %s?" % (ItemName))
+		dlgBuyQuestion.SetAcceptEvent(ui.__mem_func__(self.BuySelectedItem))
+		dlgBuyQuestion.SetCancelEvent(ui.__mem_func__(self.BuyQuestionCancel))
+		dlgBuyQuestion.Open()
+		self.dlgBuyQuestion = dlgBuyQuestion
+	
+	def BuyQuestionCancel(self):
+		if self.dlgBuyQuestion:
+			self.dlgBuyQuestion.Close()
+			self.dlgBuyQuestion = None		
+	
+	def BuySelectedItem(self):
+		offlineshop.SendBuyItemFromSearch(self.sellOwner, self.sellitemID)
+		
+		if self.dlgBuyQuestion:
+			self.dlgBuyQuestion.Close()
+			self.dlgBuyQuestion = None
+
+	def GetSearchFilterSettings(self, type = 0, subtype = 255):
+		name = self.sItemName.GetText() if (self.sItemName.GetText() and len(self.sItemName.GetText())) else ""
+		
+		raceFlagDct = {
+			0	: item.ITEM_ANTIFLAG_WARRIOR,
+			1	: item.ITEM_ANTIFLAG_ASSASSIN,
+			2	: item.ITEM_ANTIFLAG_SURA,
+			3 	: item.ITEM_ANTIFLAG_SHAMAN,
+		}
+		
+		raceflagbtn = [
+			self.wndFilterWarrior,
+			self.wndFilterAssassin,
+			self.wndFilterSura,
+			self.wndFilterShaman,
+		]
+		
+		raceflag	= 0
+		
+		for k,v in raceFlagDct.items():
+			if not raceflagbtn[k].IsDown():
+				raceflag |= v
+	
+		type		= type
+		subtype		= subtype
+		bIsPlayerName = self.CheckBox.IsChecked
+		
+		levelmin	= 0
+		levelmax	= 0
+		
+		yangmin		= 0
+		yangmax		= 0
+		
+		if type == -1:
+			type = 0
+			subtype = 255
+		
+		if subtype == -1:	
+			subtype = 255
+		
+		attributes	= tuple([(0,0) for x in xrange(player.ATTRIBUTE_SLOT_MAX_NUM)])
+
+		return (type, subtype, name, bIsPlayerName, (yangmin,yangmax), (levelmin, levelmax), raceflag, attributes)
+		
+	def OnSearchByValue(self, Type, SubType):
+		if self.waitTime > app.GetGlobalTimeStamp(): # FIXME 01
+			chat.AppendChat(1, "You must wait %d seconds." % (TIME_WAIT))
+			return
+
+		self.waitTime = app.GetGlobalTimeStamp() + TIME_WAIT
+		self.sCategory = Type
+		self.sSubCategory = SubType
+		self.ItemList.Clear()
+
+		self.SearchFilterLastUsedSetting = self.GetSearchFilterSettings(Type, SubType)
+		
+		offlineshop.SendFilterRequest(*self.SearchFilterLastUsedSetting)
+
+		self.currentPaginationPage = 1
+
+		global SELECTED_ITEMS_BUY
+		SELECTED_ITEMS_BUY = {}
+
+	def OnSearch(self):
+		if self.waitTime > app.GetGlobalTimeStamp(): # FIXME 01
+			chat.AppendChat(1, "You must wait %d seconds." % (TIME_WAIT))
+			return
+			
+		self.waitTime = app.GetGlobalTimeStamp() + TIME_WAIT
+		self.ItemList.Clear()
+
+		self.SearchFilterLastUsedSetting = self.GetSearchFilterSettings(self.sCategory, self.sSubCategory)
+		offlineshop.SendFilterRequest(*self.SearchFilterLastUsedSetting)
+
+		self.currentPaginationPage = 1
+
+		global SELECTED_ITEMS_BUY
+		SELECTED_ITEMS_BUY = {}
+
+	def RefreshPaginationButtons(self):
+		self.currentPaginationPage = int(math.ceil(float(self.currentPage) / 5.0 ))
+		self.shownPages = min(self.pageCount - (5 * (self.currentPaginationPage - 1)), 5)
+
+		for x in xrange(5):
+			currentPage = (x + ((self.currentPaginationPage-1) * 5) + 1)
+			self.pageButtons[x].SetUp()
+			self.pageButtons[x].SetText("%d" % currentPage)
+			self.pageButtons[x].SetEvent(ui.__mem_func__(self.GotoPage), currentPage)
+		
+		map(ui.Button.Hide, self.pageButtons)
+		map(ui.Button.Enable, self.pageButtons)
+		
+		for x in xrange(self.shownPages):
+			self.pageButtons[x].Show()
+
+		self.pageButtons[(self.currentPage - ((self.currentPaginationPage - 1) * 5)) - 1].Down()
+		self.pageButtons[(self.currentPage - ((self.currentPaginationPage - 1) * 5)) - 1].Disable()
+
+	def GotoPage(self, page):
+		self.currentPage = page
+		self.RefreshList()
+
+	def FirstPage(self):
+		self.currentPage = 1
+		self.RefreshList()
+		
+	def LastPage(self):
+		self.currentPage = self.pageCount
+		self.RefreshList()
+
+	def NextPage(self):
+		if self.currentPage < self.pageCount:
+			self.currentPage += 1
+
+		self.RefreshList()
+			
+	def PrevPage(self):
+		if self.currentPage > 1:
+			self.currentPage -= 1
+		
+		self.RefreshList()
+	
+	def ShopFilterResult( self , size):
+		self.SearchFilterShopItemResult = []
+	
+	def ShopFilterResultItem_Alloc(self):
+		self.SearchFilterShopItemResult.append({})
+
+	def ShopFilterResultItem_SetValue( self,  key, index, *args):
+		if key in ( "id", "vnum", "count", "price", "owner", "owner_name", 'trans'):
+			self.SearchFilterShopItemResult[index][key] = args[0]
+		
+		elif key == "attr":
+			if not key in self.SearchFilterShopItemResult[index]:
+				self.SearchFilterShopItemResult[index][key] = {}
+			
+			attr_index = args[0]
+			attr_type  = args[1]
+			attr_value = args[2]
+			
+			self.SearchFilterShopItemResult[index][key][attr_index] = {}
+			self.SearchFilterShopItemResult[index][key][attr_index]["type"]  = attr_type
+			self.SearchFilterShopItemResult[index][key][attr_index]["value"] = attr_value
+		
+		elif key == "socket":
+			if not key in self.SearchFilterShopItemResult[index]:
+				self.SearchFilterShopItemResult[index][key] = {}
+			
+			socket_index = args[0]
+			socket_val	 = args[1]
+			
+			self.SearchFilterShopItemResult[index][key][socket_index] = socket_val
+
+	def ShopFilterResult_Show(self):
+		self.itemCount = len(self.SearchFilterShopItemResult)
+
+		self.pageCount = int(math.ceil(float(self.itemCount) / float(MAX_ITEMS_APPEND)))
+		self.currentPaginationPage = 1
+		self.paginationPageCount = int(math.ceil(float(self.pageCount) / 5.0 ))
+
+		self.RefreshPaginationButtons()
+
+		self.currentPage = 1
+		self.RefreshList()
+
+	def RefreshList(self):
+		self.ItemList.Clear()
+		self.RefreshPaginationButtons()
+		
+		size = len(self.SearchFilterShopItemResult)
+		start = (self.currentPage - 1) * MAX_ITEMS_APPEND
+		end = ((self.currentPage - 1) * MAX_ITEMS_APPEND) + MAX_ITEMS_APPEND
+		for x in xrange(size):
+			if start + x >= end:
+				break
+
+			if start + x < len(self.SearchFilterShopItemResult):
+				self.ItemList.AppendItem(start + x, self.SearchFilterShopItemResult[start + x])
+	
+	def Close(self, IsFromGame = False):
+		self.ItemList.Clear()
+		
+		if self.dlgBuyQuestion:
+			self.dlgBuyQuestion.Close()
+			self.dlgBuyQuestion = None
+		
+		self.Hide()
+	
+	def CloseGame(self):
+		self.Close(True)
+	
+	def OnPressEscapeKey(self):
+		self.Close(True)
+		return True	

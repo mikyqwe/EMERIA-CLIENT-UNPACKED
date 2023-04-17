@@ -8,7 +8,6 @@ import item
 import grp
 import uiScriptLocale
 import uiToolTip
-import app
 
 class CubeResultWindow(ui.ScriptWindow):
 	def __init__(self):
@@ -231,13 +230,9 @@ class CubeWindow(ui.ScriptWindow):
 		resultIndex = resultIndex + self.firstSlotIndex
 		itemVnum, itemCount = self.cubeResultInfos[resultIndex]
 
-		#if app.RENDER_TARGET:
-		#	self.tooltipItem.AddItemData(itemVnum, metinSlot, attrSlot, 1, 1)
-		#else:
 		self.tooltipItem.AddItemData(itemVnum, metinSlot, attrSlot)
 
 
-	# ¿Á∑·∏¶ ≈¨∏Ø«œ∏È ¿Œ∫•≈‰∏Æø°º≠ «ÿ¥Á æ∆¿Ã≈€¿ª √£æ∆º≠ µÓ∑œ«‘.
 	def __OnSelectMaterialSlot(self, trash, resultIndex, materialIndex):
 		resultIndex = resultIndex + self.firstSlotIndex
 		if resultIndex not in self.cubeMaterialInfos:
@@ -250,18 +245,16 @@ class CubeWindow(ui.ScriptWindow):
 			return
 
 		for itemVnum, itemCount in materialInfo[materialIndex]:
-			bAddedNow = False	# ¿Ãπ¯ø° ≈¨∏Ø«‘¿∏∑ŒΩ· æ∆¿Ã≈€¿Ã √ﬂ∞°µ«æ˙≥™?
+			bAddedNow = False
 			item.SelectItem(itemVnum)
 			itemSizeX, itemSizeY = item.GetItemSize()
 
-			# ¡¶¡∂ø° « ø‰«— ∏∏≈≠¿« ¿Á∑·∏¶ ∞°¡ˆ∞Ì ¿÷¥¬∞°?
 			if player.GetItemCountByVnum(itemVnum) >= itemCount:
 				for i in xrange(player.INVENTORY_SLOT_COUNT):
 					vnum = player.GetItemIndex(i)
 					count= player.GetItemCount(i)
 
 					if vnum == itemVnum and count >= itemCount:
-						# ¿ÃπÃ ∞∞¿∫ æ∆¿Ã≈€¿Ã µÓ∑œµ«æÓ ¿÷¥¬¡ˆ ∞ÀªÁ«œ∞Ì, æ¯¥Ÿ∏È √ﬂ∞°«‘
 						bAlreadyExists = False
 						for slotPos, invenPos in self.cubeItemInfo.items():
 							if invenPos == i:
@@ -272,17 +265,14 @@ class CubeWindow(ui.ScriptWindow):
 
 						#print "Cube Status : ", self.cubeItemInfo
 
-						# ø©±‚ ¡¯¿‘«œ∏È ≈•∫Íø° µÓ∑œµ«¡ˆ æ ¿∫ æ∆¿Ã≈€¿Ãπ«∑Œ, ∫Û ≈•∫Í ΩΩ∑‘ø° «ÿ¥Á æ∆¿Ã≈€ √ﬂ∞°
 						bCanAddSlot = False
 						for slotPos in xrange(self.cubeSlot.GetSlotCount()):
-							# ¿Ã ≈•∫Í ΩΩ∑‘¿Ã ∫ÒæÓ¿÷¥¬∞°?
 							if not slotPos in self.cubeItemInfo:
 								upperColumnItemSizeY = -1
 								currentSlotLine = int(slotPos / self.CUBE_SLOT_COUNTX)
 								cubeColumn = int(slotPos % self.CUBE_SLOT_COUNTX)
 
 
-								# ∏∏æ‡ ≈•∫Íø° 3ƒ≠¬•∏Æ æ∆¿Ã≈€¿Ã µÓ∑œµ«æÓ ¿÷¥Ÿ∏È, ¿Ã ø≠(column)¿∫ ¥ı ¿ÃªÛ ∫º ∞Õµµ æ¯¿Ã ≥—æÓ∞£¥Ÿ
 								if cubeColumn in self.cubeItemInfo:
 									columnVNUM = player.GetItemIndex(self.cubeItemInfo[cubeColumn])
 									item.SelectItem(columnVNUM)
@@ -296,7 +286,6 @@ class CubeWindow(ui.ScriptWindow):
 									item.SelectItem(upperColumnVNUM)
 									columnItemSizeX, upperColumnItemSizeY = item.GetItemSize()
 
-								# 1ƒ≠¬•∏Æ æ∆¿Ã≈€¿∫ πŸ∑Œ ¿≠¡Ÿø° «—ƒ≠¬•∏Æ æ∆¿Ã≈€¿Ã ¿÷æÓæﬂ «‘
 								if 1 == itemSizeY:
 									if 0 == currentSlotLine:
 										bCanAddSlot = True
@@ -304,13 +293,11 @@ class CubeWindow(ui.ScriptWindow):
 										bCanAddSlot = True
 									elif 2 == currentSlotLine:
 										bCanAddSlot = True
-								# 2ƒ≠¬•∏Æ æ∆¿Ã≈€¿∫ ¿ßæ∆∑°∞° ∫ÒæÓ¿÷æÓæﬂ «‘
 								elif 2 == itemSizeY:
 									if 0 == currentSlotLine and not cubeColumn + self.CUBE_SLOT_COUNTX in self.cubeItemInfo:
 										bCanAddSlot = True
 									elif 1 == currentSlotLine and 1 == upperColumnItemSizeY and not cubeColumn + (self.CUBE_SLOT_COUNTX * 2) in self.cubeItemInfo:
 										bCanAddSlot = True
-								# 3ƒ≠¬•∏Æ æ∆¿Ã≈€¿∫ «ÿ¥Á Column ¿⁄√º∞° ∏µŒ ∫ÒæÓ¿÷æÓæﬂ «‘
 								else:
 									if not cubeColumn in self.cubeItemInfo and not cubeColumn + self.CUBE_SLOT_COUNTX in self.cubeItemInfo and not cubeColumn + (self.CUBE_SLOT_COUNTX * 2) in self.cubeItemInfo:
 										bCanAddSlot = True
@@ -501,14 +488,6 @@ class CubeWindow(ui.ScriptWindow):
 			attachedSlotType = mouseModule.mouseController.GetAttachedType()
 			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
 			mouseModule.mouseController.DeattachObject()
-			if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
-				if attachedSlotType in (player.SLOT_TYPE_SKILLBOOK_INVENTORY, player.SLOT_TYPE_UPPITEM_INVENTORY,
-										player.SLOT_TYPE_GHOSTSTONE_INVENTORY, player.SLOT_TYPE_GENERAL_INVENTORY):
-
-					import chat
-
-					chat.AppendChat(chat.CHAT_TYPE_INFO, "Nu pute˛i muta acest element din aceast„ fereastr„ in aceasta.")
-					return
 
 			if player.SLOT_TYPE_INVENTORY != attachedSlotType:
 				return

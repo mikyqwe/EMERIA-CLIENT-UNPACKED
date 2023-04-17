@@ -64,3 +64,30 @@ class Sandbox(object):
 			sys.path = old_path
 
 
+#	@usage:
+#		GetElementDictByName(window,"BoardExample")
+#
+#	@desc:
+#		it could search in a dict (script file for ScriptWindow) an element (whether it is child of window or another child in the tree)
+#
+#	@notes:
+#		adviced to check the return before to access (it could be None)
+
+def GetElementDictByName(dct, name):
+	if 'children' in dct:
+		for child in dct['children']:
+			if 'name' in child:
+				if child['name'] == name:
+					return child
+
+			if 'children' in child:
+				search = GetElementDictByName(child, name)
+				if search != None:
+					return search
+	return None
+
+
+
+
+
+

@@ -39,7 +39,7 @@ window = {
 			"name" : "IndexOffer", "type" : "text", "x" : 251, "y" : 8, "text" : uiScriptLocale.GUILD_MEMBER_SPECIFIC_GRAVITY,
 		},
 		{
-			"name" : "IndexGeneral", "type" : "text", "x" : 299, "y" : 8, "text" : "|cffF4B418General",
+			"name" : "IndexGeneral", "type" : "text", "x" : 304, "y" : 8, "text" : uiScriptLocale.GUILD_MEMBER_KNIGHT,
 		},
 
 	),

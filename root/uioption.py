@@ -121,10 +121,12 @@ class OptionDialog(ui.ScriptWindow):
 		self.blockButtonList[1].SetToggleUpEvent(self.__OnClickBlockPartyButton)
 		self.blockButtonList[2].SetToggleUpEvent(self.__OnClickBlockGuildButton)
 		self.blockButtonList[3].SetToggleUpEvent(self.__OnClickBlockWhisperButton)
+		self.blockButtonList[4].SetToggleUpEvent(self.__OnClickBlockFriendButton)
 		self.blockButtonList[0].SetToggleDownEvent(self.__OnClickBlockExchangeButton)
 		self.blockButtonList[1].SetToggleDownEvent(self.__OnClickBlockPartyButton)
 		self.blockButtonList[2].SetToggleDownEvent(self.__OnClickBlockGuildButton)
 		self.blockButtonList[3].SetToggleDownEvent(self.__OnClickBlockWhisperButton)
+		self.blockButtonList[4].SetToggleDownEvent(self.__OnClickBlockFriendButton)
 
 		self.__ClickRadioButton(self.fogModeButtonList, constInfo.GET_FOG_LEVEL_INDEX())
 		self.__ClickRadioButton(self.cameraModeButtonList, constInfo.GET_CAMERA_MAX_DISTANCE_INDEX())
@@ -206,6 +208,10 @@ class OptionDialog(ui.ScriptWindow):
 		self.RefreshBlock()
 		global blockMode
 		net.SendChatPacket("/setblockmode " + str(blockMode ^ player.BLOCK_WHISPER))
+	def __OnClickBlockFriendButton(self):
+		self.RefreshBlock()
+		global blockMode
+		net.SendChatPacket("/setblockmode " + str(blockMode ^ player.BLOCK_FRIEND))
 
 	def __CheckPvPProtectedLevelPlayer(self):
 		if player.GetStatus(player.LEVEL)<constInfo.PVPMODE_PROTECTED_LEVEL:

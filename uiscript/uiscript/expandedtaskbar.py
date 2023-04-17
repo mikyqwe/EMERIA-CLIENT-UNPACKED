@@ -37,12 +37,12 @@ window = {
 					"height" : 37,
 
 					"tooltip_text" : uiScriptLocale.TASKBAR_DISABLE,
-							
+
 					"default_image" : "d:/ymir work/ui/dragonsoul/DragonSoul_Button_01.tga",
 					"over_image" : "d:/ymir work/ui/dragonsoul/DragonSoul_Button_02.tga",
 					"down_image" : "d:/ymir work/ui/dragonsoul/DragonSoul_Button_03.tga",
 				},
 			),
-		},		
+		},
 	),
 }

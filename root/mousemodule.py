@@ -16,7 +16,6 @@ import systemSetting
 import localeInfo
 
 ## Mouse Controler
-## 마우스 커서를 제어하며 마우스 커서에 Attach되어 움직이는 Object들까지 제어할 수 있다.
 
 class CursorImage(object):
 	def __init__(self):
@@ -108,9 +107,6 @@ class CMouseController(object):
 			app.VSIZE			: CursorImage("D:/Ymir Work/UI/Cursor/cursor_vsize.sub"),
 			app.HVSIZE			: CursorImage("D:/Ymir Work/UI/Cursor/cursor_hvsize.sub"),
 		}
-		if app.ENABLE_NEW_FISHING_SYSTEM:
-			self.cursorDict.update({app.FISH_CATCH : CursorImage("d:/ymir work/ui/game/fishing/red_circle.sub")})		
-		
 		self.cursorPosDict = {
 			app.NORMAL			: (0, 0),
 			app.TARGET			: (0, 0),
@@ -128,8 +124,6 @@ class CMouseController(object):
 			app.VSIZE			: (-16, -16),
 			app.HVSIZE			: (-16, -16),
 		}
-		if app.ENABLE_NEW_FISHING_SYSTEM:
-			self.cursorPosDict.update({app.FISH_CATCH : (0, 0),})
 
 		app.SetCursor(app.NORMAL)
 
@@ -194,13 +188,9 @@ class CMouseController(object):
 				Type == player.SLOT_TYPE_SHOP or\
 				Type == player.SLOT_TYPE_SAFEBOX or\
 				Type == player.SLOT_TYPE_MALL or\
-				Type == player.SLOT_TYPE_DRAGON_SOUL_INVENTORY or\
-				Type == player.SLOT_TYPE_SKILLBOOK_INVENTORY or\
-				Type == player.SLOT_TYPE_UPPITEM_INVENTORY or\
-				Type == player.SLOT_TYPE_GHOSTSTONE_INVENTORY or\
-				Type == player.SLOT_TYPE_GENERAL_INVENTORY or\
 				Type == player.SLOT_TYPE_CHANGE_EQUIP or\
-				Type == player.SLOT_TYPE_SWITCHBOT:
+				Type == player.SLOT_TYPE_DRAGON_SOUL_INVENTORY:
+
 				item.SelectItem(self.AttachedItemIndex)
 				self.AttachedIconHandle = item.GetIconInstance()
 
@@ -291,17 +281,14 @@ class CMouseController(object):
 		self.LastAttachedSlotNumber = self.AttachedSlotNumber
 
 		if self.AttachedIconHandle != 0:
+
 			if self.AttachedType == player.SLOT_TYPE_INVENTORY or\
 				self.AttachedType == player.SLOT_TYPE_PRIVATE_SHOP or\
 				self.AttachedType == player.SLOT_TYPE_SHOP or\
 				self.AttachedType == player.SLOT_TYPE_SAFEBOX or\
-				self.AttachedType == player.SLOT_TYPE_MALL or\
-				self.AttachedType == player.SLOT_TYPE_SKILLBOOK_INVENTORY or\
-				self.AttachedType == player.SLOT_TYPE_UPPITEM_INVENTORY or\
-				self.AttachedType == player.SLOT_TYPE_GHOSTSTONE_INVENTORY or\
-				self.AttachedType == player.SLOT_TYPE_GENERAL_INVENTORY or\
-				self.AttachedType == player.SLOT_TYPE_SWITCHBOT:
 				self.AttachedType == player.SLOT_TYPE_CHANGE_EQUIP or\
+				self.AttachedType == player.SLOT_TYPE_MALL:
+
 				item.DeleteIconInstance(self.AttachedIconHandle)
 
 			elif self.AttachedType == player.SLOT_TYPE_SKILL:

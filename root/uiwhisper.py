@@ -3,16 +3,10 @@ import net
 import chat
 import player
 import app
+import time
 import localeInfo
-import constInfo
-import messenger
 import ime
 import chr
-import time
-import texttranslator_v4
-if app.ENABLE_WHISPER_RENEWAL:
-	import whisper
-	b_name = "scrive."
 
 class WhisperButton(ui.Button):
 	def __init__(self):
@@ -69,8 +63,6 @@ class WhisperDialog(ui.ScriptWindow):
 		self.eventMinimize = eventMinimize
 		self.eventClose = eventClose
 		self.eventAcceptTarget = None
-		self.ignoreButton = None
-		self.friendButton = None
 		if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
 			self.languageID = ""
 			self.empireID = ""
@@ -101,9 +93,6 @@ class WhisperDialog(ui.ScriptWindow):
 			self.board = GetObject("board")
 			self.editBar = GetObject("editbar")
 			self.gamemasterMark = GetObject("gamemastermark")
-			if app.ENABLE_WHISPER_RENEWAL:
-				self.typing = GetObject("typing")
-			#self.translatorButton = GetObject("transbutton")
 			if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
 				self.languageFlag = GetObject("language_flag")
 				self.empireFlag = GetObject("empire_flag")
@@ -145,10 +134,6 @@ class WhisperDialog(ui.ScriptWindow):
 		self.resizeButton.SetMoveEvent(ui.__mem_func__(self.ResizeWhisperDialog))
 		self.resizeButton.Show()
 
-		#translatorWnd = texttranslator_v4.TranslatorBoard(self.chatLine)
-		#self.translatorWnd = translatorWnd
-		#self.translatorButton.SetEvent(self.translatorWnd.OpenTranslator)
-
 		self.ResizeWhisperDialog()
 
 	def Destroy(self):
@@ -165,7 +150,7 @@ class WhisperDialog(ui.ScriptWindow):
 		self.scrollBar = None
 		self.chatLine = None
 		self.sendButton = None
-		self.ignoreButton = None
+		#self.ignoreButton = None
 		self.reportViolentWhisperButton = None
 		self.acceptButton = None
 		self.minimizeButton = None
@@ -173,8 +158,6 @@ class WhisperDialog(ui.ScriptWindow):
 		self.board = None
 		self.editBar = None
 		self.resizeButton = None
-		#self.translatorButton = None
-		#self.translatorWnd = None
 		if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
 			self.languageFlag = None
 			self.empireFlag = None
@@ -271,9 +254,6 @@ class WhisperDialog(ui.ScriptWindow):
 		self.targetName = targetName
 		self.textRenderer.SetTargetName(targetName)
 		self.titleNameEdit.Hide()
-		if app.ENABLE_WHISPER_RENEWAL:
-			self.SetTimer()
-			self.typing.SetText(b_name)
 		#self.ignoreButton.Hide()
 		if app.IsDevStage():
 			self.reportViolentWhisperButton.Show()
@@ -282,63 +262,10 @@ class WhisperDialog(ui.ScriptWindow):
 		self.acceptButton.Hide()
 		self.gamemasterMark.Hide()
 		self.minimizeButton.Show()
-		#self.translatorWnd.SetWhisperTitleName(self.targetName)
-		#self.translatorButton.Show()
 		if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
 			self.languageFlag.Hide()
 			self.empireFlag.Hide()
 
-		self.SetFriendButton()
-		self.SetBlockButton()
-
-	def AddFriend(self):
-		net.SendMessengerAddByNamePacket(self.targetName)
-
-	def RemoveFriend(self):
-		messenger.RemoveFriend(constInfo.ME_KEY)
-		net.SendMessengerRemovePacket(constInfo.ME_KEY, self.targetName)
-
-	def SetFriendButton(self):
-		btn = ui.Button()
-		btn.SetParent(self.board)
-		btn.SetPosition(119, 10)
-		if not messenger.IsFriendByName(self.targetName):
-			btn.SetUpVisual("d:/ymir work/ui/game/windows/messenger_add_friend_01.sub")
-			btn.SetOverVisual("d:/ymir work/ui/game/windows/messenger_add_friend_02.sub")
-			btn.SetDownVisual("d:/ymir work/ui/game/windows/messenger_add_friend_03.sub")
-			btn.SetEvent(ui.__mem_func__(self.AddFriend))
-		else:
-			btn.SetUpVisual("d:/ymir work/ui/game/windows/messenger_add_friend_04.sub")
-			btn.SetOverVisual("d:/ymir work/ui/game/windows/messenger_add_friend_04.sub")
-			btn.SetDownVisual("d:/ymir work/ui/game/windows/messenger_add_friend_04.sub")
-			btn.SetEvent(ui.__mem_func__(self.RemoveFriend))
-		btn.Show()	
-		self.friendButton = btn
-
-	def AddBlock(self):
-		net.SendMessengerAddBlockByNamePacket(self.targetName)
-
-	def RemoveBlock(self):
-		messenger.RemoveBlock(constInfo.ME_KEY)
-		net.SendMessengerRemoveBlockPacket(constInfo.ME_KEY, self.targetName)
-		
-	def SetBlockButton(self):
-		btn = ui.Button()
-		btn.SetParent(self.board)
-		btn.SetPosition(145, 10)
-		if not messenger.IsBlockByName(self.targetName):
-			btn.SetUpVisual("d:/ymir work/ui/game/windows/messenger_block_01.sub")
-			btn.SetOverVisual("d:/ymir work/ui/game/windows/messenger_block_02.sub")
-			btn.SetDownVisual("d:/ymir work/ui/game/windows/messenger_block_03.sub")
-			btn.SetEvent(ui.__mem_func__(self.AddBlock))
-		else:
-			btn.SetUpVisual("d:/ymir work/ui/game/windows/messenger_block_04.sub")
-			btn.SetOverVisual("d:/ymir work/ui/game/windows/messenger_block_04.sub")
-			btn.SetDownVisual("d:/ymir work/ui/game/windows/messenger_block_04.sub")
-			btn.SetEvent(ui.__mem_func__(self.RemoveBlock))
-		btn.Show()	
-		self.ignoreButton = btn
-		
 	def OpenWithoutTarget(self, event):
 		self.eventAcceptTarget = event
 		self.titleName.SetText("")
@@ -351,9 +278,6 @@ class WhisperDialog(ui.ScriptWindow):
 		self.acceptButton.Show()
 		self.minimizeButton.Hide()
 		self.gamemasterMark.Hide()
-		if app.ENABLE_WHISPER_RENEWAL:
-			self.typing.Hide()
-		#self.translatorButton.Hide()
 
 	def SetGameMasterLook(self):
 		self.gamemasterMark.Show()
@@ -363,10 +287,6 @@ class WhisperDialog(ui.ScriptWindow):
 		self.titleNameEdit.KillFocus()
 		self.chatLine.KillFocus()
 		self.Hide()
-		
-		if app.ENABLE_WHISPER_RENEWAL:
-			if whisper.IsSended(self.targetName) and self.targetName:
-				whisper.Remove(self.targetName)
 
 		if None != self.eventMinimize:
 			if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
@@ -376,10 +296,6 @@ class WhisperDialog(ui.ScriptWindow):
 
 	def Close(self):
 		chat.ClearWhisper(self.targetName)
-		if app.ENABLE_WHISPER_RENEWAL:
-			if self.targetName != 0:
-				if whisper.IsSended(self.targetName) and self.targetName:
-					whisper.Remove(self.targetName)
 		self.titleNameEdit.KillFocus()
 		self.chatLine.KillFocus()
 		self.Hide()
@@ -404,33 +320,11 @@ class WhisperDialog(ui.ScriptWindow):
 			self.eventAcceptTarget(name)
 			if app.ENABLE_MULTI_LANGUAGE_SYSTEM:
 				self.RequestFlag(name)
-
+				
 	def OnScroll(self):
 		chat.SetWhisperPosition(self.targetName, self.scrollBar.GetPos())
-	if app.ENABLE_WHISPER_RENEWAL:
-		def SetTimer(self):
-			self.endTime = time.clock() + 0.4
-		def OnUpdate(self):
-			if self.targetName and self.chatLine:
-				if len(self.chatLine.GetText()) > 0 and not whisper.IsSended(self.targetName):
-					whisper.Add(self.targetName)
-				elif not len(self.chatLine.GetText()) > 0 and whisper.IsSended(self.targetName):
-					whisper.Remove(self.targetName)
-				if whisper.CheckName(self.targetName):
-					self.typing.Show()
-					lastTime = max(0, self.endTime - time.clock())
-					if 0 == lastTime:
-						if len(self.typing.GetText()) - len(b_name) < 3:
-							self.typing.SetText(self.typing.GetText() + ".")
-						else:
-							self.typing.SetText(b_name)	
-						self.SetTimer()
-				else:
-					self.typing.Hide()
 
 	def SendWhisper(self):
-		#if self.translatorWnd:
-			#self.translatorWnd.InitiateTranslation()
 
 		text = self.chatLine.GetText()
 		textLength = len(text)
@@ -439,10 +333,17 @@ class WhisperDialog(ui.ScriptWindow):
 			if net.IsInsultIn(text):
 				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.CHAT_INSULT_STRING)
 				return
-			net.SendWhisperPacket(self.targetName, text)
+
+			hour = time.strftime("%H:%M:%S")
+			level = player.GetStatus(player.LEVEL)
+			lv_whisper = "{} {}".format(localeInfo.LV_WHISPER, level)
+			time_whisper = "{} {}".format(localeInfo.TIME_WHISPER, hour)
+			whisper_message = "[" + lv_whisper + "] (" + time_whisper + "): " + text
+
+			net.SendWhisperPacket(self.targetName, whisper_message)
 			self.chatLine.SetText("")
 
-			chat.AppendWhisper(chat.WHISPER_TYPE_CHAT, self.targetName, player.GetName() + " : " + text)
+			chat.AppendWhisper(chat.WHISPER_TYPE_CHAT, self.targetName, player.GetName()+ " : " + whisper_message)
 
 	def OnTop(self):
 		self.chatLine.SetFocus()

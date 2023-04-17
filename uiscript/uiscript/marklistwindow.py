@@ -6,7 +6,7 @@ window = {
 	"x" : SCREEN_WIDTH - 170,
 	"y" : SCREEN_HEIGHT - 400 - 50,
 
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"width" : 170,
 	"height" : 300,

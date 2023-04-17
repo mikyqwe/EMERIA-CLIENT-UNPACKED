@@ -307,9 +307,9 @@ class PetSystemMain(ui.ScriptWindow):
 			if self.arrytooltip[slot][0] != 10 and self.arrytooltip[slot][0] != 17 and self.arrytooltip[slot][0] != 18:
 				self.SkillTooltip.AutoAppendTextLine(GetAffectString(int(tokens2[1]), int(tokens2[self.arrytooltip[slot][1]+1])))
 			elif self.arrytooltip[slot][0] == 10:
-				self.SkillTooltip.AutoAppendTextLine("Hp vindecat:" + str(tokens2[self.arrytooltip[slot][1]+1]))
+				self.SkillTooltip.AutoAppendTextLine("Hp Restored:" + str(tokens2[self.arrytooltip[slot][1]+1]))
 			elif self.arrytooltip[slot][0] == 17:
-				self.SkillTooltip.AutoAppendTextLine("Timpul invincibilitaþii:" + checkdiv(int(tokens2[self.arrytooltip[slot][1]+1])) + "s")
+				self.SkillTooltip.AutoAppendTextLine("Immortality Time:" + checkdiv(int(tokens2[self.arrytooltip[slot][1]+1])) + "s")
 			
 			self.SkillTooltip.AutoAppendTextLine("Cooldown: "+tokens[5]+"s", grp.GenerateColor(1.0, 0.7843, 0.0, 1.0))
 			self.SkillTooltip.AlignHorizonalCenter()
@@ -413,7 +413,7 @@ class PetSystemMain(ui.ScriptWindow):
 		else:
 			self.petlifeg.Hide()
 		self.petdur.SetText(str(dur1)+"/"+str(durt1)+" Ore")
-		self.SetAges(str(tmpage)+" Zile")
+		self.SetAges(str(tmpage)+" Giorni")
 		
 	def SetHp(self, hp):
 		self.pethp.SetText(pointop(hp)+"%")
@@ -500,10 +500,10 @@ class PetSystemMain(ui.ScriptWindow):
 			
 		#chat.AppendChat(chat.CHAT_TYPE_INFO, str(curPoint)+"-"+str(maxPoint)+"-"+str(FullCount)+"--"+str(quarterPoint))
 		#####
-		self.tooltipexp[0].SetText("Experienþã : %d di %d" % (expm, totexpm))
-		self.tooltipexp[1].SetText("Experienþã : %.2f%%" % expmp)
-		self.tooltipexp[2].SetText("ExperienþãI : %d di %d" % (expi, totexpi))
-		self.tooltipexp[3].SetText("ExperienþãI : %.2f%%" % expip)
+		self.tooltipexp[0].SetText("Esperienza : %d di %d" % (expm, totexpm))
+		self.tooltipexp[1].SetText("Esperienza : %.2f%%" % expmp)
+		self.tooltipexp[2].SetText("EsperienzaI : %d di %d" % (expi, totexpi))
+		self.tooltipexp[3].SetText("EsperienzaI : %.2f%%" % expip)
 	
 	def UseSkill(self, slot):
 		#chat.AppendChat(chat.CHAT_TYPE_INFO, "+ --> "+str(slot))
@@ -726,10 +726,10 @@ class PetSystemMini(ui.ScriptWindow):
 			
 		
 		#####
-		self.tooltipexp[0].SetText("Experienþã : %d di %d" % (expm, totexpm))
-		self.tooltipexp[1].SetText("Experienþã : %.2f%%" % expmp)
-		self.tooltipexp[2].SetText("ExperienþãI : %d di %d" % (expi, totexpi))
-		self.tooltipexp[3].SetText("ExperienþãI : %.2f%%" % expip)
+		self.tooltipexp[0].SetText("Esperienza : %d di %d" % (expm, totexpm))
+		self.tooltipexp[1].SetText("Esperienza : %.2f%%" % expmp)
+		self.tooltipexp[2].SetText("EsperienzaI : %d di %d" % (expi, totexpi))
+		self.tooltipexp[3].SetText("EsperienzaI : %.2f%%" % expip)
 	
 	def UseSkill(self, slot):
 		chat.AppendChat(chat.CHAT_TYPE_INFO, "+ --> "+str(slot))

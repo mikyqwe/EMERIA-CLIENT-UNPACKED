@@ -11,6 +11,7 @@ import uiPrivateShopBuilder
 import localeInfo
 import constInfo
 import ime
+import exchange
 
 if constInfo.ENABLE_SHOW_CHEST_DROP:
 	import grp
@@ -30,10 +31,10 @@ class SpecialStorageWindow(ui.ScriptWindow):
 	}
 
 	WINDOW_NAMES = {
-		SKILLBOOK_TYPE		:	"Inventarul cãrþilor",
-		UPPITEM_TYPE		:	"Inventar de iteme upgrade",
-		GHOSTSTONE_TYPE		:	"Inventar pietre",
-		GENERAL_TYPE		:	"Inventarul general",
+		SKILLBOOK_TYPE		:	"Inventario Libri",
+		UPPITEM_TYPE		:	"Inventario Item-Up",
+		GHOSTSTONE_TYPE		:	"Inventario Pietre",
+		GENERAL_TYPE		:	"Inventario Generico",
 	}
 
 	if 1 == 0:
@@ -509,18 +510,18 @@ class SpecialStorageWindow(ui.ScriptWindow):
 				item.SelectItem(itemVnum)
 				if item.GetItemType() == item.ITEM_TYPE_GIFTBOX:
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Pentru previzualizarea conþinutului",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_lclick|e - Per anteprima contenuto",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Deschizi %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Apri %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 				elif constInfo.IsNewChest(itemVnum):
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Deschizii %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_alt|e"+" + "+"|Ekey_rclick|e - Apri %dpcs"%constInfo.ULTIMATE_TOOLTIP_MAX_CLICK,grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 				if player.CanMoveItem(itemVnum):
 					self.tooltipItem.AppendSpace(5)
-					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Mutare în inventar.",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
+					text = self.tooltipItem.AppendTextLine("|Ekey_ctrl|e"+" + "+"|Ekey_rclick|e - Muovi a/ inventario.",grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0),False)
 					text.SetHorizontalAlignLeft()
 	def OnPressEscapeKey(self):
 		self.Close()
@@ -582,6 +583,16 @@ class SpecialStorageWindow(ui.ScriptWindow):
 				self.__SendSellItemPacket(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex)
 				return
 
+		if self.interface.dlgExchange.IsShow() and (app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL)):
+			item.SelectItem(player.GetItemIndex(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex))
+			emptyExchangeSlots = self.GetExchangeEmptyItemPos(item.GetItemSize()[1])
+			if emptyExchangeSlots == -1:
+				return
+			if item.IsAntiFlag(item.ANTIFLAG_GIVE):
+				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.EXCHANGE_CANNOT_GIVE)
+				return
+			m2netm2g.SendExchangeItemAddPacket(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex, emptyExchangeSlots[0])
+
 		if mouseModule.mouseController.isAttached():
 			attachedSlotType = mouseModule.mouseController.GetAttachedType()
 			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
@@ -627,6 +638,15 @@ class SpecialStorageWindow(ui.ScriptWindow):
 				mouseModule.mouseController.AttachObject(self, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["slot"], itemSlotIndex, selectedItemVNum, itemCount)
 				self.wndItem.SetUseMode(False)
 				snd.PlaySound("sound/ui/pick.wav")
+
+	def GetExchangeEmptyItemPos(self, itemHeight):
+		inventorySize = exchange.EXCHANGE_ITEM_MAX_NUM
+		inventoryWidth = 6
+		GetBlockedSlots = lambda slot, size: [slot+(round*inventoryWidth) for round in xrange(size)] 
+		blockedSlots = [element for sublist in [GetBlockedSlots(slot, item.GetItemSize(item.SelectItem(exchange.GetItemVnumFromSelf(slot)))[1]) for slot in xrange(inventorySize) if exchange.GetItemVnumFromSelf(slot) != 0] for element in sublist] 
+		freeSlots = [slot for slot in xrange(inventorySize) if not slot in blockedSlots and not True in [e in blockedSlots for e in [slot+(round*inventoryWidth) for round in xrange(itemHeight)]]] 
+		return [freeSlots, -1][len(freeSlots) == 0]
+
 
 	def OnSplitItem(self, count, full_split):
 		if uiPrivateShopBuilder.IsBuildingPrivateShop():

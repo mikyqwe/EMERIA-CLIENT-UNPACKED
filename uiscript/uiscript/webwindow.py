@@ -9,7 +9,7 @@ window = {
 	"x" : 0,
 	"y" : 0,
 
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"width"  : WEB_WIDTH  + 20,
 	"height" : WEB_HEIGHT + 40,

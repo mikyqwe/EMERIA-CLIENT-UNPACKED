@@ -21,9 +21,6 @@ import os
 import playerLoad
 
 
-if app.ENABLE_SPECIAL_STATS_SYSTEM:
-	import talenti
-
 ##################################
 ## loadingFunctions
 ##################################
@@ -31,14 +28,14 @@ NAME_COLOR_DICT = {
 	chrmgr.NAMECOLOR_PC : colorInfo.CHR_NAME_RGB_PC,
 	chrmgr.NAMECOLOR_NPC : colorInfo.CHR_NAME_RGB_NPC,
 	chrmgr.NAMECOLOR_MOB : colorInfo.CHR_NAME_RGB_MOB,
-	chrmgr.NAMECOLOR_BOSS : colorInfo.CHR_NAME_RGB_BOSS,
+	#chrmgr.NAMECOLOR_BOSS : colorInfo.CHR_NAME_RGB_BOSS,
 	chrmgr.NAMECOLOR_PVP : colorInfo.CHR_NAME_RGB_PVP,
 	chrmgr.NAMECOLOR_PK : colorInfo.CHR_NAME_RGB_PK,
 	chrmgr.NAMECOLOR_PARTY : colorInfo.CHR_NAME_RGB_PARTY,
 	chrmgr.NAMECOLOR_WARP : colorInfo.CHR_NAME_RGB_WARP,
 	chrmgr.NAMECOLOR_WAYPOINT : colorInfo.CHR_NAME_RGB_WAYPOINT,
-	chrmgr.NAMECOLOR_OFFLINESHOP : colorInfo.CHR_NAME_RGB_OFFLINESHOP,		
-	chrmgr.NAMECOLOR_METIN : colorInfo.CHR_NAME_RGB_METIN,	
+	#chrmgr.NAMECOLOR_OFFLINESHOP : colorInfo.CHR_NAME_RGB_OFFLINESHOP,		
+	#chrmgr.NAMECOLOR_METIN : colorInfo.CHR_NAME_RGB_METIN,	
 	chrmgr.NAMECOLOR_EMPIRE_MOB : colorInfo.CHR_NAME_RGB_EMPIRE_MOB,
 	chrmgr.NAMECOLOR_EMPIRE_NPC : colorInfo.CHR_NAME_RGB_EMPIRE_NPC,
 	chrmgr.NAMECOLOR_EMPIRE_PC+1 : colorInfo.CHR_NAME_RGB_EMPIRE_PC_A,
@@ -73,8 +70,8 @@ def __main__():
 	## RegisterEmotionIcon	
 	emotion.RegisterEmotionIcons()
 	
-	if app.ENABLE_SPECIAL_STATS_SYSTEM:
-		talenti.RegisterSpecialStasIcons()
+	#if app.ENABLE_SPECIAL_STATS_SYSTEM:
+	#	talenti.RegisterSpecialStasIcons()
 		
 	## RegisterDungeonMapName	
 	dungeonMapNameList = ("metin2_map_spiderdungeon", "metin2_map_monkeydungeon", "metin2_map_monkeydungeon_02", "metin2_map_monkeydungeon_03", "metin2_map_deviltower1")

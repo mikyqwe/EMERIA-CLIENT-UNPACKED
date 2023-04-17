@@ -53,27 +53,6 @@ window = {
 					"over_image" : ROOT + "XLarge_Button_02.sub",
 					"down_image" : ROOT + "XLarge_Button_03.sub",
 				},
-				
-				{
-					"name" : "language_flag",
-					"type" : "expanded_image",
-					"style" : ("attach",),
-					"x" : 500,
-					"y" : 25,
-					"x_scale" : 0.2,
-					"y_scale" : 0.2,
-				},
-				
-				{
-					"name" : "empire_flag",
-					"type" : "expanded_image",
-					"style" : ("attach",),
-					"x" : 500,
-					"y" : 25,
-					"x_scale" : 0.2,
-					"y_scale" : 0.2,
-				},
-
 				{
 					"name" : "game_option_button",
 					"type" : "button",
@@ -121,20 +100,6 @@ window = {
 					"y" : 177,
 
 					"text" : uiScriptLocale.SYSTEM_EXIT,
-
-					"default_image" : ROOT + "XLarge_Button_01.sub",
-					"over_image" : ROOT + "XLarge_Button_02.sub",
-					"down_image" : ROOT + "XLarge_Button_03.sub",
-				},
-					## PatchNotes
-				{
-					"name" : "patchnotes_button",
-					"type" : "button",
-
-					"x" : 10,
-					"y" : 333,
-
-					"text" : "Patchnotes",
 
 					"default_image" : ROOT + "XLarge_Button_01.sub",
 					"over_image" : ROOT + "XLarge_Button_02.sub",

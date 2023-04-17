@@ -1,15 +1,15 @@
 import app
 import constInfo
 
-MAP_TRENT02 = "MAP_TRENT02" # 임시
-MAP_WL = "MAP_WL" # 임시
-MAP_NUSLUCK = "MAP_NUSLUCK" # 임시
-MAP_TREE2 = "Bosco Rosso"
+MAP_TRENT02 = "MAP_TRENT02"
+MAP_WL = "MAP_WL"
+MAP_NUSLUCK = "MAP_NUSLUCK"
+MAP_TREE2 = "MAP_TREE2"
 
-BLEND_POTION_NO_TIME = "Durata casuale"
+BLEND_POTION_NO_TIME = "BLEND_POTION_NO_TIME"
 BLEND_POTION_NO_INFO = "BLEND_POTION_NO_INFO"
 
-APP_TITLE = "Emeria ~ Official"
+APP_TITLE = "Emeria ~ Development"
 
 GUILD_HEADQUARTER = "Main Building"
 GUILD_FACILITY = "Facility"
@@ -22,8 +22,8 @@ CHANNEL_NOTIFY_FULL = "CHANNEL_NOTIFY_FULL"
 
 GUILD_BUILDING_LIST_TXT = app.GetLocalePath() + "/GuildBuildingList.txt"
 
-GUILD_MARK_MIN_LEVEL = "1"
-GUILD_MARK_NOT_ENOUGH_LEVEL = "길드레벨 3이상 부터 가능합니다."
+GUILD_MARK_MIN_LEVEL = "3"
+GUILD_MARK_NOT_ENOUGH_LEVEL = "Guild mark not enough level."
 
 ERROR_MARK_UPLOAD_NEED_RECONNECT = "UploadMark: Reconnect to game"
 ERROR_MARK_CHECK_NEED_RECONNECT = "CheckMark: Reconnect to game"
@@ -109,8 +109,7 @@ def LoadLocaleData():
 	app.LoadLocaleData(app.GetLocalePath())
 
 def IsCHEONMA():
-	return IsYMIR()		# 이제 YMIR 로케일은 무조건 천마서버임. 천마서버가 문을 닫기 전까지 변할 일 없음.
-
+	return IsYMIR()
 # END_OF_SUPPORT_NEW_KOREA_SERVER
 
 def mapping(**kwargs): return kwargs
@@ -124,11 +123,6 @@ def SA(text):
 	def f(x):
 		return text % x
 	return f
-	
-def FormatTime(time):
-	m, s = divmod(time, 60)
-	h, m = divmod(m, 60)
-	return "%02d:%02d:%02d" % (h, m, s)	
 
 ## PET_SKILL_INFO FNCS BEGIN
 def SAN(text):
@@ -143,7 +137,6 @@ def SAA(text):
 ## PET_SKILL_INFO FNCS END
 
 def LoadLocaleFile(srcFileName, localeDict):
-
 	funcDict = {"SA":SA, "SNA":SNA, "SAA":SAA, "SAN":SAN}
 
 	lineIndex = 1
@@ -157,6 +150,12 @@ def LoadLocaleFile(srcFileName, localeDict):
 
 	for line in lines:
 		try:
+			# @fixme010 BEGIN
+			if not line:
+				lineIndex += 1
+				continue
+			# @fixme010 END
+
 			tokens = line[:-1].split("\t")
 			if len(tokens) == 2:
 				localeDict[tokens[0]] = tokens[1]
@@ -166,6 +165,12 @@ def LoadLocaleFile(srcFileName, localeDict):
 					localeDict[tokens[0]] = funcDict[type](tokens[1])
 				else:
 					localeDict[tokens[0]] = tokens[1]
+			# @fixme010 BEGIN
+			elif len(tokens) == 1:
+				localeDict[tokens[0]] = ""
+			elif len(tokens) == 0:
+				localeDict[tokens.rstrip()] = ""
+			# @fixme010 END
 			else:
 				raise RuntimeError, "Unknown TokenSize"
 
@@ -182,23 +187,11 @@ all = ["locale","error"]
 FN_GM_MARK = "%s/effect/gm.mse"	% app.GetLocalePath()
 LOCALE_FILE_NAME = "%s/locale_game.txt" % app.GetLocalePath()
 
-constInfo.IN_GAME_SHOP_ENABLE = 1
-
 LoadLocaleFile(LOCALE_FILE_NAME, locals())
-
-########################################################################################################
-## NOTE : 아이템을 버릴때 "무엇을/를 버리시겠습니까?" 문자열의 조사 선택을 위한 코드
-dictSingleWord = {
-	"m":1, "n":1, "r":1, "M":1, "N":1, "R":1, "l":1, "L":1, "1":1, "3":1, "6":1, "7":1, "8":1, "0":1,
-}
-
-
-locale = mapping(
-)
-
+if app.ENABLE_ACCE_COSTUME_SYSTEM:
+	LoadLocaleFile("acce/acce_game.txt", locals())
 
 def CutMoneyString(sourceText, startIndex, endIndex, insertingText, backText):
-
 	sourceLength = len(sourceText)
 
 	if sourceLength < startIndex:
@@ -218,95 +211,6 @@ def CutMoneyString(sourceText, startIndex, endIndex, insertingText, backText):
 		backText = " " + backText
 
 	return text + insertingText + backText
-
-def GetMapNameByID(id):
-	# Shinsoo
-	if id == 1:
-		return MAP_A1
-	elif id == 3:
-		return MAP_A3
-	elif id == 4:
-		return MAP_AG
-	elif id == 5:
-		return MAP_MONKEY_EZ
-	elif id == 6:
-		return MAP_AG2
-	# Chunjo
-	elif id == 21:
-		return MAP_B1
-	elif id == 23:
-		return MAP_B3
-	elif id == 24:
-		return MAP_BG
-	elif id == 25:
-		return MAP_MONKEY_EZ
-	elif id == 26:
-		return MAP_BG2
-	# Chunjo
-	elif id == 41:
-		return MAP_C1
-	elif id == 43:
-		return MAP_C3
-	elif id == 44:
-		return MAP_CG
-	elif id == 45:
-		return MAP_MONKEY_EZ
-	elif id == 46:
-		return MAP_CG2
-	#Neutrals
-	elif id == 61:
-		return MAP_SNOW
-	elif id == 62:
-		return MAP_FLAME
-	elif id == 63:
-		return MAP_DESERT
-	elif id == 64:
-		return MAP_A2
-	elif id == 65:
-		return MAP_TEMPLE
-	elif id == 66:
-		return MAP_SKELTOWER
-	elif id == 67:
-		return MAP_TREE
-	elif id == 68:
-		return MAP_TRENT02
-	elif id == 69:
-		return MAP_WL
-	elif id == 70:
-		return MAP_NUSLUCK
-	
-	elif id == 71:
-		return MAP_SPIDER2
-	elif id == 72:
-		return MAP_SKIPIA
-	elif id == 73:
-		return MAP_SKIPIA2
-	elif id == 81:
-		return MAP_WEDDING
-		
-	elif id == 104:
-		return MAP_SPIDER
-	elif id == 107:
-		return MAP_MONKEY_EZ
-	elif id == 108:
-		return MAP_MONKEY_MD
-	elif id == 109:
-		return MAP_MONKEY_HD
-		
-	elif id == 112:
-		return MAP_DUEL
-	elif id == 208:
-		return MAP_SKIPIABOSS
-	elif id == 216:
-		return MAP_DC
-	elif id == 217:
-		return MAP_SPIDER3
-	elif id == 351:
-		return MAP_RAZADOR
-	elif id == 355:
-		return MAP_GOLD
-
-	return "Mape name not found."
 
 def SecondToDHM(time):
 	if time < 60:
@@ -358,22 +262,55 @@ def SecondToHM(time):
 		text += str(minute) + MINUTE
 
 	return text
+	
+def SecondToDay(time):
+	if time < 60:
+		return "1" + DAY
+		
+	second = int(time % 60)
+	minute = int((time / 60) % 60)
+	hour = int((time / 60) / 60) % 24
+	day = int(int((time / 60) / 60) / 24)
+	
+	if day < 1:
+		day = 1
+		
+	if day > 9999:
+		day = 9999
+		
+	text = str(day) + DAY
+	return text
+	
+def SecondToDayNumber(time):
+	if time < 60:
+		return 1
+		
+	second = int(time % 60)
+	minute = int((time / 60) % 60)
+	hour = int((time / 60) / 60) % 24
+	day = int(int((time / 60) / 60) / 24)
+	
+	if day < 1:
+		day = 1
+		
+	if day > 9999:
+		day = 9999
+		
+	return day
 
-def PlayerTimeTextIntroSel(time):
-	if time == 0:
-		return "0 " + HOUR + " - " + "0 " + MINUTE
+def SecondToH(time):
+	if time < 60:
+		return "0" + HOUR
 
-	minute = int(time) % 60
-	hour = int(time / 60)
+	hour = int((time / 60) / 60)
 
 	text = ""
-	
-	text += str(hour) + " " + HOUR
-	text += " - "
 
-	text += str(minute) + " " + MINUTE
+	if hour > 0:
+		text += str(hour) + HOUR
 
 	return text
+
 
 def GetAlignmentTitleName(alignment):
 	if alignment >= 12000:
@@ -394,6 +331,7 @@ def GetAlignmentTitleName(alignment):
 		return TITLE_NAME_LIST[7]
 
 	return TITLE_NAME_LIST[8]
+
 
 OPTION_PVPMODE_MESSAGE_DICT = {
 	0 : PVP_MODE_NORMAL,
@@ -448,10 +386,6 @@ MINIMAP_ZONE_NAME_DICT = {
     "metin2_map_Mt_Thunder" : MAP_THUNDER,
     "metin2_map_dawnmistwood" : MAP_DAWN,
     "metin2_map_BayBlackSand" : MAP_BAY,
-	"mental_lobby_1x1" : MAP_LOBBY,
-	"plechito_pyramide_dungeon" : MAP_PIRAMIDE,
-	"plechito_desert_map_01" : MAP_PLEC_DESERT,
-	"plechito_shark_dungeon"  : MAP_DAWNMIST_DUNGEON_01,
 }
 
 
@@ -464,134 +398,6 @@ JOBINFO_TITLE = [
 ]
 if app.ENABLE_WOLFMAN_CHARACTER:
 	JOBINFO_TITLE += [[JOB_WOLFMAN0,JOB_WOLFMAN1,JOB_WOLFMAN2,],]
-
-JOBINFO_DATA_LIST = [
-	[
-		["타고난 용맹과 굽히지 않는 무사의",
-		"기개를 사람들은 일컬어 [용자]라고",
-		"부른다. 어떠한 위기에서도 그들은 ",
-		"뒤로 물러서지 않으며, 다치고 움직",
-		"이기 힘든 동료를 위해 단신으로",
-		"적들과 마주 싸우기도 한다. 이들은",
-		"잘 단련된 근육과 힘, 강력한 공격력",
-		"으로 전장 최선두에서 공격진으로",
-		"활약한다.                      ",],
-		["가장 일반적인 공격형 무사로, ",
-		"적접전에 따른 직접 공격으로 전장",
-		"에서 활약한다. 군직 특성상 근력을",
-		"메인으로 스텟 포인트를 투자하되, ",
-		"적접전에 따른 생명력 / 방어력",
-		"확보를 위해 체력을 올린다. 또한",
-		"공격의 정확성을 높이기 위해 민첩",
-		"에도 포인트를 투자할 필요가 있다.",],
-		["상당 수준의 정신력을 이용하는",
-		"중/근거리 접전형 무사로, 각 기술",
-		"하나하나의 높은 공격력으로 전장에서",
-		"활약한다. 군직 특성상 근력을 메인",
-		"으로 스탯 포인트를 투자하되, ",
-		"중/근거리 공격의 정확성과 명중률을",
-		"위해 민첩을 올린다. 또한 접전 시 ",
-		"적 공격에 따른 생명력 / 방어력",
-		"확보를 위해 체력에도 포인트를",
-		"투자할 필요가 있다.        ",],
-	],
-	[
-		["자객은 어떠한 상황에서도 자신의",
-		"몸을 숨기고 은밀한 어둠의 임무를",
-		"수행하면서 전장의 후위를 지원하는",
-		"자들이다. 이들은 아주 빠르고 신속",
-		"하며, 비할 데 없이 과감하고 절제된",
-		"행동으로 적의 급소에 치명타를 날리",
-		"되, 전장에선 적진을 향해 무수한",
-		"화살을 내뿜으며 자신의 용맹을",
-		"선보인다.                   "],
-		["두손 단검을 주무기로 다루며, 신속",
-		"하게 치고 빠지는 자객 특유의 움직임",
-		"으로 전장에서 활약한다. 군직 특성상",
-		"민첩을 메인으로 스텟 포인트를 투자",
-		"하되, 근력을 올려 공격력을 높인다.",
-		"또한 근접전에 따른 생명력/방어력 ",
-		"상승을 위해 체력에도 포인트를",
-		"투자할 필요가 있다.          ",],
-		["활을 주무기로 다루며, 긴 시야와",
-		"사정거리에 따른 원거리 공격으로",
-		"전장에서 활약한다. 군직 특성상",
-		"공격 성공률의 증가를 위해 민첩을",
-		"메인으로 올려야 하며, 원거리",
-		"공격의 데미지 증가를 위해 근력을",
-		"올릴 필요가 있다. 또한 적들에게",
-		"포위되었을 시, 적 공격에 버티기",
-		"위한 생명력/방어력 상승을 위해",
-		"체력에도 포인트를 투자할 필요가",
-		"있다.                        ", ],
-	],
-	[
-		["수라는 [독은 독으로]의 속성으로",
-		"창설된 특수 속성의 군직이다. ",
-		"그들은 전장에서 적들의 사기를 저하",
-		"시키고, 악마의 힘을 실은 마탄으로",
-		"적의 영혼과 육신을 짓뭉갠다. 때로",
-		"이들은 자신의 검과 갑옷에 어둠의",
-		"힘을 실어, 전장에서 무사 못지 않은",
-		"공격력을 발휘하기도 하는데, 적들을",
-		"죽여대는그 모습이 워낙에 끔찍해",
-		"사람들은 수라를 일컬어 [마신]이라",
-		"부르기를 주저 앉는다."],
-		["환무군의 수라는 악마의 씨에서",
-		"얻어지는 마력을 무기나 방어구에",
-		"실어 무사 못지 않은 전투력으로",
-		"전장에서 활약한다. 군직 특성상",
-		"지능이 높아질수록 착용 장비에",
-		"실리는 마력의 위력이 증대되므로,",
-		"지능과 근력을 메인으로 스탯",
-		"포인트를 투자하되, 접전에 따른",
-		"생명력/방어력 확보를 위해 체력을",
-		"올린다. 또한 공격의 정확성과",
-		"회피를 위해서 민첩에도 포인트를",
-		"투자할 필요가 있다.           ",],
-		["흑마군의 수라들은 각종 어둠의",
-		"주문과 악마의 마법으로 전장에서",
-		"활약한다. 군직 특성상 마법 공격이",
-		"주이므로 지능을 메인으로 스텟",
-		"포인트를 투자하되, 원거리 마법",
-		"공격의 정확성을 위해 민첩을 올린다.",
-		"또한 포위 되었을시, 적 공격에 따른",
-		"생명력 / 방어력 확보를 위해 체력에도",
-		"포인트를 투자할 필요가 있다.    ",],
-	],
-	[
-		["무당은 용신과 자연, 두 고대의",
-		"힘을 다룰 수 있는 유일한 직종이다.",
-		"그들은 후방에서 아군을 보조하고",
-		"다친 동료의 부상을 회복 시키며",
-		"떨어진 사기를 상승시킨다. 그들은",
-		"아군의 수면과 휴식을 방해하는 자를 ",
-		"절대 용서하지 않으며, 그런 자들",
-		"에게는 한 점 주저 없이 주문을",
-		"터트려 그 비겁함을 엄히 징계한다.",],
-		["천룡군의 무당들은 각종 부적술과",
-		"보조주문에 능하며, 적의 직 / 간접",
-		"공격으로부터 아군을 지킨다. 군직",
-		"특성상 마법 능력이 주이므로 지능을",
-		"메인으로 스텟 포인트를 투자하되,",
-		"포위되었을 시, 적 공격에 따른",
-		"생명력 / 방어력 확보를 위해 체력을",
-		"올린다. 또한 원거리 마법 공격의",
-		"정확성을 위에 민첩에도 포인트를",
-		"투자할 필요가 있다.           ",],
-		["광뢰군의 무당들은 자연의 힘을",
-		"빌려 아군을 회복하고, 뇌신의 ",
-		"힘으로 밀집한 적들에게 큰 충격을",
-		"입힐 수 있는 이들이다. 군직의",
-		"특성상 마법 능력이 주이므로 지능을",
-		"메인으로 스텟 포인트를 투자하되,",
-		"포위되었을시, 적 공격에 따른",
-		"생명력 / 방어력 확보를 위해 체력을",
-		"올린다. 또한 원거리 마법 공격의",
-		"정확성을 위에 민첩에도 포인트를",
-		"투자할 필요가 있다.             "],
-	],
-]
 
 if app.ENABLE_DUNGEON_INFO_SYSTEM:
 	def GetMiniMapZoneNameByIdx(idx):
@@ -757,6 +563,7 @@ if app.ENABLE_DUNGEON_INFO_SYSTEM:
 	#if background.IsMapInfoByMapName("metin2_12zi_stage"):
 	MINIMAP_ZONE_NAME_DICT_BY_IDX[109] = MAP_MONKEY_DUNGEON3
 
+
 WHISPER_ERROR = {
 	1 : CANNOT_WHISPER_NOT_LOGON,
 	2 : CANNOT_WHISPER_DEST_REFUSE,
@@ -767,7 +574,6 @@ NOTIFY_MESSAGE = {
 	"CANNOT_EQUIP_SHOP" : CANNOT_EQUIP_IN_SHOP,
 	"CANNOT_EQUIP_EXCHANGE" : CANNOT_EQUIP_IN_EXCHANGE,
 }
-
 
 ATTACK_ERROR_TAIL_DICT = {
 	"IN_SAFE" : CANNOT_ATTACK_SELF_IN_SAFE,
@@ -816,7 +622,6 @@ USE_SKILL_ERROR_CHAT_DICT = {
 	"NEED_EMPTY_BOTTLE" : SKILL_NEED_EMPTY_BOTTLE,
 	"NEED_POISON_BOTTLE" : SKILL_NEED_POISON_BOTTLE,
 	"ONLY_FOR_GUILD_WAR" : SKILL_ONLY_FOR_GUILD_WAR,
-	"ONLY_FOR_GUILD_WAR_RANKED" : "Puoi usare la skill sono nella Ranked Mode",
 }
 
 SHOP_ERROR_DICT = {
@@ -826,11 +631,6 @@ SHOP_ERROR_DICT = {
 	"INVALID_POS" : SHOP_INVALID_POS,
 	"NOT_ENOUGH_MONEY_EX" : SHOP_NOT_ENOUGH_MONEY_EX,
 }
-
-if app.ENABLE_MULTISHOP:
-	SHOP_ERROR_DICT.update({
-		"NOT_ENOUGH_ITEM" : SHOP_NOT_ENOUGH_ITEM,
-	})
 
 STAT_MINUS_DESCRIPTION = {
 	"HTH-" : STAT_MINUS_CON,
@@ -860,7 +660,7 @@ def DO_YOU_BUY_ITEM(buyItemName, buyItemCount, buyItemPrice) :
 		return DO_YOU_BUY_ITEM2 % ( buyItemName, buyItemCount, buyItemPrice )
 	else:
 		return DO_YOU_BUY_ITEM1 % ( buyItemName, buyItemPrice )
-		
+
 def REFINE_FAILURE_CAN_NOT_ATTACH(attachedItemName) :
 	return REFINE_FAILURE_CAN_NOT_ATTACH0 % (attachedItemName)
 
@@ -869,17 +669,13 @@ def REFINE_FAILURE_NO_SOCKET(attachedItemName) :
 
 def REFINE_FAILURE_NO_GOLD_SOCKET(attachedItemName) :
 	return REFINE_FAILURE_NO_GOLD_SOCKET0 % (attachedItemName)
-	
+
 def HOW_MANY_ITEM_DO_YOU_DROP(dropItemName, dropItemCount) :
 	if dropItemCount > 1 :
 		return HOW_MANY_ITEM_DO_YOU_DROP2 % (dropItemName, dropItemCount)
-	else :	
-		return HOW_MANY_ITEM_DO_YOU_DROP1 % (dropItemName)
-def HOW_MANY_ITEM_DO_YOU_DROP_NEW(dropItemName, dropItemCount, sellprice) :
-	if dropItemCount > 1 :
-		return HOW_MANY_ITEM_DO_YOU_DROP_NEW2 % (dropItemName, dropItemCount, sellprice)
 	else :
-		return HOW_MANY_ITEM_DO_YOU_DROP_NEW1 % (dropItemName, sellprice)
+		return HOW_MANY_ITEM_DO_YOU_DROP1 % (dropItemName)
+
 def FISHING_NOTIFY(isFish, fishName) :
 	if isFish :
 		return FISHING_NOTIFY1 % ( fishName )
@@ -891,30 +687,12 @@ def FISHING_SUCCESS(isFish, fishName) :
 		return FISHING_SUCCESS1 % (fishName)
 	else :
 		return FISHING_SUCCESS2 % (fishName)
-		
-if app.ENABLE_MULTISHOP:
-	def NumberToWithItemString(n,c):
-		if n <= 0:
-			return "0 %s" % (c)
-		return "%s %s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]), c)
-		
+
 def NumberToMoneyString(n) :
 	if n <= 0 :
 		return "0 %s" % (MONETARY_UNIT0)
 
-	return "%s %s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]), MONETARY_UNIT0) 
-
-def NumberToSecondaryCoinString(n) :
-	if n <= 0 :
-		return "0 %s" % (MONETARY_UNIT_JUN)
-
-	return "%s %s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]), MONETARY_UNIT_JUN) 
-
-def PrettyNumber(n):
-	if n <= 0:
-		return "0"
-
-	return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]))
+	return "%s %s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]), MONETARY_UNIT0)
 
 def NumberToString(n) :
 	if n <= 0 :
@@ -923,57 +701,11 @@ def NumberToString(n) :
 	return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]))
 
 
-def NumberToMoneyStringNEW(n) :
+def NumberToSecondaryCoinString(n) :
 	if n <= 0 :
-		return "0"
-	return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]))
+		return "0 %s" % (MONETARY_UNIT_JUN)
 
-
-def surever(time):
-	m, s = divmod(time, 60)
-	h, m = divmod(m, 60)
-	return "%02d:%02d:%02d" % (h, m, s)
-
-if app.ENABLE_OFFLINE_SHOP_SYSTEM:
-	def NumberToDisplayedCount(n):
-		if n <= 0 :
-			return "0 %s" % (MONETARY_UNIT_DISPLAYED_COUNT)
-
-		return "%s %s" % ('.'.join([ i - 3 < 0 and str(n)[:i] or str(n)[i - 3 : i] for i in range(len(str(n)) % 3, len(str(n)) + 1, 3) if i ]), MONETARY_UNIT_DISPLAYED_COUNT)
-
-def NumberToString2(n) :
-	return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ])) 
-
-if app.ENABLE_CHEQUE_SYSTEM:
-	def DO_YOU_BUY_ITEM_NEW(buyItemName, buyItemCount, buyItemPrice, buyItemCheque) :
-		if buyItemCheque > 0:
-			if buyItemCount > 1 :
-				return DO_YOU_BUY_ITEM4 % ( buyItemName, buyItemCount, buyItemCheque, buyItemPrice )
-			else:
-				return DO_YOU_BUY_ITEM3 % ( buyItemName, buyItemCheque, buyItemPrice )
-		else:
-			if buyItemCount > 1 :
-				return DO_YOU_BUY_ITEM2 % ( buyItemName, buyItemCount, buyItemPrice )
-			else:
-				return DO_YOU_BUY_ITEM1 % ( buyItemName, buyItemPrice )
-	
-	def NumberToChequeString(n) :
-		if n <= 0 :
-			return "0 %s" % (CHEQUE_SYSTEM_UNIT_WON)
-		cheque = str(n)
-		return "%s %s" % (cheque, CHEQUE_SYSTEM_UNIT_WON)
-
-	def NumberToCheque(n) :
-		if n <= 0 :
-			return "0"
-		cheque = str(n)
-		return "%s" % (cheque)
-
-	def NumberToMoney(n) :
-		if n <= 0 :
-			return "0"
-
-		return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]))
+	return "%s %s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]), MONETARY_UNIT_JUN)
 
 def MoneyFormat(n):
 	return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ])) 
@@ -984,74 +716,3 @@ def NumberWithPoint(n) :
 
 	return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]))
 	
-def SecondToMS(time):
-	if time < 60:
-		return "%d%s" % (time, SECOND)
-
-	second = int(time % 60)
-	minute = int((time / 60) % 60)
-
-	text = ""
-
-	if minute > 0:
-		text += str(minute) + MINUTE
-		if minute > 0:
-			text += " "
-
-	if second > 0:
-		text += str(second) + SECOND
-
-	return text
-	
-if app.ENABLE_MAINTENANCE_SYSTEM:
-	def SecondToDHMS(time, ignoreSecTime = -1, useShortName = TRUE):
-		text = ""
-		if time < 0:
-			time *= -1
-			text = "-"
-
-		second = int(time % 60)
-		minute = int((time / 60) % 60)
-		hour = int(((time / 60) / 60) % 24)
-		day = int(((time / 60) / 60) / 24)
-
-		if ignoreSecTime > 0 and time >= ignoreSecTime:
-			second = 0
-
-		if day > 0:
-			if day == 1:
-				text += str(day) + " d "
-			else:
-				text += str(day) + " d "
-
-		if hour > 0:
-			text += str(hour) + " "
-			if useShortName == TRUE:
-				text += "H. "
-			else:
-				if hour == 1:
-					text += "Ora "
-				else:
-					text += "Ore "
-
-		if minute > 0:
-			text += str(minute) + " "
-			if useShortName == TRUE:
-				text += "Min. "
-			else:
-				if minute == 1:
-					text += "Minut "
-				else:
-					text += "Minute "
-
-		if second > 0 or (day == 0 and hour == 0 and minute == 0):
-			text += str(second) + " "
-			if useShortName == TRUE:
-				text += "Sec. "
-			else:
-				if second == 1:
-					text += "Secunda "
-				else:
-					text += "Secunde "
-
-		return text[:-1]

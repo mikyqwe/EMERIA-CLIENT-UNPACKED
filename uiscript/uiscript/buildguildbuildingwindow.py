@@ -8,7 +8,7 @@ TEMP_X = 110
 
 window = {
 	"name" : "BuildGuildBuildingWindow",
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"x" : 10,
 	"y" : SCREEN_HEIGHT - 240 - 50,

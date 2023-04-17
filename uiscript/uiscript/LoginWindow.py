@@ -1,646 +1,420 @@
-import uiScriptLocale
+PATH_INTERFACE = "interface_pics/"
 
-IMG_PATH = "d:/ymir work/ui/intro/login/"
-IMG_LANG_PATH = "d:/ymir work/ui/intro/login/lang_buttons/"
-
-CH_START_X = 4
-CH_STEP_X = 80
-
-CH_TEXT_1_Y = 30
-CH_TEXT_2_Y = 50
-
-BUTTON_START_X = 25
-BUTTON_START_Y = 411
-BUTTON_STEP_X = 385
-BUTTON_STEP_Y = 46
-
-SAFE_INPUT_X = 425
-SAFE_INPUT_START_Y = 115
-SAFE_INPUT_STEP_Y = 55
-
-LANG_BUTTON_STEP_X = 60
+INPUT_LIMIT = 16
+SPACE = 34
 
 window = {
+	"name" : "LoginWindow",
 	"sytle" : ("movable",),
-	"x" : 0, "y" : 0,
+
+	"x" : 0,
+	"y" : 0,
+
 	"width" : SCREEN_WIDTH,
 	"height" : SCREEN_HEIGHT,
-	"children" : 
+
+	"children" :
 	(
 		{
-			"name" : "background", 
-			"type" : "expanded_image",
-			"x" : 0, "y" : 0,
-			"x_scale" : float(SCREEN_WIDTH) / 1920.0,
-			"y_scale" : float(SCREEN_HEIGHT) / 1080.0,
-			"image" : IMG_PATH + "background.jpg",
-			"children" : 
+			"name" : "background", "type" : "expanded_image", "x" : 0, "y" : 0,
+			"x_scale" : float(SCREEN_WIDTH) / 1920.0, "y_scale" : float(SCREEN_HEIGHT) / 1080.0,
+			"image" : PATH_INTERFACE + "bg.png",
+			"children" :
 			(
-				{ "name" : "video_layer",  "type" : "window", "x" : 0, "y" : 0, "width" : SCREEN_WIDTH, "height" : SCREEN_HEIGHT, },
 				{
-					"name" : "board_main",
-					"type" : "window",
-					"x" : 0, "y" : 0,
-					"width" : 860, "height" : 430,
-					"vertical_align" : "center",
-					"horizontal_align" : "center",
-					"children" :
+					"name" : "top_logo_bg",
+					"type" : "image",
+					"x" : (SCREEN_WIDTH - 616)/2,
+					"y" : 10,
+					"image" : PATH_INTERFACE + "top_bg.png",
+				},
+
+				{
+					"name" : "background_painel", "type" : "expanded_image", "x" : 0, "y" : 70,
+					"horizontal_align" : "center", "vertical_align" : "center",
+					"image" : PATH_INTERFACE + "panel_bg.png",
+					"children" : 
 					(
+
 						{
-							"name" : "board",
+							"name" : "login_bg",
 							"type" : "image",
-							"x" : 0, "y" : 0,
-							"image" : IMG_PATH + "base_board.png",
-							"children" :
-							(
-								
-								## LOGIN
+							"x" : 120,
+							"y" : 180,
+							"image" : PATH_INTERFACE + "id_pw.png",
+							"children":
+							[
+
 								{
-									"name" : "input_user",
+									"name" : "ID_placeholder",
 									"type" : "image",
-									"x" : 300, "y" : 121,
-									"image" : IMG_PATH + "input_slot_id_normal.png",
-									"children" : 
-									(
-										{
-											"name" : "id_focus_background",
-											"type" : "image",
-											"x" : 0, "y" : 0,
-											"image" : IMG_PATH + "input_slot_id_focus.png",
-										},
-										{
-											"name" : "id",
-											"type" : "editline",
-											"x" : 50, "y" : 12,
-											"width" : 256, "height" : 16,
-											"color" : 0xffbeaa87,
-											"fontsize":"LARGE",
-											"input_limit": 16,
-										},
-									),
+									"x" : 0,
+									"y" : 0,
+									"image" : PATH_INTERFACE + "login_text_placeholder.png",
 								},
 								{
-									"name" : "input_password",
+									"name" : "ID_EditLine",
+									"type" : "editline",
+
+									"x" : 10,
+									"y" : 15,
+									
+									"width" : 219,
+									"height" : 26,
+
+									"input_limit" : INPUT_LIMIT,
+									"enable_codepage" : 0,
+								},
+
+								{
+									"name" : "PW_placeholder",
 									"type" : "image",
-									"x" : 300, "y" : 166,
-									"image" : IMG_PATH + "input_slot_pw_normal.png",
-									"children" : 
-									(
-										{
-											"name" : "pw_focus_background",
-											"type" : "image",
-											"x" : 0, "y" : 0,
-											"image" : IMG_PATH + "input_slot_pw_focus.png",
-										},
-										{
-											"name" : "pwd",
-											"type" : "editline",
-											"x" : 50, "y" : 12,
-											"width" : 256, "height" : 16,
-											"color" : 0xffbeaa87,
-											"fontsize":"LARGE",
-											"input_limit": 16,
-											"secret_flag": 1,
-										},
-									),
+									"x" : 0,
+									"y" : 99 - 48,
+									"image" : PATH_INTERFACE + "password_text_placeholder.png",
 								},
 								{
-									"name" : "input_pin",
-									"type" : "image",
-									"x" : 300, "y" : 211,
-									"image" : IMG_PATH + "input_slot_pin_normal.png",
-									"children" : 
-									(
-										{
-											"name" : "pin_focus_background",
-											"type" : "image",
-											"x" : 0, "y" : 0,
-											"image" : IMG_PATH + "input_slot_pin_focus.png",
-										},
-										{
-											"name" : "pin",
-											"type" : "editline",
-											"x" : 50, "y" : 12,
-											"width" : 256, "height" : 16,
-											"color" : 0xffbeaa87,
-											"fontsize":"LARGE",
-											"input_limit": 4,
-											"secret_flag": 1,
-										},
-									),
-								},
-								
-								
-								
-								{
-									"name" : "login_button",
-									"type" : "button",
-									"x" : 299, "y" : 272,
-									"default_image" : IMG_PATH + "button_login_normal.png",
-									"over_image" : IMG_PATH + "button_login_hover.png",
-									"down_image" : IMG_PATH + "button_login_down.png",
-								},
-								{
-									"name" : "forgot_pw_button",
-									"type" : "button",
-									"x" : 366, "y" : 337,
-									"default_image" : IMG_PATH + "forgot_pw_normal.png",
-									"over_image" : IMG_PATH + "forgot_pw_hover.png",
-									"down_image" : IMG_PATH + "forgot_pw_down.png",
-								},
-								{
-									"name" : "sign_in_button",
-									"type" : "button",
-									"x" : 462, "y" : 373,
-									"default_image" : IMG_PATH + "sign_in_normal.png",
-									"over_image" : IMG_PATH + "sign_in_hover.png",
-									"down_image" : IMG_PATH + "sign_in_down.png",
-								},
-								
-								#####################################################
-								
-								{
-									"name" : "channel_1_info",
-									"type" : "image",
-									"x" : 23, "y" : 161,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
-										{
-											"name" : "ch1_online",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_online.png",
-										},
-										{
-											"name" : "ch1_offline",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_offline.png",
-										},
-										{
-											"name" : "state_ch1",
-											"type" : "text",
+									"name" : "Password_EditLine",
+									"type" : "editline",
 
-											"x" : 26, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize":"SLARGE",
+									"x" : 10,
+									"y" : 75,
 
-											"text" : "Canalul 1",
-										},
-										{
-											"name" : "select_btn_ch1",
-											"type" : "radio_button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "sel_channel_btn_normal.png",
-											"over_image" : IMG_PATH + "sel_channel_btn_hover.png",
-											"down_image" : IMG_PATH + "sel_channel_btn_active.png",
-										},
-									),
+									"width" : 219,
+									"height" : 26,
+
+									"input_limit" : INPUT_LIMIT,
+									"secret_flag" : 1,
+									"enable_codepage" : 0,
 								},
+							],
+						},
+
+						{
+							"name" : "button_login", "type" : "button", "x" : -7, "y" : -40,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "buttons/login_def.png",
+							"over_image" : PATH_INTERFACE + "buttons/login_act.png",
+							"down_image" : PATH_INTERFACE + "buttons/login_def.png",
+						},
+
+						{
+							"name" : "real_acc_save_button", "type" : "button", "x" : 50, "y" : -40,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "buttons/save_def.png",
+							"over_image" : PATH_INTERFACE + "buttons/save_act.png",
+							"down_image" : PATH_INTERFACE + "buttons/save_down.png",
+						},
+
+						{
+							"name" : "rs_1", "type" : "button", "x" : -7, "y" : -10,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "text_create_acc.png",
+							"over_image" : PATH_INTERFACE + "text_create_acc_act.png",
+							"down_image" : PATH_INTERFACE + "text_create_acc.png",
+						},
+
+						{
+							"name" : "rs_2", "type" : "button", "x" : -7, "y" : 5,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "text_forget_pass.png",
+							"over_image" : PATH_INTERFACE + "text_forget_pass_act.png",
+							"down_image" : PATH_INTERFACE + "text_forget_pass.png",
+						},
+
+
+						{
+							"name" : "button_ch_state_1", "type" : "image", "x" : -95, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"image" : PATH_INTERFACE + "channels/ch_off.png"
+						},
+						{
+							"name" : "button_ch_1", "type" : "radio_button", "x" : -95, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "channels/ch1_def.png",
+							"over_image" : PATH_INTERFACE + "channels/ch1_act.png",
+							"down_image" : PATH_INTERFACE + "channels/ch1_act.png",
+						},
+
+						{
+							"name" : "button_ch_state_2", "type" : "image", "x" : -40, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"image" : PATH_INTERFACE + "channels/ch_off_1.png"
+						},
+						{
+							"name" : "button_ch_2", "type" : "radio_button", "x" : -40, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "channels/ch2_def.png",
+							"over_image" : PATH_INTERFACE + "channels/ch2_act.png",
+							"down_image" : PATH_INTERFACE + "channels/ch2_act.png",
+						},
+
+						{
+							"name" : "button_ch_state_3", "type" : "image", "x" : 15, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"image" : PATH_INTERFACE + "channels/ch_off.png"
+						},
+
+						{
+							"name" : "button_ch_3", "type" : "radio_button", "x" : 15, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "channels/ch3_def.png",
+							"over_image" : PATH_INTERFACE + "channels/ch3_act.png",
+							"down_image" : PATH_INTERFACE + "channels/ch3_act.png",
+						},
+						{
+							"name" : "button_ch_state_4", "type" : "image", "x" : 70, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"image" : PATH_INTERFACE + "channels/ch_off_1.png"
+						},
+						{
+							"name" : "button_ch_4", "type" : "radio_button", "x" : 70, "y" : 55,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"default_image" : PATH_INTERFACE + "channels/ch4_def.png",
+							"over_image" : PATH_INTERFACE + "channels/ch4_act.png",
+							"down_image" : PATH_INTERFACE + "channels/ch4_act.png",
+						},
+
+						{
+							"name" : "account_save_bg",
+							"type" : "image",
+							"x" : -10,
+							"y" : 150,
+							"horizontal_align" : "center", "vertical_align" : "center",
+							"image" : PATH_INTERFACE + "acc_bg.png",
+							"children":
+							[
 								{
-									"name" : "channel_2_info",
-									"type" : "image",
-									"x" : 23, "y" : 206,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
+									"name" : "save_image_1", "type" : "image", "x" : 0, "y" : -50,
+									"vertical_align" : "center",
+									"image" : PATH_INTERFACE + "save_acc_bg.png",
+									"children" :
+									[
 										{
-											"name" : "ch2_online",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_online.png",
+											"name" : "acc_name_text_1", "type" : "text", "x" : -70, "y": -7,
+											"horizontal_align" : "center", "vertical_align" : "center", "text_horizontal_align" : "center",
+											"fontsize" : "MEDIUM", "text" : "Account1 - Free",
 										},
 										{
-											"name" : "ch2_offline",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_offline.png",
+											"name" : "save_button_1", "type" : "button", "x" : 130, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_save_act.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
 										},
 										{
-											"name" : "state_ch2",
-											"type" : "text",
-
-											"x" : 26, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize":"SLARGE",
-
-											"text" : "Canalul 2",
+											"name" : "delete_account_button_1", "type" : "button", "x" : 65, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_delete_s.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
 										},
-										{
-											"name" : "select_btn_ch2",
-											"type" : "radio_button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "sel_channel_btn_normal.png",
-											"over_image" : IMG_PATH + "sel_channel_btn_hover.png",
-											"down_image" : IMG_PATH + "sel_channel_btn_active.png",
-										},
-									),
-								},
-								{
-									"name" : "channel_3_info",
-									"type" : "image",
-									"x" : 23, "y" : 250,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
-										{
-											"name" : "ch3_online",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_online.png",
-										},
-										{
-											"name" : "ch3_offline",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_offline.png",
-										},
-										{
-											"name" : "state_ch3",
-											"type" : "text",
-
-											"x" : 26, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize":"SLARGE",
-
-											"text" : "Canalul 3",
-										},
-										{
-											"name" : "select_btn_ch3",
-											"type" : "radio_button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "sel_channel_btn_normal.png",
-											"over_image" : IMG_PATH + "sel_channel_btn_hover.png",
-											"down_image" : IMG_PATH + "sel_channel_btn_active.png",
-										},
-									),
+									],
 								},
 								{
-									"name" : "channel_4_info",
-									"type" : "image",
-									"x" : 23, "y" : 295,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
+									"name" : "save_image_2", "type" : "image", "x" : 0, "y" : SPACE*1-50,
+									"vertical_align" : "center",
+									"image" : PATH_INTERFACE + "save_acc_bg.png",
+									"children" :
+									[
 										{
-											"name" : "ch4_online",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_online.png",
+											"name" : "acc_name_text_2", "type" : "text", "x" : -70, "y": -7,
+											"horizontal_align" : "center", "vertical_align" : "center", "text_horizontal_align" : "center",
+											"fontsize" : "MEDIUM", "text" : "Account2 - Free",
 										},
 										{
-											"name" : "ch4_offline",
-											"type" : "image",
-											"x" : 8, "y" : 12,
-											"image" : IMG_PATH + "point_offline.png",
+											"name" : "save_button_2", "type" : "button", "x" : 130, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_save_act.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
 										},
 										{
-											"name" : "state_ch4",
-											"type" : "text",
-
-											"x" : 26, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize":"SLARGE",
-
-											"text" : "Canalul 4",
+											"name" : "delete_account_button_2", "type" : "button", "x" : 65, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_delete_s.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
 										},
-										{
-											"name" : "select_btn_ch4",
-											"type" : "radio_button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "sel_channel_btn_normal.png",
-											"over_image" : IMG_PATH + "sel_channel_btn_hover.png",
-											"down_image" : IMG_PATH + "sel_channel_btn_active.png",
-										},
-									),
-								},
-								
-								## ACCOUNT-MANAGEMENT
-								{
-									"name" : "input_safe_f1",
-									"type" : "image",
-									"x" : 604, "y" : 161,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
-										{
-											"name" : "f1_login_button",
-											"type" : "button",
-											"x" : 175, "y" : 8,
-											"default_image" : IMG_PATH + "button_sel_account_normal.png",
-											"over_image" : IMG_PATH + "button_sel_account_hover.png",
-											"down_image" : IMG_PATH + "button_sel_account_down.png",
-										},
-										{
-											"name" : "f1_delete_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_del_account_normal.png",
-											"over_image" : IMG_PATH + "button_del_account_hover.png",
-											"down_image" : IMG_PATH + "button_del_account_down.png",
-										},
-										{
-											"name" : "f1_save_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_safe_normal.png",
-											"over_image" : IMG_PATH + "button_safe_hover.png",
-											"down_image" : IMG_PATH + "button_safe_down.png",
-										},
-										{
-											"name" : "number_text_0",
-											"type" : "text",
-
-											"x" : 13, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "1.",
-										},
-										{
-											"name" : "account_text_0",
-											"type" : "text",
-
-											"x" : 30, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "Liber",
-										},
-									),
+									],
 								},
 								{
-									"name" : "input_safe_f2",
-									"type" : "image",
-									"x" : 604, "y" : 206,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
+									"name" : "save_image_3", "type" : "image", "x" : 0, "y" : SPACE*2-50,
+									"vertical_align" : "center",
+									"image" : PATH_INTERFACE + "save_acc_bg.png",
+									"children" :
+									[
 										{
-											"name" : "f2_login_button",
-											"type" : "button",
-											"x" : 175, "y" : 8,
-											"default_image" : IMG_PATH + "button_sel_account_normal.png",
-											"over_image" : IMG_PATH + "button_sel_account_hover.png",
-											"down_image" : IMG_PATH + "button_sel_account_down.png",
+											"name" : "acc_name_text_3", "type" : "text", "x" : -70, "y": -7,
+											"horizontal_align" : "center", "vertical_align" : "center", "text_horizontal_align" : "center",
+											"fontsize" : "MEDIUM", "text" : "Account3 - Free",
 										},
 										{
-											"name" : "f2_delete_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_del_account_normal.png",
-											"over_image" : IMG_PATH + "button_del_account_hover.png",
-											"down_image" : IMG_PATH + "button_del_account_down.png",
+											"name" : "save_button_3", "type" : "button", "x" : 130, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_save_act.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
 										},
 										{
-											"name" : "f2_save_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_safe_normal.png",
-											"over_image" : IMG_PATH + "button_safe_hover.png",
-											"down_image" : IMG_PATH + "button_safe_down.png",
+											"name" : "delete_account_button_3", "type" : "button", "x" : 65, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_delete_s.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
 										},
-										{
-											"name" : "number_text_1",
-											"type" : "text",
-
-											"x" : 13, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "2.",
-										},
-										{
-											"name" : "account_text_1",
-											"type" : "text",
-
-											"x" : 30, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "Liber",
-										},
-									),
+									],
 								},
 								{
-									"name" : "input_safe_f3",
-									"type" : "image",
-									"x" : 604, "y" : 251,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
+									"name" : "save_image_4", "type" : "image", "x" : 0, "y" : SPACE*3-50,
+									"vertical_align" : "center",
+									"image" : PATH_INTERFACE + "save_acc_bg.png",
+									"children" :
+									[
 										{
-											"name" : "f3_login_button",
-											"type" : "button",
-											"x" : 175, "y" : 8,
-											"default_image" : IMG_PATH + "button_sel_account_normal.png",
-											"over_image" : IMG_PATH + "button_sel_account_hover.png",
-											"down_image" : IMG_PATH + "button_sel_account_down.png",
+											"name" : "acc_name_text_4", "type" : "text", "x" : -70, "y": -7,
+											"horizontal_align" : "center", "vertical_align" : "center", "text_horizontal_align" : "center",
+											"fontsize" : "MEDIUM", "text" : "Account4 - Free",
 										},
 										{
-											"name" : "f3_delete_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_del_account_normal.png",
-											"over_image" : IMG_PATH + "button_del_account_hover.png",
-											"down_image" : IMG_PATH + "button_del_account_down.png",
+											"name" : "save_button_4", "type" : "button", "x" : 130, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_save_act.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_save_def.png",
 										},
 										{
-											"name" : "f3_save_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_safe_normal.png",
-											"over_image" : IMG_PATH + "button_safe_hover.png",
-											"down_image" : IMG_PATH + "button_safe_down.png",
+											"name" : "delete_account_button_4", "type" : "button", "x" : 65, "y" : 1,
+											"vertical_align" : "center", "horizontal_align" : "right",
+											"default_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
+											"over_image" : PATH_INTERFACE + "buttons/acc_delete_s.png",
+											"down_image" : PATH_INTERFACE + "buttons/acc_delete_def.png",
 										},
-										{
-											"name" : "number_text_2",
-											"type" : "text",
-
-											"x" : 13, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "3.",
-										},
-										{
-											"name" : "account_text_2",
-											"type" : "text",
-
-											"x" : 30, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "Liber",
-										},
-									),
+									],
 								},
-								{
-									"name" : "input_safe_f4",
-									"type" : "image",
-									"x" : 604, "y" : 296,
-									"image" : IMG_PATH + "input_slot_side.png",
-									"children" : 
-									(
-										{
-											"name" : "f4_login_button",
-											"type" : "button",
-											"x" : 175, "y" : 8,
-											"default_image" : IMG_PATH + "button_sel_account_normal.png",
-											"over_image" : IMG_PATH + "button_sel_account_hover.png",
-											"down_image" : IMG_PATH + "button_sel_account_down.png",
-										},
-										{
-											"name" : "f4_delete_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_del_account_normal.png",
-											"over_image" : IMG_PATH + "button_del_account_hover.png",
-											"down_image" : IMG_PATH + "button_del_account_down.png",
-										},
-										{
-											"name" : "f4_save_button",
-											"type" : "button",
-											"x" : 204, "y" : 8,
-											"default_image" : IMG_PATH + "button_safe_normal.png",
-											"over_image" : IMG_PATH + "button_safe_hover.png",
-											"down_image" : IMG_PATH + "button_safe_down.png",
-										},
-										{
-											"name" : "number_text_3",
-											"type" : "text",
-
-											"x" : 13, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "4.",
-										},
-										{
-											"name" : "account_text_3",
-											"type" : "text",
-
-											"x" : 30, "y" : 10,
-											"color" : 0xff727272,
-											"fontsize": "SLARGE",
-
-											"text" : "Liber",
-										},
-									),
-								},
-								##########################################################################################
-							),
+							],
 						},
 					),
 				},
-				
+
 				{
-					"name" : "exit_button",
-					"type" : "button",
-					"vertical_align" : "center", "horizontal_align" : "center",
-					"x" : 0, "y" : 260,
-					"default_image" : IMG_PATH + "button_exit_normal.png",
-					"over_image" : IMG_PATH + "button_exit_hover.png",
-					"down_image" : IMG_PATH + "button_exit_down.png",
+					"name" : "server_logo_0",
+					"type" : "expanded_image",
+					"x" : SCREEN_WIDTH/2 - 306/2,
+					"y" : (SCREEN_HEIGHT/2 - 106/2) -150,
+					"image" : PATH_INTERFACE + "logo_z.png",
 				},
-				
+
 				{
-					"name" : "lang_button_0",
-					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*10, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_cz.png",
-					"over_image" :  IMG_LANG_PATH + "button_cz_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_cz.png",
+					"name" : "server_logo_1",
+					"type" : "image",
+					"x" : (SCREEN_WIDTH - 306)/2,
+					"y" : 10,
+					"image" : PATH_INTERFACE + "logo_a.png",
 				},
 				{
-					"name" : "lang_button_1",
+					"name" : "change_server",
 					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*9, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_de.png",
-					"over_image" :  IMG_LANG_PATH + "button_de_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_de.png",
+					"x" : (SCREEN_WIDTH - 75)/2,
+					"y" : 115,
+					"default_image" : PATH_INTERFACE + "buttons/change_serv.png",
+					"over_image" : PATH_INTERFACE + "buttons/change_serv2.png",
+					"down_image" : PATH_INTERFACE + "buttons/change_serv.png",
 				},
+		## Lang1
 				{
-					"name" : "lang_button_2",
+					"name" : "Lang1",
 					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*8, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_en.png",
-					"over_image" :  IMG_LANG_PATH + "button_en_hov.png",
-					"down_image" : IMG_LANG_PATH + "lbutton_en.png",
+
+					"x" : SCREEN_WIDTH/2 - FLAGS_DIRECTION + 125,
+					"y" : SCREEN_HEIGHT -135,
+
+					"width" : 32,
+					"height" : 22,
+
+					"default_image" : BASE_PATH_INTERFACE + "flags/flag_it_norm.tga",
+					"over_image" : BASE_PATH_INTERFACE + "flags/flag_it_over.tga",
+					"down_image" : BASE_PATH_INTERFACE + "flags/flag_it_down.tga",
 				},
+		
+		## Lang2
 				{
-					"name" : "lang_button_3",
+					"name" : "Lang2",
 					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*7, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_es.png",
-					"over_image" :  IMG_LANG_PATH + "button_es_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_es.png",
+
+					"x" : SCREEN_WIDTH/2 - FLAGS_DIRECTION + 125 + 50,
+					"y" : SCREEN_HEIGHT -135,
+
+					"width" : 32,
+					"height" : 22,
+	
+					"default_image" : BASE_PATH_INTERFACE + "flags/flag_en_norm.tga",
+					"over_image" : BASE_PATH_INTERFACE + "flags/flag_en_over.tga",
+					"down_image" : BASE_PATH_INTERFACE + "flags/flag_en_down.tga",
 				},
+		
+			## Lang3
 				{
-					"name" : "lang_button_4",
+					"name" : "Lang3",
 					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*6, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_gr.png",
-					"over_image" :  IMG_LANG_PATH + "button_gr_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_gr.png",
+
+					"x" : SCREEN_WIDTH/2 - FLAGS_DIRECTION + 125 + 50*2,
+					"y" : SCREEN_HEIGHT -135,
+
+					"width" : 32,
+					"height" : 22,
+	
+					"default_image" : BASE_PATH_INTERFACE + "flags/flag_de_norm.tga",
+					"over_image" : BASE_PATH_INTERFACE + "flags/flag_de_over.tga",
+					"down_image" : BASE_PATH_INTERFACE + "flags/flag_de_down.tga",
 				},
+		
+		## Lang4
 				{
-					"name" : "lang_button_5",
+					"name" : "Lang4",
 					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*5, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_hu.png",
-					"over_image" :  IMG_LANG_PATH + "button_hu_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_hu.png",
+
+					"x" : SCREEN_WIDTH/2 - FLAGS_DIRECTION + 125 + 50*3,
+					"y" : SCREEN_HEIGHT -135,
+
+					"width" : 32,
+					"height" : 22,
+
+					"default_image" : BASE_PATH_INTERFACE + "flags/flag_ro_norm.tga",
+					"over_image" : BASE_PATH_INTERFACE + "flags/flag_ro_over.tga",
+					"down_image" : BASE_PATH_INTERFACE + "flags/flag_ro_down.tga",
 				},
+		
+		## Lang5
 				{
-					"name" : "lang_button_6",
+					"name" : "Lang5",
 					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*4, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_it.png",
-					"over_image" :  IMG_LANG_PATH + "button_it_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_it.png",
+
+					"x" : SCREEN_WIDTH/2 - FLAGS_DIRECTION + 125 + 50*4,
+					"y" : SCREEN_HEIGHT -135,
+
+					"width" : 32,
+					"height" : 22,
+
+					"default_image" : BASE_PATH_INTERFACE + "flags/flag_tr_norm.tga",
+					"over_image" : BASE_PATH_INTERFACE + "flags/flag_tr_over.tga",
+					"down_image" : BASE_PATH_INTERFACE + "flags/flag_tr_down.tga",
 				},
+		
+		## Lang6
 				{
-					"name" : "lang_button_7",
+					"name" : "Lang6",
 					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*3, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_pl.png",
-					"over_image" :  IMG_LANG_PATH + "button_pl_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_pl.png",
-				},
-				{
-					"name" : "lang_button_8",
-					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*2, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_pt.png",
-					"over_image" :  IMG_LANG_PATH + "button_pt_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_pt.png",
-				},
-				{
-					"name" : "lang_button_9",
-					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*1, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_ro.png",
-					"over_image" :  IMG_LANG_PATH + "button_ro_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_ro.png",
-				},
-				{
-					"name" : "lang_button_10",
-					"type" : "button",
-					"x" : SCREEN_WIDTH-90-LANG_BUTTON_STEP_X*0, "y" : SCREEN_HEIGHT-50,
-					"default_image" : IMG_LANG_PATH + "button_tr.png",
-					"over_image" :  IMG_LANG_PATH + "button_tr_hov.png",
-					"down_image" : IMG_LANG_PATH + "button_tr.png",
-				},
-				{
-					"name" : "animation_button",
-					"type" : "button",
-					"x" : SCREEN_WIDTH - 147, "y" : 10,
-					"default_image" : "d:/ymir work/ui/intro_elendos/button/button_dark_normal.sub",
-					"over_image" :  "d:/ymir work/ui/intro_elendos/button/button_dark_hover.sub",
-					"down_image" : "d:/ymir work/ui/intro_elendos/button/button_dark_down.sub",
-					"text" : "Arată animaţie", "text_color" : 0xffffffff, "text_outline" : 1,
+
+					"x" : SCREEN_WIDTH/2 - FLAGS_DIRECTION + 125 + 50*5,
+					"y" : SCREEN_HEIGHT -135,
+	
+					"width" : 32,
+					"height" : 22,
+
+					"default_image" : BASE_PATH_INTERFACE + "flags/flag_pl_norm.tga",
+					"over_image" : BASE_PATH_INTERFACE + "flags/flag_pl_over.tga",
+					"down_image" : BASE_PATH_INTERFACE + "flags/flag_pl_down.tga",
 				},
 			),
 		},

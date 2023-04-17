@@ -9,11 +9,10 @@ import constInfo
 import mouseModule
 import uiScriptLocale
 import app
-import chr
-import chrmgr
 if app.ENABLE_ANTI_MULTIPLE_FARM:
 	import anti_multiple_farm
 	MULTIPLE_FARM_STATE_IMAGES = ["d:/ymir work/ui/pattern/visible_mark_01.tga", "d:/ymir work/ui/pattern/visible_mark_03.tga"]
+
 
 MOUSE_SETTINGS = [0, 0]
 
@@ -46,7 +45,6 @@ def LoadMouseButtonSettings():
 def unsigned32(n):
 	return n & 0xFFFFFFFFL
 
-
 if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 	class ExpandedMoneyTaskBar(ui.ScriptWindow):
 
@@ -57,10 +55,6 @@ if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 			self.wndMoneySlot = None
 			self.wndMoneyIcon = None
 
-			if app.ENABLE_CHEQUE_SYSTEM:
-				self.wndCheque = None
-				self.wndChequeSlot = None
-				self.wndChequeIcon = None
 			self.interface = None
 
 		def __del__(self):
@@ -70,11 +64,6 @@ if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 			self.wndMoney = None
 			self.wndMoneySlot = None
 			self.wndMoneyIcon = None
-			if app.ENABLE_CHEQUE_SYSTEM:
-				self.wndCheque = None
-				self.wndChequeSlot = None
-				self.wndChequeIcon = None
-
 
 		def LoadWindow(self):
 			try:
@@ -85,14 +74,6 @@ if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 				self.wndMoneyIcon = self.GetChild("Money_Icon")
 				self.wndMoneySlot = self.GetChild("Money_Slot")
 
-				if app.ENABLE_CHEQUE_SYSTEM:
-					self.wndCheque = self.GetChild("Cheque")
-					self.wndChequeIcon = self.GetChild("Cheque_Icon")
-					self.wndChequeSlot = self.GetChild("Cheque_Slot")
-
-				if app.WON_EXCHANGE:
-					self.btnExchangeButton = self.GetChild("ExchangeButton")
-					self.btnExchangeButton.SetEvent(ui.__mem_func__(self.OpenWonExchangeWindow))
 
 			except:
 				import exception
@@ -114,30 +95,9 @@ if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 			else:
 				return None
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			def GetCheque(self):
-				if self.wndCheque:
-					return self.wndCheque
-				else:
-					return None
-			def GetChequeSlot(self):
-				if self.wndChequeSlot:
-					return self.wndChequeSlot
-				else:
-					return None
-			def GetChequeIcon(self):
-				if self.wndChequeIcon:
-					return self.wndChequeIcon
-				else:
-					return None
-
 		def BindInterface(self, interface):
 			from _weakref import proxy
 			self.interface = proxy(interface)
-
-		if app.WON_EXCHANGE:
-			def OpenWonExchangeWindow(self):
-				self.interface.ToggleWonExchangeWindow()
 
 ##		def SetTop(self):
 ##			super(ExpandedTaskBar, self).SetTop()
@@ -155,6 +115,7 @@ if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 			self.Close()
 			return True
 #-------------------ExpandedMoneyTaskBar End------------------------------
+
 
 #-------------------Giftbox Begin------------------------------
 
@@ -267,7 +228,6 @@ class EnergyBar(ui.ScriptWindow):
 	def RefreshStatus(self):
 		pointEnergy = player.GetStatus (player.ENERGY)
 		leftTimeEnergy = player.GetStatus (player.ENERGY_END_TIME) - app.GetGlobalTimeStamp()
-		# 충기환 지속 시간 = 2시간.
 		self.SetEnergy (pointEnergy, leftTimeEnergy, 7200)
 
 	def SetEnergy (self, point, leftTime, maxTime):
@@ -293,8 +253,6 @@ class EnergyBar(ui.ScriptWindow):
 			self.tooltipEnergy.Show()
 		else:
 			self.tooltipEnergy.Hide()
-			
-
 
 class ExpandedTaskBar(ui.ScriptWindow):
 	BUTTON_DRAGON_SOUL = 0
@@ -347,14 +305,10 @@ class TaskBar(ui.ScriptWindow):
 	BUTTON_EXPAND = 4
 	if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 		BUTTON_EXPAND_MONEY = 5	
-	BUTTON_VECTORS = 6		
-	BUTTON_OFFLINESHOP = 7
-	#BUTTON_DSS = 8
-	if app.BL_REMOTE_SHOP:
-		BUTTON_REMOTE_SHOP = 9
+	IS_EXPANDED = False
+
 	if app.ENABLE_ANTI_MULTIPLE_FARM:
 		BUTTON_ANTI_MULTIPLE_FARM = 12
-	IS_EXPANDED = False
 
 	MOUSE_BUTTON_LEFT = 0
 	MOUSE_BUTTON_RIGHT = 1
@@ -456,12 +410,10 @@ class TaskBar(ui.ScriptWindow):
 			self.SetSkillSlotNew(slotNumber, skillIndex, skillGrade, skillLevel)
 			self.SetSlotCountNew(slotNumber, skillGrade, skillLevel)
 
-			## NOTE : CoolTime 체크
 			if player.IsSkillCoolTime(skillSlotNumber):
 				(coolTime, elapsedTime) = player.GetSkillCoolTime(skillSlotNumber)
 				self.SetSlotCoolTime(slotNumber, coolTime, elapsedTime)
 
-			## NOTE : Activate 되어 있다면 아이콘도 업데이트
 			if player.IsSkillActive(skillSlotNumber):
 				self.ActivateSlot(slotNumber)
 
@@ -498,19 +450,6 @@ class TaskBar(ui.ScriptWindow):
 				else:
 					self.event()
 
-	if app.SKILL_COOLTIME_UPDATE:
-		def SkillClearCoolTime(self, usedSlotIndex):
-			QUICK_SLOT_SLOT_COUNT = 4
-			slotIndex = 0
-			for slotWindow in self.quickslot:
-				for i in xrange(QUICK_SLOT_SLOT_COUNT):
-					(Type, Position) = player.GetLocalQuickSlot(slotIndex)
-					if Type == player.SLOT_TYPE_SKILL:
-						if usedSlotIndex == Position:
-							slotWindow.SetSlotCoolTime(slotIndex, 0)
-							return
-					slotIndex += 1
-
 	def __init__(self):
 		#print "NEW TASKBAR  ----------------------------------------------------------------------------"
 
@@ -519,14 +458,11 @@ class TaskBar(ui.ScriptWindow):
 		if app.ENABLE_ANTI_MULTIPLE_FARM:
 			self.anti_farm_info = None
 
-		if app.ENABLE_DSS_ACTIVE_EFFECT_BUTTON:
-			self.DSSButtonEffect = None
-			
 		self.quickPageNumImageBox = None
 		self.tooltipItem = 0
 		self.tooltipSkill = 0
 		self.mouseModeButtonList = [ ui.ScriptWindow("TOP_MOST"), ui.ScriptWindow("TOP_MOST") ]
-		self.poisonEffect = 0
+
 		self.tooltipHP = self.TextToolTip()
 		self.tooltipHP.Show()
 		self.tooltipSP = self.TextToolTip()
@@ -569,19 +505,6 @@ class TaskBar(ui.ScriptWindow):
 		self.quickslot = []
 		self.quickslot.append(self.GetChild("quick_slot_1"))
 		self.quickslot.append(self.GetChild("quick_slot_2"))
-
-		self.cooldownText = []
-		self.cooldownText.append(self.GetChild("slot_1_cd"))
-		self.cooldownText.append(self.GetChild("slot_2_cd"))
-		self.cooldownText.append(self.GetChild("slot_3_cd"))
-		self.cooldownText.append(self.GetChild("slot_4_cd"))
-		self.cooldownText.append(self.GetChild("slot_5_cd"))
-		self.cooldownText.append(self.GetChild("slot_6_cd"))
-		self.cooldownText.append(self.GetChild("slot_7_cd"))
-		self.cooldownText.append(self.GetChild("slot_8_cd"))
-		for i in xrange(8):
-			self.cooldownText[i-1].Hide()
-
 		for slot in self.quickslot:
 			slot.SetSlotStyle(wndMgr.SLOT_STYLE_NONE)
 			slot.SetSelectEmptySlotEvent(ui.__mem_func__(self.SelectEmptyQuickSlot))
@@ -595,25 +518,13 @@ class TaskBar(ui.ScriptWindow):
 		toggleButtonDict[TaskBar.BUTTON_INVENTORY]=self.GetChild("InventoryButton")
 		toggleButtonDict[TaskBar.BUTTON_MESSENGER]=self.GetChild("MessengerButton")
 		toggleButtonDict[TaskBar.BUTTON_SYSTEM]=self.GetChild("SystemButton")
-		if app.BL_REMOTE_SHOP:
-			toggleButtonDict[TaskBar.BUTTON_REMOTE_SHOP]=self.GetChild("RemoteShop")
-		toggleButtonDict[TaskBar.BUTTON_OFFLINESHOP]=self.GetChild("OfflineShopButton")
-		#toggleButtonDict[TaskBar.BUTTON_DSS]=self.GetChild("DSSButton")
-	
 		if constInfo.ENABLE_EXPANDED_MONEY_TASKBAR:
 			toggleButtonDict[TaskBar.BUTTON_EXPAND_MONEY]=self.GetChild("ExpandMoneyButton")	
-		# if app.ENABLE_ANTI_MULTIPLE_FARM:
-			# pos_x, pos_y = (tuple(x-y for x,y in zip(toggleButtonDict[TaskBar.BUTTON_CHARACTER].GetLocalPosition(), [toggleButtonDict[TaskBar.BUTTON_CHARACTER].GetWidth() + 500, 0])))
-			# tmpButton = ui.MakeButton(self, pos_x, pos_y, "", "d:/ymir work/ui/anti_multiple_farm/", "anti_multiple_farm_bt_norm.png", "anti_multiple_farm_bt_hover.png", "anti_multiple_farm_bt_down.png")
-			# toggleButtonDict[TaskBar.BUTTON_ANTI_MULTIPLE_FARM] = tmpButton
-			# self.anti_farm_info = ui.MakeImageBox(toggleButtonDict[TaskBar.BUTTON_ANTI_MULTIPLE_FARM],\
-					# "d:/ymir work/ui/pattern/visible_mark_01.tga", -17, 7)		
-		# ChatButton, ExpandButton 둘 중 하나는 반드시 존재한다.
 		try:
 			toggleButtonDict[TaskBar.BUTTON_CHAT]=self.GetChild("ChatButton")
 		except:
 			toggleButtonDict[TaskBar.BUTTON_EXPAND]=self.GetChild("ExpandButton")
-			TaskBar.IS_EXPANDED = True
+			# TaskBar.IS_EXPANDED = True
 
 
 		if localeInfo.IsARABIC():
@@ -668,6 +579,7 @@ class TaskBar(ui.ScriptWindow):
 			self.anti_farm_info = ui.MakeImageBox(toggleButtonDict[TaskBar.BUTTON_ANTI_MULTIPLE_FARM],\
 					"d:/ymir work/ui/pattern/visible_mark_01.tga", -17, 7)
 
+
 		mouseImage = ui.ImageBox("TOP_MOST")
 		mouseImage.AddFlag("float")
 		mouseImage.LoadImage("d:/ymir work/ui/game/taskbar/mouse_button_camera_01.sub")
@@ -703,16 +615,12 @@ class TaskBar(ui.ScriptWindow):
 		self.stGauge = self.GetChild("STGauge")
 		self.hpRecoveryGaugeBar = self.GetChild("HPRecoveryGaugeBar")
 		self.spRecoveryGaugeBar = self.GetChild("SPRecoveryGaugeBar")
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			self.hpPoisonGauge = self.GetChild("HPPoisonGauge")
-			self.hpPoisonRecoveryGaugeBar = self.GetChild("HPPoisonRecoveryGaugeBar")
-			self.hpPoisonGauge.Hide()
-			self.hpPoisonRecoveryGaugeBar.Hide()
+
 		self.hpGaugeBoard=self.GetChild("HPGauge_Board")
 		self.mpGaugeBoard=self.GetChild("SPGauge_Board")
 		self.stGaugeBoard=self.GetChild("STGauge_Board")
 		self.expGaugeBoard=self.GetChild("EXP_Gauge_Board")
-		
+
 		#giftbox object
 		wndGiftBox = GiftBox()
 		wndGiftBox.LoadWindow()
@@ -759,26 +667,7 @@ class TaskBar(ui.ScriptWindow):
 			self.SelectMouseButtonEvent(self.MOUSE_BUTTON_RIGHT,	mouseRightButtonEvent)
 
 
-	if app.ENABLE_DSS_ACTIVE_EFFECT_BUTTON:
-		def UseDSSButtonEffect(self, enable):
-			if self.toggleButtonDict[TaskBar.BUTTON_DSS]:
-				DSSButtonEffect = ui.SlotWindow()
-				DSSButtonEffect.AddFlag("attach")
-				DSSButtonEffect.SetParent(self.toggleButtonDict[TaskBar.BUTTON_DSS])
-				DSSButtonEffect.SetPosition(3.2, 0)
 
-				DSSButtonEffect.AppendSlot(0, 0, 0, 32, 32)
-				DSSButtonEffect.SetRenderSlot(0)
-				DSSButtonEffect.RefreshSlot()
-
-				if enable == True:
-					DSSButtonEffect.ActivateSlot(0)
-					DSSButtonEffect.Show()
-				else:
-					DSSButtonEffect.DeactivateSlot(0)
-					DSSButtonEffect.Hide()
-				self.DSSButtonEffect = DSSButtonEffect
-				
 	def __IsInSafeMouseButtonSettingRange(self, arg):
 		return arg >= self.EVENT_MOVE and arg <= self.EVENT_AUTO
 
@@ -800,9 +689,7 @@ class TaskBar(ui.ScriptWindow):
 		self.stGauge = None
 		self.hpRecoveryGaugeBar = None
 		self.spRecoveryGaugeBar = None
-		self.hpPoisonGauge = None
-		self.hpPoisonRecoveryGaugeBar = None
-		self.poisonEffect = 0		
+
 		self.tooltipItem = 0
 		self.tooltipSkill = 0
 		self.quickslot = 0
@@ -818,8 +705,10 @@ class TaskBar(ui.ScriptWindow):
 		self.tooltipSP = 0
 		self.tooltipST = 0
 		self.tooltipEXP = 0
+
 		if app.ENABLE_ANTI_MULTIPLE_FARM:
 			self.anti_farm_info = 0
+
 		self.mouseImage = None
 
 	def __OnClickQuickPageUpButton(self):
@@ -861,13 +750,6 @@ class TaskBar(ui.ScriptWindow):
 		self.RefreshStamina()
 
 		self.SetHP(curHP, recoveryHP, maxHP)
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			if chrmgr.HasAffectByVID(player.GetMainCharacterIndex(), chr.AFFECT_POISON):
-				self.hpGauge.Hide()
-				self.hpPoisonGauge.Show()
-			else:
-				self.hpPoisonGauge.Hide()
-				self.hpGauge.Show()
 		self.SetSP(curSP, recoverySP, maxSP)
 		self.SetExperience(curEXP, nextEXP)
 
@@ -881,42 +763,19 @@ class TaskBar(ui.ScriptWindow):
 		for button in self.selectSkillButtonList:
 			button.RefreshSkill()
 
-	def HPPoisonEffectShow(self):
-		self.poisonEffect = 1
-		self.hpGauge.Hide()
-		self.hpPoisonGauge.Show()
-		
-	def HPPoisonEffectHide(self):
-		self.poisonEffect = 0
-		self.hpPoisonGauge.Hide()
-		self.hpGauge.Show()
-
 	def SetHP(self, curPoint, recoveryPoint, maxPoint):
 		curPoint = min(curPoint, maxPoint)
 		if maxPoint > 0:
 			self.hpGauge.SetPercentage(curPoint, maxPoint)
-			self.hpPoisonGauge.SetPercentage(curPoint, maxPoint)
 			self.tooltipHP.SetText("%s : %d / %d" % (localeInfo.TASKBAR_HP, curPoint, maxPoint))
 
 			if 0 == recoveryPoint:
 				self.hpRecoveryGaugeBar.Hide()
-				self.hpPoisonRecoveryGaugeBar.Hide()
 			else:
 				destPoint = min(maxPoint, curPoint + recoveryPoint)
 				newWidth = int(self.GAUGE_WIDTH * (float(destPoint) / float(maxPoint)))
-				
-				if app.ENABLE_POISON_GAUGE_EFFECT:
-					if chrmgr.HasAffectByVID(player.GetMainCharacterIndex(), chr.AFFECT_POISON):
-						if self.hpRecoveryGaugeBar.IsShow():
-							self.hpRecoveryGaugeBar.Hide()
-
-						self.hpPoisonRecoveryGaugeBar.SetSize(newWidth, self.GAUGE_HEIGHT)
-						self.hpPoisonRecoveryGaugeBar.Show()
-					else:
-						if self.hpPoisonRecoveryGaugeBar.IsShow():
-							self.hpPoisonRecoveryGaugeBar.Hide()
-						else:
-							self.hpRecoveryGaugeBar.Show()
+				self.hpRecoveryGaugeBar.SetSize(newWidth, self.GAUGE_HEIGHT)
+				self.hpRecoveryGaugeBar.Show()
 
 	def SetSP(self, curPoint, recoveryPoint, maxPoint):
 		curPoint = min(curPoint, maxPoint)
@@ -997,9 +856,7 @@ class TaskBar(ui.ScriptWindow):
 					if itemCount <= 1:
 						itemCount = 0
 
-					## 자동물약 (#72723, #72724) 특수처리 - 아이템인데도 슬롯에 활성화/비활성화 표시를 위한 작업임 - [hyo]
 					if constInfo.IS_AUTO_POTION(itemIndex):
-						# metinSocket - [0] : 활성화 여부, [1] : 사용한 양, [2] : 최대 용량
 						metinSocket = [player.GetItemMetinSocket(Position, j) for j in xrange(player.METIN_SOCKET_MAX_NUM)]
 
 						if 0 != int(metinSocket[0]):
@@ -1030,29 +887,10 @@ class TaskBar(ui.ScriptWindow):
 					slot.SetSlotCountNew(slotNumber, skillGrade, skillLevel)
 					slot.SetCoverButton(slotNumber)
 
-					## NOTE : CoolTime 체크
 					if player.IsSkillCoolTime(Position):
 						(coolTime, elapsedTime) = player.GetSkillCoolTime(Position)
 						slot.SetSlotCoolTime(slotNumber, coolTime, elapsedTime)
 
-					#P1#	(coolTime, elapsedTime) = player.GetSkillCoolTime(Position)
-					#P1#	slot.SetSlotCoolTime(slotNumber, coolTime, elapsedTime)
-					#P1#	cooldownDelay = 0
-					#P1#	cooldown = coolTime-elapsedTime+cooldownDelay
-					#P1#	self.cooldownText[slotNumber].Show()
-					#P1#	self.cooldownText[slotNumber].SetText("%d" % cooldown)
-					#P1#	self.cooldownText[slotNumber].SetOutline()
-					#P1#	if cooldown < 10:
-					#P1#		self.cooldownText[slotNumber].SetPosition(7,0)
-					#P1#	elif cooldown > 9 and cooldown < 100:
-					#P1#		self.cooldownText[slotNumber].SetPosition(2,0)
-					#P1#	elif cooldown > 99:
-					#P1#		self.cooldownText[slotNumber].SetPosition(-1,0)
-					#P1#
-					#P1#elif not player.IsSkillCoolTime(Position):
-					#P1#	self.cooldownText[slotNumber].Hide()
-
-					## NOTE : Activate 되어 있다면 아이콘도 업데이트
 					if player.IsSkillActive(Position):
 						slot.ActivateSlot(slotNumber)
 
@@ -1244,27 +1082,6 @@ class TaskBar(ui.ScriptWindow):
 		else:
 			self.tooltipEXP.Hide()
 
-		startNumber = 0
-		for slot in self.quickslot:
-			for i in xrange(4):
-				slotNumber = i+startNumber
-				self.cooldownText[slotNumber].Hide()
-				(Type, Position) = player.GetLocalQuickSlot(slotNumber)
-				if player.IsSkillCoolTime(Position) and player.SLOT_TYPE_SKILL == Type:
-					(coolTime, elapsedTime) = player.GetSkillCoolTime(Position)
-					slot.SetSlotCoolTime(slotNumber, coolTime, elapsedTime)
-					cooldownDelay = 0
-					cooldown = int(coolTime-elapsedTime+cooldownDelay)
-					if app.IsPressed(app.DIK_LALT):
-						self.cooldownText[slotNumber].Hide()
-					else:
-						self.cooldownText[slotNumber].SetOutline()
-						self.cooldownText[slotNumber].SetText("%d" % cooldown)
-						cooldown = str(cooldown)
-						self.cooldownText[slotNumber].SetPosition((7, 2, -1)[len(cooldown)-1], 0)
-						self.cooldownText[slotNumber].Show()
-			startNumber += 4
-
 	## Skill
 	def ToggleLeftMouseButtonModeWindow(self):
 
@@ -1317,8 +1134,6 @@ class TaskBar(ui.ScriptWindow):
 				if skill.IsStandingSkill(skillIndex):
 					continue
 
-				## FIXME : 스킬 하나당 슬롯 하나씩 할당하는건 아무리 봐도 부하가 크다.
-				##		 이 부분은 시간을 나면 고치도록. - [levites]
 				skillButton = self.SkillButton()
 				skillButton.SetSkill(startNumber+i)
 				skillButton.SetPosition(x, y)
@@ -1383,7 +1198,6 @@ class TaskBar(ui.ScriptWindow):
 		elif self.EVENT_MOVE_AND_ATTACK == event:
 			btn = self.mouseModeButtonList[dir].GetChild("button_move_and_attack")
 			func = player.MBF_SMART
-			player.ClearAutoAttackTargetActorID()
 			tooltip_text = localeInfo.TASKBAR_ATTACK
 		elif self.EVENT_CAMERA == event:
 			btn = self.mouseModeButtonList[dir].GetChild("button_camera")

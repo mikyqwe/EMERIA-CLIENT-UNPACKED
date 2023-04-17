@@ -49,24 +49,18 @@
 [X_PADDING=52]DIAMANTE DEL DRAGO:
 [X_PADDING=60]- Intelligenza +16
 [X_PADDING=60]- Resistenza Ghiaccio 20%
-[X_PADDING=60]- Forza del Ghiaccio 20%
-[X_PADDING=60]- Forte contro Sura 24%
-[X_PADDING=60]- Possibilità di difesa dai sura 24%
-[X_PADDING=60]- HP max. +32%
-[X_PADDING=60]- Possibilità di rigenerazione MP 16%
+[X_PADDING=60]- Resistenza contro i danni abilità 24%
+[X_PADDING=60]- Danni Ailità 24%
 [X_PADDING=60]- Valore d'attacco magico +24
 [X_PADDING=60]- Difesa magica +24
 
 
 [X_PADDING=52]RUBINO DEL DRAGO:
 [X_PADDING=60]- Forza +16
-[X_PADDING=60]- Resistenza Fuoco 20%
-[X_PADDING=60]- Forza del Fuoco 20%
-[X_PADDING=60]- Forte contro Guerrieri 24%
-[X_PADDING=60]- Possibilità di difesa dai guerrieri 24%
-[X_PADDING=60]- Possibilità di lasciar cadere YANG 26%
-[X_PADDING=60]- Rigenerazione HP +16%
-[X_PADDING=60]- Resistenza ai danni medi 24%
+[X_PADDING=60]- Resistenza Fuoco 16%
+[X_PADDING=60]- Valore d'attacco +480
+[X_PADDING=60]- Danni Medi 24%
+[X_PADDING=60]- Resistenza contro i danni medi 24%
 [X_PADDING=60]- Difesa +320
 
 

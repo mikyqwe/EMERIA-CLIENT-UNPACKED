@@ -153,7 +153,6 @@ window = {
 					"text" : "- 가나다라마바사 02",
 				},
 
-				## 이 밑으로 텍스트를 추가 하시면 됩니다.
 			),
 		},
 
@@ -306,7 +305,7 @@ window = {
 			"x" : SCREEN_WIDTH * (55) / 800,
 			"y" : SCREEN_HEIGHT * (50) / 600,
 
-			"text" : "Pagina 1",
+			"text" : "1 Page",
 
 			"default_image" : "d:/ymir work/ui/public/xlarge_thin_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/xlarge_thin_button_02.sub",
@@ -319,7 +318,7 @@ window = {
 			"x" : SCREEN_WIDTH * (55) / 800,
 			"y" : SCREEN_HEIGHT * (35 + 50) / 600,
 
-			"text" : "Pagina 2",
+			"text" : "2 Page",
 
 			"default_image" : "d:/ymir work/ui/public/xlarge_thin_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/xlarge_thin_button_02.sub",

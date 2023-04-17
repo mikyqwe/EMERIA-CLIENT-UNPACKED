@@ -332,10 +332,10 @@ class CubeRenewalWindows(ui.ScriptWindow):
 
 		self.categoria = [
 			[1,"WEAPON","Armas"],
-			[2,"ETC","Pergament conducere"],
-			[3,"ACCE","Accesorii PVP"],
-			[4,"BELT","Curele"],
-			[5,"NEW_CATEGORY2","Accesorii PVM"],
+			[2,"ETC","Generico"],
+			[3,"ACCE","Stola - Veste Aurea"],
+			[4,"BELT","Cinture"],
+			[5,"NEW_CATEGORY2","Chiavi Dungeon"],
 			[6,"POTION","Pozioni"],
 			[7,"UPP","Item Upgrades"],
 			[8,"Talismans","Talismani"],
@@ -345,7 +345,7 @@ class CubeRenewalWindows(ui.ScriptWindow):
 			[12,"MOUNTELEMENT","Cavalcature Elementali"],
             [13,"PASS","Season Pass"],
 			[14,"PETS","Pets"],
-			[15,"CONTAINER","Carti conducere"],
+			[15,"CONTAINER","Contenitori"],
 			[16,"REALE","Corazze Reali"],
 			[17,"MOUNTNOOB","Cavalcature Base"],
 			[18,"RUNE","Rune"],

@@ -6,10 +6,10 @@ window = {
 	"x" : 0,
 	"y" : 0,
 
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"width" : 230,
-	"height" : 205,
+	"height" : 130,
 
 	"children" :
 	(
@@ -21,7 +21,7 @@ window = {
 			"y" : 0,
 
 			"width" : 230,
-			"height" : 205,
+			"height" : 130,
 
 			"title" : uiScriptLocale.GUILD_WAR_ACCEPT,
 
@@ -61,118 +61,10 @@ window = {
 						},
 					),
 				},
-				
-				{
-                    "name" : "InputNameScore",
-                    "type" : "text",
- 
-                    "x" : 15,
-                    "y" : 100,
- 
-                    "text" : "Max. Puncte",
-                },
-                {
-                    "name" : "InputSlotScore",
-                    "type" : "slotbar",
- 
-                    "x" : 80,
-                    "y" : 97,
-                    "width" : 130,
-                    "height" : 18,
- 
-                    "children" :
-                    (
-                        {
-                            "name" : "InputValueScore",
-                            "type" : "editline",
- 
-                            "x" : 3,
-                            "y" : 3,
- 
-                            "width" : 90,
-                            "height" : 18,
- 
-                            "input_limit" : 12,
-                        },
-                    ),
-                },
-
-
-                {
-                    "name" : "InputNameUser",
-                    "type" : "text",
- 
-                    "x" : 15,
-                    "y" : 130,
- 
-                    "text" : "Max. Jucãtori",
-                },
-                {
-                    "name" : "InputSlotUser",
-                    "type" : "slotbar",
- 
-                    "x" : 80,
-                    "y" : 127,
-                    "width" : 130,
-                    "height" : 18,
- 
-                    "children" :
-                    (
-                        {
-                            "name" : "InputValueUser",
-                            "type" : "editline",
- 
-                            "x" : 3,
-                            "y" : 3,
- 
-                            "width" : 90,
-                            "height" : 18,
- 
-                            "input_limit" : 12,
-                        },
-                    ),
-                },
-
-               # {
-                    # "name" : "IzleyiciStat",
-                    # "type" : "text",
- 
-                    # "x" : 15,
-                    # "y" : 165,
- 
-                    # "text" : "Mod Observer",
-                # },
-                # {
-                    # "name" : "observer_open",
-                    # "type" : "radio_button",
-
-                    # "x" : 70,
-                    # "y" : 165,
-
-                    # "text" : "Pornit",
-
-                    # "default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
-					# "over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
-					# "down_image" : "d:/ymir work/ui/public/middle_button_03.sub",
-                # },
-                # {
-                    # "name" : "observer_close",
-                    # "type" : "radio_button",
-
-                    # "x" : 140,
-                    # "y" : 165,
-
-                    # "text" : "Oprit",
-
-                    # "default_image" : "d:/ymir work/ui/public/middle_button_01.sub",
-					# "over_image" : "d:/ymir work/ui/public/middle_button_02.sub",
-					# "down_image" : "d:/ymir work/ui/public/middle_button_03.sub",
-                # },
-
 				## Input Slot
 				{
 					"name" : "GameType", "x" : 15, "y" : 65, "width" : 65+45*4, "height" : 20,
-					
+
 					"children" :
 					(
 						{"name" : "GameTypeLabel", "type" : "text", "x" : 0, "y" : 3, "text" : uiScriptLocale.GUILD_WAR_BATTLE_TYPE,},
@@ -197,7 +89,7 @@ window = {
 							"y" : 0,
 
 							"text" : uiScriptLocale.GUILD_WAR_WARP,
-							
+
 							"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/small_button_02.sub",
 							"down_image" : "d:/ymir work/ui/public/small_button_03.sub",
@@ -210,7 +102,7 @@ window = {
 							"y" : 0,
 
 							"text" : uiScriptLocale.GUILD_WAR_CTF,
-							
+
 							"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 							"over_image" : "d:/ymir work/ui/public/small_button_02.sub",
 							"down_image" : "d:/ymir work/ui/public/small_button_03.sub",
@@ -223,7 +115,7 @@ window = {
 					"type" : "button",
 
 					"x" : - 61 - 5 + 30,
-					"y" : 165,
+					"y" : 95,
 					"horizontal_align" : "center",
 
 					"text" : uiScriptLocale.OK,
@@ -237,7 +129,7 @@ window = {
 					"type" : "button",
 
 					"x" : 5 + 30,
-					"y" : 165,
+					"y" : 95,
 					"horizontal_align" : "center",
 
 					"text" : uiScriptLocale.CANCEL,

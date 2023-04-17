@@ -1,7 +1,7 @@
 title subImage
 version 1.0
-image "Inventory_default.tga"
-left 3
-top 0
-right 35
-bottom 19
+image "Windows.dds"
+left 429
+top 347
+right 468
+bottom 366

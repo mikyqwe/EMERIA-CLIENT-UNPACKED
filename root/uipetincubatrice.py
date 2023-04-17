@@ -59,9 +59,9 @@ class PetSystemIncubator(ui.ScriptWindow):
 			exception.Abort("PetHatchingWindow.LoadWindow.BindObject")
 			
 	def LoadPetIncubatorImg(self, new_pet):
-		petarryname = ["Ou de maimuþã", "Ou de pãianjen", "Ou Razador", "Ou Nemere", "Ou de dragon albastru", "Ou de dragonit", "Ou Azrael", "Ou dolofan de cãlãu", "Ou Bebeluº Baashido", "Ou Nessie"]
+		petarryname = ["Uovo di Scimmia", "Uovo di Ragno", "Uovo di Razador", "Uovo di Nemere", "Uovo di drago blu", "Uovo di Dragonite", "Uovo di Azrael", "Uovo di Boia paffuto", "Uovo di Baashido bebe", "Uovo di Nessie"]
 		petarryimg = [55701, 55702, 55703, 55704, 55705, 55706, 55707, 55708, 55709, 55710]
-		chat.AppendChat(chat.CHAT_TYPE_INFO, "Incubator: "+petarryname[int(new_pet)]+".")
+		chat.AppendChat(chat.CHAT_TYPE_INFO, "Incubatrice: "+petarryname[int(new_pet)]+".")
 		self.petimg.SetItemSlot(0,petarryimg[int(new_pet)], 0)
 		self.petimg.SetAlwaysRenderCoverButton(0, TRUE)
 		#self.petimg.SetSlotBaseImage("icon/item/"+petarryimg[new_pet], 0, 0, 0, 0)
@@ -71,7 +71,7 @@ class PetSystemIncubator(ui.ScriptWindow):
 			
 	def RequestHatching(self):
 		if self.petname.GetText() == "" or len(self.petname.GetText()) < 4:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Numele petului nu este valid.")
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Il nome del pet non e' valido.")
 			return
 			
 		if player.GetElk() < 100000:

@@ -7,14 +7,7 @@ import uiToolTip
 import mouseModule
 import localeInfo
 import uiCommon
-import wndMgr
 import constInfo
-if constInfo.ENABLE_REFINE_ITEM_DESCRIPTION:
-	TOOLTIP_DATA = {
-		'materials' : [],
-		'slot_count': 0
-	}
-import chat
 
 class RefineDialog(ui.ScriptWindow):
 
@@ -53,7 +46,6 @@ class RefineDialog(ui.ScriptWindow):
 			import exception
 			exception.Abort("RefineDialog.__LoadScript.BindObject")
 
-		## 936 : °³·® È®·ü Ç¥½Ã ¾ÈÇÔ
 		##if 936 == app.GetDefaultCodePage():
 		if constInfo.ENABLE_REFINE_PCT:
 			self.successPercentage.Show()
@@ -157,7 +149,7 @@ class RefineDialog(ui.ScriptWindow):
 		self.toolTip.AddItemData(itemIndex, metinSlot)
 
 		self.UpdateDialog()
-		#self.SetTop()
+		self.SetTop()
 		self.Show()
 
 	def UpdateDialog(self):
@@ -182,41 +174,10 @@ class RefineDialog(ui.ScriptWindow):
 	def Accept(self):
 		net.SendItemUseToItemPacket(self.scrollItemPos, self.targetItemPos)
 		self.Close()
-	
+
 	def Close(self):
 		self.dlgQuestion.Hide()
 		self.Hide()
-
-	if constInfo.ENABLE_REFINE_ITEM_DESCRIPTION:
-		def __MakeItemSlot(self, slotIndex):
-			slot = ui.SlotWindow()
-			slot.SetParent(self)
-			slot.SetSize(32, 32)
-			slot.SetSlotBaseImage("d:/ymir work/ui/public/Slot_Base.sub", 1.0, 1.0, 1.0, 1.0)
-			slot.AppendSlot(slotIndex, 0, 0, 32, 32)
-			slot.SetOverInItemEvent(ui.__mem_func__(self.OverInItem))
-			slot.SetOverOutItemEvent(ui.__mem_func__(self.OverOutItem))
-			slot.RefreshSlot()
-			slot.Show()
-			self.children.append(slot)
-			return slot
-			
-		def OverInItem(self, slotIndex):
-			if slotIndex > len(TOOLTIP_DATA['materials']):
-				return
-				
-			if self.tooltipItem:
-				self.tooltipItem.ClearToolTip()
-				#if app.RENDER_TARGET:
-				#	self.tooltipItem.AddItemData(TOOLTIP_DATA['materials'][slotIndex], 0, 0, 0, 0, player.INVENTORY, 1,1)
-				#else:
-				self.tooltipItem.AddItemData(TOOLTIP_DATA['materials'][slotIndex], 0)
-				self.tooltipItem.AlignHorizonalCenter()
-				self.tooltipItem.ShowToolTip()
-
-		def OverOutItem(self):
-			if self.tooltipItem:
-				self.tooltipItem.HideToolTip()
 
 	def OnPressEscapeKey(self):
 		self.Close()
@@ -230,7 +191,7 @@ class RefineDialogNew(ui.ScriptWindow):
 		self.isLoaded = False
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.wndInventory = None
-
+			
 	def __Initialize(self):
 		self.dlgQuestion = None
 		self.children = []
@@ -240,8 +201,7 @@ class RefineDialogNew(ui.ScriptWindow):
 		self.cost = 0
 		self.percentage = 0
 		self.type = 0
-		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.lockedItem = (-1,-1)
+
 	def __LoadScript(self):
 
 		try:
@@ -264,7 +224,6 @@ class RefineDialogNew(ui.ScriptWindow):
 			import exception
 			exception.Abort("RefineDialog.__LoadScript.BindObject")
 
-		## 936 : °³·® È®·ü Ç¥½Ã ¾ÈÇÔ
 		##if 936 == app.GetDefaultCodePage():
 		if constInfo.ENABLE_REFINE_PCT:
 			self.successPercentage.Show()
@@ -292,20 +251,6 @@ class RefineDialogNew(ui.ScriptWindow):
 		self.itemImage = itemImage
 
 		self.titleBar.SetCloseEvent(ui.__mem_func__(self.CancelRefine))
-		if constInfo.ENABLE_REFINE_ITEM_DESCRIPTION:
-			self.tooltipItem = uiToolTip.ItemToolTip()
-			self.tooltipItem.Hide()
-		if app.ENABLE_REFINE_RENEWAL:
-			self.checkBox = ui.CheckBox2()
-			self.checkBox.SetParent(self)
-			self.checkBox.SetPosition(0, 77)
-			self.checkBox.SetWindowHorizontalAlignCenter()
-			self.checkBox.SetWindowVerticalAlignBottom()
-			self.checkBox.SetEvent(ui.__mem_func__(self.AutoRefine), "ON_CHECK", True)
-			self.checkBox.SetEvent(ui.__mem_func__(self.AutoRefine), "ON_UNCKECK", False)
-			self.checkBox.SetCheckStatus(constInfo.IS_AUTO_REFINE)
-			self.checkBox.SetTextInfo("Nu inchideþi fereastra de rafinare.")
-			self.checkBox.Show()
 		self.isLoaded = True
 
 	def __del__(self):
@@ -323,16 +268,6 @@ class RefineDialogNew(ui.ScriptWindow):
 		itemImage.Show()
 		self.children.append(itemImage)
 		return itemImage
-
-	if app.ENABLE_REFINE_WINDOW_SLOT_EFFECT:
-		def __MakeNewItemImage(self):
-			xSlotCount, ySlotCount = item.GetItemSize()
-			slotGrid = ui.GridSlotWindow()
-			slotGrid.AppendSlot(0, 0, 0, 32 * xSlotCount, 32 * ySlotCount)
-			slotGrid.AddFlag("not_pick")
-			slotGrid.Show()
-			self.children.append(slotGrid)
-			return slotGrid
 
 	def __MakeThinBoard(self):
 		thinBoard = ui.ThinBoard()
@@ -354,28 +289,13 @@ class RefineDialogNew(ui.ScriptWindow):
 		self.children = []
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.wndInventory = None
-			self.lockedItem = (-1,-1)
-	if app.ENABLE_REFINE_RENEWAL:
-		def __InitializeOpen(self):
-			self.children = []
-			self.vnum = 0
-			self.targetItemPos = 0
-			self.dialogHeight = 0
-			self.cost = 0
-			self.percentage = 0
-			self.type = 0
-			self.xRefineStart = 0
-			self.yRefineStart = 0	
 
 	def Open(self, targetItemPos, nextGradeItemVnum, cost, prob, type):
 
 		if False == self.isLoaded:
 			self.__LoadScript()
 
-		if app.ENABLE_REFINE_RENEWAL:
-			self.__InitializeOpen()
-		else:
-			self.__Initialize()
+		self.__Initialize()
 
 		self.targetItemPos = targetItemPos
 		self.vnum = nextGradeItemVnum
@@ -385,8 +305,7 @@ class RefineDialogNew(ui.ScriptWindow):
 
 		self.probText.SetText(localeInfo.REFINE_SUCCESS_PROBALITY % (self.percentage))
 		self.costText.SetText(localeInfo.REFINE_COST % (self.cost))
-		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.SetCantMouseEventSlot(targetItemPos)
+
 		self.toolTip.ClearToolTip()
 		metinSlot = []
 		for i in xrange(player.METIN_SOCKET_MAX_NUM):
@@ -396,6 +315,9 @@ class RefineDialogNew(ui.ScriptWindow):
 		for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM):
 			attrSlot.append(player.GetItemAttribute(targetItemPos, i))
 		self.toolTip.AddRefineItemData(nextGradeItemVnum, metinSlot, attrSlot)
+
+		if app.WJ_ENABLE_TRADABLE_ICON:
+			self.SetCantMouseEventSlot(targetItemPos)
 
 		item.SelectItem(nextGradeItemVnum)
 		self.itemImage.LoadImage(item.GetIconImageFileName())
@@ -409,74 +331,26 @@ class RefineDialogNew(ui.ScriptWindow):
 		self.dialogHeight = self.toolTip.GetHeight() + 46
 		self.UpdateDialog()
 
-		#self.SetTop()
+		self.SetTop()
 		self.Show()
 
 	def Close(self):
-		if self.dlgQuestion:
-			self.dlgQuestion.Close()
-
 		self.dlgQuestion = None
 		self.Hide()
 
-		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.lockedItem = (-1, -1)
-			self.SetCanMouseEventSlot(self.targetItemPos)
-
-	if constInfo.ENABLE_REFINE_ITEM_DESCRIPTION:
-		def __MakeItemSlot(self, slotIndex):
-			slot = ui.SlotWindow()
-			slot.SetParent(self)
-			slot.SetSize(32, 32)
-			slot.SetSlotBaseImage("d:/ymir work/ui/public/Slot_Base.sub", 1.0, 1.0, 1.0, 1.0)
-			slot.AppendSlot(slotIndex, 0, 0, 32, 32)
-			slot.SetOverInItemEvent(ui.__mem_func__(self.OverInItem))
-			slot.SetOverOutItemEvent(ui.__mem_func__(self.OverOutItem))
-			slot.RefreshSlot()
-			slot.Show()
-			self.children.append(slot)
-			return slot
-			
-		def OverInItem(self, slotIndex):
-			if slotIndex > len(TOOLTIP_DATA['materials']):
-				return
-				
-			if self.tooltipItem:
-				self.tooltipItem.ClearToolTip()
-				#if app.RENDER_TARGET:
-				#	self.tooltipItem.AddItemData(TOOLTIP_DATA['materials'][slotIndex], 0, 0, 0, 0, player.INVENTORY, 1,1)
-				#else:
-				self.tooltipItem.AddItemData(TOOLTIP_DATA['materials'][slotIndex], 0)
-				self.tooltipItem.AlignHorizonalCenter()
-				self.tooltipItem.ShowToolTip()
-
-		def OverOutItem(self):
-			if self.tooltipItem:
-				self.tooltipItem.HideToolTip()
+	#if app.WJ_ENABLE_TRADABLE_ICON:
+		#self.lockedItem = (-1, -1)
+		self.SetCanMouseEventSlot(self.targetItemPos)
 
 	def AppendMaterial(self, vnum, count):
 		slot = self.__MakeSlot()
 		slot.SetParent(self)
 		slot.SetPosition(15, self.dialogHeight)
 
-		if app.ENABLE_REFINE_WINDOW_SLOT_EFFECT:
-			SlotNum = 0
-			SlotItemImage = self.__MakeNewItemImage()
-			SlotItemImage.SetParent(slot)
-			SlotItemImage.SetItemSlot(SlotNum, vnum)
-			item_count = player.GetItemCountByVnum(vnum)
-			if item_count < count:
-				r, g, b = (255.00 / 255.0), (0.00 / 255.0), (0.00 / 255.0)
-			else:
-				r, g, b = (0.00 / 255.0), (255.00 / 255.0), (0.00 / 255.0)
-	
-			SlotItemImage.ActivateSlotEffect(SlotNum, r, g, b, 1.0)
-			SlotItemImage.SetText("%d"% (count))
-		else:
-			itemImage = self.__MakeItemImage()
-			itemImage.SetParent(slot)
-			item.SelectItem(vnum)
-			itemImage.LoadImage(item.GetIconImageFileName())
+		itemImage = self.__MakeItemImage()
+		itemImage.SetParent(slot)
+		item.SelectItem(vnum)
+		itemImage.LoadImage(item.GetIconImageFileName())
 
 		thinBoard = self.__MakeThinBoard()
 		thinBoard.SetPosition(50, self.dialogHeight)
@@ -485,11 +359,8 @@ class RefineDialogNew(ui.ScriptWindow):
 		textLine = ui.TextLine()
 		textLine.SetParent(thinBoard)
 		textLine.SetFontName(localeInfo.UI_DEF_FONT)
-		if player.GetItemCountByVnum(vnum) < count:
-			textLine.SetPackedFontColor(0xffFF0033)
-		else:
-			textLine.SetPackedFontColor(0xff40EF37)
-		textLine.SetText("|cFFdddddd|H|h%s x%d|h|r (%d)" % (item.GetItemName(), count, player.GetAllItemCount(vnum)))
+		textLine.SetPackedFontColor(0xffdddddd)
+		textLine.SetText("%s x %02d" % (item.GetItemName(), count))
 		textLine.SetOutline()
 		textLine.SetFeather(False)
 		textLine.SetWindowVerticalAlignCenter()
@@ -509,9 +380,8 @@ class RefineDialogNew(ui.ScriptWindow):
 
 	def UpdateDialog(self):
 		newWidth = self.toolTip.GetWidth() + 60
-		newHeight = self.dialogHeight + 85
+		newHeight = self.dialogHeight + 75
 
-		## 936 : °³·® È®·ü Ç¥½Ã ¾ÈÇÔ
 		##if 936 == app.GetDefaultCodePage():
 		newHeight -= 8
 
@@ -535,7 +405,7 @@ class RefineDialogNew(ui.ScriptWindow):
 			self.Accept()
 			return
 
-		if 5 == self.type: ## ¹«½ÅÀÇ Ãàº¹¼­
+		if 5 == self.type:
 			self.Accept()
 			return
 
@@ -544,10 +414,10 @@ class RefineDialogNew(ui.ScriptWindow):
 		dlgQuestion.SetAcceptEvent(ui.__mem_func__(self.Accept))
 		dlgQuestion.SetCancelEvent(ui.__mem_func__(dlgQuestion.Close))
 
-		if 3 == self.type: ## ÇöÃ¶
+		if 3 == self.type:
 			dlgQuestion.SetText1(localeInfo.REFINE_DESTROY_WARNING_WITH_BONUS_PERCENT_1)
 			dlgQuestion.SetText2(localeInfo.REFINE_DESTROY_WARNING_WITH_BONUS_PERCENT_2)
-		elif 2 == self.type: ## Ãàº¹¼­
+		elif 2 == self.type:
 			dlgQuestion.SetText1(localeInfo.REFINE_DOWN_GRADE_WARNING)
 		else:
 			dlgQuestion.SetText1(localeInfo.REFINE_DESTROY_WARNING)
@@ -557,49 +427,11 @@ class RefineDialogNew(ui.ScriptWindow):
 
 	def Accept(self):
 		net.SendRefinePacket(self.targetItemPos, self.type)
-		if not app.ENABLE_REFINE_RENEWAL:
-			self.Close()
-
-	if app.ENABLE_REFINE_RENEWAL:	
-		def AutoRefine(self, checkType, autoFlag):
-			constInfo.IS_AUTO_REFINE = autoFlag
-		
-		def CheckRefine(self, isFail):
-			if constInfo.IS_AUTO_REFINE == True:
-				if constInfo.AUTO_REFINE_TYPE == 1:
-					if constInfo.AUTO_REFINE_DATA["ITEM"][0] != -1 and constInfo.AUTO_REFINE_DATA["ITEM"][1] != -1:
-						scrollIndex = player.GetItemIndex(constInfo.AUTO_REFINE_DATA["ITEM"][0])
-						itemIndex = player.GetItemIndex(constInfo.AUTO_REFINE_DATA["ITEM"][1])
-						
-						# chat.AppendChat(chat.CHAT_TYPE_INFO, "%d %d" % (itemIndex, int(itemIndex %10)))
-						if scrollIndex == 0 or (itemIndex % 10 == 8 and not isFail):
-							self.Close()
-						else:
-							net.SendItemUseToItemPacket(constInfo.AUTO_REFINE_DATA["ITEM"][0], constInfo.AUTO_REFINE_DATA["ITEM"][1])
-				elif constInfo.AUTO_REFINE_TYPE == 2:
-					npcData = constInfo.AUTO_REFINE_DATA["NPC"]
-					if npcData[0] != 0 and npcData[1] != -1 and npcData[2] != -1 and npcData[3] != 0:
-						itemIndex = player.GetItemIndex(npcData[1], npcData[2])
-						if (itemIndex % 10 == 8 and not isFail) or isFail:
-							self.Close()
-						else:
-							net.SendGiveItemPacket(npcData[0], npcData[1], npcData[2], npcData[3])
-				else:
-					self.Close()
-			else:
-				self.Close()
+		self.Close()
 
 	def CancelRefine(self):
-		if constInfo.ENABLE_REFINE_ITEM_DESCRIPTION:
-			TOOLTIP_DATA['materials'] = []
 		net.SendRefinePacket(255, 255)
 		self.Close()
-		if app.ENABLE_REFINE_RENEWAL:
-			constInfo.AUTO_REFINE_TYPE = 0
-			constInfo.AUTO_REFINE_DATA = {
-				"ITEM" : [-1, -1],
-				"NPC" : [0, -1, -1, 0]
-			}
 
 	def OnPressEscapeKey(self):
 		self.CancelRefine()
@@ -626,10 +458,10 @@ class RefineDialogNew(ui.ScriptWindow):
 			from _weakref import proxy
 			self.wndInventory = proxy(wndInventory)
 
-		def RefreshLockedSlot(self):
-			if self.wndInventory:
-				itemInvenPage, itemSlotPos = self.lockedItem
-				if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
-					self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
+		# def RefreshLockedSlot(self):
+			# if self.wndInventory:
+				# itemInvenPage, itemSlotPos = self.lockedItem
+				# if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
+					# self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
 
-				self.wndInventory.wndItem.RefreshSlot()
+				# self.wndInventory.wndItem.RefreshSlot()

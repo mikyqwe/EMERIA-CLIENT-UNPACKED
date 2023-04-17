@@ -1,9 +1,9 @@
 TextureSet
 
-TextureCount 3
+TextureCount 6
 
 Start Texture001
-    "d:\ymir work\terrainmaps\capedragonhead\CapeDragon_grass003.dds"
+    "d:\ymir work\terrainmaps\dawnmistwood\dawnmistwood_grass001.dds"
     4.000000
     4.000000
     0.000000
@@ -13,17 +13,17 @@ Start Texture001
     0
 End Texture001
 Start Texture002
-    "d:\ymir work\terrainmaps\capedragonhead\CapeDragon_stone001.dds"
-    2.000000
+    "d:\ymir work\terrainmaps\b\stone\stone01.dds"
+    1.000000
     1.000000
     0.000000
     0.000000
-    0
+    1
     0
     0
 End Texture002
 Start Texture003
-    "d:\ymir work\terrainmaps\capedragonhead\capedragon_field001.dds"
+    "d:\ymir work\terrainmaps\b\field\field 01_01.dds"
     4.000000
     4.000000
     0.000000
@@ -32,3 +32,33 @@ Start Texture003
     0
     0
 End Texture003
+Start Texture004
+    "d:\ymir work\terrainmaps\b\stone\stone01_01.dds"
+    4.000000
+    4.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture004
+Start Texture005
+    "d:\ymir work\terrainmaps\guild_village\stone_tile_002.dds"
+    3.000000
+    3.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture005
+Start Texture006
+    "d:\ymir work\terrainmaps\12temple\temple_stone01.dds"
+    8.000000
+    8.000000
+    0.000000
+    0.000000
+    1
+    0
+    0
+End Texture006

@@ -353,7 +353,7 @@ class HuntingSelectWindow(ui.ScriptWindow):
 				self.scrollBar2.SetPosition(0, 0)
 				self.Show()
 		else:
-			chat.AppendChat(chat.CHAT_TYPE_INFO, "Nu se deschide fereastra Hunting Select" % type)
+			chat.AppendChat(chat.CHAT_TYPE_INFO, "Failure to open Huntin Select Window" % type)
 	
 	def Close(self):
 		self.RaceItem = [[],[]]
@@ -834,7 +834,7 @@ class HuntingMiniWindow(ui.Window):
 			self.mob_text.SetHorizontalAlignCenter()
 			self.mob_text.SetPosition(0, 26)
 			self.mob_text.SetOutline()
-			self.mob_text.SetText("Comandantul Jur„m‚ntului Alb")
+			self.mob_text.SetText("Weiﬂer-Eid Kommandantin")
 			self.mob_text.Show()
 			
 			self.count_text = ui.TextLine()

@@ -11,10 +11,10 @@ if app.ENABLE_WEAPON_COSTUME_SYSTEM:
 		"x" : SCREEN_WIDTH - 175 - 140,
 		"y" : SCREEN_HEIGHT - 37 - 565,
 
-		"style" : ("movable", "float", "animate",),
+		"style" : ("movable", "float",),
 
 		"width" : 140,
-		"height" : (180 + 47), #±âÁ¸º¸´Ù 47 ±æ¾îÁü
+		"height" : (180 + 47),
 
 		"children" :
 		(
@@ -28,7 +28,7 @@ if app.ENABLE_WEAPON_COSTUME_SYSTEM:
 
 				"width" : 140,
 				"height" : (180 + 47),
-			
+
 				"children" :
 				(
 					## Title
@@ -56,8 +56,8 @@ if app.ENABLE_WEAPON_COSTUME_SYSTEM:
 
 						"x" : 13,
 						"y" : 38,
-					
-						"image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/new_costume_bg.jpg",					
+
+						"image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/new_costume_bg.jpg",
 
 						"children" :
 						(
@@ -70,15 +70,14 @@ if app.ENABLE_WEAPON_COSTUME_SYSTEM:
 								"y" : 3,
 
 								"width" : 127,
-								"height" : 145,
+								"height" : 175,
 
 								"slot" : (
-											{"index":COSTUME_START_INDEX+0, "x":62, "y":45, "width":32, "height":64},#¸ö
-											{"index":COSTUME_START_INDEX+1, "x":62, "y": 9, "width":32, "height":32},#¸Ó¸®
-											{"index":COSTUME_START_INDEX+2, "x":13, "y":126, "width":32, "height":32},#¸¶¿îÆ®
-											{"index":COSTUME_START_INDEX+3, "x":62, "y":126, "width":32, "height":32},#¾Ç¼¼¼­¸®
-											{"index":item.COSTUME_SLOT_WEAPON, "x":13, "y":13, "width":32, "height":96},#¹«±â
-											{"index":item.COSTUME_SLOT_AURA, "x":24, "y":122, "width":32, "height":32},#Aura
+											{"index":COSTUME_START_INDEX+0, "x":62, "y":45, "width":32, "height":64},
+											{"index":COSTUME_START_INDEX+1, "x":62, "y": 9, "width":32, "height":32},
+											{"index":COSTUME_START_INDEX+2, "x":13, "y":126, "width":32, "height":32},
+											{"index":COSTUME_START_INDEX+3, "x":62, "y":126, "width":32, "height":32},
+											{"index":item.COSTUME_SLOT_WEAPON, "x":13, "y":13, "width":32, "height":96},
 										),
 							},
 						),
@@ -95,10 +94,10 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 		    "x" : SCREEN_WIDTH - 175 - 140,
 		    "y" : SCREEN_HEIGHT - 37 - 565,
 
-		    "style" : ("movable", "float", "animate",),
+		    "style" : ("movable", "float",),
 
 		    "width" : 140,
-		    "height" : (180 + 47), #±âÁ¸º¸´Ù 47 ±æ¾îÁü
+		    "height" : (180 + 47),
 
 		    "children" :
 		    (
@@ -112,7 +111,7 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 
 				    "width" : 140,
 				    "height" : (180 + 47),
-    			
+
 				    "children" :
 				    (
 					    ## Title
@@ -140,8 +139,8 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 
 						    "x" : 13,
 						    "y" : 38,
-    					
-						    "image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/new_costume_bg.jpg",					
+
+						    "image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/new_costume_bg.jpg",
 
 						    "children" :
 						    (
@@ -157,10 +156,10 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 								    "height" : 145,
 
 								    "slot" : (
-											    {"index":COSTUME_START_INDEX+0, "x":62, "y":45, "width":32, "height":64},#¸ö
-											    {"index":COSTUME_START_INDEX+1, "x":62, "y": 9, "width":32, "height":32},#¸Ó¸®
-											    {"index":COSTUME_START_INDEX+2, "x":13, "y":126, "width":32, "height":32},#¸¶¿îÆ®
-											    {"index":COSTUME_START_INDEX+3, "x":62, "y":126, "width":32, "height":32},#¾Ç¼¼¼­¸®
+											    {"index":COSTUME_START_INDEX+0, "x":62, "y":45, "width":32, "height":64},
+											    {"index":COSTUME_START_INDEX+1, "x":62, "y": 9, "width":32, "height":32},
+											    {"index":COSTUME_START_INDEX+2, "x":13, "y":126, "width":32, "height":32},
+											    {"index":COSTUME_START_INDEX+3, "x":62, "y":126, "width":32, "height":32},
 										    ),
 							    },
 						    ),
@@ -177,10 +176,10 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 		    "x" : SCREEN_WIDTH - 175 - 140,
 		    "y" : SCREEN_HEIGHT - 37 - 565,
 
-		    "style" : ("movable", "float", "animate",),
+		    "style" : ("movable", "float",),
 
 		    "width" : 140,
-		    "height" : (180 + 47), #±âÁ¸º¸´Ù 47 ±æ¾îÁü
+		    "height" : (180 + 47),
 
 		    "children" :
 		    (
@@ -194,7 +193,7 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 
 				    "width" : 140,
 				    "height" : (180 + 47),
-    			
+
 				    "children" :
 				    (
 					    ## Title
@@ -222,8 +221,8 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 
 						    "x" : 13,
 						    "y" : 38,
-    					
-						    "image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/new_costume_bg.jpg",					
+
+						    "image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/new_costume_bg.jpg",
 
 						    "children" :
 						    (
@@ -239,9 +238,9 @@ elif app.ENABLE_MOUNT_COSTUME_SYSTEM:
 								    "height" : 145,
 
 								    "slot" : (
-											    {"index":COSTUME_START_INDEX+0, "x":62, "y":45, "width":32, "height":64},#¸ö
-											    {"index":COSTUME_START_INDEX+1, "x":62, "y": 9, "width":32, "height":32},#¸Ó¸®
-											    {"index":COSTUME_START_INDEX+2, "x":13, "y":125, "width":32, "height":32},#¸¶¿îÆ®
+											    {"index":COSTUME_START_INDEX+0, "x":62, "y":45, "width":32, "height":64},
+											    {"index":COSTUME_START_INDEX+1, "x":62, "y": 9, "width":32, "height":32},
+											    {"index":COSTUME_START_INDEX+2, "x":13, "y":125, "width":32, "height":32},
 										    ),
 							    },
 						    ),
@@ -258,7 +257,7 @@ else:
 		"x" : SCREEN_WIDTH - 175 - 140,
 		"y" : SCREEN_HEIGHT - 37 - 565,
 
-		"style" : ("movable", "float", "animate",),
+		"style" : ("movable", "float",),
 
 		"width" : 140,
 		"height" : 180,
@@ -275,7 +274,7 @@ else:
 
 				"width" : 140,
 				"height" : 180,
-				
+
 				"children" :
 				(
 					## Title
@@ -303,8 +302,8 @@ else:
 
 						"x" : 13,
 						"y" : 38,
-						
-						"image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/costume_bg.jpg",					
+
+						"image" : uiScriptLocale.LOCALE_UISCRIPT_PATH + "costume/costume_bg.jpg",
 
 						"children" :
 						(

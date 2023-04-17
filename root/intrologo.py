@@ -6,13 +6,11 @@ import wndMgr
 import uiScriptLocale
 import localeInfo
 
-# 대부분의 실제 구현은 PythonApplicationLogo.cpp에 있다.
 
 app.SetGuildMarkPath("test")
 
 class LogoWindow(ui.ScriptWindow):
 
-	# 보여 줄 동영상 목록 (배열 순서대로 보여줌)
 	videoList = []
 
 	def __init__(self, stream):
@@ -48,7 +46,6 @@ class LogoWindow(ui.ScriptWindow):
 
 		app.HideCursor()
 
-	# 영상 재생이 불가능한 환경이거나, 파일이 존재하지 않는 경우 introLogin으로 skip.
 	def OnUpdate(self):
 		if self.bNeedUpdate:
 			if self.playingVideo == 0:

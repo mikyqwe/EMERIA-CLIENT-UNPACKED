@@ -1,5 +1,4 @@
 import uiScriptLocale
-import app
 
 BUTTON_START_X_POS = -60
 BUTTON_X_STEP = 30
@@ -10,7 +9,7 @@ window = {
 	"x" : SCREEN_WIDTH - 200,
 	"y" : SCREEN_HEIGHT - 400 - 50,
 
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"width" : 170,
 	"height" : 300,
@@ -75,27 +74,10 @@ window = {
 			"disable_image" : "d:/ymir work/ui/game/windows/messenger_whisper_04.sub",
 		},
 		{
-			"name" : "RemoveButton",
-			"type" : "button",
-
-			"x" : BUTTON_START_X_POS + BUTTON_X_STEP*2,
-			"y" : 30,
-			"horizontal_align" : "center",
-			"vertical_align" : "bottom",
-			"tooltip_text" : uiScriptLocale.MESSENGER_DELETE_FRIEND,
-			"tooltip_x" : 0,
-			"tooltip_y" : 35,
-
-			"default_image" : "d:/ymir work/ui/game/windows/messenger_delete_01.sub",
-			"over_image" : "d:/ymir work/ui/game/windows/messenger_delete_02.sub",
-			"down_image" : "d:/ymir work/ui/game/windows/messenger_delete_03.sub",
-			"disable_image" : "d:/ymir work/ui/game/windows/messenger_delete_04.sub",
-		},
-		{
 			"name" : "MobileButton",
 			"type" : "button",
 
-			"x" : BUTTON_START_X_POS + BUTTON_X_STEP*3,
+			"x" : BUTTON_START_X_POS + BUTTON_X_STEP*2,
 			"y" : 30,
 			"horizontal_align" : "center",
 			"vertical_align" : "bottom",
@@ -109,21 +91,21 @@ window = {
 			"disable_image" : "d:/ymir work/ui/game/windows/messenger_mobile_04.sub",
 		},
 		{
-			"name" : "BlockFriendButton",
+			"name" : "RemoveButton",
 			"type" : "button",
 
 			"x" : BUTTON_START_X_POS + BUTTON_X_STEP*3,
 			"y" : 30,
 			"horizontal_align" : "center",
 			"vertical_align" : "bottom",
-			"tooltip_text" : uiScriptLocale.MESSENGER_ADD_BLOCK,
+			"tooltip_text" : uiScriptLocale.MESSENGER_DELETE_FRIEND,
 			"tooltip_x" : 0,
 			"tooltip_y" : 35,
 
-			"default_image" : "d:/ymir work/ui/game/windows/messenger_block_01.sub",
-			"over_image" : "d:/ymir work/ui/game/windows/messenger_block_02.sub",
-			"down_image" : "d:/ymir work/ui/game/windows/messenger_block_03.sub",
-			"disable_image" : "d:/ymir work/ui/game/windows/messenger_block_04.sub",
+			"default_image" : "d:/ymir work/ui/game/windows/messenger_delete_01.sub",
+			"over_image" : "d:/ymir work/ui/game/windows/messenger_delete_02.sub",
+			"down_image" : "d:/ymir work/ui/game/windows/messenger_delete_03.sub",
+			"disable_image" : "d:/ymir work/ui/game/windows/messenger_delete_04.sub",
 		},
 		{
 			"name" : "GuildButton",

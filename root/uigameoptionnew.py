@@ -2,7 +2,7 @@
 import ui, constInfo, uiSelectMusic, musicInfo, localeInfo, uiScriptLocale
 
 # dynamic
-import dbg, player, chat, wndMgr, net, systemSetting, snd, pack
+import dbg, player, chat, wndMgr, net, systemSetting, snd, pack, app
 
 MUSIC_FILENAME_MAX_LEN = 25
 blockMode = 0
@@ -27,7 +27,9 @@ class GameOptionWindow(ui.BoardWithTitleBar):
 		self.ctrlMusicVolume = None
 		self.selectMusicFile = None
 		self.musicListDlg = None
-
+		#if app.ENABLE_MAP_OBJECT_OPTIMIZATION:
+		#	self.ctrlmapObjectDist=None
+		
 		for j in xrange(10):
 			for x in xrange(10):
 				if self.children.has_key("optionWindow%d%d"%(j,x)):
@@ -53,18 +55,7 @@ class GameOptionWindow(ui.BoardWithTitleBar):
 		option_data = {
 			"Game Options":{
 				"index": 0,
-				"General":{"index": 0,},
-				"Pickup":{"index": 1,},
-			},
-			"Graphic Options":{
-			"index": 1,
-				"General":{"index": 0,},
-				"Interface":{"index": 1,},
-				"Performance":{"index": 2,},
-			},
-			"Sound Options":{
-				"index": 2,
-				"General":{"index": 0,},
+				"General":{"index": 0,}
 			},
 		}
 

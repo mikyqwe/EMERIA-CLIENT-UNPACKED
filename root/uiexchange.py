@@ -40,7 +40,6 @@ class ExchangeDialog(ui.ScriptWindow):
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface = 0
 			self.wndInventory = 0
-			self.lockedItems = {i:(-1,-1) for i in range(exchange.EXCHANGE_ITEM_MAX_NUM)}
 
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
@@ -78,10 +77,7 @@ class ExchangeDialog(ui.ScriptWindow):
 			self.OwnerAcceptLight.Disable()
 		self.OwnerMoneyButton = self.GetChild("Owner_Money")
 		self.OwnerMoneyButton.SetEvent(ui.__mem_func__(self.OpenPickMoneyDialog))
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.OwnerCheque = self.GetChild("Owner_Cheque_Value")
-			self.OwnerChequeButton = self.GetChild("Owner_Cheque")
-			self.OwnerChequeButton.SetEvent(ui.__mem_func__(self.OpenPickMoneyDialog))		
+		
 		self.TargetSlot = self.GetChild("Target_Slot")
 		self.TargetSlot.SetOverInItemEvent(ui.__mem_func__(self.OverInTargetItem))
 		self.TargetSlot.SetOverOutItemEvent(ui.__mem_func__(self.OverOutItem))
@@ -89,15 +85,13 @@ class ExchangeDialog(ui.ScriptWindow):
 		if not app.ENABLE_NEW_EXCHANGE_WINDOW:
 			self.TargetAcceptLight = self.GetChild("Target_Accept_Light")
 			self.TargetAcceptLight.Disable()
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.TargetCheque = self.GetChild("Target_Cheque_Value")
-		## PickMoneyDialog		
+		
 		dlgPickMoney = uiPickMoney.PickMoneyDialog()
 		dlgPickMoney.LoadDialog()
 		dlgPickMoney.SetAcceptEvent(ui.__mem_func__(self.OnPickMoney))
 		dlgPickMoney.SetTitleName(localeInfo.EXCHANGE_MONEY)
 		if not app.ENABLE_NEW_EXCHANGE_WINDOW:
-			dlgPickMoney.SetMax(8)
+			dlgPickMoney.SetMax(6)
 		else:
 			dlgPickMoney.SetMax(20)
 		dlgPickMoney.Hide()
@@ -151,10 +145,6 @@ class ExchangeDialog(ui.ScriptWindow):
 			self.TargetAcceptLight = 0
 		self.TitleName = 0
 		self.AcceptButton = 0
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.OwnerCheque = 0
-			self.OwnerChequeButton = 0
-			self.TargetCheque = 0
 		if app.ENABLE_NEW_EXCHANGE_WINDOW:
 			self.TargetAcceptButton = 0
 			self.FaceOwnerImage = None
@@ -170,8 +160,6 @@ class ExchangeDialog(ui.ScriptWindow):
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface = 0
 			self.wndInventory = 0
-			self.lockedItems = {i:(-1,-1) for i in range(exchange.EXCHANGE_ITEM_MAX_NUM)}
-
 	def OpenDialog(self):
 		if app.ENABLE_LEVEL_IN_TRADE:
 			self.TitleName.SetText(localeInfo.EXCHANGE_TITLE_LEVEL % (exchange.GetNameFromTarget(), exchange.GetLevelFromTarget()))
@@ -194,6 +182,7 @@ class ExchangeDialog(ui.ScriptWindow):
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface.SetOnTopWindow(player.ON_TOP_WND_EXCHANGE)
 			self.interface.RefreshMarkInventoryBag()
+
 		(self.xStart, self.yStart, z) = player.GetMainCharacterPosition()
 
 	def CloseDialog(self):
@@ -203,12 +192,18 @@ class ExchangeDialog(ui.ScriptWindow):
 		
 		self.dlgPickMoney.Close()
 		self.Hide()
-		if app.WJ_ENABLE_TRADABLE_ICON:
-			for exchangePos, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
-				if itemInvenPage == self.wndInventory.GetInventoryPageIndex():
-					self.wndInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
 
-			self.lockedItems = {i:(-1,-1) for i in range(exchange.EXCHANGE_ITEM_MAX_NUM)}
+		if app.WJ_ENABLE_TRADABLE_ICON:
+			#for exchangePos, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
+			#	if itemInvenPage == self.wndInventory.GetInventoryPageIndex():
+				#	self.wndInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
+			
+			#for exchangePos, (itemInvenPage, itemSlotPos) in self.lockedExtraItems.items():
+			#	if itemInvenPage == self.wndExtraInventory.GetInventoryPageIndex():
+				#	self.wndExtraInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
+			
+			#self.lockedItems = {i:(-1,-1) for i in range(exchange.EXCHANGE_ITEM_MAX_NUM)}
+			#self.lockedExtraItems = {i:(-1,-1) for i in range(exchange.EXCHANGE_ITEM_MAX_NUM)}
 			self.interface.SetOnTopWindow(player.ON_TOP_WND_NONE)
 			self.interface.RefreshMarkInventoryBag()
 
@@ -219,24 +214,15 @@ class ExchangeDialog(ui.ScriptWindow):
 		if exchange.GetElkFromSelf() > 0:
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.EXCHANGE_CANT_EDIT_MONEY)
 			return
+		
+		self.dlgPickMoney.Open(player.GetElk())
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			if exchange.GetChequeFromSelf() > 0:
-				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.EXCHANGE_CANT_EDIT_MONEY)
-				return
-			
-			self.dlgPickMoney.Open(player.GetElk(), player.GetCheque())
+	def OnPickMoney(self, money):
+		global NEW_YANG_LIMIT
+		if NEW_YANG_LIMIT:
+			net.SendExchangeElkAddPacket(str(money))
 		else:
-			self.dlgPickMoney.Open(player.GetElk())
-
-	def OnPickMoney(self, money, cheque = None):
-		if app.ENABLE_CHEQUE_SYSTEM:
-			if money > 0:
-				net.SendExchangeElkAddPacket(money)
-			if cheque > 0:
-				net.SendExchangeChequeAddPacket(cheque)
-		else:
-			net.SendExchangeElkAddPacket(money)
+			net.SendExchangeElkAddPacket(int(money))
 
 	def AcceptExchange(self):
 		if app.ENABLE_NEW_EXCHANGE_WINDOW:
@@ -305,7 +291,7 @@ class ExchangeDialog(ui.ScriptWindow):
 			net.SendExchangeElkAddPacket(str(mouseModule.mouseController.GetAttachedMoneyAmount()))
 		else:
 			attachedSlotType = mouseModule.mouseController.GetAttachedType()
-			if (player.SLOT_TYPE_INVENTORY == attachedSlotType or player.SLOT_TYPE_DRAGON_SOUL_INVENTORY == attachedSlotType or player.SLOT_TYPE_SKILLBOOK_INVENTORY == attachedSlotType or player.SLOT_TYPE_UPPITEM_INVENTORY == attachedSlotType or player.SLOT_TYPE_GHOSTSTONE_INVENTORY == attachedSlotType or player.SLOT_TYPE_GENERAL_INVENTORY == attachedSlotType):
+			if (player.SLOT_TYPE_INVENTORY == attachedSlotType or player.SLOT_TYPE_DRAGON_SOUL_INVENTORY == attachedSlotType):
 				attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
 				SrcSlotNumber = mouseModule.mouseController.GetAttachedSlotNumber()
 				DstSlotNumber = SlotIndex
@@ -333,12 +319,7 @@ class ExchangeDialog(ui.ScriptWindow):
 				itemCount = 0
 			
 			self.OwnerSlot.SetItemSlot(i, itemIndex, itemCount)
-			if app.ENABLE_CHANGELOOK_SYSTEM:
-				itemTransmutedVnum = exchange.GetItemTransmutation(i, True)
-				if itemTransmutedVnum:
-					self.OwnerSlot.DisableCoverButton(i)
-				else:
-					self.OwnerSlot.EnableCoverButton(i)		
+		
 		self.OwnerSlot.RefreshSlot()
 
 	def RefreshTargetSlot(self):
@@ -349,23 +330,15 @@ class ExchangeDialog(ui.ScriptWindow):
 				itemCount = 0
 			
 			self.TargetSlot.SetItemSlot(i, itemIndex, itemCount)
-			if app.ENABLE_CHANGELOOK_SYSTEM:
-				itemTransmutedVnum = exchange.GetItemTransmutation(i, False)
-				if itemTransmutedVnum:
-					self.TargetSlot.DisableCoverButton(i)
-				else:
-					self.TargetSlot.EnableCoverButton(i)		
+		
 		self.TargetSlot.RefreshSlot()
 
 	def Refresh(self):
 		self.RefreshOwnerSlot()
 		self.RefreshTargetSlot()
-		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.RefreshLockedSlot()		
-		#self.OwnerMoney.SetText(localeInfo.NumberToMoneyString(exchange.GetElkFromSelf()))
-		#self.TargetMoney.SetText(localeInfo.NumberToMoneyString(exchange.GetElkFromTarget()))
-		self.OwnerMoney.SetText(str(exchange.GetElkFromSelf()))
-		self.TargetMoney.SetText(str(exchange.GetElkFromTarget()))
+		
+		self.OwnerMoney.SetText(localeInfo.NumberToMoneyString(exchange.GetElkFromSelf()))
+		self.TargetMoney.SetText(localeInfo.NumberToMoneyString(exchange.GetElkFromTarget()))
 		if exchange.GetAcceptFromSelf() == True:
 			if not app.ENABLE_NEW_EXCHANGE_WINDOW:
 				self.OwnerAcceptLight.Down()
@@ -382,9 +355,6 @@ class ExchangeDialog(ui.ScriptWindow):
 				self.OwnerAcceptLight.SetUp()
 			else:
 				self.OwnerSlot.SetSlotBaseImage("d:/ymir work/ui/public/slot_base.sub", 1.0, 1.0, 1.0, 1.0)
-		if app.ENABLE_CHEQUE_SYSTEM:
-			self.OwnerCheque.SetText(localeInfo.NumberToString(exchange.GetChequeFromSelf()))
-			self.TargetCheque.SetText(localeInfo.NumberToString(exchange.GetChequeFromTarget()))
 		
 		if exchange.GetAcceptFromTarget() == True:
 			if not app.ENABLE_NEW_EXCHANGE_WINDOW:
@@ -416,7 +386,9 @@ class ExchangeDialog(ui.ScriptWindow):
 			self.tooltipItem.HideToolTip()
 
 	def OnTop(self):
-		self.tooltipItem.SetTop()
+		if self.tooltipItem:
+			self.tooltipItem.SetTop()
+
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			if self.interface:
 				self.interface.SetOnTopWindow(player.ON_TOP_WND_EXCHANGE)
@@ -433,21 +405,38 @@ class ExchangeDialog(ui.ScriptWindow):
 		def CantTradableItem(self, destSlotIndex, srcSlotIndex):
 			if True == exchange.GetAcceptFromTarget():
 				return
-
+			
 			itemInvenPage = srcSlotIndex / player.INVENTORY_PAGE_SIZE
 			localSlotPos = srcSlotIndex - (itemInvenPage * player.INVENTORY_PAGE_SIZE)
-			self.lockedItems[destSlotIndex] = (itemInvenPage, localSlotPos)
-
+			#self.lockedItems[destSlotIndex] = (itemInvenPage, localSlotPos)
 			if self.wndInventory.GetInventoryPageIndex() == itemInvenPage and self.IsShow():
 				self.wndInventory.wndItem.SetCantMouseEventSlot(localSlotPos)
 
-		def RefreshLockedSlot(self):
-			if self.wndInventory:
-				for exchangePos, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
-					if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
-						self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
+		# def RefreshLockedSlot(self):
+			# if self.wndInventory:
+				# for exchangePos, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
+					# if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
+						# self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
+				
+				# self.wndInventory.wndItem.RefreshSlot()
 
-				self.wndInventory.wndItem.RefreshSlot()
+		# def CantTradableExtraItem(self, destSlotIndex, srcSlotIndex):
+			# if True == exchange.GetAcceptFromTarget():
+				# return
+			
+			# itemInvenPage = srcSlotIndex / player.EXTRA_INVENTORY_PAGE_SIZE
+			# localSlotPos = srcSlotIndex - (itemInvenPage * player.EXTRA_INVENTORY_PAGE_SIZE)
+			# self.lockedExtraItems[destSlotIndex] = (itemInvenPage, localSlotPos)
+			# if self.wndExtraInventory.GetInventoryPageIndex() == itemInvenPage and self.IsShow():
+				# self.wndExtraInventory.wndItem.SetCantMouseEventSlot(localSlotPos)
+
+		# def RefreshExtraLockedSlot(self):
+			# if self.wndExtraInventory:
+				# for exchangePos, (itemInvenPage, itemSlotPos) in self.lockedExtraItems.items():
+					# if self.wndExtraInventory.GetInventoryPageIndex() == itemInvenPage:
+						# self.wndExtraInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
+				
+				# self.wndExtraInventory.wndItem.RefreshSlot()
 
 		def BindInterface(self, interface):
 			self.interface = interface
@@ -455,3 +444,8 @@ class ExchangeDialog(ui.ScriptWindow):
 		def SetInven(self, wndInventory):
 			from _weakref import proxy
 			self.wndInventory = proxy(wndInventory)
+
+		def SetExtraInven(self, wndExtraInventory):
+			from _weakref import proxy
+			self.wndExtraInventory = proxy(wndExtraInventory)
+

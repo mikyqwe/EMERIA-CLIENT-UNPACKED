@@ -44,7 +44,6 @@ class ServerCommandParser(object):
 	def __ItemMall_Open(self):
 		self.__PreserveCommand("item_mall")
 
-	## юс╫ц
 	def __XMasBoom_Enable(self, mode):
 		if "1"==mode:
 			self.__PreserveCommand("PRESERVE_DayMode dark")

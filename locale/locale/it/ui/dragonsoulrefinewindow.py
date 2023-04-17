@@ -7,7 +7,7 @@ window = {
 	"x" : SCREEN_WIDTH - 176 - 287 - 10 - 287,
 	"y" : SCREEN_HEIGHT - 37 - 505,
 
-	"style" : ("movable", "float", "animate",),
+	"style" : ("movable", "float",),
 
 	"width" : 287,
 	"height" : 232,
@@ -209,19 +209,6 @@ window = {
 							"all_align" : "center",
 						},
 					),
-				},
-				{
-					"name" : "refine_all_button",
-					"type" : "button",
-
-					"x" : 95,
-					"y" : 200,
-
-					"text" : "Raffina Tutto",
-
-					"default_image" : "d:/ymir work/ui/dragonsoul/l_button01.tga",
-					"over_image" : "d:/ymir work/ui/dragonsoul/l_button02.tga",
-					"down_image" : "d:/ymir work/ui/dragonsoul/l_button03.tga",
 				},
 			),
 		},

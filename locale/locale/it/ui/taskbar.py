@@ -1,6 +1,5 @@
 import uiScriptLocale
 import app
-import constInfo
 
 ROOT = "d:/ymir work/ui/game/"
 
@@ -147,36 +146,6 @@ window = {
 								"D:/Ymir Work/UI/Pattern/HPGauge/07.tga",
 							),
 						},
-						{
-							"name" : "HPPoisonRecoveryGaugeBar",
-							"type" : "bar",
-
-							"x" : 0,
-							"y" : 0,
-							"width" : 95,
-							"height" : 13,
-							"color" : 0x55008000,
-						},
-						{
-							"name" : "HPPoisonGauge",
-							"type" : "ani_image",
-
-							"x" : 0,
-							"y" : 0,
-
-							"delay" : 6,
-
-							"images" :
-							(
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/01.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/02.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/03.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/04.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/05.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/06.tga",
-								"D:/Ymir Work/UI/Pattern/HPPoisonGauge/07.tga",
-							),
-						},
 					),
 				},
 				{
@@ -224,7 +193,6 @@ window = {
 						},
 					),
 				},
-
 				{
 					## Tooltip popup for
 					"name" : "STGauge_Board",
@@ -336,60 +304,8 @@ window = {
 			"over_image" : ROOT + "TaskBar/Mouse_Button_Move_02.sub",
 			"down_image" : ROOT + "TaskBar/Mouse_Button_Move_03.sub",
 		},
-		## ENABLE_EXPANDED_MONEY_TASKBAR
-		{
-			"name" : "ExpandMoneyButton",
-			"type" : "button",
-			
-			"x" : SCREEN_WIDTH - 238,
-			"y" : 7 + Y_ADD_POSITION,
-			"tooltip_text" : uiScriptLocale.TASKBAR_MONEY_EXPAND,
 
-			"default_image" : ROOT + "TaskBar/Ex_gemshop_button_01.tga",
-			"over_image" : ROOT + "TaskBar/Ex_gemshop_button_02.tga",
-			"down_image" : ROOT + "TaskBar/Ex_gemshop_button_03.tga",
-		},
 		## Button
-		{
-			"name" : "OfflineShopButton",
-			"type" : "button",
-
-			"x" : SCREEN_WIDTH - 178,
-			"y" : 3 + Y_ADD_POSITION,
-
-			"tooltip_text" : uiScriptLocale.TASKBAR_OFFSHOP,
-
-			"default_image" : ROOT + "TaskBar/offshop_1.tga",
-			"over_image" : ROOT + "TaskBar/offshop_2.tga",
-			"down_image" : ROOT + "TaskBar/offshop_3.tga",
-		},
-		{
-			"name" : "RemoteShop",
-			"type" : "button",
-
-			"x" : SCREEN_WIDTH - 265,
-			"y" : 7.3 + Y_ADD_POSITION,
-
-			"tooltip_text" : uiScriptLocale.REMOTE_SHOP_TITLE,
-
-			"default_image" : ROOT + "TaskBar/RemoteShop_Button_01.tga",
-			"over_image" : ROOT + "TaskBar/RemoteShop_Button_02.tga",
-			"down_image" : ROOT + "TaskBar/RemoteShop_Button_03.tga",
-		},
-		## Dragon Soul Button
-		{
-			"name" : "DSSButton",
-			"type" : "button",
-
-			"x" : SCREEN_WIDTH - 215,
-			"y" : 2.5 + Y_ADD_POSITION,
-
-			"tooltip_text" : uiScriptLocale.TASKBAR_DRAGON_SOUL,
-
-			"default_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_01.tga",
-			"over_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_02.tga",
-			"down_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_03.tga",
-		},
 		{
 			"name" : "CharacterButton",
 			"type" : "button",
@@ -403,6 +319,19 @@ window = {
 			"over_image" : ROOT + "TaskBar/Character_Button_02.sub",
 			"down_image" : ROOT + "TaskBar/Character_Button_03.sub",
 		},
+		## ENABLE_EXPANDED_MONEY_TASKBAR
+		{
+			"name" : "ExpandMoneyButton",
+			"type" : "button",
+
+			"x" : SCREEN_WIDTH - 278+8,
+			"y" : 8 + Y_ADD_POSITION,
+			"tooltip_text" : uiScriptLocale.TASKBAR_MONEY_EXPAND,
+
+			"default_image" : ROOT + "TaskBar/Ex_gemshop_button_01.tga",
+			"over_image" : ROOT + "TaskBar/Ex_gemshop_button_02.tga",
+			"down_image" : ROOT + "TaskBar/Ex_gemshop_button_03.tga",
+		},
 		{
 			"name" : "InventoryButton",
 			"type" : "button",
@@ -415,7 +344,7 @@ window = {
 			"default_image" : ROOT + "TaskBar/Inventory_Button_01.sub",
 			"over_image" : ROOT + "TaskBar/Inventory_Button_02.sub",
 			"down_image" : ROOT + "TaskBar/Inventory_Button_03.sub",
-		},	
+		},
 		{
 			"name" : "MessengerButton",
 			"type" : "button",
@@ -442,7 +371,7 @@ window = {
 			"over_image" : ROOT + "TaskBar/System_Button_02.sub",
 			"down_image" : ROOT + "TaskBar/System_Button_03.sub",
 		},
-	
+
 		## QuickBar
 		{
 			"name" : "quickslot_board",
@@ -490,10 +419,10 @@ window = {
 
 					"children" :
 					(
-						{ "name" : "slot_1", "type" : "image", "x" : 3, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/1.sub", "children" : ( { "name" : "slot_1_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
-						{ "name" : "slot_2", "type" : "image", "x" : 35, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/2.sub", "children" : ( { "name" : "slot_2_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
-						{ "name" : "slot_3", "type" : "image", "x" : 67, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/3.sub", "children" : ( { "name" : "slot_3_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
-						{ "name" : "slot_4", "type" : "image", "x" : 99, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/4.sub", "children" : ( { "name" : "slot_4_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
+						{ "name" : "slot_1", "type" : "image", "x" : 3, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/1.sub", },
+						{ "name" : "slot_2", "type" : "image", "x" : 35, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/2.sub", },
+						{ "name" : "slot_3", "type" : "image", "x" : 67, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/3.sub", },
+						{ "name" : "slot_4", "type" : "image", "x" : 99, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/4.sub", },
 					),
 				},
 				{
@@ -518,10 +447,10 @@ window = {
 
 					"children" :
 					(
-						{ "name" : "slot_5", "type" : "image", "x" : 3, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f1.sub", "children" : ( { "name" : "slot_5_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
-						{ "name" : "slot_6", "type" : "image", "x" : 35, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f2.sub",  "children" : ( { "name" : "slot_6_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
-						{ "name" : "slot_7", "type" : "image", "x" : 67, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f3.sub",  "children" : ( { "name" : "slot_7_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
-						{ "name" : "slot_8", "type" : "image", "x" : 99, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f4.sub",  "children" : ( { "name" : "slot_8_cd", "type" : "text", "x" : 0, "y" : 0, "horizontal_align" : "center", "vertical_align" : "center", "text" : "10", "fontname" : "Tahoma Bold:16", "r" : 1, "g" : 1, "b" : 0, "a" : 0, }, ), },
+						{ "name" : "slot_5", "type" : "image", "x" : 3, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f1.sub", },
+						{ "name" : "slot_6", "type" : "image", "x" : 35, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f2.sub", },
+						{ "name" : "slot_7", "type" : "image", "x" : 67, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f3.sub", },
+						{ "name" : "slot_8", "type" : "image", "x" : 99, "y" : 3, "image" : "d:/ymir work/ui/game/taskbar/f4.sub", },
 					),
 				},
 				{

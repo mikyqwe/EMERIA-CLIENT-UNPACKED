@@ -23,6 +23,7 @@ class CombineWindow(ui.ScriptWindow):
 		ui.ScriptWindow.__del__(self)
 
 	def Destroy(self):
+		self.ClearAllSlots()
 		self.ClearDictionary()
 		self.titleBar = None
 		self.btnAccept = None
@@ -37,17 +38,17 @@ class CombineWindow(ui.ScriptWindow):
 	def LoadWindow(self):
 		if self.isLoaded:
 			return
-		
+
 		self.isLoaded = 1
-		
+
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
 			pyScrLoader.LoadScriptFile(self, "uiscript/acce_combinewindow.py")
-			
+
 		except:
 			import exception
 			exception.Abort("Acce_CombineWindow.LoadDialog.LoadScript")
-		
+
 		try:
 			self.titleBar = self.GetChild("TitleBar")
 			self.btnAccept = self.GetChild("AcceptButton")
@@ -58,7 +59,7 @@ class CombineWindow(ui.ScriptWindow):
 		except:
 			import exception
 			exception.Abort("Acce_CombineWindow.LoadDialog.BindObject")
-		
+
 		self.acceSlot.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptySlot))
 		self.acceSlot.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnSelectItemSlot))
 		self.acceSlot.SetUseSlotEvent(ui.__mem_func__(self.OnSelectItemSlot))
@@ -75,22 +76,27 @@ class CombineWindow(ui.ScriptWindow):
 	def IsOpened(self):
 		if self.IsShow() and self.isLoaded:
 			return True
-		
+
 		return False
+
+	def ClearAllSlots(self):
+		acce.Clear()
+		if self.acceSlot:
+			for i in xrange(acce.WINDOW_MAX_MATERIALS + 1):
+				self.acceSlot.ClearSlot(i)
 
 	def Open(self):
 		self.PositionOut = 0
 		(self.PositionStartX, self.PositionStartY, z) = player.GetMainCharacterPosition()
 		self.needMoney.SetText(localeInfo.ACCE_REFINE_COST % (acce.GetPrice()))
-		for i in xrange(acce.WINDOW_MAX_MATERIALS + 1):
-			self.acceSlot.ClearSlot(i)
-		
+		self.ClearAllSlots()
+		self.SetCenterPosition()
 		self.Show()
 
 	def Close(self):
 		if self.tooltipItem:
 			self.tooltipItem.HideToolTip()
-		
+
 		self.Hide()
 
 	def OnClose(self):
@@ -115,7 +121,7 @@ class CombineWindow(ui.ScriptWindow):
 		isAttached = mouseModule.mouseController.isAttached()
 		if not isAttached or selectedSlotPos == acce.WINDOW_MAX_MATERIALS:
 			return
-		
+
 		attachedSlotType = mouseModule.mouseController.GetAttachedType()
 		attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
 		attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
@@ -126,7 +132,7 @@ class CombineWindow(ui.ScriptWindow):
 	def OnSelectItemSlot(self, selectedSlotPos):
 		if selectedSlotPos == acce.WINDOW_MAX_MATERIALS:
 			return
-		
+
 		mouseModule.mouseController.DeattachObject()
 		acce.Remove(selectedSlotPos)
 
@@ -135,6 +141,8 @@ class CombineWindow(ui.ScriptWindow):
 			if selectedSlotPos == acce.WINDOW_MAX_MATERIALS:
 				(isHere, iCell) = acce.GetAttachedItem(0)
 				if isHere:
+					self.tooltipItem.ClearToolTip()
+					self.tooltipItem.SetInventoryItem(iCell)#fix apply glitch
 					self.tooltipItem.SetAcceResultItem(iCell)
 			else:
 				(isHere, iCell) = acce.GetAttachedItem(selectedSlotPos)
@@ -157,7 +165,7 @@ class CombineWindow(ui.ScriptWindow):
 					(itemVnum, MinAbs, MaxAbs) = acce.GetResultItem()
 					if not itemVnum:
 						break
-					
+
 					self.acceSlot.SetItemSlot(i + 1, itemVnum, 0)
 					break
 
@@ -185,17 +193,17 @@ class AbsorbWindow(ui.ScriptWindow):
 	def LoadWindow(self):
 		if self.isLoaded:
 			return
-		
+
 		self.isLoaded = 1
-		
+
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
 			pyScrLoader.LoadScriptFile(self, "uiscript/acce_absorbwindow.py")
-			
+
 		except:
 			import exception
 			exception.Abort("Acce_AbsorbtionWindow.LoadDialog.LoadScript")
-		
+
 		try:
 			self.titleBar = self.GetChild("TitleBar")
 			self.btnAccept = self.GetChild("AcceptButton")
@@ -204,7 +212,7 @@ class AbsorbWindow(ui.ScriptWindow):
 		except:
 			import exception
 			exception.Abort("Acce_AbsorbtionWindow.LoadDialog.BindObject")
-		
+
 		self.acceSlot.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptySlot))
 		self.acceSlot.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnSelectItemSlot))
 		self.acceSlot.SetUseSlotEvent(ui.__mem_func__(self.OnSelectItemSlot))
@@ -213,7 +221,7 @@ class AbsorbWindow(ui.ScriptWindow):
 		self.titleBar.SetCloseEvent(ui.__mem_func__(self.OnClose))
 		self.btnCancel.SetEvent(ui.__mem_func__(self.OnClose))
 		self.btnAccept.SetEvent(ui.__mem_func__(self.OnAccept))
-		
+
 		self.tooltipItem = None
 
 	def SetItemToolTip(self, itemTooltip):
@@ -222,7 +230,7 @@ class AbsorbWindow(ui.ScriptWindow):
 	def IsOpened(self):
 		if self.IsShow() and self.isLoaded:
 			return True
-		
+
 		return False
 
 	def Open(self):
@@ -230,13 +238,13 @@ class AbsorbWindow(ui.ScriptWindow):
 		(self.PositionStartX, self.PositionStartY, z) = player.GetMainCharacterPosition()
 		for i in xrange(acce.WINDOW_MAX_MATERIALS + 1):
 			self.acceSlot.ClearSlot(i)
-		
+		self.SetCenterPosition()
 		self.Show()
 
 	def Close(self):
 		if self.tooltipItem:
 			self.tooltipItem.HideToolTip()
-		
+
 		self.Hide()
 
 	def OnClose(self):
@@ -261,7 +269,7 @@ class AbsorbWindow(ui.ScriptWindow):
 		isAttached = mouseModule.mouseController.isAttached()
 		if not isAttached or selectedSlotPos == acce.WINDOW_MAX_MATERIALS:
 			return
-		
+
 		attachedSlotType = mouseModule.mouseController.GetAttachedType()
 		attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
 		attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
@@ -272,7 +280,7 @@ class AbsorbWindow(ui.ScriptWindow):
 	def OnSelectItemSlot(self, selectedSlotPos):
 		if selectedSlotPos == acce.WINDOW_MAX_MATERIALS:
 			return
-		
+
 		mouseModule.mouseController.DeattachObject()
 		acce.Remove(selectedSlotPos)
 
@@ -282,6 +290,8 @@ class AbsorbWindow(ui.ScriptWindow):
 				(isHere1, iCell1) = acce.GetAttachedItem(0)
 				(isHere2, iCell2) = acce.GetAttachedItem(1)
 				if isHere1 and isHere2:
+					self.tooltipItem.ClearToolTip()
+					self.tooltipItem.SetInventoryItem(iCell1)#fix apply glitch
 					self.tooltipItem.SetAcceResultAbsItem(iCell1, iCell2)
 			else:
 				(isHere, iCell) = acce.GetAttachedItem(selectedSlotPos)
@@ -303,7 +313,7 @@ class AbsorbWindow(ui.ScriptWindow):
 					(itemVnum, MinAbs, MaxAbs) = acce.GetResultItem()
 					if not itemVnum:
 						break
-					
+
 					self.acceSlot.SetItemSlot(i + 1, itemVnum, 0)
 					break
 

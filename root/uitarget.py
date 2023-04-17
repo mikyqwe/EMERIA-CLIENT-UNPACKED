@@ -40,12 +40,6 @@ class TargetBoard(ui.ThinBoard):
 					nameLine.SetPosition(32 + 5, 0)
 					nameLine.Show()
 					self.nameLine = nameLine
-					if app.ENABLE_SEND_TARGET_INFO_EXTENDED:
-						rarity = ui.TextLine()
-						rarity.SetParent(self)
-						rarity.SetPosition(32 + 5, 11)
-						rarity.Show()
-						self.rarity = rarity
 					self.SetSize(width, 32 + 5)
 
 				def LoadImage(self, image, name = None):
@@ -56,30 +50,6 @@ class TargetBoard(ui.ThinBoard):
 
 				def SetText(self, text):
 					self.nameLine.SetText(text)
-
-				if app.ENABLE_SEND_TARGET_INFO_EXTENDED:
-					def SetRarity(self, rarity):
-						if rarity <= 0:
-							return
-
-						real_rarity = rarity / 10000
-						self.rarity.SetText(str(self.GetRarity(real_rarity)))
-
-					def GetRarity(self, rarity):
-						if rarity >= 100:
-							return "|cFFFFFFFFGarantat|r"
-						elif rarity < 100 and rarity >= 70:
-							return "|cFFFFF432Comun|r"
-						elif rarity < 70 and rarity >= 50:
-							return "|cFF32CD32Normal|r"
-						elif rarity < 50 and rarity >= 30:
-							return "|cFF9400D3Mitic|r"
-						elif rarity < 30 and rarity >= 12:
-							return "|cFF1E90FFRar|r"
-						elif rarity <= 11:
-							return "|cFFFFD700Legendar|r"
-							
-						return ""
 
 				def RefreshHeight(self):
 					ui.ListBoxExNew.Item.RefreshHeight(self)
@@ -350,8 +320,6 @@ class TargetBoard(ui.ThinBoard):
 					myItem.SetText(itemName)
 				else:
 					myItem.SetText("%dx %s" % (count, itemName))
-				if app.ENABLE_SEND_TARGET_INFO_EXTENDED:
-					myItem.SetRarity(rarity)
 				myItem.SAFE_SetOverInEvent(self.OnShowItemTooltip, vnum)
 				myItem.SAFE_SetOverOutEvent(self.OnHideItemTooltip)
 				listBox.AppendItem(myItem)
@@ -627,12 +595,14 @@ class TargetBoard(ui.ThinBoard):
 		self.showingButtonList = None
 		self.buttonDict = None
 		self.name = None
+		self.hpGauge = None
+		
 		if app.ENABLE_NEW_TARGET_HP:
 			if self.hpTarget:
 				self.hpTarget.Hide()
 				self.hpTarget.Destroy()
-				self.hpTarget=None
-		self.hpGauge = None
+				self.hpTarget=None		
+		
 		if app.ENABLE_POISON_GAUGE_EFFECT:
 			self.hpPoisonGauge = None
 		self.__Initialize()
@@ -842,7 +812,7 @@ class TargetBoard(ui.ThinBoard):
 			button.SetOverVisual("d:/ymir work/ui/public/small_thin_button_02.sub")
 			button.SetDownVisual("d:/ymir work/ui/public/small_thin_button_03.sub")
 		button.SetWindowHorizontalAlignCenter()
-		button.SetText("Trimite departe")#set here
+		button.SetText("Manda Via")#set here
 		button.SetEvent(self.SecondMountButton)
 		button.Show()
 		self.showingButtonList.append(button)
@@ -1193,131 +1163,3 @@ class TargetBoard(ui.ThinBoard):
 					self.hpPoisonGauge.Show()
 				else:
 					self.hpPoisonGauge.Hide()
-					
-if app.ENABLE_SHIP_DEFENSE:
-	class AllianceTargetBoard(ui.ThinBoard):
-		class TextToolTip(ui.Window):
-			def __init__(self):
-				ui.Window.__init__(self, "TOP_MOST")
-
-				textLine = ui.TextLine()
-				textLine.SetParent(self)
-				textLine.SetHorizontalAlignCenter()
-				textLine.SetOutline()
-				textLine.Show()
-				self.textLine = textLine
-
-			def __del__(self):
-				ui.Window.__del__(self)
-
-			def SetText(self, text):
-				self.textLine.SetText(text)
-
-			def OnRender(self):
-				(mouseX, mouseY) = wndMgr.GetMousePosition()
-				self.textLine.SetPosition(mouseX, mouseY + 30)
-
-		def __init__(self):
-			ui.ThinBoard.__init__(self)
-
-			name = ui.TextLine()
-			name.SetParent(self)
-			name.SetDefaultFontName()
-			name.SetOutline()
-			name.Show()
-
-			hpGauge = ui.Gauge()
-			hpGauge.SetParent(self)
-			hpGauge.MakeGauge(80, "red")
-			hpGauge.SetPosition(10, 25)
-			hpGauge.SetOverEvent(ui.__mem_func__(self.IsIn))
-			hpGauge.SetOverOutEvent(ui.__mem_func__(self.IsOut))
-			hpGauge.Hide()
-
-			self.name = name
-			self.hpGauge = hpGauge
-
-			self.toolTipHP = self.TextToolTip()
-			self.toolTipHP.Hide()
-
-			self.Initialize()
-			self.ResetTargetBoard()
-
-		def __del__(self):
-			ui.ThinBoard.__del__(self)
-
-		def Initialize(self):
-			self.nameLength = 0
-			self.vid = 0
-
-		def Destroy(self):
-			self.name = None
-			self.hpGauge = None
-			self.tooltipHP = None
-
-			self.Initialize()
-
-		def Close(self):
-			self.Initialize()
-			self.tooltipHP.Hide()
-			self.Hide()
-
-		def ResetTargetBoard(self):
-			self.Initialize()
-
-			self.name.SetPosition(0, 13)
-			self.name.SetHorizontalAlignCenter()
-			self.name.SetWindowHorizontalAlignCenter()
-
-			self.hpGauge.Hide()
-			self.SetSize(100, 40)
-
-		def SetTargetVID(self, vid):
-			self.vid = vid
-
-		def SetTarget(self, vid):
-			self.SetTargetVID(vid)
-
-			name = chr.GetNameByVID(vid)
-			self.SetTargetName(name)
-
-		def GetTargetVID(self):
-			return self.vid
-
-		def SetTargetName(self, name):
-			self.nameLength = len(name)
-			self.name.SetText(name)
-
-		def SetHP(self, hp, hpMax):
-			hp = min(hp, hpMax)
-			if hp > 0:
-				self.SetSize(100, self.GetHeight())
-
-				if localeInfo.IsARABIC():
-					self.name.SetPosition(self.GetWidth() - 10, 10)
-				else:
-					self.name.SetPosition(10, 10)
-
-				self.name.SetWindowHorizontalAlignLeft()
-				self.name.SetHorizontalAlignLeft()
-				self.hpGauge.Show()
-				self.UpdatePosition()
-
-			self.hpGauge.SetPercentage(hp, hpMax)
-			self.toolTipHP.SetText("%s : %d / %d" % (localeInfo.TASKBAR_HP, hp, hpMax))
-
-		def UpdatePosition(self):
-			# NOTE : y = miniMap + serverInfo Height
-			self.SetPosition(wndMgr.GetScreenWidth() - self.GetWidth() - 18, 250)
-
-		def IsOut(self):
-			if self.toolTipHP:
-				self.toolTipHP.Hide()
-
-		def IsIn(self):
-			if self.toolTipHP:
-				self.toolTipHP.Show()
-
-		# NOTE : Unused.
-		def SetMouseEvent(self):
-			pass

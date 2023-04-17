@@ -12,13 +12,10 @@ import item
 import systemSetting
 import player
 import app
-import constInfo
 
 g_isBuildingPrivateShop = False
 
 g_itemPriceDict={}
-if app.ENABLE_CHEQUE_SYSTEM:
-	g_itemChequeDict={}
 
 g_privateShopAdvertisementBoardDict={}
 
@@ -27,9 +24,10 @@ def Clear():
 	global g_isBuildingPrivateShop
 	g_itemPriceDict={}
 	g_isBuildingPrivateShop = False
-	if app.ENABLE_CHEQUE_SYSTEM:
-		global g_itemChequeDict
-		g_itemChequeDict={}
+	# @fixme007 BEGIN
+	global g_privateShopAdvertisementBoardDict
+	g_privateShopAdvertisementBoardDict={}
+	# @fixme007 END
 
 def IsPrivateShopItemPriceList():
 	global g_itemPriceDict
@@ -48,7 +46,7 @@ def IsBuildingPrivateShop():
 def SetPrivateShopItemPrice(itemVNum, itemPrice):
 	global g_itemPriceDict
 	g_itemPriceDict[int(itemVNum)]=itemPrice
-	
+
 def GetPrivateShopItemPrice(itemVNum):
 	try:
 		global g_itemPriceDict
@@ -56,34 +54,16 @@ def GetPrivateShopItemPrice(itemVNum):
 	except KeyError:
 		return 0
 
-if app.ENABLE_CHEQUE_SYSTEM:
-	def IsPrivateShopItemChequePriceList():
-		global g_itemChequeDict
-		if g_itemChequeDict:
-			return True
-		return False
-
-	def SetPrivateShopItemCheque(itemVNum, itemCheque):
-		global g_itemChequeDict
-		g_itemChequeDict[int(itemVNum)]=itemCheque
-
-	def GetPrivateShopItemCheque(itemVNum):
-		try:
-			global g_itemChequeDict
-			return g_itemChequeDict[itemVNum]
-		except KeyError:
-			return 0
-		
-def UpdateADBoard():	
+def UpdateADBoard():
 	for key in g_privateShopAdvertisementBoardDict.keys():
 		g_privateShopAdvertisementBoardDict[key].Show()
-		
+
 def DeleteADBoard(vid):
 	if not g_privateShopAdvertisementBoardDict.has_key(vid):
 		return
-			
+
 	del g_privateShopAdvertisementBoardDict[vid]
-		
+
 
 class PrivateShopAdvertisementBoard(ui.ThinBoard):
 	def __init__(self):
@@ -109,45 +89,29 @@ class PrivateShopAdvertisementBoard(ui.ThinBoard):
 		self.textLine.SetText(text)
 		self.textLine.UpdateRect()
 		self.SetSize(len(text)*6 + 10*2, 20)
-		self.Show() 
-				
+		self.Show()
+
 		g_privateShopAdvertisementBoardDict[vid] = self
-		
+
 	def OnMouseLeftButtonUp(self):
 		if not self.vid:
 			return
 		net.SendOnClickPacket(self.vid)
-		
+
 		return True
-		
+
 	def OnUpdate(self):
 		if not self.vid:
 			return
-		
+
 		if systemSetting.IsShowSalesText():
-			if not app.ENABLE_SHOPNAMES_RANGE:
-				self.Show()
-				(x, y) = chr.GetProjectPosition(self.vid, 220)
-				self.SetPosition(x - self.GetWidth() / 2, y - self.GetHeight() / 2)
-			else:
-				if systemSetting.GetShopNamesRange() == 1.000:
-					self.Show()
-					(x, y) = chr.GetProjectPosition(self.vid, 220)
-					self.SetPosition(x - self.GetWidth() / 2, y - self.GetHeight() / 2)
-				else:
-					LIMIT_RANGE = abs(constInfo.SHOPNAMES_RANGE * systemSetting.GetShopNamesRange())
-					(to_x, to_y, to_z) = chr.GetPixelPosition(self.vid)
-					(my_x, my_y, my_z) = player.GetMainCharacterPosition()
-					if abs(my_x - to_x) <= LIMIT_RANGE and abs(my_y - to_y) <= LIMIT_RANGE:
-						(x, y) = chr.GetProjectPosition(self.vid, 220)
-						self.SetPosition(x - self.GetWidth() / 2, y - self.GetHeight() / 2)
-						self.Show()
-					else:
-						self.Hide()
-						self.SetPosition(-70, 0)
+			self.Show()
+			x, y = chr.GetProjectPosition(self.vid, 220)
+			self.SetPosition(x - self.GetWidth()/2, y - self.GetHeight()/2)
+
 		else:
 			for key in g_privateShopAdvertisementBoardDict.keys():
-				if player.GetMainCharacterIndex() == key:
+				if  player.GetMainCharacterIndex() == key:
 					g_privateShopAdvertisementBoardDict[key].Show()
 					x, y = chr.GetProjectPosition(player.GetMainCharacterIndex(), 220)
 					g_privateShopAdvertisementBoardDict[key].SetPosition(x - self.GetWidth()/2, y - self.GetHeight()/2)
@@ -165,10 +129,14 @@ class PrivateShopBuilder(ui.ScriptWindow):
 		self.tooltipItem = None
 		self.priceInputBoard = None
 		self.title = ""
+
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface = None
 			self.wndInventory = None
-			self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			#self.wndExtraInventory = None
+			#self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			#self.lockedExtraItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+
 	def __del__(self):
 		#print "------------------------------------------------------------- DELETE MAKE_PRIVATE_SHOP_WINDOW"
 		ui.ScriptWindow.__del__(self)
@@ -213,8 +181,10 @@ class PrivateShopBuilder(ui.ScriptWindow):
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			self.interface = None
 			self.wndInventory = None
-			self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
-
+			#self.wndExtraInventory = None
+			#self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			#self.lockedExtraItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			
 	def Open(self, title):
 
 		self.title = title
@@ -229,9 +199,11 @@ class PrivateShopBuilder(ui.ScriptWindow):
 		self.Refresh()
 		self.Show()
 		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			#self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			#self.lockedExtraItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
 			self.interface.SetOnTopWindow(player.ON_TOP_WND_PRIVATE_SHOP)
 			self.interface.RefreshMarkInventoryBag()
+
 		global g_isBuildingPrivateShop
 		g_isBuildingPrivateShop = True
 
@@ -244,16 +216,17 @@ class PrivateShopBuilder(ui.ScriptWindow):
 		shop.ClearPrivateShopStock()
 		self.Hide()
 
-		if self.priceInputBoard:
-			self.priceInputBoard.Close()
-			self.priceInputBoard = None
-
 		if app.WJ_ENABLE_TRADABLE_ICON:
 			for privatePos, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
 				if itemInvenPage == self.wndInventory.GetInventoryPageIndex():
 					self.wndInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
-
-			self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			
+			#for privatePos, (itemInvenPage, itemSlotPos) in self.lockedExtraItems.items():
+				#if itemInvenPage == self.wndExtraInventory.GetInventoryPageIndex():
+					#self.wndExtraInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
+			
+			#self.lockedItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
+			#self.lockedExtraItems = {i:(-1,-1) for i in range(shop.SHOP_SLOT_COUNT)}
 			self.interface.SetOnTopWindow(player.ON_TOP_WND_NONE)
 			self.interface.RefreshMarkInventoryBag()
 
@@ -278,15 +251,8 @@ class PrivateShopBuilder(ui.ScriptWindow):
 			if itemCount <= 1:
 				itemCount = 0
 			setitemVNum(i, getitemVNum(*pos), itemCount)
-			if app.ENABLE_CHANGELOOK_SYSTEM:
-				itemTransmutedVnum = player.GetItemTransmutation(*pos)
-				if itemTransmutedVnum:
-					self.itemSlot.DisableCoverButton(i)
-				else:
-					self.itemSlot.EnableCoverButton(i)
+
 		self.itemSlot.RefreshSlot()
-		if app.WJ_ENABLE_TRADABLE_ICON:
-			self.RefreshLockedSlot()
 
 	def OnSelectEmptySlot(self, selectedSlotPos):
 
@@ -296,45 +262,34 @@ class PrivateShopBuilder(ui.ScriptWindow):
 			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
 			mouseModule.mouseController.DeattachObject()
 
-			if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
-				if player.SLOT_TYPE_INVENTORY != attachedSlotType and\
-					player.SLOT_TYPE_DRAGON_SOUL_INVENTORY != attachedSlotType and\
-					player.SLOT_TYPE_SKILLBOOK_INVENTORY != attachedSlotType and\
-					player.SLOT_TYPE_UPPITEM_INVENTORY != attachedSlotType and\
-					player.SLOT_TYPE_GHOSTSTONE_INVENTORY != attachedSlotType and\
-					player.SLOT_TYPE_GENERAL_INVENTORY != attachedSlotType:
-					return
-			else:
-				if player.SLOT_TYPE_INVENTORY != attachedSlotType and player.SLOT_TYPE_DRAGON_SOUL_INVENTORY != attachedSlotType:
-					return
-
+			if player.SLOT_TYPE_INVENTORY != attachedSlotType and player.SLOT_TYPE_DRAGON_SOUL_INVENTORY != attachedSlotType:
+				return
 			attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
-				
+
 			itemVNum = player.GetItemIndex(attachedInvenType, attachedSlotPos)
 			item.SelectItem(itemVNum)
 
 			if item.IsAntiFlag(item.ANTIFLAG_GIVE) or item.IsAntiFlag(item.ANTIFLAG_MYSHOP):
 				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.PRIVATE_SHOP_CANNOT_SELL_ITEM)
 				return
-			if app.WJ_ENABLE_TRADABLE_ICON and player.SLOT_TYPE_INVENTORY == attachedSlotType:
-				self.CantTradableItem(selectedSlotPos, attachedSlotPos)
+
 			priceInputBoard = uiCommon.MoneyInputDialog()
+			if app.WJ_ENABLE_TRADABLE_ICON:
+				if player.SLOT_TYPE_INVENTORY == attachedSlotType:
+					self.CantTradableItem(selectedSlotPos, attachedSlotPos)
+				#elif player.SLOT_TYPE_EXTRA_INVENTORY == attachedSlotType:
+				#	self.CantTradableExtraItem(selectedSlotPos, attachedSlotPos)			
+			
 			priceInputBoard.SetTitle(localeInfo.PRIVATE_SHOP_INPUT_PRICE_DIALOG_TITLE)
 			priceInputBoard.SetAcceptEvent(ui.__mem_func__(self.AcceptInputPrice))
 			priceInputBoard.SetCancelEvent(ui.__mem_func__(self.CancelInputPrice))
 			priceInputBoard.Open()
 
 			itemPrice=GetPrivateShopItemPrice(itemVNum)
-			if app.ENABLE_CHEQUE_SYSTEM:
-				itemCheque=GetPrivateShopItemCheque(itemVNum)
 
 			if itemPrice>0:
 				priceInputBoard.SetValue(itemPrice)
-			
-			if app.ENABLE_CHEQUE_SYSTEM and itemCheque > 0:
-				priceInputBoard.SetChequeValue(itemCheque)
-				priceInputBoard.SetFocus()
-			
+
 			self.priceInputBoard = priceInputBoard
 			self.priceInputBoard.itemVNum = itemVNum
 			self.priceInputBoard.sourceWindowType = attachedInvenType
@@ -355,12 +310,21 @@ class PrivateShopBuilder(ui.ScriptWindow):
 			invenType, invenPos = self.itemStock[selectedSlotPos]
 			shop.DelPrivateShopItemStock(invenType, invenPos)
 			snd.PlaySound("sound/ui/drop.wav")
-			if app.WJ_ENABLE_TRADABLE_ICON:
-				(itemInvenPage, itemSlotPos) = self.lockedItems[selectedSlotPos]
-				if itemInvenPage == self.wndInventory.GetInventoryPageIndex():
-					self.wndInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
 
-				self.lockedItems[selectedSlotPos] = (-1, -1)
+			#if app.WJ_ENABLE_TRADABLE_ICON:
+				#(itemInvenPage, itemSlotPos) = self.lockedItems[selectedSlotPos]
+				#if itemInvenPage == self.wndInventory.GetInventoryPageIndex():
+				#	self.wndInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
+				
+				#self.lockedItems[selectedSlotPos] = (-1, -1)
+				
+			#	(itemInvenPage, itemSlotPos) = self.lockedExtraItems[selectedSlotPos]
+				#if itemInvenPage == self.wndExtraInventory.GetInventoryPageIndex():
+				#	self.wndExtraInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
+				
+				#self.lockedExtraItems[selectedSlotPos] = (-1, -1)
+			
+
 			del self.itemStock[selectedSlotPos]
 
 			self.Refresh()
@@ -372,25 +336,14 @@ class PrivateShopBuilder(ui.ScriptWindow):
 
 		text = self.priceInputBoard.GetText()
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			cheText = self.priceInputBoard.GetChequeText()
-			if not text and not cheText:
-				return True
+		if not text:
+			return True
 
-			if not text.isdigit() and not cheText.isdigit():
-				return True
+		if not text.isdigit():
+			return True
 
-			if int(text) <= 0 and int(cheText) <= 0:
-				return True
-		else:
-			if not text:
-				return True
-
-			if not text.isdigit():
-				return True
-
-			if int(text) <= 0:
-				return True
+		if int(text) <= 0:
+			return True
 
 		attachedInvenType = self.priceInputBoard.sourceWindowType
 		sourceSlotPos = self.priceInputBoard.sourceSlotPos
@@ -402,18 +355,11 @@ class PrivateShopBuilder(ui.ScriptWindow):
 				del self.itemStock[privatePos]
 
 		price = int(self.priceInputBoard.GetText())
-		if app.ENABLE_CHEQUE_SYSTEM:
-			cheque = int(self.priceInputBoard.GetChequeText())
 
 		if IsPrivateShopItemPriceList():
 			SetPrivateShopItemPrice(self.priceInputBoard.itemVNum, price)
-		if app.ENABLE_CHEQUE_SYSTEM and IsPrivateShopItemChequePriceList():
-			SetPrivateShopItemCheque(self.priceInputBoard.itemVNum, cheque)
 
-		if app.ENABLE_CHEQUE_SYSTEM:
-			shop.AddPrivateShopItemStock(attachedInvenType, sourceSlotPos, targetSlotPos, price, cheque)
-		else:
-			shop.AddPrivateShopItemStock(attachedInvenType, sourceSlotPos, targetSlotPos, price)
+		shop.AddPrivateShopItemStock(attachedInvenType, sourceSlotPos, targetSlotPos, price)
 		self.itemStock[targetSlotPos] = (attachedInvenType, sourceSlotPos)
 		snd.PlaySound("sound/ui/drop.wav")
 
@@ -429,14 +375,9 @@ class PrivateShopBuilder(ui.ScriptWindow):
 			itemInvenPage = self.priceInputBoard.sourceSlotPos / player.INVENTORY_PAGE_SIZE
 			itemSlotPos = self.priceInputBoard.sourceSlotPos - (itemInvenPage * player.INVENTORY_PAGE_SIZE)
 			if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
-				self.wndInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)
-
-			self.lockedItems[self.priceInputBoard.targetSlotPos] = (-1, -1)
-
-		if self.priceInputBoard:
-			self.priceInputBoard.Close()
+				self.wndInventory.wndItem.SetCanMouseEventSlot(itemSlotPos)	
 		self.priceInputBoard = None
-		return 1
+		return True
 
 	def OnOk(self):
 
@@ -466,7 +407,8 @@ class PrivateShopBuilder(ui.ScriptWindow):
 
 		if self.tooltipItem:
 			self.tooltipItem.HideToolTip()
-
+			
+			
 	if app.WJ_ENABLE_TRADABLE_ICON:
 		def CantTradableItem(self, destSlotIndex, srcSlotIndex):
 			itemInvenPage = srcSlotIndex / player.INVENTORY_PAGE_SIZE
@@ -475,13 +417,21 @@ class PrivateShopBuilder(ui.ScriptWindow):
 			if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
 				self.wndInventory.wndItem.SetCantMouseEventSlot(localSlotPos)
 
-		def RefreshLockedSlot(self):
-			if self.wndInventory:
-				for privatePos, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
-					if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
-						self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
+		# def RefreshLockedSlot(self):
+			# if self.wndInventory:
+				# for privatePos, (itemInvenPage, itemSlotPos) in self.lockedItems.items():
+					# if self.wndInventory.GetInventoryPageIndex() == itemInvenPage:
+						# self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
+				
+				# self.wndInventory.wndItem.RefreshSlot()
 
-				self.wndInventory.wndItem.RefreshSlot()
+		# def CantTradableExtraItem(self, destSlotIndex, srcSlotIndex):
+			# itemInvenPage = srcSlotIndex / player.EXTRA_INVENTORY_PAGE_SIZE
+			# localSlotPos = srcSlotIndex - (itemInvenPage * player.EXTRA_INVENTORY_PAGE_SIZE)
+			# self.lockedExtraItems[destSlotIndex] = (itemInvenPage, localSlotPos)
+			# if self.wndExtraInventory.GetInventoryPageIndex() == itemInvenPage:
+				# self.wndExtraInventory.wndItem.SetCantMouseEventSlot(localSlotPos)
+
 
 		def BindInterface(self, interface):
 			self.interface = interface
@@ -492,5 +442,8 @@ class PrivateShopBuilder(ui.ScriptWindow):
 				self.interface.RefreshMarkInventoryBag()
 
 		def SetInven(self, wndInventory):
-			from _weakref import proxy
-			self.wndInventory = proxy(wndInventory)
+			#from _weakref import proxy
+			#self.wndInventory = proxy(wndInventory)
+			self.wndInventory = wndInventory
+
+

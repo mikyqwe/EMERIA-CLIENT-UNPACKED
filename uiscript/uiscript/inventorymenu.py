@@ -46,7 +46,7 @@ window = {
 
 					"children" :
 					(
-						{ "name" : "TitleName", "type" : "text", "x" : 82, "y" : 3, "text" : "Magazin", "text_horizontal_align" : "center" },
+						{ "name" : "TitleName", "type" : "text", "x" : 82, "y" : 3, "text" : "Magazzino", "text_horizontal_align" : "center" },
 					),
 				},
 
@@ -69,7 +69,7 @@ window = {
 							"x" : 8,
 							"y" : 4,
 
-							"text" : "Magazin",
+							"text" : "Magazzino",
 
 							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
 							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
@@ -97,7 +97,7 @@ window = {
 							"x" : 8,
 							"y" : 4 + 28 + 28,
 
-							"text" : "Cãrþi",
+							"text" : "Libri",
 
 							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
 							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
@@ -111,7 +111,7 @@ window = {
 							"x" : 8,
 							"y" : 4 + 28 + 28 + 28,
 
-							"text" : "Iteme Upgrade",
+							"text" : "Item Up",
 
 							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
 							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
@@ -139,7 +139,7 @@ window = {
 							"x" : 8,
 							"y" : 4 + 28 + 28 + 28 + 28 + 28,
 
-							"text" : "General",
+							"text" : "Generale",
 
 							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
 							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",

@@ -38,7 +38,7 @@ window = {
 					
 					"children":
 					(
-						{ "name" : "TitleName", "type":"text", "x":0, "y":-1, "text":"Selectaþi Clasa", "all_align":"center" },
+						{ "name" : "TitleName", "type":"text", "x":0, "y":-1, "text":"Seleziona Classe", "all_align":"center" },
 					),
 				},	
 				
@@ -54,7 +54,7 @@ window = {
 						{
 							"name" : "InfoText",
 							"type": "text",
-							"text": "Tigru - ªef",
+							"text": "Tiger - Sef",
 							"x":0,
 							"y":0,
 							"r":1.0,
