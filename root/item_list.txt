@@ -8202,11 +8202,6 @@
 50182	ETC	icon/item/50182.tga
 50183	ETC	icon/item/50183.tga
 50186	ETC	icon/item/boss_box.tga	d:/ymir work/item/etc/boss_box.gr2
-50187	ETC	icon/item/50187.tga
-50188	ETC	icon/item/50187.tga
-50189	ETC	icon/item/50187.tga
-50190	ETC	icon/item/50187.tga
-50191	ETC	icon/item/50187.tga
 50192	ETC	icon/item/50187.tga
 50193	ETC	icon/item/50187.tga
 50194	ETC	icon/item/50187.tga
@@ -8417,7 +8412,6 @@
 50727	ETC	icon/item/50707.tga
 50728	ETC	icon/item/50708.tga
 50729	ETC	icon/item/50709.tga
-50730	ETC	icon/item/50710.tga
 50731	ETC	icon/item/50711.tga
 50732	ETC	icon/item/50712.tga
 50801	ETC	icon/item/50801.tga
@@ -8797,7 +8791,6 @@
 53230	ETC	icon/item/53230.tga
 53231	ETC	icon/item/53231.tga
 53232	ETC	icon/item/53232.tga
-53235	ETC	icon/item/53233.tga
 53236	ETC	icon/item/53236.tga
 53237	ETC	icon/item/53237.tga
 53238	ETC	icon/item/53236.tga
@@ -8867,8 +8860,6 @@
 53503	ETC	icon/item/53501.tga
 53505	ETC	icon/item/53501.tga
 53506	ETC	icon/item/53501.tga
-53514	ETC	icon/item/53501.tga
-53515	ETC	icon/item/53501.tga
 53516	ETC	icon/item/53501.tga
 53517	ETC	icon/item/53501.tga
 53518	ETC	icon/item/53501.tga
