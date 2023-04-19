@@ -51,7 +51,7 @@ window = {
 
 					"children" :
 					(
-						{ "name":"TitleName", "type":"text", "x": (77 + SPACE_BONUS_INVENTORY) / 2, "y":3, "text":uiScriptLocale.INVENTORY_TITLE, "text_horizontal_align":"center" },
+						{ "name":"TitleName", "type":"text", "x": -4, "y":3, "text":uiScriptLocale.INVENTORY_TITLE, "text_horizontal_align":"center", "horizontal_align" : "center" },
 						#{ "name":"TitleName", "type":"text", "x": -4, "y":3, "text":uiScriptLocale.INVENTORY_TITLE, "text_horizontal_align":"center", "horizontal_align" : "center" },
 					),
 				},			
@@ -875,16 +875,16 @@ window = {
 									
 									),
 						},
-						{
-							"name" : "AntiExp",
-							"type" : "button",
-							"x" : 3+39+38,
-							"y" : 3+5,
-							"tooltip_text" : "Anti Exp",
-							"default_image" : "d:/ymir work/ui/anti_exp/exp.tga",
-							"over_image" :  "d:/ymir work/ui/anti_exp/anti_exp.tga",
-							"down_image" :  "d:/ymir work/ui/anti_exp/anti_exp.tga",
-						},
+						# {
+							# "name" : "AntiExp",
+							# "type" : "button",
+							# "x" : 3+39+38,
+							# "y" : 3+5,
+							# "tooltip_text" : "Anti Exp",
+							# "default_image" : "d:/ymir work/ui/anti_exp/exp.tga",
+							# "over_image" :  "d:/ymir work/ui/anti_exp/anti_exp.tga",
+							# "down_image" :  "d:/ymir work/ui/anti_exp/anti_exp.tga",
+						# },
 						
 						## MallButton
 						{

@@ -260,8 +260,8 @@ class InventoryWindow(ui.ScriptWindow):
 		try:
 			wndItem = self.GetChild("ItemSlot")
 			wndEquip = self.GetChild("EquipmentSlot")
-			if app.ENABLE_ANTI_EXP:
-				self.GetChild("AntiExp").SetEvent(ui.__mem_func__(self.__ClickAntiExp))			
+			# if app.ENABLE_ANTI_EXP:
+				# self.GetChild("AntiExp").SetEvent(ui.__mem_func__(self.__ClickAntiExp))			
 			self.GetChild("TitleBar").SetCloseEvent(ui.__mem_func__(self.Close))
 			self.wndMoney = self.GetChild("Money")
 			self.wndMoneySlot = self.GetChild("Money_Slot")
@@ -426,9 +426,9 @@ class InventoryWindow(ui.ScriptWindow):
 		
 		self.CreateTalismanTT()
 	
-	if app.ENABLE_ANTI_EXP:
-		def __ClickAntiExp(self):
-			net.SendChatPacket("/anti_exp")
+	# if app.ENABLE_ANTI_EXP:
+		# def __ClickAntiExp(self):
+			# net.SendChatPacket("/anti_exp")
 	
 	def SelectPage(self, page):
 		for x in xrange(len(self.equipPage)):
