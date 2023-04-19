@@ -2215,17 +2215,17 @@ TOOLTIP_ANTI_CRITICAL_PCT	Rezistenþã la lovitura criticã +%d%%	SA
 TOOLTIP_ANTI_PENETRATE_PCT	Rezistenþã la lovitura pãtrunzãtoare +%d%%	SA
 TOOLTIP_ANTI_SELL	Nu poate fi vândut în magazin.
 TOOLTIP_APPLY_ACCEDRAIN_RATE	Ratã de absorbþie: %d%%	SA
-TOOLTIP_APPLY_ATTBONUS_ANIMAL	Tare vs Animalelor +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_ANIMAL	Tare vs Animale +%d%%	SA
 TOOLTIP_APPLY_ATTBONUS_ASSASSIN	Tare vs Ninja +%d%%	SA
-TOOLTIP_APPLY_ATTBONUS_DEVIL	Tare vs Diavolului +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_DEVIL	Tare vs Diavol +%d%%	SA
 TOOLTIP_APPLY_ATTBONUS_HUMAN	Tare vs Semi-om +%d%%	SA
-TOOLTIP_APPLY_ATTBONUS_MILGYO	Tare vs Esotericilor +%d%%	SA
-TOOLTIP_APPLY_ATTBONUS_MONSTER	Tare vs Monºtrilor +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_MILGYO	Tare vs Esoterici +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_MONSTER	Tare vs Monºtri +%d%%	SA
 TOOLTIP_APPLY_ATTBONUS_ORC	Tare vs Orci +%d%%	SA
 TOOLTIP_APPLY_ATTBONUS_SHAMAN	Tare vs Shaman +%d%%	SA
 TOOLTIP_APPLY_ATTBONUS_SURA	Tare vs Sura +%d%%	SA
-TOOLTIP_APPLY_ATTBONUS_UNDEAD	Tare vs Vampirilor +%d%%	SA
-TOOLTIP_APPLY_ATTBONUS_WARRIOR	Tare vs Rãzboinicilor +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_UNDEAD	Tare vs Vampiri +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_WARRIOR	Tare vs Rãzboinici +%d%%	SA
 TOOLTIP_APPLY_ATTBONUS_WOLFMAN	Puternic vs Lycanilor + %d%%	SA
 TOOLTIP_APPLY_BLEEDING_PCT	Atac sangeros + %d%%	SA
 TOOLTIP_APPLY_BLEEDING_REDUCE	Rezistenþã împotriva atacului sângeros + %d%%	SA
