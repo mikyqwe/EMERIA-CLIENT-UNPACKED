@@ -142,8 +142,8 @@ Group Particle
         }
         List TextureFiles
         {
-            "2-star.dds"
-            "2-starsmall.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-starsmall.dds"
         }
     }
 }
@@ -538,7 +538,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "2-star.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }

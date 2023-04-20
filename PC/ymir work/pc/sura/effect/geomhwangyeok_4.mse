@@ -27,7 +27,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	0.541176 1.000000 0.203922 1.000000
+        ColorFactor                	0.537255 1.000000 0.203922 1.000000
         List TimeEventAlpha
         {
         }
@@ -157,7 +157,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "ee_s.dds"
+            "D:\Ymir Work\pc\assassin\effect\ee_s.dds"
         }
     }
 }

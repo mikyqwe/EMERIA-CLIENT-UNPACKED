@@ -7,7 +7,7 @@ Group Particle
     List TimeEventPosition
     {
         0.000000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 2.235863
-        0.448000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 156.828491
+        0.448000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 156.828003
     }
     
     Group EmitterProperty
@@ -126,7 +126,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "gwi_geom_spark copy.dds"
+            "D:\Ymir Work\pc\sura\effect\gwi_geom_spark copy.dds"
         }
     }
 }
@@ -136,7 +136,7 @@ Group Particle
     List TimeEventPosition
     {
         0.000000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 2.866428
-        0.472000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 163.905289
+        0.472000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 163.904999
     }
     
     Group EmitterProperty
@@ -253,7 +253,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "gwi_geom_bright copy.dds"
+            "D:\Ymir Work\pc\sura\effect\gwi_geom_bright copy.dds"
         }
     }
 }

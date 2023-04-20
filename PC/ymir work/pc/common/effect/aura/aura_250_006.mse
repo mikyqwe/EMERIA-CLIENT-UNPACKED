@@ -1,5 +1,5 @@
 BoundingSphereRadius   200.000000
-BoundingSpherePosition 0.000000 0.000000 150.000000
+BoundingSpherePosition 0.000000 0.000000 0.000000
 
 Group Mesh
 {
@@ -27,10 +27,10 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	0.729412 0.792157 0.831373 1.000000
+        ColorFactor                	1.000000 1.000000 1.000000 1.000000
         List TimeEventAlpha
         {
-            0.000000 0.597938
+            0.000000 0.800000
         }
     }
 }
@@ -496,8 +496,8 @@ Group Particle
         AttachEnable                 1
         StretchEnable                0
     
-        TexAniType                   0
-        TexAniDelay                  0.029000
+        TexAniType                   3
+        TexAniDelay                  0.500000
         TexAniRandomStartFrameEnable 0
     
         List TimeEventGravity
@@ -529,7 +529,7 @@ Group Particle
         List TimeEventAlpha
         {
             0.000000 0.000000
-            0.320000 0.120000
+            0.315385 0.400000
             0.720000 0.000000
             1.000000 0.000000
         }
@@ -540,6 +540,131 @@ Group Particle
         List TextureFiles
         {
             "aura_aura_01.dds"
+        }
+    }
+}
+Group Particle
+{
+    StartTime           0.216000
+    List TimeEventPosition
+    {
+        0.000000 "MOVING_TYPE_DIRECT" -40.000000 0.000000 0.000000
+    }
+    
+    Group EmitterProperty
+    {
+        MaxEmissionCount        8
+    
+        CycleLength             1.000000
+        CycleLoopEnable         1
+        LoopCount               0
+    
+        EmitterShape            0
+        EmitterAdvancedType     0
+        EmitterEmitFromEdgeFlag  0
+        EmittingDirection       0.000000 0.000000 0.000000
+    
+        List TimeEventEmittingSize
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingAngularVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionX
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionY
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingDirectionZ
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmittingVelocity
+        {
+            0.000000 0.000000
+        }
+        List TimeEventEmissionCountPerSecond
+        {
+            0.000000 4.000000
+        }
+        List TimeEventLifeTime
+        {
+            0.000000 1.000000
+        }
+        List TimeEventSizeX
+        {
+            0.000000 100.000000
+        }
+        List TimeEventSizeY
+        {
+            0.000000 120.000000
+        }
+    }
+    
+    Group ParticleProperty
+    {
+        SrcBlendType                 5
+        DestBlendType                2
+        ColorOperationType           4
+        BillboardType                0
+        RotationType                 2
+        RotationSpeed                0.000000
+        RotationRandomStartingBegin  0
+        RotationRandomStartingEnd    0
+    
+        AttachEnable                 1
+        StretchEnable                0
+    
+        TexAniType                   1
+        TexAniDelay                  0.500000
+        TexAniRandomStartFrameEnable 1
+    
+        List TimeEventGravity
+        {
+        }
+        List TimeEventAirResistance
+        {
+        }
+        List TimeEventScaleX
+        {
+            0.697143 1.300000
+        }
+        List TimeEventScaleY
+        {
+            0.320000 1.000000
+        }
+        List TimeEventColorRed
+        {
+            0.997436 0.392157
+        }
+        List TimeEventColorGreen
+        {
+            0.997436 0.376471
+        }
+        List TimeEventColorBlue
+        {
+            0.997436 0.686275
+        }
+        List TimeEventAlpha
+        {
+            0.000000 0.000000
+            0.315390 0.600000
+            0.720000 0.000000
+            1.000000 0.000000
+        }
+        List TimeEventRotation
+        {
+            0.000000 0.000000
+        }
+        List TextureFiles
+        {
+            "aura_aura_02.dds"
+            "aura_aura_03.dds"
         }
     }
 }

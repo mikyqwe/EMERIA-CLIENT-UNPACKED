@@ -373,7 +373,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "ls1_1 copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\ls1_1 copy.dds"
         }
     }
 }
@@ -755,7 +755,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "half_ring_rainbow_line.dds"
+            "D:\Ymir Work\pc\assassin\effect\half_ring_rainbow_line.dds"
         }
     }
 }

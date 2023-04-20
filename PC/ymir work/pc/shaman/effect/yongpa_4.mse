@@ -131,7 +131,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "wind.dds"
+            "D:\Ymir Work\pc\assassin\effect\wind.dds"
         }
     }
 }
@@ -258,7 +258,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }
@@ -417,7 +417,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }
@@ -672,7 +672,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }
@@ -989,7 +989,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	0.000000 0.396078 0.494118 1.000000
+        ColorFactor                	0.000000 0.392157 0.494118 1.000000
         List TimeEventAlpha
         {
         }
@@ -1189,7 +1189,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "wind.dds"
+            "D:\Ymir Work\pc\assassin\effect\wind.dds"
         }
     }
 }
@@ -1316,7 +1316,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }
@@ -1443,7 +1443,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }

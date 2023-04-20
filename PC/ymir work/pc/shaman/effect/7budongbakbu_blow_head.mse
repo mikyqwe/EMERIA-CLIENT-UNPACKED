@@ -269,7 +269,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "W_star.dds"
+            "w_star.dds"
         }
     }
 }
@@ -396,7 +396,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "stum_inter_pasthit.dds"
+            "D:\Ymir Work\effect\etc\stun\stum_inter_pasthit.dds"
         }
     }
 }

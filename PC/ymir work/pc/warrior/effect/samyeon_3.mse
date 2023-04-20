@@ -249,7 +249,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "cure.dds"
+            "D:\Ymir Work\pc\assassin\effect\cure.dds"
         }
     }
 }
@@ -499,7 +499,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "half_ring_rainbow_line.dds"
+            "D:\Ymir Work\pc\assassin\effect\half_ring_rainbow_line.dds"
         }
     }
 }
@@ -751,7 +751,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "half_ring_rainbow_line.dds"
+            "D:\Ymir Work\pc\assassin\effect\half_ring_rainbow_line.dds"
         }
     }
 }

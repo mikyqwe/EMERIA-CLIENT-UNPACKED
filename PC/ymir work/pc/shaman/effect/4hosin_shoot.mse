@@ -120,7 +120,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "wind.dds"
+            "D:\Ymir Work\pc\assassin\effect\wind.dds"
         }
     }
 }
@@ -244,7 +244,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "W_star.dds"
+            "w_star.dds"
         }
     }
 }

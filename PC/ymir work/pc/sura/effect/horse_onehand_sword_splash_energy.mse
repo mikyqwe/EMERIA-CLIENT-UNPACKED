@@ -126,7 +126,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\main-ring1_1.dds"
+            "main-ring1_1.dds"
         }
     }
 }
@@ -259,7 +259,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\doughnut.dds"
+            "doughnut.dds"
         }
     }
 }
@@ -389,7 +389,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\youn_gi.dds"
+            "youn_gi.dds"
         }
     }
 }
@@ -517,8 +517,8 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\pung02.dds"
-            "D:\YMIR WORK\pc\sura\effect\splitlife_akkan_combat4.dds"
+            "pung02.dds"
+            "D:\Ymir Work\pc\shaman\effect\splitlife_akkan_combat4.dds"
         }
     }
 }
@@ -654,7 +654,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\youn_gi.dds"
+            "youn_gi.dds"
         }
     }
 }

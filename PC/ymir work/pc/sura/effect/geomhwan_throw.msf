@@ -12,6 +12,7 @@ BombEffect              "geomhwangyeok_blow.mse"
 HomingFlag              1
 HomingStartTime         0.000000
 HomingMaxAngle          180.000000
+SendDamageOnCollision	1
 Range                   10000.000000
 Acceleration            0.000000 -100.000000 0.000000
 Group AttachData

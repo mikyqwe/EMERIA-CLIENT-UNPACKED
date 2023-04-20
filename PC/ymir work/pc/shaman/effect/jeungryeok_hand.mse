@@ -123,7 +123,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "ls1_1 copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\ls1_1 copy.dds"
         }
     }
 }
@@ -243,7 +243,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "ls1_1 copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\ls1_1 copy.dds"
         }
     }
 }

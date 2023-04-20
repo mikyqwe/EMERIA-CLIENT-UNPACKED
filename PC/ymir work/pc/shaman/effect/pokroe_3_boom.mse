@@ -19,7 +19,7 @@ Group Particle
     
         EmitterShape            3
         EmitterAdvancedType     0
-        EmittingRadius          30.000000
+        EmittingRadius          60.000000
         EmitterEmitFromEdgeFlag  1
         EmittingDirection       0.001000 0.001000 0.000000
     
@@ -57,11 +57,11 @@ Group Particle
         }
         List TimeEventSizeX
         {
-            0.000000 100.000000
+            0.000000 200.000000
         }
         List TimeEventSizeY
         {
-            0.000000 100.000000
+            0.000000 200.000000
         }
     }
     
@@ -148,7 +148,7 @@ Group Particle
     
         EmitterShape            3
         EmitterAdvancedType     0
-        EmittingRadius          30.000000
+        EmittingRadius          60.000000
         EmitterEmitFromEdgeFlag  1
         EmittingDirection       0.001000 0.001000 0.000000
     
@@ -186,11 +186,11 @@ Group Particle
         }
         List TimeEventSizeX
         {
-            0.000000 100.000000
+            0.000000 200.000000
         }
         List TimeEventSizeY
         {
-            0.000000 100.000000
+            0.000000 200.000000
         }
     }
     
@@ -400,7 +400,7 @@ Group Particle
     
         EmitterShape            3
         EmitterAdvancedType     1
-        EmittingRadius          100.000000
+        EmittingRadius          200.000000
         EmitterEmitFromEdgeFlag  0
         EmittingDirection       0.000000 0.000000 0.000000
     
@@ -439,11 +439,11 @@ Group Particle
         }
         List TimeEventSizeX
         {
-            0.000000 100.000000
+            0.000000 200.000000
         }
         List TimeEventSizeY
         {
-            0.000000 100.000000
+            0.000000 200.000000
         }
     }
     
@@ -532,7 +532,7 @@ Group Particle
     
         EmitterShape            3
         EmitterAdvancedType     1
-        EmittingRadius          5.000000
+        EmittingRadius          10.000000
         EmitterEmitFromEdgeFlag  0
         EmittingDirection       0.000000 0.000000 0.000000
     
@@ -570,11 +570,11 @@ Group Particle
         }
         List TimeEventSizeX
         {
-            0.000000 64.000000
+            0.000000 128.000000
         }
         List TimeEventSizeY
         {
-            0.000000 64.000000
+            0.000000 128.000000
         }
     }
     
@@ -660,7 +660,7 @@ Group Particle
     
         EmitterShape            3
         EmitterAdvancedType     1
-        EmittingRadius          50.000000
+        EmittingRadius          100.000000
         EmitterEmitFromEdgeFlag  0
         EmittingDirection       0.000000 0.000000 0.000000
     
@@ -700,15 +700,15 @@ Group Particle
         }
         List TimeEventSizeX
         {
-            0.000000 64.000000
-            0.765714 43.298969
-            1.000000 29.896908
+            0.000000 128.000000
+            0.765714 86.000000
+            1.000000 60.000000
         }
         List TimeEventSizeY
         {
-            0.000000 64.000000
-            0.782857 43.298969
-            1.000000 29.896908
+            0.000000 128.000000
+            0.782857 86.000000
+            1.000000 60.000000
         }
     }
     

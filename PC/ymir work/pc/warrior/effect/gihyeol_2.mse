@@ -125,7 +125,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "cure.dds"
+            "D:\Ymir Work\pc\assassin\effect\cure.dds"
         }
     }
 }
@@ -374,7 +374,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "half_ring_rainbow_line.dds"
+            "D:\Ymir Work\pc\assassin\effect\half_ring_rainbow_line.dds"
         }
     }
 }
@@ -965,7 +965,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "Rotation of Rsotation of 3.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
         }
     }
 }
@@ -1094,7 +1094,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "Rotation of Rsotation of 3.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
         }
     }
 }
@@ -1223,8 +1223,8 @@ Group Particle
         }
         List TextureFiles
         {
-            "Rotation of Rsotation of 3.dds"
-            "Rotation of 17_2.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
+            "rotation of 17_2.dds"
         }
     }
 }

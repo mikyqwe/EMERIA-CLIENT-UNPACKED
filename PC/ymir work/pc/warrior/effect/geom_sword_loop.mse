@@ -250,7 +250,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "fire copy.dds"
+            "D:\Ymir Work\pc\sura\effect\fire copy.dds"
         }
     }
 }
@@ -407,7 +407,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "fire copy.dds"
+            "D:\Ymir Work\pc\sura\effect\fire copy.dds"
             "o_explore copy.dds"
         }
     }

@@ -141,7 +141,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "fire copy.dds"
+            "D:\Ymir Work\pc\sura\effect\fire copy.dds"
         }
     }
 }

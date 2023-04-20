@@ -135,7 +135,7 @@ Group Particle
     StartTime           0.000000
     List TimeEventPosition
     {
-        0.000000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 5.761000
+        0.000000 "MOVING_TYPE_DIRECT" 0.000000 0.000000 30.000000
     }
     
     Group EmitterProperty
@@ -253,7 +253,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }

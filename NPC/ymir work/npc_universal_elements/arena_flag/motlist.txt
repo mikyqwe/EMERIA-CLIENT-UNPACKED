@@ -1,2 +1,0 @@
-GENERAL SPAWN spawn.msa 100
-GENERAL WAIT wait.msa 100

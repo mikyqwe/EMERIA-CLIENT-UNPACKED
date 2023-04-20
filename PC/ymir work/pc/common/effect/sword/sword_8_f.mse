@@ -137,7 +137,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "banzzak.jpg"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }
@@ -265,7 +265,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\orange_cure copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\orange_cure copy.dds"
         }
     }
 }

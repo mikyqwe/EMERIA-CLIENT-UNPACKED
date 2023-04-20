@@ -453,7 +453,7 @@ Group Particle
         RotationRandomStartingBegin  0
         RotationRandomStartingEnd    0
     
-        AttachEnable                 0
+        AttachEnable                 1
         StretchEnable                0
     
         TexAniType                   0

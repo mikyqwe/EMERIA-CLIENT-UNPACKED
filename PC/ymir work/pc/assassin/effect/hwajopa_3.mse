@@ -27,7 +27,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	1.000000 0.172549 0.172549 1.000000
+        ColorFactor                	1.000000 0.168627 0.168627 1.000000
         List TimeEventAlpha
         {
             -0.013333 0.515464
@@ -63,7 +63,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	1.000000 0.117647 0.117647 1.000000
+        ColorFactor                	1.000000 0.113725 0.113725 1.000000
         List TimeEventAlpha
         {
             -0.013333 0.515464
@@ -99,7 +99,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	1.000000 0.168627 0.168627 1.000000
+        ColorFactor                	1.000000 0.164706 0.164706 1.000000
         List TimeEventAlpha
         {
             -0.013333 0.515464

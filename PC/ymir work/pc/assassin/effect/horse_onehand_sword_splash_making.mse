@@ -124,7 +124,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\spark copy.dds"
+            "D:\Ymir Work\pc\warrior\effect\spark copy.dds"
         }
     }
 }
@@ -250,7 +250,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\gyouk_gong_center_2 copy.dds"
+            "D:\Ymir Work\pc\warrior\effect\gyouk_gong_center_2 copy.dds"
         }
     }
 }
@@ -374,7 +374,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\cure.dds"
+            "cure.dds"
         }
     }
 }

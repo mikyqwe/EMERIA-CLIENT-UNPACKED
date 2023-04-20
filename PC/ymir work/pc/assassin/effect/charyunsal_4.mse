@@ -1039,7 +1039,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "Rotation of 3.dds"
+            "rotation of 3.dds"
         }
     }
 }

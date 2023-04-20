@@ -14,6 +14,7 @@ HomingStartTime         0.000000
 HomingMaxAngle          180.000000
 Range                   1000.000000
 Acceleration            0.000000 0.000000 0.000000
+hitattackmotion			1
 Group AttachData
 {
     Type          1

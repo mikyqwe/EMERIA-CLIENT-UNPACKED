@@ -1,2 +1,0 @@
-GENERAL WAIT animacja_1.msa 70
-GENERAL WAIT1 animacja_2.msa 30

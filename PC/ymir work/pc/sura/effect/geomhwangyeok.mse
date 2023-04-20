@@ -157,7 +157,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "ee_s.dds"
+            "D:\Ymir Work\pc\assassin\effect\ee_s.dds"
         }
     }
 }

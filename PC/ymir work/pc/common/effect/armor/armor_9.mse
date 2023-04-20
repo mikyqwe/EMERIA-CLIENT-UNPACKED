@@ -123,7 +123,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "orange_cure copy.jpg"
+            "D:\Ymir Work\pc\assassin\effect\orange_cure copy.dds"
         }
     }
 }
@@ -265,7 +265,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "gwi_geom_spark copy.jpg"
+            "D:\Ymir Work\pc\sura\effect\gwi_geom_spark copy.dds"
         }
     }
 }

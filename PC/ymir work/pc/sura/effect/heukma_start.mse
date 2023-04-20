@@ -264,7 +264,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "outhalfcircle.dds"
+            "D:\Ymir Work\pc\shaman\effect\outhalfcircle.dds"
         }
     }
 }

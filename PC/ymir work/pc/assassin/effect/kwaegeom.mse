@@ -67,7 +67,7 @@ Group Particle
     Group ParticleProperty
     {
         SrcBlendType                 2
-        DestBlendType                3
+        DestBlendType                4
         ColorOperationType           4
         BillboardType                3
         RotationType                 0

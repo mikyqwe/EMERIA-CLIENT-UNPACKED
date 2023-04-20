@@ -124,7 +124,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -535,7 +535,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -662,7 +662,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -1073,7 +1073,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -1200,7 +1200,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -1611,7 +1611,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -1641,7 +1641,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	0.560784 0.662745 0.078431 1.000000
+        ColorFactor                	0.556863 0.658824 0.074510 1.000000
         List TimeEventAlpha
         {
         }
@@ -1673,7 +1673,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	0.745098 0.992157 0.019608 1.000000
+        ColorFactor                	0.741176 0.992157 0.019608 1.000000
         List TimeEventAlpha
         {
         }
@@ -1705,7 +1705,7 @@ Group Mesh
         TextureAnimationStartFrame 	0
         
         ColorOperationType         	4
-        ColorFactor                	0.772549 0.894118 0.058824 1.000000
+        ColorFactor                	0.768627 0.894118 0.058824 1.000000
         List TimeEventAlpha
         {
         }

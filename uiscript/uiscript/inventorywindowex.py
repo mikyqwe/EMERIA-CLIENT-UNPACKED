@@ -846,7 +846,7 @@ window = {
 					"x" : 10,
 					"y" : 33,
 
-					"image" : "d:/ymir work/ui/game/windows/bg.sub",
+					"image" : "d:/ymir work/ui/equipment_bg_without_ring.tga",
 
 					"children" :
 					(
@@ -1162,7 +1162,7 @@ window = {
 					"name" : "Inventory_Tab_01",
 					"type" : "radio_button",
 
-					"x" : 13 + 3,
+					"x" : 13,
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
@@ -1190,7 +1190,7 @@ window = {
 					"type" : "radio_button",
 
 					#"x" : 10 + 78,
-					"x" : 10 + 39 + 3,
+					"x" : 10 + 39,
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
@@ -1218,7 +1218,7 @@ window = {
 					"name" : "Inventory_Tab_03",
 					"type" : "radio_button",
 
-					"x" : 10 + 39 + 39 + 3,
+					"x" : 10 + 39 + 39,
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",
@@ -1247,7 +1247,7 @@ window = {
 					"name" : "Inventory_Tab_04",
 					"type" : "radio_button",
 
-					"x" : 10 + 39 + 39 + 39 + 3,
+					"x" : 10 + 39 + 39 + 39,
 					"y" : 33 + 191,
 
 					"default_image" : "d:/ymir work/ui/game/windows/tab_button_large_half_01.sub",

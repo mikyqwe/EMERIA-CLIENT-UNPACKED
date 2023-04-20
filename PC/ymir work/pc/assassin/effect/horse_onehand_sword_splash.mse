@@ -120,7 +120,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\ls1_1 copy.dds"
+            "ls1_1 copy.dds"
         }
     }
 }
@@ -247,7 +247,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\sohwanland_splash.dds"
+            "D:\Ymir Work\pc\shaman\effect\sohwanland_splash.dds"
         }
     }
 }
@@ -370,7 +370,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\W_star.dds"
+            "D:\Ymir Work\pc\shaman\effect\w_star.dds"
         }
     }
 }
@@ -501,7 +501,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\shamandust.dds"
+            "D:\Ymir Work\pc\shaman\effect\shamandust.dds"
         }
     }
 }
@@ -630,7 +630,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\chip.dds"
+            "D:\Ymir Work\pc\shaman\effect\chip.dds"
         }
     }
 }
@@ -752,7 +752,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\splitlife_akkan_combat4.dds"
+            "D:\Ymir Work\pc\shaman\effect\splitlife_akkan_combat4.dds"
         }
     }
 }
@@ -879,7 +879,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\ls1_1 copy.dds"
+            "ls1_1 copy.dds"
         }
     }
 }
@@ -1012,7 +1012,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\shaman\effect\chip.dds"
+            "D:\Ymir Work\pc\shaman\effect\chip.dds"
         }
     }
 }

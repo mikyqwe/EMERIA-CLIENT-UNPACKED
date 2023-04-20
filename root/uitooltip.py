@@ -1518,11 +1518,17 @@ class ItemToolTip(ToolTip):
 					self.AppendMallItemLastTime(metinSlot[0])
 
 		elif item.ITEM_TYPE_QUEST == itemType:
+			if itemVnum >= 53001 and itemVnum <= 53999:
+				self.__AppendLimitInformation()
+				self.__AppendAffectInformation(True)
+				self.__AppendAttributeInformation(attrSlot)
+				
 			for i in xrange(item.LIMIT_MAX_NUM):
 				(limitType, limitValue) = item.GetLimit(i)
 
 				if item.LIMIT_REAL_TIME == limitType:
 					self.AppendMallItemLastTime(metinSlot[0])
+
 		elif item.ITEM_TYPE_DS == itemType:
 			self.AppendTextLine(self.__DragonSoulInfoString(itemVnum))
 			self.__AppendAttributeInformation(attrSlot)
@@ -1837,14 +1843,17 @@ class ItemToolTip(ToolTip):
 		except KeyError:
 			return "UNKNOWN_TYPE[%s] %s" % (affectType, affectValue)
 
-	def __AppendAffectInformation(self):
+	def __AppendAffectInformation(self, isPet = False):
 		for i in xrange(item.ITEM_APPLY_MAX_NUM):
 			(affectType, affectValue) = item.GetAffect(i)
 			if app.ENABLE_ACCE_COSTUME_SYSTEM and affectType==item.APPLY_ACCEDRAIN_RATE:
 				continue
 			affectString = self.__GetAffectString(affectType, affectValue)
 			if affectString:
-				self.AppendTextLine(affectString, self.GetChangeTextLineColor(affectValue))
+				if isPet:
+					self.AppendTextLine(affectString, 0xff9B68FF)
+				else:
+					self.AppendTextLine(affectString, self.GetChangeTextLineColor(affectValue))
 
 	def AppendWearableInformation(self):
 

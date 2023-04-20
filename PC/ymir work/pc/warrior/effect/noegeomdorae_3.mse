@@ -248,7 +248,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "fire copy.dds"
+            "D:\Ymir Work\pc\sura\effect\fire copy.dds"
         }
     }
 }
@@ -624,7 +624,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "amseup.dds"
+            "D:\Ymir Work\pc\assassin\effect\amseup.dds"
         }
     }
 }
@@ -748,7 +748,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -871,7 +871,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "half_ring_rainbow_line.dds"
+            "D:\Ymir Work\pc\assassin\effect\half_ring_rainbow_line.dds"
         }
     }
 }
@@ -995,7 +995,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "halfsplash copy.dds"
+            "D:\Ymir Work\pc\shaman\effect\halfsplash copy.dds"
         }
     }
 }

@@ -248,7 +248,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "orange_cure copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\orange_cure copy.dds"
         }
     }
 }
@@ -390,7 +390,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom.dds"
+            "D:\Ymir Work\pc\assassin\effect\2-star.dds"
         }
     }
 }
@@ -515,7 +515,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "cell.dds"
+            "D:\Ymir Work\pc\shaman\effect\cell.dds"
         }
     }
 }
@@ -640,7 +640,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "newdaejin.dds"
+            "D:\Ymir Work\pc\sura\effect\newdaejin.dds"
         }
     }
 }
@@ -768,7 +768,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "newdaejin.dds"
+            "D:\Ymir Work\pc\sura\effect\newdaejin.dds"
         }
     }
 }

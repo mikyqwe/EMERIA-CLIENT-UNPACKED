@@ -241,7 +241,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "gyeokgong_triple_loop_2.dds"
+            "D:\Ymir Work\pc\shaman\effect\gyeokgong_triple_loop_2.dds"
         }
     }
 }
@@ -739,7 +739,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "gyeokgong_triple_loop_2.dds"
+            "D:\Ymir Work\pc\shaman\effect\gyeokgong_triple_loop_2.dds"
         }
     }
 }

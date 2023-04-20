@@ -123,7 +123,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -545,7 +545,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -672,7 +672,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -1084,7 +1084,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -1211,7 +1211,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }
@@ -1623,7 +1623,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "bottom_under.dds"
+            "D:\Ymir Work\pc\shaman\effect\bottom_under.dds"
         }
     }
 }

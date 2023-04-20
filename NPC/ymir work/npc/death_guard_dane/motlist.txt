@@ -1,3 +1,0 @@
-GENERAL WAIT wait.msa 70
-GENERAL WAIT1 spwait.msa 20
-

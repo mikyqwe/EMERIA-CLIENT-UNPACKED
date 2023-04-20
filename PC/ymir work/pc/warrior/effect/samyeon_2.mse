@@ -125,7 +125,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "cure.dds"
+            "D:\Ymir Work\pc\assassin\effect\orange_cure copy.dds"
         }
     }
 }

@@ -125,7 +125,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\youn_gi.dds"
+            "youn_gi.dds"
         }
     }
 }
@@ -254,7 +254,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\lens_orange.dds"
+            "lens_orange.dds"
         }
     }
 }
@@ -376,7 +376,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\mine_edge copy.dds"
+            "mine_edge copy.dds"
         }
     }
 }
@@ -500,7 +500,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\y_splash.dds"
+            "y_splash.dds"
         }
     }
 }
@@ -625,7 +625,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\mine_edge copy.dds"
+            "mine_edge copy.dds"
         }
     }
 }
@@ -749,7 +749,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\sura\effect\geomhwan_twirl.dds"
+            "geomhwan_twirl.dds"
         }
     }
 }

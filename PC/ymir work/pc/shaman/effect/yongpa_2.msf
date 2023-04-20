@@ -6,8 +6,8 @@ RollAngle               0.000000
 AngularVelocity         0.000000 0.000000 0.000000
 Gravity                 0.000000
 HitOnBackground         0
-HitOnAnotherMonster     1
-PierceCount             10
+HitOnAnotherMonster     0
+PierceCount             0
 CollisionSphereRadius   0.000000
 BombRange               10.000000
 BombEffect              "pokroe_c.mse"

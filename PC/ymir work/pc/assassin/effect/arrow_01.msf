@@ -12,6 +12,7 @@ BombEffect              "d:/ymir work/effect/hit/blow_1/blow_1_low_center.mse"
 HomingFlag              1
 HomingStartTime         0.000000
 HomingMaxAngle          180.000000
+SendDamageOnCollision	1
 Range                   2500.000000
 Acceleration            0.000000 0.000000 0.000000
 Group AttachData

@@ -125,7 +125,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\cure.dds"
+            "cure.dds"
         }
     }
 }
@@ -374,7 +374,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\half_ring_rainbow_line.dds"
+            "half_ring_rainbow_line.dds"
         }
     }
 }
@@ -501,7 +501,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\nwegeomsplash.dds"
+            "D:\Ymir Work\pc\warrior\effect\nwegeomsplash.dds"
         }
     }
 }
@@ -630,7 +630,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\Rotation of Rsotation of 3.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
         }
     }
 }
@@ -756,7 +756,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\Rotation of Rsotation of 3.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
         }
     }
 }
@@ -882,7 +882,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\YMIR WORK\pc\warrior\effect\Rotation of Rsotation of 3.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
         }
     }
 }

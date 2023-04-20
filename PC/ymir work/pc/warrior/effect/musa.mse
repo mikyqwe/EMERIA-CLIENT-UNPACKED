@@ -120,7 +120,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "white_sphere.dds"
+            "D:\Ymir Work\pc\shaman\effect\white_sphere.dds"
         }
     }
 }
@@ -372,7 +372,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "white_sphere.dds"
+            "D:\Ymir Work\pc\shaman\effect\white_sphere.dds"
         }
     }
 }

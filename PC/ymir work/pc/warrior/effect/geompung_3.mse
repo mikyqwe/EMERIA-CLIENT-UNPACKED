@@ -190,7 +190,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "Rotation of Rsotation of 3.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
         }
     }
 }
@@ -317,7 +317,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "Rotation of Rsotation of 3.dds"
+            "D:\Ymir Work\pc\shaman\effect\rotation of rsotation of 3.dds"
         }
     }
 }
@@ -441,7 +441,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "fire copy.dds"
+            "D:\Ymir Work\pc\sura\effect\fire copy.dds"
         }
     }
 }

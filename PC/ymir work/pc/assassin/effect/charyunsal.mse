@@ -390,8 +390,8 @@ Group Particle
         }
         List TextureFiles
         {
-            "2-star.dds"
             "2-starsmall.dds"
+            "2-star.dds"
         }
     }
 }

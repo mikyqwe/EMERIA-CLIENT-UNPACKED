@@ -143,7 +143,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "redburn_1 copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\redburn_1 copy.dds"
         }
     }
 }
@@ -289,7 +289,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "redburn_1 copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\redburn_1 copy.dds"
         }
     }
 }

@@ -121,7 +121,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\Ymir Work\effect\hit\blow_1\half_ring_rainbow_line.dds"
+            "half_ring_rainbow_line.dds"
         }
     }
 }
@@ -246,7 +246,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\Ymir Work\effect\hit\blow_1\line_ring_copy.dds"
+            "D:\Ymir Work\pc\shaman\effect\line_ring_copy.dds"
         }
     }
 }
@@ -378,7 +378,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\Ymir Work\effect\hit\blow_1\yeongi.dds"
+            "D:\Ymir Work\pc\shaman\effect\yeongi.dds"
         }
     }
 }
@@ -512,7 +512,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\Ymir Work\effect\hit\blow_1\7-2.dds"
+            "7-2.dds"
         }
     }
 }
@@ -640,7 +640,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "D:\Ymir Work\effect\hit\blow_1\half_ring_rainbow_line.dds"
+            "half_ring_rainbow_line.dds"
         }
     }
 }

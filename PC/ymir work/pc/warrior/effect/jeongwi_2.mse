@@ -766,7 +766,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "orange_cure copy.dds"
+            "D:\Ymir Work\pc\assassin\effect\orange_cure copy.dds"
         }
     }
 }
@@ -890,7 +890,7 @@ Group Particle
         }
         List TextureFiles
         {
-            "sa_za_hu_inter_pasthit6.dds"
+            "D:\Ymir Work\pc\shaman\effect\sa_za_hu_inter_pasthit6.dds"
         }
     }
 }

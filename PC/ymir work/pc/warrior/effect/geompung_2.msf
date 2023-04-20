@@ -14,6 +14,7 @@ BombEffect              "geompung_blow.mse"
 HomingFlag              1
 HomingStartTime         0.000000
 HomingMaxAngle          3.000000
+SendDamageOnCollision	1
 Range                   100000.000000
 Acceleration            0.000000 -3000.000000 0.000000
 Group AttachData
