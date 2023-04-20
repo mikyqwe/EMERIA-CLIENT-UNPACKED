@@ -50,16 +50,16 @@ class InventoryMenuWindow(ui.ScriptWindow):
 
 			self.SafeBoxButton = self.GetChild("SafeBox")
 			self.ItemShopButton = self.GetChild("ItemShop")
-			self.SkillBookStorageButton = self.GetChild("SkillBook_Storage")
-			self.UppItemStorageButton = self.GetChild("UppItem_Storage")
-			self.GhostStoneStorageButton = self.GetChild("GhostStone_Storage")
+			# self.SkillBookStorageButton = self.GetChild("SkillBook_Storage")
+			# self.UppItemStorageButton = self.GetChild("UppItem_Storage")
+			# self.GhostStoneStorageButton = self.GetChild("GhostStone_Storage")
 			self.GeneralStorageButton = self.GetChild("General_Storage")
 
 			self.SafeBoxButton.SetEvent(ui.__mem_func__(self.__OnClickSafeBoxButton))
 			self.ItemShopButton.SetEvent(ui.__mem_func__(self.__OnClickItemShopButton))
-			self.SkillBookStorageButton.SetEvent(lambda arg = 0 : self.ClickSpecialStorage(arg))
-			self.UppItemStorageButton.SetEvent(lambda arg = 1 : self.ClickSpecialStorage(arg))
-			self.GhostStoneStorageButton.SetEvent(lambda arg = 2 : self.ClickSpecialStorage(arg))
+			# self.SkillBookStorageButton.SetEvent(lambda arg = 0 : self.ClickSpecialStorage(arg))
+			# self.UppItemStorageButton.SetEvent(lambda arg = 1 : self.ClickSpecialStorage(arg))
+			# self.GhostStoneStorageButton.SetEvent(lambda arg = 2 : self.ClickSpecialStorage(arg))
 			self.GeneralStorageButton.SetEvent(lambda arg = 3 : self.ClickSpecialStorage(arg))
 		except:
 			import exception

@@ -90,54 +90,50 @@ window = {
 							"down_image" : "d:/ymir work/ui/game/myshop_deco/public_store_003.dds",
 						},
 
-						{
-							"name" : "SkillBook_Storage",
-							"type" : "button",
+						# {
+							# "name" : "SkillBook_Storage",
+							# "type" : "button",
 
-							"x" : 8,
-							"y" : 4 + 28 + 28,
+							# "x" : 8,
+							# "y" : 4 + 28 + 28,
 
-							"text" : "Libri",
+							# "text" : "Libri",
 
-							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
-							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
-							"down_image" : "d:/ymir work/ui/game/myshop_deco/public_store_003.dds",
-						},
+							# "default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
+							# "over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
+							# "down_image" : "d:/ymir work/ui/game/myshop_deco/public_store_003.dds",
+						# },
+						# {
+							# "name" : "UppItem_Storage",
+							# "type" : "button",
+							# "x" : 8,
+							# "y" : 4 + 28 + 28 + 28,
 
-						{
-							"name" : "UppItem_Storage",
-							"type" : "button",
+							# "text" : "Item Up",
 
-							"x" : 8,
-							"y" : 4 + 28 + 28 + 28,
+							# "default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
+							# "over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
+							# "down_image" : "d:/ymir work/ui/game/myshop_deco/public_store_003.dds",
+						# },
+						# {
+							# "name" : "GhostStone_Storage",
+							# "type" : "button",
 
-							"text" : "Item Up",
+							# "x" : 8,
+							# "y" : 4 + 28 + 28 + 28 + 28,
 
-							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
-							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
-							"down_image" : "d:/ymir work/ui/game/myshop_deco/public_store_003.dds",
-						},
+							# "text" : "Pietre",
 
-						{
-							"name" : "GhostStone_Storage",
-							"type" : "button",
-
-							"x" : 8,
-							"y" : 4 + 28 + 28 + 28 + 28,
-
-							"text" : "Pietre",
-
-							"default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
-							"over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
-							"down_image" : "d:/ymir work/ui/game/myshop_deco/public_store_003.dds",
-						},
-
+							# "default_image" : "d:/ymir work/ui/game/myshop_deco/public_store_001.dds",
+							# "over_image" : "d:/ymir work/ui/game/myshop_deco/public_store_002.dds",
+							# "down_image" : "d:/ymir work/ui/game/myshop_deco/public_store_003.dds",
+						# },
 						{
 							"name" : "General_Storage",
 							"type" : "button",
 
 							"x" : 8,
-							"y" : 4 + 28 + 28 + 28 + 28 + 28,
+							"y" : 4 + 28 + 28,
 
 							"text" : "Generale",
 

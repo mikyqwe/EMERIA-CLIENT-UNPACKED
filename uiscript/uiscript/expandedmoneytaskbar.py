@@ -5,7 +5,7 @@ BOARD_ADD_X = 0
 BOARD_ADD_X += 50 # won
 BOARD_ADD_X += 26 # wonexchange
 
-BOARD_X = SCREEN_WIDTH - (90 + BOARD_ADD_X)
+BOARD_X = SCREEN_WIDTH - (140 + BOARD_ADD_X)
 BOARD_WIDTH = (140 + BOARD_ADD_X)
 BOARD_HEIGHT = 40
 
@@ -37,8 +37,8 @@ window = {
 				{
 					"name":"Money_Icon",
 					"type":"image",
-					
-					"x":-62 + BOARD_ADD_X, "y":10,
+
+					"x":-55 + BOARD_ADD_X, "y":10,
 
 					"image":"d:/ymir work/ui/game/windows/money_icon.sub",
 				},
@@ -46,12 +46,12 @@ window = {
 					"name":"Money_Slot",
 					"type":"button",
 
-					"x":-39 + BOARD_ADD_X, "y":10,
+					"x":-30 + BOARD_ADD_X, "y":9,
 
 					#"horizontal_align":"center",
 
 					"default_image" : "d:/ymir work/ui/game/windows/test.tga",
-					"over_image" : "d:/ymir work/ui/game/windows/test_over.tga",
+					"over_image" : "d:/ymir work/ui/game/windows/test.tga",
 					"down_image" : "d:/ymir work/ui/game/windows/test.tga",
 
 					"children" :
@@ -60,7 +60,7 @@ window = {
 							"name" : "Money",
 							"type" : "text",
 
-							"x" : 51, "y" : 3,
+							"x" : 3, "y" : 3,
 
 							"horizontal_align" : "right",
 							"text_horizontal_align" : "right",

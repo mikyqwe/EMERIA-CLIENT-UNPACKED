@@ -886,33 +886,33 @@ window = {
 							# "down_image" :  "d:/ymir work/ui/anti_exp/anti_exp.tga",
 						# },
 						
-						## MallButton
+						# ALCHIMIE
 						{
-							"name" : "MantelloButton",
+							"name" : "DSSButton",
 							"type" : "button",
 
 							"x" : 120,
 							"y" : 151,
 
-							"tooltip_text" : uiScriptLocale.MANTELLO_TITLE,
+							"tooltip_text" : uiScriptLocale.TASKBAR_DRAGON_SOUL,
 
-							"default_image" : "d:/ymir work/ui/game/taskbar/mantello_1.tga",
-							"over_image" : "d:/ymir work/ui/game/taskbar/mantello_2.tga",
-							"down_image" : "d:/ymir work/ui/game/taskbar/mantello_3.tga",
+							"default_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_01.tga",
+							"over_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_02.tga",
+							"down_image" : "d:/ymir work/ui/dragonsoul/dss_inventory_button_03.tga",
 						},
-						{
-							"name" : "RuneButton",
-							"type" : "button",
+						# {
+							# "name" : "RuneButton",
+							# "type" : "button",
 
-							"x" : 77,
-							"y" : 111,
+							# "x" : 77,
+							# "y" : 111,
 
-							"tooltip_text" : uiScriptLocale.RUNE_TITLES,
+							# "tooltip_text" : uiScriptLocale.RUNE_TITLES,
 
-							"default_image" : "d:/ymir work/ui/public/runa_default.tga",
-							"over_image" : "d:/ymir work/ui/public/runa_over.tga",
-							"down_image" : "d:/ymir work/ui/public/runa_down.tga",
-						},
+							# "default_image" : "d:/ymir work/ui/public/runa_default.tga",
+							# "over_image" : "d:/ymir work/ui/public/runa_over.tga",
+							# "down_image" : "d:/ymir work/ui/public/runa_down.tga",
+						# },
 						## LagerButton
 						{
 							"name" : "LagerButton",
@@ -1505,7 +1505,7 @@ window = {
 					"y":28,
 
 					"horizontal_align":"center",
-					"vertical_align":"bottom",
+					"vertical_align":"center",
 
 					"default_image" : "d:/ymir work/ui/public/parameter_slot_05.sub",
 					"over_image" : "d:/ymir work/ui/public/parameter_slot_05.sub",
