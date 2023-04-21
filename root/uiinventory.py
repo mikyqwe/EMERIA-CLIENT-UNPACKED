@@ -820,9 +820,31 @@ class InventoryWindow(ui.ScriptWindow):
 				else:
 					self.wndItem.DeactivateSlot(i)
 
+
+			if constInfo.IS_BLEND_POTION(itemVnum) or constInfo.IS_EXTENDED_BLEND_POTION(itemVnum):
+				metinSocket = [player.GetItemMetinSocket(slotNumber, j) for j in xrange(player.METIN_SOCKET_MAX_NUM)]
+				tempSlotNum = slotNumber
+				if tempSlotNum >= player.INVENTORY_PAGE_SIZE:
+					tempSlotNum -= (self.inventoryPageIndex * player.INVENTORY_PAGE_SIZE)
+
+				isActivated = 0 != metinSocket[3]
+
+				if constInfo.IS_EXTENDED_BLEND_POTION(itemVnum):
+					r, g, b = (150.00 / 255.0), (80.00 / 255.0), (255.00 / 255.0) # rgb(150, 80, 255)
+				else:
+					r, g, b = (255.00 / 255.0), (255.00 / 255.0), (0.00 / 255.0) # rgb(255, 255, 0)
+
+				if isActivated:
+					self.wndItem.ActivateSlot(tempSlotNum)
+				else:
+					self.wndItem.DeactivateSlot(tempSlotNum)
+
+			if constInfo.IS_EXTENDED_BLEND_POTION(itemVnum):
+				self.wndItem.DisableCoverButton(i)
+
 			if app.ENABLE_ACCE_COSTUME_SYSTEM:
 				slotNumberChecked = 0
-				if not constInfo.IS_AUTO_POTION(itemVnum):
+				if not constInfo.IS_AUTO_POTION(itemVnum) and not constInfo.IS_EXTENDED_BLEND_POTION(itemVnum) and not constInfo.IS_BLEND_POTION(itemVnum):
 					if app.ENABLE_HIGHLIGHT_NEW_ITEM:
 						if not slotNumber in self.liHighlightedItems:
 							self.wndItem.DeactivateSlot(i)

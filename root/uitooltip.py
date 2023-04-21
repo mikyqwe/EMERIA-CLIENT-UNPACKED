@@ -1267,21 +1267,28 @@ class ItemToolTip(ToolTip):
 				affectValue = metinSlot[1]
 				time = metinSlot[2]
 				self.AppendSpace(5)
+
 				affectText = self.__GetAffectString(affectType, affectValue)
 
 				self.AppendTextLine(affectText, self.NORMAL_COLOR)
 
 				if time > 0:
-					minute = (time / 60)
-					second = (time % 60)
-					timeString = localeInfo.TOOLTIP_POTION_TIME
+					status = metinSlot[3]
 
-					if minute > 0:
-						timeString += str(minute) + localeInfo.TOOLTIP_POTION_MIN
-					if second > 0:
-						timeString += " " + str(second) + localeInfo.TOOLTIP_POTION_SEC
+					self.AppendSpace(10)
+					if status != 0:
+						self.AppendTextLine("Activ", 0xff86e57f) # RGB(134, 229, 127)
 
-					self.AppendTextLine(timeString)
+					self.AppendSpace(5)
+					if time > 100 * 24 * 60 * 60:
+						self.AppendTextLine(localeInfo.INFINITE_USE, self.CONDITION_COLOR)
+					else:
+						if time > 0:
+							endTime = app.GetGlobalTimeStamp() + time
+							leftSec = max(0, endTime - app.GetGlobalTimeStamp())
+							self.AppendTextLine(localeInfo.LEFT_TIME + " : " + localeInfo.SecondToDHMS(leftSec), self.NORMAL_COLOR)
+						else:
+							self.AppendTextLine(localeInfo.BLEND_ITEM_TOOLTIP_NO_TIME)
 				else:
 					self.AppendTextLine(localeInfo.BLEND_POTION_NO_TIME)
 			else:
@@ -1609,8 +1616,7 @@ class ItemToolTip(ToolTip):
 			self.AppendTextLine("[{}]".format(itemVnum), 0xFFf863ff)
 			if metinSlot:
 				self.AppendSpace(5)
-				self.AppendTextLine("[{}]".format(','.join([str(i) for i in metinSlot])), 0xFF00b6d6)
-
+				self.AppendTextLine("Sockets: {}".format(metinSlot))
 
 	if app.ENABLE_SELL_ITEM:
 		def IsSellItems(self, itemVnum, itemPrice):

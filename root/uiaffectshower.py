@@ -1,5 +1,5 @@
 import ui, localeInfo
-import chr, app, skill, player, uiToolTip
+import chr, app, skill, player, uiToolTip, chat
 
 if app.ENABLE_RENEWAL_AFFECT_SHOWER:
 	import uiCommon, constInfo, net
@@ -322,6 +322,7 @@ class AffectShower(ui.Window):
 
 	MALL_DESC_IDX_START = 1000
 	IMAGE_STEP = 25
+	BLEND_IDX_START = 2000
 	AFFECT_MAX_NUM = 32
 	INFINITE_AFFECT_DURATION = 0x1FFFFFFF 
 	END_STRING = "_03"
@@ -394,6 +395,7 @@ class AffectShower(ui.Window):
 			MALL_DESC_IDX_START+player.POINT_MAX_SP_PCT : (localeInfo.TOOLTIP_MAX_SP_PCT, "d:/ymir work/ui/skill/common/affect/gold_premium.sub", 3, 0),
 			MALL_DESC_IDX_START+player.POINT_PC_BANG_EXP_BONUS : (localeInfo.TOOLTIP_MALL_EXPBONUS_P_STATIC, "d:/ymir work/ui/skill/common/affect/EXP_Bonus_p_on.sub", 3, 0),
 			MALL_DESC_IDX_START+player.POINT_PC_BANG_DROP_BONUS: (localeInfo.TOOLTIP_MALL_ITEMBONUS_P_STATIC, "d:/ymir work/ui/skill/common/affect/Item_Bonus_p_on.sub", 3, 0),
+
 	}
 
 	if app.ENABLE_RENEWAL_AFFECT_SHOWER:
@@ -438,10 +440,10 @@ class AffectShower(ui.Window):
 		self.__ArrangeImageList()
 
 	def BINARY_NEW_AddAffect(self, type, pointIdx, value, duration):
-		#print "BINARY_NEW_AddAffect", type, pointIdx, value, duration
-
 		if type == chr.NEW_AFFECT_MALL:
 			affect = self.MALL_DESC_IDX_START + pointIdx
+		elif type == 531:
+			affect = self.BLEND_IDX_START + pointIdx			
 		else:
 			affect = type
 
@@ -458,7 +460,7 @@ class AffectShower(ui.Window):
 			affectData["affect"] = affectList
 			affectDict[affectNew] = affectData
 
-			if type < 500 and self.CheckRemoveAffect(type) == False:
+			if type < 500:
 				return
 		else:
 			if type < 500:
@@ -515,6 +517,8 @@ class AffectShower(ui.Window):
 	def BINARY_NEW_RemoveAffect(self, type, pointIdx):
 		if type == chr.NEW_AFFECT_MALL:
 			affect = self.MALL_DESC_IDX_START + pointIdx
+		elif type == 531:
+			affect = self.BLEND_IDX_START + pointIdx
 		else:
 			affect = type
 
@@ -680,6 +684,7 @@ class AffectShower(ui.Window):
 
 	if app.ENABLE_RENEWAL_AFFECT_SHOWER:
 		def AffectToRealIndex(self, affect):
+			chat.AppendChat(3, "Affect {}".format(affect))
 			_dict = {
 				209:chr.AFFECT_POISON,
 				211:chr.AFFECT_SLOW,
@@ -688,6 +693,9 @@ class AffectShower(ui.Window):
 				200:chr.AFFECT_MOV_SPEED_POTION,
 				208:chr.AFFECT_FISH_MIND,
 			}
+			
+			
+			
 			return _dict[affect] if _dict.has_key(affect) else affect
 		def __OnClickAffect(self, arg, affect, name):
 			self.removeAffectDialog = uiCommon.QuestionDialog()

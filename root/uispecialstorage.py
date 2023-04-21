@@ -12,6 +12,7 @@ import localeInfo
 import constInfo
 import ime
 import exchange
+import chat
 
 if constInfo.ENABLE_SHOW_CHEST_DROP:
 	import grp
@@ -565,11 +566,6 @@ class SpecialStorageWindow(ui.ScriptWindow):
 
 		mouseModule.mouseController.AttachObject(self, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["slot"], itemSlotIndex, selectedItemVNum, count)
 
-	if 1 == 0:
-		def HighlightSlot(self, slot, invtype):
-			if slot not in self.listHighlightedSlot[invtype - 6]:
-				self.listHighlightedSlot[invtype - 6].append(slot)
-
 	def SelectItemSlot(self, itemSlotIndex):
 		if constInfo.GET_ITEM_QUESTION_DIALOG_STATUS() == 1:
 			return
@@ -582,7 +578,7 @@ class SpecialStorageWindow(ui.ScriptWindow):
 			if app.IsPressed(app.DIK_LSHIFT) and app.IsPressed(app.DIK_X) and self.IsSellItems(itemSlotIndex):
 				self.__SendSellItemPacket(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex)
 				return
-
+				
 		if self.interface.dlgExchange.IsShow() and (app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL)):
 			item.SelectItem(player.GetItemIndex(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex))
 			emptyExchangeSlots = self.GetExchangeEmptyItemPos(item.GetItemSize()[1])
@@ -592,7 +588,7 @@ class SpecialStorageWindow(ui.ScriptWindow):
 				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.EXCHANGE_CANNOT_GIVE)
 				return
 			m2netm2g.SendExchangeItemAddPacket(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex, emptyExchangeSlots[0])
-
+			
 		if mouseModule.mouseController.isAttached():
 			attachedSlotType = mouseModule.mouseController.GetAttachedType()
 			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()

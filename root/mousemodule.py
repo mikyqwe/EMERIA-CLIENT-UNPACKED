@@ -182,14 +182,21 @@ class CMouseController(object):
 
 			width = 1
 			height = 1
-
+			
 			if Type == player.SLOT_TYPE_INVENTORY or\
 				Type == player.SLOT_TYPE_PRIVATE_SHOP or\
 				Type == player.SLOT_TYPE_SHOP or\
 				Type == player.SLOT_TYPE_SAFEBOX or\
 				Type == player.SLOT_TYPE_MALL or\
+				Type == player.SLOT_TYPE_DRAGON_SOUL_INVENTORY or\
+				Type == player.SLOT_TYPE_SKILLBOOK_INVENTORY or\
+				Type == player.SLOT_TYPE_UPPITEM_INVENTORY or\
+				Type == player.SLOT_TYPE_GHOSTSTONE_INVENTORY or\
+				Type == player.SLOT_TYPE_GENERAL_INVENTORY or\
 				Type == player.SLOT_TYPE_CHANGE_EQUIP or\
-				Type == player.SLOT_TYPE_DRAGON_SOUL_INVENTORY:
+				Type == player.SLOT_TYPE_SWITCHBOT:
+				item.SelectItem(self.AttachedItemIndex)
+				self.AttachedIconHandle = item.GetIconInstance()
 
 				item.SelectItem(self.AttachedItemIndex)
 				self.AttachedIconHandle = item.GetIconInstance()
@@ -281,14 +288,19 @@ class CMouseController(object):
 		self.LastAttachedSlotNumber = self.AttachedSlotNumber
 
 		if self.AttachedIconHandle != 0:
-
 			if self.AttachedType == player.SLOT_TYPE_INVENTORY or\
 				self.AttachedType == player.SLOT_TYPE_PRIVATE_SHOP or\
 				self.AttachedType == player.SLOT_TYPE_SHOP or\
 				self.AttachedType == player.SLOT_TYPE_SAFEBOX or\
+				self.AttachedType == player.SLOT_TYPE_MALL or\
+				self.AttachedType == player.SLOT_TYPE_SKILLBOOK_INVENTORY or\
+				self.AttachedType == player.SLOT_TYPE_UPPITEM_INVENTORY or\
+				self.AttachedType == player.SLOT_TYPE_GHOSTSTONE_INVENTORY or\
+				self.AttachedType == player.SLOT_TYPE_GENERAL_INVENTORY or\
 				self.AttachedType == player.SLOT_TYPE_CHANGE_EQUIP or\
-				self.AttachedType == player.SLOT_TYPE_MALL:
+				self.AttachedType == player.SLOT_TYPE_SWITCHBOT:
 
+				
 				item.DeleteIconInstance(self.AttachedIconHandle)
 
 			elif self.AttachedType == player.SLOT_TYPE_SKILL:

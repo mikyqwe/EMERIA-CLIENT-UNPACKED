@@ -716,3 +716,56 @@ def NumberWithPoint(n) :
 
 	return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]))
 	
+	
+def SecondToDHMS(time, ignoreSecTime = -1, useShortName = TRUE):
+	text = ""
+	if time < 0:
+		time *= -1
+		text = "-"
+
+	second = int(time % 60)
+	minute = int((time / 60) % 60)
+	hour = int(((time / 60) / 60) % 24)
+	day = int(((time / 60) / 60) / 24)
+
+	if ignoreSecTime > 0 and time >= ignoreSecTime:
+		second = 0
+
+	if day > 0:
+		if day == 1:
+			text += str(day) + " Zi "
+		else:
+			text += str(day) + " Zile "
+
+	if hour > 0:
+		text += str(hour) + " "
+		if useShortName == TRUE:
+			text += "H. "
+		else:
+			if hour == 1:
+				text += "Ora "
+			else:
+				text += "Ore "
+
+	if minute > 0:
+		text += str(minute) + " "
+		if useShortName == TRUE:
+			text += "Min. "
+		else:
+			if minute == 1:
+				text += "Minut "
+			else:
+				text += "Minute "
+
+	if second > 0 or (day == 0 and hour == 0 and minute == 0):
+		text += str(second) + " "
+		if useShortName == TRUE:
+			text += "Sec. "
+		else:
+			if second == 1:
+				text += "Secunda "
+			else:
+				text += "Secunde "
+
+	return text[:-1]	
+	

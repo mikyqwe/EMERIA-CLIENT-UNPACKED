@@ -575,6 +575,30 @@ def IS_AUTO_POTION_SP(itemVnum):
 				
 	return 0
 
+def IS_BLEND_POTION(itemVnum):
+	if itemVnum >= 50821 and itemVnum <= 50826:
+		return 1
+	elif itemVnum >= 27863 and itemVnum <= 27878:
+		return 1
+	elif itemVnum == 51002:
+		return 1
+
+	return 0
+
+def IS_EXTENDED_BLEND_POTION(itemVnum):
+	if itemVnum >= 950821 and itemVnum <= 950826: # Dews
+		return 1
+	elif itemVnum == 951002: # Cristal Energy
+		return 1
+	elif itemVnum >= 939017 and itemVnum <= 939020: # Dragon God Medals
+		return 1
+	elif itemVnum == 939024 or itemVnum == 939025: # Critical & Penetration
+		return 1
+	elif itemVnum == 927209 or itemVnum == 927212: # Attack Speed & Move Speed
+		return 1
+
+	return 0
+
 _interface_instance = None
 def GetInterfaceInstance():
 	global _interface_instance
@@ -630,3 +654,4 @@ def ReadLineInFile(fname, linenum):
 			return ret
 	else:
 		return ""	
+		
