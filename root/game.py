@@ -1419,12 +1419,6 @@ class GameWindow(ui.ScriptWindow):
 						self.stream.popupWindow.Open(localeInfo.EXCHANGE_FAILURE_EQUIP_ITEM, 0, localeInfo.UI_OK)
 					else:
 						if chr.IsNPC(dstChrID):
-							if app.ENABLE_REFINE_RENEWAL:
-								constInfo.AUTO_REFINE_TYPE = 2
-								constInfo.AUTO_REFINE_DATA["NPC"][0] = dstChrID
-								constInfo.AUTO_REFINE_DATA["NPC"][1] = attachedInvenType
-								constInfo.AUTO_REFINE_DATA["NPC"][2] = attachedItemSlotPos
-								constInfo.AUTO_REFINE_DATA["NPC"][3] = attachedItemCount
 							net.SendGiveItemPacket(dstChrID, attachedInvenType, attachedItemSlotPos, attachedItemCount)
 							net.SendExchangeStartPacket(dstChrID)
 							net.SendExchangeItemAddPacket(attachedInvenType, attachedItemSlotPos, 0)
@@ -1514,7 +1508,7 @@ class GameWindow(ui.ScriptWindow):
 				self.itemDropQuestionDialog.Open()
 	else:
 		def __DropItem(self, attachedType, attachedItemIndex, attachedItemSlotPos, attachedItemCount):
-			# PRIVATESHOP_DISABLE_ITEM_DROP - °³ÀÎ»óÁ¡ ¿­°í ÀÖ´Â µ¿¾È ¾ÆÀÌÅÛ ¹ö¸² ¹æÁö
+			# PRIVATESHOP_DISABLE_ITEM_DROP - ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if uiPrivateShopBuilder.IsBuildingPrivateShop():
 				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
 				return
@@ -1962,12 +1956,12 @@ class GameWindow(ui.ScriptWindow):
 		self.interface.UpdateCubeInfo(gold, itemVnum, count)
 
 	def BINARY_Cube_Succeed(self, itemVnum, count):
-		print "Å¥ºê Á¦ÀÛ ¼º°ø"
+		print "Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"
 		self.interface.SucceedCubeWork(itemVnum, count)
 		pass
 
 	def BINARY_Cube_Failed(self):
-		print "Å¥ºê Á¦ÀÛ ½ÇÆÐ"
+		print "Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"
 		self.interface.FailedCubeWork()
 		pass
 

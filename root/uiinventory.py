@@ -1328,7 +1328,7 @@ class InventoryWindow(ui.ScriptWindow):
 
 
 	def __IsUsableItemToItem(self, srcItemVNum, srcSlotPos):
-		"´Ù¸¥ ¾ÆÀÌÅÛ¿¡ »ç¿ëÇÒ ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÎ°¡?"
+		"ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?"
 
 		if item.IsRefineScroll(srcItemVNum):
 			return True
@@ -1347,7 +1347,7 @@ class InventoryWindow(ui.ScriptWindow):
 		return False
 
 	def __CanUseSrcItemToDstItem(self, srcItemVNum, srcSlotPos, dstSlotPos):
-		"´ë»ó ¾ÆÀÌÅÛ¿¡ »ç¿ëÇÒ ¼ö ÀÖ´Â°¡?"
+		"ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´Â°ï¿½?"
 
 		if srcSlotPos == dstSlotPos:
 			return False
@@ -1768,6 +1768,10 @@ class InventoryWindow(ui.ScriptWindow):
 					return 1
 			return 0
 
+
+	def GetInventoryPageIndex(self):
+		return self.inventoryPageIndex
+
 class SystemInventoryWindow(ui.ScriptWindow):
 
 	def __init__(self, wndInventory):
@@ -1890,4 +1894,6 @@ class SystemInventoryWindow(ui.ScriptWindow):
 		except:
 			import exception
 			exception.Abort("CostumeWindow.LoadWindow.BindObject")
+
+
 

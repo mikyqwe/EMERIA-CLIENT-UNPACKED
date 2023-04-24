@@ -465,3 +465,4 @@ class RefineDialogNew(ui.ScriptWindow):
 					# self.wndInventory.wndItem.SetCantMouseEventSlot(itemSlotPos)
 
 				# self.wndInventory.wndItem.RefreshSlot()
+				
