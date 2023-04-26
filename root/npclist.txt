@@ -1482,7 +1482,7 @@
 20083	oldster
 20084	chagirap
 20085	boss_kalia
-20086	#season1/npc/wondaim/
+20086	peddler
 20087	dane_remy_npc
 20088	JinFaWang
 20089	#season1/npc/jinmoo/
