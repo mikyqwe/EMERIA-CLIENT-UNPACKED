@@ -1491,7 +1491,7 @@
 20092	#season1/npc/ayuka/
 20093	plechi_plan_npc
 20094	pretoria
-20095	keyto_npc_120
+20095	sinseon
 20096	seal_stone
 20097	#season2/npc/sinsu_warpgate/
 20098	#season2/npc/chenjo_warpgate/
@@ -1596,7 +1596,8 @@
 20351	jinno_patrol_spear
 20352	tombstone
 20353	tombstone1
-20355	JinFaWang
+20354	guard_leader
+20355	guard_leader
 20356	#season1/npc/mirinae_brother/
 20357	#season1/npc/moonstone/
 20358	#season1/npc/nnflower/
