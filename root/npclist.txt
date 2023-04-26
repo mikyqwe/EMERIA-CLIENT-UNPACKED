@@ -1403,7 +1403,7 @@
 12000	campfire
 13000	wooden_door
 13001	stone_door
-20001	plechi_old_alchemist
+20001	alchemist
 20002	auntie
 20003	baby_and_mom
 20004	beggar
