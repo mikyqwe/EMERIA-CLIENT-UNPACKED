@@ -578,6 +578,8 @@ def IS_AUTO_POTION_SP(itemVnum):
 def IS_BLEND_POTION(itemVnum):
 	if itemVnum >= 50821 and itemVnum <= 50826:
 		return 1
+	elif itemVnum >= 950821 and itemVnum <= 951002:
+		return 1
 	elif itemVnum >= 27863 and itemVnum <= 27878:
 		return 1
 	elif itemVnum == 51002:

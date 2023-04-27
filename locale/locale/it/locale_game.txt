@@ -1619,6 +1619,7 @@ KEY_Z_LALT	ALT + Z
 KEY_Z_LCONTROL	CTRL + Z
 KEY_Z_LSHIFT	SHIFT + Z
 LEFT_TIME	Timp rãmas
+INFINITE_USE	Permanent
 LOGIN_CONNECT_FAILURE	Eroare la conectarea la server.
 LOGIN_CONNECT_SUCCESS	Ai fost conectat la server.
 LOGIN_CONNETING	Te rugãm aºteapã în timp ce te conectezi la server.
