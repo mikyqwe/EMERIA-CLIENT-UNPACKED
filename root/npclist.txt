@@ -292,6 +292,13 @@
 0	old_magic_M2	old_magic_M
 0	plechi_fishmon1	plechi_fishmon
 0	plechi_fishmon2	plechi_fishmon
+0	lions_mount	lions_mount
+0	lions_mount2	lions_mount
+0	lions_mount3	lions_mount
+0	lions_mount4	lions_mount
+0	lions_mount5	lions_mount
+0	lions_mount6	lions_mount
+0	lions_mount10	lions_mount
 101	stray_dog
 102	wolf
 103	wolf
@@ -1508,7 +1515,6 @@
 20110	boar
 20111	plechi_nature_mount00
 20112	fire_tiger
-20113	lions_mount
 20114	lion_white
 20115	fly_drag_mount
 20116	dog_god_2
@@ -1522,12 +1528,18 @@
 20124	fire_tiger_pied
 20125	tianlong_mount
 20126	santa
+20127	lions_mount
+20128	lions_mount2
+20129	lions_mount3
+20130	lions_mount4
+20131	lions_mount5
+20132	lions_mount6
+20133	lions_mount10
 20201	boar_0
 20202	ridack_mountchi2
 20203	fire_tiger_0
 20204	lion_0
 20205	boar_2
-20206	lion_brown
 20207	fire_tiger_2
 20208	lion_2
 20209	boar_3
@@ -1536,7 +1548,6 @@
 20212	ridack_mountchi2
 20213	christmas_2020_alpaca
 20214	plechi_flybird_mount2
-20215	lion_brown
 20216	reindeer_female1
 20217	reindeer_female2
 20218	reindeer_female3
