@@ -11727,3 +11727,7 @@
 45609	ETC	icon/item/45609.tga
 45610	ETC	icon/item/45610.tga
 45611	ETC	icon/item/45611.tga
+41814	ETC	icon/item/oriental_costume_m.tga
+41815	ETC	icon/item/gold_dragon_costume_m.tga
+45554	ETC	icon/item/oriental_costume_hm.tga
+45555	ETC	icon/item/gold_dragon_costume_hm.tga
