@@ -1560,6 +1560,15 @@ Group HairData
 		TargetSkin			"hair/hair_76_2.dds"
 	}
 
+	Group HairData194
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/oriental_costume/hair/"
+		HairIndex			574
+		Model				"sura_w.gr2"
+		SourceSkin			"plechito_tex2.dds"
+		TargetSkin			"plechito_tex2.dds"
+	}
+
 }
 Group ShapeData
 {
@@ -3475,6 +3484,15 @@ Group ShapeData
 		Model				"sura_summer_2021.GR2"
 		SourceSkin			"sura_summer_2021_1.dds"
 		TargetSkin			"sura_summer_2021_2.dds"
+	}
+
+	Group ShapeData236
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/oriental_costume/"
+		ShapeIndex			41816
+		Model				"sura_w.gr2"	
+		SourceSkin			"plechito_tex3.dds"
+		TargetSkin			"plechito_tex3.dds"
 	}
 
 }
