@@ -1136,7 +1136,7 @@ Group HairData
 		TargetSkin			"hair/hair_76_2.dds"
 	}
 
-	Group HairData145
+	Group HairData141
 	{
 		SpecialPath			"d:/ymir work/pc/plechito/oriental_costume/hair/"
 		HairIndex			574
@@ -1145,13 +1145,31 @@ Group HairData
 		TargetSkin			"plechito_tex.dds"
 	}
 
-	Group HairData146
+	Group HairData142
 	{
 		SpecialPath			"d:/ymir work/pc/plechito/gold_dragon_costume/hair/"
 		HairIndex			575
 		Model				"warrior_m.gr2"
 		SourceSkin			"plechito_tex.dds"
 		TargetSkin			"plechito_tex.dds"
+	}
+
+	Group HairData143
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/classic_chinese_costume/hair/"
+		HairIndex			576
+		Model				"warrior_m.gr2"
+		SourceSkin			"plechito_tex.dds"
+		TargetSkin			"plechito_tex.dds"
+	}
+
+	Group HairData144
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/classic_chinese_costume/hair/"
+		HairIndex			577
+		Model				"warrior_m2.gr2"
+		SourceSkin			"plechito_tex2.dds"
+		TargetSkin			"plechito_tex2.dds"
 	}
 
 }
@@ -3106,6 +3124,24 @@ Group ShapeData
 		SpecialPath			"d:/ymir work/pc/plechito/gold_dragon_costume/"
 		ShapeIndex			41815
 		Model				"warrior_m.gr2"	
+		SourceSkin			"plechito_tex.dds"
+		TargetSkin			"plechito_tex.dds"
+	}
+
+	Group ShapeData238
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/classic_chinese_costume/"
+		ShapeIndex			41822
+		Model				"warrior_m.gr2"	
+		SourceSkin			"plechito_tex.dds"
+		TargetSkin			"plechito_tex.dds"
+	}
+
+	Group ShapeData239
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/classic_chinese_costume/"
+		ShapeIndex			41823
+		Model				"warrior_m2.gr2"	
 		SourceSkin			"plechito_tex.dds"
 		TargetSkin			"plechito_tex.dds"
 	}

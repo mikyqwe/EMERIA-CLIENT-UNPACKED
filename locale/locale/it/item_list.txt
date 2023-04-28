@@ -11733,3 +11733,7 @@
 45555	ETC	icon/item/gold_dragon_costume_hm.tga
 41816	ETC	icon/item/oriental_costume_w.tga
 45556	ETC	icon/item/oriental_costume_hw.tga
+41817	ETC	icon/item/blue_chinese_costume_m.tga
+41818	ETC	icon/item/green_chinese_costume_m.tga
+45557	ETC	icon/item/blue_chinese_hair_m.tga
+45558	ETC	icon/item/green_chinese_hair_m.tga
