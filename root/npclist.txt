@@ -1535,6 +1535,7 @@
 20131	lions_mount5
 20132	lions_mount6
 20133	lions_mount10
+20134	plechi_majestic_panda
 20201	boar_0
 20202	ridack_mountchi2
 20203	fire_tiger_0
