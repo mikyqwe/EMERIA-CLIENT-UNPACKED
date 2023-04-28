@@ -1138,98 +1138,11 @@ Group HairData
 
 	Group HairData141
 	{
+		SpecialPath			"d:/ymir work/pc/plechito/oriental_costume/hair/"
 		HairIndex			574
-		Model				"hair/hair_77_1.gr2"
-		SourceSkin			"hair/hair_77_1.dds"
-		TargetSkin			"hair/hair_77_1.dds"
-	}
-
-	Group HairData142
-	{
-		HairIndex			575
-		Model				"hair/hair_77_1.gr2"
-		SourceSkin			"hair/hair_77_1.dds"
-		TargetSkin			"hair/hair_77_2.dds"
-	}
-
-	Group HairData143
-	{
-		HairIndex			576
-		Model				"hair/hair_78_1.gr2"
-		SourceSkin			"hair/hair_78_1.dds"
-		TargetSkin			"hair/hair_78_1.dds"
-	}
-
-	Group HairData144
-	{
-		HairIndex			577
-		Model				"hair/hair_78_1.gr2"
-		SourceSkin			"hair/hair_78_1.dds"
-		TargetSkin			"hair/hair_78_2.dds"
-	}
-
-	Group HairData145
-	{
-		HairIndex			45572
-		Model				"hair/hair_79_1.gr2"
-		SourceSkin			"hair/hair_79_1.dds"
-		TargetSkin			"hair/hair_79_1.dds"
-	}
-
-	Group HairData146
-	{
-		HairIndex			45573
-		Model				"hair/hair_79_1.gr2"
-		SourceSkin			"hair/hair_79_1.dds"
-		TargetSkin			"hair/hair_79_2.dds"
-	}
-
-	Group HairData147
-	{
-		HairIndex			45580
-		Model				"hair/hair_82_1.gr2"
-		SourceSkin			"hair/hair_82_1.dds"
-		TargetSkin			"hair/hair_82_1.dds"
-	}
-
-	Group HairData148
-	{
-		HairIndex			45581
-		Model				"hair/hair_82_1.gr2"
-		SourceSkin			"hair/hair_82_1.dds"
-		TargetSkin			"hair/hair_82_2.dds"
-	}
-
-	Group HairData149
-	{
-		HairIndex			45596
-		Model				"hair/hair_80_1.gr2"
-		SourceSkin			"hair/hair_80_1.dds"
-		TargetSkin			"hair/hair_80_1.dds"
-	}
-
-	Group HairData150
-	{
-		HairIndex			45597
-		Model				"hair/hair_80_1.gr2"
-		SourceSkin			"hair/hair_80_1.dds"
-		TargetSkin			"hair/hair_80_2.dds"
-	}
-
-	Group HairData151
-	{
-		HairIndex			45604
-		Model				"hair/hair_81_1.gr2"
-		SourceSkin			"hair/hair_81_1.dds"
-		TargetSkin			"hair/hair_81_1.dds"
-	}
-
-	Group HairData152
-	{
-		HairIndex			45605
-		Model				"hair/hair_81_1.gr2"
-		SourceSkin			"hair/hair_81_1.dds"
-		TargetSkin			"hair/hair_81_2.dds"
+		Model				"sura_m.gr2"
+		SourceSkin			"plechito_tex.dds"
+		TargetSkin			"plechito_tex.dds"
 	}
 
 }
@@ -3152,98 +3065,11 @@ Group ShapeData
 
 	Group ShapeData236
 	{
+		SpecialPath			"d:/ymir work/pc/plechito/oriental_costume/"
 		ShapeIndex			41814
-		Model				"sura_halloween_2021.GR2"
-		SourceSkin			"sura_halloween_2021_1.dds"
-		TargetSkin			"sura_halloween_2021_1.dds"
-	}
-
-	Group ShapeData237
-	{
-		ShapeIndex			41815
-		Model				"sura_halloween_2021.GR2"
-		SourceSkin			"sura_halloween_2021_1.dds"
-		TargetSkin			"sura_halloween_2021_2.dds"
-	}
-
-	Group ShapeData238
-	{
-		ShapeIndex			41824
-		Model				"sura_christmas_2021.GR2"
-		SourceSkin			"sura_christmas_2021_1.dds"
-		TargetSkin			"sura_christmas_2021_1.dds"
-	}
-
-	Group ShapeData239
-	{
-		ShapeIndex			41825
-		Model				"sura_christmas_2021.GR2"
-		SourceSkin			"sura_christmas_2021_1.dds"
-		TargetSkin			"sura_christmas_2021_2.dds"
-	}
-
-	Group ShapeData240
-	{
-		ShapeIndex			41832
-		Model				"sura_easter_day_2022.gr2"
-		SourceSkin			"sura_easter_day_2022_1.dds"
-		TargetSkin			"sura_easter_day_2022_1.dds"
-	}
-
-	Group ShapeData241
-	{
-		ShapeIndex			41833
-		Model				"sura_easter_day_2022.gr2"
-		SourceSkin			"sura_easter_day_2022_1.dds"
-		TargetSkin			"sura_easter_day_2022_2.dds"
-	}
-
-	Group ShapeData242
-	{
-		ShapeIndex			41840
-		Model				"sura_halloween_2022.gr2"
-		SourceSkin			"sura_halloween_2022_1.dds"
-		TargetSkin			"sura_halloween_2022_1.dds"
-	}
-
-	Group ShapeData243
-	{
-		ShapeIndex			41841
-		Model				"sura_halloween_2022.gr2"
-		SourceSkin			"sura_halloween_2022_1.dds"
-		TargetSkin			"sura_halloween_2022_2.dds"
-	}
-
-	Group ShapeData244
-	{
-		ShapeIndex			41856
-		Model				"sura_ramadan_2022.gr2"
-		SourceSkin			"sura_ramadan_2022_1.dds"
-		TargetSkin			"sura_ramadan_2022_1.dds"
-	}
-
-	Group ShapeData245
-	{
-		ShapeIndex			41857
-		Model				"sura_ramadan_2022.gr2"
-		SourceSkin			"sura_ramadan_2022_1.dds"
-		TargetSkin			"sura_ramadan_2022_2.dds"
-	}
-
-	Group ShapeData246
-	{
-		ShapeIndex			41864
-		Model				"sura_summer_2022.gr2"
-		SourceSkin			"sura_summer_2022_1.dds"
-		TargetSkin			"sura_summer_2022_1.dds"
-	}
-
-	Group ShapeData247
-	{
-		ShapeIndex			41865
-		Model				"sura_summer_2022.gr2"
-		SourceSkin			"sura_summer_2022_1.dds"
-		TargetSkin			"sura_summer_2022_2.dds"
+		Model				"sura_m.gr2"	
+		SourceSkin			"plechito_tex.dds"
+		TargetSkin			"plechito_tex.dds"
 	}
 
 }
