@@ -1172,6 +1172,24 @@ Group HairData
 		TargetSkin			"plechito_tex2.dds"
 	}
 
+	Group HairData145
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit/hair/"
+		HairIndex			578
+		Model				"shaman_m.gr2"
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
+	}
+
+	Group HairData146
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit2/hair/"
+		HairIndex			579
+		Model				"shaman_m.gr2"
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
+	}
+
 }
 
 Group ShapeData
@@ -3102,7 +3120,7 @@ Group ShapeData
 	{
 		SpecialPath			"d:/ymir work/pc/plechito/oriental_costume/"
 		ShapeIndex			41814
-		Model				"shaman_m.gr2"	
+		Model				"shaman_m.gr2"
 		SourceSkin			"plechito_tex.dds"
 		TargetSkin			"plechito_tex.dds"
 	}
@@ -3111,7 +3129,7 @@ Group ShapeData
 	{
 		SpecialPath			"d:/ymir work/pc/plechito/gold_dragon_costume/"
 		ShapeIndex			41815
-		Model				"shaman_m.gr2"	
+		Model				"shaman_m.gr2"
 		SourceSkin			"plechito_tex.dds"
 		TargetSkin			"plechito_tex.dds"
 	}
@@ -3120,7 +3138,7 @@ Group ShapeData
 	{
 		SpecialPath			"d:/ymir work/pc/plechito/classic_chinese_costume/"
 		ShapeIndex			41822
-		Model				"shaman_m.gr2"	
+		Model				"shaman_m.gr2"
 		SourceSkin			"plechito_tex.dds"
 		TargetSkin			"plechito_tex.dds"
 	}
@@ -3129,9 +3147,27 @@ Group ShapeData
 	{
 		SpecialPath			"d:/ymir work/pc/plechito/classic_chinese_costume/"
 		ShapeIndex			41823
-		Model				"shaman_m2.gr2"	
+		Model				"shaman_m2.gr2"
 		SourceSkin			"plechito_tex.dds"
 		TargetSkin			"plechito_tex.dds"
+	}
+
+	Group ShapeData240
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit/"
+		ShapeIndex			41830
+		Model				"shaman_m.gr2"
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
+	}
+
+	Group ShapeData241
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit2/"
+		ShapeIndex			41831
+		Model				"shaman_m.gr2"
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
 	}
 
 }

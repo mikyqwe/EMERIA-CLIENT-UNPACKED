@@ -11726,3 +11726,11 @@
 45559	ETC	icon/item/gold_dragon_costume_hf.tga
 45560	ETC	icon/item/blue_chinese_hair_w.tga
 45561	ETC	icon/item/green_chinese_hair_w.tga
+45562	ETC	icon/item/desert_bandit_hair.tga
+45563	ETC	icon/item/desert_bandit2_hair.tga
+45564	ETC	icon/item/desert_bandit_hair.tga
+45565	ETC	icon/item/desert_bandit2_hair.tga
+41822	ETC	icon/item/desert_bandit_costume_m.tga
+41823	ETC	icon/item/desert_bandit2_costume_m.tga
+41824	ETC	icon/item/desert_bandit_costume_w.tga
+41825	ETC	icon/item/desert_bandit2_costume_w.tga

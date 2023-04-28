@@ -1596,6 +1596,24 @@ Group HairData
 		TargetSkin			"plechito_tex4.dds"
 	}
 
+	Group HairData198
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit/hair/"
+		HairIndex			578
+		Model				"warrior_w.gr2"
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
+	}
+
+	Group HairData199
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit2/hair/"
+		HairIndex			579
+		Model				"warrior_w.gr2"
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
+	}
+
 }
 
 Group ShapeData
@@ -3558,6 +3576,24 @@ Group ShapeData
 		Model				"warrior_w2.gr2"	
 		SourceSkin			"plechito_tex_f_w2.dds"
 		TargetSkin			"plechito_tex_f_w2.dds"
+	}
+
+	Group ShapeData240
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit/"
+		ShapeIndex			41832
+		Model				"warrior_w.gr2"	
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
+	}
+
+	Group ShapeData241
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/desert_bandit2/"
+		ShapeIndex			41833
+		Model				"warrior_w.gr2"	
+		SourceSkin			"plechito_tex_m.dds"
+		TargetSkin			"plechito_tex_m.dds"
 	}
 
 }
