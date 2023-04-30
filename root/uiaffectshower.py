@@ -274,7 +274,7 @@ class AffectImage(ui.ExpandedImageBox):
 							amountPercent = (float(currentAmount) / totalAmount) * 100.0
 						except:
 							amountPercent = 100.0
-						tooltip.AutoAppendNewTextLineResize(self.description % amountPercent, 0xffC5C7C4)
+						tooltip.AutoAppendNewTextLineResize("Permanent", 0xffC5C7C4)
 					else:
 						affectData = affectDict[affect] if affectDict.has_key(affect) else {}
 						affectList = affectData["affect"] if affectData.has_key("affect") else []

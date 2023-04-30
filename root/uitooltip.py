@@ -520,6 +520,7 @@ class ItemToolTip(ToolTip):
 		item.APPLY_RESIST_DARK : localeInfo.TOOLTIP_RESIST_DARK,
 		item.APPLY_ANTI_CRITICAL_PCT : localeInfo.TOOLTIP_ANTI_CRITICAL_PCT,
 		item.APPLY_ANTI_PENETRATE_PCT : localeInfo.TOOLTIP_ANTI_PENETRATE_PCT,
+
 	}
 	if app.ENABLE_WOLFMAN_CHARACTER:
 		AFFECT_DICT.update({
@@ -534,6 +535,13 @@ class ItemToolTip(ToolTip):
 		AFFECT_DICT.update({
 			item.APPLY_RESIST_MAGIC_REDUCTION : localeInfo.TOOLTIP_RESIST_MAGIC_REDUCTION,
 		})
+
+	AFFECT_DICT.update({
+		item.APPLY_MONSTER_RESISTANCE: localeInfo.TOOLTIP_MONSTER_RESISTANCE,
+		item.APPLY_DEMI_HUMAN_RESISTANCE: localeInfo.TOOLTIP_DEMI_HUMAN_RESISTANCE,
+		item.APPLY_ATTBONUS_BOSS: localeInfo.TOOLTIP_ATTBONUS_BOSS,
+		item.APPLY_ATTBONUS_METIN: localeInfo.TOOLTIP_ATTBONUS_METIN,
+	})
 
 	POINT_DICT = {item.GetApplyPoint(affect): name for affect, name in AFFECT_DICT.items()}
 
@@ -1354,7 +1362,10 @@ class ItemToolTip(ToolTip):
 						self.AppendTextLine("(%s)" % (localeInfo.TOOLTIP_AUTO_POTION_USING), self.SPECIAL_POSITIVE_COLOR)
 						self.AppendSpace(5)
 
-					self.AppendTextLine(localeInfo.TOOLTIP_AUTO_POTION_REST % (100.0 - ((usedAmount / totalAmount) * 100.0)), self.POSITIVE_COLOR)
+
+					self.AppendTextLine("Permament", self.SPECIAL_POSITIVE_COLOR)
+
+					#self.AppendTextLine(localeInfo.TOOLTIP_AUTO_POTION_REST % (100.0 - ((usedAmount / totalAmount) * 100.0)), self.POSITIVE_COLOR)
 
 			elif itemVnum in WARP_SCROLLS:
 				if 0 != metinSlot:

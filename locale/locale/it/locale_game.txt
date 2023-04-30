@@ -2599,3 +2599,7 @@ TARGET_BUTTON_DECORUM_DUEL	Eroul duelului
 CANNOT_OPEN_DECORUM	Nu aparþin de nici o ligã
 TOOLTIP_APPLY_NO_LOST_DECORUM	La urmãtorul eveniment decorat, dacã pierzi, vei pierde jumãtate din decoraþiuni
 TOOLTIP_APPLY_GAIN_DECORUM	La urmãtorul eveniment decorat, dacã câºtigi, vei primi mai multe decoraþiuni
+TOOLTIP_MONSTER_RESISTANCE	Rezistenta Impotriva Monstriilor %d%%	SA
+TOOLTIP_DEMI_HUMAN_RESISTANCE	Rezistenta Impotriva Semi-Oamenilor %d%%	SA
+TOOLTIP_ATTBONUS_BOSS	Tare impotriva Sefilor %d%%	SA
+TOOLTIP_ATTBONUS_METIN	Tare impotriva Metinelor %d%%	SA
