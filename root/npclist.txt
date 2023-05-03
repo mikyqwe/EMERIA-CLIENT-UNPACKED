@@ -1987,3 +1987,4 @@
 9288	plechi_gold_guard
 9289	plechi_gold_chest
 9027	plechi_lady_npc10
+34079	keyto_lionpet
