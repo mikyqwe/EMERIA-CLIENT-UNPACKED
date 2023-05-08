@@ -72,6 +72,16 @@ if app.__BL_OFFICIAL_LOOT_FILTER__:
 	import uilootingsystem
 if app.ENABLE_HUNTING_SYSTEM:
 	import uiHunting
+import sys
+import uiTest
+
+def ReloadModule(moduleName):
+	if moduleName in sys.modules:
+		del sys.modules[moduleName]
+		del globals()[moduleName]
+		retModule = __import__(moduleName)
+		globals()[moduleName] = retModule
+
 
 IsQBHide = 0
 class Interface(object):
@@ -130,6 +140,8 @@ class Interface(object):
 			self.wndHunting = None
 			self.wndHuntingSelect = None
 			self.wndHuntingReward = None
+
+		self.wndTest = None
 
 		self.listGMName = {}
 		self.wndQuestWindow = {}
@@ -357,6 +369,10 @@ class Interface(object):
 			self.dlgRefineNew.SetInven(self.wndInventory)
 			self.wndInventory.BindWindow(self.dlgRefineNew)
 		self.dlgRefineNew.Hide()
+
+		self.wndTest = uiTest.TestWindow()
+		self.wndTest.Hide()
+
 
 	if app.FAST_EQUIP_WORLDARD:
 		def __MakeFastEquip(self):
@@ -1577,7 +1593,7 @@ class Interface(object):
 	def SucceedCubeWork(self, itemVnum, count):
 		self.wndCube.Clear()
 
-		print "Å¥ºê Á¦ÀÛ ¼º°ø! [%d:%d]" % (itemVnum, count)
+		print "Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½! [%d:%d]" % (itemVnum, count)
 
 		if 0:
 			self.wndCubeResult.SetPosition(*self.wndCube.GetGlobalPosition())
@@ -2435,50 +2451,13 @@ class Interface(object):
 	def EmptyFunction(self):
 		pass
 
-if __name__ == "__main__":
+	def RefreshBook(self):
+		if self.wndTest:
+			self.wndTest.Hide()
+		
+		ReloadModule("uiTest")
 
-	import app
-	import wndMgr
-	import systemSetting
-	import mouseModule
-	import grp
-	import ui
-	import localeInfo
+		self.wndTest = uiTest.TestWindow()
+		self.wndTest.Open()
+		
 
-	app.SetMouseHandler(mouseModule.mouseController)
-	app.SetHairColorEnable(True)
-	wndMgr.SetMouseHandler(mouseModule.mouseController)
-	wndMgr.SetScreenSize(systemSetting.GetWidth(), systemSetting.GetHeight())
-	app.Create(localeInfo.APP_TITLE, systemSetting.GetWidth(), systemSetting.GetHeight(), 1)
-	mouseModule.mouseController.Create()
-
-	class TestGame(ui.Window):
-		def __init__(self):
-			ui.Window.__init__(self)
-
-			localeInfo.LoadLocaleData()
-			player.SetItemData(0, 27001, 10)
-			player.SetItemData(1, 27004, 10)
-
-			self.interface = Interface()
-			self.interface.MakeInterface()
-			self.interface.ShowDefaultWindows()
-			self.interface.RefreshInventory()
-			#self.interface.OpenCubeWindow()
-
-		def __del__(self):
-			ui.Window.__del__(self)
-
-		def OnUpdate(self):
-			app.UpdateGame()
-
-		def OnRender(self):
-			app.RenderGame()
-			grp.PopState()
-			grp.SetInterfaceRenderState()
-
-	game = TestGame()
-	game.SetSize(systemSetting.GetWidth(), systemSetting.GetHeight())
-	game.Show()
-
-	app.Loop()

@@ -894,30 +894,18 @@ class InventoryWindow(ui.ScriptWindow):
 				if slotNumber in self.liHighlightedItems:
 					self.wndItem.ActivateSlot(i)
 
-
-
-
 	def RefreshEquipSlotWindow(self):
 		getItemVNum=player.GetItemIndex
 		getItemCount=player.GetItemCount
 		setItemVNum=self.wndEquip.SetItemSlot
-		for i in xrange(player.EQUIPMENT_PAGE_COUNT):
+		for i in xrange(0, 5000):
 			slotNumber = player.EQUIPMENT_SLOT_START + i
 			itemCount = getItemCount(slotNumber)
 			if itemCount <= 1:
 				itemCount = 0
-			setItemVNum(slotNumber, getItemVNum(slotNumber), itemCount)
-
-		if app.ENABLE_NEW_EQUIPMENT_SYSTEM:
-			for i in xrange(player.NEW_EQUIPMENT_SLOT_COUNT):
-				slotNumber = player.NEW_EQUIPMENT_SLOT_START + i
-				itemCount = getItemCount(slotNumber)
-				if itemCount <= 1:
-					itemCount = 0
+			if getItemVNum(slotNumber) > 0:
 				setItemVNum(slotNumber, getItemVNum(slotNumber), itemCount)
-				print "ENABLE_NEW_EQUIPMENT_SYSTEM", slotNumber, itemCount, getItemVNum(slotNumber)
-
-
+				#chat.AppendChat(3, "AppendItem, slot {}, vnum {}".format(i, getItemVNum(slotNumber)))
 
 		self.wndEquip.RefreshSlot()
 
