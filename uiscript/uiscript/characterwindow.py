@@ -101,10 +101,10 @@ window = {
 					"type" : "titlebar",
 					"style" : ("attach",),
 
-					"x" : 8,
-					"y" : 7,
+					"x" : 0,
+					"y" : 0,
 
-					"width" : 238,
+					"width" : 253,
 					"color" : "red",
 
 					"children" :
@@ -258,11 +258,11 @@ window = {
 
 						## Title Area
 						{
-							"name" : "Character_TitleBar", "type" : "titlebar", "style" : ("attach",), "x" : 0, "y" : 1, "width" : 253, "color" : "red",
+							"name" : "Character_TitleBar", "type" : "titlebar", "style" : ("attach",), "x" : 0, "y" : 0, "width" : 253, "color" : "red",
 							"children" :
 							(
 												# { "name" : "TitleName", "type" : "image", "style" : ("attach",), "x" : 70, "y" : 1, "image" : LOCALE_PATH+"title_status.sub", },
-								{ "name" : "TitleName", "type":"text", "x":10, "y":0, "text":uiScriptLocale.CHARACTER_MAIN, "all_align":"center" },
+								{ "name" : "TitleName", "type":"text", "x":0, "y":0, "text":uiScriptLocale.CHARACTER_MAIN, "all_align":"center" },
 							),
 						},
 
