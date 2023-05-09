@@ -1581,7 +1581,7 @@ class ItemToolTip(ToolTip):
 
 		self.__AppendSealInformation(window_type, slotIndex) ## cyh itemseal 2013 11 11
 
-		self.AdditionalTips(window_type, itemVnum, metinSlot, slotIndex)
+		self.AdditionalTips(window_type, itemVnum, metinSlot, slotIndex, attrSlot)
 		self.ShowToolTip()
 
 		if app.ENABLE_RENDER_TARGET:
@@ -1614,7 +1614,7 @@ class ItemToolTip(ToolTip):
 			self.ShowToolTip()
 
 
-	def AdditionalTips(self, window_type, itemVnum, metinSlot, slotIndex):
+	def AdditionalTips(self, window_type, itemVnum, metinSlot, slotIndex, attrSlot = 0):
 		item.SelectItem(itemVnum)
 		itemType = item.GetItemType()
 
@@ -1628,6 +1628,7 @@ class ItemToolTip(ToolTip):
 			if metinSlot:
 				self.AppendSpace(5)
 				self.AppendTextLine("Sockets: {}".format(metinSlot))
+				self.AppendTextLine("Attr: {}".format(attrSlot))
 
 	if app.ENABLE_SELL_ITEM:
 		def IsSellItems(self, itemVnum, itemPrice):
