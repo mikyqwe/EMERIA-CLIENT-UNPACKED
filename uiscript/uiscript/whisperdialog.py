@@ -186,7 +186,7 @@ window = {
 					"x" : 280 - 41,
 					"y" : 12,
 
-					"tooltip_text" : uiScriptLocale.MINIMIZE,
+					#"tooltip_text" : uiScriptLocale.MINIMIZE,
 
 					"default_image" : "d:/ymir work/ui/public/minimize_button_01.sub",
 					"over_image" : "d:/ymir work/ui/public/minimize_button_02.sub",
@@ -199,7 +199,7 @@ window = {
 					"x" : 280 - 24,
 					"y" : 12,
 
-					"tooltip_text" : uiScriptLocale.CLOSE,
+					#"tooltip_text" : uiScriptLocale.CLOSE,
 
 					"default_image" : "d:/ymir work/ui/public/close_button_01.sub",
 					"over_image" : "d:/ymir work/ui/public/close_button_02.sub",

@@ -832,83 +832,28 @@ class TargetBoard(ui.ThinBoard):
 		net.SendChatPacket("/mount_target 1")
 
 	def SetHP(self, hpPercentage):
-		#if self.vid != 0:
-			#self.FaceTargetImage = ui.ExpandedImageBox()	
-			#self.FaceTargetImage.SetParent(self)
-			#self.FaceTargetImage.LoadImage("ibowork/target/circle_bg.png")
-			#self.FaceTargetImage.SetPosition(-60, -15)
-
-			#self.FaceTargetIcon = ui.ExpandedImageBox()	
-			#self.FaceTargetIcon.SetParent(self.FaceTargetImage)
-			#self.FaceTargetIcon.SetPosition(13, 12)
-
-			#pcRace = nonplayer.GetRaceNumByVID(self.vid)
-			#if pcRace == 8010 or pcRace == 8015 or pcRace == 8025:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8004.png")
-			#elif pcRace == 2036:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/2035.png")
-			#elif pcRace >= 131 and pcRace <= 144:
-				#self.FaceTargetIcon.LoadImage("ibowork/target/%d.png" % (pcRace-29))
-		#	elif pcRace == 8016 or pcRace == 8020 or pcRace == 8026:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8005.png")
-			#elif pcRace == 8017 or pcRace == 8033:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8006.png")
-			#elif pcRace == 8018 or pcRace == 8021  or pcRace == 8027:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8007.png")
-			#elif pcRace == 8019 or pcRace == 8022:
-				#self.FaceTargetIcon.LoadImage("ibowork/target/8008.png")
-			#elif pcRace == 8023 or pcRace == 8031:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8009.png")
-			#elif pcRace == 8024:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8003.png")
-			#elif pcRace == 8032:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8001.png")
-			#elif pcRace == 8034:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8002.png")
-			#elif pcRace >= 8035 and pcRace <= 8040:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/%d.png" % (pcRace+16))
-			#elif pcRace >= 8041 and pcRace <= 8050:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8832.png")
-			#elif pcRace == 8057:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8053.png")
-		#	elif pcRace == 8073:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8874.png")
-			#elif pcRace == 8116:
-		#		self.FaceTargetIcon.LoadImage("ibowork/target/8804.png")
-			#elif pcRace >= 8101 and pcRace <= 8108:
-				#self.FaceTargetIcon.LoadImage("ibowork/target/%d.png" % (pcRace-100))
-			#elif pcRace == 8109 :
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8800.png")
-			#elif pcRace >= 8110 and pcRace <= 8112:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/8009.png")
-			#elif pcRace > 8904 :
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/default.png")
-			#Yapilacak Bosslar
-			#elif pcRace == 6418 or pcRace == 2862 or pcRace == 236 or pcRace == 241 or pcRace == 950 or pcRace == 4103 or pcRace == 4104 or pcRace == 4105 or pcRace == 1765 or pcRace == 1754 or pcRace == 1751 or pcRace == 1750 or pcRace == 1752 or pcRace == 1753 or pcRace == 1759 or pcRace == 1758:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/default.png")
-			#Yapilacak Metinler
-			#elif pcRace >= 8439 and pcRace <= 8444 or pcRace >= 8452 and pcRace <= 8453:
-			#	self.FaceTargetIcon.LoadImage("ibowork/target/default.png")
-			#else:
-				#self.FaceTargetIcon.LoadImage("ibowork/target/%d.png" % pcRace)
-			#self.FaceTargetIcon.Show()
-			#self.FaceTargetImage.Show()
 		self.HideAllButton()
+
 		if not self.hpGauge.IsShow():
 			self.SetSize(200 + 7*self.nameLength, self.GetHeight())
 			if localeInfo.IsARABIC():
 				self.name.SetPosition( self.GetWidth()-23, 13)
 			else:
 				self.name.SetPosition(23, 13)
+
 			self.name.SetWindowHorizontalAlignLeft()
 			self.name.SetHorizontalAlignLeft()
+
 			self.hpGauge.Show()
 			self.UpdatePosition()
+
 			self.hpPercenttxt.SetPosition(200 + 7*self.nameLength-120, 3)
 			self.hpPercenttxt.Show()
+
 		self.hpGauge.SetPercentage(hpPercentage, 100)
 		if app.ENABLE_POISON_GAUGE_EFFECT:
 			self.hpPoisonGauge.SetPercentage(hpPercentage, 100)
+
 		self.hpPercenttxt.SetText("%d%%" % (hpPercentage))
 		if app.ENABLE_NEW_TARGET_HP:
 			self.hpTarget.Hide()
@@ -972,12 +917,7 @@ class TargetBoard(ui.ThinBoard):
 		net.SendExchangeStartPacket(self.vid)
 
 	def OnPVP(self):
-		if app.ENABLE_RENEWAL_PVP:
-			interface = constInfo.GetInterfaceInstance()
-			if interface != None:
-				interface.OpenPvPFirst(self.nameString,self.vid)
-		else:
-			net.SendChatPacket("/pvp %d" % (self.vid))
+		net.SendChatPacket("/pvp %d" % (self.vid))
 
 	def OnAppendToMessenger(self):
 		net.SendMessengerAddByVIDPacket(self.vid)
@@ -1029,12 +969,8 @@ class TargetBoard(ui.ThinBoard):
 			net.SendChatPacket("/decorum_stat %d" % (self.vid))
 			
 		def __OnDecoredDuel(self):
-			if app.ENABLE_RENEWAL_PVP:
-				net.SendChatPacket("/pvp decorum %d" % (self.vid))
-			else:
-				net.SendChatPacket("/pvp %d 1" % (self.vid))
-			if constInfo.PVPMODE_ENABLE:
-				net.SendChatPacket("/pkmode 0", chat.CHAT_TYPE_TALKING)
+			net.SendChatPacket("/pvp %d 1" % (self.vid))
+
 
 	def OnPressEscapeKey(self):
 		self.OnPressedCloseButton()
