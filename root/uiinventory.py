@@ -906,9 +906,7 @@ class InventoryWindow(ui.ScriptWindow):
 			itemCount = getItemCount(slotNumber)
 			if itemCount <= 1:
 				itemCount = 0
-			if getItemVNum(slotNumber) > 0:
-				setItemVNum(slotNumber, getItemVNum(slotNumber), itemCount)
-				#chat.AppendChat(3, "AppendItem, slot {}, vnum {}".format(i, getItemVNum(slotNumber)))
+			setItemVNum(slotNumber, getItemVNum(slotNumber), itemCount)
 
 		self.wndEquip.RefreshSlot()
 

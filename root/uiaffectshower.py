@@ -684,7 +684,6 @@ class AffectShower(ui.Window):
 
 	if app.ENABLE_RENEWAL_AFFECT_SHOWER:
 		def AffectToRealIndex(self, affect):
-			chat.AppendChat(3, "Affect {}".format(affect))
 			_dict = {
 				209:chr.AFFECT_POISON,
 				211:chr.AFFECT_SLOW,

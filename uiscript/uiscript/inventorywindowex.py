@@ -205,11 +205,11 @@ window = {
 							"slot" : (
 										{"index":EQUIPMENT_START_INDEX+7, "x":10, "y":21, "width":32, "height":32},#unique_1
 										{"index":EQUIPMENT_START_INDEX+8, "x":62, "y":21, "width":32, "height":32},#unique_2
-										{"index":NEW_EQUIPMENT_START_INDEX+6, "x":62 + 50, "y":21, "width":32, "height":32},#aura
-										{"index":NEW_EQUIPMENT_START_INDEX+8, "x":35, "y":75, "width":32, "height":32},#ring_new
-										{"index":NEW_EQUIPMENT_START_INDEX+9, "x":86, "y":75, "width":32, "height":32},#ring_new
-										{"index":NEW_EQUIPMENT_START_INDEX+10, "x":86, "y":129, "width":32, "height":32},#ring_new
-										{"index":NEW_EQUIPMENT_START_INDEX+11, "x":35, "y":129, "width":32, "height":32},#ring_new
+										{"index":205, "x":62 + 50, "y":21, "width":32, "height":32},#aura
+										{"index":206, "x":35, "y":75, "width":32, "height":32},#ring_new
+										{"index":207, "x":86, "y":75, "width":32, "height":32},#ring_new
+										{"index":208, "x":86, "y":129, "width":32, "height":32},#ring_new
+										{"index":209, "x":35, "y":129, "width":32, "height":32},#ring_new
 										
 									),
 						},

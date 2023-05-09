@@ -334,7 +334,7 @@ class GameWindow(ui.ScriptWindow):
 		onPressKeyDict[app.DIK_F2]	= lambda : self.__PressQuickSlot(5)
 		onPressKeyDict[app.DIK_F3]	= lambda : self.__PressQuickSlot(6)
 		onPressKeyDict[app.DIK_F4]	= lambda : self.__PressQuickSlot(7)
-		onPressKeyDict[app.DIK_F5]	= lambda : self.interface.RefreshBook()
+		#onPressKeyDict[app.DIK_F5]	= lambda : self.interface.RefreshBook()
 
 		onPressKeyDict[app.DIK_LALT]		= lambda : self.ShowName()
 		onPressKeyDict[app.DIK_LCONTROL]	= lambda : self.ShowMouseImage()
@@ -387,7 +387,7 @@ class GameWindow(ui.ScriptWindow):
 		onPressKeyDict[app.DIK_B]			= lambda : self.__PressBKey()
 		onPressKeyDict[app.DIK_F]			= lambda : self.__PressFKey()
 		onPressKeyDict[app.DIK_Y]			= lambda : self.OpenSearchShop()
-		#onPressKeyDict[app.DIK_F5]			= lambda : self.ShowMeOfflineShop()
+		onPressKeyDict[app.DIK_F5]			= lambda : self.ShowMeOfflineShop()
 		onPressKeyDict[app.DIK_F6]			= lambda : self.interface.ToggleSwitchbotWindow()
 		onPressKeyDict[app.DIK_F7]			= lambda : self.interface.wndBio.OpenWindow()
 		onPressKeyDict[app.DIK_F11]	= lambda : self.interface.wndFastEquip.Show()
