@@ -29,6 +29,9 @@ ITEM_MALL_BUTTON_ENABLE = True
 
 ITEM_FLAG_APPLICABLE = 1 << 14
 
+
+allowMoveToItem = [50623, 50624, 50625, 50626, 50627, 50628, 50629, 50630, 50631, 50632, 50633, 50634, 50635, 50636, 50637, 50638, 50639, 26220, 26221, 25041, 25040]
+
 class BeltInventoryWindow(ui.ScriptWindow):
 
 	def __init__(self, wndInventory):
@@ -1094,6 +1097,14 @@ class InventoryWindow(ui.ScriptWindow):
 				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.OFFLINESHOP_CANT_SELECT_ITEM_DURING_BUILING)
 				return
 
+		dstItemVnum = player.GetItemIndex(dstItemSlotPos)
+		srcItemVnum = player.GetItemIndex(srcItemSlotPos)
+
+		if dstItemVnum == srcItemVnum and dstItemVnum in allowMoveToItem:
+			self.__SendMoveItemPacket(srcItemSlotPos, dstItemSlotPos, 0)
+			mouseModule.mouseController.DeattachObject()
+			return
+
 		# cyh itemseal 2013 11 08
 		if app.ENABLE_SOULBIND_SYSTEM and item.IsSealScroll(srcItemVID):
 			self.__SendUseItemToItemPacket(srcItemSlotPos, dstItemSlotPos)
@@ -1316,7 +1327,10 @@ class InventoryWindow(ui.ScriptWindow):
 
 
 	def __IsUsableItemToItem(self, srcItemVNum, srcSlotPos):
-		"�ٸ� �����ۿ� ����� �� �ִ� �������ΰ�?"
+		if srcItemVNum != 0:
+			item.SelectItem(srcItemVNum)
+			if srcItemVNum == item.SelectItem(srcItemVNum):
+				return True
 
 		if item.IsRefineScroll(srcItemVNum):
 			return True
