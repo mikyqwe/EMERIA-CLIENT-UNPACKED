@@ -299,6 +299,8 @@
 0	lions_mount5	lions_mount
 0	lions_mount6	lions_mount
 0	lions_mount10	lions_mount
+0	plechi_grassdragon_pet	plechi_grassdragon_pet
+0	plechi_grassdragon_pet_2	plechi_grassdragon_pet
 101	stray_dog
 102	wolf
 103	wolf
@@ -1767,7 +1769,7 @@
 34060	valentine_2016_bear_M
 34061	valentine_2016_bear_F
 34064	plechi_grassdragon_pet
-34065	red_dragon_young2
+34065	plechi_grassdragon_pet_2
 50000	goods
 50001	goods
 50002	goods

@@ -8759,6 +8759,8 @@
 53024	ETC	icon/item/53008.tga
 53025	ETC	icon/item/53008.tga
 53026	ETC	icon/item/53026.tga
+53027	ETC	icon/item/53027.tga
+53028	ETC	icon/item/53028.tga
 53201	ETC	icon/item/53001.tga
 53202	ETC	icon/item/53002.tga
 53203	ETC	icon/item/53003.tga
