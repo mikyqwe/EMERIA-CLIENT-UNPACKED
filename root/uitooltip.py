@@ -1278,7 +1278,7 @@ class ItemToolTip(ToolTip):
 
 				affectText = self.__GetAffectString(affectType, affectValue)
 
-				self.AppendTextLine(affectText, self.NORMAL_COLOR)
+				self.AppendTextLine(affectText, self.CAN_LEVEL_UP_COLOR)
 
 				if time > 0:
 					status = metinSlot[3]
@@ -1303,6 +1303,9 @@ class ItemToolTip(ToolTip):
 				self.AppendTextLine("BLEND_POTION_NO_INFO")
 
 		elif item.ITEM_TYPE_UNIQUE == itemType:
+			self.__AppendLimitInformation()
+			self.__AppendAffectInformation()
+			self.__AppendAttributeInformation(attrSlot)
 			if 0 != metinSlot:
 				bHasRealtimeFlag = 0
 
@@ -1538,7 +1541,7 @@ class ItemToolTip(ToolTip):
 		elif item.ITEM_TYPE_QUEST == itemType:
 			if itemVnum >= 53001 and itemVnum <= 53999:
 				self.__AppendLimitInformation()
-				self.__AppendAffectInformation(True)
+				self.__AppendAffectInformation()
 				self.__AppendAttributeInformation(attrSlot)
 				
 			for i in xrange(item.LIMIT_MAX_NUM):
@@ -1861,17 +1864,14 @@ class ItemToolTip(ToolTip):
 		except KeyError:
 			return "UNKNOWN_TYPE[%s] %s" % (affectType, affectValue)
 
-	def __AppendAffectInformation(self, isPet = False):
+	def __AppendAffectInformation(self):
 		for i in xrange(item.ITEM_APPLY_MAX_NUM):
 			(affectType, affectValue) = item.GetAffect(i)
 			if app.ENABLE_ACCE_COSTUME_SYSTEM and affectType==item.APPLY_ACCEDRAIN_RATE:
 				continue
 			affectString = self.__GetAffectString(affectType, affectValue)
 			if affectString:
-				if isPet:
-					self.AppendTextLine(affectString, 0xff9B68FF)
-				else:
-					self.AppendTextLine(affectString, self.GetChangeTextLineColor(affectValue))
+				self.AppendTextLine(affectString, self.GetChangeTextLineColor(affectValue))
 
 	def AppendWearableInformation(self):
 
