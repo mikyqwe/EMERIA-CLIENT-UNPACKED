@@ -324,7 +324,7 @@ window = {
 			"name" : "ExpandMoneyButton",
 			"type" : "button",
 
-			"x" : SCREEN_WIDTH - 278+8,
+			"x" : SCREEN_WIDTH + 278+8+5000,
 			"y" : 8 + Y_ADD_POSITION,
 			"tooltip_text" : uiScriptLocale.TASKBAR_MONEY_EXPAND,
 
