@@ -580,6 +580,8 @@ def IS_BLEND_POTION(itemVnum):
 		return 1
 	elif itemVnum >= 950821 and itemVnum <= 951002:
 		return 1
+	elif itemVnum >= 850821 and itemVnum <= 850825:
+		return 1
 	elif itemVnum >= 27863 and itemVnum <= 27878:
 		return 1
 	elif itemVnum == 51002:
