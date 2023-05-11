@@ -204,6 +204,7 @@ class Interface(object):
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_MESSENGER, ui.__mem_func__(self.ToggleMessenger))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_SYSTEM, ui.__mem_func__(self.ToggleSystemDialog))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_ANTI_MULTIPLE_FARM, ui.__mem_func__(self.ToggleAntiMultipleFarmWindow))
+		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_OFFLINESHOP, ui.__mem_func__(self.ToggleOfflineShopDialog))
 		
 		if uiTaskBar.TaskBar.IS_EXPANDED:
 			self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_EXPAND, ui.__mem_func__(self.ToggleExpandedButton))
@@ -1332,6 +1333,21 @@ class Interface(object):
 			else:
 				self.wndInventory.OverOutItem()
 				self.wndInventory.Close()
+
+	def ShowMeOfflineShop(self):
+		if self.wndShopOffline:
+			if self.wndShopOffline.IsShow() == False or self.wndShopOffline.wBoard[3].IsShow():
+				self.wndShopOffline.Open()
+			else:
+				self.wndShopOffline.Close()
+				
+	def OpenSearchShop(self):
+		if self.wndShopOffline:
+			self.wndShopOffline.OpenSearch()
+
+	def ToggleOfflineShopDialog(self):
+				self.ShowMeOfflineShop()
+
 
 	def ToggleExpandedButton(self):
 		if False == player.IsObserverMode():

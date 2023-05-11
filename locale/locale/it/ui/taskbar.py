@@ -371,6 +371,20 @@ window = {
 			"over_image" : ROOT + "TaskBar/System_Button_02.sub",
 			"down_image" : ROOT + "TaskBar/System_Button_03.sub",
 		},
+		#OfflineShop + SearchShop
+		{
+			"name" : "OfflineShopButton",
+			"type" : "button",
+
+			"x" : SCREEN_WIDTH - 178+8-8,
+			"y" : 3 + Y_ADD_POSITION,
+
+			"tooltip_text" : uiScriptLocale.REMOTE_SHOP_TITLE,
+
+			"default_image" : "icon/item/private_button_01.tga",
+			"over_image" : "icon/item/private_button_02.tga",
+			"down_image" : "icon/item/private_button_03.tga",
+		},
 
 		## QuickBar
 		{
