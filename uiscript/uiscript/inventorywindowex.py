@@ -99,8 +99,8 @@ window = {
 							"name" : "DSSButton",
 							"type" : "button",
 
-							"x" : 120,
-							"y" : 151,
+							"x" : 115,
+							"y" : 108,
 
 							"tooltip_text" : uiScriptLocale.TASKBAR_DRAGON_SOUL,
 
@@ -115,13 +115,13 @@ window = {
 							"type" : "button",
 
 							"x" : 118,
-							"y" : 110,
+							"y" : 147,
 
 							"tooltip_text" : uiScriptLocale.LAGER_TITLE,
 
-							"default_image" : "d:/ymir work/ui/game/taskbar/maga_01.tga",
-							"over_image" : "d:/ymir work/ui/game/taskbar/maga_02.tga",
-							"down_image" : "d:/ymir work/ui/game/taskbar/maga_03.tga",
+							"default_image" : "d:/ymir work/ui/game/taskbar/mall_button_01.tga",
+							"over_image" : "d:/ymir work/ui/game/taskbar/mall_button_02.tga",
+							"down_image" : "d:/ymir work/ui/game/taskbar/mall_button_03.tga",
 						},
 						{
 							"name" : "Equipment_Tab_01",
