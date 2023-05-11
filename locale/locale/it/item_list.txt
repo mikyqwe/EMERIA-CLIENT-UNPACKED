@@ -8667,7 +8667,7 @@
 50038	ETC	icon/item/50038.tga
 50039	ETC	icon/item/50039.tga
 50040	ETC	icon/item/50040.tga
-50041	ETC	icon/item/50040.tga
+50041	ETC	icon/item/50041.tga
 50042	ETC	icon/item/50042.tga
 50043	ETC	icon/item/50043.tga
 50046	ETC	icon/item/50046.tga
@@ -10365,7 +10365,7 @@
 71172	ETC	icon/item/71172.tga
 71173	ETC	icon/item/71173.tga
 71174	ETC	icon/item/71174.tga
-71175	ETC	icon/item/71174.tga
+71175	ETC	icon/item/71175.tga
 71176	ETC	icon/item/71131.tga
 71177	ETC	icon/item/71131.tga
 71178	ETC	icon/item/71178.tga
