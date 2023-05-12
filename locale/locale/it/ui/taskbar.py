@@ -385,6 +385,19 @@ window = {
 			"over_image" : "icon/item/private_button_02.tga",
 			"down_image" : "icon/item/private_button_03.tga",
 		},
+		{
+			"name" : "SpecialStorageButton",
+			"type" : "button",
+
+			"x" : SCREEN_WIDTH - 178-34,
+			"y" : 3 + Y_ADD_POSITION,
+
+			"tooltip_text" : uiScriptLocale.SPECIAL_INVENTORY,
+
+			"default_image" : "ymir work/ui/game/taskbar/inv_special_1.tga",
+			"over_image" : "ymir work/ui/game/taskbar/inv_special_2.tga",
+			"down_image" : "ymir work/ui/game/taskbar/inv_special_3.tga",
+		},
 
 		## QuickBar
 		{

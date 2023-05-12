@@ -205,6 +205,7 @@ class Interface(object):
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_SYSTEM, ui.__mem_func__(self.ToggleSystemDialog))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_ANTI_MULTIPLE_FARM, ui.__mem_func__(self.ToggleAntiMultipleFarmWindow))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_OFFLINESHOP, ui.__mem_func__(self.ToggleOfflineShopDialog))
+		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_SPECINV, ui.__mem_func__(self.ToggleSpecialStorageWindow))
 		
 		if uiTaskBar.TaskBar.IS_EXPANDED:
 			self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_EXPAND, ui.__mem_func__(self.ToggleExpandedButton))
@@ -1478,10 +1479,15 @@ class Interface(object):
 					self.wndDragonSoulRefine.Close()
 
 	if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
-		def ToggleSpecialStorageWindow(self, arg = 0):
-			if False == player.IsObserverMode():
+		def ToggleSpecialStorageWindow(self):
+			# if False == player.IsObserverMode():
+				# self.wndSpecialStorage.Show()
+				# self.wndSpecialStorage.ClickButton(arg)
+			if self.wndSpecialStorage.IsShow() == False:
 				self.wndSpecialStorage.Show()
-				self.wndSpecialStorage.ClickButton(arg)
+			else:
+				self.wndSpecialStorage.Hide()
+
 
 		def ToggleKeySpecialStorageWindow(self, arg = 0):
 			if False == player.IsObserverMode():

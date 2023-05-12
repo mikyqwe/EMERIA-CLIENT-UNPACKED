@@ -307,6 +307,7 @@ class TaskBar(ui.ScriptWindow):
 		BUTTON_EXPAND_MONEY = 5	
 	IS_EXPANDED = False
 	BUTTON_OFFLINESHOP = 7
+	BUTTON_SPECINV = 8
 	if app.ENABLE_ANTI_MULTIPLE_FARM:
 		BUTTON_ANTI_MULTIPLE_FARM = 12
 
@@ -526,6 +527,7 @@ class TaskBar(ui.ScriptWindow):
 			toggleButtonDict[TaskBar.BUTTON_EXPAND]=self.GetChild("ExpandButton")
 			# TaskBar.IS_EXPANDED = True
 		toggleButtonDict[TaskBar.BUTTON_OFFLINESHOP]=self.GetChild("OfflineShopButton")
+		toggleButtonDict[TaskBar.BUTTON_SPECINV]=self.GetChild("SpecialStorageButton")
 
 		if localeInfo.IsARABIC():
 			systemButton = toggleButtonDict[TaskBar.BUTTON_SYSTEM]

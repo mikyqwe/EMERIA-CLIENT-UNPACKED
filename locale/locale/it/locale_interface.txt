@@ -917,6 +917,7 @@ SYSTEM_HELP	Ajutor
 SYSTEM_LOGOUT	Logout
 SYSTEM_MALL	Magazin Obiecte
 SYSTEM_OPTION	Opþiuni sistem
+SPECIAL_INVENTORY	Inventar Special
 TASKBAR_CHARACTER	Caracter[C/V/B/N]
 TASKBAR_CHAT	Fereastrã chat [ENTER ]
 TASKBAR_DISABLE	Dezactivat
