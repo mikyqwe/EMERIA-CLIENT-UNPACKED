@@ -354,6 +354,9 @@ class Interface(object):
 		self.hyperlinkItemTooltip.Hide()
 
 		self.tooltipItem = uiToolTip.ItemToolTip()
+		self.tooltipItem.BindInterface(self)
+		if app.ENABLE_DS_SET:
+			self.tooltipItem.BindInterface(self)		        
 		self.tooltipItem.Hide()
 
 		self.tooltipSkill = uiToolTip.SkillToolTip()
@@ -2472,6 +2475,9 @@ class Interface(object):
 
 	def EmptyFunction(self):
 		pass
+	if app.ENABLE_DS_SET:
+		def DragonSoulSetGrade(self, grade):
+			self.wndDragonSoul.SetDSSetGrade(grade)
 
 	def RefreshBook(self):
 		if self.wndTest:

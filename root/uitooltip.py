@@ -112,6 +112,10 @@ class ToolTip(ui.ThinBoard):
 	CANNOT_LEVEL_UP_COLOR = DISABLE_COLOR
 	NEED_SKILL_POINT_COLOR = 0xff9A9CDB
 
+
+	if app.ENABLE_DS_SET:
+		TEXTLINE_2ND_COLOR_DEFAULT = grp.GenerateColor(1.0, 1.0, 0.6078, 1.0)	
+
 	def __init__(self, width = TOOL_TIP_WIDTH, isPickable=False):
 		ui.ThinBoard.__init__(self, "TOP_MOST")
 
@@ -127,6 +131,9 @@ class ToolTip(ui.ThinBoard):
 
 		self.xPos = -1
 		self.yPos = -1
+
+		if app.ENABLE_DS_SET:
+			self.window_type = player.INVENTORY		        
 
 		self.defFontName = localeInfo.UI_DEF_FONT
 		self.ClearToolTip()
@@ -295,6 +302,44 @@ class ToolTip(ui.ThinBoard):
 
 		return textLine
 
+	if app.ENABLE_DS_SET:
+		def AppendTwoColorTextLine(self, text, color, text2, color2 = TEXTLINE_2ND_COLOR_DEFAULT, centerAlign = True):
+			textLine = ui.TextLine()
+			textLine.SetParent(self)
+			textLine.SetFontName(self.defFontName)
+			textLine.SetPackedFontColor(color)
+			textLine.SetText(text)
+			textLine.SetOutline()
+			textLine.SetFeather(False)
+			textLine.Show()
+						
+			textLine2 = ui.TextLine()
+			textLine2.SetParent(textLine)
+			textLine2.SetFontName(self.defFontName)
+			textLine2.SetPackedFontColor(color2)
+			textLine2.SetText(text2)
+			textLine2.SetOutline()
+			textLine2.SetFeather(False)
+			textLine2.Show()
+					
+			w, h = textLine.GetTextSize()
+			w2, h2 = textLine2.GetTextSize()
+			
+			if centerAlign:
+				textLine.SetPosition(self.toolTipWidth/2-w2/2, self.toolTipHeight)
+				textLine.SetHorizontalAlignCenter()
+				textLine2.SetPosition(w/2, 0)
+			else:
+				textLine.SetPosition(10, self.toolTipHeight)
+
+			self.childrenList.append(textLine)
+			self.childrenList.append(textLine2)
+
+			self.toolTipHeight += self.TEXT_LINE_HEIGHT		
+			self.ResizeToolTip()
+
+			return textLine	
+
 	def AppendDescription(self, desc, limit, color = FONT_COLOR):
 		if localeInfo.IsEUROPE():
 			self.__AppendDescription_WesternLanguage(desc, color)
@@ -361,6 +406,17 @@ class ToolTip(ui.ThinBoard):
 
 	def HideToolTip(self):
 		self.Hide()
+
+	def AppendChild(self, child, center = True):
+		child.SetParent(self)
+		
+		if center:
+			child.SetPosition((self.toolTipWidth - child.GetWidth()) / 2, self.toolTipHeight)
+		
+		self.childrenList.append(child)
+		
+		self.toolTipHeight += child.GetHeight()
+		self.ResizeToolTip()
 
 	def OnUpdate(self):
 
@@ -581,16 +637,50 @@ class ItemToolTip(ToolTip):
 	def __init__(self, *args, **kwargs):
 		ToolTip.__init__(self, *args, **kwargs)
 		self.itemVnum = 0
+		self.isShopItem = False
+		if app.ENABLE_DS_SET:
+			self.interface = None				
+		self.bCannotUseItemForceSetDisableColor = True
+		self.isAlreadyHidden = False
 		self.interface = None
 		self.isShopItem = False
 
 		self.bCannotUseItemForceSetDisableColor = True
+	def BindInterface(self, interface):
+		from _weakref import proxy
+		self.interface = proxy(interface)
 
 	def __del__(self):
 		ToolTip.__del__(self)
 
 	def SetCannotUseItemForceSetDisableColor(self, enable):
 		self.bCannotUseItemForceSetDisableColor = enable
+
+	def GetAffectString(self, affectType, affectValue):
+		if 0 == affectType:
+			return None
+
+		if 0 == affectValue:
+			return None
+
+		try:
+			return self.AFFECT_DICT[affectType](affectValue)
+		except TypeError:
+			return "UNKNOWN_VALUE[%s] %s" % (affectType, affectValue)
+		except KeyError:
+			return "UNKNOWN_TYPE[%s] %s" % (affectType, affectValue)
+
+	def SetHideTooltip(self, set = False):
+		if set:
+			self.isAlreadyHidden = True
+		else:
+			self.isAlreadyHidden = False
+
+	def GetHideTooltip(self):
+		if self.isAlreadyHidden:
+			return True
+
+		return False
 
 	def CanEquip(self):
 		if not item.IsEquipmentVID(self.itemVnum):
@@ -650,6 +740,9 @@ class ItemToolTip(ToolTip):
 		ToolTip.ClearToolTip(self)
 
 	def SetInventoryItem(self, slotIndex, window_type = player.INVENTORY):
+		if app.ENABLE_DS_SET:
+			self.window_type = window_type		
+
 		itemVnum = player.GetItemIndex(window_type, slotIndex)
 		if 0 == itemVnum:
 			return
@@ -886,6 +979,52 @@ class ItemToolTip(ToolTip):
 				if affectString:
 					affectColor = self.__GetAttributeColor(i, value)
 					self.AppendTextLine(affectString, affectColor)
+
+	if app.ENABLE_DS_SET:
+		def __AppendDragonSoulAttributeInformation(self, attrSlot, dsType = 0, setGrade = 0):
+
+			if 0 != attrSlot:
+				if setGrade != 0:
+					setWeightValue = item.GetDSSetWeight(setGrade)
+					basicApplyCount = item.GetDSBasicApplyCount(dsType)
+						
+					for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM):
+						type = attrSlot[i][0]
+						value = attrSlot[i][1]
+
+						if 0 == value:
+							continue
+
+						affectString = self.__GetAffectString(type, value)
+						if affectString:
+							affectColor = self.__GetAttributeColor(i, value)
+
+							setValue = 0
+							if i < basicApplyCount:
+								setValue = item.GetDSBasicApplyValue(dsType, type)
+							else:
+								setValue = item.GetDSAdditionalApplyValue(dsType, type)
+
+							if setValue != 0:
+								setValue = (setValue * setWeightValue - 1)/100 + 1
+								if affectString.find('%') == -1:
+									self.AppendTwoColorTextLine(affectString, affectColor, " (+{})".format(setValue))
+								else:
+									self.AppendTwoColorTextLine(affectString, affectColor, " (+{}%)".format(setValue))
+							else:
+								self.AppendTextLine(affectString, affectColor)
+				else:
+					for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM):
+						type = attrSlot[i][0]
+						value = attrSlot[i][1]
+
+						if 0 == value:
+							continue
+
+						affectString = self.__GetAffectString(type, value)
+						if affectString:
+							affectColor = self.__GetAttributeColor(i, value)
+							self.AppendTextLine(affectString, affectColor)
 
 	def __GetAttributeColor(self, index, value):
 		if value > 0:
@@ -1552,7 +1691,13 @@ class ItemToolTip(ToolTip):
 
 		elif item.ITEM_TYPE_DS == itemType:
 			self.AppendTextLine(self.__DragonSoulInfoString(itemVnum))
-			self.__AppendAttributeInformation(attrSlot)
+			if app.ENABLE_DS_SET:
+				if self.window_type == player.EQUIPMENT and self.interface and self.interface.wndDragonSoul:
+					self.__AppendDragonSoulAttributeInformation(attrSlot, itemVnum/10000, self.interface.wndDragonSoul.GetDSSetGrade())
+				else:
+					self.__AppendDragonSoulAttributeInformation(attrSlot)
+			else:
+				self.__AppendAttributeInformation(attrSlot)
 		else:
 			self.__AppendLimitInformation()
 

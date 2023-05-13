@@ -803,11 +803,18 @@ class GameWindow(ui.ScriptWindow):
 		elif chr.NEW_AFFECT_DRAGON_SOUL_QUALIFIED == type:
 			self.BINARY_DragonSoulGiveQuilification()
 
+		elif app.ENABLE_DS_SET and chr.NEW_AFFECT_DS_SET == type:
+			self.interface.DragonSoulSetGrade(value)	
+
 
 	def BINARY_NEW_RemoveAffect(self, type, pointIdx):
 		self.affectShower.BINARY_NEW_RemoveAffect(type, pointIdx)
 		if chr.NEW_AFFECT_DRAGON_SOUL_DECK1 == type or chr.NEW_AFFECT_DRAGON_SOUL_DECK2 == type:
 			self.interface.DragonSoulDeactivate()
+
+		elif app.ENABLE_DS_SET and chr.NEW_AFFECT_DS_SET == type:
+			self.interface.DragonSoulSetGrade(0)
+
 
 	# END_OF_UNKNOWN_UPDATE
 
