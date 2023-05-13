@@ -186,7 +186,32 @@ window = {
 					"text" : "123456789",
 				},
 
-				## Do Refine Button
+				
+				{
+					"name" : "DoAllRefineButton",
+					"type" : "button",
+
+					"x" : 93,
+					"y" : 200,
+
+					"default_image" : "d:/ymir work/ui/dragonsoul/l_button01.tga",
+					"over_image" : "d:/ymir work/ui/dragonsoul/l_button02.tga",
+					"down_image" : "d:/ymir work/ui/dragonsoul/l_button03.tga",
+
+					"children" :
+					(
+						{ 
+							"name" : "DoRefineButtonTitle", 
+							"type" : "text", 
+							"x" : 0, 
+							"y" : 0, 
+							"text" : "Refine all", 
+							"all_align" : "center",
+						},
+					),
+				},
+
+				
 				{
 					"name" : "DoRefineButton",
 					"type" : "button",

@@ -20,6 +20,14 @@ import uiInventory
 import sys
 ITEM_FLAG_APPLICABLE = 1 << 14
 
+GET_PAGE_INDEX = 0
+GET_DK_INDEX = 0
+DS_GRADES = 5
+if app.ENABLE_DS_GRADE_MYTH:
+	DS_GRADES = 6
+
+def lang(lang):
+	return lang
 
 class DragonSoulWindow(ui.ScriptWindow):
 	KIND_TAP_TITLES = [uiScriptLocale.DRAGONSOUL_TAP_TITLE_1, uiScriptLocale.DRAGONSOUL_TAP_TITLE_2,
@@ -37,6 +45,10 @@ class DragonSoulWindow(ui.ScriptWindow):
 		self.deckPageIndex = 0
 		self.inventoryPageIndex = 0
 		self.SetWindowName("DragonSoulWindow")
+	
+		if app.ENABLE_DS_SET:
+			self.setGrade = 0	
+		
 		self.__LoadWindow()
 
 	def __del__(self):
@@ -94,6 +106,9 @@ class DragonSoulWindow(ui.ScriptWindow):
 			self.inventoryTab.append(self.GetChild("Inventory_Tab_03"))
 			self.inventoryTab.append(self.GetChild("Inventory_Tab_04"))
 			self.inventoryTab.append(self.GetChild("Inventory_Tab_05"))
+
+			if app.ENABLE_DS_GRADE_MYTH:
+				self.inventoryTab.append(self.GetChild("Inventory_Tab_06"))
 			self.tabDict = {
 				0	: self.GetChild("Tab_01"),
 				1	: self.GetChild("Tab_02"),
@@ -145,6 +160,8 @@ class DragonSoulWindow(ui.ScriptWindow):
 		self.inventoryTab[2].SetEvent(lambda arg=2: self.SetInventoryPage(arg))
 		self.inventoryTab[3].SetEvent(lambda arg=3: self.SetInventoryPage(arg))
 		self.inventoryTab[4].SetEvent(lambda arg=4: self.SetInventoryPage(arg))
+		if app.ENABLE_DS_GRADE_MYTH:
+			self.inventoryTab[5].SetEvent(lambda arg=5: self.SetInventoryPage(arg))
 		self.inventoryTab[0].Down()
 		## Etc
 		self.wndItem = wndItem
@@ -193,13 +210,24 @@ class DragonSoulWindow(ui.ScriptWindow):
 		self.deckTab[deck].Down()
 
 	def SetInventoryPage(self, page):
+		global GET_PAGE_INDEX
 		if self.inventoryPageIndex != page:
 			self.__HighlightSlot_ClearCurrentPage()
 		self.inventoryPageIndex = page
-		self.inventoryTab[(page+1)%5].SetUp()
-		self.inventoryTab[(page+2)%5].SetUp()
-		self.inventoryTab[(page+3)%5].SetUp()
-		self.inventoryTab[(page+4)%5].SetUp()
+		GET_PAGE_INDEX = page
+		if app.ENABLE_DS_GRADE_MYTH:
+			self.inventoryTab[(page+1)%6].SetUp()
+			self.inventoryTab[(page+2)%6].SetUp()
+			self.inventoryTab[(page+3)%6].SetUp()
+			self.inventoryTab[(page+4)%6].SetUp()
+			self.inventoryTab[(page+5)%6].SetUp()
+		else:
+			self.inventoryTab[(page+1)%5].SetUp()
+			self.inventoryTab[(page+2)%5].SetUp()
+			self.inventoryTab[(page+3)%5].SetUp()
+			self.inventoryTab[(page+4)%5].SetUp()
+
+
 		self.RefreshBagSlotWindow()
 
 	def SetItemToolTip(self, tooltipItem):
@@ -241,8 +269,9 @@ class DragonSoulWindow(ui.ScriptWindow):
 	def __InventoryLocalSlotPosToGlobalSlotPos(self, window_type, local_slot_pos):
 		if player.INVENTORY == window_type:
 			return self.deckPageIndex * player.DRAGON_SOUL_EQUIPMENT_FIRST_SIZE + local_slot_pos
+			
+		return (self.DSKindIndex * 6 * player.DRAGON_SOUL_PAGE_SIZE) + self.inventoryPageIndex * player.DRAGON_SOUL_PAGE_SIZE + local_slot_pos
 
-		return (self.DSKindIndex * 5 * player.DRAGON_SOUL_PAGE_SIZE) + self.inventoryPageIndex * player.DRAGON_SOUL_PAGE_SIZE + local_slot_pos
 
 	def RefreshBagSlotWindow(self):
 		getItemVNum=player.GetItemIndex
@@ -286,7 +315,10 @@ class DragonSoulWindow(ui.ScriptWindow):
 	def ShowToolTip(self, window_type, slotIndex):
 		if None != self.tooltipItem:
 			if player.INVENTORY == window_type:
-				self.tooltipItem.SetInventoryItem(slotIndex)
+				if app.ENABLE_DS_SET and player.IsDSEquipmentSlot(window_type, slotIndex):
+					self.tooltipItem.SetInventoryItem(slotIndex, player.EQUIPMENT)
+				else:
+					self.tooltipItem.SetInventoryItem(slotIndex)
 			else:
 				self.tooltipItem.SetInventoryItem(slotIndex, player.DRAGON_SOUL_INVENTORY)
 
@@ -339,34 +371,20 @@ class DragonSoulWindow(ui.ScriptWindow):
 		itemSlotIndex = self.__InventoryLocalSlotPosToGlobalSlotPos(player.DRAGON_SOUL_INVENTORY, itemSlotIndex)
 
 		if mouseModule.mouseController.isAttached():
+			if self.wndDragonSoulRefine.IsShow():
+				mouseModule.mouseController.DeattachObject()
+				return
+
 			attachedSlotType = mouseModule.mouseController.GetAttachedType()
 			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
 			attachedItemVID = mouseModule.mouseController.GetAttachedItemIndex()
 
 			attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
-			#@fixme011 BEGIN (changed behavior)
-			if player.SLOT_TYPE_INVENTORY == attachedSlotType:
-				if player.IsDSEquipmentSlot(attachedInvenType, attachedSlotPos):
-					srcItemPos = (attachedInvenType, attachedSlotPos)
-					dstItemPos = (player.DRAGON_SOUL_INVENTORY, itemSlotIndex)
-					self.__OpenQuestionDialog(False, srcItemPos, dstItemPos)
-				else:
-					ITEM_USE = 3
-					ITEM_EXTRACT = 31
-					item.SelectItem(attachedItemVID)
-					if item.GetItemType(attachedItemVID) == ITEM_EXTRACT or\
-						item.GetItemType(attachedItemVID) == ITEM_USE and\
-						item.GetItemSubType(attachedItemVID) in (item.USE_TIME_CHARGE_PER, item.USE_TIME_CHARGE_FIX):
-						net.SendItemUseToItemPacket(attachedInvenType, attachedSlotPos, player.DRAGON_SOUL_INVENTORY, itemSlotIndex)
-
-			elif player.SLOT_TYPE_DRAGON_SOUL_INVENTORY == attachedInvenType:
+			if player.RESERVED_WINDOW != attachedInvenType:
 				net.SendItemUseToItemPacket(attachedInvenType, attachedSlotPos, player.DRAGON_SOUL_INVENTORY, itemSlotIndex)
-			#@fixme011 END
-
 			mouseModule.mouseController.DeattachObject()
 
 		else:
-			## 20140220
 			curCursorNum = app.GetCursor()
 
 			if app.SELL == curCursorNum:
@@ -380,6 +398,8 @@ class DragonSoulWindow(ui.ScriptWindow):
 				self.wndItem.SetUseMode(False)
 				snd.PlaySound("sound/ui/pick.wav")
 
+	
+	
 	def __SellItem(self, itemSlotPos):
 		if not player.IsDSEquipmentSlot(player.DRAGON_SOUL_INVENTORY, itemSlotPos):
 			self.sellingSlotNumber = itemSlotPos
@@ -626,12 +646,16 @@ class DragonSoulWindow(ui.ScriptWindow):
 		self.dstItemPos = (0, 0)
 		self.dlgQuestion.Close()
 
+	
 
 	def SetDSKindIndex(self, kindIndex):
+		global GET_DK_INDEX
+
 		if self.DSKindIndex != kindIndex:
 			self.__HighlightSlot_ClearCurrentPage()
 
 		self.DSKindIndex = kindIndex
+		GET_DK_INDEX = kindIndex
 
 		for (tabKey, tabButton) in self.tabButtonDict.items():
 			if kindIndex!=tabKey:
@@ -657,7 +681,18 @@ class DragonSoulWindow(ui.ScriptWindow):
 		self.deckTab[(page+1)%2].SetUp()
 
 		self.RefreshEquipSlotWindow()
+		
+	if app.ENABLE_DS_SET:
+		def SetDSSetGrade(self, grade):
+			self.setGrade = grade
+			
+		def GetDSSetGrade(self):
+			if not self.isActivated:
+				return 0
+			
+			return self.setGrade
 
+	
 	def ActivateDragonSoulByExtern(self, deck):
 		self.isActivated = True
 		self.activateButton.Down()
@@ -749,8 +784,14 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 		self.refineChoiceButtonDict = None
 		self.doRefineButton = None
 		self.wndMoney = None
+		self.wndDragonSoul = None
 		self.SetWindowName("DragonSoulRefineWindow")
 		self.__LoadWindow()
+		
+	def SetDragonSoulWindow(self, wndDragonSoul):
+		if app.ENABLE_DRAGON_SOUL_SYSTEM:
+			from _weakref import proxy
+			self.wndDragonSoul = proxy(wndDragonSoul)
 
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
@@ -786,6 +827,8 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 			}
 			self.doRefineButton = self.GetChild("DoRefineButton")
 			self.wndMoney = self.GetChild("Money_Slot")
+			self.doAllRefineButton = self.GetChild("DoAllRefineButton")
+
 
 		except:
 			import exception
@@ -813,6 +856,9 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 		self.refineChoiceButtonDict[self.REFINE_TYPE_STEP].SetToggleUpEvent(lambda : self.__ToggleUpButton(self.REFINE_TYPE_STEP))
 		self.refineChoiceButtonDict[self.REFINE_TYPE_STRENGTH].SetToggleUpEvent(lambda : self.__ToggleUpButton(self.REFINE_TYPE_STRENGTH))
 		self.doRefineButton.SetEvent(self.__PressDoRefineButton)
+		
+		self.doAllRefineButton.SetEvent(self.__PressDoAllRefineButton)
+
 
 		## Dialog
 		self.wndPopupDialog = uiCommon.PopupDialog()
@@ -828,7 +874,8 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 		self.__Initialize()
 
 	def Destroy(self):
-		self.ClearDictionary()
+		ui.ScriptWindow.Destroy(self)
+		
 		self.tooltipItem = None
 		self.wndItem = 0
 		self.wndEquip = 0
@@ -840,6 +887,9 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 		self.equipmentTab = []
 		self.tabDict = None
 		self.tabButtonDict = None
+		
+
+		self.doAllRefineButton = None
 
 	def Close(self):
 		if None != self.tooltipItem:
@@ -962,28 +1012,42 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 			return False
 
 	def __CanRefineGrade(self, vnum):
-		ds_info = self.__GetDragonSoulTypeInfo(vnum)
+		if self.__IsDragonSoul(vnum):
+			ds_info = self.__GetDragonSoulTypeInfo(vnum)
 
-		if DragonSoulRefineWindow.INVALID_DRAGON_SOUL_INFO == ds_info:
-			self.__PopUp(localeInfo.DRAGON_SOUL_IS_NOT_DRAGON_SOUL)
-			return False
-
-		if self.currentRecipe:
-			ds_type, grade, step, strength = ds_info
-			cur_refine_ds_type, cur_refine_grade, cur_refine_step, cur_refine_strength = self.currentRecipe["ds_info"]
-			if not (cur_refine_ds_type == ds_type and cur_refine_grade == grade):
-				self.__PopUp(localeInfo.DRAGON_SOUL_INVALID_DRAGON_SOUL)
+			if DragonSoulRefineWindow.INVALID_DRAGON_SOUL_INFO == ds_info:
+				self.__PopUp(lang("That is not a Dragon Stone."))
 				return False
-		else:
-			self.currentRecipe = self.__GetRefineGradeRecipe(vnum)
 
 			if self.currentRecipe:
-				self.refineSlotLockStartIndex = self.currentRecipe["need_count"]
-				self.wndMoney.SetText(localeInfo.NumberToMoneyString(self.currentRecipe["fee"]))
-				return True
+				ds_type, grade, step, strength = ds_info
+				cur_refine_ds_type, cur_refine_grade, cur_refine_step, cur_refine_strength = self.currentRecipe["ds_info"]
+				if not (cur_refine_ds_type == ds_type and cur_refine_grade == grade):
+					self.__PopUp(lang("That is the wrong Dragon Stone."))
+					return False
 			else:
-				self.__PopUp(localeInfo.DRAGON_SOUL_CANNOT_REFINE)
+				self.currentRecipe = self.__GetRefineGradeRecipe(vnum)
+
+				if self.currentRecipe:
+					self.refineSlotLockStartIndex = self.currentRecipe["need_count"]
+					self.wndMoney.SetText(localeInfo.NumberToMoneyString(self.currentRecipe["fee"]))
+					
+					if self.__IsLegendaryRefineGrade():
+						self.refineSlotLockStartIndex += 1
+					
+					return True
+				else:
+					self.__PopUp(lang("This Dragon Stone cannot be refined."))
+					return False
+		else:
+			if not self.currentRecipe:
+				self.__PopUp(lang("Put the Dragon Stone first."))
 				return False
+			elif vnum != 100600:
+				self.__PopUp(lang("This is the wrong item."))
+				return False
+			else:
+				return True
 
 	def __CanRefineStep (self, vnum):
 		ds_info = self.__GetDragonSoulTypeInfo(vnum)
@@ -1193,6 +1257,9 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 	def __OverOutItem(self):
 		if self.tooltipItem:
 			self.tooltipItem.HideToolTip()
+			
+	def __PressDoAllRefineButton(self):
+		player.SendDragonSoulRefine(player.DRAGON_SOUL_REFINE_ALL, self.wndDragonSoul.DSKindIndex, self.wndDragonSoul.inventoryPageIndex)
 
 	def __PressDoRefineButton(self):
 		for i in xrange(self.refineSlotLockStartIndex):
@@ -1211,6 +1278,11 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 	def Refresh(self):
 		self.__RefreshRefineItemSlot()
 		self.__ClearResultItemSlot()
+		
+		if self.currentRefineType == self.REFINE_TYPE_GRADE:
+			self.doAllRefineButton.Show()
+		else:
+			self.doAllRefineButton.Hide()
 
 	def __RefreshRefineItemSlot(self):
 		try:
@@ -1292,8 +1364,19 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 		self.wndResultSlot.ClearSlot(0)
 		self.resultItemInfo = {}
 
-	def RefineSucceed(self, inven_type, inven_pos):
+	def Refill(self):
+		current = self.refineItemInfo
 		self.__Initialize()
+		
+		for idx, value in current.iteritems():
+			invenType, invenPos, itemCount = value
+			self.__SetItem((invenType, invenPos), idx, itemCount)
+		
+	def RefineSucceed(self, inven_type, inven_pos):
+		if self.currentRefineType != DragonSoulRefineWindow.REFINE_TYPE_STRENGTH:
+			self.__Initialize()
+		else:
+			self.Refill()
 		self.Refresh()
 
 		itemCount = player.GetItemCount(inven_type, inven_pos)
@@ -1303,7 +1386,10 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 
 	def	RefineFail(self, reason, inven_type, inven_pos):
 		if net.DS_SUB_HEADER_REFINE_FAIL == reason:
-			self.__Initialize()
+			if self.currentRefineType != DragonSoulRefineWindow.REFINE_TYPE_STRENGTH:
+				self.__Initialize()
+			else:
+				self.Refill()
 			self.Refresh()
 			itemCount = player.GetItemCount(inven_type, inven_pos)
 			if itemCount > 0:
@@ -1315,3 +1401,11 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 	def SetInventoryWindows(self, wndInventory, wndDragonSoul):
 		self.wndInventory = wndInventory
 		self.wndDragonSoul = wndDragonSoul
+
+	def __PressDoAllRefineButtonChangers(self, isShow):
+		if self.wndInventory and self.wndInventory.interface and self.wndInventory.interface.wndChanger:
+			if isShow:
+				self.wndInventory.interface.wndChanger.Hide()	
+			else:
+				self.wndInventory.interface.wndChanger.Show()	
+

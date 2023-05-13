@@ -1,9 +1,12 @@
 import uiScriptLocale
+import app
+import player
+
 
 window = {
 	"name" : "InventoryWindow",
 
-	## 600 - (width + ¿À¸¥ÂÊÀ¸·Î ºÎÅÍ ¶ç¿ì±â 24 px)
+	## 600 - (width + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 24 px)
 	"x" : SCREEN_WIDTH - 176 - 287 - 10,
 	"y" : SCREEN_HEIGHT - 37 - 505,
 
@@ -39,142 +42,49 @@ window = {
 
 				},
 				{
-					"name" : "Inventory_Tab_01",
-					"type" : "radio_button",
-
-					"x" : 16,
-					"y" : 332,
-
-					"default_image" : "d:/ymir work/ui/dragonsoul/s_button01.tga",
-					"over_image" : "d:/ymir work/ui/dragonsoul/s_button02.tga",
-					"down_image" : "d:/ymir work/ui/dragonsoul/s_button03.tga",
-
-					"children" :
-					(
-						{
-							"name" : "Inventory_Tab_01_Print",
-							"type" : "text",
-
-							"x" : 0,
-							"y" : 0,
-
-							"all_align" : "center",
-
-							"text" : uiScriptLocale.DRAGONSOUL_PAGE_BUTTON_1,
-							"color" : 0xFFF1E6C0,
-						},
-					),
+					"name" : "Inventory_Tab_01", "type" : "radio_button",
+					"x" : 16, "y" : 331,
+					"default_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_01_1.tga",
+					"over_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_01_2.tga",
+					"down_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_01_3.tga",
 				},
 				{
-					"name" : "Inventory_Tab_02",
-					"type" : "radio_button",
-
-					"x" : 67,
-					"y" : 332,
-
-					"default_image" : "d:/ymir work/ui/dragonsoul/s_button01.tga",
-					"over_image" : "d:/ymir work/ui/dragonsoul/s_button02.tga",
-					"down_image" : "d:/ymir work/ui/dragonsoul/s_button03.tga",
-
-					"children" :
-					(
-						{
-							"name" : "Inventory_Tab_02_Print",
-							"type" : "text",
-
-							"x" : 0,
-							"y" : 0,
-
-							"all_align" : "center",
-
-							"text" : uiScriptLocale.DRAGONSOUL_PAGE_BUTTON_2,
-							"color" : 0xFFF1E6C0,
-						},
-					),
+					"name" : "Inventory_Tab_02", "type" : "radio_button",
+					"x" : 59, "y" : 331,
+					"default_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_02_1.tga",
+					"over_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_02_2.tga",
+					"down_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_02_3.tga",
 				},
 				{
-					"name" : "Inventory_Tab_03",
-					"type" : "radio_button",
-
-					"x" : 118,
-					"y" : 332,
-
-					"default_image" : "d:/ymir work/ui/dragonsoul/s_button01.tga",
-					"over_image" : "d:/ymir work/ui/dragonsoul/s_button02.tga",
-					"down_image" : "d:/ymir work/ui/dragonsoul/s_button03.tga",
-
-					"children" :
-					(
-						{
-							"name" : "Inventory_Tab_03_Print",
-							"type" : "text",
-
-							"x" : 0,
-							"y" : 0,
-
-							"all_align" : "center",
-
-							"text" : uiScriptLocale.DRAGONSOUL_PAGE_BUTTON_3,
-							"color" : 0xFFF1E6C0,
-						},
-					),
+					"name" : "Inventory_Tab_03", "type" : "radio_button",
+					"x" : 102, "y" : 331,
+					"default_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_03_1.tga",
+					"over_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_03_2.tga",
+					"down_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_03_3.tga",
 				},
 				{
-					"name" : "Inventory_Tab_04",
-					"type" : "radio_button",
-
-					"x" : 169,
-					"y" : 332,
-
-					"default_image" : "d:/ymir work/ui/dragonsoul/s_button01.tga",
-					"over_image" : "d:/ymir work/ui/dragonsoul/s_button02.tga",
-					"down_image" : "d:/ymir work/ui/dragonsoul/s_button03.tga",
-
-					"children" :
-					(
-						{
-							"name" : "Inventory_Tab_04_Print",
-							"type" : "text",
-
-							"x" : 0,
-							"y" : 0,
-
-							"all_align" : "center",
-
-							"text" : uiScriptLocale.DRAGONSOUL_PAGE_BUTTON_4,
-							"color" : 0xFFF1E6C0,
-						},
-					),
+					"name" : "Inventory_Tab_04", "type" : "radio_button",
+					"x" : 145, "y" : 331,
+					"default_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_04_1.tga",
+					"over_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_04_2.tga",
+					"down_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_04_3.tga",
 				},
 				{
-					"name" : "Inventory_Tab_05",
-					"type" : "radio_button",
-
-					"x" : 220,
-					"y" : 332,
-
-					"default_image" : "d:/ymir work/ui/dragonsoul/s_button01.tga",
-					"over_image" : "d:/ymir work/ui/dragonsoul/s_button02.tga",
-					"down_image" : "d:/ymir work/ui/dragonsoul/s_button03.tga",
-
-					"children" :
-					(
-						{
-							"name" : "Inventory_Tab_05_Print",
-							"type" : "text",
-
-							"x" : 0,
-							"y" : 0,
-
-							"all_align" : "center",
-
-							"text" : uiScriptLocale.DRAGONSOUL_PAGE_BUTTON_5,
-							"color" : 0xFFF1E6C0,
-						},
-					),
+					"name" : "Inventory_Tab_05", "type" : "radio_button",
+					"x" : 188, "y" : 331,
+					"default_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_05_1.tga",
+					"over_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_05_2.tga",
+					"down_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_05_3.tga",
+				},
+				{
+					"name" : "Inventory_Tab_06", "type" : "radio_button",
+					"x" : 231, "y" : 331,
+					"default_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_06_1.tga",
+					"over_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_06_2.tga",
+					"down_image"	: "d:/ymir work/ui/dragonsoul/btn_soul_06_3.tga",
 				},
 				
-				## Item Slot
+				
 				{
 					"name" : "ItemSlot",
 					"type" : "grid_table",
@@ -187,8 +97,7 @@ window = {
 					"y_count" : 4,
 					"x_step" : 32,
 					"y_step" : 32,
-
-					#"image" : "d:/ymir work/ui/public/Slot_Base.sub"
+					
 				},
 				{
 					"name" : "EquipmentSlot",
@@ -420,6 +329,26 @@ window = {
 					"over_image" : "d:/ymir work/ui/dragonsoul/m_button02.tga",
 					"down_image" : "d:/ymir work/ui/dragonsoul/m_button03.tga",
 				},
+				{					
+					"name" : "refine",
+					"type" : "button",
+					"x" : 15,
+					"y" : 492,
+					"text" : "Refine",
+					"default_image" : "d:/ymir work/ui/dragonsoul/m_button01.tga",
+					"over_image" : "d:/ymir work/ui/dragonsoul/m_button02.tga",
+					"down_image" : "d:/ymir work/ui/dragonsoul/m_button03.tga",
+				},
+				{					
+					"name" : "shop",
+					"type" : "button",
+					"x" : 217 - 103,
+					"y" : 492,
+					"text" : "Shop",
+					"default_image" : "d:/ymir work/ui/dragonsoul/m_button01.tga",
+					"over_image" : "d:/ymir work/ui/dragonsoul/m_button02.tga",
+					"down_image" : "d:/ymir work/ui/dragonsoul/m_button03.tga",
+				},	
 			),
 		},
 	),
