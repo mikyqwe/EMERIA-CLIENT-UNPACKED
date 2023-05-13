@@ -96,6 +96,8 @@ class DragonSoulWindow(ui.ScriptWindow):
 			wndItem = self.GetChild("ItemSlot")
 			wndEquip = self.GetChild("EquipmentSlot")
 			self.activateButton = self.GetChild("activate")
+			self.refineButton = self.GetChild("refine")
+			self.shopButton = self.GetChild("shop")
 			self.deckTab = []
 			self.deckTab.append(self.GetChild("deck1"))
 			self.deckTab.append(self.GetChild("deck2"))
@@ -172,6 +174,8 @@ class DragonSoulWindow(ui.ScriptWindow):
 
 		self.activateButton.SetToggleDownEvent(ui.__mem_func__(self.ActivateButtonClick))
 		self.activateButton.SetToggleUpEvent(ui.__mem_func__(self.ActivateButtonClick))
+		self.refineButton.SetEvent(ui.__mem_func__(self.RefineButtonClick))
+		self.shopButton.SetEvent(ui.__mem_func__(self.OpenShopButton))
 		self.wndPopupDialog = uiCommon.PopupDialog()
 
 		##
@@ -715,6 +719,12 @@ class DragonSoulWindow(ui.ScriptWindow):
 				self.activateButton.SetUp()
 		else:
 			net.SendChatPacket("/dragon_soul deactivate")
+
+	def RefineButtonClick(self):
+		net.SendChatPacket("/dragon_soul refine")
+
+	def OpenShopButton(self):
+		net.SendChatPacket("/remote_shop 10")
 
 	def __CanActivateDeck(self):
 		canActiveNum = 0
