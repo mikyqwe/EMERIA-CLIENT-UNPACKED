@@ -2268,9 +2268,13 @@ class GameWindow(ui.ScriptWindow):
 			# PRIVATE_SHOP_PRICE_LIST
 			"MyShopPriceList"		: self.__PrivateShop_PriceList,
 			# END_OF_PRIVATE_SHOP_PRICE_LIST
+			
 		}
 
-	
+		if app.ENABLE_DS_CHANGE_ATTR:
+			serverCommandList["DS_ChangeAttr_Success"] = self.DS_ChangeAttr_Success
+			serverCommandList["DS_ChangeAttr_Failed"] = self.DS_ChangeAttr_Success
+		
 		if app.ENABLE_HUNTING_SYSTEM:
 			serverCommandList["HuntingButtonFlash"] = self.SetHuntingButtonFlash
 
@@ -2788,3 +2792,13 @@ class GameWindow(ui.ScriptWindow):
 								for j in range(1,5):
 									if gui.IsChild("EXPGauge_0%d"%j):
 										gui.GetChild("EXPGauge_0%d"%j).SetDiffuseColor(201,160,51,1)
+
+	if app.ENABLE_DS_CHANGE_ATTR:
+		def DragonSoulAttrChange(self):
+			self.interface.OnChangeAttr()
+
+		def DS_ChangeAttr_Success(self):
+			self.interface.DS_AttrSuccess()
+
+		def DS_ChangeAttr_Failed(self):
+			self.interface.DS_AttrFailed()

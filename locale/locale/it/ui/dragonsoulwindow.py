@@ -344,7 +344,7 @@ window = {
 					"type" : "button",
 					"x" : 217 - 103,
 					"y" : 492,
-					"text" : "Shop",
+					"text" : "Schimba",
 					"default_image" : "d:/ymir work/ui/dragonsoul/m_button01.tga",
 					"over_image" : "d:/ymir work/ui/dragonsoul/m_button02.tga",
 					"down_image" : "d:/ymir work/ui/dragonsoul/m_button03.tga",

@@ -1636,6 +1636,11 @@ class InventoryWindow(ui.ScriptWindow):
 				acce.Add(player.INVENTORY, slotIndex, 255)
 				return
 
+		if app.ENABLE_DS_CHANGE_ATTR:
+			if self.wndDragonSoulChangeAttr.IsShow():
+				self.wndDragonSoulChangeAttr.AutoSetItem((player.INVENTORY, slotIndex), player.GetItemCount(slotIndex))
+				return
+
 		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
 			if app.IsPressed(app.DIK_LCONTROL) and player.CanMoveItem(player.GetItemIndex(slotIndex)):
 			#if self.interface.wndSpecialStorage.IsShow() and app.IsPressed(app.DIK_LCONTROL) and player.CanMoveItem(player.GetItemIndex(slotIndex)):
@@ -1645,6 +1650,10 @@ class InventoryWindow(ui.ScriptWindow):
 		self.__UseItem(slotIndex)
 		mouseModule.mouseController.DeattachObject()
 		self.OverOutItem()
+
+	if app.ENABLE_DS_CHANGE_ATTR:
+		def SetDragonSoulChangeAttrWindow(self, DragonSoulChangeAttr):
+			self.wndDragonSoulChangeAttr = DragonSoulChangeAttr
 
 	def __UseItem(self, slotIndex):
 		if app.__ENABLE_NEW_OFFLINESHOP__:

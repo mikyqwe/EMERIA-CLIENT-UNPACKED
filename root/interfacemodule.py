@@ -118,6 +118,8 @@ class Interface(object):
 		self.wndExpandedTaskBar = None
 		self.wndDragonSoul = None
 		self.wndDragonSoulRefine = None
+		if app.ENABLE_DS_CHANGE_ATTR:
+			self.wndDragonSoulChangeAttr = None		
 		self.wndChat = None
 		self.wndMessenger = None
 		self.wndMiniMap = None
@@ -262,6 +264,8 @@ class Interface(object):
 			wndDragonSoulRefine = None
 		
 		self.wndOfflineshop = uiofflineshop.NewOfflineShopBoard()
+		if app.ENABLE_DS_CHANGE_ATTR:
+			self.wndDragonSoulChangeAttr = uiDragonSoul.DragonSoulChangeAttrWindow()
 		wndMiniMap = uiMiniMap.MiniMap()
 		wndSafebox = uiSafebox.SafeboxWindow()
 		if app.WJ_ENABLE_TRADABLE_ICON:
@@ -313,6 +317,10 @@ class Interface(object):
 			self.wndDragonSoulRefine.SetInventoryWindows(self.wndInventory, self.wndDragonSoul)
 			self.wndInventory.SetDragonSoulRefineWindow(self.wndDragonSoulRefine)
 
+		if app.ENABLE_DS_CHANGE_ATTR:
+			self.wndDragonSoul.SetDragonSoulChangeAttrWindow(self.wndDragonSoulChangeAttr)
+			self.wndDragonSoulChangeAttr.SetInventoryWindows(self.wndInventory, self.wndDragonSoul)
+			self.wndInventory.SetDragonSoulChangeAttrWindow(self.wndDragonSoulChangeAttr)
 
 	def __MakeDialogs(self):
 		self.dlgExchange = uiExchange.ExchangeDialog()
@@ -491,6 +499,9 @@ class Interface(object):
 		self.wndCube.SetItemToolTip(self.tooltipItem)
 		self.wndCubeResult.SetItemToolTip(self.tooltipItem)
 
+		if app.ENABLE_DS_CHANGE_ATTR:
+			self.wndDragonSoulChangeAttr.SetItemToolTip(self.tooltipItem)
+
 		if app.ENABLE_ACCE_COSTUME_SYSTEM:
 			self.wndAcceCombine.SetItemToolTip(self.tooltipItem)
 			self.wndAcceAbsorption.SetItemToolTip(self.tooltipItem)
@@ -592,6 +603,10 @@ class Interface(object):
 
 		if self.wndDragonSoulRefine:
 			self.wndDragonSoulRefine.Destroy()
+
+		if app.ENABLE_DS_CHANGE_ATTR:
+			if self.wndDragonSoulChangeAttr:
+				self.wndDragonSoulChangeAttr.Destroy()
 
 		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
 			if self.wndSpecialStorage:
@@ -758,6 +773,9 @@ class Interface(object):
 		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
 			if self.wndSpecialStorage:
 				del self.wndSpecialStorage
+		if app.ENABLE_DS_CHANGE_ATTR:
+			if self.wndDragonSoulChangeAttr:
+				del self.wndDragonSoulChangeAttr
 
 			if self.wndInventoryMenu:
 				del self.wndInventoryMenu
@@ -1158,6 +1176,9 @@ class Interface(object):
 				self.wndExpandedMoneyTaskBar.Show()
 				self.wndExpandedMoneyTaskBar.SetTop()
 
+		if app.ENABLE_DS_CHANGE_ATTR:
+			self.wndDragonSoulChangeAttr.Show()
+
 			
 		if app.ENABLE_SPECIAL_STORAGE_SYSTEM:
 			if self.wndSpecialStorage:
@@ -1191,6 +1212,9 @@ class Interface(object):
 		if self.wndCharacter:
 			self.wndCharacter.Hide()
 
+		if app.ENABLE_DS_CHANGE_ATTR:
+			if self.wndDragonSoulChangeAttr:
+				self.wndDragonSoulChangeAttr.Hide()
 		if self.wndInventory:
 			self.wndInventory.Hide()
 
@@ -1698,7 +1722,8 @@ class Interface(object):
 
 			if self.wndInventoryMenu:
 				hideWindows += self.wndInventoryMenu,
-
+		if app.ENABLE_DS_CHANGE_ATTR:
+			hideWindows += self.wndDragonSoulChangeAttr,
 		if self.wndOfflineshop:
 			hideWindows += self.wndOfflineshop,
 
@@ -2478,7 +2503,16 @@ class Interface(object):
 	if app.ENABLE_DS_SET:
 		def DragonSoulSetGrade(self, grade):
 			self.wndDragonSoul.SetDSSetGrade(grade)
+	if app.ENABLE_DS_CHANGE_ATTR:
+		def OnChangeAttr(self):
+			self.wndDragonSoulChangeAttr.Show()
 
+		def DS_AttrWindowOpen(self):
+			self.wndDragonSoulChangeAttr.ChangeAttr_Success()
+		def DS_AttrSuccess(self):
+			self.wndDragonSoulChangeAttr.ChangeAttr_Success()
+		def DS_AttrFailed(self):
+			self.wndDragonSoulChangeAttr.ChangeAttr_Failed()
 	def RefreshBook(self):
 		if self.wndTest:
 			self.wndTest.Hide()

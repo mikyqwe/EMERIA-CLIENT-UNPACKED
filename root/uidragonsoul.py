@@ -266,6 +266,9 @@ class DragonSoulWindow(ui.ScriptWindow):
 						break
 
 		self.wndEquip.RefreshSlot()
+	if app.ENABLE_DS_CHANGE_ATTR:
+		def OnChangeAttr(self):
+			self.wndDragonSoulChangeAttr.Show()
 
 	def RefreshStatus(self):
 		self.RefreshItemSlot()
@@ -509,6 +512,15 @@ class DragonSoulWindow(ui.ScriptWindow):
 					return
 				self.wndDragonSoulRefine.AutoSetItem((player.DRAGON_SOUL_INVENTORY, slotIndex), 1)
 				return
+
+			if app.ENABLE_DS_CHANGE_ATTR:
+				if self.wndDragonSoulChangeAttr.IsShow():
+					if uiPrivateShopBuilder.IsBuildingPrivateShop():
+						chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.MOVE_ITEM_FAILURE_PRIVATE_SHOP)
+						return
+					self.wndDragonSoulChangeAttr.AutoSetItem((chat.DRAGON_SOUL_INVENTORY, slotIndex), 1)
+					return
+
 		except:
 			pass
 
@@ -724,7 +736,7 @@ class DragonSoulWindow(ui.ScriptWindow):
 		net.SendChatPacket("/dragon_soul refine")
 
 	def OpenShopButton(self):
-		net.SendChatPacket("/remote_shop 10")
+		self.OnChangeAttr()
 
 	def __CanActivateDeck(self):
 		canActiveNum = 0
@@ -772,8 +784,10 @@ class DragonSoulWindow(ui.ScriptWindow):
 			from _weakref import proxy
 			self.wndDragonSoulRefine = proxy(wndDragonSoulRefine)
 
-#class DragonSoulRefineException(Exception):
-	#pass
+	if app.ENABLE_DS_CHANGE_ATTR:
+		def SetDragonSoulChangeAttrWindow(self, DragonSoulChangeAttr):
+			from _weakref import proxy
+			self.wndDragonSoulChangeAttr = proxy(DragonSoulChangeAttr)
 
 class DragonSoulRefineWindow(ui.ScriptWindow):
 	REFINE_TYPE_GRADE, REFINE_TYPE_STEP, REFINE_TYPE_STRENGTH = xrange(3)
@@ -1419,3 +1433,392 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 			else:
 				self.wndInventory.interface.wndChanger.Show()	
 
+if app.ENABLE_DS_CHANGE_ATTR:
+	class DragonSoulChangeAttrWindow(ui.ScriptWindow):
+		def __init__(self):
+			ui.ScriptWindow.__init__(self)
+			self.tooltipItem = None
+			self.sellingSlotNumber = -1
+			self.isLoaded = 0
+			self.refineChoiceButtonDict = None
+			self.doApplyButton = None
+			self.wndMoney = None
+			self.SetWindowName("DragonSoulChangeAttrWindow")
+			self.__LoadWindow()
+			
+		def __del__(self):
+			ui.ScriptWindow.__del__(self)
+
+		def Show(self):
+			self.__LoadWindow()
+			ui.ScriptWindow.Show(self)
+
+		def __LoadWindow(self):
+			if self.isLoaded == 1:
+				return
+			self.isLoaded = 1
+			try:
+				pyScrLoader = ui.PythonScriptLoader()			
+				pyScrLoader.LoadScriptFile(self, "UIscript/dragonsoulattr.py")
+
+			except:
+				import exception
+				exception.Abort("dragonsoulrefinewindow.LoadWindow.LoadObject")
+			try:
+				if localeInfo.IsARABIC():
+					self.board = self.GetChild("DragonSoulRefineWindowBaseImage")
+					
+				wndRefineSlot = self.GetChild("RefineSlot")
+				wndResultSlot = self.GetChild("ResultSlot")
+				self.GetChild("TitleBar").SetCloseEvent(ui.__mem_func__(self.Close))
+				self.changeAttrButton = self.GetChild("ChangeAttrButton")
+				self.doApplyButton = self.GetChild("DoApplyButton")
+				self.wndMoney = self.GetChild("Money_Slot")
+			except:
+				import exception
+				exception.Abort("DragonSoulRefineWindow.LoadWindow.BindObject")
+			
+		
+			## Item Slots
+			wndRefineSlot.SetOverInItemEvent(ui.__mem_func__(self.__OverInRefineItem))
+			wndRefineSlot.SetOverOutItemEvent(ui.__mem_func__(self.__OverOutItem))
+			wndRefineSlot.SetSelectEmptySlotEvent(ui.__mem_func__(self.__SelectRefineEmptySlot))
+			wndRefineSlot.SetSelectItemSlotEvent(ui.__mem_func__(self.__SelectRefineItemSlot))
+			wndRefineSlot.SetUseSlotEvent(ui.__mem_func__(self.__SelectRefineItemSlot))
+			wndRefineSlot.SetUnselectItemSlotEvent(ui.__mem_func__(self.__SelectRefineItemSlot))
+			
+			wndResultSlot.SetOverInItemEvent(ui.__mem_func__(self.__OverInResultItem))
+			wndResultSlot.SetOverOutItemEvent(ui.__mem_func__(self.__OverOutItem))
+			self.wndRefineSlot = wndRefineSlot
+			self.wndResultSlot = wndResultSlot
+			
+			## Button
+			self.changeAttrButton.Down()
+			self.doApplyButton.SetEvent(self.__PressDoApplyButton)
+			
+			## Dialog
+			self.wndPopupDialog = uiCommon.PopupDialog()
+			
+			self.refineItemInfo = {}
+			self.resultItemInfo = {}
+			self.needFireCount = 0
+			self.needfee = 0
+			self.wndMoney.SetText("Iteme Necesare: %d" % self.needFireCount)
+
+			self.__Initialize()
+			
+		def Destroy(self):
+			self.ClearDictionary()
+			self.tooltipItem = None
+			self.wndItem = 0
+			self.wndEquip = 0
+			self.activateButton = 0
+			self.questionDialog = None
+			self.mallButton = None
+			self.inventoryTab = []
+			self.deckTab = []
+			self.equipmentTab = []
+			self.tabDict = None
+			self.tabButtonDict = None
+			
+		def Close(self):
+			if None != self.tooltipItem:
+				self.tooltipItem.HideToolTip()
+			
+			self.__FlushRefineItemSlot()
+			player.SendDragonSoulRefine(player.DRAGON_SOUL_REFINE_CLOSE)
+			self.Hide()
+
+		def Show(self):
+			self.wndMoney.SetText("Iteme Necesare: %d" % self.needFireCount)
+			self.doApplyButton.Down() and self.doApplyButton.Disable()
+			
+			self.Refresh()
+			
+			ui.ScriptWindow.Show(self)
+
+		def SetItemToolTip(self, tooltipItem):
+			self.tooltipItem = tooltipItem
+		
+		def __Initialize(self):
+			self.needFireCount = 0
+			self.needfee = 0
+			self.refineItemInfo = {}
+			self.resultItemInfo = {}
+			
+			self.refineSlotLockStartIndex = 2
+
+			for i in xrange(self.refineSlotLockStartIndex):
+				self.wndRefineSlot.HideSlotBaseImage(i)
+
+			self.wndMoney.SetText("Iteme Necesare: %d" % self.needFireCount)
+
+		def __FlushRefineItemSlot(self):
+			for invenType, invenPos, itemCount in self.refineItemInfo.values():
+				remainCount = player.GetItemCount(invenType, invenPos)
+				player.SetItemCount(invenType, invenPos, remainCount + itemCount)
+			self.__Initialize()
+
+		def __PopUp(self, message):
+			self.wndPopupDialog.SetText(message)
+			self.wndPopupDialog.Open()
+		
+		def __SetItem(self, inven, dstSlotIndex, itemCount):
+			invenType, invenPos = inven
+
+			if dstSlotIndex >= self.refineSlotLockStartIndex:
+				return False
+				
+			itemVnum = player.GetItemIndex(invenType, invenPos)
+			maxCount = player.GetItemCount(invenType, invenPos)
+			
+			if itemCount > maxCount:
+				raise Exception, ("Invalid attachedItemCount(%d). (base pos (%d, %d), base itemCount(%d))" % (itemCount, invenType, invenPos, maxCount))
+				#return False
+			
+			if self.__IsDragonSoul(itemVnum):
+				dstSlotIndex = 0
+				self.__SetAttrCountInfo(itemVnum)
+			else:
+				dstSlotIndex = 1
+			
+			if dstSlotIndex in self.refineItemInfo:
+				return False
+			
+			# player.SetItemCount(invenType, invenPos, maxCount - itemCount)
+			self.refineItemInfo[dstSlotIndex] = (invenType, invenPos, itemCount)
+			self.Refresh()
+
+			return True
+
+		def __SetAttrCountInfo(self, vnum):
+			ds_type, grade, step, strength = self.__GetDragonSoulTypeInfo(vnum)
+			try:
+				import dragon_soul_refine_settings
+				self.needFireCount = dragon_soul_refine_settings.default_flame_need_count[step]
+				self.wndMoney.SetText("Iteme Necesare: %d" % self.needFireCount)
+			except:
+				return None
+
+		def __IsDragonSoul(self, vnum):
+			item.SelectItem(vnum)
+			return item.GetItemType() == item.ITEM_TYPE_DS
+			
+		def __GetDragonSoulTypeInfo(self, vnum):
+			if not self.__IsDragonSoul(vnum):
+				return DragonSoulRefineWindow.INVALID_DRAGON_SOUL_INFO 
+			ds_type = vnum / 10000
+			grade = vnum % 10000 /1000
+			step = vnum % 1000 / 100
+			strength = vnum % 100 / 10
+			
+			return (ds_type, grade, step, strength)
+		
+		def __MakeDragonSoulVnum(self, ds_type, grade, step, strength):
+			return ds_type * 10000 + grade * 1000 + step * 100 + strength * 10
+
+		def __SelectRefineEmptySlot(self, selectedSlotPos):
+			try:
+				if constInfo.GET_ITEM_QUESTION_DIALOG_STATUS() == 1:
+					return
+				
+				if selectedSlotPos >= self.refineSlotLockStartIndex:
+					return
+		 
+				if mouseModule.mouseController.isAttached():
+					attachedSlotType = mouseModule.mouseController.GetAttachedType()
+					attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
+					attachedItemCount = mouseModule.mouseController.GetAttachedItemCount()
+					attachedItemIndex = mouseModule.mouseController.GetAttachedItemIndex()
+					mouseModule.mouseController.DeattachObject()
+
+					if uiPrivateShopBuilder.IsBuildingPrivateShop():
+						chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.MOVE_ITEM_FAILURE_PRIVATE_SHOP)
+						return
+						
+					attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
+
+					if player.INVENTORY == attachedInvenType and player.IsEquipmentSlot(attachedSlotPos):
+						return
+
+					if player.INVENTORY != attachedInvenType and player.DRAGON_SOUL_INVENTORY != attachedInvenType:
+						return
+
+					if True == self.__SetItem((attachedInvenType, attachedSlotPos), selectedSlotPos, attachedItemCount):
+						self.Refresh()
+
+			except Exception, e:
+				import dbg
+				dbg.TraceError("Exception : __SelectRefineEmptySlot, %s" % e)
+
+		def __SelectRefineItemSlot(self, selectedSlotPos):
+			if constInfo.GET_ITEM_QUESTION_DIALOG_STATUS() == 1:
+				return
+
+			try:
+				if not selectedSlotPos in self.refineItemInfo:
+					if mouseModule.mouseController.isAttached():
+						attachedSlotType = mouseModule.mouseController.GetAttachedType()
+						attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
+						attachedItemCount = mouseModule.mouseController.GetAttachedItemCount()
+						attachedItemIndex = mouseModule.mouseController.GetAttachedItemIndex()
+						mouseModule.mouseController.DeattachObject()
+
+						if uiPrivateShopBuilder.IsBuildingPrivateShop():
+							chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.MOVE_ITEM_FAILURE_PRIVATE_SHOP)
+							return
+							
+						attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
+
+						if player.INVENTORY == attachedInvenType and player.IsEquipmentSlot(attachedSlotPos):
+							return
+
+						if player.INVENTORY != attachedInvenType and player.DRAGON_SOUL_INVENTORY != attachedInvenType:
+							return
+
+						self.AutoSetItem((attachedInvenType, attachedSlotPos), 1)
+					return
+				elif mouseModule.mouseController.isAttached():
+					return
+	 
+				attachedInvenType, attachedSlotPos, attachedItemCount = self.refineItemInfo[selectedSlotPos]
+				selectedItemVnum = player.GetItemIndex(attachedInvenType, attachedSlotPos)
+					
+				invenType, invenPos, itemCount = self.refineItemInfo[selectedSlotPos]
+				remainCount = player.GetItemCount(invenType, invenPos)
+				# player.SetItemCount(invenType, invenPos, remainCount + itemCount)
+				del self.refineItemInfo[selectedSlotPos]
+					
+				if not self.refineItemInfo:
+					self.__Initialize()
+				else:
+					item.SelectItem(selectedItemVnum)
+					if (item.ITEM_TYPE_MATERIAL == item.GetItemType() \
+						and (item.MATERIAL_DS_REFINE_NORMAL <= item.GetItemSubType() and item.GetItemSubType() <= item.MATERIAL_DS_REFINE_HOLLY)):
+						self.currentRecipe = {}
+						self.wndMoney.SetText("Iteme Necesare: %d" % self.needFireCount)
+					else:
+						pass
+						
+			except Exception, e:
+				import dbg
+				dbg.TraceError("Exception : __SelectRefineItemSlot, %s" % e)
+			
+			self.Refresh()
+		
+		def __OverInRefineItem(self, slotIndex):
+			if self.refineItemInfo.has_key(slotIndex):
+				inven_type, inven_pos, item_count = self.refineItemInfo[slotIndex]
+				self.tooltipItem.SetInventoryItem(inven_pos, inven_type)
+
+		def __OverInResultItem(self, slotIndex):
+			if self.resultItemInfo.has_key(slotIndex):
+				inven_type, inven_pos, item_count = self.resultItemInfo[slotIndex]
+				self.tooltipItem.SetInventoryItem(inven_pos, inven_type)
+			
+		def __OverOutItem(self):
+			if self.tooltipItem:
+				self.tooltipItem.HideToolTip()
+
+		def __PressDoApplyButton(self):
+			for i in xrange(self.refineSlotLockStartIndex):
+				if not i in self.refineItemInfo:
+					self.wndPopupDialog.SetText(localeInfo.DRAGON_SOUL_NOT_ENOUGH_MATERIAL)
+					self.wndPopupDialog.Open()
+					
+					return
+			inven_type, inven_pos, item_count = self.refineItemInfo[0]
+			net.SendChatPacket("/ds_change_attr %s" % (inven_pos))
+
+		def OnPressEscapeKey(self):
+			self.Close()
+			return True
+		
+		def Refresh(self):
+			self.__RefreshRefineItemSlot()
+			self.__ClearResultItemSlot()
+				
+		def __RefreshRefineItemSlot(self):
+			try:
+				for slotPos in xrange(self.wndRefineSlot.GetSlotCount()):
+					self.wndRefineSlot.ClearSlot(slotPos)
+					if slotPos < self.refineSlotLockStartIndex:
+						if slotPos in self.refineItemInfo:
+							invenType, invenPos, itemCount = self.refineItemInfo[slotPos]
+							itemVnum = player.GetItemIndex(invenType, invenPos)
+
+							if itemVnum:
+								self.wndRefineSlot.SetItemSlot(slotPos, player.GetItemIndex(invenType, invenPos), itemCount)
+							else:
+								del self.refineItemInfo[slotPos]
+
+						if not slotPos in self.refineItemInfo:
+							try:
+								reference_vnum = 0
+								if 1 == slotPos:
+									reference_vnum = 100700
+								if 0 != reference_vnum:
+									item.SelectItem(reference_vnum)
+									itemIcon = item.GetIconImage()
+									(width, height) = item.GetItemSize()
+									self.wndRefineSlot.SetSlot(slotPos, 0, width, height, itemIcon, (1.0, 1.0, 1.0, 0.5))
+									self.wndRefineSlot.SetSlotCount(slotPos, 0)
+							except:
+								pass
+						self.wndRefineSlot.HideSlotBaseImage(slotPos)
+					else:
+						if slotPos in self.refineItemInfo:
+							invenType, invenPos, itemCount = self.refineItemInfo[slotPos]
+							remainCount = player.GetItemCount(invenType, invenPos)
+							# player.SetItemCount(invenType, invenPos, remainCount + itemCount)
+							del self.refineItemInfo[slotPos]
+						self.wndRefineSlot.ShowSlotBaseImage(slotPos)
+				if not self.refineItemInfo:
+					self.__Initialize()
+	 
+				self.wndRefineSlot.RefreshSlot()
+			except Exception, e:
+				import dbg
+				dbg.TraceError("Exception : __RefreshRefineItemSlot, %s" % e)
+		
+		def __GetEmptySlot(self, itemVnum = 0):
+			if 0 == itemVnum:
+				return -1
+			
+			if self.__IsDragonSoul(itemVnum):
+				if not 0 in self.refineItemInfo:
+					return 0
+			elif 100700 == itemVnum:
+				if not 1 in self.refineItemInfo:
+					return 1
+			
+			return -1
+
+		def AutoSetItem(self, inven, itemCount):
+			invenType, invenPos = inven
+			itemVnum = player.GetItemIndex(invenType, invenPos)
+			emptySlot = self.__GetEmptySlot(itemVnum)
+			if -1 == emptySlot:
+				return
+			
+			self.__SetItem((invenType, invenPos), emptySlot, itemCount)
+
+		def __ClearResultItemSlot(self):
+			self.wndResultSlot.ClearSlot(0)
+			self.resultItemInfo = {}
+		
+		def ChangeAttr_Success(self):
+			inven_type, inven_pos, item_count = self.refineItemInfo[0]
+			itemCount = player.GetItemCount(inven_type, inven_pos)
+			self.__Initialize()
+			self.Refresh()
+			if itemCount > 0:
+				self.resultItemInfo[0] = (inven_type, inven_pos, itemCount)
+				self.wndResultSlot.SetItemSlot(0, player.GetItemIndex(inven_type, inven_pos), itemCount)
+		
+		def	ChangeAttr_Failed(self):
+			self.Refresh()
+
+		def SetInventoryWindows(self, wndInventory, wndDragonSoul):
+			self.wndInventory = wndInventory
+			self.wndDragonSoul = wndDragonSoul

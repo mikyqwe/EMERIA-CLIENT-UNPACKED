@@ -11,6 +11,8 @@ strength_fee = {
 	item.MATERIAL_DS_REFINE_HOLLY : 30000,
 }
 
+default_flame_need_count = [1, 3, 9, 27, 81]
+
 # table(GRADE, STEP) = max strength.
 default_strength_max_table = [
 	[2, 2, 3, 3, 4],
