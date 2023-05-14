@@ -389,7 +389,7 @@ class GameWindow(ui.ScriptWindow):
 		onPressKeyDict[app.DIK_Y]			= lambda : self.OpenSearchShop()
 		onPressKeyDict[app.DIK_F5]			= lambda : self.ShowMeOfflineShop()
 		onPressKeyDict[app.DIK_F6]			= lambda : self.interface.ToggleSwitchbotWindow()
-		onPressKeyDict[app.DIK_F7]			= lambda : self.interface.wndBio.OpenWindow()
+		onPressKeyDict[app.DIK_F7]			= lambda : self.interface.ToggleBiolog()
 		onPressKeyDict[app.DIK_F11]	= lambda : self.interface.wndFastEquip.Show()
 		# CUBE_TEST
 		#onPressKeyDict[app.DIK_K]			= lambda : self.interface.OpenCubeWindow()
@@ -2802,3 +2802,16 @@ class GameWindow(ui.ScriptWindow):
 
 		def DS_ChangeAttr_Failed(self):
 			self.interface.DS_AttrFailed()
+
+	def BINARY_ClearBiologWindow(self):
+		if self.interface:
+			self.interface.wndBiologWindow.ClearWindow()
+
+	def BINARY_SetBiologData(self, biologLevel, requestItem, actualItemCount, requestItemCount, secondsCoolDown, isSelectable):
+		if self.interface:
+			self.interface.wndBiologWindow.SetBiologData(biologLevel, requestItem, actualItemCount, requestItemCount, secondsCoolDown, isSelectable)			
+
+	def BINARY_SetBiologDataBonus(self, case, valueType, value):
+		if self.interface:
+			self.interface.wndBiologWindow.SetDataBonus(case, valueType, value)
+

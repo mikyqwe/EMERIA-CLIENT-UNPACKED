@@ -74,6 +74,7 @@ if app.ENABLE_HUNTING_SYSTEM:
 	import uiHunting
 import sys
 import uiTest
+import uiBiologWindow
 
 def ReloadModule(moduleName):
 	if moduleName in sys.modules:
@@ -386,6 +387,9 @@ class Interface(object):
 		self.wndTest = uiTest.TestWindow()
 		self.wndTest.Hide()
 
+		self.wndBiologWindow = uiBiologWindow.BiologWindow()
+		self.wndBiologWindow.Hide()
+
 
 	if app.FAST_EQUIP_WORLDARD:
 		def __MakeFastEquip(self):
@@ -585,6 +589,11 @@ class Interface(object):
 
 		if self.wndExpandedTaskBar:
 			self.wndExpandedTaskBar.Destroy()
+
+		if self.wndBiologWindow:
+			self.wndBiologWindow.Hide()
+			self.wndBiologWindow.Destroy()
+		del self.wndBiologWindow
 
 		if self.wndEnergyBar:
 			self.wndEnergyBar.Destroy()
@@ -2522,4 +2531,12 @@ class Interface(object):
 		self.wndTest = uiTest.TestWindow()
 		self.wndTest.Open()
 		
+
+	def ToggleBiolog(self):
+		if False == player.IsObserverMode():
+			if False == self.wndBiologWindow.IsShow():
+				self.wndBiologWindow.Show()
+				self.wndBiologWindow.SetTop()
+			else:
+				self.wndBiologWindow.Hide()
 

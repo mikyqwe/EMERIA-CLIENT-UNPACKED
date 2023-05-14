@@ -155,6 +155,10 @@ class ToolTip(ui.ThinBoard):
 		self.toolTipHeight += size
 		self.ResizeToolTip()
 
+	def RemoveSpace(self, size):
+		self.toolTipHeight -= size
+		self.ResizeToolTip()
+
 	def AppendHorizontalLine(self):
 
 		for i in xrange(2):
@@ -193,7 +197,94 @@ class ToolTip(ui.ThinBoard):
 			child.SetPosition(self.toolTipWidth/2, y)
 
 		self.ResizeToolTip()
+	def AppendItem(self, vnum, count=1, color=FONT_COLOR, centerAlign=True):
+		GAP_SIZE = 2
 
+		item.SelectItem(vnum)
+
+		wrapper = ui.Window()
+		wrapper.SetParent(self)
+		wrapper.Show()
+		wrapper.childrenList = []
+
+		countText = ui.TextLine()
+		countText.SetParent(wrapper)
+		countText.SetVerticalAlignCenter()
+		countText.SetWindowVerticalAlignCenter()
+		countText.SetPosition(0, 0)
+		countText.SetFontName(self.defFontName)
+		countText.SetPackedFontColor(color)
+		countText.SetOutline()
+		countText.SetFeather(False)
+		countText.SetText("{}x".format(count))
+		countText.Show()
+		wrapper.childrenList.append(countText)
+
+		icon = ui.ImageBox()
+		icon.SetParent(wrapper)
+		icon.SetWindowVerticalAlignCenter()
+		icon.SetPosition(countText.GetTextWidth() + GAP_SIZE, 0)
+		icon.LoadImage(item.GetIconImageFileName())
+		icon.Show()
+		wrapper.childrenList.append(icon)
+
+		nameText = ui.TextLine()
+		nameText.SetParent(wrapper)
+		nameText.SetVerticalAlignCenter()
+		nameText.SetWindowVerticalAlignCenter()
+		nameText.SetPosition(icon.GetRight() + GAP_SIZE, 0)
+		nameText.SetFontName(self.defFontName)
+		nameText.SetPackedFontColor(color)
+		nameText.SetOutline()
+		nameText.SetFeather(False)
+		nameText.SetText(item.GetItemName())
+		nameText.Show()
+		wrapper.childrenList.append(nameText)
+
+		wrapper.SetSize(countText.GetTextWidth() + GAP_SIZE + icon.GetWidth() + GAP_SIZE + nameText.GetTextWidth(),
+						icon.GetHeight())
+
+		if centerAlign:
+			wrapper.SetPosition((self.toolTipWidth - wrapper.GetWidth()) / 2, self.toolTipHeight)
+		else:
+			wrapper.SetPosition(10, self.toolTipHeight)
+
+		self.AppendChild(wrapper, False)
+
+		return wrapper
+			
+	def AutoAppendTextLine(self, text, color=FONT_COLOR, centerAlign=True):
+		textLine = ui.TextLine()
+		textLine.SetParent(self)
+		textLine.SetFontName(self.defFontName)
+		textLine.SetPackedFontColor(color)
+		textLine.SetText(text)
+		textLine.SetOutline()
+		textLine.SetFeather(False)
+		textLine.Show()
+
+		(textWidth, textHeight) = textLine.GetTextSize()
+
+		textWidth += 40
+		if self.toolTipWidth < textWidth:
+			self.toolTipWidth = textWidth
+
+		if centerAlign:
+			textLine.SetPosition(self.toolTipWidth / 2, self.toolTipHeight)
+			textLine.SetHorizontalAlignCenter()
+
+		else:
+			textLine.SetPosition(10, self.toolTipHeight)
+
+		self.childrenList.append(textLine)
+
+		textHeight += 5
+		self.toolTipHeight += textHeight
+
+		self.ResizeToolTip()
+
+		return textLine			
+			
 	def AutoAppendNewTextLineResize(self, text, color = FONT_COLOR, centerAlign = True):
 		textLine = ui.TextLine()
 		textLine.SetParent(self)
@@ -767,6 +858,7 @@ class ItemToolTip(ToolTip):
 			return
 
 		price = shop.GetItemPrice(slotIndex)
+		moneyType = 1
 		self.ClearToolTip()
 		self.isShopItem = True
 
@@ -778,7 +870,178 @@ class ItemToolTip(ToolTip):
 			attrSlot.append(shop.GetItemAttribute(slotIndex, i))
 
 		self.AddItemData(itemVnum, metinSlot, attrSlot)
-		self.AppendPrice(price)
+
+		if moneyType == 1:
+			self.AppendPrice(price)
+		elif moneyType == 2:
+			for x in xrange(8):
+				self.AppendItemPrice(shop.GetItemVnumItem(slotIndex, x), shop.GetItemVnumPrice(slotIndex, x))
+		else:
+			self.AppendMedalPrice(price, slotIndex)
+
+	def AppendItem(self, vnum, count=1, color=FONT_COLOR, centerAlign=True):
+		GAP_SIZE = 2
+
+		item.SelectItem(vnum)
+
+		wrapper = ui.Window()
+		wrapper.SetParent(self)
+		wrapper.Show()
+		wrapper.childrenList = []
+
+		countText = ui.TextLine()
+		countText.SetParent(wrapper)
+		countText.SetVerticalAlignCenter()
+		countText.SetWindowVerticalAlignCenter()
+		countText.SetPosition(0, 0)
+		countText.SetFontName(self.defFontName)
+		countText.SetPackedFontColor(color)
+		countText.SetOutline()
+		countText.SetFeather(False)
+		countText.SetText("{}x".format(count))
+		countText.Show()
+		wrapper.childrenList.append(countText)
+
+		icon = ui.ImageBox()
+		icon.SetParent(wrapper)
+		icon.SetWindowVerticalAlignCenter()
+		icon.SetPosition(countText.GetTextWidth() + GAP_SIZE, 0)
+		icon.LoadImage(item.GetIconImageFileName())
+		icon.Show()
+		wrapper.childrenList.append(icon)
+
+		nameText = ui.TextLine()
+		nameText.SetParent(wrapper)
+		nameText.SetVerticalAlignCenter()
+		nameText.SetWindowVerticalAlignCenter()
+		nameText.SetPosition(icon.GetRight() + GAP_SIZE, 0)
+		nameText.SetFontName(self.defFontName)
+		nameText.SetPackedFontColor(color)
+		nameText.SetOutline()
+		nameText.SetFeather(False)
+		nameText.SetText(item.GetItemName())
+		nameText.Show()
+		wrapper.childrenList.append(nameText)
+
+		wrapper.SetSize(countText.GetTextWidth() + GAP_SIZE + icon.GetWidth() + GAP_SIZE + nameText.GetTextWidth(),
+						icon.GetHeight())
+
+		if centerAlign:
+			wrapper.SetPosition((self.toolTipWidth - wrapper.GetWidth()) / 2, self.toolTipHeight)
+		else:
+			wrapper.SetPosition(10, self.toolTipHeight)
+
+		self.AppendChild(wrapper, False)
+
+		return wrapper
+
+	def AppendItemPrice(self, vnum, count):
+		if 0 == vnum:
+			return
+
+		item.SelectItem(vnum)
+
+		self.AppendSpace(5)
+
+		baseText = localeInfo.TOOLTIP_BUYPRICE
+		textSplitPos = baseText.find("%s")
+		textFront = baseText[:textSplitPos]
+		textEnd = baseText[textSplitPos:] % (localeInfo.NumberToString(count) + "x " + item.GetItemName())
+		textSplitPos = textEnd.find("x")
+		textFront += textEnd[:textSplitPos + 2]
+		textEnd = textEnd[textSplitPos + 1:]
+
+		if item.GetIconImageFileName() == "Noname":
+			fullText = "<TEXT outline=1 color=\"" + str(self.GetPriceColor(count)) + "\" text=\"" + textFront + "\">" + \
+					   "<TEXT outline=1 color=\"" + str(self.GetPriceColor(count)) + "\" text=\"" + textEnd[1:] + "\">"
+		else:
+			fullText = "<TEXT outline=1 color=\"" + str(self.GetPriceColor(count)) + "\" text=\"" + textFront + "\">" + \
+					   "<IMAGE path=\"" + item.GetIconImageFileName() + "\">" + \
+					   "<TEXT outline=1 color=\"" + str(self.GetPriceColor(count)) + "\" text=\"" + textEnd + "\">"
+
+		textLine = ui.ExtendedTextLine()
+		textLine.SetParent(self)
+		textLine.SetText(fullText)
+		textLine.Show()
+
+		textLine.SetPosition(0, self.toolTipHeight)
+		textLine.SetWindowHorizontalAlignCenter()
+
+		self.childrenList.append(textLine)
+
+		self.toolTipHeight += max(self.TEXT_LINE_HEIGHT, textLine.GetHeight() + 3)
+		self.ResizeToolTip()
+
+		return textLine
+
+	def AppendReward(self, itemVnum):
+		self.AppendTextLine(localeInfo.TOOLTIP_SPECIAL_REWARD)
+
+		item.SelectItem(itemVnum)
+		windowBack = ui.Window()
+		windowBack.SetParent(self)
+
+		textLine = ui.TextLine()
+		textLine.SetParent(windowBack)
+		textLine.SetFontName(self.defFontName)
+		textLine.SetPackedFontColor(self.FONT_COLOR)
+		textLine.SetText("")
+		textLine.SetOutline()
+		textLine.SetFeather(False)
+		textLine.SetPosition(0, 10)
+		textLine.Show()
+
+		itemImage = ui.ImageBox()
+		itemImage.SetParent(windowBack)
+		itemImage.LoadImage(item.GetIconImageFileName())
+		itemImage.SetPosition(textLine.GetTextSize()[0] + 2, 0)
+		itemImage.Show()
+
+		textLineName = ui.TextLine()
+		textLineName.SetParent(windowBack)
+		textLineName.SetFontName(self.defFontName)
+		textLineName.SetPackedFontColor(self.FONT_COLOR)
+		textLineName.SetText("%s" % item.GetItemName())
+		textLineName.SetOutline()
+		textLineName.SetFeather(False)
+		textLineName.SetPosition(textLine.GetTextSize()[0] + itemImage.GetWidth() + 4, 10)
+		textLineName.Show()
+
+		windowBack.SetPosition(10, self.toolTipHeight)
+		windowBack.SetSize(textLine.GetTextSize()[0] + itemImage.GetWidth() + textLineName.GetTextSize()[0] + 6, 32)
+		windowBack.SetWindowHorizontalAlignCenter()
+		windowBack.Show()
+
+		self.toolTipHeight += itemImage.GetHeight()
+
+		self.childrenList.append(textLine)
+		self.childrenList.append(textLineName)
+		self.childrenList.append(itemImage)
+		self.childrenList.append(windowBack)
+
+		self.ResizeToolTip()
+
+		return windowBack
+
+	def SetResulItemAttrMove(self, baseSlotIndex, materialSlotIndex, window_type=player.INVENTORY):
+		baseItemVnum = player.GetItemIndex(window_type, baseSlotIndex)
+
+		if 0 == baseItemVnum:
+			return
+
+		materialItemVnum = player.GetItemIndex(window_type, materialSlotIndex)
+
+		if 0 == materialItemVnum:
+			return
+
+		self.ClearToolTip()
+
+		metinSlot = [player.GetItemMetinSocket(window_type, baseSlotIndex, i) for i in
+					 xrange(player.METIN_SOCKET_MAX_NUM)]
+		attrSlot = [player.GetItemAttribute(window_type, materialSlotIndex, i) for i in
+					xrange(player.ATTRIBUTE_SLOT_MAX_NUM)]
+
+		self.AddItemData(baseItemVnum, metinSlot, attrSlot)
 
 	def SetShopItemBySecondaryCoin(self, slotIndex):
 		itemVnum = shop.GetItemID(slotIndex)

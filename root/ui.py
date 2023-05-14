@@ -2093,7 +2093,7 @@ class Button(Window):
 				textLine.Show()
 				self.ButtonText = textLine
 
-			#Äù½ºÆ® ¸®½ºÆ® UI¿¡ ¸ÂÃç À§Ä¡ ÀâÀ½
+			#ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 			self.ButtonText.SetText(text)
 			self.ButtonText.SetPosition(27, self.GetHeight()/2)
 			self.ButtonText.SetVerticalAlignCenter()
@@ -2515,11 +2515,11 @@ class SlotWindow(Window):
 		return wndMgr.GetSlotCount(self.hWnd)
 
 	def SetUseMode(self, flag):
-		"TrueÀÏ¶§¸¸ ItemToItem ÀÌ °¡´ÉÇÑÁö º¸¿©ÁØ´Ù"
+		"Trueï¿½Ï¶ï¿½ï¿½ï¿½ ItemToItem ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½"
 		wndMgr.SetUseMode(self.hWnd, flag)
 
 	def SetUsableItem(self, flag):
-		"True¸é ÇöÀç °¡¸®Å² ¾ÆÀÌÅÛÀÌ ItemToItem Àû¿ë °¡´ÉÇÏ´Ù"
+		"Trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ItemToItem ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"
 		wndMgr.SetUsableItem(self.hWnd, flag)
 
 	## Slot
@@ -2617,6 +2617,9 @@ class SlotWindow(Window):
 
 		wndMgr.SetSlot(self.hWnd, renderingSlotNumber, ItemIndex, width, height, itemIcon, diffuseColor)
 		wndMgr.SetSlotCount(self.hWnd, renderingSlotNumber, ItemCount)
+
+	def GetItemIndex(self, slotNumber):
+		return wndMgr.GetItemIndex(self.hWnd, slotNumber)
 
 	def SetSkillSlot(self, renderingSlotNumber, skillIndex, skillLevel):
 
