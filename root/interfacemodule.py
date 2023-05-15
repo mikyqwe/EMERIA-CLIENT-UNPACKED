@@ -75,6 +75,7 @@ if app.ENABLE_HUNTING_SYSTEM:
 import sys
 import uiTest
 import uiBiologWindow
+import uiPrivateShopWindow
 
 def ReloadModule(moduleName):
 	if moduleName in sys.modules:
@@ -207,7 +208,7 @@ class Interface(object):
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_MESSENGER, ui.__mem_func__(self.ToggleMessenger))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_SYSTEM, ui.__mem_func__(self.ToggleSystemDialog))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_ANTI_MULTIPLE_FARM, ui.__mem_func__(self.ToggleAntiMultipleFarmWindow))
-		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_OFFLINESHOP, ui.__mem_func__(self.ToggleOfflineShopDialog))
+		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_OFFLINESHOP, ui.__mem_func__(self.TogglePrivateShopWindow))
 		self.wndTaskBar.SetToggleButtonEvent(uiTaskBar.TaskBar.BUTTON_SPECINV, ui.__mem_func__(self.ToggleSpecialStorageWindow))
 		
 		if uiTaskBar.TaskBar.IS_EXPANDED:
@@ -390,6 +391,10 @@ class Interface(object):
 		self.wndBiologWindow = uiBiologWindow.BiologWindow()
 		self.wndBiologWindow.Hide()
 
+		self.wndPrivateShopWindow = uiPrivateShopWindow.PrivateShopWindow()
+		self.wndPrivateShopWindow.BindInterfaceClass(self)
+		self.wndPrivateShopWindow.Hide()
+		
 
 	if app.FAST_EQUIP_WORLDARD:
 		def __MakeFastEquip(self):
@@ -594,6 +599,11 @@ class Interface(object):
 			self.wndBiologWindow.Hide()
 			self.wndBiologWindow.Destroy()
 		del self.wndBiologWindow
+
+		if self.wndPrivateShopWindow:
+			self.wndPrivateShopWindow.Hide()
+			self.wndPrivateShopWindow.Destroy()
+		del self.wndPrivateShopWindow
 
 		if self.wndEnergyBar:
 			self.wndEnergyBar.Destroy()
@@ -1383,8 +1393,7 @@ class Interface(object):
 			self.wndShopOffline.OpenSearch()
 
 	def ToggleOfflineShopDialog(self):
-				self.ShowMeOfflineShop()
-
+			self.ShowMeOfflineShop()
 
 	def ToggleExpandedButton(self):
 		if False == player.IsObserverMode():
@@ -2429,7 +2438,7 @@ class Interface(object):
 
 	def ToggleSearchshopwindow(self):
 		if self.wndShopOffline.IsShow:
-			self.interface.wndShopOffline.OpenSearch()
+			self.wndShopOffline.OpenSearch()
 
 	if app.ENABLE_ANTI_MULTIPLE_FARM:
 		def ToggleAntiMultipleFarmWindow(self):
@@ -2540,3 +2549,10 @@ class Interface(object):
 			else:
 				self.wndBiologWindow.Hide()
 
+	def TogglePrivateShopWindow(self):
+		if False == player.IsObserverMode():
+			if False == self.wndPrivateShopWindow.IsShow():
+				self.wndPrivateShopWindow.Show()
+				self.wndPrivateShopWindow.SetTop()
+			else:
+				self.wndPrivateShopWindow.Hide()
