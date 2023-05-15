@@ -331,12 +331,12 @@ window = {
 							"height" : 187,
 
 							"slot" : (
-										{"index":NEW_EQUIPMENT_START_INDEX+0, "x":2+11+114-20+7, "y":106+2-70+9, "width":32, "height":32},#fire talisman
-										{"index":NEW_EQUIPMENT_START_INDEX+4, "x":2+11, "y":106+2-70+9, "width":32, "height":32},#wind talisman
-										{"index":NEW_EQUIPMENT_START_INDEX+3, "x":2+11+114-20+7, "y":106+2, "width":32, "height":32},#dark talisman
-										{"index":NEW_EQUIPMENT_START_INDEX+2, "x":2+11, "y":106+2, "width":32, "height":32},#earth talisman
-										{"index":NEW_EQUIPMENT_START_INDEX+1, "x":2+11+57-6, "y":106+2-110+13, "width":32, "height":32},#ice talisman
-										{"index":NEW_EQUIPMENT_START_INDEX+5, "x":2+11+57-6, "y":106+2+43-7, "width":32, "height":32},#lighting talisman
+										{"index":210, "x":2+11+114-20+7, "y":106+2-70+9, "width":32, "height":32},#fire talisman
+										{"index":211, "x":2+11, "y":106+2-70+9, "width":32, "height":32},#wind talisman
+										{"index":212, "x":2+11+114-20+7, "y":106+2, "width":32, "height":32},#dark talisman
+										{"index":213, "x":2+11, "y":106+2, "width":32, "height":32},#earth talisman
+										{"index":214, "x":2+11+57-6, "y":106+2-110+13, "width":32, "height":32},#ice talisman
+										{"index":215, "x":2+11+57-6, "y":106+2+43-7, "width":32, "height":32},#lighting talisman
 									),
 							"children" :
 							(
