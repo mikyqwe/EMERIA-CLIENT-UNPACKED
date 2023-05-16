@@ -28,6 +28,8 @@ class PrivateShopWindow(ui.ScriptWindow):
 		pyScrLoader = ui.PythonScriptLoader()
 		pyScrLoader.LoadScriptFile(self, "UIScript/privateshopwindow.py")
 
+		self.GetChild("TitleBar").SetCloseEvent(ui.__mem_func__(self.Close))
+
 		self.RemoteShopButton = self.GetChild("RemoteShopButton")
 		self.SearchShopButton = self.GetChild("SearchShopButton")
 
