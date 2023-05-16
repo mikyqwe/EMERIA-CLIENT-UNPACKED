@@ -301,6 +301,8 @@
 0	lions_mount10	lions_mount
 0	plechi_grassdragon_pet	plechi_grassdragon_pet
 0	plechi_grassdragon_pet_2	plechi_grassdragon_pet
+0	plechi_ch2022_mount5	plechi_ch2022_mount5
+0	plechi_ch2022_mount6	plechi_ch2022_mount5
 101	stray_dog
 102	wolf
 103	wolf
@@ -1561,8 +1563,8 @@
 20223	dinosaur_1
 20224	dinosaur_2
 20225	dinosaur_3
-20226	unicorn
-20227	unicorn1
+20226	plechi_ch2022_mount5
+20227	plechi_ch2022_mount6
 20228	christmas_2016_mammoth
 20229	turkey_2
 20230	turkey_3
