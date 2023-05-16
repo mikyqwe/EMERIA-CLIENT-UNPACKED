@@ -38,7 +38,7 @@ window = {
 					"name":"Money_Icon",
 					"type":"image",
 
-					"x":-55 + BOARD_ADD_X, "y":10,
+					"x":-66 + BOARD_ADD_X, "y":10,
 
 					"image":"d:/ymir work/ui/game/windows/money_icon.sub",
 				},
@@ -46,7 +46,7 @@ window = {
 					"name":"Money_Slot",
 					"type":"button",
 
-					"x":-30 + BOARD_ADD_X, "y":9,
+					"x":-47 + BOARD_ADD_X, "y":9,
 
 					#"horizontal_align":"center",
 
