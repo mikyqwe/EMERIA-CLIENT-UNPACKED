@@ -357,7 +357,7 @@ class MiniMap(ui.ScriptWindow):
 
 	def OpenBio(self):
 		if self.interface:
-			self.interface.wndBio.OpenWindow()
+			self.interface.ToggleBiolog()
 
 	def OpenHunt(self):
 		if self.interface:
