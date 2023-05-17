@@ -156,13 +156,14 @@ window = {
 					# "down_image" : "btn/discord/ch4_down.png",
 					# "tooltip_text": "|cffF4B418CH 4",
 				# },
+				
 				## Discord Button
 				{
 					"name" : "Discord",
 					"type" : "button",
 
-					"x" : 111,
-					"y" : 75,
+					"x" : 75,
+					"y" : 118,
 
 					"default_image" : "btn/discord/d_open_default.png",
 					"over_image" : "btn/discord/d_open_over.png",
