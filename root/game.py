@@ -2263,7 +2263,7 @@ class GameWindow(ui.ScriptWindow):
 			"bioClear"	:	self.__bioClear,
 			"bioData"	:	self.__bioData,
 			"openBio"	:	self.interface.wndBio.OpenWindow,
-			"OpenHunt"	:	self.interface.ToggleHuntingWindow,
+			# "OpenHunt"	:	self.interface.ToggleHuntingWindow,
 			
 			# PRIVATE_SHOP_PRICE_LIST
 			"MyShopPriceList"		: self.__PrivateShop_PriceList,

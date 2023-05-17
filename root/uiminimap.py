@@ -466,8 +466,8 @@ class MiniMap(ui.ScriptWindow):
 				self.DungeonInfoShowButton = self.GetChild("DungeonInfoShowButton")
 			self.biologinfo = self.GetChild("BiologButton")
 			self.biologinfo.SetEvent(self.OpenBio)
-			self.huntginfo = self.GetChild("HuntingButton")
-			self.huntginfo.SetEvent(self.OpenHunt)
+			# self.huntginfo = self.GetChild("HuntingButton")
+			# self.huntginfo.SetEvent(self.OpenHunt)
 		except:
 			import exception
 			exception.Abort("MiniMap.LoadWindow.Bind")

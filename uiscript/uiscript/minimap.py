@@ -203,16 +203,16 @@ window = {
 					"down_image" : "d:/ymir work/ui/game/dungeon_info/minimap/" + "minimap_dungeon_info_down.tga",
 				},
 				## HUNTING_BUTTON
-				{
-					"name" : "HuntingButton",
-					"type" : "button",
-					"x" : 75,
-					"y" : 118,
-					"default_image" : "d:/ymir work/ui/minimap/hunter.tga",
-					"over_image" : "d:/ymir work/ui/minimap/hunter_over.tga",
-					"down_image" : "d:/ymir work/ui/minimap/hunter_down.tga",
-					"tooltip_text" : "|cffF4B418Taglie",
-				},
+				# {
+					# "name" : "HuntingButton",
+					# "type" : "button",
+					# "x" : 75,
+					# "y" : 118,
+					# "default_image" : "d:/ymir work/ui/minimap/hunter.tga",
+					# "over_image" : "d:/ymir work/ui/minimap/hunter_over.tga",
+					# "down_image" : "d:/ymir work/ui/minimap/hunter_down.tga",
+					# "tooltip_text" : "|cffF4B418Taglie",
+				# },
 				## Wiki
 				{
 					"name" : "Wiki",
