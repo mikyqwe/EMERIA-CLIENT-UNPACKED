@@ -43,6 +43,7 @@ class CreateCharacterWindow(ui.Window):
 					[3, 3, 4, 6,],
 					[3, 5, 5, 3,],
 					[4, 6, 3, 3,],
+					[6, 2, 6, 2,],
 				)
 	
 	EMPIRE_NAME = {
@@ -321,9 +322,10 @@ class CreateCharacterWindow(ui.Window):
 		self.editCharacterName.SetText("")
 		
 		self.EnableWindow()
-
-		app.SetCameraMaxDistance(3000)
-		app.SetCameraSetting(7400, -112900, 16400, 3000, 0.0, 10.0)
+		
+		app.SetCamera(500.0, 10.0, 180.0, 95.0)
+		
+		self.__SelectSlot(0)
 		
 		self.dlgBoard.Show()
 		self.Show()
@@ -334,52 +336,6 @@ class CreateCharacterWindow(ui.Window):
 		
 		self.SetEmpire(net.GetEmpireID())
 		app.ShowCursor()
-		self.LoadMap()
-		self.CreateCharacters()
-		self.__SelectSlot(0)
-
-	def LoadMap(self):
-		x = 7400
-		y = 112900
-		background.Initialize()
-		background.LoadMap("metin2_map_devilscatacomb", x, y, 0)
-		background.SetShadowLevel(background.SHADOW_ALL)
-
-	def OnRender(self):
-		app.RenderGame()
-		grp.PopState()
-		grp.SetInterfaceRenderState()
-
-	def CreateCharacters(self):
-		for i in xrange(8):
-			chr.CreateInstance(i)
-			chr.SelectInstance(i)
-			chr.SetVirtualID(i)
-			chr.SetRace(i)
-			chr.SetArmor(0)
-			chr.SetHair(0)
-			chr.Refresh()
-			chr.SetMotionMode(chr.MOTION_MODE_GENERAL)
-			chr.SetLoopMotion(chr.MOTION_INTRO_WAIT)
-			chr.SetRotation(180.0)
-			chr.SetPixelPosition(6910 + (i * 150), 112900, 16400)
-		chrmgr.CreateRace(2598)
-		chrmgr.SelectRace(2598)
-		chrmgr.SetPathName("d:/ymir work/monster2/zombie_bigboss2/")
-		chrmgr.LoadRaceData("zombie_bigboss2.msm")
-		chrmgr.RegisterMotionMode(chr.MOTION_MODE_GENERAL)
-		chrmgr.RegisterMotionData(chr.MOTION_MODE_GENERAL, chr.MOTION_WAIT,			"wait00.msa")
-		chr.CreateInstance(8)
-		chr.SelectInstance(8)
-		chr.SetVirtualID(8)
-		chr.SetRace(2598)
-		chr.SetArmor(0)
-		chr.SetHair(0)
-		chr.Refresh()
-		chr.SetMotionMode(chr.MOTION_MODE_GENERAL)
-		chr.SetLoopMotion(chr.MOTION_WAIT)
-		chr.SetRotation(180.0)
-		chr.SetPixelPosition(7410, 111700, 16400)
 
 	def Close(self):
 		print "---------------------------------------------------------------------------- CLOSE CREATE WINDOW"
@@ -401,10 +357,6 @@ class CreateCharacterWindow(ui.Window):
 		self.EmpireFlagA = None
 		self.EmpireFlagB = None
 		self.EmpireFlagC = None
-		self.toolTip = None
-		if musicInfo.createMusic != "":
-			snd.FadeOutMusic("BGM/"+musicInfo.createMusic)
-
 		if musicInfo.createMusic != "":
 			snd.FadeOutMusic("BGM/"+musicInfo.createMusic)
 
@@ -425,17 +377,40 @@ class CreateCharacterWindow(ui.Window):
 			self.EmpireFlagA.Show()
 			self.EmpireFlagB.Hide()
 			self.EmpireFlagC.Hide()
-		
+			self.BackGround = self.backGroundImg1
+			self.backGroundImg1.Show()
+			self.backGroundImg2.Hide()
+			self.backGroundImg3.Hide()
+			
+			self.chrRenderer = self.CharacterRenderer()
+			self.chrRenderer.SetParent(self.backGroundImg1)
+			self.chrRenderer.Show()
 		elif id == 2:
 			self.empireName.SetFontColor(1.0, 1.0, 0.0)
 			self.EmpireFlagA.Hide()
 			self.EmpireFlagB.Show()
 			self.EmpireFlagC.Hide()
+			self.BackGround = self.backGroundImg2
+			self.backGroundImg1.Hide()
+			self.backGroundImg2.Show()
+			self.backGroundImg3.Hide()
+			
+			self.chrRenderer = self.CharacterRenderer()
+			self.chrRenderer.SetParent(self.backGroundImg2)
+			self.chrRenderer.Show()
 		elif id == 3:
 			self.empireName.SetFontColor(0.0, 0, 1.0)
 			self.EmpireFlagA.Hide()
 			self.EmpireFlagB.Hide()
 			self.EmpireFlagC.Show()
+			self.BackGround = self.backGroundImg3
+			self.backGroundImg1.Hide()
+			self.backGroundImg2.Hide()
+			self.backGroundImg3.Show()
+			
+			self.chrRenderer = self.CharacterRenderer()
+			self.chrRenderer.SetParent(self.backGroundImg3)
+			self.chrRenderer.Show()
 
 	def EnableWindow(self):
 		self.reservingRaceIndex = -1
@@ -472,17 +447,35 @@ class CreateCharacterWindow(ui.Window):
 	def __GetSlotChrID(self, gender, slot):
 		return self.RACE_DECT[gender + slot]
 
+	def __MakeCharacter(self, race):
+		chr_id = self.__GetSlotChrID(self.gender, self.slot)
+		chr.CreateInstance(chr_id)
+		chr.SelectInstance(chr_id)
+		chr.SetVirtualID(chr_id)
+		chr.SetRace(chr_id)
+		chr.SetArmor(0)
+		chr.SetHair(0)
+		chr.Refresh()
+		chr.SetMotionMode(chr.MOTION_MODE_GENERAL)
+		chr.SetLoopMotion(chr.MOTION_INTRO_WAIT)
+		chr.SetRotation(0.0)
+		
+		distance = 50.0
+		rotRadian = 82.0 * (math.pi*2) / 360.0
+		x = distance*math.sin(rotRadian) + distance*math.cos(rotRadian)
+		y = distance*math.cos(rotRadian) - distance*math.sin(rotRadian)
+		chr.SetPixelPosition(int(x), int(y), 30)
+		chr.Hide()
+
 	def __SelectGender(self, gender):
 		slot = self.slot
 		if constInfo.WOLF_WOMEN != "ENABLED" and constInfo.WOLF_WOMEN == "DISABLED" and slot == 4 and gender == 1:
-		#if gender == 1:
 			for button in self.genderButtonList:
 				button.Down()
 			
 			self.genderButtonList[gender].SetUp()
 			return
 		elif constInfo.WOLF_MAN != "ENABLED" and constInfo.WOLF_MAN == "DISABLED" and slot == 4 and gender == 0:
-		#elif gender == 0:
 			for button in self.genderButtonList:
 				button.Down()
 			
@@ -495,17 +488,33 @@ class CreateCharacterWindow(ui.Window):
 		self.genderButtonList[gender].Down()
 		self.gender = gender
 		if gender == 0 and self.slot > 4:
-			slot = self.slot - 3
+			slot = self.slot - 4
 		elif gender == 1 and self.slot < 4:
-			slot = self.slot + 3
-			if gender == 1 and self.slot > 7:
-				slot = self.slot - 3
+			slot = self.slot + 4
+			if gender == 1 and self.slot > 8:
+				slot = self.slot - 4
+		
+		for i in xrange(9):
+			chr.DeleteInstance(i)
+		
 		chr_id = self.__GetSlotChrID(self.gender, slot)
-		for i in range(8):
-			chrmgr.SetAffect(i, 1, 1)
-
-		chrmgr.RegisterEffect(chrmgr.EFFECT_SELECT, "", "d:/ymir work/effect/etc/click/click_select.mse")
-		chr.AttachSpecialEffect(chr_id, chrmgr.EFFECT_SELECT)
+		chr.CreateInstance(chr_id)
+		chr.SelectInstance(chr_id)
+		chr.SetVirtualID(chr_id)
+		chr.SetRace(chr_id)
+		chr.SetArmor(0)
+		chr.SetHair(0)
+		chr.Refresh()
+		chr.SetMotionMode(chr.MOTION_MODE_GENERAL)
+		chr.SetLoopMotion(chr.MOTION_INTRO_WAIT)
+		chr.SetRotation(0.0)
+		
+		distance = 50.0
+		rotRadian = 82.0 * (math.pi*2) / 360.0
+		x = distance*math.sin(rotRadian) + distance*math.cos(rotRadian)
+		y = distance*math.cos(rotRadian) - distance*math.sin(rotRadian)
+		chr.SetPixelPosition(int(x), int(y), 30)
+		chr.Show()
 
 	def __SelectShape(self, shape):
 		self.shapeList[self.gender][self.slot] = shape
@@ -513,14 +522,7 @@ class CreateCharacterWindow(ui.Window):
 			button.SetUp()
 		
 		self.shapeButtonList[shape].Down()
-		slot = self.slot
-		if self.gender == 0 and self.slot > 4:
-			slot = self.slot - 3
-		elif self.gender == 1 and self.slot < 4:
-			slot = self.slot + 3
-			if self.gender == 1 and self.slot > 7:
-				slot = self.slot - 3
-		chr_id = self.__GetSlotChrID(self.gender, slot)
+		chr_id = self.__GetSlotChrID(self.gender, self.slot)
 		chr.SelectInstance(chr_id)
 		chr.ChangeShape(shape)
 		chr.AttachSpecialEffect(chr_id, chrmgr.EFFECT_SELECT)
@@ -587,44 +589,38 @@ class CreateCharacterWindow(ui.Window):
 		self.descIndex = event.RegisterEventSet(self.DESCRIPTION_FILE_NAME[self.slot])
 		if localeInfo.IsARABIC(): 
 			event.SetEventSetWidth(self.descIndex, 170)
-
-		if self.IsShow():
-			snd.PlaySound("sound/ui/click.wav")
+		
+		chr_id = self.__GetSlotChrID(self.gender, slot)
+		if chr.HasInstance(chr_id):
+			chr.SelectInstance(chr_id)
+			self.__SelectShape(self.shapeList[self.gender][slot])
 
 	def CreateCharacter(self):
-
 		if -1 != self.reservingRaceIndex:
 			return
-
+		
 		textName = self.editCharacterName.GetText()
-		if False == self.__CheckCreateCharacter(textName):
+		if self.__CheckCreateCharacter(textName) == FALSE:
 			return
-
+		
 		if musicInfo.selectMusic != "":
 			snd.FadeLimitOutMusic("BGM/"+musicInfo.selectMusic, systemSetting.GetMusicVolume()*0.05)
-
+		
 		self.DisableWindow()
-
-		slot = self.slot
-		if self.gender == 0 and self.slot > 4:
-			slot = self.slot - 3
-		elif self.gender == 1 and self.slot < 4:
-			slot = self.slot + 3
-			if self.gender == 1 and self.slot > 7:
-				slot = self.slot - 3
-		chr_id = self.__GetSlotChrID(self.gender, slot)
-
+		chr_id = self.__GetSlotChrID(self.gender, self.slot)
 		chr.SelectInstance(chr_id)
-
 		self.reservingRaceIndex = chr.GetRace()
-
+		
+		print("========================================================")
+		print("Race : %d" % (self.reservingRaceIndex))
+		print("========================================================")
+		
 		self.reservingShapeIndex = self.shapeList[self.gender][self.slot]
 		self.reservingStartTime = app.GetTime()
-
-		for eachSlot in xrange(8):
-			chr.SelectInstance(eachSlot)
-
-			if eachSlot == chr_id:
+		for eachSlot in xrange(SLOT_COUNT):
+			sel_id = self.__GetSlotChrID(self.gender, eachSlot)
+			chr.SelectInstance(sel_id)
+			if eachSlot == self.slot:
 				chr.PushOnceMotion(chr.MOTION_INTRO_SELECTED)
 			else:
 				chr.PushOnceMotion(chr.MOTION_INTRO_NOT_SELECTED)
@@ -632,14 +628,6 @@ class CreateCharacterWindow(ui.Window):
 
 	def CancelCreate(self):
 		self.stream.SetSelectCharacterPhase()
-
-	def __DecreaseSlotIndex(self):
-		slotIndex = (self.GetSlotIndex() - 1 + SLOT_COUNT) % SLOT_COUNT
-		self.__SelectSlot(slotIndex)
-
-	def __IncreaseSlotIndex(self):
-		slotIndex = (self.GetSlotIndex() + 1) % SLOT_COUNT
-		self.__SelectSlot(slotIndex)
 
 	def PrevDescriptionPage(self):
 		if True == event.IsWait(self.descIndex):
@@ -688,7 +676,7 @@ class CreateCharacterWindow(ui.Window):
 			self.PopupMessage(localeInfo.CREATE_FAILURE, self.EnableWindow)
 
 	def OnUpdate(self):
-		app.UpdateGame()
+		chr.Update()
 		(xposEventSet, yposEventSet) = self.textBoard.GetGlobalPosition()
 		event.UpdateEventSet(self.descIndex, xposEventSet+7, -(yposEventSet+7))
 		self.descriptionBox.SetIndex(self.descIndex)

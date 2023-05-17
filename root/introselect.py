@@ -1,61 +1,47 @@
+import ui
 import chr
 import grp
 import app
-import math
-import wndMgr
 import snd
 import net
-import systemSetting
-import localeInfo
-import chr
-
-import ui
-import uiScriptLocale
-import networkModule
+import math
+import event
+import wndMgr
+import uiCommon
+import uiTarget
+import constInfo
 import musicInfo
+import uiTaskBar
+import uiToolTip
+import localeInfo
+import uiCharacter
+import uiInventory
+import uiPlayerGauge
+import consoleModule
+import systemSetting
+import networkModule
+import uiAffectShower
+import uiScriptLocale
+import uiMapNameShower
+import interfaceModule
 import playerSettingModule
 
-####################################
-# 빠른 실행을 위한 모듈 로딩 분담
-####################################
-import uiCommon                    
-import uiMapNameShower             
-import uiAffectShower              
-import uiPlayerGauge               
-import uiCharacter                 
-import uiTarget                    
-import consoleModule               
-
-# interface module이 문제야...
-import interfaceModule
-import uiTaskBar                   
-import uiInventory
-import dbg
-import uiToolTip
-import constInfo
-import event
-import background
-import player
-###################################
-
-LEAVE_BUTTON_FOR_POTAL = False
-NOT_NEED_DELETE_CODE = False
-ENABLE_ENGNUM_DELETE_CODE = False
+LEAVE_BUTTON_FOR_POTAL = FALSE
+NOT_NEED_DELETE_CODE = FALSE
+ENABLE_ENGNUM_DELETE_CODE = FALSE
 
 if localeInfo.IsJAPAN():
-	NOT_NEED_DELETE_CODE = True
+	NOT_NEED_DELETE_CODE = TRUE
 elif localeInfo.IsHONGKONG():
-	ENABLE_ENGNUM_DELETE_CODE = True
+	ENABLE_ENGNUM_DELETE_CODE = TRUE
 elif localeInfo.IsNEWCIBN() or localeInfo.IsCIBN10():
-	ENABLE_ENGNUM_DELETE_CODE = True
+	ENABLE_ENGNUM_DELETE_CODE = TRUE
 elif localeInfo.IsEUROPE():
-	ENABLE_ENGNUM_DELETE_CODE = True
-
-###################################
+	ENABLE_ENGNUM_DELETE_CODE = TRUE
 
 class SelectCharacterWindow(ui.Window):
-	SLOT_COUNT = 4
-	CHARACTER_TYPE_COUNT = 4
+	SLOT_COUNT = 5
+	CHARACTER_TYPE_COUNT = 5
 	
 	EMPIRE_NAME = {
 		net.EMPIRE_A : localeInfo.EMPIRE_A,
@@ -139,33 +125,28 @@ class SelectCharacterWindow(ui.Window):
 			self.descIndex = index
 		def OnRender(self):
 			event.RenderEventSet(self.descIndex)
-	
+
 	class CharacterRenderer(ui.Window):
 		def OnRender(self):
-			self.Refresh()
 			grp.ClearDepthBuffer()
-
 			grp.SetGameRenderState()
 			grp.PushState()
 			grp.SetOmniLight()
-
+			
 			screenWidth = wndMgr.GetScreenWidth()
 			screenHeight = wndMgr.GetScreenHeight()
 			newScreenWidth = float(screenWidth - 270)
 			newScreenHeight = float(screenHeight)
-
 			grp.SetViewport(270.0/screenWidth, 0.0, newScreenWidth/screenWidth, newScreenHeight/screenHeight)
-
+			
 			app.SetCenterPosition(0.0, 0.0, 0.0)
 			app.SetCamera(1550.0, 15.0, 180.0, 95.0)
 			grp.SetPerspective(10.0, newScreenWidth/newScreenHeight, 1000.0, 3000.0)
-
+			
 			(x, y) = app.GetCursorPosition()
 			grp.SetCursorPosition(x, y)
-
 			chr.Deform()
 			chr.Render()
-
 			grp.RestoreViewport()
 			grp.PopState()
 			grp.SetInterfaceRenderState()
@@ -173,33 +154,29 @@ class SelectCharacterWindow(ui.Window):
 	def __init__(self, stream):
 		ui.Window.__init__(self)
 		net.SetPhaseWindow(net.PHASE_WINDOW_SELECT, self)
-
 		self.stream=stream
 		self.slot = self.stream.GetCharacterSlot()
-
-		self.openLoadingFlag = False
+		
+		self.openLoadingFlag = FALSE
 		self.startIndex = -1
 		self.startReservingTime = 0
-
-		self.flagDict = {}
+		
 		self.curNameAlpha = []
 		self.destNameAlpha = []
 		for i in xrange(self.CHARACTER_TYPE_COUNT):
 			self.curNameAlpha.append(0.0)
 			self.destNameAlpha.append(0.0)
-
+		
 		self.curGauge = [0.0, 0.0, 0.0, 0.0]
 		self.destGauge = [0.0, 0.0, 0.0, 0.0]
-
+		
 		self.dlgBoard = 0
-		self.changeNameFlag = False
+		self.changeNameFlag = FALSE
 		self.nameInputBoard = None
-		self.sendedChangeNamePacket = False
+		self.sendedChangeNamePacket = FALSE
 
 		self.startIndex = -1
 		self.isLoad = 0
-		self.isCameraMoving = False
-		self.cameraMovementProgress = 0.0
 
 	def __del__(self):
 		ui.Window.__del__(self)
@@ -229,9 +206,9 @@ class SelectCharacterWindow(ui.Window):
 		if musicInfo.selectMusic != "":
 			snd.SetMusicVolume(systemSetting.GetMusicVolume())
 			snd.FadeInMusic("BGM/"+musicInfo.selectMusic)
-
-		app.SetDefaultCamera()
-		app.SetCamera(1600.0, 15.0, 190.0, 110.0)
+		
+		app.SetCenterPosition(0.0, 0.0, 0.0)
+		app.SetCamera(1550.0, 15.0, 180.0, 95.0)
 		
 		self.isLoad=1
 		self.Refresh()
@@ -246,23 +223,25 @@ class SelectCharacterWindow(ui.Window):
 	def Close(self):
 		if musicInfo.selectMusic != "":
 			snd.FadeOutMusic("BGM/"+musicInfo.selectMusic)
-
+		
 		self.stream.popupWindow.Close()
-
 		if self.dlgBoard:
 			self.dlgBoard.ClearDictionary()
-
+		
+		self.my_id = None
+		self.textBoard = None
 		self.empireName = None
-		self.flagDict = {}
+		self.EmpireFlagA = None
+		self.EmpireFlagB = None
+		self.EmpireFlagC = None
 		self.dlgBoard = None
 		self.btnStart = None
 		self.btnCreate = None
 		self.btnDelete = None
 		self.btnExit = None
-		self.btnLeft = None
-		self.btnRight = None
-		self.backGround = None
-
+		self.backGroundImg1 = None
+		self.backGroundImg2 = None
+		self.backGroundImg3 = None
 		self.dlgQuestion.ClearDictionary()
 		self.dlgQuestion = None
 		self.dlgQuestionText = None
@@ -270,32 +249,72 @@ class SelectCharacterWindow(ui.Window):
 		self.dlgQuestionCancelButton = None
 		self.privateInputBoard = None
 		self.nameInputBoard = None
-
-		chr.DeleteInstance(0)
-		chr.DeleteInstance(1)
-		chr.DeleteInstance(2)
-		chr.DeleteInstance(3)
-
+		
+		chr.DeleteInstance(self.slot)
+		
 		self.Hide()
 		self.KillFocus()
-		self.descriptionBox.Hide()
-	
 		app.HideCursor()
 		event.Destroy()
 
 	def SetEmpire(self, id):
 		self.empireName.SetText(self.EMPIRE_NAME.get(id, ""))
-		if self.flagDict.has_key(id):
-			self.flagDict[id].Show()
-		
-	def HideAllFlag(self):
-		for flag in self.flagDict.values():
-			flag.Hide()
+		if id == 1:
+			self.empireName.SetFontColor(1.0, 0, 0)
+			self.EmpireFlagA.Show()
+			self.EmpireFlagB.Hide()
+			self.EmpireFlagC.Hide()
+			self.BackGround = self.backGroundImg1
+			self.backGroundImg1.Show()
+			self.backGroundImg2.Hide()
+			self.backGroundImg3.Hide()
+			
+			self.chrRenderer = self.CharacterRenderer()
+			self.chrRenderer.SetParent(self.backGroundImg1)
+			self.chrRenderer.Show()
+		elif id == 2:
+			self.empireName.SetFontColor(1.0, 1.0, 0.0)
+			self.EmpireFlagA.Hide()
+			self.EmpireFlagB.Show()
+			self.EmpireFlagC.Hide()
+			self.BackGround = self.backGroundImg2
+			self.backGroundImg1.Hide()
+			self.backGroundImg2.Show()
+			self.backGroundImg3.Hide()
+			
+			self.chrRenderer = self.CharacterRenderer()
+			self.chrRenderer.SetParent(self.backGroundImg2)
+			self.chrRenderer.Show()
+		elif id == 3:
+			self.empireName.SetFontColor(0.0, 0, 1.0)
+			self.EmpireFlagA.Hide()
+			self.EmpireFlagB.Hide()
+			self.EmpireFlagC.Show()
+			self.BackGround = self.backGroundImg3
+			self.backGroundImg1.Hide()
+			self.backGroundImg2.Hide()
+			self.backGroundImg3.Show()
+			
+			self.chrRenderer = self.CharacterRenderer()
+			self.chrRenderer.SetParent(self.backGroundImg3)
+			self.chrRenderer.Show()
 
 	def Refresh(self):
-		if (not self.isLoad) or self.dlgBoard == None:
+		if not self.isLoad:
 			return
-		self.SelectSlot(0)
+		
+		for i in xrange(self.SLOT_COUNT):
+			id = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_ID)
+			race = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_RACE)
+			form = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_FORM)
+			name = net.GetAccountCharacterSlotDataString(i, net.ACCOUNT_CHARACTER_SLOT_NAME)
+			hair = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_HAIR)
+			acce = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_ACCE)
+			if id != 0:
+				self.MakeCharacter(i, id, name, race, form, hair, acce)
+				self.SelectSlot(i)
+				break
+		
 		self.CharacterSlot_0.Hide()
 		self.CharacterFace_0.Hide()
 		self.CharacterSlot_0_Lv.Hide()
@@ -312,6 +331,10 @@ class SelectCharacterWindow(ui.Window):
 		self.CharacterFace_3.Hide()
 		self.CharacterSlot_3_Lv.Hide()
 		self.CharacterSlot_3_Name.Hide()
+	#	self.CharacterSlot_4.Hide()
+		#self.CharacterFace_4.Hide()
+	#	self.CharacterSlot_4_Lv.Hide()
+	#	self.CharacterSlot_4_Name.Hide()
 		for i in xrange(self.SLOT_COUNT):
 			id = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_ID)
 			race = net.GetAccountCharacterSlotDataInteger(i, net.ACCOUNT_CHARACTER_SLOT_RACE)
@@ -546,82 +569,41 @@ class SelectCharacterWindow(ui.Window):
 			self.btnDelete.SetEvent(ui.__mem_func__(self.PopupDeleteQuestion))
 		else:
 			self.btnDelete.SetEvent(ui.__mem_func__(self.InputPrivateCode))
-
-		self.backGroundImg1.Hide()
+		
+		self.chrRenderer = self.CharacterRenderer()
+		self.chrRenderer.SetParent(self.backGroundImg1)
+		self.chrRenderer.Show()
+		
 		return 1
 
-	def LoadMap(self):
-		id = net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_ID)
-		if 0 == id:
-			if self.dlgBoard:
-				GetObject = self.dlgBoard.GetChild
-				self.backGroundImg1 = GetObject("BackGround")
-				self.backGroundImg1.Show()
-		else:
-			background.Initialize()
-			MAPS_LIST = [
-				{"x": 73000, "y": 60000, "map_name": "metin2_map_c1"},
-				{"x": 40000, "y": 60000, "map_name": "metin2_map_c1"},
-				{"x": 70000, "y": 40000, "map_name": "metin2_map_c1"},
-				{"x": 71000, "y": 63000, "map_name": "metin2_map_c1"},
-			]
-			map_random = MAPS_LIST[app.GetRandom(0,len(MAPS_LIST)-1)]
-			background.LoadMap(map_random["map_name"], map_random["x"], map_random["y"], 0)
-			background.SetShadowLevel(background.SHADOW_ALL)
-			chr.SelectInstance(self.slot)
-			player.SetMainCharacterIndex(self.slot)
-			chr.SetPixelPosition(map_random["x"], map_random["y"])
-			self.backGroundImg1.Hide()
-
-	def OnRender(self):
-		app.RenderGame()
-		grp.PopState()
-		grp.SetInterfaceRenderState()
-
-	def SameLoginDisconnect(self):
-		self.stream.popupWindow.Close()
-		self.stream.popupWindow.Open(localeInfo.LOGIN_FAILURE_SAMELOGIN, self.ExitSelect, localeInfo.UI_OK)
-        #self.stream.popupWindow.Open(localeInfo.LOGIN_FAILURE_ALREAY, app.Exit, localeInfo.UI_OK)
-
-	def PrevDescriptionPage(self):
-		if event.IsWait(self.descIndex) == True:
-			if event.GetVisibleStartLine(self.descIndex)-14 >= 0:
-				event.SetVisibleStartLine(self.descIndex, event.GetVisibleStartLine(self.descIndex)-14)
-				event.Skip(self.descIndex)
-		else:
-			event.Skip(self.descIndex)
-
-	def NextDescriptionPage(self):
-		if event.IsWait(self.descIndex) == True:
-			event.SetVisibleStartLine(self.descIndex, event.GetVisibleStartLine(self.descIndex)+14)
-			event.Skip(self.descIndex)
-		else:
-			event.Skip(self.descIndex)
-
-	def MakeCharacter(self, index, id, name, race, form, hair):
+	def MakeCharacter(self, index, id, name, race, form, hair, acce):
 		if 0 == id:
 			return
 		
 		chr.CreateInstance(index)
 		chr.SelectInstance(index)
 		chr.SetVirtualID(index)
-		chr.SetInstanceType(chr.INSTANCE_TYPE_PLAYER)
 		chr.SetNameString(name)
-		
 		chr.SetRace(race)
 		chr.SetArmor(form)
 		chr.SetHair(hair)
+		chr.SetAcce(acce)
 		chr.Refresh()
 		chr.SetMotionMode(chr.MOTION_MODE_GENERAL)
 		chr.SetLoopMotion(chr.MOTION_INTRO_WAIT)
 		chr.SetRotation(0.0)
-		chr.SetPixelPosition(30000, 40000, 30)
+		
+		distance = 50.0
+		rotRadian = 82.0 * (math.pi*2) / 360.0
+		x = distance*math.sin(rotRadian) + distance*math.cos(rotRadian)
+		y = distance*math.cos(rotRadian) - distance*math.sin(rotRadian)
+		
+		chr.SetPixelPosition(int(x), int(y), 30)
 		self.DiscFace.LoadImage(self.FACE_IMAGE_DICT_3[race])
 		self.DiscFace.Show()
 		self.raceName.SetText(self.RACE_NAME[race])
 		self.raceName.Show()
 
-	## Manage Character
 	def StartGame(self):
 		self.toolTip.Hide()
 		
@@ -638,8 +620,6 @@ class SelectCharacterWindow(ui.Window):
 		if musicInfo.selectMusic != "":
 			snd.FadeLimitOutMusic("BGM/"+musicInfo.selectMusic, systemSetting.GetMusicVolume()*0.05)
 		
-		constInfo.INTROSELECT_LOGIN = True
-		
 		self.btnStart.SetUp()
 		self.btnCreate.SetUp()
 		self.btnDelete.SetUp()
@@ -651,16 +631,11 @@ class SelectCharacterWindow(ui.Window):
 		self.btnExit.Disable()
 		self.dlgQuestion.Hide()
 		
-		player.SetSingleDIKKeyState(app.DIK_UP, False)
-		player.SetSingleDIKKeyState(app.DIK_DOWN, False)
-		player.SetSingleDIKKeyState(app.DIK_LEFT, False)
-		player.SetSingleDIKKeyState(app.DIK_RIGHT, False)
-		
 		self.stream.SetCharacterSlot(self.slot)
 		self.startIndex = self.slot
 		self.startReservingTime = app.GetTime()
 		for i in xrange(self.SLOT_COUNT):
-			if False == chr.HasInstance(i):
+			if FALSE == chr.HasInstance(i):
 				continue
 			
 			chr.SelectInstance(i)
@@ -686,7 +661,7 @@ class SelectCharacterWindow(ui.Window):
 
 	def OnChangeName(self, id, name):
 		self.SelectSlot(id)
-		self.sendedChangeNamePacket = False
+		self.sendedChangeNamePacket = FALSE
 		self.PopupMessage(localeInfo.SELECT_CHANGED_NAME)
 
 	def AcceptInputName(self):
@@ -694,17 +669,17 @@ class SelectCharacterWindow(ui.Window):
 		if not changeName:
 			return
 
-		self.sendedChangeNamePacket = True
+		self.sendedChangeNamePacket = TRUE
 		net.SendChangeNamePacket(self.nameInputBoard.slot, changeName)
 		return self.CancelInputName()
 
 	def CancelInputName(self):
 		self.nameInputBoard.Close()
 		self.nameInputBoard = None
-		return True
+		return TRUE
 
 	def OnCreateFailure(self, type):
-		self.sendedChangeNamePacket = False
+		self.sendedChangeNamePacket = FALSE
 		if 0 == type:
 			self.PopupMessage(localeInfo.SELECT_CHANGE_FAILURE_STRANGE_NAME)
 		elif 1 == type:
@@ -731,8 +706,9 @@ class SelectCharacterWindow(ui.Window):
 
 	def __AreAllSlotEmpty(self):
 		for iSlot in xrange(self.SLOT_COUNT):
-			if 0!=net.GetAccountCharacterSlotDataInteger(iSlot, net.ACCOUNT_CHARACTER_SLOT_ID):
+			if 0 != net.GetAccountCharacterSlotDataInteger(iSlot, net.ACCOUNT_CHARACTER_SLOT_ID):
 				return 0
+		
 		return 1
 
 	def PopupDeleteQuestion(self):
@@ -750,24 +726,24 @@ class SelectCharacterWindow(ui.Window):
 		if 0 == id:
 			self.PopupMessage(localeInfo.SELECT_EMPTY_SLOT)
 			return
+
+		net.SendDestroyCharacterPacket(self.slot, "1234567")
 		self.PopupMessage(localeInfo.SELECT_DELEING)
 
 	def InputPrivateCode(self):
-		
 		import uiCommon
 		privateInputBoard = uiCommon.InputDialogWithDescription()
 		privateInputBoard.SetTitle(localeInfo.INPUT_PRIVATE_CODE_DIALOG_TITLE)
 		privateInputBoard.SetAcceptEvent(ui.__mem_func__(self.AcceptInputPrivateCode))
 		privateInputBoard.SetCancelEvent(ui.__mem_func__(self.CancelInputPrivateCode))
-
+		
 		if ENABLE_ENGNUM_DELETE_CODE:
 			pass
 		else:
 			privateInputBoard.SetNumberMode()
-
+		
 		privateInputBoard.SetSecretMode()
 		privateInputBoard.SetMaxLength(7)
-			
 		privateInputBoard.SetBoardWidth(250)
 		privateInputBoard.SetDescription(localeInfo.INPUT_PRIVATE_CODE_DIALOG_DESCRIPTION)
 		privateInputBoard.Open()
@@ -787,11 +763,11 @@ class SelectCharacterWindow(ui.Window):
 		self.PopupMessage(localeInfo.SELECT_DELEING)
 
 		self.CancelInputPrivateCode()
-		return True
+		return TRUE
 
 	def CancelInputPrivateCode(self):
 		self.privateInputBoard = None
-		return True
+		return TRUE
 
 	def OnDeleteSuccess(self, slot):
 		self.PopupMessage(localeInfo.SELECT_DELETED)
@@ -802,12 +778,11 @@ class SelectCharacterWindow(ui.Window):
 
 	def DeleteCharacter(self, index):
 		chr.DeleteInstance(index)
-		self.SelectSlot(0)
+		self.SelectSlot(self.slot)
 		self.Refresh()
 
 	def ExitSelect(self):
 		self.dlgQuestion.Hide()
-	
 		if LEAVE_BUTTON_FOR_POTAL:
 			if app.loggined:
 				self.stream.SetPhaseWindow(0)
@@ -815,19 +790,8 @@ class SelectCharacterWindow(ui.Window):
 				self.stream.setloginphase()
 		else:
 			self.stream.SetLoginPhase()
-
+		
 		self.Hide()
-
-	def GetSlotIndex(self):
-		return self.slot
-
-	def DecreaseSlotIndex(self):
-		slotIndex = (self.GetSlotIndex() - 1 + self.SLOT_COUNT) % self.SLOT_COUNT
-		self.SelectSlot(slotIndex)
-
-	def IncreaseSlotIndex(self):
-		slotIndex = (self.GetSlotIndex() + 1) % self.SLOT_COUNT
-		self.SelectSlot(slotIndex)
 
 	def SelectSlot(self, index):
 		if index < 0:
@@ -849,11 +813,11 @@ class SelectCharacterWindow(ui.Window):
 		form = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_FORM)
 		name = net.GetAccountCharacterSlotDataString(index, net.ACCOUNT_CHARACTER_SLOT_NAME)
 		hair = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_HAIR)
-		#acce = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ACCE)
+		acce = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ACCE)
 		#acce_spec = net.GetAccountCharacterSlotDataInteger(index, net.ACCOUNT_CHARACTER_SLOT_ACCE_SPEC)
 		if id != 0:
 			#self.MakeCharacter(index, id, name, race, form, hair, acce, acce_spec)
-			self.MakeCharacter(index, id, name, race, form, hair)
+			self.MakeCharacter(index, id, name, race, form, hair, acce)
 		
 		if index == 0:
 			self.CharacterSlot_0.Down()
@@ -917,10 +881,7 @@ class SelectCharacterWindow(ui.Window):
 		#	self.CharacterSlot_3_Name.SetFontColor(0.8549, 0.8549, 0.8549)
 		
 		self.slot = index
-		
-		self.LoadMap()
-		self.isCameraMoving = True
-		self.cameraMovementProgress = 0.0
+		chr.SelectInstance(self.slot)
 
 		for i in xrange(self.CHARACTER_TYPE_COUNT):
 			self.destNameAlpha[i] = 0.0
@@ -979,6 +940,21 @@ class SelectCharacterWindow(ui.Window):
 			self.textBoardNext.Hide()
 			self.InitCharacterBoard()
 
+	def PrevDescriptionPage(self):
+		if event.IsWait(self.descIndex) == TRUE:
+			if event.GetVisibleStartLine(self.descIndex)-14 >= 0:
+				event.SetVisibleStartLine(self.descIndex, event.GetVisibleStartLine(self.descIndex)-14)
+				event.Skip(self.descIndex)
+		else:
+			event.Skip(self.descIndex)
+
+	def NextDescriptionPage(self):
+		if event.IsWait(self.descIndex) == TRUE:
+			event.SetVisibleStartLine(self.descIndex, event.GetVisibleStartLine(self.descIndex)+14)
+			event.Skip(self.descIndex)
+		else:
+			event.Skip(self.descIndex)
+
 	def InitCharacterBoard(self):
 		self.btnStart.Hide()
 		self.btnDelete.Hide()
@@ -988,56 +964,9 @@ class SelectCharacterWindow(ui.Window):
 		self.CharacterINT.SetText("")
 		self.CharacterSTR.SetText("")
 		self.CharacterDEX.SetText("")
-		
-	## Event
-	def OnKeyDown(self, key):
-
-		if 1 == key:
-			self.ExitSelect()
-		if 2 == key:
-			self.SelectSlot(0)
-		if 3 == key:
-			self.SelectSlot(1)
-		if 4 == key:
-			self.SelectSlot(2)
-		if 5 == key:
-			self.SelectSlot(3)
-
-		if 28 == key:
-
-			id = net.GetAccountCharacterSlotDataInteger(self.slot, net.ACCOUNT_CHARACTER_SLOT_ID)
-			if 0 == id:
-				self.CreateCharacter()
-
-			else:
-				self.StartGame()
-
-		if 203 == key:
-			self.slot = (self.GetSlotIndex() - 1 + self.SLOT_COUNT) % self.SLOT_COUNT
-			self.SelectSlot(self.slot)
-		if 205 == key:
-			self.slot = (self.GetSlotIndex() + 1) % self.SLOT_COUNT
-			self.SelectSlot(self.slot)
-
-		return True
-
-	def Lerp(self, a, b, t):
-	    return (1 - t) * a + t * b
 
 	def OnUpdate(self):
-		app.UpdateGame()
-		if self.isCameraMoving == True:
-			self.cameraMovementProgress += 0.01
-			startLoc = [5827.0, 90.0, 350.0]
-			endLoc = [300.0, 10.0, 180.0]
-			dist = self.Lerp(startLoc[0], endLoc[0], self.cameraMovementProgress)
-			put = self.Lerp(startLoc[1], endLoc[1], self.cameraMovementProgress)
-			rot = self.Lerp(startLoc[2], endLoc[2], self.cameraMovementProgress)
-			app.SetCamera(dist, put, rot, 150.0)
-			if self.cameraMovementProgress >= 1:
-				self.isCameraMoving = False
-				self.cameraMovementProgress = 0.0
-		#chr.Update()
+		chr.Update()
 		(xposEventSet, yposEventSet) = self.textBoard.GetGlobalPosition()
 		event.UpdateEventSet(self.descIndex, xposEventSet+7, -(yposEventSet+7))
 		self.descriptionBox.SetIndex(self.descIndex)
@@ -1052,16 +981,23 @@ class SelectCharacterWindow(ui.Window):
 			self.curNameAlpha[i] += (self.destNameAlpha[i] - self.curNameAlpha[i]) / 10.0
 			self.NameList[i].SetAlpha(self.curNameAlpha[i])
 		for i in xrange(self.SLOT_COUNT):
-			if False == chr.HasInstance(i):
+			if FALSE == chr.HasInstance(i):
 				continue
 		if -1 != self.startIndex:
-			if app.GetTime() - self.startReservingTime > 0.1:
-				if False == self.openLoadingFlag:
+			if app.GetTime() - self.startReservingTime > 3.0:
+				if FALSE == self.openLoadingFlag:
 					chrSlot=self.stream.GetCharacterSlot()
 					net.DirectEnter(chrSlot)
-					self.openLoadingFlag = True
+					self.openLoadingFlag = TRUE
 					import chat
 					chat.Clear()
+
+	def PopupMessage(self, msg, func=0):
+		if not func:
+			func=self.EmptyFunc
+
+		self.stream.popupWindow.Close()
+		self.stream.popupWindow.Open(msg, func, localeInfo.UI_OK)
 
 	def OverInButton(self, stat):
 		if stat == 1:
@@ -1113,13 +1049,6 @@ class SelectCharacterWindow(ui.Window):
 
 	def EmptyFunc(self):
 		pass
-
-	def PopupMessage(self, msg, func=0):
-		if not func:
-			func=self.EmptyFunc
-
-		self.stream.popupWindow.Close()
-		self.stream.popupWindow.Open(msg, func, localeInfo.UI_OK)
 
 	def OnPressExitKey(self):
 		self.ExitSelect()
