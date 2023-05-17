@@ -106,56 +106,56 @@ window = {
 					"text" : "",
 				},
 				## ch buttons
-				{
-					"name" : "ch_button_0",
-					"type" : "button",
+				# {
+					# "name" : "ch_button_0",
+					# "type" : "button",
 
-					"x" : -2,
-					"y" : 36,
-
-
-					"default_image" : "btn/discord/ch1.png",
-					"over_image" : "btn/discord/ch1_over.png",
-					"down_image" : "btn/discord/ch1_down.png",
-					"tooltip_text": "|cffF4B418CH 1",
-				},
-				{
-					"name" : "ch_button_1",
-					"type" : "button",
-
-					"x" : -6,
-					"y" : 56,
+					# "x" : -2,
+					# "y" : 36,
 
 
-					"default_image" : "btn/discord/ch2.png",
-					"over_image" : "btn/discord/ch2_over.png",
-					"down_image" : "btn/discord/ch2_down.png",
-					"tooltip_text": "|cffF4B418CH 2",
-				},
-				{
-					"name" : "ch_button_2",
-					"type" : "button",
+					# "default_image" : "btn/discord/ch1.png",
+					# "over_image" : "btn/discord/ch1_over.png",
+					# "down_image" : "btn/discord/ch1_down.png",
+					# "tooltip_text": "|cffF4B418CH 1",
+				# },
+				# {
+					# "name" : "ch_button_1",
+					# "type" : "button",
 
-					"x" : -4,
-					"y" : 76,
+					# "x" : -6,
+					# "y" : 56,
 
-					"default_image" : "btn/discord/ch3.png",
-					"over_image" : "btn/discord/ch3_over.png",
-					"down_image" : "btn/discord/ch3_down.png",
-					"tooltip_text": "|cffF4B418CH 3",
-				},
-				{
-					"name" : "ch_button_3",
-					"type" : "button",
 
-					"x" : 3,
-					"y" : 96,
+					# "default_image" : "btn/discord/ch2.png",
+					# "over_image" : "btn/discord/ch2_over.png",
+					# "down_image" : "btn/discord/ch2_down.png",
+					# "tooltip_text": "|cffF4B418CH 2",
+				# },
+				# {
+					# "name" : "ch_button_2",
+					# "type" : "button",
 
-					"default_image" : "btn/discord/ch4.png",
-					"over_image" : "btn/discord/ch4_over.png",
-					"down_image" : "btn/discord/ch4_down.png",
-					"tooltip_text": "|cffF4B418CH 4",
-				},
+					# "x" : -4,
+					# "y" : 76,
+
+					# "default_image" : "btn/discord/ch3.png",
+					# "over_image" : "btn/discord/ch3_over.png",
+					# "down_image" : "btn/discord/ch3_down.png",
+					# "tooltip_text": "|cffF4B418CH 3",
+				# },
+				# {
+					# "name" : "ch_button_3",
+					# "type" : "button",
+
+					# "x" : 3,
+					# "y" : 96,
+
+					# "default_image" : "btn/discord/ch4.png",
+					# "over_image" : "btn/discord/ch4_over.png",
+					# "down_image" : "btn/discord/ch4_down.png",
+					# "tooltip_text": "|cffF4B418CH 4",
+				# },
 				## Discord Button
 				{
 					"name" : "Discord",
