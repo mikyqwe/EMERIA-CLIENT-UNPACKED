@@ -1985,9 +1985,9 @@ class Interface(object):
 			buttonImageFileName=iconName
 
 		if iconName and (iconType not in ("item", "file")): # type "ex" implied
-			btn.SetUpVisual("d:/ymir work/ui/game/quest/questicon/%s" % (iconName.replace("open", "close")))
-			btn.SetOverVisual("d:/ymir work/ui/game/quest/questicon/%s" % (iconName))
-			btn.SetDownVisual("d:/ymir work/ui/game/quest/questicon/%s" % (iconName))
+			btn.SetUpVisual("d:/ymir work/ui/game/quest/questicon/scroll_close_blue.tga")
+			btn.SetOverVisual("d:/ymir work/ui/game/quest/questicon/scroll_open_blue.tga")
+			btn.SetDownVisual("d:/ymir work/ui/game/quest/questicon/scroll_close_blue.tga")
 		else:
 			if localeInfo.IsEUROPE():
 				btn.SetUpVisual(localeInfo.GetLetterCloseImageName())
