@@ -2293,8 +2293,6 @@ class ItemToolTip(ToolTip):
 	def __AppendAffectInformation(self):
 		for i in xrange(item.ITEM_APPLY_MAX_NUM):
 			(affectType, affectValue) = item.GetAffect(i)
-			if app.ENABLE_ACCE_COSTUME_SYSTEM and affectType==item.APPLY_ACCEDRAIN_RATE:
-				continue
 			affectString = self.__GetAffectString(affectType, affectValue)
 			if affectString:
 				self.AppendTextLine(affectString, self.GetChangeTextLineColor(affectValue))

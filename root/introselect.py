@@ -40,8 +40,8 @@ elif localeInfo.IsEUROPE():
 	ENABLE_ENGNUM_DELETE_CODE = TRUE
 
 class SelectCharacterWindow(ui.Window):
-	SLOT_COUNT = 5
-	CHARACTER_TYPE_COUNT = 5
+	SLOT_COUNT = 4
+	CHARACTER_TYPE_COUNT = 4
 	
 	EMPIRE_NAME = {
 		net.EMPIRE_A : localeInfo.EMPIRE_A,

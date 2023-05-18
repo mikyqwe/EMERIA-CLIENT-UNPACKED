@@ -129,13 +129,9 @@ class LoadingWindow(ui.ScriptWindow):
 		self.loadingImage.Hide()
 		self.loadingAniImage.Hide()
 
-		if constInfo.INTROSELECT_LOGIN:
-			self.loadingAniImage.Hide()
-			self.loadingImage.Show()
-			constInfo.INTROSELECT_LOGIN = False
-		else:
-			self.loadingImage.Hide()
-			self.loadingAniImage.Show()
+
+		self.loadingImage.Hide()
+		self.loadingAniImage.Show()
 
 
 		net.SendSelectCharacterPacket(self.stream.GetCharacterSlot())
