@@ -5431,11 +5431,11 @@
 50662	Beril Obscur	Material folosit pentru fabricarea accesoriilor din beril obscur.
 50663	Beril Fumuriu	Material folosit pentru fabricarea accesoriilor din beril fumuriu.
 50664	Beril Cenuºiu	Material folosit pentru fabricarea accesoriilor din beril cenuºiu.
-50701	Floare galbena	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Cercetare
-50702	Floare Rosie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.	Cercetare
-50703	Floare Albastra	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.. 	Cercetare
-50704	Floare Portocalie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Cercetare
-50705	Floare Verde	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Cercetare
+50701	Floare galbena	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Biolog
+50702	Floare Rosie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.	Biolog
+50703	Floare Albastra	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.. 	Biolog
+50704	Floare Portocalie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Biolog
+50705	Floare Verde	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Biolog
 50706	Ciuperci Tue	Folosite rar ca leac, ele alungã insomnia. 	Cercetare
 50707	Trandafir alpin	Aceastã planta intareste sistemul nervos. 	Cercetare
 50708	Dud	Dudele dau putere si prospetime. 	Cercetare
