@@ -2804,9 +2804,9 @@
 30000	Orz	Plantã des cultivatã, utilizatã la producerea berii ºi a hranei.
 30001	Scrisoare	O scrisoare de la cineva, scrisã de mânã.
 30002	Carnati Prajiti	Carnati prajiti deliciosi carora daca le simti gustul nu te mai poti opri din mancat.
-30003	Cornul lui Razador	Acest obiect se poate obþine din Temniþa Razador.
-30004	Nestemata de Foc	Acest obiect se poate obþine din Temniþa Razador.
-30005	Cornul lui Nemere	Acest obiect se poate obþine din Temniþa Nemere.
+30003	Cornul lui Razador	Acest obiect se poate obþine din Temniþa Razador.	UPGRADE
+30004	Nestemata de Foc	Acest obiect se poate obþine din Temniþa Razador.	UPGRADE
+30005	Cornul lui Nemere	Acest obiect se poate obþine din Temniþa Nemere.	UPGRADE
 30006	Dinte de Ork	Dintele galben-maroniu, urât-mirositor al unui Ork. La marginea lui atârnã bucãþi ciudate, încrustate.
 30007	Amuletã de Ork	O amuletã prelucratã într-un mod strãin locului, care îi dã Orkului curaj în luptã.
 30008	Îndrumator de esotericã	Un abecedar care iniþiazã în arta esotericii
@@ -2818,12 +2818,12 @@
 30014	Blanã de Yeti	Blana legendarului Yeti protejeazã chiar ºi împotriva temperaturilor deosebit de scãzute.
 30015	Suvenirul Demonului	Amintirea posomorâtã, cuprinsã de rãcealã a unui demon.
 30016	Piatrã preþioasa demon	O piatrã preþioasã cunoscutã prin faptul cã adãposteºte sufletele morþilor.
-30017	Nestemata de Gheata	Acest obiect se poate obþine din Temniþa Nemere.
+30017	Nestemata de Gheata	Acest obiect se poate obþine din Temniþa Nemere.	UPGRADE
 30018	Premium Battle-Pass	Cu acest tichet vã puteþi activa battlepass-ul premium.
 30019	Coama de Foc	Firul de coamã de foc se foloseºte pentru producerea îmbrãcãmintei de iarnã.
 30020	Sâmbure de piersicã	Sâmburii de piersicã au fost dintotdeauna întrebuinþaþi pentru a avea un ten sãnãtos.
 30021	Buc. de piatrã preþioasã	Piatrã preþioasã spartã prin folosirea unui material tare.
-30022	Diadema Ascensiunii	Acest obiect se poate obþine din combinarea celor 4 obiecte de la Razador ºi Nemere.
+30022	Diadema Ascensiunii	Acest obiect se poate obþine din combinarea celor 4 obiecte de la Razador ºi Nemere.	UPGRADE
 30023	Inelul Liderilor	Acest obiect se poate obþine de la ºefii de nivel mic.
 30024	Carte Antica	Deschide porþile cãtre Piramida Anticã.
 30025	Pergament Conducere	Cu acest pergament poþi achiziþiona obiectele necesare pentru conducere.
@@ -3008,7 +3008,7 @@
 30319	Cap Mumificat	Deschide porþile cãtre Catacomba Diavolului.
 30320	Cap Mumificat	Acest Cap Mumificat de demon deschide sigiliul etajului al 3-lea din Catacomba Diavolului.
 30321	Dovleac de Halloween	Dovleacul umple PV ºi PM. Dacã îl atingi cu Bagheta Magicã se va transforma într-un Cufãr de Halloween.
-30322	Oul Baronesei	Acest obiect se poate obþine din Temniþa Baronesei.
+30322	Oul Baronesei	Acest obiect se poate obþine din Temniþa Baronesei.	UPGRADE
 30323	Tichet Jack O`Lantern	Tichetul cu Masca Jack O'Lantern poate fi schimbat la Dovleacul Jack cu o Mascã Jack O'Lantern. Aceastã mascã va înlocui frizura existentã.
 30324	Cheia Arahnidelor	Deschide porþile cãtre Ascunzãtoarea Reginei unde iºi depune ouãle.
 30325	Cheia Arahnidelor	Deschide portile catre Ascunzatoarea Reginei unde isi depune ouale. Foarte fragila, se dezintegreaza dupa 24 de ore. Poate fi folosita doar de catre liderul de grup.
@@ -3202,7 +3202,7 @@
 31022	Pergamentul Eroilor (Avansat)	Cu ajutorul acestui obiect vã puteþi achiziþiona obiectele necesare pentru îmbunãtãþirea abilitãþilor dvs.
 31023	Pergamentul Eroilor (Legendar)	Cu ajutorul acestui obiect vã puteþi achiziþiona obiectele necesare pentru îmbunãtãþirea abilitãþilor dvs.
 31024	Esenta Luptatorului (2)	Aceastã carte ajutã la creºterea pasivei Esenþa Luptãtorului. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
-31025	Cap Diavol	Acest obiect se poate obþine din Temniþa Catacomba Diavolului.
+31025	Cap Diavol	Acest obiect se poate obþine din Temniþa Catacomba Diavolului.	UPGRADE
 31026	Forta Vanatorului (3)	Aceastã carte ajutã la creºterea pasivei Forþa Vânãtorului. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
 31027	Nisip Fin	Acest tip de nisip deosebit de fin poate fi folosit ca material de construit.
 31028	Sufletul Invincibil (4)	Aceastã carte ajutã la creºterea pasivei Sufletul Invincibil. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
@@ -3220,7 +3220,7 @@
 31040	Medalie de Aur	Acest obiect este medium?
 31041	Fosila	Un amestec de pamant cu praf de oase
 31042	Sulita Triton	Suliþa Triton este un obiect tradiþional folosit de locuitorii unei insule pentru a fortifica apãrarea construcþiilor.
-31043	Piatra Elementala	Acest obiect este folosit pentru a îmbunãtãþi talismanele, indiferent de element.
+31043	Piatra Elementala	Acest obiect este folosit pentru a îmbunãtãþi talismanele, indiferent de element.	UPGRADE
 31044		
 31045		
 31046		
@@ -5431,17 +5431,17 @@
 50662	Beril Obscur	Material folosit pentru fabricarea accesoriilor din beril obscur.
 50663	Beril Fumuriu	Material folosit pentru fabricarea accesoriilor din beril fumuriu.
 50664	Beril Cenuºiu	Material folosit pentru fabricarea accesoriilor din beril cenuºiu.
-50701	Floare galbena	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Biolog
-50702	Floare Rosie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.	Biolog
-50703	Floare Albastra	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.. 	Biolog
-50704	Floare Portocalie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Biolog
-50705	Floare Verde	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Biolog
+50701	Floare galbena	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	BIOLOG
+50702	Floare Rosie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.	BIOLOG
+50703	Floare Albastra	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.. 	BIOLOG
+50704	Floare Portocalie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	BIOLOG
+50705	Floare Verde	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	BIOLOG
 50706	Ciuperci Tue	Folosite rar ca leac, ele alungã insomnia. 	Cercetare
 50707	Trandafir alpin	Aceastã planta intareste sistemul nervos. 	Cercetare
 50708	Dud	Dudele dau putere si prospetime. 	Cercetare
 50709	Gura leului	Gura leului ajutã împotriva durerilor de gât ºi are un gust foarte plãcut.	Cercetare
-50710	Gheara Dragon de Aur	Acest obiect se poate obþine din Temniþa Dragon de Aur. 	Cercetare
-50711	Masca Demon	Acest obiect se poate obþine din Temniþa Turnul Demonilor.
+50710	Gheara Dragon de Aur	Acest obiect se poate obþine din Temniþa Dragon de Aur. 	UPGRADE
+50711	Masca Demon	Acest obiect se poate obþine din Temniþa Turnul Demonilor.	UPGRADE
 50712	Planta Sam-Zi	Aceastã planta foarte rara are efect întãritor dacã este preparatã corect.	Cercetare
 50721	Floare de piersic	Mai demult se folosea la producerea unei creme de piele. 	Fabricarea Licorilor
 50722	Floare clopoþel	Aceastã floare este foarte rãspânditã ºi ajutã împotriva rãcelii ºi a tusei. 	Fabricarea Licorilor
@@ -6432,7 +6432,7 @@
 71126	Lup de Luptã	Îmblânzirea spiritelor animalelor malefice necesitã ablitãþi magice însã, rezultatele pot fi uimitoare. Acesta mãreºte ºansa de loviturã criticã cu 10%.
 71127	Tigrul Furtunii	Îmblânzirea spiritelor animalelor malefice necesitã ablitãþi magice însã, rezultatele pot fi uimitoare. Acesta mãreºte ºansa de loviturã criticã cu 10%.
 71128	Leul Luptãtor	Îmblânzirea spiritelor animalelor malefice necesitã ablitãþi magice însã, rezultatele pot fi uimitoare. Reduce cu 10% daunele primite atunci când te aperi.
-71129	Gheara si Balanta Dragon	Aspectul acestor gheare terifiante, re-aduc amintiri....
+71129	Gheara si Balanta Dragon	Aspectul acestor gheare terifiante, re-aduc amintiri....	UPGRADE
 71130	Permis de Trecere	Dacã dai acest permis de trecere gardianului corespunzãtor, vei putea intra la un nou nivel al temniþei selectate. Obiectul se poate negocia.
 71131	Cal Negru	Sigiliu pentru un Cal Negru Nobil. Creºte viteza de miºcare cu 60.
 71132	Cal Negru	Sigiliu pentru un Cal Negru Nobil. Creºte viteza de miºcare cu 60.
