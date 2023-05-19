@@ -1614,6 +1614,14 @@ Group HairData
 		TargetSkin			"plechito_tex_m.dds"
 	}
 
+	Group HairData200
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/ghost_of_samurai/hair/"
+		HairIndex			580
+		Model				"warrior_w.GR2"
+		SourceSkin			"plechito_tex_w.dds"
+		TargetSkin			"plechito_tex_w.dds"
+	}
 }
 
 Group ShapeData
@@ -3594,6 +3602,15 @@ Group ShapeData
 		Model				"warrior_w.gr2"	
 		SourceSkin			"plechito_tex_m.dds"
 		TargetSkin			"plechito_tex_m.dds"
+	}
+
+	Group ShapeData242
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/ghost_of_samurai/"
+		ShapeIndex			41834
+		Model				"warrior_w.GR2"	
+		SourceSkin			"plechito_tex_w_w.dds"
+		TargetSkin			"plechito_tex_w_w.dds"
 	}
 
 }
