@@ -5484,13 +5484,12 @@
 50818	Apã SamBo	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
 50819	Apa Mong	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
 50820	Apã Hwal	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
-50821	Roua Rosie	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
-50822	Roua Portocalie	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
-50823	Roua Galbena	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
-50824	Roua Verde	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
-50825	Roua Albastra	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
-50826	Roua Alba	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
-50826	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil.
+50821	Roua Rosie	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	 Consumabil
+50822	Roua Portocalie	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	 Consumabil
+50823	Roua Galbena	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50824	Roua Verde	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50825	Roua Albastra	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50826	Roua Alba	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
 50830	Elixir Putere Foc	Acest elixir puternic oferã +8-20% Puterea Focului.
 50831	Elixir Putere Gheaþã	Acest elixir puternic oferã +8-20% Puterea Gheþii.
 50832	Elixir Putere Tunet	Acest elixir puternic oferã +8-20% Puterea Fulgerului.
@@ -7444,20 +7443,20 @@
 91058	Dragon Rubin(folosit 1x)	Poþi sã foloseºti acest sigiliu pentru a-þi chema dragonul rubiniu.
 91059	Rezistenþã Infinitã	Nu vei pierde nicio rezistenþã în timpul Bãtãliei Roiale. | Foloseºte 1 pentru a primi ajutorul atunci când intri în Bãtãlia Roialã.
 939017	Viata Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
-939018	Atacul Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
-939019	Inteligenta Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
-939020	Apararea Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
-939024	Lovitura Critica	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
-939025	Lovitura Patrunzatoare	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
-950821	Roua Rosie Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele!	Activabil, Permanent
-950822	Roua Portocalie Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
-950823	Roua Galbena Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
-950824	Roua Verde Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
-950825	Roua Albastra Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
-950826	Roua Alba Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
-951002	Cristal de Energie Permanent	Cristalul îþi mãreºte bonusurile.	 Consumabil
-927209	Potiune Verde Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil. Creºte viteza miºcãrii cu +10.	Activabil, Permanent
-927212	Potiune Mov Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil. Creºte viteza atacului cu +10.	Activabil, Permanent
+939018	Atacul Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele!
+939019	Inteligenta Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele!
+939020	Apararea Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele!
+939024	Lovitura Critica	Foloseºte acest simbol puternic pentru a-þi creºte forþele!
+939025	Lovitura Patrunzatoare	Foloseºte acest simbol puternic pentru a-þi creºte forþele!
+950821	Roua Rosie Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele!
+950822	Roua Portocalie Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 
+950823	Roua Galbena Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 
+950824	Roua Verde Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele!
+950825	Roua Albastra Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 
+950826	Roua Alba Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 
+951002	Cristal de Energie Permanent	Cristalul îþi mãreºte bonusurile.
+927209	Potiune Verde Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil. Creºte viteza miºcãrii cu +10.
+927212	Potiune Mov Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil. Creºte viteza atacului cu +10.
 100000	Elixirul Timpului (S)	Umple timpul unei Pietre Dragon.
 100001	Elixirul Timpului (M)	Umple timpul unei Pietre Dragon.
 100002	Elixirul Timpului (L)	Umple timpul unei Pietre Dragon.
