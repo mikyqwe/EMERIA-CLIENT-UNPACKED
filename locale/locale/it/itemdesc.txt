@@ -2804,9 +2804,9 @@
 30000	Orz	Plantã des cultivatã, utilizatã la producerea berii ºi a hranei.
 30001	Scrisoare	O scrisoare de la cineva, scrisã de mânã.
 30002	Carnati Prajiti	Carnati prajiti deliciosi carora daca le simti gustul nu te mai poti opri din mancat.
-30003	Rât de porc	Nasul porcului
-30004	Dinte de mistreþ	Colþul unui mistreþ matur
-30005	Bucatã armurã stricatã	Parte ruptã dintr-o armurã.
+30003	Cornul lui Razador	Acest obiect se poate obþine din Temniþa Razador.
+30004	Nestemata de Foc	Acest obiect se poate obþine din Temniþa Razador.
+30005	Cornul lui Nemere	Acest obiect se poate obþine din Temniþa Nemere.
 30006	Dinte de Ork	Dintele galben-maroniu, urât-mirositor al unui Ork. La marginea lui atârnã bucãþi ciudate, încrustate.
 30007	Amuletã de Ork	O amuletã prelucratã într-un mod strãin locului, care îi dã Orkului curaj în luptã.
 30008	Îndrumator de esotericã	Un abecedar care iniþiazã în arta esotericii
@@ -2818,16 +2818,16 @@
 30014	Blanã de Yeti	Blana legendarului Yeti protejeazã chiar ºi împotriva temperaturilor deosebit de scãzute.
 30015	Suvenirul Demonului	Amintirea posomorâtã, cuprinsã de rãcealã a unui demon.
 30016	Piatrã preþioasa demon	O piatrã preþioasã cunoscutã prin faptul cã adãposteºte sufletele morþilor.
-30017	Ac Decorativ de Par	Acul decorativ din pãrul unei femei, cu lucrãturã finã în filigran.
-30018	Banderolã roºie	O banderolã elegantã folositã pentru împodobirea frizurilor de damã.
+30017	Nestemata de Gheata	Acest obiect se poate obþine din Temniþa Nemere.
+30018	Premium Battle-Pass	Cu acest tichet vã puteþi activa battlepass-ul premium.
 30019	Coama de Foc	Firul de coamã de foc se foloseºte pentru producerea îmbrãcãmintei de iarnã.
 30020	Sâmbure de piersicã	Sâmburii de piersicã au fost dintotdeauna întrebuinþaþi pentru a avea un ten sãnãtos.
 30021	Buc. de piatrã preþioasã	Piatrã preþioasã spartã prin folosirea unui material tare.
-30022	Coadã de ºarpe	Coada unui ºarpe.
-30023	Blanã albã de tigru	Cea mai apreciatã blanã de animal de cãtre colecþionari.
-30024	Coadã de cal	Coada unui cal poate fi folositã la producerea unor obiecte de calitate superioarã ca perii, pãlãrii sau sfori.
-30025	Tolbã Otravã de Pãianjen	Tolbã cu otravã de pãianjen.
-30026	Intestin de lup	Ingredient pentru cârnaþi, hranã foarte cunoscutã în regat.
+30022	Diadema Ascensiunii	Acest obiect se poate obþine din combinarea celor 4 obiecte de la Razador ºi Nemere.
+30023	Inelul Liderilor	Acest obiect se poate obþine de la ºefii de nivel mic.
+30024	Carte Antica	Deschide porþile cãtre Piramida Anticã.
+30025	Pergament Conducere	Cu acest pergament poþi achiziþiona obiectele necesare pentru conducere.
+30026	Pergament Transmutatie	Cu ajutorul acestui obiect puteþi sã vã schimbaþi înfãþiºarea armei ºi armurii.
 30027	Blanã de lup	Perii cei mai groºi ai unui lup sunt folosiþi la producerea de perii.
 30028	Ghearã de lup	Ghearele ascuþite ale lupului sunt folosite la producerea de accesorii.
 30029	Ficat de lup	Ingredient pentru cârnaþi, hranã foarte cunoscutã în regat.
@@ -2893,11 +2893,11 @@
 30089	Blana de Yeti+	Blana de Yeti, creatura legendarã, protejeazã împotriva gerului.
 30090	Glob de gheaþã+	Glob de gheaþã care nu se topeºte în apã caldã.
 30091	Simbol de rãzboinic	Simbolul oferit rãzboinicilor legendari.
-30092	Prada sãlbaticilor	Pradã de rãzboi.
-30093	Tolbã norocoasã	Tolbã de mãtase care conþine obiecte de preþ.
-30094	Tolbã norocoasã	Tolbã de mãtase care conþine obiecte de preþ.
+30092	Pentru sticluta necesara la roua permanenta 	Cu acest obiect poþi achiziþiona roua permanentã.
+30093	Cufar Lideri V4	Acest cufãr se poate obþine de la ºefii din V4.
+30094	Cufar Lideri	Acest cufãr se poate obþine de la ºefii de nivel mic.
 30095	Tolbã norocoasã	Tolbã de mãtase care conþine obiecte de preþ.
-30096	Tolbã norocoasã	Tolbã de mãtase care conþine obiecte de preþ.
+30096	Cufar Carti	Acest cufãr conþine unul dintre cele 4 manuale de abilitate.
 30129	Însãrcinare d la cãlãreþ	Document care conþine o însãrcinare de la armatã.
 30130	Sticlã goalã	Recipient de sticlã gol, in care pot fi purtate multe lichide.
 30131	Scrisoare de la fierar	O scrisoare de la fierar catre prietenul sau, Deokbae.
@@ -2927,8 +2927,9 @@
 30155	Brelocul lui Mirine	Breloc pentru un colier. Pe spate este gravat numele Mirine.
 30156	Cartea Templului Secret	Analiza istoriei si doctrina templului secret.
 30157	Vârf de sãgeatã	Aceste vârfuri de sãgeatã otrãvite vor fi de folos pentru a învinge imperiul.
+30176	Piatra Nefinisata	Cu aceastã Piatrã Nefinisatã poþi cumpãra finisaje de la Alchimist.
 30177	Esenþã de Mosc	Esenþa de Mosc folositã de Negustorul de arme in timpul unei misiuni. Acest obiect nu are alte functionalitaþi.
-30179	Cheie Rãsucitã	Aceastã cheie magicã activeazã portalul cãtre Templul Dragonului.
+30179	Cheie Rãsucitã	Acestã cheie magicã activeazã portalul cãtre Templul Dragonului.
 30180	Amuleta Zeu Dragon	Aceasta bucata de bijuterie galbena poate scurta drumul catre Grota Exilului.
 30181	Pagina	Scrisul ºters de pe acest manuscris este greu de înþeles - pagina pare foarte veche.
 30182	Jurnal Legendar	Copia acestei carti vechi pare foarte valoroasa.
@@ -2980,9 +2981,9 @@
 30262	Fãrâmã Spirit Luminã	Un fragment de Spirit Luminã care poate adãuga sau creºte durata unui bonus relicvã.
 30263	Fãrâmã Spirit Relicvã	Un fragment de Spirit Relicvã care aplicã un bonus relicvã.
 30264	Tratament	Poþi salva sãtenii.
-30265	Bucata de Medalie (1)	Primul fragment al Medaliei Eroilor
-30266	Bucata de Medalie (2)	Al doilea fragment al Medaliei Eroilor
-30267	Bucata de Medalie (3)	Al treilea fragment al Medaliei Eroilor
+30265	Pergament Echipament (Incepator)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mic.
+30266	Pergament Echipament (Avansat)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mare.
+30267	Bucata de Medalie (3)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mic.
 30268	Bucata de Medalie (4)	Al patrulea fragment al Medaliei Eroilor
 30269	Bucata de Medalie (5)	Al cincilea fragment al Medaliei Eroilor
 30270	Ciob Piatra Dragon	Fragmentul unei Pietre Dragon.
@@ -2998,17 +2999,18 @@
 30283	Ciob Relicvã ªaman	Chaegirab poate face Spirit Relicvã ªaman din acest ciob.
 30284	Ciob Relicvã Lycan	Chaegirab poate face Spirit Relicvã Lycan din acest ciob.
 30311	Cheia Suflet Cristalizat	Cheia delicata cu Suflet Albastru Cristalizat deschide poarta etajului 2 din Catacomba Diavolului.
+30300	Foaie Neinsufletita	Cu ajutorul acestei flori puteþi achiziþiona Cartea Neînsufleþitã.
 30312	Totem Schimonosit	Simbolul de lemn cu o grimasa bine conturata te ajuta la deschiderea portii de la etajul 6 al Catacombei Diavolului.
 30315	Paine	Paine folosita in perioada postului.
-30316	Platou Traditional	O farfurie cu decoratiuni splendide.
+30316	Cristal Emeria	Acest cristal preþios poate fi folosit in schimbul unor obiecte speciale de la NPC din Map1.
 30317	Mancare Traditionala	Donatie de alimente pentru perioada postului.
-30318	Fruct Binecuvantat	Un fruct special. Colecteaza suficiente fructe pentru a primi o recompensa.
-30319	Cap Mumificat	Acest Cap Mumificat de demon deschide sigiliul de la poarta etajului 3 din Catacomba Diavolului. Obiectul se poate negocia.
+30318	Pergament Biolog	Cu ajutorul acestui obiect puteþi achiziþiona obiectele necesare pentru misiunile biologului.
+30319	Cap Mumificat	Deschide porþile cãtre Catacomba Diavolului.
 30320	Cap Mumificat	Acest Cap Mumificat de demon deschide sigiliul etajului al 3-lea din Catacomba Diavolului.
 30321	Dovleac de Halloween	Dovleacul umple PV ºi PM. Dacã îl atingi cu Bagheta Magicã se va transforma într-un Cufãr de Halloween.
-30322	Bagheta Magica	O Baghetã Magicã sculptatã artistic din arin cu o stea în vârf lucratã din foc magic. Poate fi folositã pentru a transforma fiecare Dovleac de Halloween într-un Cufãr de Halloween.
+30322	Oul Baronesei	Acest obiect se poate obþine din Temniþa Baronesei.
 30323	Tichet Jack O`Lantern	Tichetul cu Masca Jack O'Lantern poate fi schimbat la Dovleacul Jack cu o Mascã Jack O'Lantern. Aceastã mascã va înlocui frizura existentã.
-30324	Cheia Arahnidelor	Deschide portile catre Ascunzatoarea Reginei unde isi depune ouale. Foarte fragila, se dezintegreaza dupa 24 de ore. Poate fi folosita doar de catre liderul de grup.
+30324	Cheia Arahnidelor	Deschide porþile cãtre Ascunzãtoarea Reginei unde iºi depune ouãle.
 30325	Cheia Arahnidelor	Deschide portile catre Ascunzatoarea Reginei unde isi depune ouale. Foarte fragila, se dezintegreaza dupa 24 de ore. Poate fi folosita doar de catre liderul de grup.
 30326	Otrava Reginei Pãianjen	Secretul Reginei Pãianjen este necesar fabricãrii Cheii Arahnidelor.
 30327	Fluierul Arahnidelor	Cântecul acestui instrument o atrage pe Baroneasa Pãianjen.
@@ -3020,7 +3022,7 @@
 30334	Voucher Coafurã	Dreapta mouse pe voucher pentru a obþine o coafurã îngrozitor de frumoasã.
 30335	Voucher Armã	Dreapta mouse pe voucher pentru a obþine o armã terifiantã.
 30336	Lanternã Dovleac	Dovleacul Sam este în cãutarea Lanternelor Dovleac. Trage lanternele peste Sam pentru a i le da.
-30337	Seminþe Dovleac	Comori nemaivãzute stau ascunse sub aceste Seminþe de Dovleac.
+30337	Bomba Yang	Din aceastã bombã de yang, aveþi ºansa sã primiþi 2kk, 5kk, 10kk.
 30338	Voucher Coafurã+	Dreapta mouse pe voucher pentru a primi o coafurã îngrozitor de frumoasã ce îþi oferã cel puþin un bonus aleatoriu.
 30339	Voucher Armã+	Dreapta mouse pe voucher pentru a primi un accesoriu îngrozitor pentru arma ta ce îþi oferã cel puþin un bonus aleatoriu.
 30341	Inel Focul Dragonului	O aurã cu o energie intensã te învãluie. Forjat în flãcãrile unui dragon, acest inel va distruge instant statuia din Adãpostul lui Meley.
@@ -3193,19 +3195,19 @@
 31015	Scrisoarea Cpt. Carlig	Un mesaj de la Capitanul Carlig pentru Banshee.
 31016	Scrisoare Lee Chung	Mesaj important de la Comandantul Lee Chung trimis catre Amiralul Angmur
 31017	Scrisoare Sigilata	Scrisoarea se afla in posesia Slujitorului Templului.
-31018	Manuscris Carapax	Aceasta carapace de testoasa cu linii gravate foloseste drept cod.
+31018	Pergamentul Eroilor (Incepator)	Cu ajutorul acestui obiect vã puteþi achiziþiona obiectele necesare pentru îmbunãtãþirea abilitãþilor dvs.
 31019	Praf Carapax	Pudra fabricata din coaja de la carapacea unei broaste testoase.
 31020	Bulb Floare de Stanca	Radacina de Floare de Stanca neutralizeaza otrava din corp.
-31021		
-31022	Armura din Zale Oin	Doar liderul Tritonilor purta aceasta armura rara de zale.
-31023		
-31024	Piele Manticore	Piele groasa de pe aripa unui Martyaxwar.
-31025		
-31026	Armura Crustaceu	Armura protectoare din tribul crustaceelor. Folosita cateodata si ca material de fortificare.
+31021	Eterna Confruntare (1)	Aceastã carte ajutã la creºterea pasivei Eterna Confruntare. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1.
+31022	Pergamentul Eroilor (Avansat)	Cu ajutorul acestui obiect vã puteþi achiziþiona obiectele necesare pentru îmbunãtãþirea abilitãþilor dvs.
+31023	Pergamentul Eroilor (Legendar)	Cu ajutorul acestui obiect vã puteþi achiziþiona obiectele necesare pentru îmbunãtãþirea abilitãþilor dvs.
+31024	Esenta Luptatorului (2)	Aceastã carte ajutã la creºterea pasivei Esenþa Luptãtorului. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
+31025	Cap Diavol	Acest obiect se poate obþine din Temniþa Catacomba Diavolului.
+31026	Forta Vanatorului (3)	Aceastã carte ajutã la creºterea pasivei Forþa Vânãtorului. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
 31027	Nisip Fin	Acest tip de nisip deosebit de fin poate fi folosit ca material de construit.
-31028	Caramida de Lut	Caramida patrata fabricata din clei incalzit.
-31029	Lumina Interioara	Sursa de energie interioara a unui Polyphemos
-31030	Lumina Interioara	Sursa de energie interioara a unui Rege Gigant
+31028	Sufletul Invincibil (4)	Aceastã carte ajutã la creºterea pasivei Sufletul Invincibil. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
+31029	Blestemul Bataliilor (5)	Aceastã carte ajutã la creºterea pasivei Blestemul Bãtãliilor. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
+31030	Rasplata Destinului (6)	Aceastã carte ajutã la creºterea pasivei Rãsplata Destinului. Citeºte aceastã carte ca sã poþi creºte pasiva de la 0 panã la M1. 
 31031	Esenta Eternitatii	Un amestec rezultat din Rãdãcinã de Gango, Ciuperci Tue ºi Trandafir Alpin. Ingrediente importante pentru Perlele Leviatanilor.
 31032	Perla Leviatanului	Capsule reconfortante create din Lumina Interioara a existentei mitice si Esenta Eternitatii.
 31033	Mantia Conducatorului	Aceasta mantie este simbolul invulnerabilitãþii pentru Tâlharii Roºii.
@@ -3218,7 +3220,7 @@
 31040	Medalie de Aur	Acest obiect este medium?
 31041	Fosila	Un amestec de pamant cu praf de oase
 31042	Sulita Triton	Suliþa Triton este un obiect tradiþional folosit de locuitorii unei insule pentru a fortifica apãrarea construcþiilor.
-31043	Tableta Lemurilor	Tabletã misterioasã ºi strãlucitoare cu o inscripþie gravatã.
+31043	Piatra Elementala	Acest obiect este folosit pentru a îmbunãtãþi talismanele, indiferent de element.
 31044		
 31045		
 31046		
@@ -3273,7 +3275,7 @@
 31095		
 31096	Cherestea Finã	Cherestea Finã.
 31097	Rouã En-Tai	En-Tai Dew
-31098	Spiritul Pãmântului	Spiritul Pãmântului
+31098	Floarea Cunoasterii	Cu ajutorul acestei flori puteþi achiziþiona obiectele necesare evoluãrii abilitãþilor.
 31099	Copac Emerald	Copac Emerald
 31100	Kit Ajutor	Kit Ajutor
 31101		
@@ -3374,7 +3376,7 @@
 31220	Mesaj	Un teanc de scrisori galbene. Sunt sigilate.
 31221	Nucleu Spirit Purificat	Acest Nucleu Spirit a fost purificat. Mânuieºte-l cu grijã.
 31222	Vatirul Vulturului	Un tip mare de vatir. Este otrãvitor, nu lãsa mountul sã îl mãnânce.
-31223	Compas Contaminare	Marcheazã þinutul contaminat de pe hartã.
+31223	Lada Puterii	Aceastã ladã vã va oferi diverse obiecte la nivel 30.
 31224	Foi de Oþel Bijuterii	Material folosit pentru îmbunãtãþirea accesoriilor.
 31225	Piatrã Runicã	Material folosit pentru fabricarea mãnuºilor.
 31226	Nucleu Poluat	Emanã energie negativã.
@@ -3532,10 +3534,10 @@
 39045	Cufãrul Lycanilor (L)	Pachet mare cu echipament folositor pentru Lycani.
 39046	Certificat Anulare+	Foloseste Certificatul Anularii pentru a inlatura bonusurile de pe o Esarfa.
 39047	Cufãr Rãzboinic Corp (S)	Pachet cu obiecte de echipament folositoare pentru Rãzboinic Corp.
-39048	Cufãr Rãzboinic Corp (L)	Pachet mare cu obiecte de echipament folositoare pentru Rãzboinic Corp.
-39049	Cufãr Rãzboinic Ment (S)	Pachet cu obiecte de echipament folositoare pentru Rãzboinic Mental.
-39050	Cufãr Rãzboinic Ment (L)	Pachet mare cu obiecte de echipament folositoare pentru Rãzboinic Mental.
-39051	Cufãr Ninja Sabie (S)	Pachet cu obiecte de echipament folositoare pentru Ninja Sabie.
+39048	Manual Razboinic	Acest manual conþine o carte a abilitaþii rãzboinicului.
+39049	Manual Sura	Acest manual conþine o carte a abilitaþii Sura.
+39050	Manual Ninja	Acest manual conþine o carte a abilitaþii Ninja.
+39051	Manual Shaman	Acest manual conþine o carte a abilitaþii Shaman.
 39052	Cufãr Ninja Sabie (L)	Pachet mare cu obiecte de echipament folositoare pentru Ninja Sabie.
 39053	Cufãr Ninja Arc (S)	Pachet mare cu obiecte de echipament folositoare pentru Ninja Arc.
 39054	Cufãr Ninja Arc (L)	Pachet mare cu obiecte de echipament folositoare pentru Ninja Arc.
@@ -5081,7 +5083,7 @@
 50020	Plãcintã de fasole	Veche plãcintã care reface toate punctele de viaþã.
 50021	Plãcintã de zahãr	Veche plãcintã care reface toate punctele de mana.
 50022	Plãcintã de fructe	O veche plãcintã care reface întreaga rezistenþã.
-50023	Tolbã de bani	În ea se aflã o primã de Anul-Nou.
+50023	Tichet Camera Comorilor	Deschide porþile cãtre Dragonul de Aur.
 50024	Trandafir	Floare romanticã folositã pentru a arãta afecþiunea. Doar caracterele feminine pot sã o foloseascã.
 50025	Ciocolata	Produsã din cacao, lapte, unt ºi zahãr. Ciocolata este dãruitã pentru a arãta afecþiunea. Doar caracterele masculine pot sã o foloseascã.
 50027	Loz de loterie	Din pãcate o farsã. Un obiect fãrã de folos.
@@ -5092,6 +5094,9 @@
 50035	Cadou (galben)	Un cadou impachetat in hartie fina.
 50036	Cadou (violet)	Un cadou impachetat in hartie fina.
 50037	cufãr hexagonal p.comori	Realizatã din hârtie specialã. În ea se aflã un cadou ales cu grijã.
+50038	Cufar Dragon de Aur	Acest cufãr se poate obþine din Temniþa Dragonului de Aur.
+50040	Cufar Baroneasa	Acest cufãr se poate obþine din Temniþa Baronesei.
+50041	Cufar Azrael	Acest cufãr se poate obþine din Catacomba Diavolului.
 50043	Cheie Kelpie	O cheie elaboratã ce deschide un Cufãr Kelpie
 50046	Iarba Vieþii	O plantã legendarã pe care cãlãreþii cunoscãtori o pot folosi pentru a-ºi reînvia Caii de Rãzboi Puternici.
 50047	Ginseng Roºu (Premium)	Acest ginseng premium este perfect pentru a hrãni Caii de Rãzboi Puternici.
@@ -5125,6 +5130,7 @@
 50082	Lada îngerului cu coasã	Lada îngerului cu coasã. În ea se aflã ceva de valoare.
 50083	Permis de Cãlãrie	Deschide Permisul de Cãlãrie pentru a primi Tichet de Cãlãrie. De la nivelul 10 poþi sã foloseºti un Ponei.
 50084	Piatra Cheie	O aurã de energie înconjoarã aceasta piatra. Funcþioneazã împotriva sigiliului de magie.
+50090	Cufar Perle	Acest cufãr conþine una dintre cele 3 perle.
 50091	Sushi de peºte auriu	Fãcut din peºte auriu. Meniu deosebit, nu mâncare obiºnuitã.
 50092	Sushi de crap	Fãcut din crap. Meniu deosebit, nu mâncare obiºnuitã.
 50093	Sushi de somon	O mâncare specialã fãcutã din somon si orez rece. Îþi mãreºte valoarea de atac cu 10 puncte pentru 30 de secunde.
@@ -5139,11 +5145,12 @@
 50106	Artificii de Craciun	Artificiile de Craciun sunt mai magnifice decat cele care se lanseaza in mod obisnuit.
 50107	Artificii Chinezeºti	Explodeazã la sol cu un zgomot. | ªansã de necunoºtinþã: 5% | Durata: 10 minute
 50108	Cerc de Artificii	Un Cerc de Artificii realizat manual, pe care copiilor le place sã îl roteascã pentru amuzament. | ªansã de necunoºtinþã: 5% | Durata: 10 minute
+50115	Cufar Inel Exp	Acest cufãr conþine Inelul Experienþei (1h). 
 50118		
 50119		
 50120	Caseta de fier	Recipientul stabil este din Grota Exilului.
-50121	Cutie de fier	Recipientul stabil este din Grota Exilului.
-50122	Lada de fier	Recipientul stabil este din Grota Exilului.
+50121	Cufar Flori	Acest cufãr conþine flori cu ajutorul cãrora puteþi sã vã achiziþionaþi rouã permanentã sau ape.
+50122	Carte Neinsufletita	Aceastã Carte Neînsufleþitã conþine sufletele tuturor monºtrilor.
 50123	Inghetata	Impuls de energie! Aceasta inghetata va mareste viteza de miscare cu 60 timp de 30 minute. Atentie: Reactivarea acestui suport in timp ce este deja activ, se va adauga timpului ramas.
 50124	Casetã putredã din lemn	Din interiorul ei se aud sunete de animal.
 50125	Cufãr Misterios	Acest cufãr este incredibil de usor aproape ca ai spune ca este gol...
@@ -5194,7 +5201,7 @@
 50185		
 50186	Cufãrul lui Azrael	Acest cufãr este þinut încuiat de puterile demonice. Pot fi în el lucruri foarte valoroase.
 50187	Cufãr Ucenic I	Cadoul de bun venit contine un echipament de baza potrivit pentru a putea incepe aventura.
-50188	Cufãr Ucenic II	Acest cufãr se va deschide doar când ai atins nivelul 10.
+50188	Cufar Turnul Demonilor	Acest cufãr se poate obþine din Temniþa Turnul Demonilor.
 50189	Cufãr Ucenic III	Acest cufãr se va deschide doar când ai atins nivelul 20.
 50190	Cufãr Expert I	Acest cufãr se va deschide doar când ai atins nivelul 30.
 50191	Cufãr Expert II	Acest cufãr se va deschide doar când ai atins nivelul 40.
@@ -5224,7 +5231,7 @@
 50263	Pergament Personalizat	Aceasta actiune leaga un obiect la alegere de caracterul tau. Obiectele personalizate nu pot fi negociate, aruncate sau fermecate.
 50264	Pergam. Depersonalizat	Inlatura un obiect personalizat.
 50265	Balon de Aur	Mingea este rotunda si din aur.
-50266	Cufãr Jotun Thrym	Cufãrul Jotun Thrym. Judecând dupã aspectul incuietorii, ceva valoros se ascunde înãuntru.
+50266	Cufãrul îmbunãtãþirii	Cufãrul Jotun Thrym. Judecând dupã aspectul incuietorii, ceva valoros se ascunde înãuntru.
 50267	Cufãr Auriu Okey	Obþine 400 sau mai multe puncte în jocul okey pentru a câºtiga acest premiu. Ai ºansa de a obþine un Magazin Premium Personal (1 Zi).
 50268	Cufãr Argintiu Okey	Obþine între 300 si 399 puncte în jocul okey pentru a câºtiga acest premiu. Ai ºansa de a obþine un Magazin Premium Personal (1 Zi).
 50269	Cufãr Bronz Okey	Obþine 299 puncte sau mai puþin în jocul okey pentru a câºtiga acest premiu.
@@ -5250,7 +5257,7 @@
 50289	Reîncarnare	Reîncarnarea imediatã are loc fãrã întârziere.
 50290	Cufãr Lemn Zonã Rãzboi	Un cufãr cu un conþinut valoros.
 50294	Cufãr Regina Meley	Acest cufãr a fost recuperat din adãpostul Reginei Dragon Meley. Conþine o comoarã valoroasã.
-50296	Cutia Respingerilor	Aceastã cutie conþine 5 Cãrþi de Respingere.
+50296	Cufar Manusa Talharului	Acest cufãr conþine Mãnuºa Tâlharului.
 50297	Cutia Ajutoarelor	Aceastã cutie conþine 5 Cãrþi de Ajutor.
 50298	Lada Respingerilor	Aceastã ladã conþine 5 Cufere cu Cãrti de Respingere.
 50299	Lada Ajutoarelor	Aceastã ladã conþine 5 Cufere cu Cãrti de Ajutor.
@@ -5424,17 +5431,17 @@
 50662	Beril Obscur	Material folosit pentru fabricarea accesoriilor din beril obscur.
 50663	Beril Fumuriu	Material folosit pentru fabricarea accesoriilor din beril fumuriu.
 50664	Beril Cenuºiu	Material folosit pentru fabricarea accesoriilor din beril cenuºiu.
-50701	Floare de piersicã	Mai demult se folosea la producerea unei creme de piele. 	Cercetare
-50702	Floare clopoþel	Aceastã floare este foarte rãspânditã ºi ajutã foarte mult împotriva rãcelii ºi a tusei.	Cercetare
-50703	Floare Kaki	O legendã spune cã dacã o femeie o poartã la gât sub forma unui colier, acea femeie va avea un fiu. 	Cercetare
-50704	Rãdãcinã de Gango	Rãdãcina de Gango are un efect întãritor asupra sistemului imunitar ºi creºte rezistenþa corpului. 	Cercetare
-50705	Liliac	Aceastã plantã creºte puterea de concentrare ºi memoria. 	Cercetare
+50701	Floare galbena	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Cercetare
+50702	Floare Rosie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.	Cercetare
+50703	Floare Albastra	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape.. 	Cercetare
+50704	Floare Portocalie	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Cercetare
+50705	Floare Verde	Cu aceastã Floare galbenã poþi sã achiziþionezi rouã ºi ape. 	Cercetare
 50706	Ciuperci Tue	Folosite rar ca leac, ele alungã insomnia. 	Cercetare
 50707	Trandafir alpin	Aceastã planta intareste sistemul nervos. 	Cercetare
 50708	Dud	Dudele dau putere si prospetime. 	Cercetare
 50709	Gura leului	Gura leului ajutã împotriva durerilor de gât ºi are un gust foarte plãcut.	Cercetare
-50710	Scaiete	Aceastã floare întãreºte sistemul osos. 	Cercetare
-50711	Curmal	Curmalele sunt foarte gustoase ºi animã în corp noi spirite ale vieþii. 	Cercetare
+50710	Gheara Dragon de Aur	Acest obiect se poate obþine din Temniþa Dragon de Aur. 	Cercetare
+50711	Masca Demon	Acest obiect se poate obþine din Temniþa Turnul Demonilor.
 50712	Planta Sam-Zi	Aceastã planta foarte rara are efect întãritor dacã este preparatã corect.	Cercetare
 50721	Floare de piersic	Mai demult se folosea la producerea unei creme de piele. 	Fabricarea Licorilor
 50722	Floare clopoþel	Aceastã floare este foarte rãspânditã ºi ajutã împotriva rãcelii ºi a tusei. 	Fabricarea Licorilor
@@ -5457,11 +5464,11 @@
 50739	Elixir Putere Gol	Un recipient gol necesar pentru a face elixiruri de putere.
 50740	Elixir Rezistenþã Gol	Un recipient gol necesar pentru a face elixiruri de rezistenþã.
 50741	Iarbã Aurie	O plantã extrem de valoroasã necesarã pentru a produce elixiruri foarte puternice.
-50801	Suc de floare de piersic	Sucul de floare de piersic dezvolta abilitatile fizice.
-50802	Suc de Floare Clopotel	Aceasta licoare fãcutã din flori de clopoþel îþi mãreºte puterea cu 5 puncte pentru 3 minute.
-50803	Suc de floare kaki	Sucul de floare kaki întãreºte puterea de concentrare.
-50804	Suc de radacina de Gango	Sucul de radacina de Gango vindeca ranile usoare.
-50805	Suc de liliac	Acesta este un suc de liliac.
+50801	Suc de floare de piersic	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele!	Consumabil
+50802	Suc de Floare Clopotel	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele!	Consumabil
+50803	Suc de floare kaki	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50804	Suc de radacina de Gango	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Consumabil
+50805	Suc de liliac	Acesta este un suc de liliac.	Consumabil
 50806	Rãºinã din ciuperci Tue	Aceasta este o rãºinã din ciuperci Tue.
 50807	Suc de trandafir alpin	Acesta este sucul din trandafir alpin.
 50808	Suc de dud	Acesta este sucul din dude.
@@ -5469,14 +5476,21 @@
 50810	Suc de scaiete	Acesta este sucul din scaiete.
 50811	Extract de curmal	Acesta este sucul din curmale.
 50812	Suc din planta Sam-Zi	Acesta este sucul din planta Sam-Zi
-50813	Apã Sim	O licoare fãcutã din suc de piersici ºi liliac care îþi mãreºte ºansa de loviturã pãtrunzãtoare cu 10%.
-50814	Apa Dok	Licoare fãcutã din suc de floare clopoþel ºi liliac, care îþi mãreºte ºansa cu 10% sa dai o loviturã criticã.
-50815	Apã Bo	Aceastã licoare se face din suc de floare kaki ºi ciuperci Tue. Ea îþi întãreºte creierul.
-50816	Apã Young	Aceastã licoare se face din suc de rãdãcinã de Gango ºi ciuperci Tue. Ea trezeºte noi spirite ale vieþii.
-50817	Apã Zin	Licoare fãcutã din Apa Sim ºi Trandafiri de Munte, care îþi mãreste valoarea atacului cu 50 de puncte pentru 3 minute.
-50818	Apã SamBo	Licoare fãcutã din Apa Dok si Trandafiri de Munte, care îþi mareste apãrarea cu 70 de puncte pentru 3 minute.
-50819	Apa Mong	Licoare fãcutã din Apa Bo ºi Dude, care îþi mãreºte apãrarea magicã cu 10% pentru 3 minute.
-50820	Apã Hwal	Licoare fãcutã din Apa Young si Dude, care îþi mareste viteza de atac cu 3 puncte pentru 3 minute.
+50813	Apã Sim	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50814	Apa Dok	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50815	Apã Bo	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50816	Apã Young	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50817	Apã Zin	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50818	Apã SamBo	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50819	Apa Mong	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50820	Apã Hwal	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Consumabil
+50821	Roua Rosie	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
+50822	Roua Portocalie	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
+50823	Roua Galbena	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
+50824	Roua Verde	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
+50825	Roua Albastra	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
+50826	Roua Alba	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Consumabil.
+50826	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil.
 50830	Elixir Putere Foc	Acest elixir puternic oferã +8-20% Puterea Focului.
 50831	Elixir Putere Gheaþã	Acest elixir puternic oferã +8-20% Puterea Gheþii.
 50832	Elixir Putere Tunet	Acest elixir puternic oferã +8-20% Puterea Fulgerului.
@@ -5534,7 +5548,7 @@
 50939	Cufãr Profet Albastru	Conþine 21 Cãrþi de Tarot pentru Duelul Profeþilor.
 50940	Cufãr Profet Roz	Conþine 5 Cãrþi de Tarot pentru Duelul Profeþilor.
 51001	Fragment de Energie	Fragment pentru un Cristal de Energie. 30 de bucati pot fi topite si unite intr-un cristal.
-51002	Cristal de Energie	Cristalul iti mareste bonusurile pentru doua ore.
+51002	Cristal de Energie	Cristalul îþi mãreºte bonusurile pentru douã ore.
 51501	Cor Draconis (Brut)	Cristalul Inima de Dragon contine o Piatra Dragon aleatoare din clasa bruta.
 51502	Cor Draconis (Brut)	Cristalul Inima de Dragon contine o Piatra Dragon aleatoare din clasa bruta.
 51503	Cor Draconis (Normal)	Cristal Inima de Dragon. Rang: normal. Contine o Piatra Dragon mat din clasa brut catre taiat.
@@ -5953,7 +5967,7 @@
 53339	Pisicã Albã Angora	Acest sigiliu îþi permite sã chemi o Pisicã Albã Angora. Îþi oferã | +1500 PV | +10% ratã de drop obiecte
 53340	Pisicã Maro Angora	Acest sigiliu îþi permite sã chemi o Pisicã Maro Angora. Îþi oferã: | +1500 PV | +5% ºansã de drop dublu Yang
 53341	Pisicuþã Angora	Acest sigiliu îþi permite sã chemi o Pisicuþã Angora.
-53501	Cuºcã Phoenix de Foc	Phoenix de Foc aºteaptã în cuºcã pentru a fi eliberat.
+53501	Iarba Maimutei	Deschide porþile cãtre Camera Maimuþei.
 53502	Cufãr Ren Tânãr	Renul Tânãr aºteaptã nerãbdãtor în cufãr pentru a-l lãsa sã iasã.
 53503	Cuºcã Phoenix de Gheaþã	Phoenix de Gheaþã te aºteaptã în colivia sa pentru a-l elibera.
 53504		
@@ -6419,7 +6433,7 @@
 71126	Lup de Luptã	Îmblânzirea spiritelor animalelor malefice necesitã ablitãþi magice însã, rezultatele pot fi uimitoare. Acesta mãreºte ºansa de loviturã criticã cu 10%.
 71127	Tigrul Furtunii	Îmblânzirea spiritelor animalelor malefice necesitã ablitãþi magice însã, rezultatele pot fi uimitoare. Acesta mãreºte ºansa de loviturã criticã cu 10%.
 71128	Leul Luptãtor	Îmblânzirea spiritelor animalelor malefice necesitã ablitãþi magice însã, rezultatele pot fi uimitoare. Reduce cu 10% daunele primite atunci când te aperi.
-71129	Ghearele Dragonului	Aspectul acestor gheare terifiante, re-aduc amintiri....
+71129	Gheara si Balanta Dragon	Aspectul acestor gheare terifiante, re-aduc amintiri....
 71130	Permis de Trecere	Dacã dai acest permis de trecere gardianului corespunzãtor, vei putea intra la un nou nivel al temniþei selectate. Obiectul se poate negocia.
 71131	Cal Negru	Sigiliu pentru un Cal Negru Nobil. Creºte viteza de miºcare cu 60.
 71132	Cal Negru	Sigiliu pentru un Cal Negru Nobil. Creºte viteza de miºcare cu 60.
@@ -6458,8 +6472,8 @@
 71171	Unicorn	Poþi folosi acest sigiliu pentru a-l chema pe Unicorn. Creºte viteza de miºcare cu 60.
 71172	Vis Urât	Poþi folosi acest sigiliu pentru a-l chema pe Vis Urât. Creºte viteza de miºcare cu 60.
 71173	Pergament Teleportare	Pergamentul te transportã direct la porþile Fortãreþei Dragonului Roºu.
-71174	Permis de Trecere	Poþi intra în Fortãreaþa Dragonului Roºu dacã arãþi gardianului Permisul de Trecere.
-71175	Permis de Trecere	Poþi intra în Fortãreaþa Dragonului Roºu dacã arãþi gardianului Permisul de Trecere.
+71174	Permis de trecere Razador	Poþi intra în fortãreaþa Razador dacã arãþi gardianului Permisul de trecere.
+71175	Permis de trecere Nemere	Poþi intra în fortãreaþa Nemere dacã arãþi gardianului Permisul de trecere.
 71176	Pantera Neagra	Poþi folosi acest sigiliu pentru a chema Pantera Neagrã misterioasã. Creºte viteza de miºcare cu 30.
 71177	Leopard	Poþi folosi acest sigiliu pentru a-l chema pe Leopardul curajos. Creºte viteza de miºcare cu 30.
 71178	Enciclopedie Lunarã (S)	Pachetul conþine 10 manuale de învãþare a abilitãþilor, alese aleatoriu, pentru Lycani.
@@ -6660,8 +6674,8 @@
 72346	Orison	Eliminã bonusurile unui obiect ºi adaugã altele noi. Se aplicã doar la bonusurile 6 ºi 7.
 72347	Spiralã Timp (10%)	Reduce timpul de aºteptare cu 10% înainte de a putea preda încã un obiect de misiune celui care þi-a dat misiunea (ex. pentru misiuni biolog).
 72348	Spiralã Timp (20%)	Reduce timpul de aºteptare cu 20% înainte de a putea preda încã un obiect de misiune celui care þi-a dat misiunea (ex. pentru misiuni biolog).
-72349	Spiralã Timp (30%)	Reduce timpul de aºteptare cu 30% înainte de a putea preda încã un obiect de misiune celui care þi-a dat misiunea (ex. pentru misiuni biolog).
-72350	Pergament Cercetare	Reseteazã misiunea "Cercetarea lui Seon-Pyeong" pentru nivelul 92 sau 94, astfel încât sã o poþi completa încã o datã. De asemenea, se aplicã pentru misiunile pe noul continent din Yohara.
+72349	Elixirul Explorarii	Elixirul îmbunãtãþeºte calitatea obiectelor cercetate pe care le-ai colectat, crescând probabilitatea acceptãrii lor.
+72350	Elixirul Timpului	Cu ajutorul acestui obiect poþi sãri peste timpul de asteptare a misiunii Biologului.
 72351	Orison Mic	Oferã o micã ºansã de a schimba un bonus de 6 sau 7.
 72352	Brevet Mãnuºi	Îþi permite imediat sã echipezi mãnuºile.
 72353	Voinþã Topaz	Material folosit pentru îmbunãtãþirea talismanelor de voinþã.
@@ -7429,6 +7443,21 @@
 91057	Manny (folosit 1x)	Poþi sã foloseºti acest sigiliu pentru a-þi chema puternicul mamut.
 91058	Dragon Rubin(folosit 1x)	Poþi sã foloseºti acest sigiliu pentru a-þi chema dragonul rubiniu.
 91059	Rezistenþã Infinitã	Nu vei pierde nicio rezistenþã în timpul Bãtãliei Roiale. | Foloseºte 1 pentru a primi ajutorul atunci când intri în Bãtãlia Roialã.
+939017	Viata Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
+939018	Atacul Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
+939019	Inteligenta Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
+939020	Apararea Zeului Dragon	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
+939024	Lovitura Critica	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
+939025	Lovitura Patrunzatoare	Foloseºte acest simbol puternic pentru a-þi creºte forþele! 	Activabil, Permanent
+950821	Roua Rosie Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele!	Activabil, Permanent
+950822	Roua Portocalie Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
+950823	Roua Galbena Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
+950824	Roua Verde Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
+950825	Roua Albastra Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
+950826	Roua Alba Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! 	Activabil, Permanent
+951002	Cristal de Energie Permanent	Cristalul îþi mãreºte bonusurile.	 Consumabil
+927209	Potiune Verde Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil. Creºte viteza miºcãrii cu +10.	Activabil, Permanent
+927212	Potiune Mov Permanenta	Foloseºte aceastã poþiune puternicã pentru a-þi creºte forþele! Obiect activabil, consumabil. Creºte viteza atacului cu +10.	Activabil, Permanent
 100000	Elixirul Timpului (S)	Umple timpul unei Pietre Dragon.
 100001	Elixirul Timpului (M)	Umple timpul unei Pietre Dragon.
 100002	Elixirul Timpului (L)	Umple timpul unei Pietre Dragon.
