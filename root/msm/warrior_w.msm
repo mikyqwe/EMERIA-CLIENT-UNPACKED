@@ -1622,6 +1622,15 @@ Group HairData
 		SourceSkin			"plechito_tex_w.dds"
 		TargetSkin			"plechito_tex_w.dds"
 	}
+
+	Group HairData201
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/halfmoon_mage/hair/"
+		HairIndex			581
+		Model				"warrior_w.GR2"
+		SourceSkin			"plechito_tex_w.dds"
+		TargetSkin			"plechito_tex_w.dds"
+	}
 }
 
 Group ShapeData
@@ -3613,7 +3622,14 @@ Group ShapeData
 		TargetSkin			"plechito_tex_w_w.dds"
 	}
 
-}
+	Group ShapeData243
+	{
+		SpecialPath			"d:/ymir work/pc/plechito/halfmoon_mage/"
+		ShapeIndex			41835
+		Model				"warrior_w.GR2"	
+		SourceSkin			"plechito_tex_w_w.dds"
+		TargetSkin			"plechito_tex_w_w.dds"
+	}}
 
 Group AttachingData
 {
