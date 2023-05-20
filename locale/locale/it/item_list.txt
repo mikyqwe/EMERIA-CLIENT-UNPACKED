@@ -11415,6 +11415,18 @@
 86062	WING	icon/item/86062.tga	d:/ymir work/item/wing/acce_valentine_2020_2.gr2
 86063	WING	icon/item/86063.tga	d:/ymir work/item/wing/acce_valentine_2020_3.gr2
 86064	WING	icon/item/86064.tga	d:/ymir work/item/wing/acce_valentine_2020_4.gr2
+86069	WING	icon/item/86069.tga	d:/ymir work/item/wing/acce_01_85_001alb.gr2
+86070	WING	icon/item/86070.tga	d:/ymir work/item/wing/acce_01_85_002alb.gr2
+86071	WING	icon/item/86071.tga	d:/ymir work/item/wing/acce_01_85_003alb.gr2
+86072	WING	icon/item/86072.tga	d:/ymir work/item/wing/acce_01_85_004alb.gr2
+86073	WING	icon/item/86073.tga	d:/ymir work/item/wing/acce_01_85_001G.gr2
+86074	WING	icon/item/86074.tga	d:/ymir work/item/wing/acce_01_85_002G.gr2
+86075	WING	icon/item/86075.tga	d:/ymir work/item/wing/acce_01_85_003G.gr2
+86076	WING	icon/item/86076.tga	d:/ymir work/item/wing/acce_01_85_004G.gr2
+86077	WING	icon/item/86077.tga	d:/ymir work/item/wing/acce_01_85_001GRI.gr2
+86078	WING	icon/item/86078.tga	d:/ymir work/item/wing/acce_01_85_002GRI.gr2
+86079	WING	icon/item/86079.tga	d:/ymir work/item/wing/acce_01_85_003GRI.gr2
+86080	WING	icon/item/86080.tga	d:/ymir work/item/wing/acce_01_85_004GRI.gr2
 90000	ETC	icon/item/90000.tga
 90008	ETC	icon/item/70010.tga
 90009	ETC	icon/item/90009.tga
