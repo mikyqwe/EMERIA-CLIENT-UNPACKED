@@ -2981,8 +2981,8 @@
 30262	Fãrâmã Spirit Luminã	Un fragment de Spirit Luminã care poate adãuga sau creºte durata unui bonus relicvã.
 30263	Fãrâmã Spirit Relicvã	Un fragment de Spirit Relicvã care aplicã un bonus relicvã.
 30264	Tratament	Poþi salva sãtenii.
-30265	Pergament Echipament (Incepator)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mic.
-30266	Pergament Echipament (Avansat)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mare.
+30265	Pergament Echipament (Avansat)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mare.
+30266	Pergament Echipament (Incepator)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mic.
 30267	Bucata de Medalie (3)	Acest obiect se poate folosi pentru achiziþionarea armelor, armurilor, accesoriilor ºi obiecte upgrade de nivel mic.
 30268	Bucata de Medalie (4)	Al patrulea fragment al Medaliei Eroilor
 30269	Bucata de Medalie (5)	Al cincilea fragment al Medaliei Eroilor
