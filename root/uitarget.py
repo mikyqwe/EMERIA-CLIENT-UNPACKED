@@ -290,7 +290,6 @@ class TargetBoard(ui.ThinBoard):
 							itemListBox.SetScrollBar(itemScrollBar)
 				else:
 					self.AppendTextLine(localeInfo.TARGET_INFO_NO_ITEM_TEXT)
-					chat.AppendChat(3, "02")
 
 			def AppendTextLine(self, text):
 				textLine = ui.TextLine()
@@ -337,7 +336,6 @@ class TargetBoard(ui.ThinBoard):
 					myItem.SetText("%dx %s" % (count, itemName))
 
 				myItem.SetRarity(rarity)
-
 
 				myItem.SAFE_SetOverInEvent(self.OnShowItemTooltip, vnum)
 				myItem.SAFE_SetOverOutEvent(self.OnHideItemTooltip)

@@ -1884,7 +1884,7 @@ class GameWindow(ui.ScriptWindow):
 	# END_OF_WEDDING
 
 	if app.ENABLE_SEND_TARGET_INFO:
-		def BINARY_AddTargetMonsterDropInfo(self, raceNum, itemVnum, itemCount, rarity = 0):
+		def BINARY_AddTargetMonsterDropInfo(self, raceNum, itemVnum, itemCount, rarity):
 			if not raceNum in constInfo.MONSTER_INFO_DATA:
 				constInfo.MONSTER_INFO_DATA.update({raceNum : {}})
 				constInfo.MONSTER_INFO_DATA[raceNum].update({"items" : []})
