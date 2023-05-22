@@ -244,7 +244,7 @@ window = {
 										{"index": COSTUME_START_INDEX+1, "x": 108-52+7, "y": 6+45-11, "width": 32, "height": 32 },#costume_hair
 										{"index": COSTUME_START_INDEX+3, "x": 108+3, "y": 114-102+20, "width": 32, "height": 32 },#sash
 										{"index": COSTUME_START_INDEX+2, "x": 108+3, "y": 114-102+76, "width": 32, "height": 32 },#mount
-										{"index": COSTUME_START_INDEX+4, "x": 108+3, "y": 114-102+112, "width": 32, "height": 32 },#pet
+										{"index": 217, "x": 108+3, "y": 114-102+112, "width": 32, "height": 32 },#pet
 									
 										{"index":COSTUME_START_INDEX+5, "x":13, "y":13+58-9, "width":32, "height":32},#weapon costume
 									
