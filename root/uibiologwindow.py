@@ -60,8 +60,8 @@ class BiologWindow(ui.ScriptWindow):
 			self.GetChild("ItemSlotReset").SetOverOutItemEvent(ui.__mem_func__(self.OverOutItem))
 
 
-			self.GetChild("ToggleReset").SetToggleDownEvent(lambda arg=1: self.SetToggleReset(arg))
-			self.GetChild("ToggleReset").SetToggleUpEvent(lambda arg=0: self.SetToggleReset(arg))		
+			self.GetChild("ToggleReset").SetToggleDownEvent(lambda arg=1: self.SetToggleResetDown(arg))
+			self.GetChild("ToggleReset").SetToggleUpEvent(lambda arg=0: self.SetToggleResetUp(arg))		
 
 			self.GetChild("ToggleChance").SetToggleDownEvent(lambda arg=1: self.SetTogglePercentage(arg))
 			self.GetChild("ToggleChance").SetToggleUpEvent(lambda arg=0: self.SetTogglePercentage(arg))
@@ -230,7 +230,16 @@ class BiologWindow(ui.ScriptWindow):
 	def SendDeliverArg(self, arg):
 		biolog.SendBiolog(biolog.DELIVER, arg, self.resetBiolog, self.succesPercentage)
 
-	def SetToggleReset(self, state):
+	def SetToggleResetDown(self, state):
+		realCooldown = self.secondsCoolDown - app.GetGlobalTimeStamp()
+		if realCooldown > 0:
+			chat.AppendChat(3, "Trebuie resetat din inventar!")
+			self.GetChild("ToggleReset").SetUp()
+			return
+		
+		self.resetBiolog = state
+
+	def SetToggleResetUp(self, state):
 		self.resetBiolog = state
 
 	def SetTogglePercentage(self, state):

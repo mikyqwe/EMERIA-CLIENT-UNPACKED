@@ -1180,38 +1180,34 @@ class DragonSoulRefineWindow(ui.ScriptWindow):
 		return ds_type * 10000 + grade * 1000 + step * 100 + strength * 10
 
 	def __SelectRefineEmptySlot(self, selectedSlotPos):
-		try:
-			if constInfo.GET_ITEM_QUESTION_DIALOG_STATUS() == 1:
+
+		if constInfo.GET_ITEM_QUESTION_DIALOG_STATUS() == 1:
+			return
+
+		if selectedSlotPos >= self.refineSlotLockStartIndex:
+			return
+
+		if mouseModule.mouseController.isAttached():
+			attachedSlotType = mouseModule.mouseController.GetAttachedType()
+			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
+			attachedItemCount = mouseModule.mouseController.GetAttachedItemCount()
+			attachedItemIndex = mouseModule.mouseController.GetAttachedItemIndex()
+			mouseModule.mouseController.DeattachObject()
+
+			if uiPrivateShopBuilder.IsBuildingPrivateShop():
+				chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.MOVE_ITEM_FAILURE_PRIVATE_SHOP)
 				return
 
-			if selectedSlotPos >= self.refineSlotLockStartIndex:
+			attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
+
+			if player.INVENTORY == attachedInvenType and player.IsEquipmentSlot(attachedSlotPos):
 				return
 
-			if mouseModule.mouseController.isAttached():
-				attachedSlotType = mouseModule.mouseController.GetAttachedType()
-				attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
-				attachedItemCount = mouseModule.mouseController.GetAttachedItemCount()
-				attachedItemIndex = mouseModule.mouseController.GetAttachedItemIndex()
-				mouseModule.mouseController.DeattachObject()
+			if player.INVENTORY != attachedInvenType and player.DRAGON_SOUL_INVENTORY != attachedInvenType:
+				return
 
-				if uiPrivateShopBuilder.IsBuildingPrivateShop():
-					chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.MOVE_ITEM_FAILURE_PRIVATE_SHOP)
-					return
-
-				attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
-
-				if player.INVENTORY == attachedInvenType and player.IsEquipmentSlot(attachedSlotPos):
-					return
-
-				if player.INVENTORY != attachedInvenType and player.DRAGON_SOUL_INVENTORY != attachedInvenType:
-					return
-
-				if True == self.__SetItem((attachedInvenType, attachedSlotPos), selectedSlotPos, attachedItemCount):
-					self.Refresh()
-
-		except Exception, e:
-			import dbg
-			dbg.TraceError("Exception : __SelectRefineEmptySlot, %s" % e)
+			if True == self.__SetItem((attachedInvenType, attachedSlotPos), selectedSlotPos, attachedItemCount):
+				self.Refresh()
 
 	def __SelectRefineItemSlot(self, selectedSlotPos):
 		if constInfo.GET_ITEM_QUESTION_DIALOG_STATUS() == 1:
