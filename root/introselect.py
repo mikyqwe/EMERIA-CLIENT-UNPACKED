@@ -619,6 +619,8 @@ class SelectCharacterWindow(ui.Window):
 		
 		if musicInfo.selectMusic != "":
 			snd.FadeLimitOutMusic("BGM/"+musicInfo.selectMusic, systemSetting.GetMusicVolume()*0.05)
+
+		constInfo.INTROSELECT_LOGIN = True
 		
 		self.btnStart.SetUp()
 		self.btnCreate.SetUp()

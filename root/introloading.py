@@ -126,13 +126,14 @@ class LoadingWindow(ui.ScriptWindow):
 			self.loadingAniImage = self.GetChild("AnimBackGround")
 		except:
 			pass
-		self.loadingImage.Hide()
-		self.loadingAniImage.Hide()
-
-
-		self.loadingImage.Hide()
-		self.loadingAniImage.Show()
-
+		
+		if constInfo.INTROSELECT_LOGIN:
+			self.loadingAniImage.Hide()
+			self.loadingImage.Show()
+			constInfo.INTROSELECT_LOGIN = False
+		else:
+			self.loadingImage.Hide()
+			self.loadingAniImage.Show()
 
 		net.SendSelectCharacterPacket(self.stream.GetCharacterSlot())
 		app.SetFrameSkip(0)
