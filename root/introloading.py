@@ -70,9 +70,6 @@ def __main__():
 		
 	## RegisterEmotionIcon	
 	emotion.RegisterEmotionIcons()
-	
-	#if app.ENABLE_SPECIAL_STATS_SYSTEM:
-	#	talenti.RegisterSpecialStasIcons()
 		
 	## RegisterDungeonMapName	
 	dungeonMapNameList = ("metin2_map_spiderdungeon", "metin2_map_monkeydungeon", "metin2_map_monkeydungeon_02", "metin2_map_monkeydungeon_03", "metin2_map_deviltower1")

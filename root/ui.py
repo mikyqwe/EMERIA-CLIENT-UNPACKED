@@ -2656,18 +2656,6 @@ class SlotWindow(Window):
 
 		wndMgr.SetSlot(self.hWnd, renderingSlotNumber, skillIndex, 1, 1, skillIcon)
 
-	if app.ENABLE_SPECIAL_STATS_SYSTEM:
-		
-		def SetSpecialStatSlot(self, renderingSlotNumber, specialStatIndex):
-			import player
-			icon = player.GetSpecialStatIconImage(specialStatIndex)
-
-			if 0 == icon:
-				wndMgr.ClearSlot(self.hWnd, renderingSlotNumber)
-				return
-
-			wndMgr.SetSlot(self.hWnd, renderingSlotNumber, renderingSlotNumber, 1, 1, icon)
-
 	def SetEmotionSlot(self, renderingSlotNumber, emotionIndex):
 		import player
 		icon = player.GetEmotionIconImage(emotionIndex)

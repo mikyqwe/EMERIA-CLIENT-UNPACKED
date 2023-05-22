@@ -19,8 +19,7 @@ if app.ENABLE_NEW_DETAILS_GUI:
 	import uiCharacterDetails
 if app.ENABLE_QUEST_RENEWAL:
 	import math, uiQuest
-if app.ENABLE_SPECIAL_STATS_SYSTEM:
-	import talenti
+
 import chr
 import playerLoad
 SHOW_ONLY_ACTIVE_SKILL = FALSE
@@ -218,17 +217,12 @@ class CharacterWindow(ui.ScriptWindow):
 			self.questLastTimeList = None
 			self.questLastCountList = None
 		self.skillGroupButton = ()
-		self.skillGroupButtonP = ()
 
 		self.activeSlot = None
 		self.activeSkillPointValue = None
 		self.supportSkillPointValue = None
 		self.skillGroupButton1 = None
 		self.skillGroupButton2 = None
-		self.skillGroupButton3 = None
-		self.skillGroupButtonP1 = None
-		self.skillGroupButtonP2 = None
-		self.skillGroupButtonP3 = None
 		self.activeSkillGroupName = None
 
 		self.guildNameSlot = None
@@ -244,11 +238,6 @@ class CharacterWindow(ui.ScriptWindow):
 			self.emotionTimeIdx = 0
 			self.specialEmotionList = []
 			self.specialEmotionListTime = {}
-		
-		if app.ENABLE_SPECIAL_STATS_SYSTEM:
-			self.talentiSlotGrid = None
-			self.talentiSlotGridInfo = None
-			self.talentToolTip = None
 
 	def Show(self):
 		self.__LoadWindow()
@@ -290,10 +279,6 @@ class CharacterWindow(ui.ScriptWindow):
 		self.supportSkillPointValue = self.GetChild("Support_Skill_Point_Value")
 		self.skillGroupButton1 = self.GetChild("Skill_Group_Button_1")
 		self.skillGroupButton2 = self.GetChild("Skill_Group_Button_2")
-		self.skillGroupButton3 = self.GetChild("Skill_Group_Button_3")
-		self.skillGroupButtonP1 = self.GetChild("Skill_Group_Button_1_P")
-		self.skillGroupButtonP2 = self.GetChild("Skill_Group_Button_2_P")
-		self.skillGroupButtonP3 = self.GetChild("Skill_Group_Button_3_P")
 		self.activeSkillGroupName = self.GetChild("Active_Skill_Group_Name")
 		if app.ENABLE_QUEST_RENEWAL:
 			self.questScrollBar = self.GetChild("Quest_ScrollBar")
@@ -302,66 +287,33 @@ class CharacterWindow(ui.ScriptWindow):
 			self.quest_page_board_window = self.GetChild("quest_page_board_window")
 			self.quest_object_board_window = self.GetChild("quest_object_board_window")		
 				
-		if app.ENABLE_SPECIAL_STATS_SYSTEM:
-			self.tabDict = {
-				"STATUS"	: self.GetChild("Tab_01"),
-				"SKILL"		: self.GetChild("Tab_02"),
-				"EMOTICON"	: self.GetChild("Tab_03"),
-				"QUEST"		: self.GetChild("Tab_04"),
-				# "TALENTI"	: self.GetChild("Tab_05"),
-			}
+		self.tabDict = {
+			"STATUS"	: self.GetChild("Tab_01"),
+			"SKILL"		: self.GetChild("Tab_02"),
+			"EMOTICON"	: self.GetChild("Tab_03"),
+			"QUEST"		: self.GetChild("Tab_04"),
+		}
 
-			self.tabButtonDict = {
-				"STATUS"	: self.GetChild("Tab_Button_01"),
-				"SKILL"		: self.GetChild("Tab_Button_02"),
-				"EMOTICON"	: self.GetChild("Tab_Button_03"),
-				"QUEST"		: self.GetChild("Tab_Button_04"),
-				# "TALENTI"	: self.GetChild("Tab_Button_05"),
-			}
+		self.tabButtonDict = {
+			"STATUS"	: self.GetChild("Tab_Button_01"),
+			"SKILL"		: self.GetChild("Tab_Button_02"),
+			"EMOTICON"	: self.GetChild("Tab_Button_03"),
+			"QUEST"		: self.GetChild("Tab_Button_04"),
+		}
 
-			self.pageDict = {
-				"STATUS"	: self.GetChild("Character_Page"),
-				"SKILL"		: self.GetChild("Skill_Page"),
-				"EMOTICON"	: self.GetChild("Emoticon_Page"),
-				"QUEST"		: self.GetChild("Quest_Page"),
-				"TALENTI"	: self.GetChild("Talenti_Page"),
-			}
+		self.pageDict = {
+			"STATUS"	: self.GetChild("Character_Page"),
+			"SKILL"		: self.GetChild("Skill_Page"),
+			"EMOTICON"	: self.GetChild("Emoticon_Page"),
+			"QUEST"		: self.GetChild("Quest_Page"),
+		}
 
-			self.titleBarDict = {
-				"STATUS"	: self.GetChild("Character_TitleBar"),
-				"SKILL"		: self.GetChild("Skill_TitleBar"),
-				"EMOTICON"	: self.GetChild("Emoticon_TitleBar"),
-				"QUEST"		: self.GetChild("Quest_TitleBar"),
-				"TALENTI"	: self.GetChild("Talenti_TitleBar"),
-			}
-		else:
-			self.tabDict = {
-				"STATUS"	: self.GetChild("Tab_01"),
-				"SKILL"		: self.GetChild("Tab_02"),
-				"EMOTICON"	: self.GetChild("Tab_03"),
-				"QUEST"		: self.GetChild("Tab_04"),
-			}
-
-			self.tabButtonDict = {
-				"STATUS"	: self.GetChild("Tab_Button_01"),
-				"SKILL"		: self.GetChild("Tab_Button_02"),
-				"EMOTICON"	: self.GetChild("Tab_Button_03"),
-				"QUEST"		: self.GetChild("Tab_Button_04"),
-			}
-
-			self.pageDict = {
-				"STATUS"	: self.GetChild("Character_Page"),
-				"SKILL"		: self.GetChild("Skill_Page"),
-				"EMOTICON"	: self.GetChild("Emoticon_Page"),
-				"QUEST"		: self.GetChild("Quest_Page"),
-			}
-
-			self.titleBarDict = {
-				"STATUS"	: self.GetChild("Character_TitleBar"),
-				"SKILL"		: self.GetChild("Skill_TitleBar"),
-				"EMOTICON"	: self.GetChild("Emoticon_TitleBar"),
-				"QUEST"		: self.GetChild("Quest_TitleBar"),
-			}
+		self.titleBarDict = {
+			"STATUS"	: self.GetChild("Character_TitleBar"),
+			"SKILL"		: self.GetChild("Skill_TitleBar"),
+			"EMOTICON"	: self.GetChild("Emoticon_TitleBar"),
+			"QUEST"		: self.GetChild("Quest_TitleBar"),
+		}
 
 		self.statusPlusButtonDict = {
 			"HTH"		: self.GetChild("HTH_Plus"),
@@ -401,29 +353,6 @@ class CharacterWindow(ui.ScriptWindow):
 			self.GetChild("Skill_Group_Button_2"),
 			# self.GetChild("Skill_Group_Button_3"),
 		)
-		
-		self.skillGroupButtonP = (
-			self.GetChild("Skill_Group_Button_1_P"),
-			self.GetChild("Skill_Group_Button_2_P"),
-			# self.GetChild("Skill_Group_Button_3_P"),
-		)
-
-		
-		
-		if app.ENABLE_SPECIAL_STATS_SYSTEM:
-			## Talenti
-			self.talentiSlotGrid = self.GetChild("SkillTalentiSlot")
-			self.talentiSlotGridInfo = self.GetChild("TalentiInfoSlot")
-			self.talentiLongDescT = self.GetChild("talento_tld")
-			self.talentiLongDesc = self.GetChild("talento_ld")
-			self.talentiLongDescSlot = self.GetChild("TalentiInfoSlot")
-			self.talentiPrevButton = self.GetChild("talenti_prev_button")
-			self.talentiNextButton = self.GetChild("talenti_next_button")
-			self.talentiLongDescIndex = 0
-			
-			self.__SetTalentiSlot()
-			
-			##End Talenti
 
 		global SHOW_ONLY_ACTIVE_SKILL
 		global HIDE_SUPPORT_SKILL_POINT
@@ -483,118 +412,9 @@ class CharacterWindow(ui.ScriptWindow):
 		if app.ENABLE_ANTI_EXP:
 			self.GetChild("AntiExp").SetEvent(ui.__mem_func__(self.__ClickAntiExp))
 
-		self.skillGroupButton3.SetEvent(ui.__mem_func__(self.__ClickPerksButton))
-
-		for i in xrange(len(self.skillGroupButtonP)):
-			self.skillGroupButtonP[i].SetEvent(lambda arg=i: self.__SelectSkillGroup_P(arg))
-
 	if app.ENABLE_ANTI_EXP:
 		def __ClickAntiExp(self):
-			net.SendChatPacket("/anti_exp")
-
-	if app.ENABLE_SPECIAL_STATS_SYSTEM:
-		def __SelectSkillGroup_P(self, arg):
-			self.__SelectSkillGroup(arg)
-			self.SetState("SKILL")
-
-		def __ClickPerksButton(self):
-			self.SetState("TALENTI")
-
-			for btn in self.skillGroupButton:
-				btn.SetUp()
-			for btn_2 in self.skillGroupButtonP:
-				btn_2.SetUp()
-			self.skillGroupButton3.Down()
-			self.skillGroupButtonP3.Down()
-			self.curSelectedSkillGroup = 3
-
-		def __SetTalentiSlot(self):
-			
-			self.talentToolTip = uiToolTip.SpecialStatsToolTip()
-			
-			slot = self.talentiSlotGrid
-			slot.SetSlotStyle(wndMgr.SLOT_STYLE_NONE)
-			slot.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectTalento))
-			slot.SetOverInItemEvent(ui.__mem_func__(self.__OverInSpecialStat))
-			slot.SetOverOutItemEvent(ui.__mem_func__(self.__OverOutSpecialStat))
-			slot.AppendSlotButton("d:/ymir work/ui/game/windows/btn_plus_up.sub",\
-											"d:/ymir work/ui/game/windows/btn_plus_over.sub",\
-											"d:/ymir work/ui/game/windows/btn_plus_down.sub")
-												
-			for slotIdx, datadict in talenti.SPECIALSTATS_DICT.items():
-				slot.SetSpecialStatSlot(slotIdx, slotIdx)
-				slot.SetSlotCountNew(slotIdx, 0, 0)
-				slot.SetCoverButton(slotIdx)
-				
-				
-			####Long Desc
-			
-			slot = self.talentiLongDescSlot
-			slot.SetSlotStyle(wndMgr.SLOT_STYLE_NONE)
-			
-			self.talentiPrevButton.SetEvent(ui.__mem_func__(self.OnPrevTalentInfo))
-			self.talentiNextButton.SetEvent(ui.__mem_func__(self.OnNextTalentInfo))
-			
-			self.UpdateTalentInfo(self.talentiLongDescIndex+1)
-			
-		
-
-		def OnSelectTalento(self, slotIndex):
-			self.talentiLongDescIndex = slotIndex-1
-			self.UpdateTalentInfo(slotIndex)
-		
-		def UpdateTalentInfo(self, page):
-			self.talentiLongDescT.SetText(talenti.SPECIALSTATS_DICT[page]["name"])
-			self.talentiLongDesc.ClearAll()
-			self.talentiLongDesc.SetText(talenti.SPECIALSTATS_DICT[page]["longdesc"])
-			self.talentiLongDescSlot.ClearSlot(1)
-			self.talentiLongDescSlot.SetSpecialStatSlot(1, page)
-			self.talentiLongDescSlot.SetCoverButton(1)
-		
-		def OnNextTalentInfo(self):
-			self.talentiLongDescIndex += 1
-			nextPage = self.talentiLongDescIndex % 6
-			self.UpdateTalentInfo(nextPage+1)
-			
-		def OnPrevTalentInfo(self):
-			if(self.talentiLongDescIndex == 0):
-				self.talentiLongDescIndex = 6
-			self.talentiLongDescIndex -= 1
-			prevPage = self.talentiLongDescIndex % 6
-			self.UpdateTalentInfo(prevPage+1)
-				
-		def RefreshTalentSlot(self, slotIndex, level):
-		
-			self.talentToolTip.UpdateSkillLevel(slotIndex, level)
-			
-			slot = self.talentiSlotGrid
-			slot.ClearSlot(slotIndex)
-			slot.SetSpecialStatSlot(slotIndex, slotIndex)
-			slot.SetSlotCountNew(slotIndex, 0, level)
-			slot.SetCoverButton(slotIndex)
-	
-	
-		def __OverInSpecialStat(self, slotIndex):
-			if not slotIndex in talenti.SPECIALSTATS_DICT:
-				return
-				
-			self.talentToolTip.ClearToolTip()
-			self.talentToolTip.SetTitle(talenti.SPECIALSTATS_DICT[slotIndex]["name"])
-			self.talentToolTip.AppendSkillLevel(slotIndex)
-			
-			talentoLevel = self.talentToolTip.GetStatLevel(slotIndex)
-			
-			self.talentToolTip.AppendSkillDesc((talenti.SPECIALSTATS_DICT[slotIndex]["desc"] % (talenti.getParamInfo(slotIndex, talentoLevel))))
-			if talentoLevel < 10:
-				self.talentToolTip.AppendSkillDesc((talenti.SPECIALSTATS_DICT[slotIndex]["desc"] % (talenti.getParamInfo(slotIndex, talentoLevel+1))), True)
-			
-			self.talentToolTip.AlignHorizonalCenter()
-			self.talentToolTip.ShowToolTip()
-		
-		def __OverOutSpecialStat(self):
-			if self.talentToolTip:
-				self.talentToolTip.HideToolTip()
-				
+			net.SendChatPacket("/anti_exp")				
 
 	def __SetSkillSlotEvent(self):
 		for skillPageValue in self.skillPageDict.itervalues():
@@ -1028,7 +848,7 @@ class CharacterWindow(ui.ScriptWindow):
 		except:
 			#import exception
 			#exception.Abort("CharacterWindow.RefreshStatus.BindObject")
-			## °ÔÀÓÀÌ Æ¨°Ü ¹ö¸²
+			## ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¨ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			pass
 
 		self.__RefreshStatusPlusButtonList()
@@ -1387,7 +1207,7 @@ class CharacterWindow(ui.ScriptWindow):
 			skillLevel = getSkillLevel(slotIndex)
 			skillType = getSkillType(skillIndex)
 
-			## ½Â¸¶ ½ºÅ³ ¿¹¿Ü Ã³¸®
+			## ï¿½Â¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			if player.SKILL_INDEX_RIDING == skillIndex:
 				if 1 == skillGrade:
 					skillLevel += 19
@@ -1417,7 +1237,7 @@ class CharacterWindow(ui.ScriptWindow):
 
 					if player.IsSkillActive(slotIndex) and (skillGrade == j): # fix
 						skillPage.ActivateSlot(realSlotIndex)
-			## ±×¿Ü
+			## ï¿½×¿ï¿½
 			else:
 				if not SHOW_LIMIT_SUPPORT_SKILL_LIST or skillIndex in SHOW_LIMIT_SUPPORT_SKILL_LIST:
 					realSlotIndex = self.__GetETCSkillRealSlotIndex(slotIndex)
@@ -1460,11 +1280,11 @@ class CharacterWindow(ui.ScriptWindow):
 
 	def CanShowPlusButton(self, skillIndex, skillLevel, curStatPoint):
 
-		## ½ºÅ³ÀÌ ÀÖÀ¸¸é
+		## ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if 0 == skillIndex:
 			return FALSE
 
-		## ·¹º§¾÷ Á¶°ÇÀ» ¸¸Á·ÇÑ´Ù¸é
+		## ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù¸ï¿½
 		if not skill.CanLevelUpSkill(skillIndex, skillLevel):
 			return FALSE
 
@@ -1580,8 +1400,8 @@ class CharacterWindow(ui.ScriptWindow):
 
 		mouseModule.mouseController.DeattachObject()
 
-	## FIXME : ½ºÅ³À» »ç¿ëÇßÀ»¶§ ½½·Ô ¹øÈ£¸¦ °¡Áö°í ÇØ´ç ½½·ÔÀ» Ã£¾Æ¼­ ¾÷µ¥ÀÌÆ® ÇÑ´Ù.
-	##         ¸Å¿ì ºÒÇÕ¸®. ±¸Á¶ ÀÚÃ¼¸¦ °³¼±ÇØ¾ß ÇÒµí.
+	## FIXME : ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ñ´ï¿½.
+	##         ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½Õ¸ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Òµï¿½.
 	def OnUseSkill(self, slotIndex, coolTime):
 
 		skillIndex = player.GetSkillIndex(slotIndex)
@@ -1734,35 +1554,6 @@ class CharacterWindow(ui.ScriptWindow):
 				if self.chDetailsWnd.IsShow():
 					self.chDetailsWnd.Refresh()
 
-	def __SetSkillGroupName_P(self, race, group):
-
-		job = chr.RaceToJob(race)
-
-		if not self.SKILL_GROUP_NAME_DICT.has_key(job):
-			return
-
-		nameList = self.SKILL_GROUP_NAME_DICT[job]
-
-		if 0 == group:
-			self.skillGroupButtonP1.SetText(nameList[1])
-			self.skillGroupButtonP2.SetText(nameList[2])
-			self.skillGroupButtonP3.SetText(nameList[3])
-			self.skillGroupButtonP1.Show()
-			self.skillGroupButtonP2.Show()
-			self.skillGroupButtonP3.Show()
-			self.activeSkillGroupName.Hide()
-
-		else:
-			if self.__CanUseHorseSkill():
-				self.activeSkillGroupName.Hide()
-				self.skillGroupButtonP1.SetText(nameList.get(group, "Noname"))
-				self.skillGroupButtonP2.SetText(localeInfo.SKILL_GROUP_HORSE)
-				self.skillGroupButtonP3.SetText(localeInfo.SKILL_GROUP_PERKS)
-				self.skillGroupButtonP1.Show()
-				self.skillGroupButtonP2.Show()
-				self.skillGroupButtonP3.Show()
-
-
 	def __SetSkillGroupName(self, race, group):
 
 		job = chr.RaceToJob(race)
@@ -1775,10 +1566,8 @@ class CharacterWindow(ui.ScriptWindow):
 		if 0 == group:
 			self.skillGroupButton1.SetText(nameList[1])
 			self.skillGroupButton2.SetText(nameList[2])
-			self.skillGroupButton3.SetText(nameList[3])
 			self.skillGroupButton1.Show()
 			self.skillGroupButton2.Show()
-			self.skillGroupButton3.Show()
 			self.activeSkillGroupName.Hide()
 
 		else:
@@ -1787,17 +1576,14 @@ class CharacterWindow(ui.ScriptWindow):
 				self.activeSkillGroupName.Hide()
 				self.skillGroupButton1.SetText(nameList.get(group, "Noname"))
 				self.skillGroupButton2.SetText(localeInfo.SKILL_GROUP_HORSE)
-				self.skillGroupButton3.SetText(localeInfo.SKILL_GROUP_PERKS)
 				self.skillGroupButton1.Show()
 				self.skillGroupButton2.Show()
-				self.skillGroupButton3.Show()
 
 			else:
 				self.activeSkillGroupName.SetText(nameList.get(group, "Noname"))
 				self.activeSkillGroupName.Show()
 				self.skillGroupButton1.Hide()
 				self.skillGroupButton2.Hide()
-				self.skillGroupButton3.Hide()
 
 	def __SetSkillSlotData(self, race, group, empire=0):
 
@@ -1813,8 +1599,6 @@ class CharacterWindow(ui.ScriptWindow):
 	def __SelectSkillGroup(self, index):
 		for btn in self.skillGroupButton:
 			btn.SetUp()
-		self.skillGroupButton3.SetUp()
-		self.skillGroupButtonP3.SetUp()
 		self.skillGroupButton[index].Down()
 
 		if self.__CanUseHorseSkill():

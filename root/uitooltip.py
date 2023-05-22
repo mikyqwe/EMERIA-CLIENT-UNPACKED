@@ -3447,40 +3447,6 @@ class SkillToolTip(ToolTip):
 		elif 0 == skillLevel:
 			self.AppendTextLine(localeInfo.SKILL_SUMMON_DESCRIPTION % (10), color)
 
-if app.ENABLE_SPECIAL_STATS_SYSTEM:
-	class SpecialStatsToolTip(ToolTip):
-
-		def __init__(self):
-			ToolTip.__init__(self, 200)
-			self.skillLevel = { 1 : 0,
-								2 : 0,
-								3 : 0,
-								4 : 0,
-								5 : 0,
-								6 : 0
-							  }
-			
-		def __del__(self):
-			ToolTip.__del__(self)
-			
-		def UpdateSkillLevel(self, skillIndex, level):
-			self.skillLevel[skillIndex] = level
-			
-
-		def AppendSkillLevel(self, skill):
-			self.AutoAppendTextLine("Livello Skill:%d" % self.skillLevel[skill], grp.GenerateColor(1, 0.4705, 0, 1.0))
-			
-		def AppendSkillDesc(self, desc, isNextLevel = False):
-			if isNextLevel:
-				self.AutoAppendTextLine("Prossimo Livello", grp.GenerateColor(0, 0.4980, 1, 1.0))
-				self.AppendDescription( desc, 26, grp.GenerateColor(0.1333, 0.5450, 0.1333, 1.0))
-			else:
-				self.AppendDescription( desc, 26)
-			
-		def GetStatLevel(self, skillIndex):
-			return self.skillLevel[skillIndex]
-		
-
 if __name__ == "__main__":
 	import app
 	import wndMgr

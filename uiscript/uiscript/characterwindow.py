@@ -95,23 +95,6 @@ window = {
 						{ "name":"TitleName", "type":"text", "x":0, "y":-1, "text":uiScriptLocale.CHARACTER_QUEST, "all_align":"center" },
 					),
 				},
-	
-				{
-					"name" : "Talenti_TitleBar",
-					"type" : "titlebar",
-					"style" : ("attach",),
-
-					"x" : 0,
-					"y" : 0,
-
-					"width" : 253,
-					"color" : "red",
-
-					"children" :
-					(
-						{ "name":"TitleName", "type":"text", "x":0, "y":-1, "text":"Perks", "all_align":"center" },
-					),
-				},
 	  
 
 				## Tab Area
@@ -621,21 +604,6 @@ window = {
 								},
 
 								{
-									"name" : "Skill_Group_Button_3",
-									"type" : "radio_button",
-
-									"x" : 50+45,
-									"y" : 2,
-
-									"text" : "Perks",
-									"text_color" : 0xFFFFE3AD,
-
-									"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
-									"over_image" : "d:/ymir work/ui/game/windows/skill_tab_button_02.sub",
-									"down_image" : "d:/ymir work/ui/game/windows/skill_tab_button_03.sub",
-								},
-
-								{
 									"name" : "Active_Skill_Group_Name",
 									"type" : "text",
 
@@ -968,150 +936,6 @@ window = {
 							"y" : 12,
 							"size" : 290,
 							"horizontal_align" : "right",
-						},
-					),
-				},
-				{
-					"name" : "Talenti_Page",
-					"type" : "window",
-					"style" : ("attach",),
-
-					"x" : 0,
-					"y" : 24,
-																								  
-																									
-
-					"width" : 250,
-					"height" : 304,
-																									
-
-					"children" :
-					(
-						## ±âº» ¾×¼Ç Á¦¸ñ
-						{ "name":"Talenti_Bar", "type":"horizontalbar", "x":12, "y":11, "width":223, },
-						{ "name":"Talenti_Bar_Text", "type":"text", "x":15, "y":13, "text":"Skill Perks" },
-
-						## Basis Action Slot
-						{
-							"name" : "SkillTalentiSlot",
-							"type" : "grid_table",
-							"x" : 30,
-							"y" : 33,
-							"horizontal_align" : "center",
-							"start_index" : 1,
-							"x_count" : 6,
-							"y_count" : 2,
-							"x_step" : 32,
-							"y_step" : 32,
-							"x_blank" : 0,
-							"y_blank" : 0,
-							"image" : ICON_SLOT_FILE,
-						},
-
-						## »óÈ£ ¾×¼Ç Á¦¸ñ
-						{ "name":"TalentiDesc_Bar", "type":"horizontalbar", "x":12, "y":8+150-42, "width":223, },
-						{ "name":"TalentiDesc_Bar_Text", "type":"text", "x":15, "y":10+150-42, "text":"Descrizione Perks" },
-
-						
-						{
-							"name" : "TalentiInfoSlot",
-							"type" : "grid_table",
-							"x" : 190,
-							"y" : 180-42,
-							"start_index" : 1,
-							"x_count" : 1,
-							"y_count" : 1,
-							"x_step" : 32,
-							"y_step" : 32,
-							"x_blank" : 0,
-							"y_blank" : 0,
-							"image" : ICON_SLOT_FILE,
-						},
-						
-						{
-							"name":"talento_tld", 
-							"type":"text",
-							"x":15,
-							"y":180-42,
-							"text":"Fortuna",
-							#"color" : "red"
-						},
-						{
-							"name":"talento_ld", 
-							"type":"textboxmultiline",
-							"x":15, "y":180-4,
-							
-						},
-						
-						{
-							"name" : "talenti_prev_button",
-							"type" : "button",
-
-							"x" : 155,
-							"y" : 280,
-
-							"text" : uiScriptLocale.CREATE_PREV,
-
-							"default_image" : "d:/ymir work/ui/public/Small_Button_01.sub",
-							"over_image" : "d:/ymir work/ui/public/Small_Button_02.sub",
-							"down_image" : "d:/ymir work/ui/public/Small_Button_03.sub",
-						},
-						{
-							"name" : "talenti_next_button",
-							"type" : "button",
-
-							"x" : 200,
-							"y" : 280,
-
-							"text" : uiScriptLocale.CREATE_NEXT,
-
-							"default_image" : "d:/ymir work/ui/public/Small_Button_01.sub",
-							"over_image" : "d:/ymir work/ui/public/Small_Button_02.sub",
-							"down_image" : "d:/ymir work/ui/public/Small_Button_03.sub",
-						},
-						{
-							"name" : "Skill_Group_Button_1_P",
-							"type" : "radio_button",
-
-							"x" : 45+50+5,
-							"y" : 12,
-
-							"text" : "Skill",
-							"text_color" : 0xFFFFE3AD,
-
-							"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
-							"over_image" : "d:/ymir work/ui/game/windows/skill_tab_button_02.sub",
-							"down_image" : "d:/ymir work/ui/game/windows/skill_tab_button_03.sub",
-						},
-
-						{
-							"name" : "Skill_Group_Button_2_P",
-							"type" : "radio_button",
-
-							"x" : 45+50+50,
-							"y" : 12,
-
-							"text" : "Cavallo",
-							"text_color" : 0xFFFFE3AD,
-
-							"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
-							"over_image" : "d:/ymir work/ui/game/windows/skill_tab_button_02.sub",
-							"down_image" : "d:/ymir work/ui/game/windows/skill_tab_button_03.sub",
-						},
-
-						{
-							"name" : "Skill_Group_Button_3_P",
-							"type" : "radio_button",
-
-							"x" : 45+50+50+45,
-							"y" : 12,
-
-							"text" : "Perks",
-							"text_color" : 0xFFFFE3AD,
-
-							"default_image" : "d:/ymir work/ui/game/windows/skill_tab_button_01.sub",
-							"over_image" : "d:/ymir work/ui/game/windows/skill_tab_button_02.sub",
-							"down_image" : "d:/ymir work/ui/game/windows/skill_tab_button_03.sub",
 						},
 					),
 				},
