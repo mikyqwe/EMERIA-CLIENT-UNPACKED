@@ -848,9 +848,8 @@ class GameWindow(ui.ScriptWindow):
 	def ChangeCurrentSkill(self, skillSlotNumber):
 		self.interface.OnChangeCurrentSkill(skillSlotNumber)
 
-	## TargetBoard
-	def SetPCTargetBoard(self, vid, name):
-		self.targetBoard.Open(vid, name)
+	def SetPCTargetBoard(self, vid, name, hpPercentage, iMinHP, iMaxHP):
+		self.targetBoard.Open(vid, name, hpPercentage, iMinHP, iMaxHP)
 
 		if app.IsPressed(app.DIK_LCONTROL):
 
@@ -859,6 +858,7 @@ class GameWindow(ui.ScriptWindow):
 
 			if player.IsMainCharacterIndex(vid):
 				return
+
 			elif chr.INSTANCE_TYPE_BUILDING == chr.GetInstanceType(vid):
 				return
 
@@ -873,20 +873,26 @@ class GameWindow(ui.ScriptWindow):
 
 	def __RefreshTargetBoard(self):
 		self.targetBoard.Refresh()
-
-	if app.ENABLE_VIEW_ELEMENT:
-		def SetHPTargetBoard(self, vid, hpPercentage, bElement):
+	
+	if app.ENABLE_VIEW_TARGET_DECIMAL_HP:
+		def SetHPTargetBoard(self, vid, hpPercentage, iMinHP, iMaxHP):
 			if vid != self.targetBoard.GetTargetVID():
 				self.targetBoard.ResetTargetBoard()
 				self.targetBoard.SetEnemyVID(vid)
-			
-			self.targetBoard.SetHP(hpPercentage)
-			self.targetBoard.SetElementImage(bElement)
+
+			self.targetBoard.SetHP(hpPercentage, iMinHP, iMaxHP)
 			self.targetBoard.Show()
-	
+	else:
+		def SetHPTargetBoard(self, vid, hpPercentage):
+			if vid != self.targetBoard.GetTargetVID():
+				self.targetBoard.ResetTargetBoard()
+				self.targetBoard.SetEnemyVID(vid)
+
+			self.targetBoard.SetHP(hpPercentage)
+			self.targetBoard.Show()
+
 	def SetMountTargetBoard(self, vid):
-		if vid != self.targetBoard.GetTargetVID():
-			self.targetBoard.SetMount(vid)
+		return
 
 	def CloseTargetBoardIfDifferent(self, vid, hpPercentage):
 		if vid != self.targetBoard.GetTargetVID():

@@ -2997,17 +2997,6 @@ class SkillToolTip(ToolTip):
 	def __del__(self):
 		ToolTip.__del__(self)
 
-	if app.ENABLE_RENEWAL_AFFECT_SHOWER:
-		def SetSkillEx(self, skillIndex, skillLevel = -1):
-			if 0 == skillIndex:
-				return
-			slotIndex = player.GetSkillSlotIndex(skillIndex)
-			skillCurrentPercentage = player.GetSkillCurrentEfficientPercentage(slotIndex)
-			for i in xrange(skill.GetSkillAffectDescriptionCount(skillIndex)):
-				self.AppendTextLine(skill.GetSkillAffectDescription(skillIndex, i, skillCurrentPercentage), self.ENABLE_COLOR)
-			self.ResizeToolTip()
-
-
 	def SetSkill(self, skillIndex, skillLevel = -1):
 
 		if 0 == skillIndex:

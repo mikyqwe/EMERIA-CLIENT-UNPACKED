@@ -32,7 +32,7 @@ VIRTUAL_KEY_ALPHABET_LOWERS  = r"[1234567890]/qwertyuiop\=asdfghjkl;`'zxcvbnm.,"
 VIRTUAL_KEY_ALPHABET_UPPERS  = r'{1234567890}?QWERTYUIOP|+ASDFGHJKL:~"ZXCVBNM<>'
 VIRTUAL_KEY_SYMBOLS    = '!@#$%^&*()_+|{}:"<>?~'
 VIRTUAL_KEY_NUMBERS    = "1234567890-=\[];',./`"
-VIRTUAL_KEY_SYMBOLS_BR    = '!@#$%^&*()_+|{}:"<>?~багвйикнмутфхъщз'
+VIRTUAL_KEY_SYMBOLS_BR    = '!@#$%^&*()_+|{}:"<>?~пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'
 
 __IS_ENGLISH	= "ENGLISH" == app.GetLocaleServiceName()
 __IS_HONGKONG	= "HONGKONG" == app.GetLocaleServiceName()
@@ -769,3 +769,5 @@ def SecondToDHMS(time, ignoreSecTime = -1, useShortName = TRUE):
 
 	return text[:-1]	
 	
+def DottedNumber(n) :
+		return "%s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]))

@@ -15,9 +15,6 @@ import constInfo
 if app.ENABLE_DECORUM:
 	import chat
 
-if app.ENABLE_VIEW_ELEMENT:
-	ELEMENT_IMAGE_DIC = {1: "elect", 2: "fire", 3: "ice", 4: "wind", 5: "earth", 6 : "dark"}
-
 if app.ENABLE_SEND_TARGET_INFO:
 	def HAS_FLAG(value, flag):
 		return (value & flag) == flag
@@ -219,19 +216,7 @@ class TargetBoard(ui.ThinBoard):
 					if HAS_FLAG(dwRaceFlag, curFlag):
 						if self.RACE_FLAG_TO_NAME.has_key(curFlag):
 							mainrace += self.RACE_FLAG_TO_NAME[curFlag] + ", "
-						elif self.SUB_RACE_FLAG_TO_NAME.has_key(curFlag):
-							if constInfo.Element_ID == 1:
-								subrace += localeInfo.TARGET_INFO_RACE_ELEC + ", "
-							elif constInfo.Element_ID == 2:
-								subrace += localeInfo.TARGET_INFO_RACE_FIRE + ", "
-							elif constInfo.Element_ID == 3:
-								subrace += localeInfo.TARGET_INFO_RACE_ICE + ", "
-							elif constInfo.Element_ID == 4:
-								subrace += localeInfo.TARGET_INFO_RACE_WIND + ", "
-							elif constInfo.Element_ID == 5:
-								subrace += localeInfo.TARGET_INFO_RACE_EARTH + ", "
-							elif constInfo.Element_ID == 6:
-								subrace += localeInfo.TARGET_INFO_RACE_DARK + ", "
+
 				if nonplayer.IsMonsterStone(race):
 					mainrace += localeInfo.TARGET_INFO_RACE_METIN + ", "
 				if mainrace == "":
@@ -450,63 +435,44 @@ class TargetBoard(ui.ThinBoard):
 
 		hpGauge = ui.DynamicGauge()
 		hpGauge.SetParent(self)
-		hpGauge.MakeGauge(130, "red", "blue")
+		hpGauge.SetPosition(195, 17)
+		hpGauge.MakeGauge(130, "red", "red")
+		hpGauge.SetWindowHorizontalAlignRight()
 		hpGauge.Hide()
-		
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			hpPoisonGauge = ui.Gauge()
-			hpPoisonGauge.SetParent(self)
-			hpPoisonGauge.MakeGauge(130, "lime")
-			hpPoisonGauge.SetPosition(175, 17)
-			hpPoisonGauge.SetWindowHorizontalAlignRight()
-			hpPoisonGauge.Hide()
-		
-		hpPercenttxt = ui.TextLine()
-		hpPercenttxt.SetParent(self)
-		hpPercenttxt.SetPosition(160, 13)
-		hpPercenttxt.SetText("")
-		hpPercenttxt.Hide()
-		
-		if app.ENABLE_NEW_TARGET_HP:
-			hpTarget = ui.NewTargetInfo()
-			hpTarget.SetParent(self)
-			hpTarget.SetPosition(-hpTarget.GetWidth(),0)
-			hpTarget.Show()
-			self.hpTarget = hpTarget
+
+		if app.ENABLE_VIEW_TARGET_DECIMAL_HP:
+			hpDecimal = ui.TextLine()
+			hpDecimal.SetParent(self)
+			hpDecimal.SetPosition(130, 4)
+			hpDecimal.SetText("")
+			hpDecimal.SetOutline()
+			hpDecimal.SetWindowHorizontalAlignRight()
+			hpDecimal.Hide()
 
 		closeButton = ui.Button()
 		closeButton.SetParent(self)
 		closeButton.SetUpVisual("d:/ymir work/ui/public/close_button_01.sub")
 		closeButton.SetOverVisual("d:/ymir work/ui/public/close_button_02.sub")
 		closeButton.SetDownVisual("d:/ymir work/ui/public/close_button_03.sub")
-		closeButton.SetPosition(30, 13)
-
-		if localeInfo.IsARABIC():
-			hpGauge.SetPosition(55, 17)
-			hpGauge.SetWindowHorizontalAlignLeft()
-			closeButton.SetWindowHorizontalAlignLeft()
-		else:
-			hpGauge.SetPosition(175, 17)
-			hpGauge.SetWindowHorizontalAlignRight()
-			closeButton.SetWindowHorizontalAlignRight()
-		if app.ENABLE_SEND_TARGET_INFO:
-			infoButton = ui.Button()
-			infoButton.SetParent(self)
-			infoButton.SetUpVisual("d:/ymir work/ui/game/targetinfo/pattern/q_mark_01.tga")
-			infoButton.SetOverVisual("d:/ymir work/ui/game/targetinfo/pattern/q_mark_02.tga")
-			infoButton.SetDownVisual("d:/ymir work/ui/game/targetinfo/pattern/q_mark_01.tga")
-			infoButton.SetEvent(ui.__mem_func__(self.OnPressedInfoButton))
-			infoButton.Hide()
-
-			infoBoard = self.InfoBoard()
-			infoBoard.Hide()
-			infoButton.showWnd = infoBoard
-
+		closeButton.SetPosition(30, 14)
+		closeButton.SetWindowHorizontalAlignRight()
 		closeButton.SetEvent(ui.__mem_func__(self.OnPressedCloseButton))
 		closeButton.Show()
-		
-		self.firstMountBtn = None
-		self.SecondMountBtn = None
+
+		if app.ENABLE_SEND_TARGET_INFO:
+				infoButton = ui.Button()
+				infoButton.SetParent(self)
+				infoButton.SetUpVisual("d:/ymir work/ui/game/targetinfo/pattern/q_mark_01.tga")
+				infoButton.SetOverVisual("d:/ymir work/ui/game/targetinfo/pattern/q_mark_02.tga")
+				infoButton.SetDownVisual("d:/ymir work/ui/game/targetinfo/pattern/q_mark_01.tga")
+				infoButton.SetPosition(50, 14)
+				infoButton.SetWindowHorizontalAlignRight()
+				infoButton.SetEvent(ui.__mem_func__(self.OnPressedInfoButton))
+				infoButton.Hide()
+
+				infoBoard = self.InfoBoard()
+				infoBoard.Hide()
+				infoButton.showWnd = infoBoard
 
 		self.buttonDict = {}
 		self.showingButtonList = []
@@ -555,21 +521,18 @@ class TargetBoard(ui.ThinBoard):
 
 		self.name = name
 		self.hpGauge = hpGauge
-		self.hpPoisonGauge = hpPoisonGauge
-		self.hpPercenttxt = hpPercenttxt
 		if app.ENABLE_SEND_TARGET_INFO:
 			self.infoButton = infoButton
 		if app.ENABLE_SEND_TARGET_INFO:
 			self.vnum = 0
+		if app.ENABLE_VIEW_TARGET_DECIMAL_HP:
+			self.hpDecimal = hpDecimal
 		self.closeButton = closeButton
 		self.nameString = 0
 		self.nameLength = 0
 		self.vid = 0
 		self.eventWhisper = None
 		self.isShowButton = False
-		if app.ENABLE_VIEW_ELEMENT:
-			self.elementImage = None
-
 		self.__Initialize()
 		self.ResetTargetBoard()
 
@@ -587,27 +550,17 @@ class TargetBoard(ui.ThinBoard):
 		self.isShowButton = False
 
 	def Destroy(self):
-		self.hpPercenttxt = None
 		self.eventWhisper = None
 		if app.ENABLE_SEND_TARGET_INFO:
 			self.infoButton = None
+		if app.ENABLE_VIEW_TARGET_DECIMAL_HP:
+			self.hpDecimal = None
 		self.closeButton = None
 		self.showingButtonList = None
 		self.buttonDict = None
 		self.name = None
 		self.hpGauge = None
-		
-		if app.ENABLE_NEW_TARGET_HP:
-			if self.hpTarget:
-				self.hpTarget.Hide()
-				self.hpTarget.Destroy()
-				self.hpTarget=None		
-		
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			self.hpPoisonGauge = None
 		self.__Initialize()
-		if app.ENABLE_VIEW_ELEMENT:
-			self.elementImage = None
 
 	if app.ENABLE_SEND_TARGET_INFO:
 		def RefreshMonsterInfoBoard(self):
@@ -617,7 +570,6 @@ class TargetBoard(ui.ThinBoard):
 			self.infoButton.showWnd.Refresh()
 
 		def OnPressedInfoButton(self):
-			net.SendTargetInfoLoad(player.GetTargetVID())
 			if self.infoButton.showWnd.IsShow():
 				self.infoButton.showWnd.Close()
 			elif self.vnum != 0:
@@ -633,7 +585,7 @@ class TargetBoard(ui.ThinBoard):
 			self.infoButton.showWnd.Close()
 		self.Hide()
 
-	def Open(self, vid, name):
+	def Open(self, vid, name, hpPercentage, iMinHP, iMaxHP):
 		if vid:
 			if not constInfo.GET_VIEW_OTHER_EMPIRE_PLAYER_TARGET_BOARD():
 				if not player.IsSameEmpire(vid):
@@ -645,15 +597,6 @@ class TargetBoard(ui.ThinBoard):
 				self.SetTargetVID(vid)
 				self.SetTargetName(name)
 
-				self.FaceTargetImage = ui.ExpandedImageBox()	
-				self.FaceTargetImage.SetParent(self)
-				self.FaceTargetImage.LoadImage("ibowork/target/circle_bg.png")
-				self.FaceTargetImage.SetPosition(-60, -15)
-
-				self.FaceTargetIcon = ui.ExpandedImageBox()	
-				self.FaceTargetIcon.SetParent(self.FaceTargetImage)
-				self.FaceTargetIcon.SetPosition(13, 12)
-
 			if player.IsMainCharacterIndex(vid):
 				self.__ShowMainCharacterMenu()
 			elif chr.INSTANCE_TYPE_BUILDING == chr.GetInstanceType(self.vid):
@@ -661,6 +604,28 @@ class TargetBoard(ui.ThinBoard):
 			else:
 				self.RefreshButton()
 				self.Show()
+
+			if player.GetName() != name:
+				if not self.hpGauge.IsShow():
+					self.name.SetPosition(33, 13)
+					self.name.SetWindowHorizontalAlignLeft()
+					self.name.SetHorizontalAlignLeft()
+					self.hpGauge.Show()
+					self.UpdatePosition()
+					self.hpDecimal.SetPosition(130, 4)
+					self.hpDecimal.SetWindowHorizontalAlignRight()
+					self.hpDecimal.SetHorizontalAlignCenter()
+					self.hpDecimal.Show()
+
+				self.hpDecimal.SetText(localeInfo.DottedNumber(max(iMinHP, 0)) + " / " + localeInfo.DottedNumber(iMaxHP))
+
+				self.hpGauge.SetPercentage(hpPercentage, 100)
+			else:
+				self.SetSize(150, 65)
+				self.name.SetPosition(0, 13)
+				self.name.SetWindowHorizontalAlignCenter()
+				self.name.SetHorizontalAlignCenter()
+				self.UpdatePosition()
 		else:
 			self.HideAllButton()
 			self.__ShowButton(localeInfo.TARGET_BUTTON_WHISPER)
@@ -708,7 +673,7 @@ class TargetBoard(ui.ThinBoard):
 		self.eventWhisper = event
 
 	def UpdatePosition(self):
-		self.SetPosition(wndMgr.GetScreenWidth()/2 - self.GetWidth()/2, 10)	
+		self.SetPosition(wndMgr.GetScreenWidth()/2 - self.GetWidth()/2, 10)
 
 	def ResetTargetBoard(self):
 
@@ -721,11 +686,8 @@ class TargetBoard(ui.ThinBoard):
 		self.name.SetHorizontalAlignCenter()
 		self.name.SetWindowHorizontalAlignCenter()
 		self.hpGauge.Hide()
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			self.hpPoisonGauge.Hide()
-		self.hpPercenttxt.Hide()
-		if app.ENABLE_VIEW_ELEMENT and self.elementImage:
-			self.elementImage = None
+		if app.ENABLE_VIEW_TARGET_DECIMAL_HP:
+			self.hpDecimal.Hide()
 		if app.ENABLE_SEND_TARGET_INFO:
 			self.infoButton.Hide()
 			self.infoButton.showWnd.Close()
@@ -752,12 +714,8 @@ class TargetBoard(ui.ThinBoard):
 			nameFront += "(" + self.GRADE_NAME[grade] + ") "
 
 		self.SetTargetName(nameFront + name)
+
 		if app.ENABLE_SEND_TARGET_INFO:
-			(textWidth, textHeight) = self.name.GetTextSize()
-
-			self.infoButton.SetPosition(textWidth + 25, 12)
-			self.infoButton.SetWindowHorizontalAlignLeft()
-
 			self.vnum = vnum
 			self.infoButton.Show()
 
@@ -772,105 +730,22 @@ class TargetBoard(ui.ThinBoard):
 		self.nameLength = len(name)
 		self.name.SetText(name)
 
-	if app.ENABLE_NEW_TARGET_HP:
-		def SetNewHP(self, hpPercentage):
-			chr.SelectInstance(self.vid)
-			self.hpTarget.SetHP(chr.GetRace(),hpPercentage)
-
-	def SetMount(self, vid):
-		self.ResetTargetBoard()
-		self.SetTargetVID(vid)
-		self.SetTargetName(chr.GetNameByVID(vid))
-		#self.SetSize(200 + 7*self.nameLength, self.GetHeight()+20)
-
-		self.HideAllButton()
-
-		button = ui.Button()
-		button.SetParent(self)
-		if localeInfo.IsARABIC():
-			button.SetUpVisual("d:/ymir work/ui/public/Small_Button_01.sub")
-			button.SetOverVisual("d:/ymir work/ui/public/Small_Button_02.sub")
-			button.SetDownVisual("d:/ymir work/ui/public/Small_Button_03.sub")
-		else:
-			button.SetUpVisual("d:/ymir work/ui/public/small_thin_button_01.sub")
-			button.SetOverVisual("d:/ymir work/ui/public/small_thin_button_02.sub")
-			button.SetDownVisual("d:/ymir work/ui/public/small_thin_button_03.sub")
-		button.SetWindowHorizontalAlignCenter()
-		button.SetText("Cavalca")#set here
-		button.SetEvent(self.FirstMountButton)
-		button.Show()
-		self.showingButtonList.append(button)
-		
-		button = ui.Button()
-		button.SetParent(self)
-		if localeInfo.IsARABIC():
-			button.SetUpVisual("d:/ymir work/ui/public/Small_Button_01.sub")
-			button.SetOverVisual("d:/ymir work/ui/public/Small_Button_02.sub")
-			button.SetDownVisual("d:/ymir work/ui/public/Small_Button_03.sub")
-		else:
-			button.SetUpVisual("d:/ymir work/ui/public/small_thin_button_01.sub")
-			button.SetOverVisual("d:/ymir work/ui/public/small_thin_button_02.sub")
-			button.SetDownVisual("d:/ymir work/ui/public/small_thin_button_03.sub")
-		button.SetWindowHorizontalAlignCenter()
-		button.SetText("Manda Via")#set here
-		button.SetEvent(self.SecondMountButton)
-		button.Show()
-		self.showingButtonList.append(button)
-		
-		self.__ArrangeButtonPosition()
-		
-		self.name.SetPosition(0, 13)
-		self.name.SetHorizontalAlignCenter()
-		self.SetNewHP(100)
-		self.UpdatePosition()
-		self.Show()
-
-	def FirstMountButton(self):
-		net.SendChatPacket("/mount_target 0")
-
-	def SecondMountButton(self):
-		net.SendChatPacket("/mount_target 1")
-
-	def SetHP(self, hpPercentage):
-		self.HideAllButton()
-
-		if not self.hpGauge.IsShow():
-			self.SetSize(200 + 7*self.nameLength, self.GetHeight())
-			if localeInfo.IsARABIC():
-				self.name.SetPosition( self.GetWidth()-23, 13)
-			else:
+	if app.ENABLE_VIEW_TARGET_DECIMAL_HP:
+		def SetHP(self, hpPercentage, iMinHP, iMaxHP):
+			if not self.hpGauge.IsShow():
+				self.SetSize(200 + 7*self.nameLength, self.GetHeight())
 				self.name.SetPosition(23, 13)
+				self.name.SetWindowHorizontalAlignLeft()
+				self.name.SetHorizontalAlignLeft()
+				self.hpGauge.Show()
+				self.UpdatePosition()
+				self.hpDecimal.SetPosition(130, 4)
+				self.hpDecimal.SetWindowHorizontalAlignRight()
+				self.hpDecimal.SetHorizontalAlignCenter()
+				self.hpDecimal.Show()
 
-			self.name.SetWindowHorizontalAlignLeft()
-			self.name.SetHorizontalAlignLeft()
-
-			self.hpGauge.Show()
-			self.UpdatePosition()
-
-			self.hpPercenttxt.SetPosition(200 + 7*self.nameLength-120, 3)
-			self.hpPercenttxt.Show()
-
-		self.hpGauge.SetPercentage(hpPercentage, 100)
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			self.hpPoisonGauge.SetPercentage(hpPercentage, 100)
-
-		self.hpPercenttxt.SetText("%d%%" % (hpPercentage))
-		if app.ENABLE_NEW_TARGET_HP:
-			self.hpTarget.Hide()
-
-	if app.ENABLE_VIEW_ELEMENT:
-		def SetElementImage(self,elementId):
-			try:
-				if elementId > 0 and elementId in ELEMENT_IMAGE_DIC.keys():
-					self.elementImage = ui.ImageBox()
-					self.elementImage.SetParent(self.name)
-					self.elementImage.SetPosition(-70,-12)
-					#self.elementImage.SetPosition(-15,27)
-					self.elementImage.LoadImage("d:/ymir work/ui/game/12zi/element/%s.sub" % (ELEMENT_IMAGE_DIC[elementId]))
-					constInfo.Element_ID = elementId
-					self.elementImage.Show()
-			except:
-				pass
+			self.hpGauge.SetPercentage(hpPercentage, 100)
+			self.hpDecimal.SetText(localeInfo.DottedNumber(max(iMinHP, 0)) + " / " + localeInfo.DottedNumber(iMaxHP))
 
 	def ShowDefaultButton(self):
 
@@ -988,7 +863,7 @@ class TargetBoard(ui.ThinBoard):
 			#self.__ArrangeButtonPosition()
 			return
 
-		if player.IsPVPInstance(self.vid) or player.IsObserverMode():
+		if player.IsPVPInstance(self.vid) or (player.IsObserverMode() and str(player.GetName())[0] != "["):
 			# PVP_INFO_SIZE_BUG_FIX
 			self.SetSize(200 + 7*self.nameLength, 40)
 			self.UpdatePosition()
@@ -1092,10 +967,3 @@ class TargetBoard(ui.ThinBoard):
 			else:
 				if distance < self.EXCHANGE_LIMIT_RANGE:
 					self.RefreshButton()
-
-		if app.ENABLE_POISON_GAUGE_EFFECT:
-			if self.hpGauge and self.hpGauge.IsShow():
-				if chrmgr.HasAffectByVID(self.GetTargetVID(), chr.AFFECT_POISON):
-					self.hpPoisonGauge.Show()
-				else:
-					self.hpPoisonGauge.Hide()
