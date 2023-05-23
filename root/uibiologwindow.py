@@ -233,7 +233,7 @@ class BiologWindow(ui.ScriptWindow):
 	def SetToggleResetDown(self, state):
 		realCooldown = self.secondsCoolDown - app.GetGlobalTimeStamp()
 		if realCooldown > 0:
-			chat.AppendChat(3, "Trebuie resetat din inventar!")
+			chat.AppendChat(3, "Nu ai cum sa faci asta! Intai reseteaza timpul manual, iar apoi bifeaza casuta.")
 			self.GetChild("ToggleReset").SetUp()
 			return
 		
