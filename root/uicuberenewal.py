@@ -331,25 +331,17 @@ class CubeRenewalWindows(ui.ScriptWindow):
 		cube_renewal.SetCubeRenewalHandler(self)
 
 		self.categoria = [
-			[1,"WEAPON","Armas"],
-			[2,"ETC","Generico"],
-			[3,"ACCE","Stola - Veste Aurea"],
-			[4,"BELT","Cinture"],
-			[5,"NEW_CATEGORY2","Chiavi Dungeon"],
-			[6,"POTION","Pozioni"],
-			[7,"UPP","Item Upgrades"],
-			[8,"Talismans","Talismani"],
-			[9,"MOUNT","Cavalcature Generiche"],
-			[10,"PVM","Equipaggiamenti PvM - (Lv 100)"],
-			[11,"PVP","Equipaggiamenti PvP - (Lv 100)"],
-			[12,"MOUNTELEMENT","Cavalcature Elementali"],
-            [13,"PASS","Season Pass"],
-			[14,"PETS","Pets"],
-			[15,"CONTAINER","Contenitori"],
-			[16,"REALE","Corazze Reali"],
-			[17,"MOUNTNOOB","Cavalcature Base"],
-			[18,"RUNE","Rune"],
-			[999,"WORLDARD", "Generico"]
+			[1,"WEAPON","Arme"],
+			[2,"ARMOR","Armuri"],
+			[3,"ACCE","Eºarfe"],
+			[4,"BELT","Curele"],
+			[5,"NECKLACE","Coliere"],
+			[6,"BRACELET","Bratari"],
+			[7,"EARRING","Cercei"],
+			[8,"HELMET","Coifuri"],
+			[9,"MOUNT","Mount-uri"],
+			[10,"ETC","General"],
+			[999,"WORLDARD", "???"]
 		]
 
 		self.showingItemList = []
