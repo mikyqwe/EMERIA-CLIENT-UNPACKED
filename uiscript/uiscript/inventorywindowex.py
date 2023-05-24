@@ -343,6 +343,9 @@ window = {
 								{
 									"name" : "talisman_info_btn",
 									"type" : "button",
+                                    
+									"tooltip_text" : "Modifca text talisman aici",
+
 									"x" : ((155 - 17) / 2)+2,
 									"y" : ((187 - 17) / 2),
 									"default_image" : "d:/ymir work/ui/pattern/q_mark_01.tga",

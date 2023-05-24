@@ -128,8 +128,6 @@ class GameWindow(ui.ScriptWindow):
 
 		self.__ServerCommand_Build()
 		self.__ProcessPreservedServerCommand()
-		self.isCameraMoving = False
-		self.cameraMovementProgress = 0.0
 		
 	def __del__(self):
 		player.SetGameWindow(0)
@@ -233,8 +231,7 @@ class GameWindow(ui.ScriptWindow):
 		# ex) cubeInformation[20383] = [ {"rewordVNUM": 72723, "rewordCount": 1, "materialInfo": "101,1&102,2", "price": 999 }, ... ]
 		self.cubeInformation = {}
 		self.currentCubeNPC = 0
-		self.isCameraMoving = True
-		self.cameraMovementProgress = 0.0
+
 		
 	def Close(self):
 		self.Hide()
@@ -1741,19 +1738,6 @@ class GameWindow(ui.ScriptWindow):
 
 		if self.enableXMasBoom:
 			self.__XMasBoom_Update()
-
-		if self.isCameraMoving == True:
-			self.cameraMovementProgress += 0.01
-			startLoc = [5827.0, 90.0, 200.0]
-			global cameraDistance, cameraPitch, cameraRotation, cameraHeight
-			(ucameraDistance, ucameraPitch, ucameraRotation, ucameraHeight) = app.GetCamera()
-			dist = self.Lerp(startLoc[0], cameraDistance, self.cameraMovementProgress)
-			put = self.Lerp(startLoc[1], cameraPitch, self.cameraMovementProgress)
-			rot = self.Lerp(startLoc[2], cameraRotation, self.cameraMovementProgress)
-			app.SetCamera(dist, put, rot, ucameraHeight)
-			if self.cameraMovementProgress >= 1:
-				self.isCameraMoving = False
-				self.cameraMovementProgress = 0.0
 
 		self.interface.BUILD_OnUpdate()
 
