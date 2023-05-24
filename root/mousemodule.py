@@ -156,7 +156,7 @@ class CMouseController(object):
 				self.curCursorImage = self.cursorDict[app.NORMAL]
 
 		except KeyError:
-			dbg.TraceError("mouseModule.MouseController.SetCursor - Àß¸øµÈ Ä¿¼­ ¹øÈ£ [%d]" % cursorNum)
+			dbg.TraceError("mouseModule.MouseController.SetCursor - ï¿½ß¸ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½È£ [%d]" % cursorNum)
 			self.curCursorName = app.NORMAL
 			self.curCursorImage = self.cursorDict[app.NORMAL]
 
@@ -360,6 +360,17 @@ class CMouseController(object):
 			return 0
 
 		return self.AttachedCount
+
+	def GetRealAttachedSlotNumber(self):
+
+		if False == self.isAttached():
+			return 0
+
+		# Fallback
+		if self.RealAttachedSlotNumber <= 0 and self.AttachedSlotNumber >= 0:
+			return self.AttachedSlotNumber
+
+		return self.RealAttachedSlotNumber
 
 	# Update
 	def Update(self, x, y):

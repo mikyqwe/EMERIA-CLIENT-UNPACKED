@@ -13,10 +13,11 @@ import constInfo
 import ime
 import exchange
 import chat
-
+ITEM_FLAG_APPLICABLE = 1 << 14
 if constInfo.ENABLE_SHOW_CHEST_DROP:
 	import grp
 import uiSplitItem
+
 
 class SpecialStorageWindow(ui.ScriptWindow):
 	SKILLBOOK_TYPE = 0
@@ -37,6 +38,10 @@ class SpecialStorageWindow(ui.ScriptWindow):
 		GHOSTSTONE_TYPE		:	"Inventario Pietre",
 		GENERAL_TYPE		:	"Inventario Generico",
 	}
+
+	USE_TYPE_TUPLE_FUCKED = ("USE_ADD_ACCESSORY_SOCKET", "USE_PUT_INTO_ACCESSORY_SOCKET", "USE_PUT_INTO_BELT_SOCKET", "USE_PUT_INTO_RING_SOCKET", "USE_ADD_ATTRIBUTE_COSTUME", "USE_CHANGE_ATTRIBUTE_COSTUME", "USE_ADD_ATTRIBUTE", "USE_ADD_ATTRIBUTE2", "USE_CHANGE_ATTRIBUTE")
+	USE_TYPE_TUPLE = ("USE_CLEAN_SOCKET", "USE_ADD_ACCESSORY_SOCKET", "USE_PUT_INTO_ACCESSORY_SOCKET", "USE_PUT_INTO_BELT_SOCKET", "USE_PUT_INTO_RING_SOCKET", "USE_EXTEND_TIME")
+
 
 	if 1 == 0:
 		bindWnds = []
@@ -592,18 +597,15 @@ class SpecialStorageWindow(ui.ScriptWindow):
 		if mouseModule.mouseController.isAttached():
 			attachedSlotType = mouseModule.mouseController.GetAttachedType()
 			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
-			attachedItemCount = mouseModule.mouseController.GetAttachedItemCount()
 			attachedItemVID = mouseModule.mouseController.GetAttachedItemIndex()
-
-			if player.SLOT_TYPE_INVENTORY == attachedSlotType:
-				m2netm2g.SendItemMovePacket(player.SLOT_TYPE_INVENTORY, attachedSlotPos, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex, attachedItemCount)
-
-			if self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["slot"] == attachedSlotType:
-				if attachedItemVID == selectedItemVNum:
-					m2netm2g.SendItemMovePacket(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], attachedSlotPos, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex, attachedItemCount)
-				else:
-					m2netm2g.SendItemUseToItemPacket(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], attachedSlotPos, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], itemSlotIndex)
-
+			attachedItemCount  = mouseModule.mouseController.GetAttachedItemCount()
+			if attachedSlotPos == itemSlotIndex:
+				mouseModule.mouseController.DeattachObject()
+				return
+				
+			if attachedSlotType in [ player.SLOT_TYPE_INVENTORY, player.SLOT_TYPE_SKILLBOOK_INVENTORY, player.SLOT_TYPE_UPPITEM_INVENTORY, player.SLOT_TYPE_GHOSTSTONE_INVENTORY, player.SLOT_TYPE_GENERAL_INVENTORY]:
+				self.__DropSrcItemToDestItemInInventory(attachedItemVID, attachedSlotPos, itemSlotIndex, attachedSlotType)
+					
 			mouseModule.mouseController.DeattachObject()
 		else:
 			curCursorNum = app.GetCursor()
@@ -634,6 +636,36 @@ class SpecialStorageWindow(ui.ScriptWindow):
 				mouseModule.mouseController.AttachObject(self, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["slot"], itemSlotIndex, selectedItemVNum, itemCount)
 				self.wndItem.SetUseMode(False)
 				snd.PlaySound("sound/ui/pick.wav")
+
+	def __DropSrcItemToDestItemInInventory(self, srcItemVID, srcItemSlotPos, dstItemSlotPos, attachedSlotType):
+		dstItemVnum = player.GetItemIndex(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], dstItemSlotPos)
+		if dstItemVnum != 0:
+			item.SelectItem(srcItemVID)
+			srcItemType = item.GetItemType()
+			srcItemSubType = item.GetItemSubType()
+			item.SelectItem(dstItemVnum)
+
+		attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
+		if mouseModule.mouseController.isAttached():
+			attachedSlotType = mouseModule.mouseController.GetAttachedType()
+
+		attachedInvenType = player.SlotTypeToInvenType(attachedSlotType)
+
+		if (player.GetItemFlags(srcItemSlotPos) & ITEM_FLAG_APPLICABLE) == ITEM_FLAG_APPLICABLE:
+			#self.__SendUseItemToItemPacket(srcItemSlotPos, dstItemSlotPos)
+			m2netm2g.SendItemUseToItemPacket(srcItemSlotPos, dstItemSlotPos)
+
+		elif item.GetUseType(srcItemVID) in self.USE_TYPE_TUPLE_FUCKED and player.GetItemIndex(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], srcItemSlotPos) == player.GetItemIndex(self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], dstItemSlotPos):
+			self.__SendMoveItemPacket(attachedInvenType, attachedSlotPos, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], dstItemSlotPos, 0)
+
+		elif item.GetUseType(srcItemVID) in self.USE_TYPE_TUPLE:
+			m2netm2g.SendItemUseToItemPacket(attachedSlotType, attachedSlotPos, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], dstItemSlotPos)
+		else:
+			if player.IsEquipmentSlot(dstItemSlotPos):
+				if item.IsEquipmentVID(srcItemVID):
+					self.__UseItem(srcItemSlotPos)
+			else:
+				self.__SendMoveItemPacket(attachedInvenType, attachedSlotPos, self.SLOT_WINDOW_TYPE[self.categoryPageIndex]["window"], dstItemSlotPos, 0)
 
 	def GetExchangeEmptyItemPos(self, itemHeight):
 		inventorySize = exchange.EXCHANGE_ITEM_MAX_NUM
